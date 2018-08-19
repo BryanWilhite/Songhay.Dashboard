@@ -11,9 +11,10 @@ import { RoutingModule } from './routing.module';
 
 import { AppComponent } from './components/app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { StudioComponent } from './components/studio/studio.component';
 
 @NgModule({
-    declarations: [AppComponent, DashboardComponent],
+    declarations: [AppComponent, DashboardComponent, StudioComponent],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
         BrowserAnimationsModule,

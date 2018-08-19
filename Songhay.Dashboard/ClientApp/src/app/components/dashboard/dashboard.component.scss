@@ -1,4 +1,8 @@
 .dash {
+    margin: 0 auto;
+    max-width: 56rem;
+    width: 90%;
+
     & > div {
         background-color: rgb(86, 114, 7);
         margin: 0.5rem;
