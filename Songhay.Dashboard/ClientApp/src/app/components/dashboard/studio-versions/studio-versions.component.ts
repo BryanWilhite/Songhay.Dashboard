@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, VERSION } from '@angular/core';
 
 @Component({
     selector: 'app-studio-versions',
@@ -6,7 +6,19 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./studio-versions.component.scss']
 })
 export class StudioVersionsComponent implements OnInit {
-    constructor() {}
+    /**
+     * App version
+     *
+     * @type {string}
+     * @memberof AppComponent
+     */
+    clientFrameworkVersion: string;
+
+    constructor() {
+        this.clientFrameworkVersion = `${VERSION.major}.${VERSION.minor}.${
+            VERSION.patch
+        }`;
+    }
 
     ngOnInit() {}
 }
