@@ -1,1 +1,16 @@
 @import '../../../../assets/scss/normalize-component';
+@import '../../../../assets/scss/themes/akyinkyin/palette';
+
+.logo {
+    color: $akyinkyin-light-tint;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    & > .word-two {
+        color: $akyinkyin-light-tone;
+        font-weight: 650;
+    }
+    & > .punctuation {
+        font-size: 2.4rem;
+    }
+}

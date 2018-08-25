@@ -80,6 +80,10 @@ $akyinkyin-dark-tone: map-get(
     $map: $mat-akyinkyin-green,
     $key: 900
 );
+$akyinkyin-light-tone: map-get(
+    $map: $mat-akyinkyin-green,
+    $key: A100
+);
 $akyinkyin-light-text: map-get(
     $map: $mat-akyinkyin-green,
     $key: 50
