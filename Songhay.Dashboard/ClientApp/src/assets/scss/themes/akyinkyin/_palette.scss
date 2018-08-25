@@ -70,7 +70,7 @@ $mat-akyinkyin-green: (
             A700: $dark-primary-text
         )
 );
-$akyinkyin-background: map-get($map: $mat-akyinkyin-dark, $key: 500);
+$akyinkyin-background: map-get($map: $mat-akyinkyin-dark, $key: 700);
 $akyinkyin-base: map-get($map: $mat-akyinkyin-green, $key: 500);
 $akyinkyin-dark-tone: map-get($map: $mat-akyinkyin-green, $key: 900);
 $akyinkyin-light-text: map-get($map: $mat-akyinkyin-green, $key: 50);
