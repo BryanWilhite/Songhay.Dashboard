@@ -14,9 +14,18 @@ import { StudioComponent } from './components/dashboard/studio/studio.component'
 import { StudioLogoComponent } from './components/dashboard/studio-logo/studio-logo.component';
 import { StudioSocialComponent } from './components/dashboard/studio-social/studio-social.component';
 import { StudioVersionsComponent } from './components/dashboard/studio-versions/studio-versions.component';
+import { StudioLinksComponent } from './components/dashboard/studio-links/studio-links.component';
 
 @NgModule({
-    declarations: [AppComponent, DashboardComponent, StudioComponent, StudioLogoComponent, StudioSocialComponent, StudioVersionsComponent],
+    declarations: [
+        AppComponent,
+        DashboardComponent,
+        StudioComponent,
+        StudioLogoComponent,
+        StudioSocialComponent,
+        StudioVersionsComponent,
+        StudioLinksComponent
+    ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
         BrowserAnimationsModule,

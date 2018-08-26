@@ -1,0 +1,15 @@
+@import '../../../../assets/scss/normalize-component';
+@import '../../../../assets/scss/themes/akyinkyin/palette';
+
+.mat-list {
+    text-align: left;
+
+    & a:link,
+    a:visited {
+        color: $light-primary-text;
+        text-decoration: none;
+    }
+    & a:hover {
+        color: $akyinkyin-light-tint;
+    }
+}
