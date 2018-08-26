@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Songhay.Dashboard/Songhay.Dashboard.csproj"
+                "${workspaceFolder}/Songhay.Dashboard.sln"
             ],
             "problemMatcher": "$msCompile"
         },
