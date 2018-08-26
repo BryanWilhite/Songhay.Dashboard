@@ -1,11 +1,11 @@
 {
-    "assemblyInfo": {
-        "assemblyTitle": "Songhay.Blog",
-        "assemblyVersion": "2.0.0.0",
-        "assemblyVersionDetail": "2.00",
-        "assemblyDescription": "My current technical blogging solution for my public, self-education.",
-        "assemblyProduct": "Songhay.Blog",
-        "assemblyCopyright": "© Bryan D. Wilhite 2018",
-        "assemblyCompany": "Songhay System"
-    }
+  "assemblyInfo": {
+    "assemblyTitle": "Songhay.Dashboard",
+    "assemblyVersion": "2.0.0.0",
+    "assemblyVersionDetail": "2.00",
+    "assemblyDescription": "Songhay System company dashboard.",
+    "assemblyProduct": "Songhay.Dashboard",
+    "assemblyCopyright": "Â© Bryan D. Wilhite 2018",
+    "assemblyCompany": "Songhay System"
+  }
 }
