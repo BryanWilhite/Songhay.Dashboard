@@ -13,4 +13,8 @@
     <PackageReference Include="SonghayCore.MSTest" Version="2.3.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Songhay.Dashboard\Songhay.Dashboard.csproj" />
+  </ItemGroup>
+
 </Project>
