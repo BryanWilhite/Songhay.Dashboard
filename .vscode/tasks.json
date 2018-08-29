@@ -23,6 +23,22 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "test [clean test output folder]",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/TestResults"
+            },
+            "linux": {
+                "command": "rm",
+                "args": ["--verbose", "*.trx"]
+            },
+            "windows": {
+                "command": "Remove-Item",
+                "args": ["-Path", "*.trx", "-Verbose"]
+            },
+            "problemMatcher": []
+        },
+        {
             "type": "npm",
             "script": "build",
             "path": "Songhay.Dashboard/ClientApp/",
