@@ -1,13 +1,1938 @@
 {
-    "serverMeta": {
-        "assemblyInfo": {
-            "assemblyTitle": "Songhay.Blog",
-            "assemblyVersion": "2.0.0.0",
-            "assemblyVersionDetail": "2.00",
-            "assemblyDescription": "My current technical blogging solution for my public, self-education.",
-            "assemblyProduct": "Songhay.Blog",
-            "assemblyCopyright": "© Bryan D. Wilhite 2018",
-            "assemblyCompany": "Songhay System"
-        }
+  "serverMeta": {
+    "assemblyInfo": {
+      "assemblyTitle": "Songhay.Dashboard",
+      "assemblyVersion": "2.0.0.0",
+      "assemblyVersionDetail": "2.00",
+      "assemblyDescription": "Songhay System company dashboard.",
+      "assemblyProduct": "Songhay.Dashboard",
+      "assemblyCopyright": "© Bryan D. Wilhite 2018",
+      "assemblyCompany": "Songhay System"
     }
+  },
+  "feeds": {
+    "codepen": {
+      "rss": {
+        "@xmlns:dc": "http://purl.org/dc/elements/1.1/",
+        "@xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/",
+        "@xmlns:admin": "http://webns.net/mvcb/",
+        "@xmlns:rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "@xmlns:content": "http://purl.org/rss/1.0/modules/content/",
+        "@version": "2.0",
+        "channel": {
+          "title": " CodePens from Bryan Wilhite",
+          "link": "https://codepen.io/rasx/public",
+          "description": null,
+          "dc:language": "en",
+          "dc:creator": "nospam@codepen.io",
+          "dc:rights": "Copyright 2018",
+          "dc:date": "\n        2017-06-10T01:42:43-07:00\n      ",
+          "item": [
+            {
+              "title": "CSS: Drop-Down Menu",
+              "link": "https://codepen.io/rasx/pen/CGbio",
+              "guid": "https://codepen.io/rasx/pen/CGbio",
+              "dc:creator": "Bryan Wilhite",
+              "description": {
+                "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/CGbio\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/CGbio/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/CGbio\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/CGbio\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/CGbio\">See Details</a>\n    </p>\n    <p>\n      Basic menu item.\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+              },
+              "dc:subject": "CSS: Drop-Down Menu",
+              "dc:date": "\n    2017-06-10T01:42:43-07:00\n  "
+            },
+            {
+              "title": "jQuery: input form watermark",
+              "link": "https://codepen.io/rasx/pen/GgRoxR",
+              "guid": "https://codepen.io/rasx/pen/GgRoxR",
+              "dc:creator": "Bryan Wilhite",
+              "description": {
+                "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/GgRoxR\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/GgRoxR/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/GgRoxR\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/GgRoxR\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/GgRoxR\">See Details</a>\n    </p>\n    <p>\n      \n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+              },
+              "dc:subject": "jQuery: input form watermark",
+              "dc:date": "\n    2017-06-10T00:55:42-07:00\n  "
+            },
+            {
+              "title": "CSS3: background-clip",
+              "link": "https://codepen.io/rasx/pen/Jkevd",
+              "guid": "https://codepen.io/rasx/pen/Jkevd",
+              "dc:creator": "Bryan Wilhite",
+              "description": {
+                "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/Jkevd\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/Jkevd/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/Jkevd\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/Jkevd\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/Jkevd\">See Details</a>\n    </p>\n    <p>\n      http://www.hongkiat.com/blog/css-masking/\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+              },
+              "dc:subject": "CSS3: background-clip",
+              "dc:date": "\n    2017-06-06T21:31:28-07:00\n  "
+            },
+            {
+              "title": "YouTube Data API video presentation",
+              "link": "https://codepen.io/rasx/pen/JbXjmM",
+              "guid": "https://codepen.io/rasx/pen/JbXjmM",
+              "dc:creator": "Bryan Wilhite",
+              "description": {
+                "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/JbXjmM\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/JbXjmM/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/JbXjmM\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/JbXjmM\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/JbXjmM\">See Details</a>\n    </p>\n    <p>\n      video presentation for YouTube for kintespace.com\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+              },
+              "dc:subject": "YouTube Data API video presentation",
+              "dc:date": "\n    2017-01-03T21:01:09-07:00\n  "
+            },
+            {
+              "title": "CodePen Logo in external SVG",
+              "link": "https://codepen.io/rasx/pen/GNVZvO",
+              "guid": "https://codepen.io/rasx/pen/GNVZvO",
+              "dc:creator": "Bryan Wilhite",
+              "description": {
+                "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/GNVZvO\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/GNVZvO/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/GNVZvO\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/GNVZvO\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/GNVZvO\">See Details</a>\n    </p>\n    <p>\n      https://css-tricks.com/svg-use-external-source/\n\nhttps://css-tricks.com/svg-use-with-external-reference-take-2/\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+              },
+              "dc:subject": "CodePen Logo in external SVG",
+              "dc:date": "\n    2016-12-29T01:07:38-07:00\n  "
+            },
+            {
+              "title": "CodePen Logo in SVG",
+              "link": "https://codepen.io/rasx/pen/gLNdLr",
+              "guid": "https://codepen.io/rasx/pen/gLNdLr",
+              "dc:creator": "Bryan Wilhite",
+              "description": {
+                "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/gLNdLr\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/gLNdLr/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/gLNdLr\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/gLNdLr\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/gLNdLr\">See Details</a>\n    </p>\n    <p>\n      https://sarasoueidan.com/blog/svg-coordinate-systems/\n\nhttps://blog.codepen.io/documentation/brand-assets/logos/\n\nhttps://www.idrsolutions.com/online-pdf-to-svg-converter/\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+              },
+              "dc:subject": "CodePen Logo in SVG",
+              "dc:date": "\n    2016-12-28T23:25:43-07:00\n  "
+            },
+            {
+              "title": "YouTube Data API Responsive Angular Directive",
+              "link": "https://codepen.io/rasx/pen/gMpGWN",
+              "guid": "https://codepen.io/rasx/pen/gMpGWN",
+              "dc:creator": "Bryan Wilhite",
+              "description": {
+                "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/gMpGWN\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/gMpGWN/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/gMpGWN\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/gMpGWN\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/gMpGWN\">See Details</a>\n    </p>\n    <p>\n      using YouTube Data API JSON parsed and stored on Azure, served via ASP.NET Web API\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+              },
+              "dc:subject": "YouTube Data API Responsive Angular Directive",
+              "dc:date": "\n    2016-12-02T03:51:57-07:00\n  "
+            },
+            {
+              "title": "b-roll progressive audio presentation API",
+              "link": "https://codepen.io/rasx/pen/XXWWLz",
+              "guid": "https://codepen.io/rasx/pen/XXWWLz",
+              "dc:creator": "Bryan Wilhite",
+              "description": {
+                "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/XXWWLz\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/XXWWLz/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/XXWWLz\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/XXWWLz\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/XXWWLz\">See Details</a>\n    </p>\n    <p>\n      \n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+              },
+              "dc:subject": "b-roll progressive audio presentation API",
+              "dc:date": "\n    2016-09-30T01:11:02-07:00\n  "
+            },
+            {
+              "title": "Angular UI: pagination",
+              "link": "https://codepen.io/rasx/pen/xGadEB",
+              "guid": "https://codepen.io/rasx/pen/xGadEB",
+              "dc:creator": "Bryan Wilhite",
+              "description": {
+                "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/xGadEB\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/xGadEB/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/xGadEB\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/xGadEB\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/xGadEB\">See Details</a>\n    </p>\n    <p>\n      https://github.com/angular-ui/bootstrap/tree/master/src/pagination/docs\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+              },
+              "dc:subject": "Angular UI: pagination",
+              "dc:date": "\n    2016-09-04T19:05:35-07:00\n  "
+            },
+            {
+              "title": "Songhay Studio: Day Path Index Layout with Grouping",
+              "link": "https://codepen.io/rasx/pen/rVMJVW",
+              "guid": "https://codepen.io/rasx/pen/rVMJVW",
+              "dc:creator": "Bryan Wilhite",
+              "description": {
+                "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/rVMJVW\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/rVMJVW/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/rVMJVW\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/rVMJVW\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/rVMJVW\">See Details</a>\n    </p>\n    <p>\n      \n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+              },
+              "dc:subject": "Songhay Studio: Day Path Index Layout with Grouping",
+              "dc:date": "\n    2016-08-19T20:52:10-07:00\n  "
+            }
+          ]
+        }
+      }
+    },
+    "flickr": {
+      "rss": {
+        "@version": "2.0",
+        "@xmlns:media": "http://search.yahoo.com/mrss/",
+        "@xmlns:dc": "http://purl.org/dc/elements/1.1/",
+        "@xmlns:creativeCommons": "http://cyber.law.harvard.edu/rss/creativeCommonsRssModule.html",
+        "@xmlns:flickr": "urn:flickr:user",
+        "channel": {
+          "title": "Content from Songhay System Screen Shots",
+          "link": "http://www.flickr.com/photos/wilhite/sets/72157625087343217",
+          "description": "",
+          "pubDate": "Tue, 02 May 2017 13:42:00 -0700",
+          "lastBuildDate": "Tue, 02 May 2017 13:42:00 -0700",
+          "generator": "http://www.flickr.com/",
+          "image": {
+            "url": "http://farm5.staticflickr.com/4071/4617984922_8df2b7d96c_s.jpg",
+            "title": "Content from Songhay System Screen Shots",
+            "link": "http://www.flickr.com/photos/wilhite/sets/72157625087343217"
+          },
+          "item": [
+            {
+              "title": "Miguel de Icaza on .NET Standard 2.0",
+              "link": "http://www.flickr.com/photos/wilhite/33571835814/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/33571835814/\" title=\"Miguel de Icaza on .NET Standard 2.0\"><img src=\"http://farm5.staticflickr.com/4185/33571835814_79b5c89494_m.jpg\" width=\"240\" height=\"132\" alt=\"Miguel de Icaza on .NET Standard 2.0\" /></a></p>\n\n",
+              "pubDate": "Tue, 02 May 2017 13:42:00 -0700",
+              "dc:date.Taken": "2017-05-02T14:40:55-07:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/33571835814/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm5.staticflickr.com/4185/33571835814_79b5c89494_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "333",
+                "@width": "606"
+              },
+              "media:title": "Miguel de Icaza on .NET Standard 2.0",
+              "media:thumbnail": {
+                "@url": "http://farm5.staticflickr.com/4185/33571835814_79b5c89494_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "migueldeicaza xamarin xaml microsoft netstandard bryandwilhite songhaysystem songhaysystemcom"
+              },
+              "enclosure": {
+                "@url": "http://farm5.staticflickr.com/4185/33571835814_79b5c89494_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "Songhay System Azure Dashboard Q1 2017",
+              "link": "http://www.flickr.com/photos/wilhite/32654113284/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32654113284/\" title=\"Songhay System Azure Dashboard Q1 2017\"><img src=\"http://farm4.staticflickr.com/3834/32654113284_39c83f46f1_m.jpg\" width=\"240\" height=\"196\" alt=\"Songhay System Azure Dashboard Q1 2017\" /></a></p>\n\n",
+              "pubDate": "Fri, 17 Mar 2017 14:07:19 -0700",
+              "dc:date.Taken": "2017-03-17T15:06:19-07:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/32654113284/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm4.staticflickr.com/3834/32654113284_39c83f46f1_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "837",
+                "@width": "1024"
+              },
+              "media:title": "Songhay System Azure Dashboard Q1 2017",
+              "media:thumbnail": {
+                "@url": "http://farm4.staticflickr.com/3834/32654113284_39c83f46f1_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "songhaysystem songhaystudio songhaysystemcom microsoftazure bryandwilhite"
+              },
+              "enclosure": {
+                "@url": "http://farm4.staticflickr.com/3834/32654113284_39c83f46f1_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "XAMPP Control Panel in Windows",
+              "link": "http://www.flickr.com/photos/wilhite/32968241460/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32968241460/\" title=\"XAMPP Control Panel in Windows\"><img src=\"http://farm1.staticflickr.com/678/32968241460_091d5021f5_m.jpg\" width=\"240\" height=\"88\" alt=\"XAMPP Control Panel in Windows\" /></a></p>\n\n",
+              "pubDate": "Thu, 09 Mar 2017 18:31:31 -0800",
+              "dc:date.Taken": "2017-03-09T18:30:40-08:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/32968241460/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm1.staticflickr.com/678/32968241460_091d5021f5_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "246",
+                "@width": "668"
+              },
+              "media:title": "XAMPP Control Panel in Windows",
+              "media:thumbnail": {
+                "@url": "http://farm1.staticflickr.com/678/32968241460_091d5021f5_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "songhaystudio xampp mysql apache bryanwilhite"
+              },
+              "enclosure": {
+                "@url": "http://farm1.staticflickr.com/678/32968241460_091d5021f5_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "scriptcs layout for EPUB",
+              "link": "http://www.flickr.com/photos/wilhite/32381489003/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32381489003/\" title=\"scriptcs layout for EPUB\"><img src=\"http://farm4.staticflickr.com/3737/32381489003_20b5562073_m.jpg\" width=\"240\" height=\"225\" alt=\"scriptcs layout for EPUB\" /></a></p>\n\n",
+              "pubDate": "Wed, 01 Mar 2017 15:50:31 -0800",
+              "dc:date.Taken": "2017-03-01T15:49:11-08:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/32381489003/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm4.staticflickr.com/3737/32381489003_20b5562073_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "775",
+                "@width": "828"
+              },
+              "media:title": "scriptcs layout for EPUB",
+              "media:thumbnail": {
+                "@url": "http://farm4.staticflickr.com/3737/32381489003_20b5562073_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "songhaysystemcom songhaystudio epub scriptcs nuget visualstudiocode"
+              },
+              "enclosure": {
+                "@url": "http://farm4.staticflickr.com/3737/32381489003_20b5562073_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "EPUB pipeline in Git repository",
+              "link": "http://www.flickr.com/photos/wilhite/32775732780/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32775732780/\" title=\"EPUB pipeline in Git repository\"><img src=\"http://farm4.staticflickr.com/3716/32775732780_9e4cca30be_m.jpg\" width=\"240\" height=\"120\" alt=\"EPUB pipeline in Git repository\" /></a></p>\n\n",
+              "pubDate": "Mon, 27 Feb 2017 16:28:40 -0800",
+              "dc:date.Taken": "2017-02-27T16:12:48-08:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/32775732780/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm4.staticflickr.com/3716/32775732780_9e4cca30be_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "504",
+                "@width": "1012"
+              },
+              "media:title": "EPUB pipeline in Git repository",
+              "media:thumbnail": {
+                "@url": "http://farm4.staticflickr.com/3716/32775732780_9e4cca30be_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "songhaysystemcom songhaystudio songhaysystem epub xhtml xml linqtoxml linq"
+              },
+              "enclosure": {
+                "@url": "http://farm4.staticflickr.com/3716/32775732780_9e4cca30be_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "OData libraries relationship",
+              "link": "http://www.flickr.com/photos/wilhite/32696307530/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32696307530/\" title=\"OData libraries relationship\"><img src=\"http://farm4.staticflickr.com/3919/32696307530_8b56f26fec_m.jpg\" width=\"240\" height=\"82\" alt=\"OData libraries relationship\" /></a></p>\n\n",
+              "pubDate": "Thu, 23 Feb 2017 14:36:01 -0800",
+              "dc:date.Taken": "2017-02-23T14:33:06-08:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/32696307530/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm4.staticflickr.com/3919/32696307530_8b56f26fec_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "340",
+                "@width": "1002"
+              },
+              "media:title": "OData libraries relationship",
+              "media:thumbnail": {
+                "@url": "http://farm4.staticflickr.com/3919/32696307530_8b56f26fec_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "odata odatagithubio github microsoft songhaysystemcom songhaysystem songhaystudio"
+              },
+              "enclosure": {
+                "@url": "http://farm4.staticflickr.com/3919/32696307530_8b56f26fec_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "ChocolateyGUI doing an update",
+              "link": "http://www.flickr.com/photos/wilhite/32013324403/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32013324403/\" title=\"ChocolateyGUI doing an update\"><img src=\"http://farm3.staticflickr.com/2030/32013324403_b8e474fbcc_m.jpg\" width=\"240\" height=\"111\" alt=\"ChocolateyGUI doing an update\" /></a></p>\n\n",
+              "pubDate": "Fri, 10 Feb 2017 15:49:38 -0800",
+              "dc:date.Taken": "2017-02-10T15:41:00-08:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/32013324403/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm3.staticflickr.com/2030/32013324403_b8e474fbcc_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "155",
+                "@width": "335"
+              },
+              "media:title": "ChocolateyGUI doing an update",
+              "media:thumbnail": {
+                "@url": "http://farm3.staticflickr.com/2030/32013324403_b8e474fbcc_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "chocolateygui songhaystudio bryanwilhite chocolatey"
+              },
+              "enclosure": {
+                "@url": "http://farm3.staticflickr.com/2030/32013324403_b8e474fbcc_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "Swashbuckle Swagger UI with consumes Example Value in Arbitrary XML",
+              "link": "http://www.flickr.com/photos/wilhite/32768627276/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32768627276/\" title=\"Swashbuckle Swagger UI with consumes Example Value in Arbitrary XML\"><img src=\"http://farm3.staticflickr.com/2539/32768627276_be3aeaf0b8_m.jpg\" width=\"240\" height=\"175\" alt=\"Swashbuckle Swagger UI with consumes Example Value in Arbitrary XML\" /></a></p>\n\n",
+              "pubDate": "Thu, 09 Feb 2017 14:46:12 -0800",
+              "dc:date.Taken": "2017-02-09T14:45:24-08:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/32768627276/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm3.staticflickr.com/2539/32768627276_be3aeaf0b8_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "298",
+                "@width": "409"
+              },
+              "media:title": "Swashbuckle Swagger UI with consumes Example Value in Arbitrary XML",
+              "media:thumbnail": {
+                "@url": "http://farm3.staticflickr.com/2539/32768627276_be3aeaf0b8_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "songhaysystemcom songhaystudio songhaysystem bryandwilhite swashbuckle swagger xml aspnet webapi"
+              },
+              "enclosure": {
+                "@url": "http://farm3.staticflickr.com/2539/32768627276_be3aeaf0b8_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "Swashbuckle Swagger UI with produces Example Value in Arbitrary XML",
+              "link": "http://www.flickr.com/photos/wilhite/32768627106/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32768627106/\" title=\"Swashbuckle Swagger UI with produces Example Value in Arbitrary XML\"><img src=\"http://farm4.staticflickr.com/3829/32768627106_b00215713c_m.jpg\" width=\"240\" height=\"211\" alt=\"Swashbuckle Swagger UI with produces Example Value in Arbitrary XML\" /></a></p>\n\n",
+              "pubDate": "Thu, 09 Feb 2017 14:46:12 -0800",
+              "dc:date.Taken": "2017-02-09T14:45:23-08:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/32768627106/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm4.staticflickr.com/3829/32768627106_b00215713c_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "292",
+                "@width": "332"
+              },
+              "media:title": "Swashbuckle Swagger UI with produces Example Value in Arbitrary XML",
+              "media:thumbnail": {
+                "@url": "http://farm4.staticflickr.com/3829/32768627106_b00215713c_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "songhaysystemcom songhaystudio songhaysystem bryandwilhite swashbuckle swagger xml aspnet webapi"
+              },
+              "enclosure": {
+                "@url": "http://farm4.staticflickr.com/3829/32768627106_b00215713c_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "My LinqPad Plugins Folder",
+              "link": "http://www.flickr.com/photos/wilhite/32638645972/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32638645972/\" title=\"My LinqPad Plugins Folder\"><img src=\"http://farm3.staticflickr.com/2843/32638645972_ce615f35af_m.jpg\" width=\"166\" height=\"240\" alt=\"My LinqPad Plugins Folder\" /></a></p>\n\n",
+              "pubDate": "Wed, 08 Feb 2017 16:32:38 -0800",
+              "dc:date.Taken": "2017-02-08T16:31:56-08:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/32638645972/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm3.staticflickr.com/2843/32638645972_ce615f35af_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "576",
+                "@width": "397"
+              },
+              "media:title": "My LinqPad Plugins Folder",
+              "media:thumbnail": {
+                "@url": "http://farm3.staticflickr.com/2843/32638645972_ce615f35af_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "songhaystudio songhaysystemcom bryandwilhite linqpad csharp fsharp"
+              },
+              "enclosure": {
+                "@url": "http://farm3.staticflickr.com/2843/32638645972_ce615f35af_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "Swashbuckle Swagger UI with basic XML customization",
+              "link": "http://www.flickr.com/photos/wilhite/32714653736/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32714653736/\" title=\"Swashbuckle Swagger UI with basic XML customization\"><img src=\"http://farm1.staticflickr.com/584/32714653736_330d5a60cd_m.jpg\" width=\"240\" height=\"176\" alt=\"Swashbuckle Swagger UI with basic XML customization\" /></a></p>\n\n",
+              "pubDate": "Tue, 07 Feb 2017 00:05:08 -0800",
+              "dc:date.Taken": "2017-02-06T17:34:08-08:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/32714653736/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm1.staticflickr.com/584/32714653736_330d5a60cd_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "715",
+                "@width": "975"
+              },
+              "media:title": "Swashbuckle Swagger UI with basic XML customization",
+              "media:thumbnail": {
+                "@url": "http://farm1.staticflickr.com/584/32714653736_330d5a60cd_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "songhaysystemcom songhaystudio swashbuckle bryanwilhite xml xelement aspnet webapi"
+              },
+              "enclosure": {
+                "@url": "http://farm1.staticflickr.com/584/32714653736_330d5a60cd_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "Swashbuckle Swagger UI is JSON-centric by default",
+              "link": "http://www.flickr.com/photos/wilhite/31941217903/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/31941217903/\" title=\"Swashbuckle Swagger UI is JSON-centric by default\"><img src=\"http://farm1.staticflickr.com/645/31941217903_4d0bf088c2_m.jpg\" width=\"240\" height=\"171\" alt=\"Swashbuckle Swagger UI is JSON-centric by default\" /></a></p>\n\n",
+              "pubDate": "Mon, 06 Feb 2017 17:12:48 -0800",
+              "dc:date.Taken": "2017-02-06T17:12:01-08:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/31941217903/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm1.staticflickr.com/645/31941217903_4d0bf088c2_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "727",
+                "@width": "1022"
+              },
+              "media:title": "Swashbuckle Swagger UI is JSON-centric by default",
+              "media:thumbnail": {
+                "@url": "http://farm1.staticflickr.com/645/31941217903_4d0bf088c2_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "songhaysystemcom songhaystudio bryanwilhite swagger swashbuckle aspnet webapi json"
+              },
+              "enclosure": {
+                "@url": "http://farm1.staticflickr.com/645/31941217903_4d0bf088c2_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "Sound Forge 11 Registration dialog erroneously prevents startup",
+              "link": "http://www.flickr.com/photos/wilhite/30503921021/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/30503921021/\" title=\"Sound Forge 11 Registration dialog erroneously prevents startup\"><img src=\"http://farm6.staticflickr.com/5476/30503921021_f13636459d_m.jpg\" width=\"179\" height=\"240\" alt=\"Sound Forge 11 Registration dialog erroneously prevents startup\" /></a></p>\n\n",
+              "pubDate": "Wed, 26 Oct 2016 20:30:31 -0700",
+              "dc:date.Taken": "2016-10-26T21:29:35-07:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/30503921021/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm6.staticflickr.com/5476/30503921021_f13636459d_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "591",
+                "@width": "440"
+              },
+              "media:title": "Sound Forge 11 Registration dialog erroneously prevents startup",
+              "media:thumbnail": {
+                "@url": "http://farm6.staticflickr.com/5476/30503921021_f13636459d_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "soundforge songhaystudio songhaysystemcom"
+              },
+              "enclosure": {
+                "@url": "http://farm6.staticflickr.com/5476/30503921021_f13636459d_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "Sound Forge 11 must run in Windows 7 compatibility mode on Windows 10",
+              "link": "http://www.flickr.com/photos/wilhite/30503920961/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/30503920961/\" title=\"Sound Forge 11 must run in Windows 7 compatibility mode on Windows 10\"><img src=\"http://farm6.staticflickr.com/5654/30503920961_bb2b08f0f5_m.jpg\" width=\"165\" height=\"240\" alt=\"Sound Forge 11 must run in Windows 7 compatibility mode on Windows 10\" /></a></p>\n\n",
+              "pubDate": "Wed, 26 Oct 2016 20:30:31 -0700",
+              "dc:date.Taken": "2016-10-26T21:29:35-07:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/30503920961/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm6.staticflickr.com/5654/30503920961_bb2b08f0f5_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "527",
+                "@width": "363"
+              },
+              "media:title": "Sound Forge 11 must run in Windows 7 compatibility mode on Windows 10",
+              "media:thumbnail": {
+                "@url": "http://farm6.staticflickr.com/5654/30503920961_bb2b08f0f5_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "soundforge songhaystudio songhaysystemcom"
+              },
+              "enclosure": {
+                "@url": "http://farm6.staticflickr.com/5654/30503920961_bb2b08f0f5_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "the troubleshooter is the only way to start Sound Forge 11",
+              "link": "http://www.flickr.com/photos/wilhite/29958085413/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/29958085413/\" title=\"the troubleshooter is the only way to start Sound Forge 11\"><img src=\"http://farm6.staticflickr.com/5683/29958085413_98a2236465_m.jpg\" width=\"240\" height=\"185\" alt=\"the troubleshooter is the only way to start Sound Forge 11\" /></a></p>\n\n",
+              "pubDate": "Wed, 26 Oct 2016 20:30:31 -0700",
+              "dc:date.Taken": "2016-10-26T21:29:35-07:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/29958085413/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm6.staticflickr.com/5683/29958085413_98a2236465_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "440",
+                "@width": "571"
+              },
+              "media:title": "the troubleshooter is the only way to start Sound Forge 11",
+              "media:thumbnail": {
+                "@url": "http://farm6.staticflickr.com/5683/29958085413_98a2236465_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "soundforge songhaystudio songhaysystemcom"
+              },
+              "enclosure": {
+                "@url": "http://farm6.staticflickr.com/5683/29958085413_98a2236465_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "changing compatibility mode starts the Assistant",
+              "link": "http://www.flickr.com/photos/wilhite/29958085263/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/29958085263/\" title=\"changing compatibility mode starts the Assistant\"><img src=\"http://farm6.staticflickr.com/5500/29958085263_cdc05bbea3_m.jpg\" width=\"240\" height=\"176\" alt=\"changing compatibility mode starts the Assistant\" /></a></p>\n\n",
+              "pubDate": "Wed, 26 Oct 2016 20:30:31 -0700",
+              "dc:date.Taken": "2016-10-26T21:29:35-07:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/29958085263/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm6.staticflickr.com/5500/29958085263_cdc05bbea3_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "279",
+                "@width": "380"
+              },
+              "media:title": "changing compatibility mode starts the Assistant",
+              "media:thumbnail": {
+                "@url": "http://farm6.staticflickr.com/5500/29958085263_cdc05bbea3_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "soundforge songhaystudio songhaysystemcom"
+              },
+              "enclosure": {
+                "@url": "http://farm6.staticflickr.com/5500/29958085263_cdc05bbea3_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "dotnet-standard-chart",
+              "link": "http://www.flickr.com/photos/wilhite/29639839953/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/29639839953/\" title=\"dotnet-standard-chart\"><img src=\"http://farm6.staticflickr.com/5519/29639839953_5f0fe95381_m.jpg\" width=\"240\" height=\"196\" alt=\"dotnet-standard-chart\" /></a></p>\n\n",
+              "pubDate": "Tue, 11 Oct 2016 17:56:17 -0700",
+              "dc:date.Taken": "2016-10-11T18:55:40-07:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/29639839953/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm6.staticflickr.com/5519/29639839953_5f0fe95381_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "728",
+                "@width": "889"
+              },
+              "media:title": "dotnet-standard-chart",
+              "media:thumbnail": {
+                "@url": "http://farm6.staticflickr.com/5519/29639839953_5f0fe95381_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "netframework netstandard songhaystudio songhaysystemcom"
+              },
+              "enclosure": {
+                "@url": "http://farm6.staticflickr.com/5519/29639839953_5f0fe95381_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "git repo in TFS",
+              "link": "http://www.flickr.com/photos/wilhite/29764034590/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/29764034590/\" title=\"git repo in TFS\"><img src=\"http://farm9.staticflickr.com/8701/29764034590_7df67842bf_m.jpg\" width=\"240\" height=\"208\" alt=\"git repo in TFS\" /></a></p>\n\n",
+              "pubDate": "Sat, 01 Oct 2016 23:16:54 -0700",
+              "dc:date.Taken": "2016-10-02T00:15:44-07:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/29764034590/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm9.staticflickr.com/8701/29764034590_7df67842bf_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "729",
+                "@width": "841"
+              },
+              "media:title": "git repo in TFS",
+              "media:thumbnail": {
+                "@url": "http://farm9.staticflickr.com/8701/29764034590_7df67842bf_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "songhaysystemcom songhaysystem songhaystudio bash ubuntu"
+              },
+              "enclosure": {
+                "@url": "http://farm9.staticflickr.com/8701/29764034590_7df67842bf_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "SonghayCore uploaded to NuGet",
+              "link": "http://www.flickr.com/photos/wilhite/29153326301/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/29153326301/\" title=\"SonghayCore uploaded to NuGet\"><img src=\"http://farm9.staticflickr.com/8076/29153326301_0c4c6b7fde_m.jpg\" width=\"240\" height=\"125\" alt=\"SonghayCore uploaded to NuGet\" /></a></p>\n\n",
+              "pubDate": "Thu, 25 Aug 2016 16:04:59 -0700",
+              "dc:date.Taken": "2016-08-25T17:04:14-07:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/29153326301/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm9.staticflickr.com/8076/29153326301_0c4c6b7fde_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "533",
+                "@width": "1024"
+              },
+              "media:title": "SonghayCore uploaded to NuGet",
+              "media:thumbnail": {
+                "@url": "http://farm9.staticflickr.com/8076/29153326301_0c4c6b7fde_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "songhaysystemcom songhaystudio songhaysystem nuget bryandwilhite"
+              },
+              "enclosure": {
+                "@url": "http://farm9.staticflickr.com/8076/29153326301_0c4c6b7fde_b.jpg",
+                "@type": "image/jpeg"
+              }
+            },
+            {
+              "title": "Unity Character Map - Common Script",
+              "link": "http://www.flickr.com/photos/wilhite/28500713506/in/set-72157625087343217/",
+              "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/28500713506/\" title=\"Unity Character Map - Common Script\"><img src=\"http://farm9.staticflickr.com/8038/28500713506_588e0a5d69_m.jpg\" width=\"240\" height=\"140\" alt=\"Unity Character Map - Common Script\" /></a></p>\n\n",
+              "pubDate": "Sun, 24 Jul 2016 23:12:36 -0700",
+              "dc:date.Taken": "2016-07-25T00:11:57-07:00",
+              "author": {
+                "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+                "#text": "nobody@flickr.com (rasx)"
+              },
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "tag:flickr.com,2004:/photo/28500713506/in/set-72157625087343217"
+              },
+              "media:content": {
+                "@url": "http://farm9.staticflickr.com/8038/28500713506_588e0a5d69_b.jpg",
+                "@type": "image/jpeg",
+                "@height": "598",
+                "@width": "1024"
+              },
+              "media:title": "Unity Character Map - Common Script",
+              "media:thumbnail": {
+                "@url": "http://farm9.staticflickr.com/8038/28500713506_588e0a5d69_s.jpg",
+                "@height": "75",
+                "@width": "75"
+              },
+              "media:credit": {
+                "@role": "photographer",
+                "#text": "rasx"
+              },
+              "media:category": {
+                "@scheme": "urn:flickr:tags",
+                "#text": "ubuntu unity typography"
+              },
+              "enclosure": {
+                "@url": "http://farm9.staticflickr.com/8038/28500713506_588e0a5d69_b.jpg",
+                "@type": "image/jpeg"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "github": {
+      "feed": {
+        "@xmlns": "http://www.w3.org/2005/Atom",
+        "@xmlns:media": "http://search.yahoo.com/mrss/",
+        "@xml:lang": "en-US",
+        "id": "tag:github.com,2008:/BryanWilhite",
+        "link": [
+          {
+            "@type": "text/html",
+            "@rel": "alternate",
+            "@href": "https://github.com/BryanWilhite"
+          },
+          {
+            "@type": "application/atom+xml",
+            "@rel": "self",
+            "@href": "https://github.com/BryanWilhite.atom"
+          }
+        ],
+        "title": "BryanWilhite’s Activity",
+        "updated": "2018-08-27T16:12:15Z",
+        "entry": [
+          {
+            "id": "tag:github.com,2008:WatchEvent/8172983454",
+            "published": "2018-08-27T16:12:15Z",
+            "updated": "2018-08-27T16:12:15Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/Polymer/polymer"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite starred Polymer/polymer"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"watch_started\"><div class=\"body\">\n<!-- watch -->\n<div class=\"d-flex flex-items-baseline border-bottom border-gray py-3\">\n    <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n\n  <div class=\"d-flex flex-column width-full\">\n      <div>\n        <div class=\"d-flex flex-items-baseline\">\n          <div>\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            starred\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/Polymer/polymer\" rel=\"noreferrer\">Polymer/polymer</a>\n            <span class=\"f6 text-gray-light no-wrap ml-1\">\n              <relative-time datetime=\"2018-08-27T16:12:15Z\">Aug 27, 2018</relative-time>\n            </span>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"Box p-3 mt-2\">\n        <div>\n          <div class=\"f4 lh-condensed text-bold text-gray-dark\">\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/Polymer/polymer\" rel=\"noreferrer\">Polymer/polymer</a>\n          </div>\n          <div class=\"dashboard-break-word text-gray mt-1 mb-0 repo-description\">\n            <p>Build modern apps using web components</p>\n          </div>\n\n          <p class=\"f6 text-gray mt-2 mb-0\">\n              <span class=\"d-inline-block text-gray mr-3\">\n                <span class=\"repo-language-color ml-0\" style=\"background-color:#e34c26;\"></span>\n                <span itemprop=\"programmingLanguage\">HTML</span>\n              </span>\n\n              <span class=\"d-inline-block mr-3\">\n                  <a class=\"muted-link\" href=\"/Polymer/polymer/stargazers\" rel=\"noreferrer\"><svg class=\"octicon octicon-star mr-1\" viewBox=\"0 0 14 16\" version=\"1.1\" width=\"14\" height=\"16\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z\"></path></svg>20.1k</a>\n              </span>\n\n\n              <span>Updated Aug 27</span>\n          </p>\n        </div>\n      </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssueCommentEvent/8169537603",
+            "published": "2018-08-27T02:08:54Z",
+            "updated": "2018-08-27T02:08:54Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/9#issuecomment-416094593"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite commented on issue BryanWilhite/Songhay.Dashboard#9"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_comment\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom border-gray py-3\">\n    <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          issue\n          <a class=\"link-gray-dark text-bold\" title=\"build the conventional app.json to back the dashboard\" href=\"/BryanWilhite/Songhay.Dashboard/issues/9#issuecomment-416094593\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard#9</a>\n          <span class=\"f6 text-gray-light ml-1\">\n            <relative-time datetime=\"2018-08-27T02:08:54Z\">Aug 27, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3\">\n      <div class=\"f6 mb-1\">\n        <a title=\"build the conventional app.json to back the dashboard\" class=\"link-gray\" href=\"/BryanWilhite/Songhay.Dashboard/issues/9#issuecomment-416094593\" rel=\"noreferrer\"><img class=\"avatar mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"link-gray-dark text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2018-08-27T02:08:54Z\">Aug 27, 2018</relative-time></a>\n      </div>\n        <p><code>Songhay.Feeds</code> <a href=\"https://github.com/BryanWilhite/Songhay.Feeds/issues/2\" rel=\"noreferrer\">issue 2</a> is resolved which can make this issue go forward\nthe JSON files produced from the feed conversion in <code>Songhay.Feeds</code> should one…</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:PushEvent/8169526578",
+            "published": "2018-08-27T02:04:23Z",
+            "updated": "2018-08-27T02:04:23Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Feeds/compare/b74a1a8b3b...ba07da617f"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite pushed to master in BryanWilhite/Songhay.Feeds"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"push\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Feeds/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Feeds\" rel=\"noreferrer\">BryanWilhite/Songhay.Feeds</a>\n      <span class=\"f6 text-gray-light no-wrap ml-1\">\n        <relative-time datetime=\"2018-08-27T02:04:23Z\">Aug 27, 2018</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Feeds/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits pusher-is-only-committer\">\n            <ul>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"BryanWilhite\">\n                    <a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"></a>\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Feeds/commit/ba07da617f7f3c3162f5355758bd0f964aeaea61\" rel=\"noreferrer\">ba07da6</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"umbrella\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/2614.png\">☔️</g-emoji> resolves #2\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssuesEvent/8169526566",
+            "published": "2018-08-27T02:04:22Z",
+            "updated": "2018-08-27T02:04:22Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Feeds/issues/2"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite closed an issue in BryanWilhite/Songhay.Feeds"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_closed\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            closed\n            an issue in\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Feeds\" rel=\"noreferrer\">BryanWilhite/Songhay.Feeds</a>\n          <span class=\"f6 text-gray-light no-wrap ml-1\">\n            <relative-time datetime=\"2018-08-27T02:04:22Z\">Aug 27, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-closed closed d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold text-gray-dark\">\n          <a title=\"add GitHub Atom Feed output\" class=\"text-gray-dark\" aria-label=\"add GitHub Atom Feed output\" href=\"/BryanWilhite/Songhay.Feeds/issues/2\" rel=\"noreferrer\">add GitHub Atom Feed output</a>\n        </span>\n        <span class=\"f4 text-gray-light ml-1\">#2</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p><strong>feed location:</strong> <a href=\"https://github.com/BryanWilhite.atom\" rel=\"noreferrer\">https://github.com/BryanWilhite.atom</a></p>\n          </div>\n\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssuesEvent/8169345652",
+            "published": "2018-08-27T00:33:18Z",
+            "updated": "2018-08-27T00:33:18Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Feeds/issues/2"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite opened an issue in BryanWilhite/Songhay.Feeds"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_opened\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            opened\n            an issue in\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Feeds\" rel=\"noreferrer\">BryanWilhite/Songhay.Feeds</a>\n          <span class=\"f6 text-gray-light no-wrap ml-1\">\n            <relative-time datetime=\"2018-08-27T00:33:18Z\">Aug 27, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-opened open d-inline-block mt-1 float-left\" viewBox=\"0 0 14 16\" version=\"1.1\" width=\"14\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold text-gray-dark\">\n          <a title=\"add GitHub Atom Feed output\" class=\"text-gray-dark\" aria-label=\"add GitHub Atom Feed output\" href=\"/BryanWilhite/Songhay.Feeds/issues/2\" rel=\"noreferrer\">add GitHub Atom Feed output</a>\n        </span>\n        <span class=\"f4 text-gray-light ml-1\">#2</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p><strong>feed location:</strong> <a href=\"https://github.com/BryanWilhite.atom\" rel=\"noreferrer\">https://github.com/BryanWilhite.atom</a></p>\n          </div>\n\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:PushEvent/8169284765",
+            "published": "2018-08-26T23:49:53Z",
+            "updated": "2018-08-26T23:49:53Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/compare/87eaf5373d...8650294159"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite pushed to master in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"push\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n      <span class=\"f6 text-gray-light no-wrap ml-1\">\n        <relative-time datetime=\"2018-08-26T23:49:53Z\">Aug 26, 2018</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits pusher-is-only-committer\">\n            <ul>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"BryanWilhite\">\n                    <a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"></a>\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Dashboard/commit/865029415970542b454189023ec2e319c47c8971\" rel=\"noreferrer\">8650294</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"microscope\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f52c.png\">🔬</g-emoji> ShouldGenerateServerMetadata() passes, issue #9\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:PushEvent/8169280612",
+            "published": "2018-08-26T23:46:41Z",
+            "updated": "2018-08-26T23:46:41Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/compare/cfffd055a9...87eaf5373d"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite pushed to master in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"push\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n      <span class=\"f6 text-gray-light no-wrap ml-1\">\n        <relative-time datetime=\"2018-08-26T23:46:41Z\">Aug 26, 2018</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits pusher-is-only-committer\">\n            <ul>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"BryanWilhite\">\n                    <a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"></a>\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Dashboard/commit/87eaf5373d6712096bc906f8b41e459ef65b74ab\" rel=\"noreferrer\">87eaf53</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"snowflake\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/2744.png\">❄️</g-emoji> changed build config for sln\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:PushEvent/8169262271",
+            "published": "2018-08-26T23:32:06Z",
+            "updated": "2018-08-26T23:32:06Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/compare/aab82fb464...cfffd055a9"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite pushed to master in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"push\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n      <span class=\"f6 text-gray-light no-wrap ml-1\">\n        <relative-time datetime=\"2018-08-26T23:32:06Z\">Aug 26, 2018</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/a76493dacbf413fec615fa5e5731d540278f14fe/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466173736574732d63646e2e6769746875622e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fassets-cdn.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Dashboard/commit/cfffd055a91374601aff4065bab0163255595427\" rel=\"noreferrer\">cfffd05</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"umbrella\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/2614.png\">☔️</g-emoji> <g-emoji class=\"g-emoji\" alias=\"sparkles\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/2728.png\">✨</g-emoji> issue #9\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:PushEvent/8169220479",
+            "published": "2018-08-26T22:58:33Z",
+            "updated": "2018-08-26T22:58:33Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/compare/0e01dac9fa...aab82fb464"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite pushed to master in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"push\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n      <span class=\"f6 text-gray-light no-wrap ml-1\">\n        <relative-time datetime=\"2018-08-26T22:58:33Z\">Aug 26, 2018</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>2 commits to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/a76493dacbf413fec615fa5e5731d540278f14fe/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466173736574732d63646e2e6769746875622e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fassets-cdn.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Dashboard/commit/aab82fb464570ae3e1068f5b3e5d18811c6e8f0a\" rel=\"noreferrer\">aab82fb</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"tractor\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f69c.png\">🚜</g-emoji> <g-emoji class=\"g-emoji\" alias=\"sparkles\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/2728.png\">✨</g-emoji> added Shell.Tests project [ issue #6 ] <g-emoji class=\"g-emoji\" alias=\"tractor\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f69c.png\">🚜</g-emoji> <g-emoji class=\"g-emoji\" alias=\"sparkles\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/2728.png\">✨</g-emoji> resolved #5\n                    </blockquote>\n                  </div>\n                </li>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/a76493dacbf413fec615fa5e5731d540278f14fe/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466173736574732d63646e2e6769746875622e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fassets-cdn.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Dashboard/commit/015b7f17c09f61e9dce4755a1c7e427df99dc86d\" rel=\"noreferrer\">015b7f1</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"tractor\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f69c.png\">🚜</g-emoji> <g-emoji class=\"g-emoji\" alias=\"sparkles\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/2728.png\">✨</g-emoji> ran `dotnet new sln`\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssuesEvent/8169220476",
+            "published": "2018-08-26T22:58:32Z",
+            "updated": "2018-08-26T22:58:32Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/5"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite closed an issue in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_closed\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            closed\n            an issue in\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n          <span class=\"f6 text-gray-light no-wrap ml-1\">\n            <relative-time datetime=\"2018-08-26T22:58:32Z\">Aug 26, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-closed closed d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold text-gray-dark\">\n          <a title=\"migrate studio schemas\" class=\"text-gray-dark\" aria-label=\"migrate studio schemas\" href=\"/BryanWilhite/Songhay.Dashboard/issues/5\" rel=\"noreferrer\">migrate studio schemas</a>\n        </span>\n        <span class=\"f4 text-gray-light ml-1\">#5</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://user-images.githubusercontent.com/5226627/43916227-d2cd7066-9bc1-11e8-98cd-aca44b469068.png\"></a>\nURI prefix: <code>songhaysystem.com/content/schemas</code></p>\n          </div>\n\n          <div class=\"f6 text-gray mt-1\">\n            1 comment\n          </div>\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssuesEvent/8169207638",
+            "published": "2018-08-26T22:48:12Z",
+            "updated": "2018-08-26T22:48:12Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/6"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite closed an issue in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_closed\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            closed\n            an issue in\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n          <span class=\"f6 text-gray-light no-wrap ml-1\">\n            <relative-time datetime=\"2018-08-26T22:48:12Z\">Aug 26, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-closed closed d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold text-gray-dark\">\n          <a title=\"migrate/translate legacy tests\" class=\"text-gray-dark\" aria-label=\"migrate/translate legacy tests\" href=\"/BryanWilhite/Songhay.Dashboard/issues/6\" rel=\"noreferrer\">migrate/translate legacy tests</a>\n        </span>\n        <span class=\"f4 text-gray-light ml-1\">#6</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p>this issue (<a href=\"https://help.github.com/articles/about-task-lists/\" rel=\"noreferrer\">task?</a>) really involves building out the new controllers that will call the new APIs—and then writing tests against this new stuff; the …</p>\n          </div>\n\n          <div class=\"f6 text-gray mt-1\">\n            2 comments\n          </div>\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssueCommentEvent/8169207637",
+            "published": "2018-08-26T22:48:12Z",
+            "updated": "2018-08-26T22:48:12Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/6#issuecomment-416078544"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite commented on issue BryanWilhite/Songhay.Dashboard#6"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_comment\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom border-gray py-3\">\n    <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          issue\n          <a class=\"link-gray-dark text-bold\" title=\"migrate/translate legacy tests\" href=\"/BryanWilhite/Songhay.Dashboard/issues/6#issuecomment-416078544\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard#6</a>\n          <span class=\"f6 text-gray-light ml-1\">\n            <relative-time datetime=\"2018-08-26T22:48:12Z\">Aug 26, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3\">\n      <div class=\"f6 mb-1\">\n        <a title=\"migrate/translate legacy tests\" class=\"link-gray\" href=\"/BryanWilhite/Songhay.Dashboard/issues/6#issuecomment-416078544\" rel=\"noreferrer\"><img class=\"avatar mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"link-gray-dark text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2018-08-26T22:48:12Z\">Aug 26, 2018</relative-time></a>\n      </div>\n        <p>effectively, there are no tests to migrate from <code>Songhay.Dashboard.Tests</code> into this project</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssueCommentEvent/8169202075",
+            "published": "2018-08-26T22:44:12Z",
+            "updated": "2018-08-26T22:44:12Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/6#issuecomment-416078303"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite commented on issue BryanWilhite/Songhay.Dashboard#6"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_comment\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom border-gray py-3\">\n    <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          issue\n          <a class=\"link-gray-dark text-bold\" title=\"migrate/translate legacy tests\" href=\"/BryanWilhite/Songhay.Dashboard/issues/6#issuecomment-416078303\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard#6</a>\n          <span class=\"f6 text-gray-light ml-1\">\n            <relative-time datetime=\"2018-08-26T22:44:12Z\">Aug 26, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3\">\n      <div class=\"f6 mb-1\">\n        <a title=\"migrate/translate legacy tests\" class=\"link-gray\" href=\"/BryanWilhite/Songhay.Dashboard/issues/6#issuecomment-416078303\" rel=\"noreferrer\"><img class=\"avatar mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"link-gray-dark text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2018-08-26T22:44:12Z\">Aug 26, 2018</relative-time></a>\n      </div>\n        <p><code>SocialContextTest.ShouldGetAmazonItems()</code> under ModelContext (shown above) has been migrated to <code>Songhay.Affiliates</code> [<a href=\"https://github.com/BryanWilhite/Songhay.Affiliates/blob/master/Songhay.Affiliates.Tests/Controllers/AmazonControllerTest.cs#L61\" rel=\"noreferrer\">GitHub</a>]</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssueCommentEvent/8169078367",
+            "published": "2018-08-26T21:09:42Z",
+            "updated": "2018-08-26T21:09:42Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/5#issuecomment-416072330"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite commented on issue BryanWilhite/Songhay.Dashboard#5"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_comment\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom border-gray py-3\">\n    <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          issue\n          <a class=\"link-gray-dark text-bold\" title=\"migrate studio schemas\" href=\"/BryanWilhite/Songhay.Dashboard/issues/5#issuecomment-416072330\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard#5</a>\n          <span class=\"f6 text-gray-light ml-1\">\n            <relative-time datetime=\"2018-08-26T21:09:42Z\">Aug 26, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3\">\n      <div class=\"f6 mb-1\">\n        <a title=\"migrate studio schemas\" class=\"link-gray\" href=\"/BryanWilhite/Songhay.Dashboard/issues/5#issuecomment-416072330\" rel=\"noreferrer\"><img class=\"avatar mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"link-gray-dark text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2018-08-26T21:09:42Z\">Aug 26, 2018</relative-time></a>\n      </div>\n        <p>the new schema location will be <code>songhaysystem.com/assets/schemas</code>; this is not entirely satisfaction because there are no plans to set up redirects …</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:PushEvent/8167729370",
+            "published": "2018-08-26T03:29:03Z",
+            "updated": "2018-08-26T03:29:03Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/compare/7c1060922a...0e01dac9fa"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite pushed to master in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"push\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n      <span class=\"f6 text-gray-light no-wrap ml-1\">\n        <relative-time datetime=\"2018-08-26T03:29:03Z\">Aug 26, 2018</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits pusher-is-only-committer\">\n            <ul>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"BryanWilhite\">\n                    <a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"></a>\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Dashboard/commit/0e01dac9fa837107900fb584e6479e6b9a44f097\" rel=\"noreferrer\">0e01dac</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"tractor\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f69c.png\">🚜</g-emoji> <g-emoji class=\"g-emoji\" alias=\"lipstick\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f484.png\">💄</g-emoji> <g-emoji class=\"g-emoji\" alias=\"sparkles\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/2728.png\">✨</g-emoji> resolves #14\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssuesEvent/8167729367",
+            "published": "2018-08-26T03:29:02Z",
+            "updated": "2018-08-26T03:29:02Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/14"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite closed an issue in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_closed\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            closed\n            an issue in\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n          <span class=\"f6 text-gray-light no-wrap ml-1\">\n            <relative-time datetime=\"2018-08-26T03:29:02Z\">Aug 26, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-closed closed d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold text-gray-dark\">\n          <a title=\"add links component\" class=\"text-gray-dark\" aria-label=\"add links component\" href=\"/BryanWilhite/Songhay.Dashboard/issues/14\" rel=\"noreferrer\">add links component</a>\n        </span>\n        <span class=\"f4 text-gray-light ml-1\">#14</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p>the legacy menu might possibly be replaced with <code>mat-list</code> with sections:\n<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://user-images.githubusercontent.com/5226627/44306213-095a9a80-a33f-11e8-9c14-11d70283c8a3.png\"></a></p>\n          </div>\n\n          <div class=\"f6 text-gray mt-1\">\n            2 comments\n          </div>\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssueCommentEvent/8167726104",
+            "published": "2018-08-26T03:25:41Z",
+            "updated": "2018-08-26T03:25:41Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/14#issuecomment-416011087"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite commented on issue BryanWilhite/Songhay.Dashboard#14"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_comment\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom border-gray py-3\">\n    <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          issue\n          <a class=\"link-gray-dark text-bold\" title=\"add links component\" href=\"/BryanWilhite/Songhay.Dashboard/issues/14#issuecomment-416011087\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard#14</a>\n          <span class=\"f6 text-gray-light ml-1\">\n            <relative-time datetime=\"2018-08-26T03:25:41Z\">Aug 26, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3\">\n      <div class=\"f6 mb-1\">\n        <a title=\"add links component\" class=\"link-gray\" href=\"/BryanWilhite/Songhay.Dashboard/issues/14#issuecomment-416011087\" rel=\"noreferrer\"><img class=\"avatar mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"link-gray-dark text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2018-08-26T03:25:41Z\">Aug 26, 2018</relative-time></a>\n      </div>\n        <p>the layout so far:\n<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://user-images.githubusercontent.com/5226627/44624517-07478d00-a8a5-11e8-8df5-eb6a0d78cad1.png\"></a></p>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssueCommentEvent/8167666084",
+            "published": "2018-08-26T02:22:27Z",
+            "updated": "2018-08-26T02:22:27Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/14#issuecomment-416009132"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite commented on issue BryanWilhite/Songhay.Dashboard#14"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_comment\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom border-gray py-3\">\n    <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          issue\n          <a class=\"link-gray-dark text-bold\" title=\"add links component\" href=\"/BryanWilhite/Songhay.Dashboard/issues/14#issuecomment-416009132\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard#14</a>\n          <span class=\"f6 text-gray-light ml-1\">\n            <relative-time datetime=\"2018-08-26T02:22:27Z\">Aug 26, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3\">\n      <div class=\"f6 mb-1\">\n        <a title=\"add links component\" class=\"link-gray\" href=\"/BryanWilhite/Songhay.Dashboard/issues/14#issuecomment-416009132\" rel=\"noreferrer\"><img class=\"avatar mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"link-gray-dark text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2018-08-26T02:22:27Z\">Aug 26, 2018</relative-time></a>\n      </div>\n        <p><span class=\"pl-c1\">ng generate component components/dashboard/studio-links --flat=false --module=app --styleext=scss --dry-run</span></p>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssueCommentEvent/8166935308",
+            "published": "2018-08-25T15:44:14Z",
+            "updated": "2018-08-25T15:44:14Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/15#issuecomment-415977980"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite commented on issue BryanWilhite/Songhay.Dashboard#15"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_comment\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom border-gray py-3\">\n    <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          issue\n          <a class=\"link-gray-dark text-bold\" title=\"add flickr component?\" href=\"/BryanWilhite/Songhay.Dashboard/issues/15#issuecomment-415977980\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard#15</a>\n          <span class=\"f6 text-gray-light ml-1\">\n            <relative-time datetime=\"2018-08-25T15:44:14Z\">Aug 25, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3\">\n      <div class=\"f6 mb-1\">\n        <a title=\"add flickr component?\" class=\"link-gray\" href=\"/BryanWilhite/Songhay.Dashboard/issues/15#issuecomment-415977980\" rel=\"noreferrer\"><img class=\"avatar mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"link-gray-dark text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2018-08-25T15:44:14Z\">Aug 25, 2018</relative-time></a>\n      </div>\n        <p>this component would be driven by a JSON snapshot of its RSS feed data, built into <code>app.json</code> (see <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load issue title\" data-id=\"349241224\" data-permission-text=\"Issue title is private\" data-url=\"https://github.com/BryanWilhite/Songhay.Dashboard/issues/9\" href=\"https://github.com/BryanWilhite/Songhay.Dashboard/issues/9\" rel=\"noreferrer\">#9</a>)</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssueCommentEvent/8166927890",
+            "published": "2018-08-25T15:38:45Z",
+            "updated": "2018-08-25T15:38:45Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/8#issuecomment-415977633"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite commented on issue BryanWilhite/Songhay.Dashboard#8"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_comment\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom border-gray py-3\">\n    <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          issue\n          <a class=\"link-gray-dark text-bold\" title=\"are you going to build ye olde FunkyKB with Vue or React—or just plain Angular?\" href=\"/BryanWilhite/Songhay.Dashboard/issues/8#issuecomment-415977633\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard#8</a>\n          <span class=\"f6 text-gray-light ml-1\">\n            <relative-time datetime=\"2018-08-25T15:38:45Z\">Aug 25, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3\">\n      <div class=\"f6 mb-1\">\n        <a title=\"are you going to build ye olde FunkyKB with Vue or React—or just plain Angular?\" class=\"link-gray\" href=\"/BryanWilhite/Songhay.Dashboard/issues/8#issuecomment-415977633\" rel=\"noreferrer\"><img class=\"avatar mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"link-gray-dark text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2018-08-25T15:38:45Z\">Aug 25, 2018</relative-time></a>\n      </div>\n        <p>the right long-term move might be building this App as a static Azure web site</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssuesEvent/8166913071",
+            "published": "2018-08-25T15:28:46Z",
+            "updated": "2018-08-25T15:28:46Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/11"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite closed an issue in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_closed\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            closed\n            an issue in\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n          <span class=\"f6 text-gray-light no-wrap ml-1\">\n            <relative-time datetime=\"2018-08-25T15:28:46Z\">Aug 25, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-closed closed d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold text-gray-dark\">\n          <a title=\"“We found a potential security vulnerability in one of your dependencies.”\" class=\"text-gray-dark\" aria-label=\"“We found a potential security vulnerability in one of your dependencies.”\" href=\"/BryanWilhite/Songhay.Dashboard/issues/11\" rel=\"noreferrer\">“We found a potential security vulnerability in one of your dependencies.”</a>\n        </span>\n        <span class=\"f4 text-gray-light ml-1\">#11</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p>issue <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load issue title\" data-id=\"348808217\" data-permission-text=\"Issue title is private\" data-url=\"https://github.com/BryanWilhite/Songhay.Dashboard/issues/4\" href=\"https://github.com/BryanWilhite/Songhay.Dashboard/issues/4\" rel=\"noreferrer\">#4</a> recorded that <code>npm audit</code> “found 0 vulnerabilities” yet GitHub disagrees with this; i have tried to correct this discrepancy by rebuilding <code>p…</code></p>\n          </div>\n\n          <div class=\"f6 text-gray mt-1\">\n            4 comments\n          </div>\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssueCommentEvent/8166913069",
+            "published": "2018-08-25T15:28:46Z",
+            "updated": "2018-08-25T15:28:46Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/11#issuecomment-415976963"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite commented on issue BryanWilhite/Songhay.Dashboard#11"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_comment\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom border-gray py-3\">\n    <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          issue\n          <a class=\"link-gray-dark text-bold\" title=\"“We found a potential security vulnerability in one of your dependencies.”\" href=\"/BryanWilhite/Songhay.Dashboard/issues/11#issuecomment-415976963\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard#11</a>\n          <span class=\"f6 text-gray-light ml-1\">\n            <relative-time datetime=\"2018-08-25T15:28:46Z\">Aug 25, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3\">\n      <div class=\"f6 mb-1\">\n        <a title=\"“We found a potential security vulnerability in one of your dependencies.”\" class=\"link-gray\" href=\"/BryanWilhite/Songhay.Dashboard/issues/11#issuecomment-415976963\" rel=\"noreferrer\"><img class=\"avatar mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"link-gray-dark text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2018-08-25T15:28:46Z\">Aug 25, 2018</relative-time></a>\n      </div>\n        <p>today i am no longer seeing the warning on GitHub</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssuesEvent/8166910955",
+            "published": "2018-08-25T15:27:21Z",
+            "updated": "2018-08-25T15:27:21Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/10"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite closed an issue in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_closed\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            closed\n            an issue in\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n          <span class=\"f6 text-gray-light no-wrap ml-1\">\n            <relative-time datetime=\"2018-08-25T15:27:21Z\">Aug 25, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-closed closed d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold text-gray-dark\">\n          <a title=\"npm audit &amp;&amp; npm outdated log [2018-08]\" class=\"text-gray-dark\" aria-label=\"npm audit &amp;&amp; npm outdated log [2018-08]\" href=\"/BryanWilhite/Songhay.Dashboard/issues/10\" rel=\"noreferrer\">npm audit &amp;&amp; npm outdated log [2018-08]</a>\n        </span>\n        <span class=\"f4 text-gray-light ml-1\">#10</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p>the trailing end of <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load issue title\" data-id=\"348808217\" data-permission-text=\"Issue title is private\" data-url=\"https://github.com/BryanWilhite/Songhay.Dashboard/issues/4\" href=\"https://github.com/BryanWilhite/Songhay.Dashboard/issues/4\" rel=\"noreferrer\">#4</a> tells me that dealing with <code>audit</code> and <code>outdated</code> issues will never end as long as the state of the art is the crap we have now;…</p>\n          </div>\n\n          <div class=\"f6 text-gray mt-1\">\n            3 comments\n          </div>\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssuesEvent/8166247937",
+            "published": "2018-08-25T06:23:16Z",
+            "updated": "2018-08-25T06:23:16Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/12"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite closed an issue in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_closed\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            closed\n            an issue in\n            <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n          <span class=\"f6 text-gray-light no-wrap ml-1\">\n            <relative-time datetime=\"2018-08-25T06:23:16Z\">Aug 25, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-closed closed d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold text-gray-dark\">\n          <a title=\"add SonghaySystem(::) studio component\" class=\"text-gray-dark\" aria-label=\"add SonghaySystem(::) studio component\" href=\"/BryanWilhite/Songhay.Dashboard/issues/12\" rel=\"noreferrer\">add SonghaySystem(::) studio component</a>\n        </span>\n        <span class=\"f4 text-gray-light ml-1\">#12</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p>anti-logo:\n<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://user-images.githubusercontent.com/5226627/44306099-83d5eb00-a33c-11e8-9f7b-8de19c39a7ea.png\"></a>\nsocial media badges:\n<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://user-images.githubusercontent.com/5226627/44306094-6dc82a80-a33c-11e8-9e03-4312c35fb8d7.png\"></a>\nand version badges:\n<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://user-images.githubusercontent.com/5226627/44306115-dca58380-a33c-11e8-92c8-ef3ffdfca5ce.png\"></a></p>\n          </div>\n\n          <div class=\"f6 text-gray mt-1\">\n            3 comments\n          </div>\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssueCommentEvent/8166247933",
+            "published": "2018-08-25T06:23:16Z",
+            "updated": "2018-08-25T06:23:16Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/12#issuecomment-415943431"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite commented on issue BryanWilhite/Songhay.Dashboard#12"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_comment\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom border-gray py-3\">\n    <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          issue\n          <a class=\"link-gray-dark text-bold\" title=\"add SonghaySystem(::) studio component\" href=\"/BryanWilhite/Songhay.Dashboard/issues/12#issuecomment-415943431\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard#12</a>\n          <span class=\"f6 text-gray-light ml-1\">\n            <relative-time datetime=\"2018-08-25T06:23:16Z\">Aug 25, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3\">\n      <div class=\"f6 mb-1\">\n        <a title=\"add SonghaySystem(::) studio component\" class=\"link-gray\" href=\"/BryanWilhite/Songhay.Dashboard/issues/12#issuecomment-415943431\" rel=\"noreferrer\"><img class=\"avatar mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"link-gray-dark text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2018-08-25T06:23:16Z\">Aug 25, 2018</relative-time></a>\n      </div>\n        <p>the layout is essentially complete:\n<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://user-images.githubusercontent.com/5226627/44615666-93e64280-a7f4-11e8-9fba-6d1cdc18f9ad.png\"></a>\nonly the server-version is missing here</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:PushEvent/8166246126",
+            "published": "2018-08-25T06:22:03Z",
+            "updated": "2018-08-25T06:22:03Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/compare/82cc266571...7c1060922a"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite pushed to master in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"push\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n      <span class=\"f6 text-gray-light no-wrap ml-1\">\n        <relative-time datetime=\"2018-08-25T06:22:03Z\">Aug 25, 2018</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits pusher-is-only-committer\">\n            <ul>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"BryanWilhite\">\n                    <a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"></a>\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Dashboard/commit/7c1060922a3a484b3ab2c39c5109326683fcaa8c\" rel=\"noreferrer\">7c10609</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"lipstick\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f484.png\">💄</g-emoji> <g-emoji class=\"g-emoji\" alias=\"hammer\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f528.png\">🔨</g-emoji> issue #12\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:PushEvent/8166178554",
+            "published": "2018-08-25T05:26:51Z",
+            "updated": "2018-08-25T05:26:51Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/compare/2ece685545...82cc266571"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite pushed to master in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"push\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n      <span class=\"f6 text-gray-light no-wrap ml-1\">\n        <relative-time datetime=\"2018-08-25T05:26:51Z\">Aug 25, 2018</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>2 commits to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits pusher-is-only-committer\">\n            <ul>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"BryanWilhite\">\n                    <a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"></a>\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Dashboard/commit/82cc2665717fea7164d6afadcf74d8c5a8a1c03d\" rel=\"noreferrer\">82cc266</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"lipstick\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f484.png\">💄</g-emoji> issue #12\n                    </blockquote>\n                  </div>\n                </li>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"BryanWilhite\">\n                    <a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"></a>\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Dashboard/commit/e9adca66432546e742ac84a8a303a704762c01ee\" rel=\"noreferrer\">e9adca6</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"hammer\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f528.png\">🔨</g-emoji> loaded SVG sprites, addressing #12\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:PushEvent/8165889669",
+            "published": "2018-08-25T01:24:18Z",
+            "updated": "2018-08-25T01:24:18Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/compare/1ffaa523a7...2ece685545"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite pushed to master in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"push\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n      <span class=\"f6 text-gray-light no-wrap ml-1\">\n        <relative-time datetime=\"2018-08-25T01:24:18Z\">Aug 25, 2018</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>2 commits to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/7508f5b8c97d283891547e879afa0eea3dfdcc72/68747470733a2f2f322e67726176617461722e636f6d2f6176617461722f62346234343763316436386666646666333139393738373834303735356238373f643d68747470732533412532462532466173736574732d63646e2e6769746875622e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://2.gravatar.com/avatar/b4b447c1d68ffdff3199787840755b87?d=https%3A%2F%2Fassets-cdn.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Dashboard/commit/2ece685545c1a8793fbb68628c1bc64e5e72bf35\" rel=\"noreferrer\">2ece685</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"hammer\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f528.png\">🔨</g-emoji> <g-emoji class=\"g-emoji\" alias=\"lipstick\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f484.png\">💄</g-emoji> issue #12\n                    </blockquote>\n                  </div>\n                </li>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/7508f5b8c97d283891547e879afa0eea3dfdcc72/68747470733a2f2f322e67726176617461722e636f6d2f6176617461722f62346234343763316436386666646666333139393738373834303735356238373f643d68747470732533412532462532466173736574732d63646e2e6769746875622e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://2.gravatar.com/avatar/b4b447c1d68ffdff3199787840755b87?d=https%3A%2F%2Fassets-cdn.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Dashboard/commit/a96aa97f159cdbbc6c5f0926c95aa559bd17ff21\" rel=\"noreferrer\">a96aa97</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"hammer\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/1f528.png\">🔨</g-emoji> added app-studio-social and app-studio-versions, addressing #12\n                    </blockquote>\n                  </div>\n                </li>\n\n\n                <li class=\"f6 mt-2\">\n                  <a class=\"link-gray\" href=\"/BryanWilhite/Songhay.Dashboard/compare/1ffaa523a7...2ece685545\" rel=\"noreferrer\">3 more commits »</a>\n                </li>\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:IssueCommentEvent/8165514330",
+            "published": "2018-08-24T22:25:08Z",
+            "updated": "2018-08-24T22:25:08Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/issues/12#issuecomment-415898099"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite commented on issue BryanWilhite/Songhay.Dashboard#12"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"issues_comment\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom border-gray py-3\">\n    <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          issue\n          <a class=\"link-gray-dark text-bold\" title=\"add SonghaySystem(::) studio component\" href=\"/BryanWilhite/Songhay.Dashboard/issues/12#issuecomment-415898099\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard#12</a>\n          <span class=\"f6 text-gray-light ml-1\">\n            <relative-time datetime=\"2018-08-24T22:25:08Z\">Aug 24, 2018</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3\">\n      <div class=\"f6 mb-1\">\n        <a title=\"add SonghaySystem(::) studio component\" class=\"link-gray\" href=\"/BryanWilhite/Songhay.Dashboard/issues/12#issuecomment-415898099\" rel=\"noreferrer\"><img class=\"avatar mr-1\" src=\"https://avatars3.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"link-gray-dark text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2018-08-24T22:25:08Z\">Aug 24, 2018</relative-time></a>\n      </div>\n        <p>for the sake of organization, let's try again:\n<span class=\"pl-c1\">ng generate component components/dashboard/studio --flat=false --module=app --styleext=scss --dry-run</span></p>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          },
+          {
+            "id": "tag:github.com,2008:PushEvent/8148114080",
+            "published": "2018-08-22T03:43:49Z",
+            "updated": "2018-08-22T03:43:49Z",
+            "link": {
+              "@type": "text/html",
+              "@rel": "alternate",
+              "@href": "https://github.com/BryanWilhite/Songhay.Dashboard/compare/aea4f52cd3...1ffaa523a7"
+            },
+            "title": {
+              "@type": "html",
+              "#text": "BryanWilhite pushed to master in BryanWilhite/Songhay.Dashboard"
+            },
+            "author": {
+              "name": "BryanWilhite",
+              "email": "",
+              "uri": "https://github.com/BryanWilhite"
+            },
+            "media:thumbnail": {
+              "@height": "30",
+              "@width": "30",
+              "@url": "https://avatars3.githubusercontent.com/u/5226627?s=30&v=4"
+            },
+            "content": {
+              "@type": "html",
+              "#text": "<div class=\"push\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom py-3\">\n  <span class=\"mr-3\">\n  <a href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar\" src=\"https://avatars0.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a>\n</span>\n\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"link-gray-dark no-underline text-bold wb-break-all\" href=\"/BryanWilhite/Songhay.Dashboard\" rel=\"noreferrer\">BryanWilhite/Songhay.Dashboard</a>\n      <span class=\"f6 text-gray-light no-wrap ml-1\">\n        <relative-time datetime=\"2018-08-22T03:43:49Z\">Aug 22, 2018</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Dashboard/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul>\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/7508f5b8c97d283891547e879afa0eea3dfdcc72/68747470733a2f2f322e67726176617461722e636f6d2f6176617461722f62346234343763316436386666646666333139393738373834303735356238373f643d68747470732533412532462532466173736574732d63646e2e6769746875622e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://2.gravatar.com/avatar/b4b447c1d68ffdff3199787840755b87?d=https%3A%2F%2Fassets-cdn.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Dashboard/commit/1ffaa523a740fd07abeac26027231b6e7f262265\" rel=\"noreferrer\">1ffaa52</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"snowflake\" fallback-src=\"https://assets-cdn.github.com/images/icons/emoji/unicode/2744.png\">❄️</g-emoji> ran npm install\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+            }
+          }
+        ]
+      }
+    },
+    "studio": {
+      "rss": {
+        "@version": "2.0",
+        "channel": {
+          "pubDate": "Fri, 10 Aug 2018 17:27:37 GMT",
+          "title": ">DayPath_",
+          "description": "The technical journey of @BryanWilhite.",
+          "copyright": "Bryan Wilhite, Songhay System 2018",
+          "link": "http://songhayblog.azurewebsites.net/",
+          "item": [
+            {
+              "title": "studio status report: 2018-08",
+              "link": "http://songhayblog.azurewebsites.net/blog/entry/studio-status-report-2018-08",
+              "description": "Going forward from here my passive-voice intention is to keep track of myself monthly. My work habits have always included keeping a private journal. In the “early years,” one Microsoft Word document per year was enough. As my software-development surfac...",
+              "author": "rasx@songhaysystem.com",
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "studio-status-report-2018-08"
+              },
+              "pubDate": "Fri, 10 Aug 2018 17:25:50 GMT"
+            },
+            {
+              "title": "“How to make responsiveness super simple with CSS Variables” and other Tweeted links…",
+              "link": "http://songhayblog.azurewebsites.net/blog/entry/how-to-make-responsiveness-super-simple-with-css-variables-and-other-tweeted-links",
+              "description": "How to make responsiveness super simple with CSS Variables A quick tutorial on how to create responsive websites i…\r\n      [twitter.com] The 3.0 releases of our aXe\r\n      #a11y extensions are out! You can now test inside of Shadow DOM and with some new ...",
+              "author": "rasx@songhaysystem.com",
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "how-to-make-responsiveness-super-simple-with-css-variables-and-other-tweeted-links"
+              },
+              "pubDate": "Wed, 08 Aug 2018 17:41:02 GMT"
+            },
+            {
+              "title": "“Glide.js: A Dependency-Free ES6 Slider and Carousel” and other Tweeted links…",
+              "link": "http://songhayblog.azurewebsites.net/blog/entry/glide-js-a-dependency-free-es6-slider-and-carousel-and-other-tweeted-links",
+              "description": "Glide.js: A Dependency-Free ES6 Slider and Carousel -\r\n      [glidejs.com] (\"Designed to slide. No less, no more\" says the creator.) A Responsive Accessible Table\r\n      [adrianroselli.com] Since their “redesign”\r\n      @HSBC_UK online banking is now bar...",
+              "author": "rasx@songhaysystem.com",
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "glide-js-a-dependency-free-es6-slider-and-carousel-and-other-tweeted-links"
+              },
+              "pubDate": "Tue, 07 Aug 2018 16:59:20 GMT"
+            },
+            {
+              "title": "“SVG Polygon Generator” and other Tweeted links…",
+              "link": "http://songhayblog.azurewebsites.net/blog/entry/svg-polygon-generator-and-other-tweeted-links",
+              "description": "SVG Polygon Generator\r\n      [codepen.io] Design—and designers—seem perpetually threatened by democratization. -\r\n      [subtraction.com] -\r\n      [twitter.com] \"...among the eight most important qualities of Google’s top employees, STEM expertise comes ...",
+              "author": "rasx@songhaysystem.com",
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "svg-polygon-generator-and-other-tweeted-links"
+              },
+              "pubDate": "Mon, 06 Aug 2018 21:06:48 GMT"
+            },
+            {
+              "title": "“Implementing an Infinite Scroll with Vue.js” and other Tweeted links…",
+              "link": "http://songhayblog.azurewebsites.net/blog/entry/implementing-an-infinite-scroll-with-vue-js-and-other-tweeted-links",
+              "description": "Implementing an Infinite Scroll with Vue.js:\r\n      [alligator.io] Build a Basic CRUD App with Vue.js and Node by sitepointdotcom\r\n      [javascriptkicks.com]#javascript#vuejs#nodejs via JavaScriptKicks How\r\n      #CSS works: Parsing &amp; painting CSS i...",
+              "author": "rasx@songhaysystem.com",
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "implementing-an-infinite-scroll-with-vue-js-and-other-tweeted-links"
+              },
+              "pubDate": "Sat, 04 Aug 2018 00:30:25 GMT"
+            },
+            {
+              "title": "“There are at least 🖐 five services that can process your static &lt;form&gt; for you” and other Tweeted links…",
+              "link": "http://songhayblog.azurewebsites.net/blog/entry/there-are-at-least-five-services-that-can-process-your-static-form-for-you-and-other-tweeted-links",
+              "description": "There are at least 🖐 five services that can process your static &lt;form&gt; for you: ①\r\n      [pageclip.co]\r\n\r\n      ②…\r\n      [twitter.com] A Practical Guide to Angular Elements:\r\n      [nitayneeman.com] People keep asking me about CSS Grid \"best prac...",
+              "author": "rasx@songhaysystem.com",
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "there-are-at-least-five-services-that-can-process-your-static-form-for-you-and-other-tweeted-links"
+              },
+              "pubDate": "Wed, 01 Aug 2018 15:48:27 GMT"
+            },
+            {
+              "title": "“Using Color Psychology for Better Website Results” and other Tweeted links…",
+              "link": "http://songhayblog.azurewebsites.net/blog/entry/using-color-psychology-for-better-website-results-and-other-tweeted-links",
+              "description": "Using Color Psychology for Better Website Results\r\n      [speckyboy.com] Creating smooth sequential animations with Sass\r\n      [glennmccomb.com]#webdevelopment “How we designed page previews for Wikipedia — and what could be done with them in the future...",
+              "author": "rasx@songhaysystem.com",
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "using-color-psychology-for-better-website-results-and-other-tweeted-links"
+              },
+              "pubDate": "Mon, 30 Jul 2018 23:30:53 GMT"
+            },
+            {
+              "title": "“Everything you need to know about change detection in Angular” and other Tweeted links…",
+              "link": "http://songhayblog.azurewebsites.net/blog/entry/everything-you-need-to-know-about-change-detection-in-angular-and-other-tweeted-links",
+              "description": "“Everything you need to know about change detection in Angular” by\r\n      @maxim_koretskyi[blog.angularindepth.com] 🔥 I hear *a lot* from people who would like to create native-like animations on the web, so I made a write-up &amp;&amp; de…\r\n      [twit...",
+              "author": "rasx@songhaysystem.com",
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "everything-you-need-to-know-about-change-detection-in-angular-and-other-tweeted-links"
+              },
+              "pubDate": "Thu, 26 Jul 2018 17:30:26 GMT"
+            },
+            {
+              "title": "“Gestalt Theory for #UX #Design” and other Tweeted links…",
+              "link": "http://songhayblog.azurewebsites.net/blog/entry/gestalt-theory-for-ux-design-and-other-tweeted-links",
+              "description": "Gestalt Theory for\r\n      #UX#Design: Principle of Proximity\r\n      [tubikstudio.com] Tabbed Interfaces\r\n      [inclusive-components.design] Simple Icon Generator\r\n      [prefinem.com]#UI ⚛️ Preact, a fast 3KB React alternative with the same API, has jus...",
+              "author": "rasx@songhaysystem.com",
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "gestalt-theory-for-ux-design-and-other-tweeted-links"
+              },
+              "pubDate": "Wed, 25 Jul 2018 17:39:00 GMT"
+            },
+            {
+              "title": "“Analyzing the Hamburger Menu in Web Design” and other Tweeted links…",
+              "link": "http://songhayblog.azurewebsites.net/blog/entry/analyzing-the-hamburger-menu-in-web-design-and-other-tweeted-links",
+              "description": "Analyzing the Hamburger Menu in Web Design\r\n      [speckyboy.com] Information Architecture. The Most Important Part of Design You’re Probably Overlooking.\r\n      [blog.prototypr.io] Getting Started with\r\n      #CSS Counters\r\n      [scotch.io] 24 Ways to ...",
+              "author": "rasx@songhaysystem.com",
+              "guid": {
+                "@isPermaLink": "false",
+                "#text": "analyzing-the-hamburger-menu-in-web-design-and-other-tweeted-links"
+              },
+              "pubDate": "Mon, 23 Jul 2018 16:03:29 GMT"
+            }
+          ]
+        }
+      }
+    }
+  }
 }
