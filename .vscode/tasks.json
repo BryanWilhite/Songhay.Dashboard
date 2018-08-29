@@ -5,9 +5,20 @@
             "label": "build",
             "command": "dotnet",
             "type": "process",
+            "args": ["build", "${workspaceFolder}/Songhay.Dashboard.sln"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test [Songhay.Dashboard.Shell.Tests, filtered by selected text]",
+            "command": "dotnet",
+            "type": "shell",
             "args": [
-                "build",
-                "${workspaceFolder}/Songhay.Dashboard.sln"
+                "test",
+                "${workspaceFolder}/Songhay.Dashboard.Shell.Tests/Songhay.Dashboard.Shell.Tests.csproj",
+                "--filter:${selectedText}",
+                "--logger:trx",
+                "--results-directory:${workspaceFolder}/TestResults",
+                "--verbosity:normal"
             ],
             "problemMatcher": "$msCompile"
         },

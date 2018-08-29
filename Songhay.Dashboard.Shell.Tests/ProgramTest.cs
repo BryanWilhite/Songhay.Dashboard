@@ -62,7 +62,7 @@ namespace Songhay.Dashboard.Shell.Tests
             #region test properties:
 
             var serverMetadataFile = this.TestContext.Properties["serverMetadataFile"].ToString();
-            serverMetadataFile = Path.Combine(projectDirectoryInfo.FullName, serverMetadataFile);
+            serverMetadataFile = projectDirectoryInfo.FullName.ToCombinedPath(serverMetadataFile);
             this.TestContext.ShouldFindFile(serverMetadataFile);
 
             #endregion
