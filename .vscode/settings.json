@@ -1,4 +1,13 @@
 {
+    "cSpell.ignorePaths": [
+        "**/assets/data/**",
+        "**/package-lock.json",
+        "**/node_modules/**",
+        "**/vscode-extension/**",
+        "**/.git/**",
+        ".vscode",
+        "typings"
+    ],
     "cSpell.words": [
         "akyinkyin",
         "codepen",
