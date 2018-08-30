@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
@@ -41,6 +41,15 @@ export class DashboardDataService extends AppDataService {
     feeds: Map<string, any>;
 
     /**
+     * emits event when loadAppData resolves
+     *
+     * @type {EventEmitter<Map<string, any>>}
+     * @memberof DashboardDataService
+     */
+    @Output()
+    appDataLoaded: EventEmitter<Map<string, any>>;
+
+    /**
      * creates an instance of DashboardDataService.
      *
      * @param {Http} client
@@ -48,6 +57,9 @@ export class DashboardDataService extends AppDataService {
      */
     constructor(client: Http) {
         super(client);
+
+        this.appDataLoaded = new EventEmitter<Map<string, any>>();
+
         this.initialize();
     }
 
@@ -77,6 +89,8 @@ export class DashboardDataService extends AppDataService {
 
                 return;
             }
+
+            this.appDataLoaded.emit(this.feeds);
         };
 
         const promise = new Promise<Response>(
