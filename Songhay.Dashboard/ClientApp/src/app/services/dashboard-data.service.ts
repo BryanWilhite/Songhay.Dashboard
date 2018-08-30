@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AppDataService } from './songhay-app-data.service';
 import { Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
+import { AppDataService } from './songhay-app-data.service';
 import { AppScalars } from '../models/songhay-app-scalars';
 import { AssemblyInfo } from '../models/songhay-assembly-info';
 import { DisplayItemModel } from '../models/songhay-display-item-model';
@@ -36,10 +36,10 @@ export class DashboardDataService extends AppDataService {
     /**
      * map of RSS/Atom feeds
      *
-     * @type {Map<string, DisplayItemModel>}
+     * @type {Map<string, DisplayItemModel[]>}
      * @memberof DashboardDataService
      */
-    feeds: Map<string, DisplayItemModel>;
+    feeds: Map<string, DisplayItemModel[]>;
 
     /**
      * creates an instance of DashboardDataService.
@@ -62,13 +62,25 @@ export class DashboardDataService extends AppDataService {
         this.initialize();
 
         const rejectionExecutor = (response: Response, reject: any) => {
-            const map = response.json()['feeds'] as Map<string, any>;
+            const rawMap = response.json()['feeds'] as Map<string, any>;
 
-            if (!map) {
+            if (!rawMap) {
                 reject('feeds map is not truthy.');
-
                 return;
             }
+
+            Array.from(rawMap.keys()).map(key => {
+                const rawFeed: any = rawMap.get(key);
+                let models: DisplayItemModel[];
+                switch (key) {
+                    case 'github':
+                        models = this.getAtomDisplayItemModels(rawFeed);
+                        break;
+                    default:
+                        models = this.getRssDisplayItemModels(rawFeed);
+                }
+                this.feeds.set(key, models);
+            });
 
             this.assemblyInfo = response.json()['serverMeta'][
                 'assemblyInfo'
@@ -88,8 +100,16 @@ export class DashboardDataService extends AppDataService {
         return promise;
     }
 
+    private getAtomDisplayItemModels(rawFeed: any): DisplayItemModel[] {
+        throw new Error('Method not implemented.');
+    }
+
+    private getRssDisplayItemModels(rawFeed: any): DisplayItemModel[] {
+        throw new Error('Method not implemented.');
+    }
+
     private initialize(): void {
-        this.feeds = null;
+        this.feeds = new Map<string, DisplayItemModel[]>();
 
         super.initializeLoadState();
     }
