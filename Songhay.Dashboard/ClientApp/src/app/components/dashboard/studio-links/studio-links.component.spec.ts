@@ -1,3 +1,5 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StudioLinksComponent } from './studio-links.component';
@@ -8,7 +10,8 @@ describe('StudioLinksComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [StudioLinksComponent]
+            declarations: [StudioLinksComponent],
+            schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
     }));
 

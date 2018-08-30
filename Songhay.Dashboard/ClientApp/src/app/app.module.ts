@@ -23,10 +23,10 @@ import { StudioVersionsComponent } from './components/dashboard/studio-versions/
         AppComponent,
         DashboardComponent,
         StudioComponent,
+        StudioLinksComponent,
         StudioLogoComponent,
         StudioSocialComponent,
-        StudioVersionsComponent,
-        StudioLinksComponent
+        StudioVersionsComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
