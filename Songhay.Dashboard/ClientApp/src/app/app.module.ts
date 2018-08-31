@@ -15,6 +15,7 @@ import { AppComponent } from './components/app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StudioComponent } from './components/dashboard/studio/studio.component';
 import { StudioFeedComponent } from './components/dashboard/studio-feed/studio-feed.component';
+import { StudioFeedFlickrComponent } from './components/dashboard/studio-feed-flickr/studio-feed-flickr.component';
 import { StudioFeedGithubComponent } from './components/dashboard/studio-feed-github/studio-feed-github.component';
 import { StudioLinksComponent } from './components/dashboard/studio-links/studio-links.component';
 import { StudioLogoComponent } from './components/dashboard/studio-logo/studio-logo.component';
@@ -29,6 +30,7 @@ import { StudioFeedCodepenComponent } from './components/dashboard/studio-feed-c
         StudioComponent,
         StudioFeedComponent,
         StudioFeedGithubComponent,
+        StudioFeedFlickrComponent,
         StudioLinksComponent,
         StudioLogoComponent,
         StudioSocialComponent,
