@@ -1,7 +1,10 @@
 @import '../../../../assets/scss/normalize-component';
 
 .mat-card {
-    & ::ng-deep .mat-card-header-text {
-        display: none;
+    text-align: center;
+    & ::ng-deep {
+        .mat-card-header-text {
+            display: none;
+        }
     }
 }

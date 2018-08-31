@@ -3,13 +3,11 @@
 
 .dash {
     margin: 0 auto;
-    max-width: 56rem;
-    width: 90%;
+    max-width: 64rem;
 
     & > div {
         background-color: transparent;
         margin: .5rem;
-        padding: 1rem;
-        text-align: center;
+        min-width: 16rem;
     }
 }

@@ -1,0 +1,19 @@
+@import '../../../../assets/scss/normalize-component';
+@import '../../../../assets/scss/themes/akyinkyin/palette';
+
+.mat-card {
+    ::ng-deep {
+        & a:link,
+        a:visited {
+            color: $light-primary-text;
+            text-decoration: none;
+        }
+        & a:hover {
+            color: $akyinkyin-light-tint;
+        }
+        & .mat-card-content {
+            max-height: 16rem;
+            overflow-y: auto;
+        }
+    }
+}
