@@ -10,7 +10,7 @@
         }
         & .mat-card-content {
             max-height: 16rem;
-            overflow-x: auto;
+            overflow-x: hidden;
             overflow-y: auto;
 
             & li {

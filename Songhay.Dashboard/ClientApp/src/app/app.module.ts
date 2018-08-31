@@ -20,6 +20,7 @@ import { StudioLinksComponent } from './components/dashboard/studio-links/studio
 import { StudioLogoComponent } from './components/dashboard/studio-logo/studio-logo.component';
 import { StudioSocialComponent } from './components/dashboard/studio-social/studio-social.component';
 import { StudioVersionsComponent } from './components/dashboard/studio-versions/studio-versions.component';
+import { StudioFeedCodepenComponent } from './components/dashboard/studio-feed-codepen/studio-feed-codepen.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { StudioVersionsComponent } from './components/dashboard/studio-versions/
         StudioLinksComponent,
         StudioLogoComponent,
         StudioSocialComponent,
-        StudioVersionsComponent
+        StudioVersionsComponent,
+        StudioFeedCodepenComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
