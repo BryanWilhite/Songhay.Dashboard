@@ -1,20 +1,20 @@
-<div class="dash flex-layout-container" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="0.5%">
+<div class="dash flex-layout-container" fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutAlign="center" fxLayoutGap="0.5%">
     <div fxFlex>
         <app-studio></app-studio>
     </div>
     <div fxFlex>
         <app-studio-links></app-studio-links>
     </div>
-    <div fxFlex>
+    <div fxFlex="30">
         <app-studio-feed></app-studio-feed>
     </div>
-    <div fxFlex>
+    <div fxFlex="30">
+        <app-studio-feed-flickr></app-studio-feed-flickr>
+    </div>
+    <div fxFlex="30">
         <app-studio-feed-github></app-studio-feed-github>
     </div>
-    <div fxFlex>
+    <div fxFlex="30">
         <app-studio-feed-codepen></app-studio-feed-codepen>
-    </div>
-    <div fxFlex>
-        <app-studio-feed-flickr></app-studio-feed-flickr>
     </div>
 </div>
