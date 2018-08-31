@@ -6,6 +6,7 @@ import 'rxjs/add/operator/toPromise';
 import { AppDataService } from './songhay-app-data.service';
 import { AppScalars } from '../models/songhay-app-scalars';
 import { AssemblyInfo } from '../models/songhay-assembly-info';
+import { SyndicationFeed } from '../models/songhay-syndication-feed';
 
 /**
  * data service of this App
@@ -35,19 +36,19 @@ export class DashboardDataService extends AppDataService {
     /**
      * map of RSS/Atom feeds
      *
-     * @type {Map<string, any>}
+     * @type {Map<string, SyndicationFeed>}
      * @memberof DashboardDataService
      */
-    feeds: Map<string, any>;
+    feeds: Map<string, SyndicationFeed>;
 
     /**
      * emits event when loadAppData resolves
      *
-     * @type {EventEmitter<Map<string, any>>}
+     * @type {EventEmitter<Map<string, SyndicationFeed>>}
      * @memberof DashboardDataService
      */
     @Output()
-    appDataLoaded: EventEmitter<Map<string, any>>;
+    appDataLoaded: EventEmitter<Map<string, SyndicationFeed>>;
 
     /**
      * creates an instance of DashboardDataService.
@@ -58,7 +59,7 @@ export class DashboardDataService extends AppDataService {
     constructor(client: Http) {
         super(client);
 
-        this.appDataLoaded = new EventEmitter<Map<string, any>>();
+        this.appDataLoaded = new EventEmitter<Map<string, SyndicationFeed>>();
 
         this.initialize();
     }
@@ -73,7 +74,14 @@ export class DashboardDataService extends AppDataService {
         this.initialize();
 
         const rejectionExecutor = (response: Response, reject: any) => {
-            this.feeds = response.json()['feeds'] as Map<string, any>;
+            const rawFeeds = response.json()['feeds'] as Map<string, any>;
+
+            if (!rawFeeds) {
+                reject('raw feeds map is not truthy.');
+                return;
+            }
+
+            this.feeds = this.getFeeds(rawFeeds);
 
             if (!this.feeds) {
                 reject('feeds map is not truthy.');
@@ -98,6 +106,67 @@ export class DashboardDataService extends AppDataService {
         );
 
         return promise;
+    }
+
+    private getFeed(key: string, rawFeed: any): SyndicationFeed {
+        const feed = new SyndicationFeed();
+        let channelItems: {}[];
+
+        switch (key) {
+            case AppScalars.feedNameCodePen:
+            case AppScalars.feedNameFlickr:
+            case AppScalars.feedNameStudio:
+                feed.feedTitle = SyndicationFeed.getRssChannelTitle(rawFeed);
+                channelItems = SyndicationFeed.getRssChannelItems(rawFeed);
+                feed.feedItems = channelItems.map(item => {
+                    return { title: item['title'], link: item['link'] };
+                });
+                break;
+
+            case AppScalars.feedNameGitHub:
+            case AppScalars.feedNameStackOverflow:
+                feed.feedTitle = SyndicationFeed.getAtomChannelTitle(rawFeed);
+                channelItems = SyndicationFeed.getAtomChannelItems(rawFeed);
+                break;
+        }
+
+        switch (key) {
+            case AppScalars.feedNameCodePen:
+                feed.feedImage = `${feed.feedItems[0].link}/image/large.png`;
+                break;
+            case AppScalars.feedNameFlickr:
+                feed.feedImage = channelItems[0]['enclosure']['@url'];
+                break;
+            case AppScalars.feedNameGitHub:
+                feed.feedItems = channelItems.map(item => {
+                    return {
+                        title: (item['title']['#text'] as string).replace(
+                            'BryanWilhite ',
+                            ''
+                        ),
+                        link: item['link']['@href']
+                    };
+                });
+                break;
+            case AppScalars.feedNameStackOverflow:
+                feed.feedItems = channelItems.map(item => {
+                    return {
+                        title: item['title'],
+                        link: item['link']['@href']
+                    };
+                });
+                break;
+        }
+
+        return feed;
+    }
+
+    private getFeeds(rawFeeds: Map<string, any>): Map<string, SyndicationFeed> {
+        rawFeeds.forEach((rawFeed, key, map) => {
+            const feed = this.getFeed(key, rawFeed);
+            map.set(key, feed);
+        });
+        return rawFeeds as Map<string, SyndicationFeed>;
     }
 
     private initialize(): void {
