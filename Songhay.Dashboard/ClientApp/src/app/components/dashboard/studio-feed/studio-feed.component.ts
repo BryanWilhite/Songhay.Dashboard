@@ -1,44 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { DashboardDataService } from '../../../services/dashboard-data.service';
+import { Component, Input, OnInit } from '@angular/core';
 
+import { DashboardDataService } from '../../../services/dashboard-data.service';
+import { SyndicationFeed } from '../../../models/songhay-syndication-feed';
+
+/**
+ * displays syndication feeds
+ *
+ * @export
+ * @class StudioFeedComponent
+ * @implements {OnInit}
+ */
 @Component({
     selector: 'app-studio-feed',
     templateUrl: './studio-feed.component.html',
     styleUrls: ['./studio-feed.component.scss']
 })
 export class StudioFeedComponent implements OnInit {
-    feedItems: { title: string; link: string }[];
-    feedTitle: string;
+    /**
+     * the feed to visualize
+     *
+     * @type {SyndicationFeed}
+     * @memberof StudioFeedComponent
+     */
+    feed: SyndicationFeed;
 
+    /**
+     * configured name of the syndication feed
+     *
+     * @type {string}
+     * @memberof StudioFeedComponent
+     */
+    @Input()
+    feedName: string;
+
+    /**
+     *Creates an instance of StudioFeedComponent.
+     * @param {DashboardDataService} dashService
+     * @memberof StudioFeedComponent
+     */
     constructor(private dashService: DashboardDataService) {}
 
+    /**
+     * implementing {OnInit}
+     *
+     * @memberof StudioFeedComponent
+     */
     ngOnInit() {
         this.dashService.appDataLoaded.subscribe((feed: Map<string, any>) => {
-            const rawFeed: any = feed['studio'];
-            if (!rawFeed) {
-                console.log('the expected raw feed is not here');
-                return;
-            }
-
-            const channel: any = rawFeed['rss']['channel'];
-            if (!channel) {
-                console.log('the expected RSS channel is not here');
-                return;
-            }
-            this.feedTitle = channel['title'];
-
-            const channelItems: {}[] = rawFeed['rss']['channel']['item'];
-            if (!channelItems) {
-                console.log('the expected RSS channel root is not here');
-                return;
-            }
-            if (!channelItems.length) {
-                console.log('the expected RSS channel items are not here');
-                return;
-            }
-            this.feedItems = channelItems.map(item => {
-                return { title: item['title'], link: item['link'] };
-            });
+            this.feedName = 'studio';
+            this.feed = this.dashService.feeds[this.feedName];
         });
     }
 }

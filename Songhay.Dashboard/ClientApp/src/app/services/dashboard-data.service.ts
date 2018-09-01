@@ -74,7 +74,7 @@ export class DashboardDataService extends AppDataService {
         this.initialize();
 
         const rejectionExecutor = (response: Response, reject: any) => {
-            const rawFeeds = response.json()['feeds'] as Map<string, any>;
+            const rawFeeds = response.json()['feeds'] as {};
 
             if (!rawFeeds) {
                 reject('raw feeds map is not truthy.');
@@ -161,12 +161,13 @@ export class DashboardDataService extends AppDataService {
         return feed;
     }
 
-    private getFeeds(rawFeeds: Map<string, any>): Map<string, SyndicationFeed> {
-        rawFeeds.forEach((rawFeed, key, map) => {
+    private getFeeds(rawFeeds: {}): Map<string, SyndicationFeed> {
+        const iterable = Object.keys(rawFeeds).map(key => {
+            const rawFeed = rawFeeds[key];
             const feed = this.getFeed(key, rawFeed);
-            map.set(key, feed);
+            return [key, feed] as [string, SyndicationFeed];
         });
-        return rawFeeds as Map<string, SyndicationFeed>;
+        return new Map<string, SyndicationFeed>(iterable);
     }
 
     private initialize(): void {
