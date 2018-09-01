@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="dashService.isLoaded">
     <mat-card-header>
         <mat-card-title>
             <ng-container [ngSwitch]="feedName">

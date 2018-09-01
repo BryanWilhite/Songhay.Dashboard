@@ -39,7 +39,7 @@ export class StudioFeedComponent implements OnInit {
      * @param {DashboardDataService} dashService
      * @memberof StudioFeedComponent
      */
-    constructor(private dashService: DashboardDataService) {
+    constructor(public dashService: DashboardDataService) {
         this.feed = new SyndicationFeed();
         this.feedName = AppScalars.feedNameStudio;
     }
