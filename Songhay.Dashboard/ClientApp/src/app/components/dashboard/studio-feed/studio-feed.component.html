@@ -2,6 +2,7 @@
     <mat-card-header>
         <mat-card-title>{{ feed.feedTitle }}</mat-card-title>
     </mat-card-header>
+    <img *ngIf="feed.feedImage" mat-card-image src="{{ feed.feedImage }}" alt="feed image" />
     <mat-card-content>
         <ul>
             <li *ngFor="let item of feed.feedItems">

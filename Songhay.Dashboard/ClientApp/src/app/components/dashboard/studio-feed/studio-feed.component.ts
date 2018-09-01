@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnInit
+} from '@angular/core';
 
 import { DashboardDataService } from '../../../services/dashboard-data.service';
 import { SyndicationFeed } from '../../../models/songhay-syndication-feed';
@@ -11,6 +16,7 @@ import { SyndicationFeed } from '../../../models/songhay-syndication-feed';
  * @implements {OnInit}
  */
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-studio-feed',
     templateUrl: './studio-feed.component.html',
     styleUrls: ['./studio-feed.component.scss']
@@ -38,7 +44,9 @@ export class StudioFeedComponent implements OnInit {
      * @param {DashboardDataService} dashService
      * @memberof StudioFeedComponent
      */
-    constructor(private dashService: DashboardDataService) {}
+    constructor(private dashService: DashboardDataService) {
+        this.feed = new SyndicationFeed();
+    }
 
     /**
      * implementing {OnInit}
@@ -46,9 +54,10 @@ export class StudioFeedComponent implements OnInit {
      * @memberof StudioFeedComponent
      */
     ngOnInit() {
-        this.dashService.appDataLoaded.subscribe((feed: Map<string, any>) => {
-            this.feedName = 'studio';
-            this.feed = this.dashService.feeds[this.feedName];
-        });
+        this.dashService.appDataLoaded.subscribe(
+            (feed: Map<string, SyndicationFeed>) => {
+                this.feed = this.dashService.feeds.get(this.feedName);
+            }
+        );
     }
 }
