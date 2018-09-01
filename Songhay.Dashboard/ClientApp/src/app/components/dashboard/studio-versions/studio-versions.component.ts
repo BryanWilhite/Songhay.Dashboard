@@ -1,4 +1,6 @@
 import { Component, OnInit, VERSION } from '@angular/core';
+import { DashboardDataService } from '../../../services/dashboard-data.service';
+import { SyndicationFeed } from '../../../models/songhay-syndication-feed';
 
 @Component({
     selector: 'app-studio-versions',
@@ -14,11 +16,44 @@ export class StudioVersionsComponent implements OnInit {
      */
     clientFrameworkVersion: string;
 
-    constructor() {
+    /**
+     * server info
+     *
+     * @type {string}
+     * @memberof AppComponent
+     */
+    serverAssemblyInfo: string;
+
+    /**
+     * server version
+     *
+     * @type {string}
+     * @memberof AppComponent
+     */
+    serverAssemblyVersion: string;
+
+    constructor(public dashService: DashboardDataService) {
         this.clientFrameworkVersion = `${VERSION.major}.${VERSION.minor}.${
             VERSION.patch
         }`;
     }
 
-    ngOnInit() {}
+    /**
+     * implementing {OnInit}
+     *
+     * @memberof StudioFeedComponent
+     */
+    ngOnInit() {
+        this.dashService.appDataLoaded.subscribe(
+            (feeds: Map<string, SyndicationFeed>) => {
+                this.serverAssemblyInfo = `${
+                    this.dashService.assemblyInfo.assemblyTitle
+                } ${this.dashService.assemblyInfo.assemblyVersion} ${
+                    this.dashService.assemblyInfo.assemblyCopyright
+                }`;
+
+                this.serverAssemblyVersion = this.dashService.assemblyInfo.assemblyVersion;
+            }
+        );
+    }
 }

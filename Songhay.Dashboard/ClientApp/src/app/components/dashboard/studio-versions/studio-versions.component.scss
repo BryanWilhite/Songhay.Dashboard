@@ -2,4 +2,12 @@
 
 .version {
     display: inline-block;
+
+    & > span {
+        display: inline-block;
+        margin: 0.25rem;
+        & > span {
+            font-size: 0.9em;
+        }
+    }
 }
