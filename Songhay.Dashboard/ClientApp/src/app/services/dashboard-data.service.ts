@@ -135,6 +135,7 @@ export class DashboardDataService extends AppDataService {
                 feed.feedImage = `${feed.feedItems[0].link}/image/large.png`;
                 break;
             case AppScalars.feedNameFlickr:
+                feed.feedTitle = feed.feedTitle.replace('Content from ', '');
                 feed.feedImage = channelItems[0]['enclosure']['@url'];
                 break;
             case AppScalars.feedNameGitHub:

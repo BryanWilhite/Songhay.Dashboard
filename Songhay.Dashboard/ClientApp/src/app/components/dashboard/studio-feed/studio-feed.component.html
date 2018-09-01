@@ -1,6 +1,13 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>{{ feed.feedTitle }}</mat-card-title>
+        <mat-card-title>
+            <ng-container [ngSwitch]="feedName">
+                <mat-icon *ngSwitchCase="'codepen'" aria-label="feed icon" svgIcon="rx:mdi_codepen_24px"></mat-icon>
+                <mat-icon *ngSwitchCase="'github'" aria-label="feed icon" svgIcon="rx:mdi_github_circle_24px"></mat-icon>
+                <mat-icon *ngSwitchDefault aria-label="feed icon" svgIcon="rx:mdi_rss_24px"></mat-icon>
+            </ng-container>
+            <span>{{ feed.feedTitle }}</span>
+        </mat-card-title>
     </mat-card-header>
     <img *ngIf="feed.feedImage" mat-card-image src="{{ feed.feedImage }}" alt="feed image" />
     <mat-card-content>

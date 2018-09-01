@@ -5,7 +5,9 @@
     ::ng-deep {
         & .mat-card-title {
             color: $akyinkyin-light-tone;
-            font-weight: bold;
+            & span {
+                font-weight: bold;
+            }
         }
         & a:link,
         a:visited {
