@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { YouTubeThumbsSetComponent } from './components/you-tube-thumbs-set/you-tube-thumbs-set.component';
+
+const routes: Routes = [
+    { path: '', redirectTo: 'uploads', pathMatch: 'full' },
+    { path: 'uploads', component: YouTubeThumbsSetComponent }
+];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
