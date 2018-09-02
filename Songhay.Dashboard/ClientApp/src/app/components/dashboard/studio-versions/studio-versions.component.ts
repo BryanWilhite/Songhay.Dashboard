@@ -44,16 +44,14 @@ export class StudioVersionsComponent implements OnInit {
      * @memberof StudioFeedComponent
      */
     ngOnInit() {
-        this.dashService.appDataLoaded.subscribe(
-            (feeds: Map<string, SyndicationFeed>) => {
-                this.serverAssemblyInfo = `${
-                    this.dashService.assemblyInfo.assemblyTitle
-                } ${this.dashService.assemblyInfo.assemblyVersion} ${
-                    this.dashService.assemblyInfo.assemblyCopyright
-                }`;
+        this.dashService.appDataLoaded.subscribe(() => {
+            this.serverAssemblyInfo = `${
+                this.dashService.assemblyInfo.assemblyTitle
+            } ${this.dashService.assemblyInfo.assemblyVersion} ${
+                this.dashService.assemblyInfo.assemblyCopyright
+            }`;
 
-                this.serverAssemblyVersion = this.dashService.assemblyInfo.assemblyVersion;
-            }
-        );
+            this.serverAssemblyVersion = this.dashService.assemblyInfo.assemblyVersion;
+        });
     }
 }
