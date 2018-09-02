@@ -3,6 +3,15 @@
 
 .mat-card {
     ::ng-deep {
+
+        ::-webkit-scrollbar {
+            background-color: $greys-background;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: $akyinkyin-light-tone;
+        }
+
         & .mat-card-title {
             color: $akyinkyin-light-tone;
             & span {
@@ -21,6 +30,7 @@
             max-height: 16rem;
             overflow-x: hidden;
             overflow-y: auto;
+            padding-right: 0.5rem;
 
             & li {
                 list-style-type: square;
