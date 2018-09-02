@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { RoutingModule } from './routing.module';
+import { YouTubeModule } from './songhay/player/video/you-tube/you-tube.module';
 
 import { DashboardDataService } from './services/dashboard-data.service';
 
@@ -39,7 +40,8 @@ import { StudioVersionsComponent } from './components/dashboard/studio-versions/
         HttpModule,
         MaterialModule,
         ReactiveFormsModule,
-        RoutingModule
+        RoutingModule,
+        YouTubeModule
     ],
     providers: [DashboardDataService],
     bootstrap: [AppComponent]
