@@ -2,6 +2,8 @@ import * as _ from 'lodash';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { YouTubeDataService } from '../../services/you-tube-data.service';
+
 @Component({
     selector: 'app-you-tube-thumbs-navigation',
     templateUrl: './you-tube-thumbs-navigation.component.html',

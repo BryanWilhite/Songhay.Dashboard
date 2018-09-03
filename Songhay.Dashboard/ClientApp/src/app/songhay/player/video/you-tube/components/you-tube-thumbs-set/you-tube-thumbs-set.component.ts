@@ -1,6 +1,9 @@
+import { Location } from '@angular/common';
 import * as _ from 'lodash';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { YouTubeDataService } from '../../services/you-tube-data.service';
 
 @Component({
     selector: 'app-you-tube-thumbs-set',
@@ -15,6 +18,7 @@ export class YouTubeThumbsSetComponent implements OnInit {
     thumbsSetSuffix: string;
 
     constructor(
+        private location: Location,
         private route: ActivatedRoute,
         private dataServiceForYouTube: YouTubeDataService
     ) {}
@@ -37,7 +41,7 @@ export class YouTubeThumbsSetComponent implements OnInit {
         this.isSetLoading = true;
         this.dataServiceForYouTube
             .loadChannelSet(this.id)
-            .then(function(dataOrErrorResponse) {
+            .then((dataOrErrorResponse: { set: [{ items: [] }] }) => {
                 console.log(
                     'dataServiceForYouTube.loadChannelSet promised:',
                     dataOrErrorResponse
@@ -50,7 +54,7 @@ export class YouTubeThumbsSetComponent implements OnInit {
                         ']'
                     );
                     if (this.id) {
-                        this.router.navigate('/not-found').replace();
+                        this.location.replaceState('/not-found');
                     }
                     return;
                 }
@@ -58,7 +62,7 @@ export class YouTubeThumbsSetComponent implements OnInit {
                 this.isSetLoaded = true;
                 this.isSetLoading = false;
                 this.dataForYouTubeSet = _(dataOrErrorResponse.set).filter(
-                    function(i) {
+                    (i) => {
                         const test = i && i.items;
                         if (!test) {
                             console.log('filtered out: ', i);
