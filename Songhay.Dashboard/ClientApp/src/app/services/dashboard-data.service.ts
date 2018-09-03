@@ -7,6 +7,7 @@ import { AppDataService } from './songhay-app-data.service';
 import { AppScalars } from '../models/songhay-app-scalars';
 import { AssemblyInfo } from '../models/songhay-assembly-info';
 import { SyndicationFeed } from '../models/songhay-syndication-feed';
+import { MapObjectUtility } from './songhay-map-object-utility';
 
 /**
  * data service of this App
@@ -81,7 +82,11 @@ export class DashboardDataService extends AppDataService {
                 return;
             }
 
-            this.feeds = this.getFeeds(rawFeeds);
+            this.feeds = MapObjectUtility.getMap<SyndicationFeed>(
+                rawFeeds,
+                (propertyName, propertyValue) =>
+                    this.getFeed(propertyName, propertyValue)
+            );
 
             if (!this.feeds) {
                 reject('feeds map is not truthy.');
@@ -160,15 +165,6 @@ export class DashboardDataService extends AppDataService {
         }
 
         return feed;
-    }
-
-    private getFeeds(rawFeeds: {}): Map<string, SyndicationFeed> {
-        const iterable = Object.keys(rawFeeds).map(key => {
-            const rawFeed = rawFeeds[key];
-            const feed = this.getFeed(key, rawFeed);
-            return [key, feed] as [string, SyndicationFeed];
-        });
-        return new Map<string, SyndicationFeed>(iterable);
     }
 
     private initialize(): void {

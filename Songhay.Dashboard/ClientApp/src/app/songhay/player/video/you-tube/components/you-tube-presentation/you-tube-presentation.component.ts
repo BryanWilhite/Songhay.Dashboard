@@ -1,6 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { CssUtility } from '../../services/songhay-css.utility';
 import { YouTubeDataService } from '../../services/you-tube-data.service';
 
 @Component({
@@ -37,7 +39,6 @@ export class YouTubePresentationComponent implements OnInit {
     constructor(
         private location: Location,
         private route: ActivatedRoute,
-        private router: Router,
         private dataServiceForYouTube: YouTubeDataService
     ) {}
 
@@ -52,7 +53,7 @@ export class YouTubePresentationComponent implements OnInit {
         const data = this.dataForYouTubePresentation.presentation
             .LayoutMetadata;
         return {
-            'background-color': scope.$root.$rx.css.getColorHex(
+            'background-color': CssUtility.getColorHex(
                 data['@backgroundColor']
             )
         };
@@ -61,31 +62,31 @@ export class YouTubePresentationComponent implements OnInit {
         const data = this.dataForYouTubePresentation.presentation.LayoutMetadata
             .playlist;
         return {
-            'background-color': scope.$root.$rx.css.getColorHex(
+            'background-color': CssUtility.getColorHex(
                 data['@backgroundColor']
             ),
-            color: scope.$root.$rx.css.getColorHex(data['@color'])
+            color: CssUtility.getColorHex(data['@color'])
         };
     }
     getProseStyle() {
         const data = this.dataForYouTubePresentation.presentation.LayoutMetadata
             .prose;
         return {
-            'background-color': scope.$root.$rx.css.getColorHex(
+            'background-color': CssUtility.getColorHex(
                 data['@backgroundColor']
             ),
-            color: scope.$root.$rx.css.getColorHex(data['@color'])
+            color: CssUtility.getColorHex(data['@color'])
         };
     }
     getTitleStyle() {
         const data = this.dataForYouTubePresentation.presentation.LayoutMetadata
             .title;
         return {
-            'background-color': scope.$root.$rx.css.getColorHex(
+            'background-color': CssUtility.getColorHex(
                 data['@backgroundColor']
             ),
-            color: scope.$root.$rx.css.getColorHex(data['@color']),
-            display: scope.$root.$rx.css.getPixelValue(data['@display'])
+            color: CssUtility.getColorHex(data['@color']),
+            display: CssUtility.getPixelValue(data['@display'])
         };
     }
     isNotExpectedResponse(response) {
@@ -146,9 +147,9 @@ export class YouTubePresentationComponent implements OnInit {
                 this.isPresentationLoaded = true;
                 this.isPresentationLoading = false;
 
-                if (scope.clientVM) {
-                    scope.clientVM.style.body = this.getBodyStyle();
-                }
+                // if (scope.clientVM) {
+                //     scope.clientVM.style.body = this.getBodyStyle();
+                // }
                 this.style.playlist = this.getPlaylistStyle();
                 this.style.prose = this.getProseStyle();
                 this.style.title = this.getTitleStyle();

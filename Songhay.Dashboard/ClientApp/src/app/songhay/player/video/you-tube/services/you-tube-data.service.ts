@@ -33,7 +33,7 @@ export class YouTubeDataService extends AppDataService {
         return promise;
     }
 
-    loadChannelSet(id) {
+    loadChannelSet(id): Promise<Response> {
         const rejectionExecutor = (response: Response, reject: any) => {
             const data = response.json() as {};
 
@@ -55,7 +55,7 @@ export class YouTubeDataService extends AppDataService {
         return promise;
     }
 
-    loadChannelsIndex(suffix) {
+    loadChannelsIndex(suffix): Promise<Response> {
         const rejectionExecutor = (response: Response, reject: any) => {
             const data = response.json() as {};
 
@@ -77,7 +77,7 @@ export class YouTubeDataService extends AppDataService {
         return promise;
     }
 
-    loadPresentation(id) {
+    loadPresentation(id): Promise<Response> {
         const rejectionExecutor = (response: Response, reject: any) => {
             const data = response.json() as {};
 
@@ -96,7 +96,7 @@ export class YouTubeDataService extends AppDataService {
         return promise;
     }
 
-    loadVideos(id) {
+    loadVideos(id): Promise<Response> {
         const rejectionExecutor = (response: Response, reject: any) => {
             const data = response.json() as {};
 
