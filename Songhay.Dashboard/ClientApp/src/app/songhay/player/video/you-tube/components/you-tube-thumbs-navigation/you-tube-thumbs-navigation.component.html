@@ -1,3 +1,10 @@
-<p>
-  you-tube-thumbs-navigation works!
-</p>
+<div class="video thumbs dropdown title">{{ directiveVM.channelTitle }}</div>
+<div class="video thumbs dropdown" data-ng-if="directiveVM.isSetLoaded">
+    <button class="btn btn-default dropdown-toggle" type="button" id="KinteTubeNavigator" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        {{ directiveVM.dataForYouTubeSetIndex.SegmentName }}
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="KinteTubeNavigator">
+        <li data-ng-repeat="i in directiveVM.dataForYouTubeSetIndex.Documents"><a data-ng-click="directiveVM.doMenuItemCommand(i)">{{ i.Title }}</a></li>
+    </ul>
+</div>

@@ -1,3 +1,8 @@
-<p>
-  you-tube-thumbs-set works!
-</p>
+<div class="row youtube-set">,
+    <div class="row loading" data-ng-if="directiveVM.isSetLoading">,
+        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>,
+    </div>,
+    <div class="row" data-ng-if="directiveVM.isSetLoaded" data-ng-repeat="i in directiveVM.dataForYouTubeSet">,
+        <rx-you-tube-thumbs data-thumbs-data="i" data-thumbs-header-level="3"></rx-you-tube-thumbs>,
+    </div>,
+</div>

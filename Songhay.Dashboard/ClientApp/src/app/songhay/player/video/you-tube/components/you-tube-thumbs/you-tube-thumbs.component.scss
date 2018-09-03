@@ -1,0 +1,153 @@
+.video.thumbs.header {
+    /* effective max width: 1296px or 4 thumbs */
+    max-width: 1296px;
+}
+
+.video.thumbs.header > .controls {
+    height: 0;
+}
+
+.video.thumbs.header > .controls > button {
+    background-color: #000;
+    opacity: 0.7;
+    position: relative;
+    top: 64px;
+    z-index: 2;
+}
+
+.video.thumbs.header > .controls > button:hover {
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+    opacity: 0.9;
+}
+
+.video.thumbs.header > .controls > button.left {
+    left: 0;
+    margin-left: -16px;
+}
+
+.video.thumbs.header > .controls > button.right {
+    left: 1205px;
+}
+
+.video.thumbs.header .glyphicon {
+    font-size: 2.4em;
+}
+
+.video.thumbs-container {
+    background-color: #000;
+    height: 268px;
+    /* thumbnail height (180px) + published-at height (24px) + caption height (64px) */
+    max-width: 1620px;
+    /* (4 + 320 ) * 5 = 1620 */
+    min-width: 648px;
+    /* (4 + 320 ) * 2 = 648 */
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.video.thumbs-container > div {
+    position: absolute;
+    z-index: 1;
+}
+
+.video.thumbs-container > div > span {
+    display: inline-block;
+    margin: 0;
+    margin-right: 4px;
+    height: 180px;
+    /* thumbnail height */
+    width: 320px;
+}
+
+.video.thumbs-container > div > span > .caption {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 64px;
+    opacity: 1;
+    overflow: hidden;
+    padding-left: 0.5em;
+    white-space: normal;
+}
+
+.video.thumbs-container > div > span > .caption a,
+.video.thumbs-container > div > span > .caption a:visited {
+    color: #fff;
+}
+
+.video.thumbs-container > div > span > .caption a:hover {
+    color: #ff0;
+    background-color: transparent;
+}
+
+.video.thumbs-container > div > span > .published-at {
+    color: #0f0;
+    display: block;
+    font-size: 1em;
+    height: 24px;
+    padding-left: 0.25em;
+}
+
+.video.thumbs-container > div > span > .duration {
+    display: block;
+    height: 24px;
+    position: relative;
+    text-align: right;
+    top: -120px;
+    width: 320px;
+}
+
+.video.thumbs-container > div > span > .duration > span {
+    background-color: #000;
+    color: #fff;
+    display: inline-block;
+    font-size: 0.9em;
+    margin-right: 0.5em;
+    padding: 0.25em;
+}
+
+/*
+    medium: 320 x 180
+    (4 + 320 ) * 8 = 2592
+    (4 + 320 ) * 7 = 2268
+    (4 + 320 ) * 6 = 1944
+    (4 + 320 ) * 5 = 1620
+    (4 + 320 ) * 4 = 1296 => effective max width: 1296px or 4 thumbs
+    (4 + 320 ) * 3 = 972
+    (4 + 320 ) * 2 = 648
+*/
+
+@media (min-width: 1580px) {
+    .video.thumbs-container {
+        width: 1296px;
+    }
+}
+
+@media (max-width: 1580px) {
+    .video.thumbs-container {
+        width: 1296px;
+    }
+}
+
+@media (max-width: 1256px) {
+    .video.thumbs-container {
+        width: 972px;
+    }
+
+    .video.thumbs.header > .controls > button.right {
+        left: 880px;
+    }
+}
+
+@media (max-width: 932px) {
+    .video.thumbs-container {
+        width: 648px;
+    }
+
+    .video.thumbs.header > .controls > button.right {
+        left: 555px;
+    }
+}

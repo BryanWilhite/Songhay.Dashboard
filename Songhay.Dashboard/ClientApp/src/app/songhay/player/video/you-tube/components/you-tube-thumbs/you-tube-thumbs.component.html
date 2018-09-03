@@ -1,3 +1,21 @@
-<p>
-  you-tube-thumbs works!
-</p>
+<div class="row video thumbs header">
+    <div class="title" data-ng-bind-html="directiveVM.getThumbsTitle()"></div>
+    <div class="controls">
+        <button type="button" class="btn btn-link left" data-ng-click="directiveVM.slideThumbs(\'right\')">
+            <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-link right" data-ng-click="directiveVM.slideThumbs(\'left\')">
+            <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+        </button>
+    </div>
+</div>
+<div class="row video thumbs thumbs-container">
+    <div><span data-ng-repeat="i in thumbsData.items">
+            <a data-ng-href="{{ directiveVM.getYouTubeHref(i) }}" target="_blank" title="{{ i.snippet.title }}">
+                <img data-ng-src="{{ i.snippet.thumbnails.medium.url }}" width="{{ i.snippet.thumbnails.medium.width }}" height="{{ i.snippet.thumbnails.medium.height }}" />
+            </a>
+            <span class="published-at">{{ directiveVM.getPublishedAt(i.snippet) }}</span>
+            <span class="caption" data-ng-bind-html="directiveVM.getThumbCaption(i)"></span>
+            <span class="duration"><span>{{ directiveVM.getDuration(i.contentDetails) }}</span></span>
+        </span></div>
+</div>
