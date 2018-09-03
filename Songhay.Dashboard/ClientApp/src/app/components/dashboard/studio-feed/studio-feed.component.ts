@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { DashboardDataService } from '../../../services/dashboard-data.service';
-import { SyndicationFeed } from '../../../models/songhay-syndication-feed';
 import { AppScalars } from '../../../models/songhay-app-scalars';
+
+import { SyndicationFeed } from '../../../songhay/core/models/songhay-syndication-feed';
 
 /**
  * displays syndication feeds

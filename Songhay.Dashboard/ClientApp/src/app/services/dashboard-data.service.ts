@@ -3,11 +3,12 @@ import { Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { AppDataService } from './songhay-app-data.service';
+import { AppDataService } from '../songhay/core/services/songhay-app-data.service';
+import { AssemblyInfo } from '../songhay/core/models/songhay-assembly-info';
+import { SyndicationFeed } from '../songhay/core/models/songhay-syndication-feed';
+import { MapObjectUtility } from '../songhay/core/services/songhay-map-object-utility';
+
 import { AppScalars } from '../models/songhay-app-scalars';
-import { AssemblyInfo } from '../models/songhay-assembly-info';
-import { SyndicationFeed } from '../models/songhay-syndication-feed';
-import { MapObjectUtility } from './songhay-map-object-utility';
 
 /**
  * data service of this App

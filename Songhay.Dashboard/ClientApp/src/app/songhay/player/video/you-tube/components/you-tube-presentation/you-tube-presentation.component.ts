@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { CssUtility } from '../../services/songhay-css.utility';
+import { CssUtility } from '../../../../../core/services/songhay-css.utility';
 import { YouTubeDataService } from '../../services/you-tube-data.service';
 
 @Component({

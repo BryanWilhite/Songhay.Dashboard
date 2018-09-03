@@ -1,6 +1,6 @@
 import { Component, OnInit, VERSION } from '@angular/core';
+
 import { DashboardDataService } from '../../../services/dashboard-data.service';
-import { SyndicationFeed } from '../../../models/songhay-syndication-feed';
 
 @Component({
     selector: 'app-studio-versions',
