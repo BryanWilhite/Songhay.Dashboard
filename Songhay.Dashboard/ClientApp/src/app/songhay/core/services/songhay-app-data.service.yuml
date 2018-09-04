@@ -1,0 +1,2 @@
+// {type:class}
+[AppDataService|isError;isLoaded;isLoading|getExecutor());initializeLoadState();loadJsonById(uri: string, id: string)]
