@@ -3,7 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { CssUtility } from '../../../../../core/services/songhay-css.utility';
-import { YouTubeDataService } from '../../services/you-tube-data.service';
+
+import { YouTubePresentation } from '../../models/you-tube-presentation';
+import { YouTubePresentationStyles } from '../../models/you-tube-presentation-style';
+
+import { YouTubePresentationDataServices } from '../../services/you-tube-presentation-data.services';
 
 @Component({
     selector: 'app-you-tube-presentation',
@@ -11,35 +15,16 @@ import { YouTubeDataService } from '../../services/you-tube-data.service';
     styleUrls: ['./you-tube-presentation.component.scss']
 })
 export class YouTubePresentationComponent implements OnInit {
-    areVideosLoaded: boolean;
-
-    areVideosLoading: boolean;
-
-    dataForYouTubeChannel: {};
-
-    dataForYouTubePresentation: {
-        presentation: {
-            LayoutMetadata: { playlist: {}; prose: string; title: string };
-        };
-        videos: [];
-    };
-
     id: string;
 
-    isPresentationLoaded: boolean;
+    youTubePresentationStyles: YouTubePresentationStyles;
 
-    isPresentationLoading: boolean;
-
-    style: {
-        playlist: {};
-        prose: {};
-        title: {};
-    };
+    youTubePresentation: YouTubePresentation;
 
     constructor(
+        public youTubePresentationDataServices: YouTubePresentationDataServices,
         private location: Location,
-        private route: ActivatedRoute,
-        private dataServiceForYouTube: YouTubeDataService
+        private route: ActivatedRoute
     ) {}
 
     ngOnInit() {
@@ -50,16 +35,13 @@ export class YouTubePresentationComponent implements OnInit {
         this.loadPresentation();
     }
     getBodyStyle() {
-        const data = this.dataForYouTubePresentation.presentation
-            .LayoutMetadata;
+        const data = this.youTubePresentation.presentation.LayoutMetadata;
         return {
-            'background-color': CssUtility.getColorHex(
-                data['@backgroundColor']
-            )
+            'background-color': CssUtility.getColorHex(data['@backgroundColor'])
         };
     }
     getPlaylistStyle() {
-        const data = this.dataForYouTubePresentation.presentation.LayoutMetadata
+        const data = this.youTubePresentation.presentation.LayoutMetadata
             .playlist;
         return {
             'background-color': CssUtility.getColorHex(
@@ -69,8 +51,7 @@ export class YouTubePresentationComponent implements OnInit {
         };
     }
     getProseStyle() {
-        const data = this.dataForYouTubePresentation.presentation.LayoutMetadata
-            .prose;
+        const data = this.youTubePresentation.presentation.LayoutMetadata.prose;
         return {
             'background-color': CssUtility.getColorHex(
                 data['@backgroundColor']
@@ -79,8 +60,7 @@ export class YouTubePresentationComponent implements OnInit {
         };
     }
     getTitleStyle() {
-        const data = this.dataForYouTubePresentation.presentation.LayoutMetadata
-            .title;
+        const data = this.youTubePresentation.presentation.LayoutMetadata.title;
         return {
             'background-color': CssUtility.getColorHex(
                 data['@backgroundColor']
@@ -94,11 +74,9 @@ export class YouTubePresentationComponent implements OnInit {
         return !response || response.status === 404 || response.status === -1;
     }
     loadPresentation() {
-        console.log('calling scope.youTubeVM.loadPresentation...');
-        this.areVideosLoading = true;
-        this.dataServiceForYouTube
+        this.youTubePresentationDataServices
             .loadVideos(this.id)
-            .then(function(dataOrErrorResponse) {
+            .then((dataOrErrorResponse: any) => {
                 console.log(
                     'dataServiceForYouTube.loadVideos promised:',
                     dataOrErrorResponse
@@ -116,13 +94,10 @@ export class YouTubePresentationComponent implements OnInit {
                     return;
                 }
 
-                this.dataForYouTubePresentation.videos = dataOrErrorResponse;
-                this.areVideosLoaded = true;
-                this.areVideosLoading = false;
+                this.youTubePresentation.videos = dataOrErrorResponse;
             });
 
-        this.isPresentationLoading = true;
-        this.dataServiceForYouTube
+        this.youTubePresentationDataServices
             .loadPresentation(this.id)
             .then((dataOrErrorResponse: any) => {
                 console.log(
@@ -142,17 +117,15 @@ export class YouTubePresentationComponent implements OnInit {
                     return;
                 }
 
-                this.dataForYouTubePresentation.presentation =
+                this.youTubePresentation.presentation =
                     dataOrErrorResponse.Presentation;
-                this.isPresentationLoaded = true;
-                this.isPresentationLoading = false;
 
                 // if (scope.clientVM) {
                 //     scope.clientVM.style.body = this.getBodyStyle();
                 // }
-                this.style.playlist = this.getPlaylistStyle();
-                this.style.prose = this.getProseStyle();
-                this.style.title = this.getTitleStyle();
+                this.youTubePresentationStyles.playlist = this.getPlaylistStyle();
+                this.youTubePresentationStyles.prose = this.getProseStyle();
+                this.youTubePresentationStyles.title = this.getTitleStyle();
             });
     }
 }

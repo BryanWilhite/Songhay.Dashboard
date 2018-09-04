@@ -76,45 +76,4 @@ export class YouTubeDataService extends AppDataService {
 
         return promise;
     }
-
-    loadPresentation(id): Promise<Response> {
-        const rejectionExecutor = (response: Response, reject: any) => {
-            const data = response.json() as {};
-
-            if (!data) {
-                reject('raw YouTube data is not truthy.');
-                return;
-            }
-        };
-
-        const uri = YouTubeScalars.rxYouTubeApiRootUri + id;
-
-        const promise = new Promise<Response>(
-            super.getExecutor(uri, rejectionExecutor)
-        );
-
-        return promise;
-    }
-
-    loadVideos(id): Promise<Response> {
-        const rejectionExecutor = (response: Response, reject: any) => {
-            const data = response.json() as {};
-
-            if (!data) {
-                reject('raw YouTube data is not truthy.');
-                return;
-            }
-        };
-
-        const uri =
-            YouTubeScalars.rxYouTubeApiRootUri +
-            YouTubeScalars.rxYouTubeApiVideosPath +
-            id;
-
-        const promise = new Promise<Response>(
-            super.getExecutor(uri, rejectionExecutor)
-        );
-
-        return promise;
-    }
 }

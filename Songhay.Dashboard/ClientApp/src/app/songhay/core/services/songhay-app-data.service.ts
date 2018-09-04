@@ -103,22 +103,34 @@ export class AppDataService {
     }
 
     /**
-     * loads JSON with the specified URI and ID
+     * loads JSON with the specified URI
      *
-     * @template TJsonResponse
+     * @template TFromJson
      * @param {string} uri
-     * @param {string} id
+     * @param {(json: TFromJson) => void} responseAction
      * @returns {Promise<Response>}
      * @memberof AppDataService
      */
-    loadJsonById<TJsonResponse>(uri: string, id: string): Promise<Response> {
+    loadJson<TFromJson>(
+        uri: string,
+        responseAction: (json: TFromJson) => void
+    ): Promise<Response> {
+        if (this.isLoading) {
+            console.warn(
+                'WARNING: previous JSON loading operation is still in progress.'
+            );
+            return;
+        }
+
         const rejectionExecutor = (response: Response, reject: any) => {
-            const data = response.json() as TJsonResponse;
+            const data = response.json() as TFromJson;
 
             if (!data) {
                 reject('response JSON data is not truthy.');
                 return;
             }
+
+            responseAction(data);
         };
 
         const promise = new Promise<Response>(

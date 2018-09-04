@@ -2,6 +2,7 @@ import * as _ from 'lodash';
 import * as moment from 'moment';
 
 import { Component, OnInit } from '@angular/core';
+import { YouTubeScalars } from '../../models/you-tube-scalars';
 
 @Component({
     selector: 'app-you-tube-thumbs',
@@ -9,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./you-tube-thumbs.component.scss']
 })
 export class YouTubeThumbsComponent implements OnInit {
-    static rxYouTubeWatchRootUri = 'https://www.youtube.com/watch?v=';
 
     disableDefaultSort: boolean;
     thumbsAnimationDuration: number;
@@ -139,7 +139,7 @@ export class YouTubeThumbsComponent implements OnInit {
             return;
         }
 
-        return YouTubeThumbsComponent.rxYouTubeWatchRootUri + videoId;
+        return YouTubeScalars.rxYouTubeWatchRootUri + videoId;
     }
 
     initialize() {
