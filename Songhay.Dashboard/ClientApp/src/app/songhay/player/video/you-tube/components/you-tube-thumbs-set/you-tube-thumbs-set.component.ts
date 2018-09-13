@@ -20,7 +20,7 @@ export class YouTubeThumbsSetComponent implements OnInit {
     constructor(
         private location: Location,
         private route: ActivatedRoute,
-        private dataServiceForYouTube: YouTubeDataService
+        private youTubeDataService: YouTubeDataService
     ) {}
 
     ngOnInit() {
@@ -39,7 +39,7 @@ export class YouTubeThumbsSetComponent implements OnInit {
     loadChannelSet() {
         console.log('calling scope.directiveVM.loadChannelSet...');
         this.isSetLoading = true;
-        this.dataServiceForYouTube
+        this.youTubeDataService
             .loadChannelSet(this.id)
             .then((dataOrErrorResponse: { set: [{ items: [] }] }) => {
                 console.log(
