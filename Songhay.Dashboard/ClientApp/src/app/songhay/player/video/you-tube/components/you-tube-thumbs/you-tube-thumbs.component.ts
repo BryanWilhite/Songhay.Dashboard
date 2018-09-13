@@ -15,8 +15,10 @@ import { slideAnimations, slideAnimation } from './slide.animation';
 
 import { DomUtility } from '../../../../../core/services/songhay-dom.utility';
 
+import { YouTubeItem } from '../../models/you-tube-item';
 import { YouTubeScalars } from '../../models/you-tube-scalars';
-import { YouTubeThumbs, YouTubeItem, YouTubeSnippet } from '../../models/you-tube-thumbs';
+import { YouTubeSnippet } from '../../models/you-tube-snippet';
+import { YouTubeThumbs} from '../../models/you-tube-thumbs';
 
 @Component({
     selector: 'app-you-tube-thumbs',

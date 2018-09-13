@@ -1,3 +1,5 @@
+import { Presentation } from '../../../../core/models/songhay-presentation';
+
 /**
  * defines the JSON, converted from XML
  * for a gen-web Presentation manifest
@@ -11,12 +13,7 @@ export class YouTubePresentation {
      *
      * @memberof YouTubePresentation
      */
-    presentation: {
-        LayoutMetadata: { playlist: {}; prose: string; title: string };
-        Title: string;
-        Description: { '#text': string };
-        Credits: { '#text': string };
-    };
+    presentation: Presentation;
 
     /**
      * video meta-data for Presentation

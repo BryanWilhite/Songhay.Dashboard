@@ -1,8 +1,8 @@
-import * as _ from 'lodash';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { YouTubeDataService } from '../../services/you-tube-data.service';
+import { YouTubeSetIndex } from '../../models/you-tube-set-index';
 
 @Component({
     selector: 'app-you-tube-thumbs-navigation',
@@ -10,11 +10,10 @@ import { YouTubeDataService } from '../../services/you-tube-data.service';
     styleUrls: ['./you-tube-thumbs-navigation.component.scss']
 })
 export class YouTubeThumbsNavigationComponent implements OnInit {
+
     channelsIndexName: string;
     channelTitle: string;
-    dataForYouTubeSetIndex: {
-        Documents: [{ ClientId: string; Title: string }];
-    };
+    dataForYouTubeSetIndex: YouTubeSetIndex;
     id: string;
     isSetLoaded: boolean;
     isSetLoading: boolean;
@@ -30,7 +29,11 @@ export class YouTubeThumbsNavigationComponent implements OnInit {
             this.id = params['id'] as string;
         });
 
-        this.loadChannelSetIndex();
+        this.dataServiceForYouTube.loadChannelsIndex(this.channelsIndexName);
+        this.dataServiceForYouTube.channelsIndexLoaded.subscribe(json => {
+            this.dataForYouTubeSetIndex = json as YouTubeSetIndex;
+            this.setChannelTitle();
+        });
     }
 
     doMenuItemCommand(document: { ClientId: string }) {
@@ -38,50 +41,13 @@ export class YouTubeThumbsNavigationComponent implements OnInit {
             return;
         }
 
-        this.router.navigate(['/video/youtube/uploads/' + document.ClientId]);
+        this.router.navigate([`/video/youtube/uploads/${document.ClientId}`]);
     }
 
-    isNotExpectedResponse(response: Response) {
-        // TODO: centralize with decorator.
-        return !response || response.status === 404 || response.status === -1;
-    }
-
-    loadChannelSetIndex() {
-        console.log('calling scope.directiveVM.loadChannelSetIndex...');
-        if (!this.channelsIndexName) {
-            console.log(
-                'The expected Channels Index Name is not here.',
-                this.channelsIndexName
-            );
-            return;
-        }
-        this.isSetLoading = true;
-
-        this.dataServiceForYouTube
-            .loadChannelsIndex(this.channelsIndexName)
-            .then(function(dataOrErrorResponse) {
-                console.log(
-                    'dataServiceForYouTube.loadChannelsIndex promised:',
-                    dataOrErrorResponse
-                );
-                if (this.isNotExpectedResponse(dataOrErrorResponse)) {
-                    console.log('The expected data is not here.');
-                    return;
-                }
-
-                this.isSetLoaded = true;
-                this.isSetLoading = false;
-                this.dataForYouTubeSetIndex = dataOrErrorResponse;
-                this.setChannelTitle();
-            });
-    }
-
-    setChannelTitle() {
-        const document = _(this.dataForYouTubeSetIndex.Documents).find(function(
-            i
-        ) {
-            return i.ClientId === this.id;
+    private setChannelTitle(): void {
+        const document = this.dataForYouTubeSetIndex.documents.find(i => {
+            return i.clientId === this.id;
         });
-        this.channelTitle = document.Title;
+        this.channelTitle = document.title;
     }
 }
