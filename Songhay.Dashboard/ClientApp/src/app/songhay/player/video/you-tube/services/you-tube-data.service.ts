@@ -87,26 +87,11 @@ export class YouTubeDataService extends AppDataService {
      * @memberof YouTubeDataService
      */
     loadChannel(channelId: string): Promise<Response> {
-        const rejectionExecutor = (response: Response, reject: any) => {
-            const data = response.json() as {};
-
-            if (!data) {
-                reject('raw YouTube data is not truthy.');
-                return;
-            }
-
-            this.channelLoaded.emit(data);
-        };
-
         const uri =
             YouTubeScalars.rxYouTubeApiRootUri +
             YouTubeScalars.rxYouTubeApiPlaylistPath +
             channelId;
-        const promise = new Promise<Response>(
-            super.getExecutor(uri, rejectionExecutor)
-        );
-
-        return promise;
+        return this.loadJson<{}>(uri, json => this.channelLoaded.emit(json));
     }
 
     /**
@@ -117,27 +102,12 @@ export class YouTubeDataService extends AppDataService {
      * @memberof YouTubeDataService
      */
     loadChannelSet(id: string): Promise<Response> {
-        const rejectionExecutor = (response: Response, reject: any) => {
-            const data = response.json() as {};
-
-            if (!data) {
-                reject('raw YouTube data is not truthy.');
-                return;
-            }
-
-            this.channelSetLoaded.emit(data);
-        };
-
         const uri =
             YouTubeScalars.rxYouTubeApiRootUri +
             YouTubeScalars.rxYouTubeApiPlaylistsPath +
             id;
 
-        const promise = new Promise<Response>(
-            super.getExecutor(uri, rejectionExecutor)
-        );
-
-        return promise;
+        return this.loadJson<{}>(uri, json => this.channelSetLoaded.emit(json));
     }
 
     /**
@@ -148,26 +118,13 @@ export class YouTubeDataService extends AppDataService {
      * @memberof YouTubeDataService
      */
     loadChannelsIndex(suffix: string): Promise<Response> {
-        const rejectionExecutor = (response: Response, reject: any) => {
-            const data = response.json() as {};
-
-            if (!data) {
-                reject('raw YouTube data is not truthy.');
-                return;
-            }
-
-            this.channelsIndexLoaded.emit(data);
-        };
-
         const uri =
             YouTubeScalars.rxYouTubeApiRootUri +
             YouTubeScalars.rxYouTubeApiPlaylistsIndexPath +
             suffix;
 
-        const promise = new Promise<Response>(
-            super.getExecutor(uri, rejectionExecutor)
+        return this.loadJson<{}>(uri, json =>
+            this.channelsIndexLoaded.emit(json)
         );
-
-        return promise;
     }
 }
