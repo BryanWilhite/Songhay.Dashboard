@@ -1,29 +1,70 @@
 import * as _ from 'lodash';
 import * as moment from 'moment';
 
-import { Component, OnInit } from '@angular/core';
+import {
+    Component,
+    AfterViewInit,
+    ElementRef,
+    ViewChild,
+    Input
+} from '@angular/core';
+
+import { AnimationBuilder, AnimationPlayer } from '@angular/animations';
+
+import { slideAnimations, slideAnimation } from './slide.animation';
+
+import { DomUtility } from '../../../../../core/services/songhay-dom.utility';
 
 import { YouTubeScalars } from '../../models/you-tube-scalars';
-import { YouTubeThumbs } from '../../models/you-tube-thumbs';
+import { YouTubeThumbs, YouTubeItem, YouTubeSnippet } from '../../models/you-tube-thumbs';
 
 @Component({
     selector: 'app-you-tube-thumbs',
     templateUrl: './you-tube-thumbs.component.html',
     styleUrls: ['./you-tube-thumbs.component.scss']
 })
-export class YouTubeThumbsComponent implements OnInit {
+export class YouTubeThumbsComponent implements AfterViewInit {
+    @Input()
     disableDefaultSort: boolean;
+    @Input()
     thumbsAnimationDuration: number;
+    @Input()
     thumbsData: YouTubeThumbs;
+    @Input()
     thumbsHeaderLevel: number;
+    @Input()
     thumbsTitle: string;
+    @Input()
     thumbsTitleData: {};
 
-    constructor() {
+    @ViewChild('thumbsContainer')
+    thumbsContainer: ElementRef;
+
+    private thumbsContainerDiv: HTMLDivElement;
+    private thumbsContainerDivWrapper: HTMLDivElement;
+    private thumbsContainerDivWrapperStyleDeclaration: CSSStyleDeclaration;
+    private players: Map<string, AnimationPlayer>;
+
+    constructor(private animationBuilder: AnimationBuilder) {
         this.initialize();
     }
 
-    ngOnInit() {}
+    ngAfterViewInit(): void {
+        this.thumbsContainerDiv = DomUtility.getHtmlElement<HTMLDivElement>(
+            this.thumbsContainer
+        );
+
+        this.thumbsContainerDivWrapper = this.thumbsContainerDiv
+            .firstElementChild as HTMLDivElement;
+
+        this.thumbsContainerDivWrapperStyleDeclaration = DomUtility.getStyleDeclaration(
+            this.thumbsContainerDivWrapper
+        );
+
+        this.thumbsContainerDivWrapperStyleDeclaration.left = `${0}px`;
+
+        this.players = new Map();
+    }
 
     getDuration(contentDetails) {
         if (!contentDetails) {
@@ -61,7 +102,7 @@ export class YouTubeThumbsComponent implements OnInit {
         return ('0' + n).slice(-2);
     }
 
-    getPublishedAt(snippet) {
+    getPublishedAt(snippet: YouTubeSnippet) {
         const publishedAt = moment(snippet.publishedAt).fromNow();
         return publishedAt;
     }
@@ -90,7 +131,7 @@ export class YouTubeThumbsComponent implements OnInit {
         const snippet0 = this.thumbsData.items[0].snippet;
         const channelHref =
             'https://www.youtube.com/channel/' + snippet0.channelId;
-        const getTitle = function() {
+        const getTitle = () => {
             if (this.thumbsTitleData) {
                 return this.thumbsTitleData;
             }
@@ -116,7 +157,7 @@ export class YouTubeThumbsComponent implements OnInit {
         return title;
     }
 
-    getYouTubeHref(item) {
+    getYouTubeHref(item: YouTubeItem) {
         const kind = item.kind;
         const snippet = item.snippet;
         const videoId =
@@ -133,90 +174,128 @@ export class YouTubeThumbsComponent implements OnInit {
         return YouTubeScalars.rxYouTubeWatchRootUri + videoId;
     }
 
-    initialize() {
-        if (this.disableDefaultSort) {
-            return;
-        }
-        console.log('directiveVM.initialize()', 'sorting thumbs data...');
-        // this.thumbsData.items = _(this.thumbsData.items)
-        //     .orderBy(['snippet.publishedAt'], ['desc'])
-        //     .value();
-    }
+    slideThumbs(direction: string): void {
+        console.log({ direction: direction });
 
-    slideThumbs(direction) {
-        console.log('slideThumbs() called...');
-        const wrapperContainer = $('.video.thumbs-container', element);
-        const wrapperContainerWidth = wrapperContainer.width();
-        const blockWrapper = $('> div', wrapperContainer);
         const duration = this.thumbsAnimationDuration
             ? this.thumbsAnimationDuration
             : 500; // default slide duration in ms
-        const wrapperLeft = parseInt(blockWrapper.css('left'), 10);
-        const cannotSlideLeft = function() {
-            console.log('cannotSlideLeft() called...');
+        const wrapperContainerWidth = this.thumbsContainerDiv.clientWidth;
+        const style = this.thumbsContainerDivWrapperStyleDeclaration;
+
+        const wrapperLeft = style.left ? parseInt(style.left, 10) : 0;
+
+        const blocks = DomUtility.getHtmlElements(
+            this.thumbsContainerDivWrapper.children
+        )
+            .filter(el => el.localName === 'span')
+            .map(el => el as HTMLSpanElement);
+
+        const cannotSlideBack = () => {
             const snippet0 = this.thumbsData.items[0].snippet;
-            const fixedBlockWidth =
-                parseInt(snippet0.thumbnails.medium.width, 10) + 4;
-            const blocks = $('> span', blockWrapper);
+            const fixedBlockWidth = snippet0.thumbnails.medium.width + 4;
             const totalWidth = fixedBlockWidth * blocks.length;
-            const slideLeftLength =
+            const slideBackLength =
                 Math.abs(wrapperLeft) + wrapperContainerWidth;
-            const test = slideLeftLength >= totalWidth;
-            console.log(
-                'test:',
+            const test = slideBackLength >= totalWidth;
+            console.log({
                 test,
-                'slideLeftLength:',
-                slideLeftLength,
-                'totalWidth:',
+                slideBackLength,
                 totalWidth,
-                'fixedBlockWidth:',
                 fixedBlockWidth
-            );
+            });
             return test;
         };
-        const getSlideRightLength = function() {
-            console.log('getSlideRightLength() called...');
+        const cannotSlideForward = () => wrapperLeft >= 0;
+
+        const getSlideForwardLength = function(): number {
             const l = Math.abs(wrapperLeft);
-            const length =
-                l > wrapperContainerWidth ? wrapperContainerWidth : l;
-            console.log('length:', length);
-            return length;
+            return l > wrapperContainerWidth ? wrapperContainerWidth : l;
         };
-        console.log(
-            'blockWrapper:',
-            blockWrapper,
-            'wrapperContainer:',
-            wrapperContainer,
-            'wrapperContainerWidth:',
+
+        console.log({
+            getSlideRightLength: getSlideForwardLength(),
             wrapperContainerWidth,
-            'wrapperLeft:',
             wrapperLeft
-        );
+        });
 
         switch (direction) {
-            case 'left':
-                if (cannotSlideLeft()) {
+            case 'forward':
+                if (cannotSlideForward()) {
+                    console.warn('cannot slide forward');
                     return;
                 }
-                blockWrapper.animate(
+
+                const lPlayer = this.getPlayer(
+                    slideAnimation.id,
                     {
-                        left: '-=' + wrapperContainer.width()
+                        time: `${duration}ms`,
+                        x1: wrapperLeft,
+                        x2: wrapperLeft + getSlideForwardLength()
                     },
-                    duration
+                    this.thumbsContainerDivWrapper
                 );
+                lPlayer.play();
                 break;
 
-            case 'right':
-                if (blockWrapper.position().left >= 0) {
+            case 'back':
+                if (cannotSlideBack()) {
+                    console.warn('cannot slide back');
                     return;
                 }
-                blockWrapper.animate(
+
+                const rPlayer = this.getPlayer(
+                    slideAnimation.id,
                     {
-                        left: '+=' + getSlideRightLength()
+                        time: `${duration}ms`,
+                        x1: wrapperLeft,
+                        x2: wrapperLeft - wrapperContainerWidth
                     },
-                    duration
+                    this.thumbsContainerDivWrapper
                 );
+
+                rPlayer.play();
+
                 break;
         }
+    }
+
+    private getPlayer(
+        animationId: string,
+        params: { time: string; x1: number; x2: number },
+        el: Element,
+        elIndex: number = 0
+    ): AnimationPlayer {
+        const uniqueId = `${animationId}-${el.localName}${elIndex}`;
+
+        if (this.players.has(uniqueId)) {
+            this.players.get(uniqueId).destroy();
+        }
+
+        const animation = slideAnimations.get(animationId);
+        const factory = this.animationBuilder.build(animation);
+        const player = factory.create(el, { params: params });
+
+        player.onDestroy(() => console.log(`player ${uniqueId} destroyed`));
+        player.onDone(() => {
+            console.log(`player ${uniqueId} done`);
+
+            this.thumbsContainerDivWrapperStyleDeclaration.left = `${
+                params.x2
+            }px`;
+        });
+
+        this.players.set(uniqueId, player);
+
+        return player;
+    }
+
+    private initialize(): void {
+        if (this.disableDefaultSort) {
+            return;
+        }
+        this.thumbsData.items = _(this.thumbsData.items)
+            .orderBy(['snippet.publishedAt'], ['desc'])
+            .value();
     }
 }

@@ -9,7 +9,7 @@
         </button>
     </div>
 </div>
-<div class="row video thumbs thumbs-container">
+<div #thumbsContainer class="row video thumbs thumbs-container">
     <div><span data-ng-repeat="i in thumbsData.items">
             <a data-ng-href="{{ directiveVM.getYouTubeHref(i) }}" target="_blank" title="{{ i.snippet.title }}">
                 <img data-ng-src="{{ i.snippet.thumbnails.medium.url }}" width="{{ i.snippet.thumbnails.medium.width }}" height="{{ i.snippet.thumbnails.medium.height }}" />
