@@ -1,7 +1,6 @@
 import { Location } from '@angular/common';
-import * as _ from 'lodash';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { YouTubeDataService } from '../../services/you-tube-data.service';
 
@@ -13,8 +12,6 @@ import { YouTubeDataService } from '../../services/you-tube-data.service';
 export class YouTubeThumbsSetComponent implements OnInit {
     dataForYouTubeSet: {};
     id: string;
-    isSetLoaded: boolean;
-    isSetLoading: boolean;
     thumbsSetSuffix: string;
 
     constructor(
@@ -28,48 +25,21 @@ export class YouTubeThumbsSetComponent implements OnInit {
             this.id = params['id'] as string;
         });
 
-        this.loadChannelSet();
-    }
+        this.youTubeDataService.loadChannelSet(this.id).catch(() => {
+            console.log('The expected data is not here.', '[id:', this.id, ']');
+            if (this.id) {
+                this.location.replaceState('/not-found');
+            }
+        });
 
-    isNotExpectedResponse(response) {
-        // TODO: centralize with decorator.
-        return !response || response.status === 404 || response.status === -1;
-    }
-
-    loadChannelSet() {
-        console.log('calling scope.directiveVM.loadChannelSet...');
-        this.isSetLoading = true;
-        this.youTubeDataService
-            .loadChannelSet(this.id)
-            .then((dataOrErrorResponse: { set: [{ items: [] }] }) => {
-                console.log(
-                    'dataServiceForYouTube.loadChannelSet promised:',
-                    dataOrErrorResponse
-                );
-                if (this.isNotExpectedResponse(dataOrErrorResponse)) {
-                    console.log(
-                        'The expected data is not here.',
-                        '[id:',
-                        this.id,
-                        ']'
-                    );
-                    if (this.id) {
-                        this.location.replaceState('/not-found');
-                    }
-                    return;
+        this.youTubeDataService.channelSetLoaded.subscribe(json => {
+            const set = Array.from(json['set']).filter(i => {
+                const test = i && i['items'];
+                if (!test) {
+                    console.log('filtered out: ', i);
                 }
-
-                this.isSetLoaded = true;
-                this.isSetLoading = false;
-                this.dataForYouTubeSet = _(dataOrErrorResponse.set).filter(
-                    (i) => {
-                        const test = i && i.items;
-                        if (!test) {
-                            console.log('filtered out: ', i);
-                        }
-                        return test;
-                    }
-                );
+                return test;
             });
+        });
     }
 }

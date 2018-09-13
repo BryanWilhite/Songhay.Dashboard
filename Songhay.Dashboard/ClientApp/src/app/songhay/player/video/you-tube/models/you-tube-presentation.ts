@@ -21,8 +21,8 @@ export class YouTubePresentation {
     /**
      * video meta-data for Presentation
      *
-     * @type {[]}
+     * @type {{}[]}
      * @memberof YouTubePresentation
      */
-    videos: [];
+    videos: {}[];
 }
