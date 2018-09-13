@@ -2,7 +2,9 @@ import * as _ from 'lodash';
 import * as moment from 'moment';
 
 import { Component, OnInit } from '@angular/core';
+
 import { YouTubeScalars } from '../../models/you-tube-scalars';
+import { YouTubeThumbs } from '../../models/you-tube-thumbs';
 
 @Component({
     selector: 'app-you-tube-thumbs',
@@ -10,20 +12,9 @@ import { YouTubeScalars } from '../../models/you-tube-scalars';
     styleUrls: ['./you-tube-thumbs.component.scss']
 })
 export class YouTubeThumbsComponent implements OnInit {
-
     disableDefaultSort: boolean;
     thumbsAnimationDuration: number;
-    thumbsData: {
-        items: [
-            {
-                snippet: {
-                    channelId: string;
-                    channelTitle: string;
-                    publishedAt: Date;
-                };
-            }
-        ];
-    };
+    thumbsData: YouTubeThumbs;
     thumbsHeaderLevel: number;
     thumbsTitle: string;
     thumbsTitleData: {};
@@ -147,9 +138,9 @@ export class YouTubeThumbsComponent implements OnInit {
             return;
         }
         console.log('directiveVM.initialize()', 'sorting thumbs data...');
-        this.thumbsData.items = _(this.thumbsData.items)
-            .orderBy(['snippet.publishedAt'], ['desc'])
-            .value();
+        // this.thumbsData.items = _(this.thumbsData.items)
+        //     .orderBy(['snippet.publishedAt'], ['desc'])
+        //     .value();
     }
 
     slideThumbs(direction) {
@@ -159,7 +150,7 @@ export class YouTubeThumbsComponent implements OnInit {
         const blockWrapper = $('> div', wrapperContainer);
         const duration = this.thumbsAnimationDuration
             ? this.thumbsAnimationDuration
-            : 500; /* default slide duration in ms */
+            : 500; // default slide duration in ms
         const wrapperLeft = parseInt(blockWrapper.css('left'), 10);
         const cannotSlideLeft = function() {
             console.log('cannotSlideLeft() called...');
