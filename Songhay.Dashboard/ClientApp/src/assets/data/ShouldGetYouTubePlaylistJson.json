@@ -1,0 +1,561 @@
+{
+  "kind": "youtube#playlistItemListResponse",
+  "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/C5jTJhD_2GNY_kilKm3EN5nKuOM\"",
+  "nextPageToken": "CAoQAA",
+  "pageInfo": {
+    "totalResults": 189,
+    "resultsPerPage": 10
+  },
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/HOr27rVX2yRamjiULl8T2bfc9kE\"",
+      "id": "Ye7d5mPNfYY",
+      "snippet": {
+        "publishedAt": "2018-09-14T17:00:07Z",
+        "channelId": "UCTUtqcDkzw7bisadh6AOx5w",
+        "title": "The World's Most Popular Rhythm",
+        "description": "Start your 30-day Audible free trial with a free audiobook: http://audible.com/12tone or text \"12tone\" to 500500\n\nIt's easy to forget how important rhythms can be, but they're the foundation on top of which music is built, and it doesn't get much more foundational than the Clave. Born in Africa, brought to the Americas by slaves, and eventually showing up in musical styles all over the world, the Clave is one of the defining rhythms of modern music across cultures. It's complex but approachable, jagged but smooth, and odds are pretty good that even if you didn't notice, you've heard it somewhere in the past week or so.\n\nPatreon: https://www.patreon.com/12tonevideos\nMailing List: http://eepurl.com/bCTDaj\nFacebook: https://www.facebook.com/12tonevideos\nTwitter: https://twitter.com/12tonevideos\nInstagram: https://www.instagram.com/12tonevideos/\nEmail: 12tonevideos@gmail.com\n\nLast: https://youtu.be/rpa4eehS90g\n\nScript: https://docs.google.com/document/d/1-nWry90WAYpvobDzPmMc6FnhF48tj1ZRrLe6BPXzccs/edit?usp=sharing\n\nSOURCES:\nhttp://www.ethanhein.com/wp/2013/why-is-son-clave-so-awesome/\nhttp://www.formedia.ca/rhythms/1clave.html\nhttp://www.rockdrummingsystem.com/underground/drum-lessons/what-is-the-clave.php\nhttp://www.rockdrummingsystem.com/underground/drum-beats/clave-bossa.php\nhttp://www.salsadance.co.uk/clave-the-african-roots-of-salsa/\nhttps://www.jstor.org/stable/779360\nhttps://pages.stolaf.edu/americanmusic/2015/02/24/juba-this-juba-that-the-history-and-appropriation-of-patting-juba/\n\nHuge thanks to our Elephant of the Month Club members:\n\nSusan Jones\nJill Jones\nRon Jones\nHoward Levine\nKaylor Hodges\nGabi Ghita\nElaine Pratt\nKen Arnold\nBrian Etheredge\nJosh King\nGene Lushtak\nTom\nKhristofor Saraga\nWilliam (Bill) Boston\nNicolas Mendoza\nDuck\nWolf Bennett\nRAD Donato\nAnton Smyk\nMitchell Fund\nDale Monks\nChris Prentice\nLen Lanphar\nPaul Ward\nSoham Panda\nBenjamin DeLillo\nJack Carlson\nBudjarn Lambeth\nSusan Lingenfelter\nBranden Randall\nDov Zazkis\nJesse Russo\nJames Treacy Bagshaw\nChristopher Lucas\nHendrik Payer\nAndrew Beals\nThomas Morley\nJacob Helwig\nDuncan Dempsey\nJeff Cairns\n\nAnd thanks as well to Henry Reich, Eugene Bulkin, Logan Jones,  Abram Thiessen, Anna Work, Oliver, Jc Bq, Adam Neely, Dialup Salesman, nico, Justin Donnell, Michael Fieseler, Rick Lees, Ben LaRose, rhandhom1, Harold Gonzales, Marc Himmelberger, Chris Borland, StarsServant, Dave Mayer, Thomás, jason black, Davis Sprague, SD, Justin Bronstein, Justin Aungst, David Roulston, Nick Olman, Dutreuilh Olivier, Joey Strandquist, Daniel Gilchrist, billy roberts, Elliot Burke, Alex Atanasyan,  Amlor, Paul Quine, Anamol Pundle, Greg Borenstein, Tim S., David Tocknell, Elias Simon, Jerry D. Brown, CodenaCrow, Nikolay Semyonov, blalo'u, Lauren Steely, Fabian, Josiah R. Hazel, Ohad Lutzky, Bate Goiko, Jon White, Eivind Vatshaug, Revolution Harmony, Arnas, Paul Apicella, Sarah Spath, Skylar J Eckdahl, Kristian Bredenbeck, Kurtis Commanda, James A. Thornton, Jacob Friend, Benjamin Cooper, Kevin, Joe Galetti, John Bejarano, David Barker, Gerhard Blab, drunkwookiee64, Aa Markus, Caroline Simpson, Brian Dinger, Pawel Sit, Michael Alan Dorman, Adam Wurstmann, Dave Wray, Kelsey Freese, Shadow Kat, Adam Kent, Lee Rennie, Richard T. Anderson, Thomas Schryver, Angela Flierman, Matthis Knopf, Peter Wells, Kevin Hellon, Zion Suppasan, Dan Lizotte, Nathan Petchell, Blake Boyd, alex, Calvin Blitman, Jan Macek, Magnus Guldbrandsen, Trevor, Michael McCormick, Stefan Strohmaier, Lilith Dawn, David Baker, Jonathan Beck, Dmitry Jemerov, Jason Foster, Ian Seymour, Charles Gaskell,  Brett Haines, christian madsen, Luke Rihn, Rob Holton, Devon Wilhelmy, Ben Horwood, Seth Keller, Mark Feaver, Tyler Lukasiewicz, Kevin Johnson, Brian McCue, Stephan Broek, Richard Walker, Wú QióngYuǎn, Nervilis, Marcøs, Brandon Lanning, Ryan Nicholls, ml cohen, Sylvain Chevalier, Yuriy Honcharuk, Darzzr, Roger Grosse, David Hardin, Rodrigo Roman, Francois LaPlante, Jeremy Zolner, Matthew Fox, Paper Coelacanth, Britt Ratliff, Patrick James Morley, Koen Hoogendoorn, Leon Saleh, Tae Wook Kim, Eddie O'Rourke, Ryan, Timothy Field, Jon Bauman, Drew Mazurek, Jacob Luedecke, Vincent Sanders, John July, Antônio Guilherme Ferreira Viggiano, Victor L., Tommaso Ghidetti, Volker Wegert, Linus Abrahamson, Paul Koester, Danny, Matthew Kallend, Patrick Callier, JH, Joshua Gleitze, Ben Zotto, Elliot Jay O'Neill, George Gleeson, David Christensen, Elliot Winkler, Payden Nissen, Tom Evans, Fred Phillips, Emilio Assteves, Moises Vieira Nunes, Alex Keeny, Jeffery Aaron Lowery, Alexey Fedotov, Nicholas Lim, Patrick Pyne, Charles Hill, Harry Hume, Greg von Teig, and Joshua La Macchia! Your support helps make 12tone even better!\n\nAlso, thanks to Jareth Arnold and Jade Tan-Holmes for proofreading the script to make sure this all makes sense hopefully!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Ye7d5mPNfYY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Ye7d5mPNfYY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Ye7d5mPNfYY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Ye7d5mPNfYY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Ye7d5mPNfYY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "12tone",
+        "playlistId": "UUTUtqcDkzw7bisadh6AOx5w",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "Ye7d5mPNfYY"
+        }
+      },
+      "contentDetails": {
+        "videoId": "Ye7d5mPNfYY",
+        "videoPublishedAt": "2018-09-14T17:00:07Z",
+        "duration": "PT8M6S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "projection": "rectangular"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/BeUCKiR4mj0xlVCV1uWYdwLrVCM\"",
+      "id": "rpa4eehS90g",
+      "snippet": {
+        "publishedAt": "2018-09-07T17:00:09Z",
+        "channelId": "UCTUtqcDkzw7bisadh6AOx5w",
+        "title": "Understanding Aretha Franklin's \"Respect\"",
+        "description": "In the history of popular music, there have been few voices as powerful or as memorable as Aretha Franklin's. The music world lost a true legend last month, and I wanted to pay tribute to the Queen of Soul by analyzing one of her most famous and enduring songs, Respect. It's a rousing anthem that feels like it goes on much longer than its two and a half minute run-time, and despite (or perhaps because of) its fairly simple harmony, it remains iconic to this day.\n\nPatreon: https://www.patreon.com/12tonevideos\nMailing List: http://eepurl.com/bCTDaj\nFacebook: https://www.facebook.com/12tonevideos\nTwitter: https://twitter.com/12tonevideos\nInstagram: https://www.instagram.com/12tonevideos/\nEmail: 12tonevideos@gmail.com\n\nLast: https://youtu.be/luzZCWa-HIY\n\nScript: https://docs.google.com/document/d/1cx1ip1-K49-JdEPNr6JRve12yrnAZ6HwxbO1vXUX3Lo/edit?usp=sharing\n\nSOURCES:\nhttp://freebasspart.pv24.pagesperso-orange.fr/Fichiers/Aretha%20Franklin/I%20Never%20Loved%20A%20Man/Respect.pdf\nhttps://tabs.ultimate-guitar.com/tab/aretha_franklin/respect_chords_68720\nhttps://tabs.ultimate-guitar.com/tab/aretha_franklin/respect_tabs_1701375\nhttps://www.scribd.com/document/363181149/Respect-king-Curtis-sax-solo\n\nHuge thanks to our Elephant of the Month Club members:\n\nSusan Jones\nJill Jones\nRon Jones\nHoward Levine\nKaylor Hodges\nGabi Ghita\nElaine Pratt\nKen Arnold\nBrian Etheredge\nJosh King\nGene Lushtak\nTom\nKhristofor Saraga\nWilliam (Bill) Boston\nNicolas Mendoza\nDuck\nWolf Bennett\nRAD Donato\nAnton Smyk\nMitchell Fund\nDale Monks\nChris Prentice\nLen Lanphar\nPaul Ward\nSoham Panda\nBenjamin DeLillo\nJack Carlson\nBudjarn Lambeth\nSusan Lingenfelter\nBranden Randall\nDov Zazkis\nJesse Russo\nJames Treacy Bagshaw\nChristopher Lucas\nHendrik Payer\nAndrew Beals\nThomas Morley\nJacob Helwig\nDuncan Dempsey\nJeff Cairns\n\nAnd thanks as well to Henry Reich, Eugene Bulkin, Logan Jones,  Abram Thiessen, Anna Work, Oliver, Jc Bq, Adam Neely, Dialup Salesman, nico, Justin Donnell, Michael Fieseler, Rick Lees, Ben LaRose, rhandhom1, Harold Gonzales, Marc Himmelberger, Chris Borland, StarsServant, Dave Mayer, Thomás, jason black, Davis Sprague, SD, Justin Bronstein, Justin Aungst, David Roulston, Nick Olman, Dutreuilh Olivier, Joey Strandquist, Daniel Gilchrist, billy roberts, Elliot Burke, Alex Atanasyan,  Amlor, Paul Quine, Anamol Pundle, Greg Borenstein, Tim S., David Tocknell, Elias Simon, Jerry D. Brown, CodenaCrow, Nikolay Semyonov, blalo'u, Lauren Steely, Fabian, Josiah R. Hazel, Ohad Lutzky, Bate Goiko, Jon White, Eivind Vatshaug, Revolution Harmony, Arnas, Paul Apicella, Sarah Spath, Skylar J Eckdahl, Kristian Bredenbeck, Kurtis Commanda, James A. Thornton, Jacob Friend, Benjamin Cooper, Kevin, Joe Galetti, John Bejarano, David Barker, Gerhard Blab, drunkwookiee64, Aa Markus, Caroline Simpson, Brian Dinger, Pawel Sit, Michael Alan Dorman, Adam Wurstmann, Dave Wray, Kelsey Freese, Shadow Kat, Adam Kent, Lee Rennie, Richard T. Anderson, Thomas Schryver, Angela Flierman, Matthis Knopf, Peter Wells, Kevin Hellon, Zion Suppasan, Dan Lizotte, Nathan Petchell, Blake Boyd, alex, Calvin Blitman, Jan Macek, Magnus Guldbrandsen, Trevor, Michael McCormick, Stefan Strohmaier, Lilith Dawn, David Baker, Jonathan Beck, Dmitry Jemerov, Jason Foster, Ian Seymour, Charles Gaskell,  Brett Haines, christian madsen, Luke Rihn, Rob Holton, Devon Wilhelmy, Ben Horwood, Seth Keller, Mark Feaver, Tyler Lukasiewicz, Kevin Johnson, Brian McCue, Stephan Broek, Richard Walker, Wú QióngYuǎn, Nervilis, Marcøs, Brandon Lanning, Ryan Nicholls, ml cohen, Sylvain Chevalier, Yuriy Honcharuk, Darzzr, Roger Grosse, David Hardin, Rodrigo Roman, Francois LaPlante, Jeremy Zolner, Matthew Fox, Paper Coelacanth, Britt Ratliff, Patrick James Morley, Koen Hoogendoorn, Leon Saleh, Tae Wook Kim, Eddie O'Rourke, Ryan, Timothy Field, Jon Bauman, Drew Mazurek, Jacob Luedecke, Vincent Sanders, John July, Antônio Guilherme Ferreira Viggiano, Victor L., Tommaso Ghidetti, Volker Wegert, Linus Abrahamson, Paul Koester, Danny, Matthew Kallend, Patrick Callier, JH, Joshua Gleitze, Ben Zotto, Elliot Jay O'Neill, George Gleeson, David Christensen, Elliot Winkler, Payden Nissen, Tom Evans, Fred Phillips, Emilio Assteves, Moises Vieira Nunes, Alex Keeny, Jeffery Aaron Lowery, Alexey Fedotov, Nicholas Lim, Patrick Pyne, Charles Hill, Harry Hume, Greg von Teig, and Joshua La Macchia! Your support helps make 12tone even better!\n\nAlso, thanks to Jareth Arnold and Jade Tan-Holmes for proofreading the script to make sure this all makes sense hopefully!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/rpa4eehS90g/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/rpa4eehS90g/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/rpa4eehS90g/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/rpa4eehS90g/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/rpa4eehS90g/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "12tone",
+        "playlistId": "UUTUtqcDkzw7bisadh6AOx5w",
+        "position": 1,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "rpa4eehS90g"
+        }
+      },
+      "contentDetails": {
+        "videoId": "rpa4eehS90g",
+        "videoPublishedAt": "2018-09-07T17:00:09Z",
+        "duration": "PT7M21S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "projection": "rectangular"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/0Mry-sUjXLlSWGA34W1tRPp7WJw\"",
+      "id": "luzZCWa-HIY",
+      "snippet": {
+        "publishedAt": "2018-08-31T17:00:05Z",
+        "channelId": "UCTUtqcDkzw7bisadh6AOx5w",
+        "title": "The Great Piano Mystery",
+        "description": "Try Brilliant free: http://brilliant.org/12tone/\n\nA great piece of music inspires many questions, like \"What is this piece saying?\", or \"Why does it make me feel the way it does?\" One question you rarely see, though, is \"What are you even playing?\" But that's exactly what La Monte Young forced listeners to ask with his magnum opus, The Well-Tuned Piano, which contains an experimental tuning system that he kept secret for 27 years. So what *was* he playing? Well... It's complicated.\n\nPatreon: https://www.patreon.com/12tonevideos\nMailing List: http://eepurl.com/bCTDaj\nFacebook: https://www.facebook.com/12tonevideos\nTwitter: https://twitter.com/12tonevideos\nInstagram: https://www.instagram.com/12tonevideos/\nEmail: 12tonevideos@gmail.com\n\nLast: https://youtu.be/n0GGGPW-Dvg\n\nScript: https://docs.google.com/document/d/1HzdRzM3vKll4ix_GoCKWZ0bENHDFhRDyafnxzuwMnRY/edit?usp=sharing\n\nSOURCES:\nhttps://www.jstor.org/stable/833045\nhttps://pitchfork.com/reviews/albums/la-monte-young-the-well-tuned-piano-81-x-25-61750-111859-pm-nyc/\nhttps://www.theguardian.com/music/musicblog/2013/mar/25/contemporary-music-guide-la-monte-young\nhttps://www.kylegann.com/wtp.html\nhttps://books.google.com/books?id=sc61Gy3r8HAC\nhttps://www.villagevoice.com/2002/09/03/pinned-down-by-the-piano/\n\nHuge thanks to our Elephant of the Month Club members:\n\nSusan Jones\nJill Jones\nRon Jones\nHoward Levine\nGabi Ghita\nKaylor Hodges\nElaine Pratt\nKen Arnold\nBrian Etheredge\nJosh King\nGene Lushtak\nTom\nWilliam (Bill) Boston\nKhristofor Saraga\nNicolas Mendoza\nAnton Smyk\nWolf Bennett\nRAD Donato\nMitchell Fund\nDale Monks\nDuck\nChris Prentice\nJack Carlson\nLen Lanphar\nPaul Ward\nBenjamin DeLillo\nBudjarn Lambeth\nBranden Randall\nDov Zazkis\nJesse Russo\nJames Treacy Bagshaw\nChristopher Lucas\nHendrik Payer\nThomas Morley\nAbhijit Patel\nAndrew Beals\n\nAnd thanks as well to Henry Reich, Eugene Bulkin, Logan Jones,  Abram Thiessen, Anna Work, Oliver, Jc Bq, Dialup Salesman, Adam Neely, nico, Justin Donnell, Michael Fieseler, Rick Lees, Ben LaRose, rhandhom1, Harold Gonzales, Marc Himmelberger, Chris Borland, StarsServant, jason black,Nick Olman, Dutreuilh Olivier, Davis Sprague, Justin Bronstein, Justin Aungst, David Roulston, Dave Mayer, Thomás, billy roberts, Elliot Burke, Alex Atanasyan, Joey Strandquist, Daniel Gilchrist, Amlor, Greg Borenstein, Tim S., Elias Simon, Paul Quine, Anamol Pundle, David Tocknell, Jerry D. Brown, blalo'u, Christopher Wright, Lauren Steely, Fabian, Nikolay Semyonov, Ohad Lutzky, Jon White, Eivind Vatshaug, Josiah R. Hazel, Kurtis Commanda, Bate Goiko, James A. Thornton, Jacob Friend, Benjamin Cooper, Kevin, Joe Galetti, Arnas, CodenaCrow, Sarah Spath, Skylar J Eckdahl, Kristian Bredenbeck, John Bejarano, Gerhard Blab, drunkwookiee64, Brian Dinger, SD, Revolution Harmony, Aa Markus, Paul Apicella, Pawel Sit, David Barker, Adam Wurstmann, Dave Wray, Shadow Kat, Adam Kent, Michael Alan Dorman, Caroline Simpson, Lee Rennie, Richard T. Anderson, Thomas Schryver, Angela Flierman, Matthis Knopf, Kelsey Freese, Peter Wells, Zion Suppasan, Dan Lizotte, Seth Keller, Mark Feaver, Tyler Lukasiewicz, Kevin Johnson, Brian McCue, Kevin Hellon, Stephan Broek, Richard Walker, Wú QióngYuǎn, Nathan Petchell, Blake Boyd, alex, Calvin Blitman, Magnus Guldbrandsen, Ross Relic, Stefan Strohmaier, Lilith Dawn, David Baker, Jonathan Beck, Dmitry Jemerov, Jason Foster, Ian Seymour, Brett Haines, christian madsen, Luke Rihn, Rob Holton, Devon Wilhelmy, Ben Horwood, Jaroslav fedorčák, Allen Edwards, Brandon Lanning, Ryan Nicholls, ml cohen, Brandon Hamele, Darzzr, Rodrigo Roman, Francois LaPlante, Matthew Fox, Paper Coelacanth, Britt Ratliff, Patrick James Morley, Koen Hoogendoorn, Tae Wook Kim, Eddie O'Rourke, Ryan, Timothy Field, Jon Bauman, Drew Mazurek, Jacob Luedecke, Vincent Sanders, Victor L., Tommaso Ghidetti, JJ Deman, Volker Wegert, Linus Abrahamson, Matthew Kallend, Patrick Callier, JH, Joshua Gleitze, Ben Zotto, Jan Macek, Trevor, Michael McCormick, Charles Gaskell, Sylvain Chevalier, Yuriy Honcharuk, Roger Grosse, David Hardin, Jeremy Zolner, Leon Saleh, Valentin Lupachev, Paul Koester, and Danny! Your support helps make 12tone even better!\n\nAlso, thanks to Jareth Arnold and Jade Tan-Holmes for proofreading the script to make sure this all makes sense hopefully!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/luzZCWa-HIY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/luzZCWa-HIY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/luzZCWa-HIY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/luzZCWa-HIY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/luzZCWa-HIY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "12tone",
+        "playlistId": "UUTUtqcDkzw7bisadh6AOx5w",
+        "position": 2,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "luzZCWa-HIY"
+        }
+      },
+      "contentDetails": {
+        "videoId": "luzZCWa-HIY",
+        "videoPublishedAt": "2018-08-31T17:00:05Z",
+        "duration": "PT7M58S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "projection": "rectangular"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/CZG4x3ARPKLt2n0Ro7_14MvHzU8\"",
+      "id": "n0GGGPW-Dvg",
+      "snippet": {
+        "publishedAt": "2018-08-24T17:00:05Z",
+        "channelId": "UCTUtqcDkzw7bisadh6AOx5w",
+        "title": "The Secret To Writing Lyrics",
+        "description": "Lyrics are one of the most important aspects of songwriting: They're the first thing most people listen to, and they convey your song's story more clearly than anything else. But they're really hard, right? Language is so complicated and weird that many of the structural approaches we theorists like to take for chords and stuff just don't work. Well, fortunately for us, we're not the only ones asking these sorts of questions, and the answers are out there. We just have to look a little further afield.\n\nPatreon: https://www.patreon.com/12tonevideos\nMailing List: http://eepurl.com/bCTDaj\nFacebook: https://www.facebook.com/12tonevideos\nTwitter: https://twitter.com/12tonevideos\nInstagram: https://www.instagram.com/12tonevideos/\nEmail: 12tonevideos@gmail.com\n\nLast: https://youtu.be/t2uNFpCRG9I\nRhyming video: https://youtu.be/ToOqsk8m220\nOne Week: https://youtu.be/fC_q9KPczAg\nCardboard Castles: https://youtu.be/FN1OR1aa2cM\nAccents video: https://youtu.be/JMxzLOSlhbs\nSonnets video: https://youtu.be/-qoT5oReP0k\n\nScript: https://docs.google.com/document/d/1ARBcjTR_0EkZt3Nb3ATtobroLCnyhPbiwNVmKtN2gQU/edit?usp=sharing\n\nHuge thanks to our Elephant of the Month Club members:\n\nSusan Jones\nJill Jones\nRon Jones\nHoward Levine\nGabi Ghita\nKaylor Hodges\nElaine Pratt\nKen Arnold\nBrian Etheredge\nJosh King\nGene Lushtak\nTom\nWilliam (Bill) Boston\nKhristofor Saraga\nNicolas Mendoza\nAnton Smyk\nWolf Bennett\nRAD Donato\nMitchell Fund\nDale Monks\nDuck\nChris Prentice\nJack Carlson\nLen Lanphar\nPaul Ward\nBenjamin DeLillo\nBudjarn Lambeth\nBranden Randall\nDov Zazkis\nJesse Russo\nJames Treacy Bagshaw\nChristopher Lucas\nHendrik Payer\nThomas Morley\nAbhijit Patel\nAndrew Beals\n\nAnd thanks as well to Henry Reich, Eugene Bulkin, Logan Jones,  Abram Thiessen, Anna Work, Oliver, Jc Bq, Dialup Salesman, Adam Neely, nico, Justin Donnell, Michael Fieseler, Rick Lees, Ben LaRose, rhandhom1, Harold Gonzales, Marc Himmelberger, Chris Borland, StarsServant, jason black,Nick Olman, Dutreuilh Olivier, Davis Sprague, Justin Bronstein, Justin Aungst, David Roulston, Dave Mayer, Thomás, billy roberts, Elliot Burke, Alex Atanasyan, Joey Strandquist, Daniel Gilchrist, Amlor, Greg Borenstein, Tim S., Elias Simon, Paul Quine, Anamol Pundle, David Tocknell, Jerry D. Brown, blalo'u, Christopher Wright, Lauren Steely, Fabian, Nikolay Semyonov, Ohad Lutzky, Jon White, Eivind Vatshaug, Josiah R. Hazel, Kurtis Commanda, Bate Goiko, James A. Thornton, Jacob Friend, Benjamin Cooper, Kevin, Joe Galetti, Arnas, CodenaCrow, Sarah Spath, Skylar J Eckdahl, Kristian Bredenbeck, John Bejarano, Gerhard Blab, drunkwookiee64, Brian Dinger, SD, Revolution Harmony, Aa Markus, Paul Apicella, Pawel Sit, David Barker, Adam Wurstmann, Dave Wray, Shadow Kat, Adam Kent, Michael Alan Dorman, Caroline Simpson, Lee Rennie, Richard T. Anderson, Thomas Schryver, Angela Flierman, Matthis Knopf, Kelsey Freese, Peter Wells, Zion Suppasan, Dan Lizotte, Seth Keller, Mark Feaver, Tyler Lukasiewicz, Kevin Johnson, Brian McCue, Kevin Hellon, Stephan Broek, Richard Walker, Wú QióngYuǎn, Nathan Petchell, Blake Boyd, alex, Calvin Blitman, Magnus Guldbrandsen, Ross Relic, Stefan Strohmaier, Lilith Dawn, David Baker, Jonathan Beck, Dmitry Jemerov, Jason Foster, Ian Seymour, Brett Haines, christian madsen, Luke Rihn, Rob Holton, Devon Wilhelmy, Ben Horwood, Jaroslav fedorčák, Allen Edwards, Brandon Lanning, Ryan Nicholls, ml cohen, Brandon Hamele, Darzzr, Rodrigo Roman, Francois LaPlante, Matthew Fox, Paper Coelacanth, Britt Ratliff, Patrick James Morley, Koen Hoogendoorn, Tae Wook Kim, Eddie O'Rourke, Ryan, Timothy Field, Jon Bauman, Drew Mazurek, Jacob Luedecke, Vincent Sanders, Victor L., Tommaso Ghidetti, JJ Deman, Volker Wegert, Linus Abrahamson, Matthew Kallend, Patrick Callier, JH, Joshua Gleitze, Ben Zotto, Jan Macek, Trevor, Michael McCormick, Charles Gaskell, Sylvain Chevalier, Yuriy Honcharuk, Roger Grosse, David Hardin, Jeremy Zolner, Leon Saleh, Valentin Lupachev, Paul Koester, and Danny! Your support helps make 12tone even better!\n\nAlso, thanks to Jareth Arnold and Jade Tan-Holmes for proofreading the script to make sure this all makes sense hopefully!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/n0GGGPW-Dvg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/n0GGGPW-Dvg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/n0GGGPW-Dvg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/n0GGGPW-Dvg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/n0GGGPW-Dvg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "12tone",
+        "playlistId": "UUTUtqcDkzw7bisadh6AOx5w",
+        "position": 3,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "n0GGGPW-Dvg"
+        }
+      },
+      "contentDetails": {
+        "videoId": "n0GGGPW-Dvg",
+        "videoPublishedAt": "2018-08-24T17:00:05Z",
+        "duration": "PT6M47S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "projection": "rectangular"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/Oqnu94x2SqiurMFz7vSNky_S3jQ\"",
+      "id": "t2uNFpCRG9I",
+      "snippet": {
+        "publishedAt": "2018-08-17T17:00:08Z",
+        "channelId": "UCTUtqcDkzw7bisadh6AOx5w",
+        "title": "The Scales That Built Jazz",
+        "description": "Try 2 months of Skillshare for free! http://skl.sh/12tone4\n\nModern jazz is one of the most popular styles among academic musicians, with whole fields of research dedicated to studying its use of advanced harmony, chromaticism, and other complex techniques, but back in the day it was thought of as just dance music. So what changed? Well, Bebop happened. Bebop transformed the face of jazz forever, and it brought with it lots of new ideas and devices, including perhaps jazz's first real experiment in chromaticism, the Bebop Scales!\n\nPatreon: https://www.patreon.com/12tonevideos\nMailing List: http://eepurl.com/bCTDaj\nFacebook: https://www.facebook.com/12tonevideos\nTwitter: https://twitter.com/12tonevideos\nInstagram: https://www.instagram.com/12tonevideos/\nEmail: 12tonevideos@gmail.com\n\nLast: https://youtu.be/cvmm0f92L-k\nModes video: https://youtu.be/VPWQC4pdEco\n\nScript: https://docs.google.com/document/d/1cqB3HU2p7PNOUCmpgKXpGuL34q8co_nFqAWcub8lXY4/edit?usp=sharing\n\nSOURCES:\nhttp://zani.co.uk/archive/music-archive/item/594-a-brief-history-of-bebop\nhttps://cupola.gettysburg.edu/cgi/viewcontent.cgi?article=1263&context=student_scholarship\nhttps://books.google.ca/books?id=8DKvFECKOwgC\nhttps://mattwarnockguitar.com/bebop-scale/\n\nHuge thanks to our Elephant of the Month Club members:\n\nSusan Jones\nJill Jones\nRon Jones\nHoward Levine\nGabi Ghita\nKaylor Hodges\nElaine Pratt\nKen Arnold\nBrian Etheredge\nJosh King\nGene Lushtak\nTom\nWilliam (Bill) Boston\nKhristofor Saraga\nNicolas Mendoza\nAnton Smyk\nWolf Bennett\nRAD Donato\nMitchell Fund\nDale Monks\nDuck\nChris Prentice\nJack Carlson\nLen Lanphar\nPaul Ward\nBenjamin DeLillo\nBudjarn Lambeth\nBranden Randall\nDov Zazkis\nJesse Russo\nJames Treacy Bagshaw\nChristopher Lucas\nHendrik Payer\nThomas Morley\nAbhijit Patel\nAndrew Beals\n\nAnd thanks as well to Henry Reich, Eugene Bulkin, Logan Jones,  Abram Thiessen, Anna Work, Oliver, Jc Bq, Dialup Salesman, Adam Neely, nico, Justin Donnell, Michael Fieseler, Rick Lees, Ben LaRose, rhandhom1, Harold Gonzales, Marc Himmelberger, Chris Borland, StarsServant, jason black,Nick Olman, Dutreuilh Olivier, Davis Sprague, Justin Bronstein, Justin Aungst, David Roulston, Dave Mayer, Thomás, billy roberts, Elliot Burke, Alex Atanasyan, Joey Strandquist, Daniel Gilchrist, Amlor, Greg Borenstein, Tim S., Elias Simon, Paul Quine, Anamol Pundle, David Tocknell, Jerry D. Brown, blalo'u, Christopher Wright, Lauren Steely, Fabian, Nikolay Semyonov, Ohad Lutzky, Jon White, Eivind Vatshaug, Josiah R. Hazel, Kurtis Commanda, Bate Goiko, James A. Thornton, Jacob Friend, Benjamin Cooper, Kevin, Joe Galetti, Arnas, CodenaCrow, Sarah Spath, Skylar J Eckdahl, Kristian Bredenbeck, John Bejarano, Gerhard Blab, drunkwookiee64, Brian Dinger, SD, Revolution Harmony, Aa Markus, Paul Apicella, Pawel Sit, David Barker, Adam Wurstmann, Dave Wray, Shadow Kat, Adam Kent, Michael Alan Dorman, Caroline Simpson, Lee Rennie, Richard T. Anderson, Thomas Schryver, Angela Flierman, Matthis Knopf, Kelsey Freese, Peter Wells, Zion Suppasan, Dan Lizotte, Seth Keller, Mark Feaver, Tyler Lukasiewicz, Kevin Johnson, Brian McCue, Kevin Hellon, Stephan Broek, Richard Walker, Wú QióngYuǎn, Nathan Petchell, Blake Boyd, alex, Calvin Blitman, Magnus Guldbrandsen, Ross Relic, Stefan Strohmaier, Lilith Dawn, David Baker, Jonathan Beck, Dmitry Jemerov, Jason Foster, Ian Seymour, Brett Haines, christian madsen, Luke Rihn, Rob Holton, Devon Wilhelmy, Ben Horwood, Jaroslav fedorčák, Allen Edwards, Brandon Lanning, Ryan Nicholls, ml cohen, Brandon Hamele, Darzzr, Rodrigo Roman, Francois LaPlante, Matthew Fox, Paper Coelacanth, Britt Ratliff, Patrick James Morley, Koen Hoogendoorn, Tae Wook Kim, Eddie O'Rourke, Ryan, Timothy Field, Jon Bauman, Drew Mazurek, Jacob Luedecke, Vincent Sanders, Victor L., Tommaso Ghidetti, JJ Deman, Volker Wegert, Linus Abrahamson, Matthew Kallend, Patrick Callier, JH, Joshua Gleitze, Ben Zotto, Jan Macek, Trevor, Michael McCormick, Charles Gaskell, Sylvain Chevalier, Yuriy Honcharuk, Roger Grosse, David Hardin, Jeremy Zolner, Leon Saleh, Valentin Lupachev, Paul Koester, and Danny! Your support helps make 12tone even better!\n\nAlso, thanks to Jareth Arnold and Jade Tan-Holmes for proofreading the script to make sure this all makes sense hopefully!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/t2uNFpCRG9I/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/t2uNFpCRG9I/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/t2uNFpCRG9I/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/t2uNFpCRG9I/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/t2uNFpCRG9I/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "12tone",
+        "playlistId": "UUTUtqcDkzw7bisadh6AOx5w",
+        "position": 4,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "t2uNFpCRG9I"
+        }
+      },
+      "contentDetails": {
+        "videoId": "t2uNFpCRG9I",
+        "videoPublishedAt": "2018-08-17T17:00:08Z",
+        "duration": "PT7M10S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "projection": "rectangular"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/jQFaAC3hVnciG30j1vQJpC7Mko0\"",
+      "id": "cvmm0f92L-k",
+      "snippet": {
+        "publishedAt": "2018-08-10T17:00:09Z",
+        "channelId": "UCTUtqcDkzw7bisadh6AOx5w",
+        "title": "Is Rap Music?",
+        "description": "It's a question that's plagued music theorists since the inception of the genre, and we still struggle with it to this day... Nah, just kidding, pretty much every academic musician I know recognizes that rap is music, even if they don't personally like listening to it. So why is that such a controversial claim to the general public? Well, I'm no sociologist so I'm not sure I can answer that, but what I can do is look at the compositional arguments people make as to why it doesn't count, and put those arguments in the historical and systematic contexts they so desperately crave. So I did that! It's this video. You probably figured that out already, though.\n\nPatreon: https://www.patreon.com/12tonevideos\nMailing List: http://eepurl.com/bCTDaj\nFacebook: https://www.facebook.com/12tonevideos\nTwitter: https://twitter.com/12tonevideos\nInstagram: https://www.instagram.com/12tonevideos/\nEmail: 12tonevideos@gmail.com\n\nLast: https://youtu.be/dtLcOJ5643g\n\nLINKS:\nFlow paper: http://www.mtosmt.org/issues/mto.09.15.5/mto.09.15.5.adams.html\nPatter Singing demo: https://youtu.be/zSGWoXDFM64\nSprechgesang demo: https://youtu.be/kXBVu1s-5E0\nPBS documentary: https://youtu.be/UHBdQVMPaHU (NOTE: contains an instance of the N-word)\n\nSCRIPT + SOURCES: https://docs.google.com/document/d/1E7QK-PanxhMARs-JaFUA1ZcuPBmQ1BMkDVEBcXOnbEo/edit?usp=sharing\n\nHuge thanks to our Elephant of the Month Club members:\n\nSusan Jones\nJill Jones\nRon Jones\nHoward Levine\nGabi Ghita\nKaylor Hodges\nElaine Pratt\nKen Arnold\nBrian Etheredge\nJosh King\nGene Lushtak\nTom\nWilliam (Bill) Boston\nKhristofor Saraga\nNicolas Mendoza\nAnton Smyk\nWolf Bennett\nRAD Donato\nMitchell Fund\nDale Monks\nDuck\nChris Prentice\nJack Carlson\nLen Lanphar\nPaul Ward\nBenjamin DeLillo\nBudjarn Lambeth\nBranden Randall\nDov Zazkis\nJesse Russo\nJames Treacy Bagshaw\nChristopher Lucas\nHendrik Payer\nThomas Morley\nAbhijit Patel\nAndrew Beals\n\nAnd thanks as well to Henry Reich, Eugene Bulkin, Logan Jones,  Abram Thiessen, Anna Work, Oliver, Jc Bq, Dialup Salesman, Adam Neely, nico, Justin Donnell, Michael Fieseler, Rick Lees, Ben LaRose, rhandhom1, Harold Gonzales, Marc Himmelberger, Chris Borland, StarsServant, jason black,Nick Olman, Dutreuilh Olivier, Davis Sprague, Justin Bronstein, Justin Aungst, David Roulston, Dave Mayer, Thomás, billy roberts, Elliot Burke, Alex Atanasyan, Joey Strandquist, Daniel Gilchrist, Amlor, Greg Borenstein, Tim S., Elias Simon, Paul Quine, Anamol Pundle, David Tocknell, Jerry D. Brown, blalo'u, Christopher Wright, Lauren Steely, Fabian, Nikolay Semyonov, Ohad Lutzky, Jon White, Eivind Vatshaug, Josiah R. Hazel, Kurtis Commanda, Bate Goiko, James A. Thornton, Jacob Friend, Benjamin Cooper, Kevin, Joe Galetti, Arnas, CodenaCrow, Sarah Spath, Skylar J Eckdahl, Kristian Bredenbeck, John Bejarano, Gerhard Blab, drunkwookiee64, Brian Dinger, SD, Revolution Harmony, Aa Markus, Paul Apicella, Pawel Sit, David Barker, Adam Wurstmann, Dave Wray, Shadow Kat, Adam Kent, Michael Alan Dorman, Caroline Simpson, Lee Rennie, Richard T. Anderson, Thomas Schryver, Angela Flierman, Matthis Knopf, Kelsey Freese, Peter Wells, Zion Suppasan, Dan Lizotte, Seth Keller, Mark Feaver, Tyler Lukasiewicz, Kevin Johnson, Brian McCue, Kevin Hellon, Stephan Broek, Richard Walker, Wú QióngYuǎn, Nathan Petchell, Blake Boyd, alex, Calvin Blitman, Magnus Guldbrandsen, Ross Relic, Stefan Strohmaier, Lilith Dawn, David Baker, Jonathan Beck, Dmitry Jemerov, Jason Foster, Ian Seymour, Brett Haines, christian madsen, Luke Rihn, Rob Holton, Devon Wilhelmy, Ben Horwood, Jaroslav fedorčák, Allen Edwards, Brandon Lanning, Ryan Nicholls, ml cohen, Brandon Hamele, Darzzr, Rodrigo Roman, Francois LaPlante, Matthew Fox, Paper Coelacanth, Britt Ratliff, Patrick James Morley, Koen Hoogendoorn, Tae Wook Kim, Eddie O'Rourke, Ryan, Timothy Field, Jon Bauman, Drew Mazurek, Jacob Luedecke, Vincent Sanders, Victor L., Tommaso Ghidetti, JJ Deman, Volker Wegert, Linus Abrahamson, Matthew Kallend, Patrick Callier, JH, Joshua Gleitze, Ben Zotto, Jan Macek, Trevor, Michael McCormick, Charles Gaskell, Sylvain Chevalier, Yuriy Honcharuk, Roger Grosse, David Hardin, Jeremy Zolner, Leon Saleh, Valentin Lupachev, Paul Koester, and Danny! Your support helps make 12tone even better!\n\nAlso, thanks to Jareth Arnold, Jade Tan-Holmes, Mark Sundaram, Sheryl Hosler, and Kim Harrison for proofreading the script to make sure this all makes sense hopefully!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/cvmm0f92L-k/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/cvmm0f92L-k/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/cvmm0f92L-k/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/cvmm0f92L-k/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/cvmm0f92L-k/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "12tone",
+        "playlistId": "UUTUtqcDkzw7bisadh6AOx5w",
+        "position": 5,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "cvmm0f92L-k"
+        }
+      },
+      "contentDetails": {
+        "videoId": "cvmm0f92L-k",
+        "videoPublishedAt": "2018-08-10T17:00:09Z",
+        "duration": "PT9M3S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "projection": "rectangular"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/sdEBd8G1d2RPk7mpBnDn4KyB6UM\"",
+      "id": "KZPITVVzaL4",
+      "snippet": {
+        "publishedAt": "2018-07-27T17:00:02Z",
+        "channelId": "UCTUtqcDkzw7bisadh6AOx5w",
+        "title": "How To Succeed In Music School - Q&A #7",
+        "description": "This Q&A, we're tackling questions about music school, Chopin, and chord synonyms, plus the most beautiful musical symbols, 7-note scales with no tritones, and possibly a collab with Vi Hart!? (No. There's no Vi Hart collab. Or is there!?) (Again, no.) (Yet!) (But no.)\n\nPatreon: https://www.patreon.com/12tonevideos\nMerchandise Store: http://12tonevideos.storenvy.com/\nMailing List: http://eepurl.com/bCTDaj\nFacebook: https://www.facebook.com/12tonevideos\nTwitter: https://twitter.com/12tonevideos\nInstagram: https://www.instagram.com/12tonevideos/\nEmail: 12tonevideos@gmail.com\n\nLast: https://youtu.be/LVuHz4ov0Iw\nPythagorean Tuning video: https://youtu.be/yMgEv8wfDcU\nQuarter Tones video: https://youtu.be/bWG6CGKMnNA\nMusical Set Theory videos: https://youtu.be/7wTOLhufgBQ , https://youtu.be/_QLDmuJI-1Q\nNeapolitan Chord video: https://youtu.be/ec7D6KOgCIQ\nDarkmotifs video: https://youtu.be/hphpGpoa4HE\n\nScript: https://docs.google.com/document/d/1jHmYUdloRSWoSrxGv0gkqZYXj29jI8dhpve_wkrYdaU/edit?usp=sharing\n\nSOURCES:\nhttp://conquest.imslp.info/files/imglnks/usimg/3/3c/IMSLP423660-PMLP01969-Op._10_-_12_Etudes_(1833_Schlesinger,_FE).pdf\n\nHuge thanks to our gold-level Patreon supporters:\n\nSusan Jones\nJill Jones\nRon Jones\nHoward Levine\nGabi Ghita\nKaylor Hodges\nElaine Pratt\nKen Arnold\nBrian Etheredge\nJosh King\nGene Lushtak\nWilliam (Bill) Boston\nTom\nKhristofor Saraga\nNicolas Mendoza\nAnton Smyk\nWolf Bennett\nRAD Donato\nMitchell Fund\nDale Monks\nChris Prentice\nJack Carlson\n\nAnd thanks as well to Henry Reich, Eugene Bulkin, Logan Jones,  Abram Thiessen, Anna Work, Oliver, Jc Bq, Adam Neely, Dialup Salesman, nico, Justin Donnell, Michael Fieseler, Rick Lees, Ben LaRose, rhandhom1, Harold Gonzales, Dakota Williams, Marc Himmelberger, Chris Borland, jason black, StarsServant, Dave Mayer, Thomás, Nick Olman, Joey Strandquist, Daniel Gilchrist, billy roberts, Elliot Burke, Alex Atanasyan, Davis Sprague, Justin Bronstein, Justin Aungst, David Roulston, Amlor, Greg Borenstein, Tim S., David Tocknell, Elias Simon, Paul Quine, Anamol Pundle, Jerry D. Brown, Christopher Wright, blalo'u, Lauren S., Fabian, Josiah R. Hazel, Ohad Lutzky, Bate Goiko, Jon White, Eivind Vatshaug, CodenaCrow, Nikolay Semyonov, Kurtis Commanda, James A. Thornton, Jacob Friend, Benjamin Cooper, Kevin, Joe Galetti, Josiah Scott, SD, Revolution Harmony, Arnas, Paul Apicella, Sarah Spath, Skylar J Eckdahl, Kristian Bredenbeck, John Bejarano, David Barker, Gerhard Blab, drunkwookiee64, Pawel Sit, Craig Smith, Aa Markus, Caroline Simpson, Adam Wurstmann, Dave Wray, Kelsey Freese, Shadow Kat, Nelson Walker, Adam Kent, Lee Rennie, Richard T. Anderson, Thomas Schryver, Angela Flierman, Matthis Knopf, Peter Wells, Kevin Hellon, Zion Suppasan, Dan Lizotte, Michael Alan Dorman, Seth Keller, Mark Feaver, Tyler Lukasiewicz, Kevin Johnson, Brian McCue, Stephan Broek, Richard Walker, and Wú QióngYuǎn! Your support helps make 12tone even better!\n\nAlso, thanks to Jareth Arnold and Jade Tan-Holmes for proofreading the script to make sure this all makes sense hopefully!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/KZPITVVzaL4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/KZPITVVzaL4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/KZPITVVzaL4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/KZPITVVzaL4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/KZPITVVzaL4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "12tone",
+        "playlistId": "UUTUtqcDkzw7bisadh6AOx5w",
+        "position": 6,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "KZPITVVzaL4"
+        }
+      },
+      "contentDetails": {
+        "videoId": "KZPITVVzaL4",
+        "videoPublishedAt": "2018-07-27T17:00:02Z",
+        "duration": "PT8M6S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "projection": "rectangular"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/hGh_8Lla-O2GO6TEScOrDz1Mry0\"",
+      "id": "dtLcOJ5643g",
+      "snippet": {
+        "publishedAt": "2018-08-03T17:00:03Z",
+        "channelId": "UCTUtqcDkzw7bisadh6AOx5w",
+        "title": "Understanding Message In A Bottle",
+        "description": "Do you ever feel like sending out an SOS to the world? Well then have I got a song for you! No, but seriously, Message In A Bottle was the Police's first #1 hit, and it's a fascinating song. The story it tells is interesting, but what's really great is how deeply that story is integrated into the song itself. It uses its chords, its melodies, and every other tool it can in order to perfectly tell the story it's trying to tell. I was honestly blown away.\n\nPatreon: https://www.patreon.com/12tonevideos\nMerchandise Store: http://12tonevideos.storenvy.com/\nMailing List: http://eepurl.com/bCTDaj\nFacebook: https://www.facebook.com/12tonevideos\nTwitter: https://twitter.com/12tonevideos\nInstagram: https://www.instagram.com/12tonevideos/\nEmail: 12tonevideos@gmail.com\n\nLast: https://youtu.be/KZPITVVzaL4\nMessage In A Bottle: https://youtu.be/MbXWrmQW-OE\nQuintal Harmony video: https://youtu.be/sHQ6E3YIQS0\nFunctional Harmony video: https://youtu.be/Ot_lbUcb-uE\n\nSOURCES: \nhttps://guitaralliance.com/instant-song-library-download/Instant%20Song%20Library%20PDF/M-R/P/police_the-message_in_a_bottle.pdf\nhttps://tabs.ultimate-guitar.com/tab/the_police/message_in_a_bottle_bass_521184\nhttp://www.officialcharts.com/artist/17182/police/\nhttps://www.allmusic.com/artist/the-police-mn0000413524/biography\n\nScript: https://docs.google.com/document/d/1Buk7X8r3PRxzs_yiV2p3KAfe_AQhnL8MzhwwvuF5nMY/edit?usp=sharing\n\nHuge thanks to our gold-level Patreon supporters:\n\nSusan Jones\nJill Jones\nRon Jones\nHoward Levine\nGabi Ghita\nKaylor Hodges\nElaine Pratt\nKen Arnold\nBrian Etheredge\nJosh King\nGene Lushtak\nWilliam (Bill) Boston\nTom\nKhristofor Saraga\nNicolas Mendoza\nAnton Smyk\nWolf Bennett\nRAD Donato\nMitchell Fund\nDale Monks\nChris Prentice\nJack Carlson\n\nAnd thanks as well to Henry Reich, Eugene Bulkin, Logan Jones,  Abram Thiessen, Anna Work, Oliver, Jc Bq, Adam Neely, Dialup Salesman, nico, Justin Donnell, Michael Fieseler, Rick Lees, Ben LaRose, rhandhom1, Harold Gonzales, Dakota Williams, Marc Himmelberger, Chris Borland, jason black, StarsServant, Dave Mayer, Thomás, Nick Olman, Joey Strandquist, Daniel Gilchrist, billy roberts, Elliot Burke, Alex Atanasyan, Davis Sprague, Justin Bronstein, Justin Aungst, David Roulston, Amlor, Greg Borenstein, Tim S., David Tocknell, Elias Simon, Paul Quine, Anamol Pundle, Jerry D. Brown, Christopher Wright, blalo'u, Lauren S., Fabian, Josiah R. Hazel, Ohad Lutzky, Bate Goiko, Jon White, Eivind Vatshaug, CodenaCrow, Nikolay Semyonov, Kurtis Commanda, James A. Thornton, Jacob Friend, Benjamin Cooper, Kevin, Joe Galetti, Josiah Scott, SD, Revolution Harmony, Arnas, Paul Apicella, Sarah Spath, Skylar J Eckdahl, Kristian Bredenbeck, John Bejarano, David Barker, Gerhard Blab, drunkwookiee64, Pawel Sit, Craig Smith, Aa Markus, Caroline Simpson, Adam Wurstmann, Dave Wray, Kelsey Freese, Shadow Kat, Nelson Walker, Adam Kent, Lee Rennie, Richard T. Anderson, Thomas Schryver, Angela Flierman, Matthis Knopf, Peter Wells, Kevin Hellon, Zion Suppasan, Dan Lizotte, Michael Alan Dorman, Seth Keller, Mark Feaver, Tyler Lukasiewicz, Kevin Johnson, Brian McCue, Stephan Broek, Richard Walker, and Wú QióngYuǎn! Your support helps make 12tone even better!\n\nAlso, thanks to Jareth Arnold and Jade Tan-Holmes for proofreading the script to make sure this all makes sense hopefully!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/dtLcOJ5643g/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/dtLcOJ5643g/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/dtLcOJ5643g/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/dtLcOJ5643g/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/dtLcOJ5643g/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "12tone",
+        "playlistId": "UUTUtqcDkzw7bisadh6AOx5w",
+        "position": 7,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "dtLcOJ5643g"
+        }
+      },
+      "contentDetails": {
+        "videoId": "dtLcOJ5643g",
+        "videoPublishedAt": "2018-08-03T17:00:03Z",
+        "duration": "PT6M32S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "projection": "rectangular"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/VvfKUIHjiQNUs34AvqmQwlIcnPo\"",
+      "id": "LVuHz4ov0Iw",
+      "snippet": {
+        "publishedAt": "2018-07-20T17:00:03Z",
+        "channelId": "UCTUtqcDkzw7bisadh6AOx5w",
+        "title": "Making Mini-Scales",
+        "description": "Try 2 months of Skillshare for free! http://skl.sh/12tone3\n\nMaking scales is hard. You've got so many notes to work with! There's F, there's Ab, there's D#... it's overwhelming. Wouldn't it be nice if you could do the same thing but smaller? Well, let me introduce you to tetrachords, which are like half-scales that you can smash into another half-scales in order to make a whole scale. They've got quite the history: Even the Greeks used them, but they've still got a place in modern theory too.\n\nPatreon: https://www.patreon.com/12tonevideos\nMerchandise Store: http://12tonevideos.storenvy.com/\nMailing List: http://eepurl.com/bCTDaj\nFacebook: https://www.facebook.com/12tonevideos\nTwitter: https://twitter.com/12tonevideos\nInstagram: https://www.instagram.com/12tonevideos/\nEmail: 12tonevideos@gmail.com\n\nLast: https://youtu.be/GEt79UW817E\nQuarter-Tones video: https://youtu.be/bWG6CGKMnNA\nJacob Collier video: https://youtu.be/TYuTE_1jvvE\n\nScript: https://docs.google.com/document/d/1-n5uv53Er_UNGQWrmgX1i8zCyqGlWbJistYOjRQFyqk/edit?usp=sharing\n\nSOURCES:\nhttp://www.tonalsoft.com/monzo/aristoxenus/tetrachord-tutorial.aspx\nhttp://www.tonalsoft.com/monzo/aristoxenus/aristoxenus.aspx\nhttp://www.organduo.lt/home/what-is-a-tetrachord\nhttps://archive.org/details/harmonicsaristo00arisgoog\nhttp://musicofyesterday.com/historical-music-theory/greek-music-theory/\n\nHuge thanks to our gold-level Patreon supporters:\n\nSusan Jones\nJill Jones\nRon Jones\nHoward Levine\nGabi Ghita\nKaylor Hodges\nElaine Pratt\nKen Arnold\nBrian Etheredge\nJosh King\nGene Lushtak\nWilliam (Bill) Boston\nTom\nKhristofor Saraga\nNicolas Mendoza\nAnton Smyk\nWolf Bennett\nRAD Donato\nMitchell Fund\nDale Monks\nChris Prentice\nJack Carlson\n\nAnd thanks as well to Henry Reich, Eugene Bulkin, Logan Jones,  Abram Thiessen, Anna Work, Oliver, Jc Bq, Adam Neely, Dialup Salesman, nico, Justin Donnell, Michael Fieseler, Rick Lees, Ben LaRose, rhandhom1, Harold Gonzales, Dakota Williams, Marc Himmelberger, Chris Borland, jason black, StarsServant, Dave Mayer, Thomás, Nick Olman, Joey Strandquist, Daniel Gilchrist, billy roberts, Elliot Burke, Alex Atanasyan, Davis Sprague, Justin Bronstein, Justin Aungst, David Roulston, Amlor, Greg Borenstein, Tim S., David Tocknell, Elias Simon, Paul Quine, Anamol Pundle, Jerry D. Brown, Christopher Wright, blalo'u, Lauren S., Fabian, Josiah R. Hazel, Ohad Lutzky, Bate Goiko, Jon White, Eivind Vatshaug, CodenaCrow, Nikolay Semyonov, Kurtis Commanda, James A. Thornton, Jacob Friend, Benjamin Cooper, Kevin, Joe Galetti, Josiah Scott, SD, Revolution Harmony, Arnas, Paul Apicella, Sarah Spath, Skylar J Eckdahl, Kristian Bredenbeck, John Bejarano, David Barker, Gerhard Blab, drunkwookiee64, Pawel Sit, Craig Smith, Aa Markus, Caroline Simpson, Adam Wurstmann, Dave Wray, Kelsey Freese, Shadow Kat, Nelson Walker, Adam Kent, Lee Rennie, Richard T. Anderson, Thomas Schryver, Angela Flierman, Matthis Knopf, Peter Wells, Kevin Hellon, Zion Suppasan, Dan Lizotte, Michael Alan Dorman, Seth Keller, Mark Feaver, Tyler Lukasiewicz, Kevin Johnson, Brian McCue, Stephan Broek, Richard Walker, and Wú QióngYuǎn! Your support helps make 12tone even better!\n\nAlso, thanks to Jareth Arnold and Jade Tan-Holmes for proofreading the script to make sure this all makes sense hopefully!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/LVuHz4ov0Iw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/LVuHz4ov0Iw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/LVuHz4ov0Iw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/LVuHz4ov0Iw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/LVuHz4ov0Iw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "12tone",
+        "playlistId": "UUTUtqcDkzw7bisadh6AOx5w",
+        "position": 8,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "LVuHz4ov0Iw"
+        }
+      },
+      "contentDetails": {
+        "videoId": "LVuHz4ov0Iw",
+        "videoPublishedAt": "2018-07-20T17:00:03Z",
+        "duration": "PT6M50S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "projection": "rectangular"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "\"XI7nbFXulYBIpL0ayR_gDh3eu1k/3jX_5g7IDvoJfJpwifo0IcPR5-0\"",
+      "id": "hphpGpoa4HE",
+      "snippet": {
+        "publishedAt": "2018-07-13T17:00:09Z",
+        "channelId": "UCTUtqcDkzw7bisadh6AOx5w",
+        "title": "The Opposite Of Leitmotifs",
+        "description": "What's a darkmotif? Well, it's nothing. Yet! But that all changes right now, thanks to some inspiration from fellow music youtuber Sideways. Clearly, the age of the leitmotif is over, and the world of film scoring will never be the same. Or maybe it will, 'cause it's already using these things, it just wasn't using that name. Look full disclosure I have no idea what I'm doing but this video was fun to make so hopefully it is fun to watch as well!\n\nPatreon: https://www.patreon.com/12tonevideos\nMerchandise Store: http://12tonevideos.storenvy.com/\nMailing List: http://eepurl.com/bCTDaj\nFacebook: https://www.facebook.com/12tonevideos\nTwitter: https://twitter.com/12tonevideos\nInstagram: https://www.instagram.com/12tonevideos/\nEmail: 12tonevideos@gmail.com\n\nLast: https://youtu.be/3bf5TxT5dqM\nNegative Time Signatures video: https://youtu.be/xHOfoRbBaYQ\nHamilton video: https://youtu.be/AIMoT69cbt4\n\nSOURCES:\nhttps://www.britannica.com/art/leitmotif\nhttp://umich.edu/~umfandsf/symbolismproject/symbolism.html/Teutonic_Mythology/wagleit.html\nhttps://zelda.gamepedia.com/Ballad_of_the_Goddess\n\nScript: https://docs.google.com/document/d/1Qk2LjxyAJ9MatRummxZ2mXXs2m5SFgo1GbJOH944o2E/edit?usp=sharing\n\nHuge thanks to our gold-level Patreon supporters:\n\nSusan Jones\nJill Jones\nRon Jones\nHoward Levine\nGabi Ghita\nKaylor Hodges\nElaine Pratt\nKen Arnold\nBrian Etheredge\nJosh King\nGene Lushtak\nWilliam (Bill) Boston\nTom\nKhristofor Saraga\nNicolas Mendoza\nAnton Smyk\nWolf Bennett\nRAD Donato\nMitchell Fund\nDale Monks\nChris Prentice\nJack Carlson\n\nAnd thanks as well to Henry Reich, Eugene Bulkin, Logan Jones,  Abram Thiessen, Anna Work, Oliver, Jc Bq, Adam Neely, Dialup Salesman, nico, Justin Donnell, Michael Fieseler, Rick Lees, Ben LaRose, rhandhom1, Harold Gonzales, Dakota Williams, Marc Himmelberger, Chris Borland, jason black, StarsServant, Dave Mayer, Thomás, Nick Olman, Joey Strandquist, Daniel Gilchrist, billy roberts, Elliot Burke, Alex Atanasyan, Davis Sprague, Justin Bronstein, Justin Aungst, David Roulston, Amlor, Greg Borenstein, Tim S., David Tocknell, Elias Simon, Paul Quine, Anamol Pundle, Jerry D. Brown, Christopher Wright, blalo'u, Lauren S., Fabian, Josiah R. Hazel, Ohad Lutzky, Bate Goiko, Jon White, Eivind Vatshaug, CodenaCrow, Nikolay Semyonov, Kurtis Commanda, James A. Thornton, Jacob Friend, Benjamin Cooper, Kevin, Joe Galetti, Josiah Scott, SD, Revolution Harmony, Arnas, Paul Apicella, Sarah Spath, Skylar J Eckdahl, Kristian Bredenbeck, John Bejarano, David Barker, Gerhard Blab, drunkwookiee64, Pawel Sit, Craig Smith, Aa Markus, Caroline Simpson, Adam Wurstmann, Dave Wray, Kelsey Freese, Shadow Kat, Nelson Walker, Adam Kent, Lee Rennie, Richard T. Anderson, Thomas Schryver, Angela Flierman, Matthis Knopf, Peter Wells, Kevin Hellon, Zion Suppasan, Dan Lizotte, Michael Alan Dorman, Seth Keller, Mark Feaver, Tyler Lukasiewicz, Kevin Johnson, Brian McCue, Stephan Broek, Richard Walker, and Wú QióngYuǎn! Your support helps make 12tone even better!\n\nAlso, thanks to Jareth Arnold and Jade Tan-Holmes for proofreading the script to make sure this all makes sense hopefully!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/hphpGpoa4HE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/hphpGpoa4HE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/hphpGpoa4HE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/hphpGpoa4HE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/hphpGpoa4HE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "12tone",
+        "playlistId": "UUTUtqcDkzw7bisadh6AOx5w",
+        "position": 9,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "hphpGpoa4HE"
+        }
+      },
+      "contentDetails": {
+        "videoId": "hphpGpoa4HE",
+        "videoPublishedAt": "2018-07-13T17:00:09Z",
+        "duration": "PT6M55S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "projection": "rectangular"
+      }
+    }
+  ]
+}
