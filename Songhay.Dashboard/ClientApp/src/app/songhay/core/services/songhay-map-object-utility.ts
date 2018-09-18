@@ -1,5 +1,5 @@
 /**
- * static members for Map<K, V>
+ * static members for @type {Map<K, V>}
  *
  * @export
  * @class MapObjectUtility

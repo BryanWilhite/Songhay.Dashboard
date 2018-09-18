@@ -11,7 +11,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class AppDataService {
     /**
-     *Creates an instance of AppDataService.
+     *Creates an instance of @type {AppDataService}.
      * @param {Http} client
      * @memberof AppDataService
      */
@@ -46,7 +46,7 @@ export class AppDataService {
 
     /**
      * gets the executor
-     * for the constructor of Promise
+     * for the constructor of @type {Promise}
      *
      * @param {string} url
      * @param {(response: Response, reject?: any) => void} [rejectionExecutor]
