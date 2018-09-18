@@ -87,10 +87,15 @@ export class YouTubeDataService extends AppDataService {
      * @memberof YouTubeDataService
      */
     loadChannel(channelId: string): Promise<Response> {
-        const uri =
-            YouTubeScalars.rxYouTubeApiRootUri +
-            YouTubeScalars.rxYouTubeApiPlaylistPath +
-            channelId;
+        const uri = `${YouTubeScalars.rxYouTubeApiRootUri}${
+            YouTubeScalars.rxYouTubeApiPlaylistPath
+        }${channelId}`;
+
+        console.log({
+            youTubeDataService: `${YouTubeDataService.loadChannelMethodName}`,
+            uri
+        });
+
         return this.loadJson<{}>(uri, json => this.channelLoaded.emit(json));
     }
 
@@ -102,10 +107,14 @@ export class YouTubeDataService extends AppDataService {
      * @memberof YouTubeDataService
      */
     loadChannelSet(id: string): Promise<Response> {
-        const uri =
-            YouTubeScalars.rxYouTubeApiRootUri +
-            YouTubeScalars.rxYouTubeApiPlaylistsPath +
-            id;
+        const uri = `${YouTubeScalars.rxYouTubeApiRootUri}${
+            YouTubeScalars.rxYouTubeApiPlaylistsPath
+        }${id}`;
+
+        console.log({
+            youTubeDataService: `${YouTubeDataService.loadChannelSetMethodName}`,
+            uri
+        });
 
         return this.loadJson<{}>(uri, json => this.channelSetLoaded.emit(json));
     }
@@ -118,10 +127,14 @@ export class YouTubeDataService extends AppDataService {
      * @memberof YouTubeDataService
      */
     loadChannelsIndex(suffix: string): Promise<Response> {
-        const uri =
-            YouTubeScalars.rxYouTubeApiRootUri +
-            YouTubeScalars.rxYouTubeApiPlaylistsIndexPath +
-            suffix;
+        const uri = `${YouTubeScalars.rxYouTubeApiRootUri}${
+            YouTubeScalars.rxYouTubeApiPlaylistsIndexPath
+        }${suffix}`;
+
+        console.log({
+            youTubeDataService: `${YouTubeDataService.loadChannelsIndexMethodName}`,
+            uri
+        });
 
         return this.loadJson<{}>(uri, json =>
             this.channelsIndexLoaded.emit(json)

@@ -83,7 +83,7 @@ export class YouTubePresentationDataServices {
      * @memberof YouTubePresentationDataServices
      */
     loadPresentation(id: string): Promise<Response> {
-        const uri = `${YouTubeScalars.rxYouTubeApiRootUri} ${id}`;
+        const uri = `${YouTubeScalars.rxYouTubeApiRootUri}${id}`;
         return this.presentationDataService.loadJson<{}>(uri, json =>
             this.presentationLoaded.emit(json)
         );
@@ -97,9 +97,9 @@ export class YouTubePresentationDataServices {
      * @memberof YouTubePresentationDataServices
      */
     loadVideos(id: string): Promise<Response> {
-        const uri = `${YouTubeScalars.rxYouTubeApiRootUri} ${
+        const uri = `${YouTubeScalars.rxYouTubeApiRootUri}${
             YouTubeScalars.rxYouTubeApiVideosPath
-        } ${id}`;
+        }${id}`;
 
         return this.videosDataService.loadJson<{}>(uri, json =>
             this.videosLoaded.emit(json)
