@@ -83,7 +83,7 @@ describe('DashboardDataService', () => {
                 .catch(response => {
                     console.log(
                         `${
-                            DashboardDataService.loadFeedsMethodName
+                            DashboardDataService.loadAppDataMethodName
                         }() catch response: `,
                         response
                     );

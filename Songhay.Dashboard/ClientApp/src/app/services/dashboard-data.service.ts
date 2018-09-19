@@ -23,15 +23,15 @@ export class DashboardDataService extends AppDataService {
      * name of method on this class for Jasmine spies
      *
      * @static
-     * @memberof BlogEntriesService
+     * @memberof DashboardDataService
      */
-    static loadFeedsMethodName = 'loadFeeds';
+    static loadAppDataMethodName = 'loadAppData';
 
     /**
      * Returns server assembly info.
      *
      * @type {AssemblyInfo}
-     * @memberof BlogEntriesService
+     * @memberof DashboardDataService
      */
     assemblyInfo: AssemblyInfo;
 
@@ -70,7 +70,7 @@ export class DashboardDataService extends AppDataService {
      * Promises to load index data.
      *
      * @returns {Promise<HttpResponse>}
-     * @memberof BlogEntriesService
+     * @memberof DashboardDataService
      */
     loadAppData(): Promise<Response> {
         this.initialize();
