@@ -69,6 +69,10 @@ export class DomUtility {
      * @memberof DomUtility
      */
     static getStyleDeclaration(element: Element): CSSStyleDeclaration {
+        if (!element) {
+            return;
+        }
+
         const style = element['style'] as CSSStyleDeclaration;
 
         if (!style) {
