@@ -29,15 +29,15 @@ export class DataServiceMock {
     }
 
     loadChannel(id: string): any {
-        return {};
+        return { catch(): void {} };
     }
 
     loadChannelSet(id: string): any {
-        return {};
+        return { catch(): void {} };
     }
 
     loadChannelsIndex(id: string): any {
-        return {};
+        return { catch(): void {} };
     }
 
     loadPresentation(id: string): any {
