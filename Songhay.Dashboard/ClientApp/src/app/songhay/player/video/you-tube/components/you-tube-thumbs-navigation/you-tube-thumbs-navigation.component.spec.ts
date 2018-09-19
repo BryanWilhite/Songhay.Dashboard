@@ -28,6 +28,12 @@ describe(YouTubeThumbsNavigationComponent.name, () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(YouTubeThumbsNavigationComponent);
         component = fixture.componentInstance;
+
+        component.channelsIndexName = 'songhay';
+        component.channelTitle = 'channel title';
+        component.dataForYouTubeSetIndex = null;
+        component.id = '999';
+
         fixture.detectChanges();
     });
 

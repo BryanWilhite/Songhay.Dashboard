@@ -160,6 +160,9 @@ export class YouTubeThumbsComponent implements AfterViewInit {
     }
 
     getYouTubeHref(item: YouTubeItem) {
+        if (!item) {
+            return;
+        }
         const kind = item.kind;
         const snippet = item.snippet;
         const videoId =
