@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRouteMock } from '../../../../../core/mocks/activated-route-mock';
-import { DataServiceMock } from '../../../../../../mocks/data-service.mock';
+import { YouTubeDataServiceMock } from '../../mocks/you-tube-data-service.mock';
 
 import { YouTubeScalars } from '../../models/you-tube-scalars';
 import { YouTubeDataService } from '../../services/you-tube-data.service';
@@ -23,7 +23,7 @@ describe('YouTubeThumbsSetComponent', () => {
             providers: [
                 { provide: ActivatedRoute, useClass: ActivatedRouteMock },
                 { provide: Location, useValue: location },
-                { provide: YouTubeDataService, useClass: DataServiceMock }
+                { provide: YouTubeDataService, useClass: YouTubeDataServiceMock }
             ],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();

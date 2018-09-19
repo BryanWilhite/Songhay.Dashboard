@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRouteMock } from '../../../../../core/mocks/activated-route-mock';
-import { DataServiceMock } from '../../../../../../mocks/data-service.mock';
+import { YouTubeDataServiceMock } from '../../mocks/you-tube-data-service.mock';
 
 import { YouTubePresentationDataServices } from '../../services/you-tube-presentation-data.services';
 import { YouTubePresentationComponent } from './you-tube-presentation.component';
@@ -20,7 +20,7 @@ describe(YouTubePresentationComponent.name, () => {
             providers: [
                 { provide: ActivatedRoute, useClass: ActivatedRouteMock },
                 { provide: Location, useValue: location },
-                { provide: YouTubePresentationDataServices, useClass: DataServiceMock }
+                { provide: YouTubePresentationDataServices, useClass: YouTubeDataServiceMock }
             ],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
