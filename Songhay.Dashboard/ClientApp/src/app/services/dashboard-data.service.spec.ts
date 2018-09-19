@@ -10,7 +10,6 @@ import { AppScalars } from '../models/songhay-app-scalars';
 import { DashboardDataService } from './dashboard-data.service';
 
 describe('DashboardDataService', () => {
-
     AppScalars.setupForJasmine();
 
     beforeEach(() => {
@@ -39,8 +38,6 @@ describe('DashboardDataService', () => {
     ));
     it('should load App data', done => {
         inject([DashboardDataService], (service: DashboardDataService) => {
-            AppScalars.appDataLocation = './base/src/assets/data/app.json';
-
             expect(service).not.toBeNull('the expected service is not here');
 
             service

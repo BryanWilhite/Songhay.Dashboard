@@ -8,11 +8,8 @@ import {
 } from '@angular/http';
 
 import { YouTubeDataService } from './you-tube-data.service';
-import { YouTubeScalars } from '../models/you-tube-scalars';
 
 describe(YouTubeDataService.name, () => {
-    YouTubeScalars.setupForJasmine();
-
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [HttpModule],
