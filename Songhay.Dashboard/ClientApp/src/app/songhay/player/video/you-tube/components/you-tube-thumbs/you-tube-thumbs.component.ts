@@ -18,7 +18,7 @@ import { DomUtility } from '../../../../../core/services/songhay-dom.utility';
 import { YouTubeItem } from '../../models/you-tube-item';
 import { YouTubeScalars } from '../../models/you-tube-scalars';
 import { YouTubeSnippet } from '../../models/you-tube-snippet';
-import { YouTubeThumbs} from '../../models/you-tube-thumbs';
+import { YouTubeThumbs } from '../../models/you-tube-thumbs';
 
 @Component({
     selector: 'app-you-tube-thumbs',
@@ -173,7 +173,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
             return;
         }
 
-        return YouTubeScalars.rxYouTubeWatchRootUri + videoId;
+        return `${YouTubeScalars.rxYouTubeWatchRootUri}${videoId}`;
     }
 
     slideThumbs(direction: string): void {
@@ -294,6 +294,9 @@ export class YouTubeThumbsComponent implements AfterViewInit {
 
     private initialize(): void {
         if (this.disableDefaultSort) {
+            return;
+        }
+        if (!this.thumbsData) {
             return;
         }
         this.thumbsData.items = _(this.thumbsData.items)

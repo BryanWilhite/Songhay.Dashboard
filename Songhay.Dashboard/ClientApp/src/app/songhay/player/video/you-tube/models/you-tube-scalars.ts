@@ -53,4 +53,8 @@ export class YouTubeScalars {
      * @memberof YouTubeScalars
      */
     static rxYouTubeWatchRootUri = 'https://www.youtube.com/watch?v=';
+
+    static setupForJasmine(): void {
+        YouTubeScalars.rxYouTubeApiRootUri = './base/src/assets/data/';
+    }
 }

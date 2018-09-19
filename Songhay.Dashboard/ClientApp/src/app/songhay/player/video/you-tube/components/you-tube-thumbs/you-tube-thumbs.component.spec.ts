@@ -23,6 +23,14 @@ describe('YouTubeThumbsComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(YouTubeThumbsComponent);
         component = fixture.componentInstance;
+
+        component.disableDefaultSort = false;
+        component.thumbsAnimationDuration = 500;
+        component.thumbsData = null;
+        component.thumbsHeaderLevel = 1;
+        component.thumbsTitle = 'thumbs title';
+        component.thumbsTitleData = {};
+
         fixture.detectChanges();
     });
 

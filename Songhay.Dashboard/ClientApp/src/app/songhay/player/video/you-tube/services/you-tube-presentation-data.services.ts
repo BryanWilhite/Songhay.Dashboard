@@ -84,6 +84,14 @@ export class YouTubePresentationDataServices {
      */
     loadPresentation(id: string): Promise<Response> {
         const uri = `${YouTubeScalars.rxYouTubeApiRootUri}${id}`;
+
+        console.log({
+            youTubePresentationDataServices: `${
+                YouTubePresentationDataServices.loadPresentationMethodName
+            }`,
+            uri
+        });
+
         return this.presentationDataService.loadJson<{}>(uri, json =>
             this.presentationLoaded.emit(json)
         );
@@ -100,6 +108,13 @@ export class YouTubePresentationDataServices {
         const uri = `${YouTubeScalars.rxYouTubeApiRootUri}${
             YouTubeScalars.rxYouTubeApiVideosPath
         }${id}`;
+
+        console.log({
+            youTubePresentationDataServices: `${
+                YouTubePresentationDataServices.loadVideosMethodName
+            }`,
+            uri
+        });
 
         return this.videosDataService.loadJson<{}>(uri, json =>
             this.videosLoaded.emit(json)

@@ -4,16 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRouteMock } from '../../../../../core/mocks/activated-route-mock';
+import { DataServiceMock } from '../../../../../../mocks/data-service.mock';
 
 import { YouTubePresentationDataServices } from '../../services/you-tube-presentation-data.services';
 import { YouTubePresentationComponent } from './you-tube-presentation.component';
 
 describe(YouTubePresentationComponent.name, () => {
     const location = jasmine.createSpyObj(Location.name, ['replaceState']);
-    const service = jasmine.createSpyObj(YouTubePresentationDataServices.name, [
-        YouTubePresentationDataServices.loadPresentationMethodName,
-        YouTubePresentationDataServices.loadVideosMethodName
-    ]);
     let component: YouTubePresentationComponent;
     let fixture: ComponentFixture<YouTubePresentationComponent>;
 
@@ -23,7 +20,7 @@ describe(YouTubePresentationComponent.name, () => {
             providers: [
                 { provide: ActivatedRoute, useClass: ActivatedRouteMock },
                 { provide: Location, useValue: location },
-                { provide: YouTubePresentationDataServices, useValue: service }
+                { provide: YouTubePresentationDataServices, useClass: DataServiceMock }
             ],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();

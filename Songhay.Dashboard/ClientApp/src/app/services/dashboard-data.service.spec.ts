@@ -10,6 +10,9 @@ import { AppScalars } from '../models/songhay-app-scalars';
 import { DashboardDataService } from './dashboard-data.service';
 
 describe('DashboardDataService', () => {
+
+    AppScalars.setupForJasmine();
+
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [

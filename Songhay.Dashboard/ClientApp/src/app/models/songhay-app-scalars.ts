@@ -52,4 +52,8 @@ export class AppScalars {
      * @memberof AppScalars
      */
     static feedNameStudio = 'studio';
+
+    static setupForJasmine(): void{
+        AppScalars.appDataLocation = './base/src/assets/data/app.json';
+    }
 }

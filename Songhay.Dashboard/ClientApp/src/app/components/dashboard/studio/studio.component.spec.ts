@@ -2,11 +2,14 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { YouTubeScalars } from '../../../songhay/player/video/you-tube/models/you-tube-scalars';
 import { StudioComponent } from './studio.component';
 
 describe('StudioComponent', () => {
     let component: StudioComponent;
     let fixture: ComponentFixture<StudioComponent>;
+
+    YouTubeScalars.setupForJasmine();
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
