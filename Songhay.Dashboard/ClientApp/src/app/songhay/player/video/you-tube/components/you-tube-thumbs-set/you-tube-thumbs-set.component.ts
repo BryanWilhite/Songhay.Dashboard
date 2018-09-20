@@ -11,8 +11,10 @@ import { YouTubeDataService } from '../../services/you-tube-data.service';
 })
 export class YouTubeThumbsSetComponent implements OnInit {
     dataForYouTubeSet: {};
-    id: string;
     thumbsSetSuffix: string;
+
+    private id: string;
+    private suffix: string;
 
     constructor(
         private location: Location,
@@ -23,9 +25,10 @@ export class YouTubeThumbsSetComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.id = params['id'] as string;
+            this.suffix = params['suffix'] as string;
         });
 
-        this.youTubeDataService.loadChannelSet(this.id).catch(() => {
+        this.youTubeDataService.loadChannelSet(this.suffix , this.id).catch(() => {
             console.log('The expected data is not here.', '[id:', this.id, ']');
             if (this.id) {
                 this.location.replaceState('/not-found');

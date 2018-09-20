@@ -78,12 +78,11 @@ describe(YouTubeDataService.name, () => {
                     done();
                 })
                 .catch(response => {
-                    console.warn(
-                        `${
-                            YouTubeDataService.loadChannelMethodName
-                        }() catch response: `,
-                        response
-                    );
+                    console.log({
+                        service: `${YouTubeDataService.name} [catch response]`,
+                        method: YouTubeDataService.loadChannelMethodName,
+                        response: response
+                    });
 
                     done();
                 });
@@ -134,19 +133,20 @@ describe(YouTubeDataService.name, () => {
                     done();
                 })
                 .catch(response => {
-                    console.warn(
-                        `${
-                            YouTubeDataService.loadChannelSetMethodName
-                        }() catch response: `,
-                        response
-                    );
+                    console.log({
+                        service: `${YouTubeDataService.name} [catch response]`,
+                        method: YouTubeDataService.loadChannelSetMethodName,
+                        response: response
+                    });
 
                     done();
                 });
         })();
     });
 
-    it(`should call ${YouTubeDataService.loadChannelsIndexMethodName}()`, done => {
+    it(`should call ${
+        YouTubeDataService.loadChannelsIndexMethodName
+    }()`, done => {
         inject([YouTubeDataService], (service: YouTubeDataService) => {
             expect(service).not.toBeNull('the expected service is not here');
 
@@ -189,12 +189,11 @@ describe(YouTubeDataService.name, () => {
                     done();
                 })
                 .catch(response => {
-                    console.warn(
-                        `${
-                            YouTubeDataService.loadChannelsIndexMethodName
-                        }() catch response: `,
-                        response
-                    );
+                    console.log({
+                        service: `${YouTubeDataService.name} [catch response]`,
+                        method: YouTubeDataService.loadChannelsIndexMethodName,
+                        response: response
+                    });
 
                     done();
                 });

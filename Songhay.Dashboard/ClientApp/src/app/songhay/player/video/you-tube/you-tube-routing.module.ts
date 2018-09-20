@@ -5,7 +5,7 @@ import { YouTubeThumbsSetComponent } from './components/you-tube-thumbs-set/you-
 
 const routes: Routes = [
     { path: '', redirectTo: 'uploads', pathMatch: 'full' },
-    { path: 'uploads', component: YouTubeThumbsSetComponent }
+    { path: 'uploads/:suffix/:id', component: YouTubeThumbsSetComponent }
 ];
 
 @NgModule({
