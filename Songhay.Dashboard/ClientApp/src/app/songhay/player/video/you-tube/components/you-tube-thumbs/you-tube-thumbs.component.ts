@@ -68,19 +68,19 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         this.players = new Map();
     }
 
-    getDuration(contentDetails) {
+    getDuration(contentDetails): string {
         if (!contentDetails) {
-            console.log(
-                'getDuration()',
-                'The expected content details are not here.'
-            );
+            console.warn({
+                component: YouTubeThumbsComponent.name,
+                warning: 'The expected content details are not here.'
+            });
             return;
         }
         if (!contentDetails.duration) {
-            console.log(
-                'getDuration()',
-                'The expected content details duration is not here.'
-            );
+            console.warn({
+                component: YouTubeThumbsComponent.name,
+                warning: 'The expected content details duration are not here.'
+            });
             return;
         }
         const duration = moment.duration(contentDetails.duration);
@@ -92,24 +92,24 @@ export class YouTubeThumbsComponent implements AfterViewInit {
             ''
         );
         if (display.length === 1) {
-            display = '0:0' + display;
+            display = `0:0${display}`;
         }
         if (display.length > 1 && display.length < 3) {
-            display = '0:' + display;
+            display = `0:${display}`;
         }
         return display;
     }
 
-    getLeadingZeroOrDefault(n) {
-        return ('0' + n).slice(-2);
+    getLeadingZeroOrDefault(n): string {
+        return `0${n}`.slice(-2);
     }
 
-    getPublishedAt(snippet: YouTubeSnippet) {
+    getPublishedAt(snippet: YouTubeSnippet): string {
         const publishedAt = moment(snippet.publishedAt).fromNow();
         return publishedAt;
     }
 
-    getThumbCaption(item) {
+    getThumbCaption(item): HTMLAnchorElement {
         const kind = item.kind;
         const snippet = item.snippet;
         const limit = 60;
@@ -118,48 +118,51 @@ export class YouTubeThumbsComponent implements AfterViewInit {
             title.length > limit ? title.substring(0, limit) + '…' : title;
         const videoId =
             kind === 'youtube#video' ? item.id : snippet.resourceId.videoId;
-        return (
-            '<a href="' +
-            this.getYouTubeHref(item) +
-            '" title="' +
-            title +
-            '" target="_blank">' +
-            caption +
-            '</a>'
-        );
+        const a = new HTMLAnchorElement();
+        a.href = this.getYouTubeHref(item);
+        a.target = '_blank';
+        a.title = title;
+        a.innerText = caption;
+        return a;
     }
 
-    getThumbsTitle() {
+    getThumbsTitle(): HTMLHeadingElement {
         const snippet0 = this.thumbsData.items[0].snippet;
-        const channelHref =
-            'https://www.youtube.com/channel/' + snippet0.channelId;
-        const getTitle = () => {
-            if (this.thumbsTitleData) {
-                return this.thumbsTitleData;
-            }
+        const channelHref = `https://www.youtube.com/channel/${
+            snippet0.channelId
+        }`;
+        const getTitle = (): string | HTMLAnchorElement => {
+            // if (this.thumbsTitleData) {
+            //     return this.thumbsTitleData;
+            // }
 
             if (!this.thumbsTitle) {
-                return (
-                    '<a href="' +
-                    channelHref +
-                    '" target="_blank" title="view Channel on YouTube">' +
-                    snippet0.channelTitle +
-                    '</a>'
-                );
+                const a = new HTMLAnchorElement();
+                a.href = channelHref;
+                a.target = '_blank';
+                a.title = 'view Channel on YouTube';
+                a.innerText = snippet0.channelTitle;
+                return a;
             }
 
             return this.thumbsTitle;
         };
 
-        let title = getTitle();
+        const level = this.thumbsHeaderLevel ? this.thumbsHeaderLevel : 2;
+        const h = DomUtility.getHtmlHeadingElement(level);
 
-        const level = this.thumbsHeaderLevel ? this.thumbsHeaderLevel : '2';
-        const h = 'h' + level;
-        title = '<' + h + '>' + title + '</' + h + '>';
-        return title;
+        const title = getTitle();
+
+        if (title instanceof String) {
+            h.innerText = title as string;
+        } else {
+            h.appendChild(title as HTMLAnchorElement);
+        }
+
+        return h;
     }
 
-    getYouTubeHref(item: YouTubeItem) {
+    getYouTubeHref(item: YouTubeItem): string {
         if (!item) {
             return;
         }
@@ -169,10 +172,10 @@ export class YouTubeThumbsComponent implements AfterViewInit {
             kind === 'youtube#video' ? item.id : snippet.resourceId.videoId;
 
         if (!videoId) {
-            console.log(
-                'getYouTubeHref()',
-                'The expected video ID is not here.'
-            );
+            console.warn({
+                component: YouTubeThumbsComponent.name,
+                warning: 'The expected video ID is not here.'
+            });
             return;
         }
 

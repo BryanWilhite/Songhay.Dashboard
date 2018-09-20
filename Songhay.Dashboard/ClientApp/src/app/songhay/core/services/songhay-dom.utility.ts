@@ -60,6 +60,24 @@ export class DomUtility {
     }
 
     /**
+     * gets the @type {HTMLHeadingElement}
+     * from the specified heading level
+     *
+     * @static
+     * @param {number} level
+     * @returns {HTMLHeadingElement}
+     * @memberof DomUtility
+     * @see https://stackoverflow.com/a/51289849/22944
+     */
+    static getHtmlHeadingElement(level: number): HTMLHeadingElement {
+        const heading =
+            0 < level && level < 7
+                ? (document.createElement(`h${level}`) as HTMLHeadingElement)
+                : (document.createElement('h2') as HTMLHeadingElement);
+        return heading;
+    }
+
+    /**
      * gets the @type {CSSStyleDeclaration}
      * from the specified @type {Element}
      *
