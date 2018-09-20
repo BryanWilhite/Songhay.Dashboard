@@ -77,6 +77,7 @@ export class YouTubeDataService extends AppDataService {
         this.channelLoaded = new EventEmitter();
         this.channelSetLoaded = new EventEmitter();
         this.channelsIndexLoaded = new EventEmitter();
+        this.initialize();
     }
 
     /**
@@ -87,6 +88,8 @@ export class YouTubeDataService extends AppDataService {
      * @memberof YouTubeDataService
      */
     loadChannel(channelId: string): Promise<Response> {
+        this.initialize();
+
         const uri = `${YouTubeScalars.rxYouTubeApiRootUri}${
             YouTubeScalars.rxYouTubeApiPlaylistPath
         }${channelId}`;
@@ -106,10 +109,12 @@ export class YouTubeDataService extends AppDataService {
      * @returns {Promise<Response>}
      * @memberof YouTubeDataService
      */
-    loadChannelSet(id: string): Promise<Response> {
+    loadChannelSet(suffix: string, id: string): Promise<Response> {
+        this.initialize();
+
         const uri = `${YouTubeScalars.rxYouTubeApiRootUri}${
             YouTubeScalars.rxYouTubeApiPlaylistsPath
-        }${id}`;
+        }${suffix}/${id}`;
 
         console.log({
             youTubeDataService: `${YouTubeDataService.loadChannelSetMethodName}`,
@@ -127,6 +132,8 @@ export class YouTubeDataService extends AppDataService {
      * @memberof YouTubeDataService
      */
     loadChannelsIndex(suffix: string): Promise<Response> {
+        this.initialize();
+
         const uri = `${YouTubeScalars.rxYouTubeApiRootUri}${
             YouTubeScalars.rxYouTubeApiPlaylistsIndexPath
         }${suffix}`;
@@ -139,5 +146,9 @@ export class YouTubeDataService extends AppDataService {
         return this.loadJson<{}>(uri, json =>
             this.channelsIndexLoaded.emit(json)
         );
+    }
+
+    private initialize(): void {
+        super.initializeLoadState();
     }
 }

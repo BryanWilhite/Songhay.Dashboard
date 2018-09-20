@@ -34,4 +34,170 @@ describe(YouTubeDataService.name, () => {
             expect(service).toBeTruthy();
         }
     ));
+
+    it(`should call ${YouTubeDataService.loadChannelMethodName}()`, done => {
+        inject([YouTubeDataService], (service: YouTubeDataService) => {
+            expect(service).not.toBeNull('the expected service is not here');
+
+            const channelId = 'bloomberg';
+
+            service
+                .loadChannel(channelId)
+                .then(responseOrVoid => {
+                    const response = responseOrVoid as Response;
+                    expect(response).toBeDefined(
+                        'The expected response is not defined.'
+                    );
+                    expect(response).not.toBeNull(
+                        'The expected response is not here.'
+                    );
+                    expect(response.ok).toBe(
+                        true,
+                        'The expected OK response is not here.'
+                    );
+
+                    expect(service.isError).toEqual(
+                        false,
+                        'Service in error state is unexpected.'
+                    );
+                    expect(service.isLoaded).toEqual(
+                        true,
+                        'The expected Service loaded state is not here.'
+                    );
+                    expect(service.isLoading).toEqual(
+                        false,
+                        'The expected Service loading state is not here.'
+                    );
+
+                    console.log({
+                        service: YouTubeDataService.name,
+                        method: YouTubeDataService.loadChannelMethodName,
+                        output: response.json()
+                    });
+
+                    done();
+                })
+                .catch(response => {
+                    console.warn(
+                        `${
+                            YouTubeDataService.loadChannelMethodName
+                        }() catch response: `,
+                        response
+                    );
+
+                    done();
+                });
+        })();
+    });
+
+    it(`should call ${YouTubeDataService.loadChannelSetMethodName}()`, done => {
+        inject([YouTubeDataService], (service: YouTubeDataService) => {
+            expect(service).not.toBeNull('the expected service is not here');
+
+            const suffix = 'songhay';
+            const id = 'news';
+
+            service
+                .loadChannelSet(suffix, id)
+                .then(responseOrVoid => {
+                    const response = responseOrVoid as Response;
+                    expect(response).toBeDefined(
+                        'The expected response is not defined.'
+                    );
+                    expect(response).not.toBeNull(
+                        'The expected response is not here.'
+                    );
+                    expect(response.ok).toBe(
+                        true,
+                        'The expected OK response is not here.'
+                    );
+
+                    expect(service.isError).toEqual(
+                        false,
+                        'Service in error state is unexpected.'
+                    );
+                    expect(service.isLoaded).toEqual(
+                        true,
+                        'The expected Service loaded state is not here.'
+                    );
+                    expect(service.isLoading).toEqual(
+                        false,
+                        'The expected Service loading state is not here.'
+                    );
+
+                    console.log({
+                        service: YouTubeDataService.name,
+                        method: YouTubeDataService.loadChannelSetMethodName,
+                        output: response.json()
+                    });
+
+                    done();
+                })
+                .catch(response => {
+                    console.warn(
+                        `${
+                            YouTubeDataService.loadChannelSetMethodName
+                        }() catch response: `,
+                        response
+                    );
+
+                    done();
+                });
+        })();
+    });
+
+    it(`should call ${YouTubeDataService.loadChannelsIndexMethodName}()`, done => {
+        inject([YouTubeDataService], (service: YouTubeDataService) => {
+            expect(service).not.toBeNull('the expected service is not here');
+
+            const suffix = 'songhay';
+
+            service
+                .loadChannelsIndex(suffix)
+                .then(responseOrVoid => {
+                    const response = responseOrVoid as Response;
+                    expect(response).toBeDefined(
+                        'The expected response is not defined.'
+                    );
+                    expect(response).not.toBeNull(
+                        'The expected response is not here.'
+                    );
+                    expect(response.ok).toBe(
+                        true,
+                        'The expected OK response is not here.'
+                    );
+
+                    expect(service.isError).toEqual(
+                        false,
+                        'Service in error state is unexpected.'
+                    );
+                    expect(service.isLoaded).toEqual(
+                        true,
+                        'The expected Service loaded state is not here.'
+                    );
+                    expect(service.isLoading).toEqual(
+                        false,
+                        'The expected Service loading state is not here.'
+                    );
+
+                    console.log({
+                        service: YouTubeDataService.name,
+                        method: YouTubeDataService.loadChannelsIndexMethodName,
+                        output: response.json()
+                    });
+
+                    done();
+                })
+                .catch(response => {
+                    console.warn(
+                        `${
+                            YouTubeDataService.loadChannelsIndexMethodName
+                        }() catch response: `,
+                        response
+                    );
+
+                    done();
+                });
+        })();
+    });
 });

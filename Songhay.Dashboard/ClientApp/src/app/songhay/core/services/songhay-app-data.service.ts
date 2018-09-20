@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptionsArgs } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 /**
@@ -55,14 +55,15 @@ export class AppDataService {
      */
     getExecutor(
         url: string,
-        rejectionExecutor?: (response: Response, reject?: any) => void
+        rejectionExecutor?: (response: Response, reject?: any) => void,
+        requestArgs?: RequestOptionsArgs
     ) {
         const executor = (
             resolve: (Response) => void,
             reject: (any) => void
         ) => {
             this.client
-                .get(url)
+                .get(url, requestArgs)
                 .toPromise()
                 .then(
                     responseOrVoid => {
@@ -99,27 +100,28 @@ export class AppDataService {
     initializeLoadState(): void {
         this.isError = false;
         this.isLoaded = false;
-        this.isLoading = true;
+        this.isLoading = false;
     }
 
     /**
-     * loads JSON with the specified URI
+     *
      *
      * @template TFromJson
      * @param {string} uri
      * @param {(json: TFromJson) => void} responseAction
+     * @param {RequestOptionsArgs} [requestArgs]
      * @returns {Promise<Response>}
      * @memberof AppDataService
      */
     loadJson<TFromJson>(
         uri: string,
-        responseAction: (json: TFromJson) => void
+        responseAction: (json: TFromJson) => void,
+        requestArgs?: RequestOptionsArgs
     ): Promise<Response> {
         if (this.isLoading) {
-            console.warn(
+            return Promise.reject(
                 'WARNING: previous JSON loading operation is still in progress.'
             );
-            return;
         }
 
         const rejectionExecutor = (response: Response, reject: any) => {
@@ -134,7 +136,7 @@ export class AppDataService {
         };
 
         const promise = new Promise<Response>(
-            this.getExecutor(uri, rejectionExecutor)
+            this.getExecutor(uri, rejectionExecutor, requestArgs)
         );
 
         return promise;

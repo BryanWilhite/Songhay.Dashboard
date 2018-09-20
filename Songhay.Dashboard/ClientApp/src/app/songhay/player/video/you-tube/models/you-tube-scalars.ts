@@ -12,7 +12,7 @@ export class YouTubeScalars {
      * @memberof YouTubeScalars
      */
     static rxYouTubeApiRootUri =
-        'http://brollplayer.azurewebsites.net/api/player/video/youtube/';
+        'https://songhay-system-player.azurewebsites.net/api/Player/v1/video/youtube/';
 
     /**
      * magic string
@@ -28,7 +28,7 @@ export class YouTubeScalars {
      * @static
      * @memberof YouTubeScalars
      */
-    static rxYouTubeApiPlaylistsPath = 'playlists/kintespace/';
+    static rxYouTubeApiPlaylistsPath = 'playlists/';
 
     /**
      * magic string
