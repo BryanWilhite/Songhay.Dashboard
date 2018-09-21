@@ -1,6 +1,6 @@
 <div class="row youtube-set">
     <mat-spinner *ngIf="youTubeDataService.isLoading" aria-hidden="true" color="accent"></mat-spinner>
-    <div class="row" *ngIf="youTubeDataService.isLoaded" *ngFor="let i of youTubeItems">
-        <rx-you-tube-thumbs data-thumbs-data="i" data-thumbs-header-level="3"></rx-you-tube-thumbs>
+    <div class="row" *ngIf="youTubeDataService.isLoaded" *ngFor="let key of youTubeItems.keys()">
+        <app-you-tube-thumbs [disableDefaultSort]="false" [thumbsAnimationDuration]="500" [thumbsData]="youTubeItems.get(key)" [thumbsHeaderLevel]="2" [thumbsTitle]=""></app-you-tube-thumbs>
     </div>
 </div>

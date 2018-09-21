@@ -35,8 +35,6 @@ export class YouTubeThumbsComponent implements AfterViewInit {
     thumbsHeaderLevel: number;
     @Input()
     thumbsTitle: string;
-    @Input()
-    thumbsTitleData: {};
 
     @ViewChild('thumbsContainer')
     thumbsContainer: ElementRef;
@@ -131,10 +129,6 @@ export class YouTubeThumbsComponent implements AfterViewInit {
             snippet0.channelId
         }`;
         const getTitle = (): string | HTMLAnchorElement => {
-            // if (this.thumbsTitleData) {
-            //     return this.thumbsTitleData;
-            // }
-
             if (!this.thumbsTitle) {
                 const a = new HTMLAnchorElement();
                 a.href = channelHref;

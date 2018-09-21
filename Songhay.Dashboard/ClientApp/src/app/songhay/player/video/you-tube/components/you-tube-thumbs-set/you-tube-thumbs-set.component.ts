@@ -14,7 +14,7 @@ export class YouTubeThumbsSetComponent implements OnInit {
     @Input()
     thumbsSetSuffix: string;
 
-    youTubeItems: YouTubeItem[];
+    youTubeItems: Map<string, YouTubeItem[]>;
 
     private id: string;
     private suffix: string;
@@ -57,6 +57,11 @@ export class YouTubeThumbsSetComponent implements OnInit {
                 }
                 return test;
             });
+            this.youTubeItems = new Map(set.map(o => {
+                const items = o['items'] as YouTubeItem[];
+                const key = items[0].snippet.channelTitle;
+                return [key, items] as [string, YouTubeItem[]];
+            }));
         });
     }
 }
