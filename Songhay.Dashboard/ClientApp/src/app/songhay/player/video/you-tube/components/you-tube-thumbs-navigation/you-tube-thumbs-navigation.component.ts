@@ -15,13 +15,11 @@ export class YouTubeThumbsNavigationComponent implements OnInit {
     channelTitle: string;
     dataForYouTubeSetIndex: YouTubeSetIndex;
     id: string;
-    isSetLoaded: boolean;
-    isSetLoading: boolean;
 
     constructor(
+        public youTubeDataService: YouTubeDataService,
         private route: ActivatedRoute,
-        private router: Router,
-        private dataServiceForYouTube: YouTubeDataService
+        private router: Router
     ) {}
 
     ngOnInit() {
@@ -29,8 +27,8 @@ export class YouTubeThumbsNavigationComponent implements OnInit {
             this.id = params['id'] as string;
         });
 
-        this.dataServiceForYouTube.loadChannelsIndex(this.channelsIndexName);
-        this.dataServiceForYouTube.channelsIndexLoaded.subscribe(json => {
+        this.youTubeDataService.loadChannelsIndex(this.channelsIndexName);
+        this.youTubeDataService.channelsIndexLoaded.subscribe(json => {
             this.dataForYouTubeSetIndex = json as YouTubeSetIndex;
             this.setChannelTitle();
         });

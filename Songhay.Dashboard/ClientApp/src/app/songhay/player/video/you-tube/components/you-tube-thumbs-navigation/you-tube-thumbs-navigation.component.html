@@ -1,10 +1,7 @@
 <div class="video thumbs dropdown title">{{ channelTitle }}</div>
-<div class="video thumbs dropdown" *ngIf="isSetLoaded">
-    <button class="btn btn-default dropdown-toggle" type="button" id="KinteTubeNavigator" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        {{ dataForYouTubeSetIndex.SegmentName }}
-        <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="KinteTubeNavigator">
-        <li data-ng-repeat="i in dataForYouTubeSetIndex.Documents"><a data-ng-click="doMenuItemCommand(i)">{{ i.Title }}</a></li>
-    </ul>
+<div class="video thumbs dropdown" *ngIf="youTubeDataService.isSetLoaded">
+    <button mat-button [matMenuTriggerFor]="menu">{{ dataForYouTubeSetIndex.SegmentName }}</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let i of dataForYouTubeSetIndex.Documents"><a (click)="doMenuItemCommand(i)">{{ i.Title }}</a></button>
+    </mat-menu>
 </div>
