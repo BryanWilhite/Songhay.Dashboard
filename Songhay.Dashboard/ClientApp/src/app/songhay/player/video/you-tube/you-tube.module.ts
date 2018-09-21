@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MaterialModule } from './material.module';
+
 import { YouTubeRoutingModule } from './you-tube-routing.module';
 
 import { YouTubeDataService } from './services/you-tube-data.service';
@@ -12,7 +14,7 @@ import { YouTubeThumbsNavigationComponent } from './components/you-tube-thumbs-n
 import { YouTubeThumbsSetComponent } from './components/you-tube-thumbs-set/you-tube-thumbs-set.component';
 
 @NgModule({
-    imports: [CommonModule, YouTubeRoutingModule],
+    imports: [CommonModule, MaterialModule, YouTubeRoutingModule],
     declarations: [
         YouTubeDataService,
         YouTubePresentationComponent,

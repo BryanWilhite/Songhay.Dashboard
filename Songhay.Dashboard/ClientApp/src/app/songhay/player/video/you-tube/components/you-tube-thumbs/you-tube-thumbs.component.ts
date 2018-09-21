@@ -60,7 +60,9 @@ export class YouTubeThumbsComponent implements AfterViewInit {
             this.thumbsContainerDivWrapper
         );
 
-        this.thumbsContainerDivWrapperStyleDeclaration.left = `${0}px`;
+        if (this.thumbsContainerDivWrapperStyleDeclaration) {
+            this.thumbsContainerDivWrapperStyleDeclaration.left = `${0}px`;
+        }
 
         this.players = new Map();
     }
@@ -124,6 +126,12 @@ export class YouTubeThumbsComponent implements AfterViewInit {
     }
 
     getThumbsTitle(): HTMLHeadingElement {
+        if (!this.thumbsData) {
+            return;
+        }
+        if (!this.thumbsData.length) {
+            return;
+        }
         const snippet0 = this.thumbsData[0].snippet;
         const channelHref = `https://www.youtube.com/channel/${
             snippet0.channelId

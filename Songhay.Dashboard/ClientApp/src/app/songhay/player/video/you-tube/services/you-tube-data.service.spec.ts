@@ -39,7 +39,7 @@ describe(YouTubeDataService.name, () => {
         inject([YouTubeDataService], (service: YouTubeDataService) => {
             expect(service).not.toBeNull('the expected service is not here');
 
-            const channelId = 'bloomberg';
+            const channelId = 'youtube-index-songhay-top-ten';
 
             service
                 .loadChannel(channelId)

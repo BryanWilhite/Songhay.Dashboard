@@ -11,6 +11,6 @@ export class DashboardComponent implements OnInit {
     constructor(public dashService: DashboardDataService) {}
 
     ngOnInit(): void {
-      this.dashService.loadAppData();
-  }
+        this.dashService.loadAppData();
+    }
 }

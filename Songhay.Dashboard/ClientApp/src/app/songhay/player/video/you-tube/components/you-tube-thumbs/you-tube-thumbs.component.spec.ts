@@ -31,7 +31,6 @@ describe('YouTubeThumbsComponent', () => {
         component.thumbsData = null;
         component.thumbsHeaderLevel = 1;
         component.thumbsTitle = 'thumbs title';
-        component.thumbsTitleData = {};
 
         fixture.detectChanges();
     });
