@@ -1,3 +1,4 @@
+import { YouTubeThumbnail } from './you-tube-thumbnail';
 
 /**
  * defines YouTube thumbnail metadata
@@ -6,11 +7,9 @@
  * @interface YouTubeThumbnails
  */
 export interface YouTubeThumbnails {
-    /**
-     * medium thumbnail
-     *
-     * @type {{ width: number }}
-     * @memberof YouTubeThumbnails
-     */
-    medium: { width: number };
+    default: YouTubeThumbnail;
+    medium: YouTubeThumbnail;
+    high: YouTubeThumbnail;
+    standard: YouTubeThumbnail;
+    maxres: YouTubeThumbnail;
 }

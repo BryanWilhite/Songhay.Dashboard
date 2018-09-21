@@ -15,10 +15,9 @@ import { slideAnimations, slideAnimation } from './slide.animation';
 
 import { DomUtility } from '../../../../../core/services/songhay-dom.utility';
 
-import { YouTubeItem } from '../../models/you-tube-item';
 import { YouTubeScalars } from '../../models/you-tube-scalars';
 import { YouTubeSnippet } from '../../models/you-tube-snippet';
-import { YouTubeThumbs } from '../../models/you-tube-thumbs';
+import { YouTubeItem } from '../../models/you-tube-item';
 
 @Component({
     selector: 'app-you-tube-thumbs',
@@ -31,7 +30,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
     @Input()
     thumbsAnimationDuration: number;
     @Input()
-    thumbsData: YouTubeThumbs;
+    thumbsData: YouTubeItem[];
     @Input()
     thumbsHeaderLevel: number;
     @Input()
@@ -127,7 +126,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
     }
 
     getThumbsTitle(): HTMLHeadingElement {
-        const snippet0 = this.thumbsData.items[0].snippet;
+        const snippet0 = this.thumbsData[0].snippet;
         const channelHref = `https://www.youtube.com/channel/${
             snippet0.channelId
         }`;
@@ -200,7 +199,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
             .map(el => el as HTMLSpanElement);
 
         const cannotSlideBack = () => {
-            const snippet0 = this.thumbsData.items[0].snippet;
+            const snippet0 = this.thumbsData[0].snippet;
             const fixedBlockWidth = snippet0.thumbnails.medium.width + 4;
             const totalWidth = fixedBlockWidth * blocks.length;
             const slideBackLength =
@@ -305,7 +304,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         if (!this.thumbsData) {
             return;
         }
-        this.thumbsData.items = _(this.thumbsData.items)
+        this.thumbsData = _(this.thumbsData)
             .orderBy(['snippet.publishedAt'], ['desc'])
             .value();
     }
