@@ -14,7 +14,7 @@ export class YouTubeThumbsSetComponent implements OnInit {
     @Input()
     thumbsSetSuffix: string;
 
-    youTubeItems: Map<string, YouTubeItem[]>;
+    youTubeItemsMap: Map<string, YouTubeItem[]>;
 
     private id: string;
     private suffix: string;
@@ -46,22 +46,7 @@ export class YouTubeThumbsSetComponent implements OnInit {
             });
 
         this.youTubeDataService.channelSetLoaded.subscribe(json => {
-            const set = Array.from(json['set']).filter(i => {
-                const test = i && i['items'];
-                if (!test) {
-                    console.warn({
-                        component: YouTubeThumbsSetComponent.name,
-                        message: 'channelSetLoaded: item filtered out',
-                        itemFilteredOut: i
-                    });
-                }
-                return test;
-            });
-            this.youTubeItems = new Map(set.map(o => {
-                const items = o['items'] as YouTubeItem[];
-                const key = items[0].snippet.channelTitle;
-                return [key, items] as [string, YouTubeItem[]];
-            }));
+            this.youTubeItemsMap = YouTubeDataService.getItemsMap(json);
         });
     }
 }

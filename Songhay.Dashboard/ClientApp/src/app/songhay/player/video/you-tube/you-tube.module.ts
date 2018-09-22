@@ -25,6 +25,12 @@ import { YouTubeThumbsSetComponent } from './components/you-tube-thumbs-set/you-
         YouTubeDataService,
         YouTubePresentationDataServices
     ],
-    exports: [YouTubeRoutingModule]
+    exports: [
+        YouTubeRoutingModule,
+        YouTubePresentationComponent,
+        YouTubeThumbsComponent,
+        YouTubeThumbsNavigationComponent,
+        YouTubeThumbsSetComponent
+    ]
 })
 export class YouTubeModule {}

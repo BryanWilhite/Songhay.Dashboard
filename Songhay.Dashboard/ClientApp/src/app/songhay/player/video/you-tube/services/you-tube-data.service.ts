@@ -5,6 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 import { YouTubeScalars } from '../models/you-tube-scalars';
 import { AppDataService } from '../../../../core/services/songhay-app-data.service';
+import { YouTubeItem } from '../models/you-tube-item';
 
 /**
  * YouTube data service
@@ -81,6 +82,50 @@ export class YouTubeDataService extends AppDataService {
     }
 
     /**
+     * gets @type {YouTubeItem[]}
+     * from JSON of the shape { items: [] } }
+     *
+     * @static
+     * @param {{}} json
+     * @returns {YouTubeItem[]}
+     * @memberof YouTubeDataService
+     */
+    static getItems(json: {}): YouTubeItem[] {
+        const items = json['items'] as YouTubeItem[];
+        return items;
+    }
+
+    /**
+     * gets @type {Map<string, YouTubeItem[]>}
+     * from JSON of the shape { set: [{ items: [] }] }
+     *
+     * @static
+     * @param {{}} json
+     * @returns {Map<string, YouTubeItem[]>}
+     * @memberof YouTubeDataService
+     */
+    static getItemsMap(json: {}): Map<string, YouTubeItem[]> {
+        const set = Array.from(json['set']).filter(i => {
+            const test = i && i['items'];
+            if (!test) {
+                console.warn({
+                    component: YouTubeDataService.name,
+                    message: 'getItemsMap(): item filtered out',
+                    itemFilteredOut: i
+                });
+            }
+            return test;
+        });
+        return new Map(
+            set.map(o => {
+                const items = YouTubeDataService.getItems(o);
+                const key = items[0].snippet.channelTitle;
+                return [key, items] as [string, YouTubeItem[]];
+            })
+        );
+    }
+
+    /**
      * loads YouTube channel
      *
      * @param {string} channelId
@@ -117,7 +162,9 @@ export class YouTubeDataService extends AppDataService {
         }${suffix}/${id}`;
 
         console.log({
-            youTubeDataService: `${YouTubeDataService.loadChannelSetMethodName}`,
+            youTubeDataService: `${
+                YouTubeDataService.loadChannelSetMethodName
+            }`,
             uri
         });
 
@@ -139,7 +186,9 @@ export class YouTubeDataService extends AppDataService {
         }${suffix}`;
 
         console.log({
-            youTubeDataService: `${YouTubeDataService.loadChannelsIndexMethodName}`,
+            youTubeDataService: `${
+                YouTubeDataService.loadChannelsIndexMethodName
+            }`,
             uri
         });
 

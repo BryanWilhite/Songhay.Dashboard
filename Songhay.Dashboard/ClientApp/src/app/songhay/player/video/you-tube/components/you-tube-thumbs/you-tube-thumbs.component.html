@@ -10,7 +10,7 @@
     </div>
 </div>
 <div #thumbsContainer class="row video thumbs thumbs-container">
-    <div *ngIf="thumbsData"><span *ngFor="let i of thumbsData.items">
+    <div *ngIf="youTubeItems"><span *ngFor="let i of youTubeItems">
             <a href="{{ getYouTubeHref(i) }}" target="_blank" title="{{ i.snippet.title }}">
                 <img src="{{ i.snippet.thumbnails.medium.url }}" width="{{ i.snippet.thumbnails.medium.width }}" height="{{ i.snippet.thumbnails.medium.height }}" />
             </a>
