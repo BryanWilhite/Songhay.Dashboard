@@ -117,7 +117,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
             title.length > limit ? title.substring(0, limit) + '…' : title;
         const videoId =
             kind === 'youtube#video' ? item.id : snippet.resourceId.videoId;
-        const a = new HTMLAnchorElement();
+        const a = document.createElement('a') as HTMLAnchorElement;
         a.href = this.getYouTubeHref(item);
         a.target = '_blank';
         a.title = title;
@@ -138,7 +138,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         }`;
         const getTitle = (): string | HTMLAnchorElement => {
             if (!this.thumbsTitle) {
-                const a = new HTMLAnchorElement();
+                const a = document.createElement('a') as HTMLAnchorElement;
                 a.href = channelHref;
                 a.target = '_blank';
                 a.title = 'view Channel on YouTube';
@@ -157,7 +157,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         if (title instanceof String) {
             h.innerText = title as string;
         } else {
-            h.appendChild(title as HTMLAnchorElement);
+            h.innerHTML = (title as HTMLAnchorElement).outerHTML;
         }
 
         return h;
