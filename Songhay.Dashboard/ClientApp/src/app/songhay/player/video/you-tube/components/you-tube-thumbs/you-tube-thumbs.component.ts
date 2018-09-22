@@ -20,7 +20,7 @@ import { YouTubeSnippet } from '../../models/you-tube-snippet';
 import { YouTubeItem } from '../../models/you-tube-item';
 
 @Component({
-    selector: 'app-you-tube-thumbs',
+    selector: 'rx-you-tube-thumbs',
     templateUrl: './you-tube-thumbs.component.html',
     styleUrls: ['./you-tube-thumbs.component.scss']
 })

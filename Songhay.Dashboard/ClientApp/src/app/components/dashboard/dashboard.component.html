@@ -20,4 +20,8 @@
     <div fxFlex="30">
         <app-studio-feed [feedName]="'codepen'"></app-studio-feed>
     </div>
+    <div fxFlex="60">
+        <mat-spinner *ngIf="youTubeDataService.isLoading" color="accent"></mat-spinner>
+        <rx-you-tube-thumbs *ngIf="youTubeDataService.isLoaded" [disableDefaultSort]="false" [thumbsAnimationDuration]="500" [thumbsData]="" [thumbsHeaderLevel]="2" [thumbsTitle]="'songhay tube'"></rx-you-tube-thumbs>
+    </div>
 </div>

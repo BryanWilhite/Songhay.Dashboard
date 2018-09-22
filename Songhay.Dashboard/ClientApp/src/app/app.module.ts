@@ -22,16 +22,6 @@ import { StudioSocialComponent } from './components/dashboard/studio-social/stud
 import { StudioVersionsComponent } from './components/dashboard/studio-versions/studio-versions.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        DashboardComponent,
-        StudioComponent,
-        StudioFeedComponent,
-        StudioLinksComponent,
-        StudioLogoComponent,
-        StudioSocialComponent,
-        StudioVersionsComponent
-    ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
         BrowserAnimationsModule,
@@ -42,6 +32,16 @@ import { StudioVersionsComponent } from './components/dashboard/studio-versions/
         ReactiveFormsModule,
         RoutingModule,
         YouTubeModule
+    ],
+    declarations: [
+        AppComponent,
+        DashboardComponent,
+        StudioComponent,
+        StudioFeedComponent,
+        StudioLinksComponent,
+        StudioLogoComponent,
+        StudioSocialComponent,
+        StudioVersionsComponent
     ],
     providers: [DashboardDataService],
     bootstrap: [AppComponent]

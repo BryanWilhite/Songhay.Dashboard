@@ -5,7 +5,7 @@ import { YouTubeDataService } from '../../services/you-tube-data.service';
 import { YouTubeSetIndex } from '../../models/you-tube-set-index';
 
 @Component({
-    selector: 'app-you-tube-thumbs-navigation',
+    selector: 'rx-you-tube-thumbs-navigation',
     templateUrl: './you-tube-thumbs-navigation.component.html',
     styleUrls: ['./you-tube-thumbs-navigation.component.scss']
 })

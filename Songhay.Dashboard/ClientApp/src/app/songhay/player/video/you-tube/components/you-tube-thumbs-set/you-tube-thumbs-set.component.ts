@@ -6,7 +6,7 @@ import { YouTubeDataService } from '../../services/you-tube-data.service';
 import { YouTubeItem } from '../../models/you-tube-item';
 
 @Component({
-    selector: 'app-you-tube-thumbs-set',
+    selector: 'rx-you-tube-thumbs-set',
     templateUrl: './you-tube-thumbs-set.component.html',
     styleUrls: ['./you-tube-thumbs-set.component.scss']
 })

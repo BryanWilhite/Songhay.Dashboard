@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "component-selector": [true, "element", "rx", "kebab-case"]
+    }
+}
