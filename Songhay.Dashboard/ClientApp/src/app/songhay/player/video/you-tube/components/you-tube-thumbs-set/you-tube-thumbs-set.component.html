@@ -2,7 +2,7 @@
     <mat-spinner *ngIf="youTubeDataService.isLoading" aria-hidden="true" color="accent"></mat-spinner>
     <ng-container *ngIf="youTubeDataService.isLoaded">
         <div class="row" *ngFor="let key of youTubeItemsMap.keys()">
-            <rx-you-tube-thumbs [disableDefaultSort]="false" [thumbsAnimationDuration]="500" [thumbsData]="youTubeItemsMap.get(key)" [thumbsHeaderLevel]="2" [thumbsTitle]=""></rx-you-tube-thumbs>
+            <rx-you-tube-thumbs [disableDefaultSort]="false" [thumbsAnimationDuration]="500" [thumbsHeaderLevel]="2" [thumbsTitle]="" [youTubeItems]="youTubeItemsMap.get(key)"></rx-you-tube-thumbs>
         </div>
     </ng-container>
 </div>

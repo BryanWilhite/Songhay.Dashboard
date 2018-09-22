@@ -4,7 +4,7 @@
             <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
         </div>
         <div class="video-strip row">
-            <rx-you-tube-thumbs *ngIf="videosDataService.isLoaded" [disableDefaultSort]="true" [thumbsAnimationDuration]="500" [thumbsData]="dataForYouTubePresentation.videos" [thumbsHeaderLevel]="2" [thumbsTitle]="dataForYouTubePresentation.presentation.Title"></rx-you-tube-thumbs>
+            <rx-you-tube-thumbs *ngIf="videosDataService.isLoaded" [disableDefaultSort]="true" [thumbsAnimationDuration]="500" [thumbsHeaderLevel]="2" [thumbsTitle]="dataForYouTubePresentation.presentation.Title" [youTubeItems]="dataForYouTubePresentation.videos"></rx-you-tube-thumbs>
         </div>
         <div class="description container" data-ng-bind-html="dataForYouTubePresentation.presentation.Description[\'#text\']" *ngIf="isPresentationLoaded"></div>
         <div class="credits container" *ngIf="presentationDataService.isLoaded">

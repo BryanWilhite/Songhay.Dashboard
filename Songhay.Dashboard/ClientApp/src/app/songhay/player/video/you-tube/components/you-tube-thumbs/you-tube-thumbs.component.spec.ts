@@ -28,9 +28,9 @@ describe('YouTubeThumbsComponent', () => {
 
         component.disableDefaultSort = false;
         component.thumbsAnimationDuration = 500;
-        component.thumbsData = null;
         component.thumbsHeaderLevel = 1;
         component.thumbsTitle = 'thumbs title';
+        component.youTubeItems = null;
 
         fixture.detectChanges();
     });

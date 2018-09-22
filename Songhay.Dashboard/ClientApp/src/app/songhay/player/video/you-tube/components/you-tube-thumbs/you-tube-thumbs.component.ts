@@ -30,7 +30,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
     @Input()
     thumbsAnimationDuration: number;
     @Input()
-    thumbsData: YouTubeItem[];
+    youTubeItems: YouTubeItem[];
     @Input()
     thumbsHeaderLevel: number;
     @Input()
@@ -108,11 +108,11 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         return publishedAt;
     }
 
-    getThumbCaption(item): HTMLAnchorElement {
+    getThumbCaption(item: YouTubeItem): HTMLAnchorElement {
         const kind = item.kind;
         const snippet = item.snippet;
         const limit = 60;
-        const title = snippet.title;
+        const title = snippet.channelTitle;
         const caption =
             title.length > limit ? title.substring(0, limit) + '…' : title;
         const videoId =
@@ -126,13 +126,13 @@ export class YouTubeThumbsComponent implements AfterViewInit {
     }
 
     getThumbsTitle(): HTMLHeadingElement {
-        if (!this.thumbsData) {
+        if (!this.youTubeItems) {
             return;
         }
-        if (!this.thumbsData.length) {
+        if (!this.youTubeItems.length) {
             return;
         }
-        const snippet0 = this.thumbsData[0].snippet;
+        const snippet0 = this.youTubeItems[0].snippet;
         const channelHref = `https://www.youtube.com/channel/${
             snippet0.channelId
         }`;
@@ -201,7 +201,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
             .map(el => el as HTMLSpanElement);
 
         const cannotSlideBack = () => {
-            const snippet0 = this.thumbsData[0].snippet;
+            const snippet0 = this.youTubeItems[0].snippet;
             const fixedBlockWidth = snippet0.thumbnails.medium.width + 4;
             const totalWidth = fixedBlockWidth * blocks.length;
             const slideBackLength =
@@ -303,10 +303,10 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         if (this.disableDefaultSort) {
             return;
         }
-        if (!this.thumbsData) {
+        if (!this.youTubeItems) {
             return;
         }
-        this.thumbsData = _(this.thumbsData)
+        this.youTubeItems = _(this.youTubeItems)
             .orderBy(['snippet.publishedAt'], ['desc'])
             .value();
     }
