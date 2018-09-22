@@ -16,12 +16,15 @@ import { YouTubeThumbsSetComponent } from './components/you-tube-thumbs-set/you-
 @NgModule({
     imports: [CommonModule, MaterialModule, YouTubeRoutingModule],
     declarations: [
-        YouTubeDataService,
         YouTubePresentationComponent,
-        YouTubePresentationDataServices,
         YouTubeThumbsComponent,
         YouTubeThumbsNavigationComponent,
         YouTubeThumbsSetComponent
-    ]
+    ],
+    providers: [
+        YouTubeDataService,
+        YouTubePresentationDataServices
+    ],
+    exports: [YouTubeRoutingModule]
 })
 export class YouTubeModule {}
