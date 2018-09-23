@@ -9,11 +9,10 @@ $thumbnail-margin-right: 4px;
 
 $thumbs-container-height: $thumbnail-height + $published-at-height +
     $caption-height;
-$thumbs-container-max-width: ($thumbnail-margin-right + $thumbnail-width) * 3; // three thumbnails
-$thumbs-container-min-width: ($thumbnail-margin-right + $thumbnail-width) * 2; // two thumbnails
 
-$media-max-width-fudge: 320px;
 $button-left-fudge: 96px;
+$button-right-fudge: 8px;
+$media-max-width-fudge: 320px;
 
 $thumbs-responsive-widths: (
     /* (4 + 320 ) * 8 = 2592 */ 8-thumbs:
@@ -57,12 +56,30 @@ $thumbs-media-max-width: map-get($thumbs-responsive-widths, media-max-width);
 
             & > button {
                 &.left {
-                    left: 5px !important;
+                    left: $button-right-fudge !important;
                 }
                 &.right {
                     left: map-get($thumbs-responsive-widths, $key) -
                         $button-left-fudge !important;
                 }
+            }
+        }
+    }
+}
+
+// upper bound:
+$key: 8-thumbs;
+@media (min-width: map-get($thumbs-media-max-width, $key)) {
+    .video.thumbs-container {
+        width: map-get($thumbs-responsive-widths, $key);
+
+        & > button {
+            &.left {
+                left: $button-right-fudge !important;
+            }
+            &.right {
+                left: map-get($thumbs-responsive-widths, $key) -
+                    $button-left-fudge !important;
             }
         }
     }
@@ -82,6 +99,12 @@ $thumbs-media-max-width: map-get($thumbs-responsive-widths, media-max-width);
             background-color: #fff;
             color: #000;
             opacity: 0.9;
+        }
+    }
+
+    &.header {
+        & > .title {
+            padding-left: 2rem;
         }
     }
 

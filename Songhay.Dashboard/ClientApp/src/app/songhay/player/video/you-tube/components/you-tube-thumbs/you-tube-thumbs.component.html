@@ -10,10 +10,10 @@
             <span class="caption" [innerHTML]="getThumbCaption(i)"></span>
             <span class="duration"><span>{{ getDuration(i.contentDetails) }}</span></span>
         </span></div>
-    <button mat-icon-button type="button" class="left" (click)="slideThumbs('right')">
+    <button mat-icon-button type="button" class="left" (click)="slideThumbs('forward')">
         <mat-icon color="accent" svgIcon="rx:mdi_step_backward_36px" aria-hidden="true"></mat-icon>
     </button>
-    <button mat-icon-button type="button" class="right" (click)="slideThumbs('left')">
+    <button mat-icon-button type="button" class="right" (click)="slideThumbs('back')">
         <mat-icon color="accent" svgIcon="rx:mdi_step_forward_36px" aria-hidden="true"></mat-icon>
     </button>
 </div>
