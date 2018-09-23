@@ -1,15 +1,13 @@
-<div class="row video thumbs header">
+<div class="video thumbs header">
     <div class="title" [innerHTML]="getThumbsTitle()"></div>
-    <div class="controls">
-        <button type="button" class="btn btn-link left" (click)="slideThumbs('right')">
-            <mat-icon color="accent" svgIcon="rx:mdi_step_backward_36px" aria-hidden="true"></mat-icon>
-        </button>
-        <button type="button" class="btn btn-link right" (click)="slideThumbs('left')">
-            <mat-icon color="accent" svgIcon="rx:mdi_step_forward_36px" aria-hidden="true"></mat-icon>
-        </button>
-    </div>
 </div>
-<div #thumbsContainer class="row video thumbs thumbs-container">
+<div #thumbsContainer class="video thumbs thumbs-container">
+    <button mat-icon-button type="button" class="left" (click)="slideThumbs('right')">
+        <mat-icon color="accent" svgIcon="rx:mdi_step_backward_36px" aria-hidden="true"></mat-icon>
+    </button>
+    <button mat-icon-button type="button" class="right" (click)="slideThumbs('left')">
+        <mat-icon color="accent" svgIcon="rx:mdi_step_forward_36px" aria-hidden="true"></mat-icon>
+    </button>
     <div *ngIf="youTubeItems"><span *ngFor="let i of youTubeItems">
             <a href="{{ getYouTubeHref(i) }}" target="_blank" title="{{ i.snippet.title }}">
                 <img src="{{ i.snippet.thumbnails.medium.url }}" width="{{ i.snippet.thumbnails.medium.width }}" height="{{ i.snippet.thumbnails.medium.height }}" />
