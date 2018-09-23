@@ -18,6 +18,7 @@ import { DomUtility } from '../../../../../core/services/songhay-dom.utility';
 import { YouTubeScalars } from '../../models/you-tube-scalars';
 import { YouTubeSnippet } from '../../models/you-tube-snippet';
 import { YouTubeItem } from '../../models/you-tube-item';
+import { YouTubeContentDetails } from '../../models/you-tube-content-details';
 
 @Component({
     selector: 'rx-you-tube-thumbs',
@@ -74,7 +75,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         this.players = new Map();
     }
 
-    getDuration(contentDetails): string {
+    getDuration(contentDetails: YouTubeContentDetails): string {
         if (!contentDetails) {
             console.warn({
                 component: YouTubeThumbsComponent.name,
@@ -93,10 +94,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         const hours = this.getLeadingZeroOrDefault(duration.hours());
         const minutes = this.getLeadingZeroOrDefault(duration.minutes());
         const seconds = this.getLeadingZeroOrDefault(duration.seconds());
-        let display = (hours + ':' + minutes + ':' + seconds).replace(
-            /^0[0:]*/g,
-            ''
-        );
+        let display = `${hours}:${minutes}:${seconds}`.replace(/^0[0:]*/g, '');
         if (display.length === 1) {
             display = `0:0${display}`;
         }
@@ -104,10 +102,6 @@ export class YouTubeThumbsComponent implements AfterViewInit {
             display = `0:${display}`;
         }
         return display;
-    }
-
-    getLeadingZeroOrDefault(n): string {
-        return `0${n}`.slice(-2);
     }
 
     getPublishedAt(snippet: YouTubeSnippet): string {
@@ -264,6 +258,10 @@ export class YouTubeThumbsComponent implements AfterViewInit {
 
                 break;
         }
+    }
+
+    private getLeadingZeroOrDefault(n: number | string): string {
+        return `0${n}`.slice(-2);
     }
 
     private getPlayer(
