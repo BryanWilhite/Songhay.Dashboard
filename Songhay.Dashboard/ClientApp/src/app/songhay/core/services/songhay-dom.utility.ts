@@ -1,4 +1,5 @@
 import { ElementRef } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 /**
  * static members for DOM manipulation
@@ -75,6 +76,19 @@ export class DomUtility {
                 ? (document.createElement(`h${level}`) as HTMLHeadingElement)
                 : (document.createElement('h2') as HTMLHeadingElement);
         return heading;
+    }
+
+    /**
+     * gets @type {SafeHtml} with the specified @type {DomSanitizer}
+     *
+     * @static
+     * @param {DomSanitizer} sanitizer
+     * @param {Element} element
+     * @returns {SafeHtml}
+     * @memberof DomUtility
+     */
+    static getSanitizedHtml(sanitizer: DomSanitizer, element: Element): SafeHtml {
+        return sanitizer.bypassSecurityTrustHtml(element.outerHTML);
     }
 
     /**

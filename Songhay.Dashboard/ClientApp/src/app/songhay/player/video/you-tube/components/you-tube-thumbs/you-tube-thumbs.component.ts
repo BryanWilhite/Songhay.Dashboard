@@ -8,7 +8,7 @@ import {
     ViewChild,
     Input
 } from '@angular/core';
-
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { AnimationBuilder, AnimationPlayer } from '@angular/animations';
 
 import { slideAnimations, slideAnimation } from './slide.animation';
@@ -27,14 +27,18 @@ import { YouTubeItem } from '../../models/you-tube-item';
 export class YouTubeThumbsComponent implements AfterViewInit {
     @Input()
     disableDefaultSort: boolean;
+
     @Input()
     thumbsAnimationDuration: number;
-    @Input()
-    youTubeItems: YouTubeItem[];
+
     @Input()
     thumbsHeaderLevel: number;
+
     @Input()
     thumbsTitle: string;
+
+    @Input()
+    youTubeItems: YouTubeItem[];
 
     @ViewChild('thumbsContainer')
     thumbsContainer: ElementRef;
@@ -44,7 +48,10 @@ export class YouTubeThumbsComponent implements AfterViewInit {
     private thumbsContainerDivWrapperStyleDeclaration: CSSStyleDeclaration;
     private players: Map<string, AnimationPlayer>;
 
-    constructor(private animationBuilder: AnimationBuilder) {
+    constructor(
+        private animationBuilder: AnimationBuilder,
+        private sanitizer: DomSanitizer
+    ) {
         this.initialize();
     }
 
@@ -108,7 +115,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         return publishedAt;
     }
 
-    getThumbCaption(item: YouTubeItem): HTMLAnchorElement {
+    getThumbCaption(item: YouTubeItem): SafeHtml {
         const kind = item.kind;
         const snippet = item.snippet;
         const limit = 60;
@@ -122,10 +129,10 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         a.target = '_blank';
         a.title = title;
         a.innerText = caption;
-        return a;
+        return DomUtility.getSanitizedHtml(this.sanitizer, a);
     }
 
-    getThumbsTitle(): HTMLHeadingElement {
+    getThumbsTitle(): SafeHtml {
         if (!this.youTubeItems) {
             return;
         }
@@ -136,31 +143,21 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         const channelHref = `https://www.youtube.com/channel/${
             snippet0.channelId
         }`;
-        const getTitle = (): string | HTMLAnchorElement => {
-            if (!this.thumbsTitle) {
-                const a = document.createElement('a') as HTMLAnchorElement;
-                a.href = channelHref;
-                a.target = '_blank';
-                a.title = 'view Channel on YouTube';
-                a.innerText = snippet0.channelTitle;
-                return a;
-            }
-
-            return this.thumbsTitle;
-        };
-
         const level = this.thumbsHeaderLevel ? this.thumbsHeaderLevel : 2;
         const h = DomUtility.getHtmlHeadingElement(level);
 
-        const title = getTitle();
-
-        if (title instanceof String) {
-            h.innerText = title as string;
+        if (!this.thumbsTitle) {
+            const a = document.createElement('a') as HTMLAnchorElement;
+            a.href = channelHref;
+            a.target = '_blank';
+            a.title = 'view Channel on YouTube';
+            a.innerText = snippet0.channelTitle;
+            h.innerHTML = a.outerHTML;
         } else {
-            h.innerHTML = (title as HTMLAnchorElement).outerHTML;
+            h.innerHTML = this.thumbsTitle;
         }
 
-        return h;
+        return DomUtility.getSanitizedHtml(this.sanitizer, h);
     }
 
     getYouTubeHref(item: YouTubeItem): string {
