@@ -113,11 +113,9 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         const kind = item.kind;
         const snippet = item.snippet;
         const limit = 60;
-        const title = snippet.channelTitle;
+        const title = snippet.title;
         const caption =
             title.length > limit ? title.substring(0, limit) + '…' : title;
-        const videoId =
-            kind === 'youtube#video' ? item.id : snippet.resourceId.videoId;
         const a = document.createElement('a') as HTMLAnchorElement;
         a.href = this.getYouTubeHref(item);
         a.target = '_blank';

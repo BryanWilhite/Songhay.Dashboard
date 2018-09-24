@@ -112,6 +112,7 @@ $key: 8-thumbs;
         background-color: #000;
         height: $thumbs-container-height;
         margin: 0 auto;
+        margin-bottom: $caption-height;
         position: relative;
         overflow: hidden;
         white-space: nowrap;

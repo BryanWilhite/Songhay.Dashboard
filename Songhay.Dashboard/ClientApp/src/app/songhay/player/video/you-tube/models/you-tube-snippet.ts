@@ -17,12 +17,44 @@ export interface YouTubeSnippet {
     channelId: string;
 
     /**
-     * channel Title
+     * channel title
      *
      * @type {string}
      * @memberof YouTubeSnippet
      */
     channelTitle: string;
+
+    /**
+     * description
+     *
+     * @type {string}
+     * @memberof YouTubeSnippet
+     */
+    description: string;
+
+    /**
+     * localized version of description and title
+     *
+     * @type {{ description: string; title: string }}
+     * @memberof YouTubeSnippet
+     */
+    localized: { description: string; title: string }
+
+    /**
+     * playlist ID
+     *
+     * @type {string}
+     * @memberof YouTubeSnippet
+     */
+    playlistId: string;
+
+    /**
+     * position
+     *
+     * @type {number}
+     * @memberof YouTubeSnippet
+     */
+    position: number;
 
     /**
      * publish date
@@ -41,10 +73,26 @@ export interface YouTubeSnippet {
     resourceId: YouTubeResourceId;
 
     /**
+     * tags
+     *
+     * @type {string[]}
+     * @memberof YouTubeSnippet
+     */
+    tags: string[]
+
+    /**
      * thumbnail metadata
      *
      * @type {YouTubeThumbnails}
      * @memberof YouTubeSnippet
      */
     thumbnails: YouTubeThumbnails;
+
+    /**
+     * title
+     *
+     * @type {string}
+     * @memberof YouTubeSnippet
+     */
+    title: string;
 }
