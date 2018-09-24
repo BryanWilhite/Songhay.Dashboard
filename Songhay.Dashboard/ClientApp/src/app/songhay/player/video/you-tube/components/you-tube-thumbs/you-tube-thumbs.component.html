@@ -1,5 +1,8 @@
 <div class="video thumbs header">
-    <div class="title" [innerHTML]="getThumbsTitle()"></div>
+    <a [routerLink]="[ '/player/video/youtube/uploads/songhay/news' ]">
+        <mat-icon color="accent" inline="true" svgIcon="rx:mdi_youtube_24px" aria-hidden="true"></mat-icon>
+        <span class="title" [innerHTML]="getThumbsTitle()"></span>
+    </a>
 </div>
 <div #thumbsContainer class="video thumbs thumbs-container">
     <div *ngIf="youTubeItems"><span *ngFor="let i of youTubeItems">
