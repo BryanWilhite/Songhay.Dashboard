@@ -21,7 +21,7 @@
         <app-studio-feed [feedName]="'codepen'"></app-studio-feed>
     </div>
 </div>
-<div>
+<div class="dash b-roll yt">
     <mat-spinner *ngIf="youTubeDataService.isLoading" color="accent"></mat-spinner>
     <rx-you-tube-thumbs *ngIf="youTubeDataService.isLoaded" [disableDefaultSort]="false" [thumbsAnimationDuration]="500" [thumbsHeaderLevel]="2" [thumbsTitle]="'songhay tube'" [youTubeItems]="youTubeItems"></rx-you-tube-thumbs>
 </div>

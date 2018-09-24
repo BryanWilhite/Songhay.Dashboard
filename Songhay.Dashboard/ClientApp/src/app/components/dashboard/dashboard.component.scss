@@ -2,12 +2,21 @@
 @import '../../../assets/scss/themes/akyinkyin/palette';
 
 .dash {
-    margin: 0 auto;
-    max-width: 80rem;
+    &.flex-layout-container {
+        margin: 0 auto;
+        max-width: 80rem;
 
-    & > div {
-        background-color: transparent;
-        margin: .5rem;
-        min-width: 16rem;
+        & > div {
+            background-color: transparent;
+            margin: 0.5rem;
+            min-width: 16rem;
+        }
+    }
+
+    &.b-roll.yt {
+        margin-bottom: 2em;
+        & > .mat-spinner {
+            margin: 0 auto;
+        }
     }
 }
