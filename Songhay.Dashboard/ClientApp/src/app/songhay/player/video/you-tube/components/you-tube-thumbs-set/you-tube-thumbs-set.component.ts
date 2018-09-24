@@ -14,6 +14,7 @@ export class YouTubeThumbsSetComponent implements OnInit {
     @Input()
     thumbsSetSuffix: string;
 
+    youTubeItemsKeys: string[];
     youTubeItemsMap: Map<string, YouTubeItem[]>;
 
     private id: string;
@@ -47,6 +48,7 @@ export class YouTubeThumbsSetComponent implements OnInit {
 
         this.youTubeDataService.channelSetLoaded.subscribe(json => {
             this.youTubeItemsMap = YouTubeDataService.getItemsMap(json);
+            this.youTubeItemsKeys = Array.from(this.youTubeItemsMap.keys());
         });
     }
 }
