@@ -39,6 +39,9 @@ export class YouTubeThumbsComponent implements AfterViewInit {
     thumbsTitle: string;
 
     @Input()
+    titleRouterLink: string;
+
+    @Input()
     youTubeItems: YouTubeItem[];
 
     @ViewChild('thumbsContainer')
@@ -131,25 +134,27 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         if (!this.youTubeItems.length) {
             return;
         }
-        const snippet0 = this.youTubeItems[0].snippet;
-        const channelHref = `https://www.youtube.com/channel/${
-            snippet0.channelId
-        }`;
-        const level = this.thumbsHeaderLevel ? this.thumbsHeaderLevel : 2;
-        const h = DomUtility.getHtmlHeadingElement(level);
 
-        if (!this.thumbsTitle) {
+        const span = document.createElement('span') as HTMLSpanElement;
+
+        if (this.thumbsTitle) {
+            span.innerHTML = this.thumbsTitle;
+        } else {
+            const snippet0 = this.youTubeItems[0].snippet;
+            const channelHref = `https://www.youtube.com/channel/${
+                snippet0.channelId
+            }`;
+
             const a = document.createElement('a') as HTMLAnchorElement;
             a.href = channelHref;
             a.target = '_blank';
-            a.title = 'view Channel on YouTube';
+            a.title = 'view channel on YouTube';
             a.innerText = snippet0.channelTitle;
-            h.innerHTML = a.outerHTML;
-        } else {
-            h.innerHTML = this.thumbsTitle;
+
+            span.innerHTML = a.outerHTML;
         }
 
-        return DomUtility.getSanitizedHtml(this.sanitizer, h);
+        return DomUtility.getSanitizedHtml(this.sanitizer, span);
     }
 
     getYouTubeHref(item: YouTubeItem): string {

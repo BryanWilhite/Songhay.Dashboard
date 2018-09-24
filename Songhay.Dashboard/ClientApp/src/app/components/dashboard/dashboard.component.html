@@ -23,5 +23,5 @@
 </div>
 <div class="dash b-roll yt">
     <mat-spinner *ngIf="youTubeDataService.isLoading" color="accent"></mat-spinner>
-    <rx-you-tube-thumbs *ngIf="youTubeDataService.isLoaded" [disableDefaultSort]="false" [thumbsAnimationDuration]="500" [thumbsHeaderLevel]="2" [thumbsTitle]="'songhay tube'" [youTubeItems]="youTubeItems"></rx-you-tube-thumbs>
+    <rx-you-tube-thumbs *ngIf="youTubeDataService.isLoaded" [disableDefaultSort]="false" [thumbsAnimationDuration]="500" [thumbsHeaderLevel]="2" [thumbsTitle]="'songhay tube'" [titleRouterLink]="'/player/video/youtube/uploads/songhay/news'" [youTubeItems]="youTubeItems"></rx-you-tube-thumbs>
 </div>

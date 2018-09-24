@@ -103,8 +103,14 @@ $key: 8-thumbs;
     }
 
     &.header {
+        font-size: 1.8rem;
         padding-left: 2rem;
+
         & > a {
+            display: inline-block;
+            line-height: 1.8rem;
+            margin-bottom: 0.5rem;
+
             &:link,
             &:visited {
                 color: #fff;
@@ -114,13 +120,28 @@ $key: 8-thumbs;
                 display: inline-block;
             }
         }
+
+        & > span {
+            display: inline-block;
+            line-height: 1.8rem;
+            margin-bottom: 0.5rem;
+
+            & ::ng-deep span {
+                & > a {
+                    &:link,
+                    &:visited {
+                        color: #fff;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
     }
 
     &.thumbs-container {
         background-color: #000;
         height: $thumbs-container-height;
         margin: 0 auto;
-        margin-bottom: $caption-height;
         position: relative;
         overflow: hidden;
         white-space: nowrap;
