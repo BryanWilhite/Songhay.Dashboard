@@ -1,4 +1,7 @@
 <h1 class="mat-app-background b-roll yt-set title">
+    <button mat-icon-button type="button" class="back" (click)="goBack()" title="go back">
+        <mat-icon color="accent" inline="false" svgIcon="rx:mdi_arrow_left_drop_circle_24px" aria-hidden="true"></mat-icon>
+    </button>
     {{ channelTitle }}
     <button mat-button [matMenuTriggerFor]="menu">{{ channelsName }}</button>
     <mat-menu #menu>

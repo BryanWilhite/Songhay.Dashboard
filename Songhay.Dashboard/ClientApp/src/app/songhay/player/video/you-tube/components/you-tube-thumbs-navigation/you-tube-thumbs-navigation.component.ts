@@ -4,6 +4,7 @@ import {
     OnInit,
     Input
 } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 import { YouTubeDataService } from '../../services/you-tube-data.service';
@@ -26,6 +27,7 @@ export class YouTubeThumbsNavigationComponent implements OnInit {
 
     constructor(
         public youTubeDataService: YouTubeDataService,
+        private location: Location,
         private route: ActivatedRoute
     ) {}
 
@@ -42,6 +44,10 @@ export class YouTubeThumbsNavigationComponent implements OnInit {
             this.setChannels(json);
             this.setChannelTitle();
         });
+    }
+
+    goBack() {
+        this.location.back();
     }
 
     private setChannels(json: {}): void {
