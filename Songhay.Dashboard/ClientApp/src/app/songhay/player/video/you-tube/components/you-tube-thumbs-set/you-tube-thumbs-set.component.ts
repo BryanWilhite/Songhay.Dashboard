@@ -1,5 +1,10 @@
 import { Location } from '@angular/common';
-import { Component, OnInit, Input } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnInit
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { YouTubeDataService } from '../../services/you-tube-data.service';
@@ -8,7 +13,8 @@ import { YouTubeItem } from '../../models/you-tube-item';
 @Component({
     selector: 'rx-you-tube-thumbs-set',
     templateUrl: './you-tube-thumbs-set.component.html',
-    styleUrls: ['./you-tube-thumbs-set.component.scss']
+    styleUrls: ['./you-tube-thumbs-set.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class YouTubeThumbsSetComponent implements OnInit {
     @Input()

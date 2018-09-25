@@ -1,4 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    OnInit,
+    Input
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { YouTubeDataService } from '../../services/you-tube-data.service';
@@ -6,7 +11,8 @@ import { YouTubeDataService } from '../../services/you-tube-data.service';
 @Component({
     selector: 'rx-you-tube-thumbs-navigation',
     templateUrl: './you-tube-thumbs-navigation.component.html',
-    styleUrls: ['./you-tube-thumbs-navigation.component.scss']
+    styleUrls: ['./you-tube-thumbs-navigation.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class YouTubeThumbsNavigationComponent implements OnInit {
     @Input()

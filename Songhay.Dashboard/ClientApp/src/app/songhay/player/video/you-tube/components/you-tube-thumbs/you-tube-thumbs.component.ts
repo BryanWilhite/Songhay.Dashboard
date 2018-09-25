@@ -2,12 +2,12 @@ import * as _ from 'lodash';
 import * as moment from 'moment';
 
 import {
-    Component,
     AfterViewInit,
+    ChangeDetectionStrategy,
+    Component,
     ElementRef,
-    ViewChild,
     Input,
-    ChangeDetectionStrategy
+    ViewChild
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { AnimationBuilder, AnimationPlayer } from '@angular/animations';
