@@ -3,5 +3,25 @@ h1 {
     padding: 1rem;
     position: fixed;
     width: 100%;
-    z-index: 4;
+    z-index: 3;
+
+    & > span {
+        display: inline-block;
+        vertical-align: bottom;
+    }
+
+    & > button {
+        display: inline-block;
+        opacity: 0.5;
+
+        & ::ng-deep .mat-icon {
+            & svg {
+                transform: scale(2);
+            }
+        }
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
 }

@@ -1,9 +1,9 @@
 <h1 class="mat-app-background b-roll yt-set title">
     <button mat-icon-button type="button" class="back" (click)="goBack()" title="go back">
-        <mat-icon color="accent" inline="false" svgIcon="rx:mdi_arrow_left_drop_circle_24px" aria-hidden="true"></mat-icon>
+        <mat-icon color="warn" inline="false" svgIcon="rx:mdi_arrow_left_drop_circle_24px" aria-hidden="true"></mat-icon>
     </button>
-    {{ channelTitle }}
-    <button mat-button [matMenuTriggerFor]="menu">{{ channelsName }}</button>
+    <span>{{ channelTitle }}</span>
+    <button mat-button [matMenuTriggerFor]="menu" title="select channel set">{{ channelsName }}</button>
     <mat-menu #menu>
         <a mat-menu-item *ngFor="let i of channels" [routerLink]="['/player/video/youtube/uploads/', channelsIndexName, i.ClientId]">{{ i.Title }}</a>
     </mat-menu>

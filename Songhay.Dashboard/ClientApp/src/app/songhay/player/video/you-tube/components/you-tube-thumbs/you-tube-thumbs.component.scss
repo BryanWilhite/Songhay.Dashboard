@@ -12,7 +12,7 @@ $thumbs-container-height: $thumbnail-height + $published-at-height +
 
 $button-left-fudge: 96px;
 $button-right-fudge: 8px;
-$button-top-fudge: 48px;
+$button-top-fudge: 8px;
 $media-max-width-fudge: 320px;
 
 $thumbs-responsive-widths: (
@@ -88,23 +88,19 @@ $key: 8-thumbs;
 
 .video.thumbs {
     & > button {
-        background-color: transparent;
-        border: none;
         display: inline-block;
-        opacity: 0.7;
-        font-size: 36px;
+        opacity: 0.5;
         position: relative;
         top: $button-top-fudge;
-        z-index: 3;
+        z-index: 2;
 
-        & > .mat-icon {
-            width: 36px;
-            height: 36px;
+        & ::ng-deep .mat-icon {
+            & svg {
+                transform: scale(2);
+            }
         }
 
         &:hover {
-            background-color: #fff;
-            color: #000;
             opacity: 0.9;
         }
     }
