@@ -4,8 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { YouTubeThumbsSetComponent } from './components/you-tube-thumbs-set/you-tube-thumbs-set.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'uploads', pathMatch: 'full' },
-    { path: 'uploads/:suffix/:id', component: YouTubeThumbsSetComponent }
+    { path: '', redirectTo: '/', pathMatch: 'full' },
+    { path: 'player/video/youtube/uploads/:suffix/:id', component: YouTubeThumbsSetComponent }
 ];
 
 @NgModule({

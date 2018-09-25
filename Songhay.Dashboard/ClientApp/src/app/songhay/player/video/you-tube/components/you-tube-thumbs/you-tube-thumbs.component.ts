@@ -6,7 +6,8 @@ import {
     AfterViewInit,
     ElementRef,
     ViewChild,
-    Input
+    Input,
+    ChangeDetectionStrategy
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { AnimationBuilder, AnimationPlayer } from '@angular/animations';
@@ -23,7 +24,8 @@ import { YouTubeContentDetails } from '../../models/you-tube-content-details';
 @Component({
     selector: 'rx-you-tube-thumbs',
     templateUrl: './you-tube-thumbs.component.html',
-    styleUrls: ['./you-tube-thumbs.component.scss']
+    styleUrls: ['./you-tube-thumbs.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class YouTubeThumbsComponent implements AfterViewInit {
     @Input()

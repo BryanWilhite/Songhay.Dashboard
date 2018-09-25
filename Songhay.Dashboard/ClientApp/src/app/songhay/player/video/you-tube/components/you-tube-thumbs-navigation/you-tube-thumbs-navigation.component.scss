@@ -1,18 +1,7 @@
-.video.thumbs.dropdown {
-    display: inline-block;
-    padding-top: 1em;
-    position: relative;
-    vertical-align: top;
-}
-
-.video.thumbs.dropdown li {
-    cursor: pointer;
-    list-style: none;
-}
-
-.video.thumbs.dropdown.title {
-    color: #fff;
-    font-size: 3.6em;
-    padding: 0;
-    padding-right: 1em;
+h1 {
+    font-size: 2.4rem;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    z-index: 4;
 }

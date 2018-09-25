@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { YouTubeDataService } from '../../services/you-tube-data.service';
-import { YouTubeSetIndex } from '../../models/you-tube-set-index';
 
 @Component({
     selector: 'rx-you-tube-thumbs-navigation',
@@ -10,42 +9,57 @@ import { YouTubeSetIndex } from '../../models/you-tube-set-index';
     styleUrls: ['./you-tube-thumbs-navigation.component.scss']
 })
 export class YouTubeThumbsNavigationComponent implements OnInit {
-
+    @Input()
     channelsIndexName: string;
+
+    channels: { ClientId: string; Title: string }[];
+    channelsName: string;
     channelTitle: string;
-    dataForYouTubeSetIndex: YouTubeSetIndex;
-    id: string;
+
+    private channelSetId: string;
 
     constructor(
         public youTubeDataService: YouTubeDataService,
-        private route: ActivatedRoute,
-        private router: Router
+        private route: ActivatedRoute
     ) {}
 
     ngOnInit() {
         this.route.params.subscribe(params => {
-            this.id = params['id'] as string;
+            this.channelSetId = params['id'] as string;
+            this.setChannelTitle();
         });
 
         this.youTubeDataService.loadChannelsIndex(this.channelsIndexName);
+
         this.youTubeDataService.channelsIndexLoaded.subscribe(json => {
-            this.dataForYouTubeSetIndex = json as YouTubeSetIndex;
+            this.channelsName = json['SegmentName'];
+            this.setChannels(json);
             this.setChannelTitle();
         });
     }
 
-    doMenuItemCommand(document: { ClientId: string }) {
-        if (!document) {
+    private setChannels(json: {}): void {
+        const docs = json['Documents'] as {}[];
+        if (!docs) {
+            console.warn({
+                name: YouTubeThumbsNavigationComponent.name,
+                message: 'the expected channel documents are not here'
+            });
             return;
         }
-
-        this.router.navigate([`/video/youtube/uploads/${document.ClientId}`]);
+        this.channels = docs.map(o => {
+            return { ClientId: o['ClientId'], Title: o['Title'] };
+        });
     }
 
     private setChannelTitle(): void {
-        const document = this.dataForYouTubeSetIndex.documents.find(i => {
-            return i.clientId === this.id;
+        if (!this.channels) {
+            return;
+        }
+
+        const document = this.channels.find(i => {
+            return i.ClientId === this.channelSetId;
         });
-        this.channelTitle = document.title;
+        this.channelTitle = document.Title;
     }
 }

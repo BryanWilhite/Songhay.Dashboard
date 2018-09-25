@@ -1,7 +1,7 @@
-<div class="video thumbs dropdown title">{{ channelTitle }}</div>
-<div class="video thumbs dropdown" *ngIf="youTubeDataService.isSetLoaded">
-    <button mat-button [matMenuTriggerFor]="menu">{{ dataForYouTubeSetIndex.SegmentName }}</button>
+<h1 class="mat-app-background b-roll yt-set title">
+    {{ channelTitle }}
+    <button mat-button [matMenuTriggerFor]="menu">{{ channelsName }}</button>
     <mat-menu #menu>
-        <button mat-menu-item *ngFor="let i of dataForYouTubeSetIndex.Documents"><a (click)="doMenuItemCommand(i)">{{ i.Title }}</a></button>
+        <a mat-menu-item *ngFor="let i of channels" [routerLink]="['/player/video/youtube/uploads/', channelsIndexName, i.ClientId]">{{ i.Title }}</a>
     </mat-menu>
-</div>
+</h1>

@@ -17,9 +17,6 @@ export class YouTubeThumbsSetComponent implements OnInit {
     youTubeItemsKeys: string[];
     youTubeItemsMap: Map<string, YouTubeItem[]>;
 
-    private id: string;
-    private suffix: string;
-
     constructor(
         public youTubeDataService: YouTubeDataService,
         private location: Location,
@@ -28,23 +25,21 @@ export class YouTubeThumbsSetComponent implements OnInit {
 
     ngOnInit() {
         this.route.params.subscribe(params => {
-            this.id = params['id'] as string;
-            this.suffix = params['suffix'] as string;
-        });
+            const id = params['id'] as string;
+            const suffix = params['suffix'] as string;
 
-        this.youTubeDataService
-            .loadChannelSet(this.suffix, this.id)
-            .catch(() => {
+            this.youTubeDataService.loadChannelSet(suffix, id).catch(() => {
                 console.warn({
                     component: YouTubeThumbsSetComponent.name,
-                    id: this.id,
+                    id,
                     message: 'The expected data is not here.'
                 });
 
-                if (this.id) {
+                if (id) {
                     this.location.replaceState('/not-found');
                 }
             });
+        });
 
         this.youTubeDataService.channelSetLoaded.subscribe(json => {
             this.youTubeItemsMap = YouTubeDataService.getItemsMap(json);
