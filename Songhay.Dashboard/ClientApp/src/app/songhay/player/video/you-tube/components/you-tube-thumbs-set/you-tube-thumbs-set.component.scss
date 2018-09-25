@@ -1,9 +1,11 @@
 .b-roll.yt-set {
+    padding-top: 7em;
+
     & > .mat-spinner {
-        margin: 3rem auto;
+        margin: 0 auto;
     }
 
     & ::ng-deep .channel-block {
-        padding-top: 5.6rem;
+        padding-top: 1rem;
     }
 }
