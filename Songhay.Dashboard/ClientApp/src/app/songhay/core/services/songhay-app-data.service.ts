@@ -48,14 +48,14 @@ export class AppDataService {
      * gets the executor
      * for the constructor of @type {Promise}
      *
-     * @param {string} url
-     * @param {(response: Response, reject?: any) => void} [rejectionExecutor]
+     * @param {string} uri
+     * @param {(response: Response, reject?: any) => void} [executorAction]
      * @returns
      * @memberof AppDataService
      */
     getExecutor(
-        url: string,
-        rejectionExecutor?: (response: Response, reject?: any) => void,
+        uri: string,
+        executorAction?: (response: Response, reject?: any) => void,
         requestArgs?: RequestOptionsArgs
     ) {
         const executor = (
@@ -63,7 +63,7 @@ export class AppDataService {
             reject: (any) => void
         ) => {
             this.client
-                .get(url, requestArgs)
+                .get(uri, requestArgs)
                 .toPromise()
                 .then(
                     responseOrVoid => {
@@ -73,12 +73,21 @@ export class AppDataService {
                             return;
                         }
 
-                        if (rejectionExecutor) {
-                            rejectionExecutor(response, reject);
+                        if (executorAction) {
+                            executorAction(response, reject);
                         }
 
                         this.isLoaded = true;
                         this.isLoading = false;
+
+                        console.log({
+                            memberName: `${AppDataService.name}.getExecutor()`,
+                            uri,
+                            isError: this.isError,
+                            isLoaded: this.isLoaded,
+                            isLoading: this.isLoading,
+                            response
+                        });
 
                         resolve(responseOrVoid);
                     },
@@ -100,7 +109,7 @@ export class AppDataService {
     initializeLoadState(): void {
         this.isError = false;
         this.isLoaded = false;
-        this.isLoading = false;
+        this.isLoading = true;
     }
 
     /**
@@ -118,13 +127,7 @@ export class AppDataService {
         responseAction: (json: TFromJson) => void,
         requestArgs?: RequestOptionsArgs
     ): Promise<Response> {
-        if (this.isLoading) {
-            return Promise.reject(
-                'WARNING: previous JSON loading operation is still in progress.'
-            );
-        }
-
-        const rejectionExecutor = (response: Response, reject: any) => {
+        const executorAction = (response: Response, reject: any) => {
             const data = response.json() as TFromJson;
 
             if (!data) {
@@ -135,8 +138,15 @@ export class AppDataService {
             responseAction(data);
         };
 
+        console.log({
+            memberName: `${AppDataService.name}.loadJson<T>()`,
+            uri,
+            isError: this.isError,
+            isLoaded: this.isLoaded,
+            isLoading: this.isLoading
+        });
         const promise = new Promise<Response>(
-            this.getExecutor(uri, rejectionExecutor, requestArgs)
+            this.getExecutor(uri, executorAction, requestArgs)
         );
 
         return promise;
