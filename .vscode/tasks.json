@@ -5,7 +5,10 @@
             "label": "build",
             "command": "dotnet",
             "type": "process",
-            "args": ["build", "${workspaceFolder}/Songhay.Dashboard.sln"],
+            "args": [
+                "build",
+                "${workspaceFolder}/Songhay.Dashboard.sln"
+            ],
             "problemMatcher": "$msCompile"
         },
         {
@@ -30,11 +33,18 @@
             },
             "linux": {
                 "command": "rm",
-                "args": ["--verbose", "*.trx"]
+                "args": [
+                    "--verbose",
+                    "*.trx"
+                ]
             },
             "windows": {
                 "command": "Remove-Item",
-                "args": ["-Path", "*.trx", "-Verbose"]
+                "args": [
+                    "-Path",
+                    "*.trx",
+                    "-Verbose"
+                ]
             },
             "problemMatcher": []
         },
@@ -42,13 +52,25 @@
             "type": "npm",
             "script": "build",
             "path": "Songhay.Dashboard/ClientApp/",
-            "problemMatcher": ["$tslint5"]
+            "problemMatcher": [
+                "$tslint5"
+            ]
+        },
+        {
+            "type": "npm",
+            "script": "build:prod",
+            "path": "Songhay.Dashboard/ClientApp/",
+            "problemMatcher": [
+                "$tslint5"
+            ]
         },
         {
             "type": "npm",
             "script": "start",
             "path": "Songhay.Dashboard/ClientApp/",
-            "problemMatcher": ["$tslint5"]
+            "problemMatcher": [
+                "$tslint5"
+            ]
         }
     ]
 }

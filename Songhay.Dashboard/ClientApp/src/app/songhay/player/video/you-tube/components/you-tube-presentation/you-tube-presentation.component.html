@@ -1,13 +1,13 @@
 <div class="container body-content ng-cloak video presentation yt">
     <div class="row">
-        <div class="player-box loading" *ngIf="presentationDataService && presentationDataService.isLoading">
+        <div class="player-box loading" *ngIf="youTubePresentationDataServices.presentationDataService && youTubePresentationDataServices.presentationDataService.isLoading">
             <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
         </div>
         <div class="video-strip row">
-            <rx-you-tube-thumbs *ngIf="videosDataService && videosDataService.isLoaded" [disableDefaultSort]="true" [thumbsAnimationDuration]="500" [thumbsHeaderLevel]="2" [thumbsTitle]="dataForYouTubePresentation.presentation.Title" [youTubeItems]="dataForYouTubePresentation.videos"></rx-you-tube-thumbs>
+            <rx-you-tube-thumbs *ngIf="youTubePresentationDataServices.videosDataService && youTubePresentationDataServices.videosDataService.isLoaded" [disableDefaultSort]="true" [thumbsAnimationDuration]="500" [thumbsHeaderLevel]="2" [thumbsTitle]="dataForYouTubePresentation.presentation.Title" [youTubeItems]="dataForYouTubePresentation.videos"></rx-you-tube-thumbs>
         </div>
-        <div class="description container" data-ng-bind-html="dataForYouTubePresentation.presentation.Description[\'#text\']" *ngIf="isPresentationLoaded"></div>
-        <div class="credits container" *ngIf="presentationDataService && presentationDataService.isLoaded">
+        <div class="description container" data-ng-bind-html="dataForYouTubePresentation.presentation.Description[\'#text\']" *ngIf="youTubePresentationDataServices.presentationDataService.isLoaded"></div>
+        <div class="credits container" *ngIf="youTubePresentationDataServices.presentationDataService && youTubePresentationDataServices.presentationDataService.isLoaded">
             <button class="btn btn-default" data-toggle="modal" data-target="#ImageCreditsModal" title="Presentation Credits" type="button"><span>&#160;</span></button>
         </div>
     </div>
