@@ -7,7 +7,7 @@ import { AmazonProductImagesComponent } from './components/affiliates/amazon-pro
 const routes: Routes = [
     { path: '', redirectTo: 'dash', pathMatch: 'full' },
     { path: 'dash', component: DashboardComponent },
-    { path: '/affiliates/amazon/products/images', component: AmazonProductImagesComponent },
+    { path: 'affiliates/amazon/products/images', component: AmazonProductImagesComponent },
     { path: 'player/video/youtube', loadChildren: './songhay/player/video/you-tube/you-tube.module#YouTubeModule' }
 ];
 
