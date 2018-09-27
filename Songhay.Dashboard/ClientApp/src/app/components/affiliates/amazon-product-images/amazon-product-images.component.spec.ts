@@ -5,15 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AmazonProductImagesComponent } from './amazon-product-images.component';
 
 describe('AmazonProductImagesComponent', () => {
-    const builder = {
-        group: function() {
-            return {
-                get: (path: Array<string | number> | string) => {
-                    console.log('yup');
-                }
-            };
-        }
-    };
+    const formGroup = jasmine.createSpyObj(FormGroup.name, ['get']);
 
     let component: AmazonProductImagesComponent;
     let fixture: ComponentFixture<AmazonProductImagesComponent>;
@@ -21,7 +13,10 @@ describe('AmazonProductImagesComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [AmazonProductImagesComponent],
-            providers: [{ provide: FormBuilder, useValue: builder }, FormGroup],
+            providers: [
+                FormBuilder,
+                { provide: FormGroup, useValue: formGroup }
+            ],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
     }));

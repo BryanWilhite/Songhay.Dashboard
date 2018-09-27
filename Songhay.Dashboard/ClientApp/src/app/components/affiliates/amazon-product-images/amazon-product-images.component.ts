@@ -18,6 +18,9 @@ export class AmazonProductImagesComponent implements OnInit {
     }
 
     get asins() {
+        if (!this.amazonForm) {
+            return;
+        }
         return this.amazonForm.get('asins');
     }
 
