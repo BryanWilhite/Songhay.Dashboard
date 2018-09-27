@@ -1,9 +1,14 @@
-<form [formGroup]="amazonForm">
-    <mat-form-field>
-        <textarea matInput formControlName="asins"></textarea>
-        <mat-error *ngIf="asins.invalid && asins.touched">
-            enter valid ASINs as a comma-separated list
-        </mat-error>
-    </mat-form-field>
-    <button (click)="getProductImages()" [disabled]="amazonForm.invalid" mat-raised-button>Get Product Images</button>
+<h1 class="app header affiliate">Amazon Product Images</h1>
+<form [formGroup]="amazonForm" class="affiliate amazon flex-layout-container" fxLayout="column" fxLayoutAlign="center">
+    <div class="asins" fxFlex>
+        <mat-form-field>
+            <textarea matInput formControlName="asins" placeholder="enter ASINs"></textarea>
+            <mat-error *ngIf="asins.invalid && asins.touched">
+                enter valid ASINs as a comma-separated list
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div fxFlex>
+        <button (click)="getProductImages()" [disabled]="amazonForm.invalid" mat-raised-button>Get Product Images</button>
+    </div>
 </form>

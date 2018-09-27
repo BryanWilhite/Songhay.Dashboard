@@ -1,0 +1,21 @@
+.affiliate {
+    &.header {
+        font-size: 2.4rem;
+        padding: 1rem;
+        position: fixed;
+        width: 100%;
+    }
+    &.amazon {
+        padding-top: 4rem;
+    }
+    & > div {
+        padding: 1rem;
+        & ::ng-deep .mat-form-field {
+            width: 100%;
+        }
+        & ::ng-deep textarea {
+            font-size: 1.4rem;
+            font-family: Monoid, 'Lucida Console', 'Courier New', Courier, monospace;
+        }
+    }
+}
