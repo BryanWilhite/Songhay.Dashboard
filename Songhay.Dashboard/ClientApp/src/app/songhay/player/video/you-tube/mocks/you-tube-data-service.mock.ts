@@ -16,6 +16,9 @@ export class YouTubeDataServiceMock {
     @Output()
     videosLoaded: EventEmitter<any>;
 
+    presentationDataService = { isLoaded: false, isLoading: false };
+    videosDataService = { isLoaded: false, isLoading: false };
+
     constructor() {
         this.channelLoaded = new EventEmitter();
         this.channelSetLoaded = new EventEmitter();

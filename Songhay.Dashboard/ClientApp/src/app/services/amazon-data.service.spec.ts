@@ -14,6 +14,7 @@ describe('AmazonDataService', () => {
         TestBed.configureTestingModule({
             imports: [HttpModule],
             providers: [
+                BaseRequestOptions,
                 AmazonDataService,
                 {
                     deps: [XHRBackend, BaseRequestOptions],

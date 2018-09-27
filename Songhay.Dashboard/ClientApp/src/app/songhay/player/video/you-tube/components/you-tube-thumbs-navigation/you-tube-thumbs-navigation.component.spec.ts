@@ -1,4 +1,5 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -9,6 +10,7 @@ import { YouTubeThumbsNavigationComponent } from './you-tube-thumbs-navigation.c
 import { YouTubeDataService } from '../../services/you-tube-data.service';
 
 describe(YouTubeThumbsNavigationComponent.name, () => {
+    const location = jasmine.createSpyObj(Location.name, ['back']);
     const router = jasmine.createSpyObj(Router.name, ['navigate']);
     let component: YouTubeThumbsNavigationComponent;
     let fixture: ComponentFixture<YouTubeThumbsNavigationComponent>;
@@ -17,6 +19,7 @@ describe(YouTubeThumbsNavigationComponent.name, () => {
         TestBed.configureTestingModule({
             declarations: [YouTubeThumbsNavigationComponent],
             providers: [
+                { provide: Location, useValue: location },
                 { provide: ActivatedRoute, useClass: ActivatedRouteMock },
                 { provide: Router, useValue: router },
                 { provide: YouTubeDataService, useClass: YouTubeDataServiceMock }
@@ -31,8 +34,7 @@ describe(YouTubeThumbsNavigationComponent.name, () => {
 
         component.channelsIndexName = 'songhay';
         component.channelTitle = 'channel title';
-        component.dataForYouTubeSetIndex = null;
-        component.id = '999';
+        component.channels = null;
 
         fixture.detectChanges();
     });
