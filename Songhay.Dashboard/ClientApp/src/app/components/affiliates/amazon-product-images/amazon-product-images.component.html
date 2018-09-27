@@ -1,5 +1,5 @@
-<h1 class="app header affiliate">Amazon Product Images</h1>
-<form [formGroup]="amazonForm" class="affiliate amazon flex-layout-container" fxLayout="column" fxLayoutAlign="center">
+<h1 class="app header affiliate mat-app-background">Amazon Product Images</h1>
+<form [formGroup]="amazonForm" class="affiliate amazon query flex-layout-container" fxLayout="column" fxLayoutAlign="center">
     <div class="asins" fxFlex>
         <mat-form-field>
             <textarea matInput formControlName="asins" placeholder="enter ASINs"></textarea>
@@ -11,4 +11,15 @@
     <div fxFlex>
         <button (click)="getProductImages()" [disabled]="amazonForm.invalid" mat-raised-button>Get Product Images</button>
     </div>
+    <mat-spinner *ngIf="amazonDataService.isLoading" color="accent"></mat-spinner>
 </form>
+<div class="affiliate amazon products" *ngIf="amazonDataService.isLoaded">
+    <div class="count">{{ amazonProducts.length }} products found</div>
+    <div class="product" *ngFor="let product of amazonProducts">
+        <a href="{{product.detailPageUri}}" target="_blank">{{product.title}}</a>
+        <textarea>{{product.title}} {{product.detailPageUri}}</textarea>
+        <img class="small" src="{{ product.smallImage.location }}" width="{{ product.smallImage.width }}" height="{{ product.smallImage.height }}" />
+        <img class="medium" src="{{ product.mediumImage.location }}" width="{{ product.mediumImage.width }}" height="{{ product.mediumImage.height }}" />
+        <img class="large" src="{{ product.largeImage.location }}" width="{{ product.largeImage.width }}" height="{{ product.largeImage.height }}" />
+    </div>
+</div>

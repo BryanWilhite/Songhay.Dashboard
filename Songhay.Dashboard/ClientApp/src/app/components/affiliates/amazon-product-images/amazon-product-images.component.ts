@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { AmazonDataService } from '../../../services/amazon-data.service';
+import { AmazonProduct } from '../../../models/amazon-product';
+
 @Component({
     selector: 'app-amazon-product-images',
     templateUrl: './amazon-product-images.component.html',
@@ -8,12 +11,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AmazonProductImagesComponent implements OnInit {
     amazonForm: FormGroup;
+    amazonProducts: AmazonProduct[];
 
-    constructor(private builder: FormBuilder) {}
+    constructor(
+        public amazonDataService: AmazonDataService,
+        private builder: FormBuilder
+    ) {}
 
     ngOnInit() {
         this.amazonForm = this.builder.group({
-            asins: ['B004QRKWKQ,B005Q0E0XC,B005LKB0IU', [Validators.required]]
+            asins: ['B004QRKWKQ,B0769XXGXX,B005LKB0IU', [Validators.required]]
+        });
+
+        this.amazonDataService.productsLoaded.subscribe(data => {
+            this.amazonProducts = data;
         });
     }
 
@@ -25,6 +36,6 @@ export class AmazonProductImagesComponent implements OnInit {
     }
 
     getProductImages(): void {
-        console.log({ asins: this.asins });
+        this.amazonDataService.loadProducts(this.asins.value as string);
     }
 }

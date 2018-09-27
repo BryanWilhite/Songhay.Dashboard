@@ -15,9 +15,7 @@ export class AppDataService {
      * @param {Http} client
      * @memberof AppDataService
      */
-    constructor(private client: Http) {
-        this.initializeLoadState();
-    }
+    constructor(private client: Http) {}
 
     /**
      * Returns true when the last API promise is rejected.

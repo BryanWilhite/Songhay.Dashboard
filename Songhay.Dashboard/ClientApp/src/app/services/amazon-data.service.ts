@@ -39,6 +39,8 @@ export class AmazonDataService extends AppDataService {
      */
     constructor(client: Http) {
         super(client);
+
+        this.productsLoaded = new EventEmitter();
     }
 
     loadProducts(asins: string): Promise<Response> {

@@ -4,9 +4,50 @@
         padding: 1rem;
         position: fixed;
         width: 100%;
+        z-index: 2;
     }
     &.amazon {
-        padding-top: 4rem;
+        &.query {
+            padding-top: 4rem;
+
+            & ::ng-deep .mat-spinner {
+                margin: 0 auto;
+            }
+        }
+
+        &.products {
+            & > .count {
+                font-style: oblique;
+            }
+            & > .product {
+                & > a {
+                    display: block;
+                    font-size: 1.4rem;
+                    margin-bottom: 1rem;
+
+                    &:link,
+                    &:visited {
+                        color: #fff;
+                        text-decoration: none;
+                    }
+                }
+                & > img {
+                    display: inline-block;
+                    margin-top: 1rem;
+                }
+                & > textarea {
+                    background-color: #cfc;
+                    border: none;
+                    display: block;
+                    font-family: Monoid, 'Lucida Console', 'Courier New',
+                        Courier, monospace;
+                    font-size: 1rem;
+                    height: 5em;
+                    margin: 0.25rem 0;
+                    width: 100%;
+                }
+            }
+        }
     }
     & > div {
         padding: 1rem;
@@ -15,7 +56,8 @@
         }
         & ::ng-deep textarea {
             font-size: 1.4rem;
-            font-family: Monoid, 'Lucida Console', 'Courier New', Courier, monospace;
+            font-family: Monoid, 'Lucida Console', 'Courier New', Courier,
+                monospace;
         }
     }
 }
