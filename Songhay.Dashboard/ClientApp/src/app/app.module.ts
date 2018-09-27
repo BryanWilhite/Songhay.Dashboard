@@ -10,6 +10,7 @@ import { MaterialModule } from './material.module';
 import { RoutingModule } from './routing.module';
 import { YouTubeModule } from './songhay/player/video/you-tube/you-tube.module';
 
+import { AmazonDataService } from './services/amazon-data.service';
 import { DashboardDataService } from './services/dashboard-data.service';
 
 import { AppComponent } from './components/app.component';
@@ -20,6 +21,7 @@ import { StudioLinksComponent } from './components/dashboard/studio-links/studio
 import { StudioLogoComponent } from './components/dashboard/studio-logo/studio-logo.component';
 import { StudioSocialComponent } from './components/dashboard/studio-social/studio-social.component';
 import { StudioVersionsComponent } from './components/dashboard/studio-versions/studio-versions.component';
+import { AmazonProductImagesComponent } from './components/affiliates/amazon-product-images/amazon-product-images.component';
 
 @NgModule({
     imports: [
@@ -41,9 +43,10 @@ import { StudioVersionsComponent } from './components/dashboard/studio-versions/
         StudioLinksComponent,
         StudioLogoComponent,
         StudioSocialComponent,
-        StudioVersionsComponent
+        StudioVersionsComponent,
+        AmazonProductImagesComponent
     ],
-    providers: [DashboardDataService],
+    providers: [DashboardDataService, AmazonDataService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

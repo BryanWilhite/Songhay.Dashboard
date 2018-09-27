@@ -1,0 +1,9 @@
+<form [formGroup]="amazonForm">
+    <mat-form-field>
+        <textarea matInput formControlName="asins"></textarea>
+        <mat-error *ngIf="asins.invalid && asins.touched">
+            enter valid ASINs as a comma-separated list
+        </mat-error>
+    </mat-form-field>
+    <button (click)="getProductImages()" [disabled]="amazonForm.invalid" mat-raised-button>Get Product Images</button>
+</form>

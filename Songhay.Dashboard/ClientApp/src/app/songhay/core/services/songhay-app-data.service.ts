@@ -124,7 +124,7 @@ export class AppDataService {
      */
     loadJson<TFromJson>(
         uri: string,
-        responseAction: (json: TFromJson) => void,
+        responseAction: (json: TFromJson, reject?: any) => void,
         requestArgs?: RequestOptionsArgs
     ): Promise<Response> {
         const executorAction = (response: Response, reject: any) => {
@@ -135,7 +135,7 @@ export class AppDataService {
                 return;
             }
 
-            responseAction(data);
+            responseAction(data, reject);
         };
 
         console.log({

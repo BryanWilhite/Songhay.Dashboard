@@ -6,6 +6,14 @@
  */
 export class AppScalars {
     /**
+     * location of Amazon products API
+     *
+     * @static
+     * @memberof AppScalars
+     */
+    static amazonProductRootUri = 'https://songhay-system-staging.azurewebsites.net/api-affiliates/amazon/v1/';
+
+    /**
      * location of App data
      *
      * @static
@@ -53,7 +61,7 @@ export class AppScalars {
      */
     static feedNameStudio = 'studio';
 
-    static setupForJasmine(): void{
+    static setupForJasmine(): void {
         AppScalars.appDataLocation = './base/src/assets/data/app.json';
     }
 }
