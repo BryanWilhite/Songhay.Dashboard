@@ -75,17 +75,33 @@ describe('DashboardDataService', () => {
                         'The expected Assembly Info is not here.'
                     );
 
-                    console.log({ assemblyInfo: service.assemblyInfo });
-                    console.log({ 'service.feeds': service.feeds });
+                    console.log({
+                        serviceName: DashboardDataService.name,
+                        assemblyInfo: service.assemblyInfo,
+                        'service.feeds': service.feeds
+                    });
 
                     done();
                 })
-                .catch(response => {
-                    console.log(
-                        `${
-                            DashboardDataService.loadAppDataMethodName
-                        }() catch response: `,
-                        response
+                .catch(responseOrVoid => {
+                    console.warn({
+                        catchResponse: true,
+                        service: DashboardDataService.name,
+                        method:
+                            DashboardDataService.loadAppDataMethodName,
+                        responseOrVoid
+                    });
+
+                    const response = responseOrVoid as Response;
+                    expect(response).toBeDefined(
+                        'The expected response is not defined.'
+                    );
+                    expect(response).not.toBeNull(
+                        'The expected response is not here.'
+                    );
+                    expect(response.ok).toBe(
+                        true,
+                        'The expected OK response is not here.'
                     );
 
                     done();

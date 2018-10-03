@@ -85,7 +85,8 @@ describe(YouTubePresentationDataServices.name, () => {
                         );
 
                         console.log({
-                            service: YouTubePresentationDataServices.name,
+                            serviceName: YouTubePresentationDataServices.name,
+                            service,
                             method:
                                 YouTubePresentationDataServices.loadPresentationMethodName,
                             output: response.json()
@@ -93,15 +94,26 @@ describe(YouTubePresentationDataServices.name, () => {
 
                         done();
                     })
-                    .catch(response => {
-                        console.log({
-                            service: `${
-                                YouTubePresentationDataServices.name
-                            } [catch response]`,
+                    .catch(responseOrVoid => {
+                        console.warn({
+                            catchResponse: true,
+                            service: YouTubePresentationDataServices.name,
                             method:
                                 YouTubePresentationDataServices.loadPresentationMethodName,
-                            response: response
+                            responseOrVoid
                         });
+
+                        const response = responseOrVoid as Response;
+                        expect(response).toBeDefined(
+                            'The expected response is not defined.'
+                        );
+                        expect(response).not.toBeNull(
+                            'The expected response is not here.'
+                        );
+                        expect(response.ok).toBe(
+                            true,
+                            'The expected OK response is not here.'
+                        );
 
                         done();
                     });
@@ -159,7 +171,8 @@ describe(YouTubePresentationDataServices.name, () => {
                         );
 
                         console.log({
-                            service: YouTubePresentationDataServices.name,
+                            serviceName: YouTubePresentationDataServices.name,
+                            service,
                             method:
                                 YouTubePresentationDataServices.loadVideosMethodName,
                             output: response.json()

@@ -11,13 +11,6 @@ import { Http, Response, RequestOptionsArgs } from '@angular/http';
 @Injectable()
 export class AppDataService {
     /**
-     *Creates an instance of @type {AppDataService}.
-     * @param {Http} client
-     * @memberof AppDataService
-     */
-    constructor(private client: Http) {}
-
-    /**
      * Returns true when the last API promise is rejected.
      *
      * @type {boolean}
@@ -30,7 +23,7 @@ export class AppDataService {
      * without any errors.
      *
      * @type {boolean}
-     * @memberof BlogEntriesService
+     * @memberof AppDataService
      */
     isLoaded: boolean;
 
@@ -38,9 +31,20 @@ export class AppDataService {
      * Returns true when the API call is promising.
      *
      * @type {boolean}
-     * @memberof BlogEntriesService
+     * @memberof AppDataService
      */
     isLoading: boolean;
+
+    /**
+     *Creates an instance of @type {AppDataService}.
+     * @param {Http} client
+     * @memberof AppDataService
+     */
+    constructor(private client: Http) {
+        this.isError = false;
+        this.isLoaded = false;
+        this.isLoading = false;
+    }
 
     /**
      * gets the executor

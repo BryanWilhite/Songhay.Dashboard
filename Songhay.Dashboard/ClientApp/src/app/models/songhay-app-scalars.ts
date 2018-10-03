@@ -62,6 +62,6 @@ export class AppScalars {
     static feedNameStudio = 'studio';
 
     static setupForJasmine(): void {
-        AppScalars.appDataLocation = './base/src/assets/data/app.json';
+        AppScalars.appDataLocation = './_karma_webpack_/assets/data/app.json';
     }
 }
