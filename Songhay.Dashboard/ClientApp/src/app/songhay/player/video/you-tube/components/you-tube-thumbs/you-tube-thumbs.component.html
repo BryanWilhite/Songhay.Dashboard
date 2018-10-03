@@ -1,5 +1,5 @@
 <div class="video thumbs header">
-    <mat-icon color="warn" inline="true" svgIcon="rx:mdi_youtube_24px" aria-hidden="true"></mat-icon>
+    <mat-icon color="warn" inline="false" svgIcon="rx:mdi_youtube_24px" aria-hidden="true"></mat-icon>
     <a *ngIf="titleRouterLink" [innerHTML]="getThumbsTitle()" [routerLink]="[ titleRouterLink ]" title="view more videos"></a>
     <span *ngIf="!titleRouterLink" [innerHTML]="getThumbsTitle()"></span>
 </div>
