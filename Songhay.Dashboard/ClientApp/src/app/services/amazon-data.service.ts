@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
+
 
 import { AppDataService } from '../songhay/core/services/songhay-app-data.service';
 import { AmazonProduct } from '../models/amazon-product';

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptionsArgs } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+
 
 /**
  * default data service for this App
