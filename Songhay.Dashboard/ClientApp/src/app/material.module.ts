@@ -12,6 +12,7 @@ import {
     MatSelectModule,
     MatToolbarModule
 } from '@angular/material';
+import { DragDropModule } from '@angular/cdk-experimental/drag-drop';
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import {
         MatMenuModule,
         MatProgressSpinnerModule,
         MatSelectModule,
-        MatToolbarModule
+        MatToolbarModule,
+        DragDropModule
     ],
     exports: [
         MatButtonModule,
@@ -38,7 +40,8 @@ import {
         MatMenuModule,
         MatProgressSpinnerModule,
         MatSelectModule,
-        MatToolbarModule
+        MatToolbarModule,
+        DragDropModule
     ]
 })
 export class MaterialModule {}
