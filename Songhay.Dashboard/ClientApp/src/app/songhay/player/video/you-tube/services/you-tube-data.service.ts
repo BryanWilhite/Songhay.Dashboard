@@ -1,8 +1,6 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-
-
 import { YouTubeScalars } from '../models/you-tube-scalars';
 import { AppDataService } from '../../../../core/services/songhay-app-data.service';
 import { YouTubeItem } from '../models/you-tube-item';

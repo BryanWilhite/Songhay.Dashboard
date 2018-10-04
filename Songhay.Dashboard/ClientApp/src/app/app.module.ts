@@ -22,6 +22,7 @@ import { StudioLogoComponent } from './components/dashboard/studio-logo/studio-l
 import { StudioSocialComponent } from './components/dashboard/studio-social/studio-social.component';
 import { StudioVersionsComponent } from './components/dashboard/studio-versions/studio-versions.component';
 import { AmazonProductImagesComponent } from './components/affiliates/amazon-product-images/amazon-product-images.component';
+import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-builder/tweeted-links-builder.component';
 
 @NgModule({
     imports: [
@@ -44,7 +45,8 @@ import { AmazonProductImagesComponent } from './components/affiliates/amazon-pro
         StudioLogoComponent,
         StudioSocialComponent,
         StudioVersionsComponent,
-        AmazonProductImagesComponent
+        AmazonProductImagesComponent,
+        TweetedLinksBuilderComponent
     ],
     providers: [DashboardDataService, AmazonDataService],
     bootstrap: [AppComponent]

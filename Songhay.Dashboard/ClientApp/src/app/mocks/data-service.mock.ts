@@ -7,8 +7,12 @@ export class DataServiceMock {
     @Output()
     productsLoaded: EventEmitter<any>;
 
+    @Output()
+    twitterItemsLoaded: EventEmitter<{}>;
+
     constructor() {
         this.appDataLoaded = new EventEmitter();
         this.productsLoaded = new EventEmitter();
+        this.twitterItemsLoaded = new EventEmitter();
     }
 }

@@ -6,14 +6,6 @@
  */
 export class AppScalars {
     /**
-     * location of Amazon products API
-     *
-     * @static
-     * @memberof AppScalars
-     */
-    static amazonProductRootUri = 'https://songhay-system-staging.azurewebsites.net/api-affiliates/amazon/v1/';
-
-    /**
      * location of App data
      *
      * @static
@@ -60,6 +52,23 @@ export class AppScalars {
      * @memberof AppScalars
      */
     static feedNameStudio = 'studio';
+
+    /**
+     * location of Amazon products API
+     *
+     * @static
+     * @memberof AppScalars
+     */
+    static rxAmazonProductRootUri = 'https://songhay-system-staging.azurewebsites.net/api-affiliates/amazon/v1/';
+
+    /**
+     * location of the Twitter API
+     *
+     * @static
+     * @type {''}
+     * @memberof AppScalars
+     */
+    static rxTwitterApiRootUri: 'https://songhay-system-staging.azurewebsites.net/api-social/twitter/v1/';
 
     static setupForJasmine(): void {
         AppScalars.appDataLocation = './_karma_webpack_/assets/data/app.json';

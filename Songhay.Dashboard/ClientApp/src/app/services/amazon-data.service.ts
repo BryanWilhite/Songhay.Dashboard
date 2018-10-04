@@ -46,7 +46,7 @@ export class AmazonDataService extends AppDataService {
     loadProducts(asins: string): Promise<Response> {
         this.initialize();
 
-        const uri = `${AppScalars.amazonProductRootUri}/items/${asins}`;
+        const uri = `${AppScalars.rxAmazonProductRootUri}/items/${asins}`;
 
         return this.loadJson<{}>(uri, (json, reject) => {
             const products = json as AmazonProduct[];
