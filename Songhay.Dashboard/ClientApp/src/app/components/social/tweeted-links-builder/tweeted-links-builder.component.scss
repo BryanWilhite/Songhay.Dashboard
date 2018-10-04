@@ -1,0 +1,31 @@
+.social {
+    &.header {
+        font-size: 2.4rem;
+        padding: 1rem;
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+    }
+    &.twitter {
+        padding-top: 4rem;
+
+        &.builder {
+            height: 95vh;
+        }
+
+        & ::ng-deep .mat-spinner {
+            margin: 0 auto;
+        }
+
+        & > .tweets {
+            height: 100%;
+            padding: 1rem;
+            &.document {
+                & > textarea {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

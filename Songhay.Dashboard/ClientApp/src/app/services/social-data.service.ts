@@ -40,7 +40,6 @@ export class SocialDataService extends AppDataService {
         super(client);
 
         this.twitterItemsLoaded = new EventEmitter();
-        this.initialize();
     }
 
     /**
