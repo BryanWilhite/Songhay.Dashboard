@@ -81,7 +81,8 @@ describe(YouTubeDataService.name, () => {
                     console.warn({
                         catchResponse: true,
                         service: YouTubeDataService.name,
-                        method: YouTubeDataService.loadChannelMethodName,
+                        method:
+                            YouTubeDataService.loadChannelMethodName,
                         responseOrVoid
                     });
 
@@ -99,7 +100,7 @@ describe(YouTubeDataService.name, () => {
 
                     done();
                 });
-        })();
+         })();
     });
 
     it(`should call ${YouTubeDataService.loadChannelSetMethodName}()`, done => {
@@ -145,16 +146,30 @@ describe(YouTubeDataService.name, () => {
 
                     done();
                 })
-                .catch(response => {
-                    console.log({
-                        service: `${YouTubeDataService.name} [catch response]`,
-                        method: YouTubeDataService.loadChannelSetMethodName,
-                        response: response
+                .catch(responseOrVoid => {
+                    console.warn({
+                        catchResponse: true,
+                        service: YouTubeDataService.name,
+                        method:
+                            YouTubeDataService.loadChannelSetMethodName,
+                        responseOrVoid
                     });
+
+                    const response = responseOrVoid as Response;
+                    expect(response).toBeDefined(
+                        'The expected response is not defined.'
+                    );
+                    expect(response).not.toBeNull(
+                        'The expected response is not here.'
+                    );
+                    expect(response.ok).toBe(
+                        true,
+                        'The expected OK response is not here.'
+                    );
 
                     done();
                 });
-        })();
+         })();
     });
 
     it(`should call ${
@@ -201,12 +216,26 @@ describe(YouTubeDataService.name, () => {
 
                     done();
                 })
-                .catch(response => {
-                    console.log({
-                        service: `${YouTubeDataService.name} [catch response]`,
-                        method: YouTubeDataService.loadChannelsIndexMethodName,
-                        response: response
+                .catch(responseOrVoid => {
+                    console.warn({
+                        catchResponse: true,
+                        service: YouTubeDataService.name,
+                        method:
+                            YouTubeDataService.loadChannelsIndexMethodName,
+                        responseOrVoid
                     });
+
+                    const response = responseOrVoid as Response;
+                    expect(response).toBeDefined(
+                        'The expected response is not defined.'
+                    );
+                    expect(response).not.toBeNull(
+                        'The expected response is not here.'
+                    );
+                    expect(response.ok).toBe(
+                        true,
+                        'The expected OK response is not here.'
+                    );
 
                     done();
                 });

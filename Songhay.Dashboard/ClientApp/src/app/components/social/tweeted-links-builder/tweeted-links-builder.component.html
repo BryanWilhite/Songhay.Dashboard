@@ -1,7 +1,12 @@
 <h1 class="app header social mat-app-background">Tweeted Links Builder</h1>
 <div class="social twitter builder flex-layout-container" fxLayout="row" fxLayoutAlign="center">
     <div class="tweets incoming" fxFlex>
-        <h2>last 50 statuses</h2>
+        <h2>
+            <span>last 50 statuses</span>
+            <button (click)="getStatuses()" [disabled]="socialDataService.isLoading" mat-icon-button title="load statuses" type="button">
+                <mat-icon color="accent" svgIcon="rx:mdi_arrow_down_drop_circle_24px"></mat-icon>
+            </button>
+        </h2>
         <mat-spinner *ngIf="socialDataService.isLoading" color="accent"></mat-spinner>
     </div>
     <div class="tweets outgoing" fxFlex>

@@ -13,6 +13,10 @@
         <!-- https://materialdesignicons.com/icon/angular -->
         <path d="M12,2.5L20.84,5.65L19.5,17.35L12,21.5L4.5,17.35L3.16,5.65L12,2.5M12,4.6L6.47,17H8.53L9.64,14.22H14.34L15.45,17H17.5L12,4.6M13.62,12.5H10.39L12,8.63L13.62,12.5Z" />
     </symbol>
+    <symbol viewBox="0 0 24 24" id="mdi_arrow_down_drop_circle_24px">
+        <!-- https://materialdesignicons.com/icon/arrow-down-drop-circle -->
+        <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M7,10L12,15L17,10H7Z" />
+    </symbol>
     <symbol viewBox="0 0 24 24" id="mdi_arrow_left_drop_circle_24px">
         <!-- https://materialdesignicons.com/icon/arrow-left-drop-circle -->
         <path d="M22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12M14,7L9,12L14,17V7Z" />

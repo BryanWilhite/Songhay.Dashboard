@@ -19,9 +19,12 @@
 
         & > .tweets {
             height: 100%;
+            min-width: 24rem;
             padding: 1rem;
+
             &.document {
                 & > textarea {
+                    background-color: #cfc;
                     height: 100%;
                     width: 100%;
                 }

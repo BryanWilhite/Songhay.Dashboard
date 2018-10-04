@@ -12,6 +12,9 @@ export class TweetedLinksBuilderComponent implements OnInit {
 
     ngOnInit() {
         this.socialDataService.twitterItemsLoaded.subscribe(json => {});
+    }
+
+    getStatuses(): void {
         // this.socialDataService.loadTwitterItems();
     }
 }

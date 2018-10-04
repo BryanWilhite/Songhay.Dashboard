@@ -36,7 +36,7 @@ describe('DashboardDataService', () => {
             expect(service).toBeTruthy();
         }
     ));
-    it('should load App data', done => {
+    it(`should call ${DashboardDataService.loadAppDataMethodName}()`, done => {
         inject([DashboardDataService], (service: DashboardDataService) => {
             expect(service).not.toBeNull('the expected service is not here');
 

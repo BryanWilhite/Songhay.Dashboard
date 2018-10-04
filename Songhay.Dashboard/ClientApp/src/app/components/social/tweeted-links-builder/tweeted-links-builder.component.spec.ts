@@ -13,7 +13,7 @@ describe('TweetedLinksBuilderComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [TweetedLinksBuilderComponent],
-            providers: [{ provide: SocialDataService, useValue: DataServiceMock }],
+            providers: [{ provide: SocialDataService, useClass: DataServiceMock }],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
     }));

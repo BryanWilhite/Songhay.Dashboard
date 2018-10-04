@@ -1,7 +1,9 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { AppDataService } from '../songhay/core/services/songhay-app-data.service';
+
 import { AppScalars } from '../models/songhay-app-scalars';
+
+import { AppDataService } from '../songhay/core/services/songhay-app-data.service';
 
 /**
  * Social data service
