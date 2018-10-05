@@ -36,41 +36,38 @@
 
                 overflow-y: auto;
 
-                & > ul {
-                    & > li {
+                & ::ng-deep .tweet {
+                    background-color: #fafad2;
+                    border: dashed 2px #1d241d;
+                    clear: both;
+                    color: #1d241d;
+                    cursor: move;
+                    margin-bottom: 1em;
+                    min-height: 48px;
+
+                    &:hover {
                         background-color: #fafad2;
-                        border: dashed 2px #1d241d;
-                        clear: both;
-                        color: #1d241d;
-                        cursor: move;
-                        list-style: none;
+                    }
+
+                    & > button {
+                        background-color: #f00;
+                        color: #fff;
+                        cursor: pointer;
+                        float: right;
+                        padding: 0.125em 0.25em !important;
+                    }
+
+                    & > a > img {
+                        float: left;
                         margin-bottom: 1em;
-                        min-height: 48px;
+                        margin-right: 1em;
+                    }
 
-                        &:hover {
-                            background-color: #fafad2;
-                        }
-
-                        & > button {
-                            background-color: #f00;
-                            color: #fff;
-                            cursor: pointer;
-                            float: right;
-                            padding: 0.125em 0.25em !important;
-                        }
-
-                        & > a > img {
-                            float: left;
-                            margin-bottom: 1em;
-                            margin-right: 1em;
-                        }
-
-                        & > small {
-                            background-color: #cfc;
-                            color: #000080;
-                            display: inline-block;
-                            font-size: 0.8em;
-                        }
+                    & > small {
+                        background-color: #cfc;
+                        color: #000080;
+                        display: inline-block;
+                        font-size: 0.8em;
                     }
                 }
             }
