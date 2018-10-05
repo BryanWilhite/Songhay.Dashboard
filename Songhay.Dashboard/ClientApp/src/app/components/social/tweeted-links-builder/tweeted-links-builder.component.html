@@ -8,9 +8,22 @@
             </button>
         </h2>
         <mat-spinner *ngIf="socialDataService.isLoading" color="accent"></mat-spinner>
+        <ul *ngIf="socialDataService.isLoaded">
+            <li cdkDragHandle class="tweet" *ngFor="let i of twitterItems">
+                <button class="remove" title="remove tweet">×</button>
+                <a href="{{ i.user.url }}" target="_blank" title="{{ i.user.name }} [{{ i.user.screenNameResponse }}]">
+                    <img alt="{{ i.user.name }} [{{ i.user.screenNameResponse }}]" src="{{ i.profileImageUrl }}" />
+                </a> <span [innerHTML]="i.safeHtml"></span> <small>{{ i.statusID }}</small>
+            </li>
+        </ul>
     </div>
     <div class="tweets outgoing" fxFlex>
         <h2>drop here</h2>
+        <ul>
+            <cdk-drop #dropBlock>
+            <li>this?</li>
+            </cdk-drop>
+        </ul>
     </div>
     <div class="tweets document" fxFlex>
         <h2>markup</h2>

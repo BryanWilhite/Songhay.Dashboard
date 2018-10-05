@@ -2,6 +2,7 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
 import { AppScalars } from '../models/songhay-app-scalars';
+import { TwitterItem } from '../models/twitter-item';
 
 import { AppDataService } from '../songhay/core/services/songhay-app-data.service';
 
@@ -31,7 +32,7 @@ export class SocialDataService extends AppDataService {
      * @memberof SocialDataService
      */
     @Output()
-    twitterItemsLoaded: EventEmitter<{}>;
+    twitterItemsLoaded: EventEmitter<TwitterItem[]>;
 
     /**
      *Creates an instance of SocialDataService.
@@ -55,9 +56,10 @@ export class SocialDataService extends AppDataService {
 
         const uri = `${AppScalars.rxTwitterApiRootUri}statuses`;
 
-        return this.loadJson<{}>(uri, json =>
-            this.twitterItemsLoaded.emit(json)
-        );
+        return this.loadJson<{}>(uri, json => {
+            const items = json as TwitterItem[];
+            this.twitterItemsLoaded.emit(items);
+        });
     }
 
     private initialize(): void {
