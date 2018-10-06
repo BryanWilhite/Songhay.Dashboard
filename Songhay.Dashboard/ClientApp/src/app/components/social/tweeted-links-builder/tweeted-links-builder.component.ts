@@ -28,7 +28,7 @@ export class TweetedLinksBuilderComponent implements OnInit {
         this.socialDataService.twitterItemsLoaded.subscribe(
             (items: TwitterItem[]) =>
                 (this.twitterItemsIn = items.map(i => {
-                    i.safeHtml = this.linkifyTweet(i.text || i.fullText);
+                    i.safeHtml = this.sanitizer.bypassSecurityTrustHtml(this.linkifyTweet(i.text || i.fullText));
                     return i;
                 }))
         );
@@ -56,9 +56,8 @@ export class TweetedLinksBuilderComponent implements OnInit {
         }
 
         const html = this.twitterItemsOut
-            .map(i => `<p>${this.linkifyTweet(i.fullText || i.text)}</p>`)
+            .map(i => `<p>\n${this.linkifyTweet(i.fullText || i.text)}\n</p>`)
             .join('\n');
-        console.log({ html });
         this.documentHtml = this.sanitizer.bypassSecurityTrustHtml(html);
     }
 
@@ -66,7 +65,7 @@ export class TweetedLinksBuilderComponent implements OnInit {
         this.socialDataService.loadTwitterItems();
     }
 
-    linkifyTweet(tweet: string): SafeHtml {
+    linkifyTweet(tweet: string): string {
         const reForHtmlLiteral = /((https?|ftp|file):\/\/[\-A-Z0-9+&@@#\/%?=~_|!:,.;]*[\-A-Z0-9+&@@#\/%=~_|])/gi,
             reForHandle = /[@@]+[A-Za-z0-9-_]+/g,
             reForHashTag = /[#]+[A-Za-z0-9-_]+/g;
@@ -81,7 +80,7 @@ export class TweetedLinksBuilderComponent implements OnInit {
                 return `<a href="http://twitter.com/search?q='${tag}" target="_blank">${s}</a>`;
             });
 
-        return this.sanitizer.bypassSecurityTrustHtml(tweet);
+        return tweet;
     }
 
     remove(statusId: number): void {
