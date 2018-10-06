@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import {
+    CdkDragDrop,
+    moveItemInArray,
+    transferArrayItem
+} from '@angular/cdk-experimental/drag-drop';
 
 import { TwitterItem } from '../../../models/twitter-item';
 import { SocialDataService } from '../../../services/social-data.service';
@@ -10,7 +15,9 @@ import { SocialDataService } from '../../../services/social-data.service';
     styleUrls: ['./tweeted-links-builder.component.scss']
 })
 export class TweetedLinksBuilderComponent implements OnInit {
-    twitterItems: TwitterItem[];
+    documentHtml: SafeHtml;
+    twitterItemsIn: TwitterItem[];
+    twitterItemsOut: TwitterItem[];
 
     constructor(
         public socialDataService: SocialDataService,
@@ -20,11 +27,39 @@ export class TweetedLinksBuilderComponent implements OnInit {
     ngOnInit() {
         this.socialDataService.twitterItemsLoaded.subscribe(
             (items: TwitterItem[]) =>
-                (this.twitterItems = items.map(i => {
+                (this.twitterItemsIn = items.map(i => {
                     i.safeHtml = this.linkifyTweet(i.text || i.fullText);
                     return i;
                 }))
         );
+
+        this.twitterItemsOut = [];
+    }
+
+    drop(event: CdkDragDrop<TwitterItem[]>): void {
+        if (event.previousContainer === event.container) {
+            if (event.container.id === 'tweetsIn') {
+                return;
+            }
+            moveItemInArray(
+                event.container.data,
+                event.previousIndex,
+                event.currentIndex
+            );
+        } else {
+            transferArrayItem(
+                event.previousContainer.data,
+                event.container.data,
+                event.previousIndex,
+                event.currentIndex
+            );
+        }
+
+        const html = this.twitterItemsOut
+            .map(i => `<p>${this.linkifyTweet(i.fullText || i.text)}</p>`)
+            .join('\n');
+        console.log({ html });
+        this.documentHtml = this.sanitizer.bypassSecurityTrustHtml(html);
     }
 
     getStatuses(): void {
@@ -47,5 +82,17 @@ export class TweetedLinksBuilderComponent implements OnInit {
             });
 
         return this.sanitizer.bypassSecurityTrustHtml(tweet);
+    }
+
+    remove(statusId: number): void {
+        console.log({ statusId });
+        const currentArray = this.twitterItemsOut,
+            targetArray = this.twitterItemsIn,
+            currentIndex = this.twitterItemsOut.findIndex(
+                i => i.statusID === statusId
+            ),
+            targetIndex = this.twitterItemsIn.length;
+
+        transferArrayItem(currentArray, targetArray, currentIndex, targetIndex);
     }
 }
