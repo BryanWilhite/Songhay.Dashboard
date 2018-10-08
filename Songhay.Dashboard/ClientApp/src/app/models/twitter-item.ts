@@ -7,6 +7,7 @@ export interface TwitterItem {
     statusID: number;
     text: string | null;
     fullText: string | null;
+    ordinal: number;
     safeHtml: SafeHtml;
     source: string;
     user: TwitterUser;

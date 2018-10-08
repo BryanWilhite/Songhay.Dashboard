@@ -23,7 +23,6 @@ import { StudioSocialComponent } from './components/dashboard/studio-social/stud
 import { StudioVersionsComponent } from './components/dashboard/studio-versions/studio-versions.component';
 import { AmazonProductImagesComponent } from './components/affiliates/amazon-product-images/amazon-product-images.component';
 import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-builder/tweeted-links-builder.component';
-import { DragAndDropDemoComponent } from './components/demo/drag-drop-demo';
 
 @NgModule({
     imports: [
@@ -47,8 +46,7 @@ import { DragAndDropDemoComponent } from './components/demo/drag-drop-demo';
         StudioSocialComponent,
         StudioVersionsComponent,
         AmazonProductImagesComponent,
-        TweetedLinksBuilderComponent,
-        DragAndDropDemoComponent
+        TweetedLinksBuilderComponent
     ],
     providers: [DashboardDataService, AmazonDataService],
     bootstrap: [AppComponent]

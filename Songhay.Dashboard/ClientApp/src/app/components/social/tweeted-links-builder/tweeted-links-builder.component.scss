@@ -11,19 +11,19 @@
     clear: both;
     color: #1d241d;
     cursor: move;
-    margin-bottom: 1em;
+    margin-bottom: 0.5rem;
     min-height: 48px;
+    padding: 0.5rem;
 
-    & > button {
-        background-color: #f00;
-        color: #fff;
-        cursor: pointer;
-        float: right;
-        padding: 0.125em 0.25em !important;
-        visibility: hidden;
-    }
+    & > a {
+        & > .ordinal {
+            display: inline-block;
+            color: #1d241d;
+            font-size: 2.4rem;
+            vertical-align: top;
+        }
 
-    & > a > img {
+        display: block;
         float: left;
         margin-bottom: 1em;
         margin-right: 1em;
@@ -33,7 +33,7 @@
         background-color: #cfc;
         color: #000080;
         display: inline-block;
-        font-size: 0.8em;
+        font-size: 0.8rem;
     }
 }
 
@@ -55,6 +55,12 @@
     @include tweet-style();
     box-sizing: border-box;
     opacity: 0.5;
+}
+
+.cdk-drop {
+    display: block;
+    min-height: 3rem;
+    width: 100%;
 }
 
 .social {
@@ -99,7 +105,7 @@
                 }
 
                 &.outgoing {
-                    & ::ng-deep .tweet {
+                    & > .cdk-drop {
                         & > button {
                             visibility: visible;
                         }

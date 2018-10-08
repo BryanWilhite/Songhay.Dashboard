@@ -19,6 +19,18 @@ export class TweetedLinksBuilderComponent implements OnInit {
     twitterItemsIn: TwitterItem[];
     twitterItemsOut: TwitterItem[];
 
+    static remove(statusId: number, twitterItemsIn: TwitterItem[], twitterItemsOut: TwitterItem[]): void {
+        console.log({ statusId });
+        const currentArray = twitterItemsOut,
+            targetArray = twitterItemsIn,
+            currentIndex = twitterItemsOut.findIndex(
+                i => i.statusID === statusId
+            ),
+            targetIndex = twitterItemsIn.length;
+
+        transferArrayItem(currentArray, targetArray, currentIndex, targetIndex);
+    }
+
     constructor(
         public socialDataService: SocialDataService,
         private sanitizer: DomSanitizer
@@ -27,20 +39,22 @@ export class TweetedLinksBuilderComponent implements OnInit {
     ngOnInit() {
         this.socialDataService.twitterItemsLoaded.subscribe(
             (items: TwitterItem[]) =>
-                (this.twitterItemsIn = items.map(i => {
-                    i.safeHtml = this.sanitizer.bypassSecurityTrustHtml(this.linkifyTweet(i.text || i.fullText));
-                    return i;
+                (this.twitterItemsIn = items.map((t, i) => {
+                    t.ordinal = i;
+                    t.safeHtml = this.sanitizer.bypassSecurityTrustHtml(this.linkifyTweet(t.text || t.fullText));
+                    return t;
                 }))
         );
 
+        this.documentHtml = '';
         this.twitterItemsOut = [];
     }
 
     drop(event: CdkDragDrop<TwitterItem[]>): void {
         if (event.previousContainer === event.container) {
-            if (event.container.id === 'tweetsIn') {
-                return;
-            }
+            // if (event.container.id === 'tweetsIn') {
+            //     return;
+            // }
             moveItemInArray(
                 event.container.data,
                 event.previousIndex,
@@ -83,15 +97,7 @@ export class TweetedLinksBuilderComponent implements OnInit {
         return tweet;
     }
 
-    remove(statusId: number): void {
-        console.log({ statusId });
-        const currentArray = this.twitterItemsOut,
-            targetArray = this.twitterItemsIn,
-            currentIndex = this.twitterItemsOut.findIndex(
-                i => i.statusID === statusId
-            ),
-            targetIndex = this.twitterItemsIn.length;
-
-        transferArrayItem(currentArray, targetArray, currentIndex, targetIndex);
+    test(): void {
+        console.log('eh?');
     }
 }

@@ -1,8 +1,8 @@
-<ng-template #tweetTemplate let-i="i">
-    <button (click)="remove(i.statusID)" class="remove" title="remove tweet">×</button>
-    <a href="{{ i.user.url }}" target="_blank" title="{{ i.user.name }} [{{ i.user.screenNameResponse }}]">
-        <img alt="{{ i.user.name }} [{{ i.user.screenNameResponse }}]" src="{{ i.profileImageUrl }}" />
-    </a> <span [innerHTML]="i.safeHtml"></span> <small>{{ i.statusID }}</small>
+<ng-template #tweetTemplate let-t="t">
+    <a href="{{ t.user.url }}" target="_blank" title="{{ t.user.name }} [{{ t.user.screenNameResponse }}]">
+        <span class="ordinal">{{ t.ordinal }}</span>
+        <img alt="{{ t.user.name }} [{{ t.user.screenNameResponse }}]" src="{{ t.profileImageUrl }}" />
+    </a> <span [innerHTML]="t.safeHtml"></span> <small>{{ t.statusID }}</small>
 </ng-template>
 
 <h1 class="app header social mat-app-background">Tweeted Links Builder</h1>
@@ -15,17 +15,17 @@
             </button>
         </h2>
         <mat-spinner *ngIf="socialDataService.isLoading" color="accent"></mat-spinner>
-        <cdk-drop #tweetsIn *ngIf="socialDataService.isLoaded" [connectedTo]="[tweetsOut]" [data]="twitterItemsIn" [id]="'tweetsIn'" (dropped)="drop($event)">
-            <div class="tweet" *ngFor="let i of twitterItemsIn" cdkDrag>
-                <ng-container *ngTemplateOutlet="tweetTemplate;context:{ i: i }"></ng-container>
+        <cdk-drop #tweetsIn [connectedTo]="[tweetsOut]" [data]="twitterItemsIn" [id]="'tweetsIn'" (dropped)="drop($event)">
+            <div class="tweet" *ngFor="let t of twitterItemsIn" cdkDrag>
+                <ng-container *ngTemplateOutlet="tweetTemplate;context:{ t: t }"></ng-container>
             </div>
         </cdk-drop>
     </div>
     <div class="tweets outgoing" fxFlex>
+        <h2>drop here</h2>
         <cdk-drop #tweetsOut [connectedTo]="[tweetsIn]" [data]="twitterItemsOut" [id]="'tweetsOut'" (dropped)="drop($event)">
-            <h2>drop here</h2>
-            <div class="tweet" *ngFor="let i of twitterItemsOut" cdkDrag>
-                <ng-container *ngTemplateOutlet="tweetTemplate;context:{ i: i }"></ng-container>
+            <div class="tweet" *ngFor="let t of twitterItemsOut" cdkDrag>
+                <ng-container *ngTemplateOutlet="tweetTemplate;context:{ t: t }"></ng-container>
             </div>
         </cdk-drop>
     </div>
