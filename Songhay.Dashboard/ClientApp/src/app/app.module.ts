@@ -20,6 +20,7 @@ import { StudioFeedComponent } from './components/dashboard/studio-feed/studio-f
 import { StudioLinksComponent } from './components/dashboard/studio-links/studio-links.component';
 import { StudioLogoComponent } from './components/dashboard/studio-logo/studio-logo.component';
 import { StudioSocialComponent } from './components/dashboard/studio-social/studio-social.component';
+import { StudioToolsComponent } from './components/dashboard/studio-tools/studio-tools.component';
 import { StudioVersionsComponent } from './components/dashboard/studio-versions/studio-versions.component';
 import { AmazonProductImagesComponent } from './components/affiliates/amazon-product-images/amazon-product-images.component';
 import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-builder/tweeted-links-builder.component';
@@ -44,6 +45,7 @@ import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-
         StudioLinksComponent,
         StudioLogoComponent,
         StudioSocialComponent,
+        StudioToolsComponent,
         StudioVersionsComponent,
         AmazonProductImagesComponent,
         TweetedLinksBuilderComponent
