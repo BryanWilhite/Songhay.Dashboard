@@ -18,6 +18,7 @@ namespace Songhay.Dashboard.Shell.Tests
         [TestProperty("codepenFile", @"Songhay.Feeds\Songhay.Feeds.Tests\data\codepen.json")]
         [TestProperty("flickrFile", @"Songhay.Feeds\Songhay.Feeds.Tests\data\flickr.json")]
         [TestProperty("githubFile", @"Songhay.Feeds\Songhay.Feeds.Tests\data\github.json")]
+        [TestProperty("stackOverflowFile", @"Songhay.Feeds\Songhay.Feeds.Tests\data\stackoverflow.json")]
         [TestProperty("studioFile", @"Songhay.Feeds\Songhay.Feeds.Tests\data\studio.json")]
         [TestProperty("serverMetadataFile", @"json\server-meta.json")]
         public void ShouldGenerateAppData()
@@ -44,6 +45,10 @@ namespace Songhay.Dashboard.Shell.Tests
             githubFile = root.ToCombinedPath(githubFile);
             this.TestContext.ShouldFindFile(githubFile);
 
+            var stackOverflowFile = this.TestContext.Properties["stackOverflowFile"].ToString();
+            stackOverflowFile = root.ToCombinedPath(stackOverflowFile);
+            this.TestContext.ShouldFindFile(stackOverflowFile);
+
             var studioFile = this.TestContext.Properties["studioFile"].ToString();
             studioFile = root.ToCombinedPath(studioFile);
             this.TestContext.ShouldFindFile(studioFile);
@@ -63,7 +68,7 @@ namespace Songhay.Dashboard.Shell.Tests
             var jO_serverMetadata = JObject.Parse(File.ReadAllText(serverMetadataFile));
             jO[serverMetaRoot] = jO_serverMetadata;
 
-            var feeds = new [] { codepenFile, flickrFile, githubFile, studioFile };
+            var feeds = new [] { codepenFile, flickrFile, githubFile, stackOverflowFile, studioFile };
             feeds.ForEachInEnumerable(i =>
             {
                 var fileName = Path.GetFileNameWithoutExtension(i);
