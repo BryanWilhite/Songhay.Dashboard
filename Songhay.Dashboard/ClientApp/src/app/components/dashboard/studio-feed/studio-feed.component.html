@@ -4,6 +4,7 @@
             <ng-container [ngSwitch]="feedName">
                 <mat-icon *ngSwitchCase="'codepen'" aria-label="feed icon" svgIcon="rx:mdi_codepen_24px"></mat-icon>
                 <mat-icon *ngSwitchCase="'github'" aria-label="feed icon" svgIcon="rx:mdi_github_circle_24px"></mat-icon>
+                <mat-icon *ngSwitchCase="'stackoverflow'" aria-label="feed icon" svgIcon="rx:mdi_stack_overflow_24px"></mat-icon>
                 <mat-icon *ngSwitchDefault aria-label="feed icon" svgIcon="rx:mdi_rss_24px"></mat-icon>
             </ng-container>
             <span>{{ feed.feedTitle }}</span>

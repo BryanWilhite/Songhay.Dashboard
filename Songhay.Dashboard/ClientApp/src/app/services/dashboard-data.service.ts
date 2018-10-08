@@ -1,8 +1,6 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-
-
 import { AppDataService } from '../songhay/core/services/songhay-app-data.service';
 import { AssemblyInfo } from '../songhay/core/models/songhay-assembly-info';
 import { SyndicationFeed } from '../songhay/core/models/songhay-syndication-feed';
@@ -130,8 +128,14 @@ export class DashboardDataService extends AppDataService {
                 break;
 
             case AppScalars.feedNameGitHub:
-            case AppScalars.feedNameStackOverflow:
                 feed.feedTitle = SyndicationFeed.getAtomChannelTitle(rawFeed);
+                channelItems = SyndicationFeed.getAtomChannelItems(rawFeed);
+                break;
+
+            case AppScalars.feedNameStackOverflow:
+                feed.feedTitle = SyndicationFeed
+                    .getAtomChannelTitle(rawFeed)
+                    .replace('User rasx - ', '');
                 channelItems = SyndicationFeed.getAtomChannelItems(rawFeed);
                 break;
         }
@@ -158,7 +162,7 @@ export class DashboardDataService extends AppDataService {
             case AppScalars.feedNameStackOverflow:
                 feed.feedItems = channelItems.map(item => {
                     return {
-                        title: item['title'],
+                        title: item['title']['#text'],
                         link: item['link']['@href']
                     };
                 });

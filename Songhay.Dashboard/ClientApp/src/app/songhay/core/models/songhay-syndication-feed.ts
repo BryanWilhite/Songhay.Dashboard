@@ -43,7 +43,9 @@ export class SyndicationFeed {
             console.log('the expected feed is not here');
             return;
         }
-        return atomFeed['title'];
+        const t = atomFeed['title'];
+        const key = '#text';
+        return (Object.keys(t).indexOf(key) !== -1) ? t[key] : t;
     }
 
     /**
