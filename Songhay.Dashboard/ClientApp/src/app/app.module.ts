@@ -19,6 +19,7 @@ import { StudioComponent } from './components/dashboard/studio/studio.component'
 import { StudioFeedComponent } from './components/dashboard/studio-feed/studio-feed.component';
 import { StudioLinksComponent } from './components/dashboard/studio-links/studio-links.component';
 import { StudioLogoComponent } from './components/dashboard/studio-logo/studio-logo.component';
+import { StudioNavComponent } from './components/dashboard/studio-nav/studio-nav.component';
 import { StudioSocialComponent } from './components/dashboard/studio-social/studio-social.component';
 import { StudioToolsComponent } from './components/dashboard/studio-tools/studio-tools.component';
 import { StudioVersionsComponent } from './components/dashboard/studio-versions/studio-versions.component';
@@ -48,7 +49,8 @@ import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-
         StudioToolsComponent,
         StudioVersionsComponent,
         AmazonProductImagesComponent,
-        TweetedLinksBuilderComponent
+        TweetedLinksBuilderComponent,
+        StudioNavComponent
     ],
     providers: [DashboardDataService, AmazonDataService],
     bootstrap: [AppComponent]
