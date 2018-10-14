@@ -109,6 +109,12 @@
                         & > button {
                             visibility: visible;
                         }
+                        & > .drop-helper {
+                            background-color: #fafad2;
+                            border: dashed 2px #1d241d;
+                            min-height: 48px;
+                            opacity: 0.5;
+                        }
                     }
                 }
 

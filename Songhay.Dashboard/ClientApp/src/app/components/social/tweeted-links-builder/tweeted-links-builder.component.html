@@ -27,6 +27,7 @@
             <div class="tweet" *ngFor="let t of twitterItemsOut" cdkDrag>
                 <ng-container *ngTemplateOutlet="tweetTemplate;context:{ t: t }"></ng-container>
             </div>
+            <div class="drop-helper"></div>
         </cdk-drop>
     </div>
     <div class="tweets document" fxFlex>

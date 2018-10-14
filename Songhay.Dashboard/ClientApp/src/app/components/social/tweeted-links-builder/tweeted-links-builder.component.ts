@@ -19,7 +19,11 @@ export class TweetedLinksBuilderComponent implements OnInit {
     twitterItemsIn: TwitterItem[];
     twitterItemsOut: TwitterItem[];
 
-    static remove(statusId: number, twitterItemsIn: TwitterItem[], twitterItemsOut: TwitterItem[]): void {
+    static remove(
+        statusId: number,
+        twitterItemsIn: TwitterItem[],
+        twitterItemsOut: TwitterItem[]
+    ): void {
         console.log({ statusId });
         const currentArray = twitterItemsOut,
             targetArray = twitterItemsIn,
@@ -41,7 +45,9 @@ export class TweetedLinksBuilderComponent implements OnInit {
             (items: TwitterItem[]) =>
                 (this.twitterItemsIn = items.map((t, i) => {
                     t.ordinal = i;
-                    t.safeHtml = this.sanitizer.bypassSecurityTrustHtml(this.linkifyTweet(t.text || t.fullText));
+                    t.safeHtml = this.sanitizer.bypassSecurityTrustHtml(
+                        this.linkifyTweet(t.text || t.fullText)
+                    );
                     return t;
                 }))
         );
@@ -70,12 +76,28 @@ export class TweetedLinksBuilderComponent implements OnInit {
         }
 
         const html = this.twitterItemsOut
-            .map(i => `<p>\n${this.linkifyTweet(i.fullText || i.text)}\n</p>`)
+            .map(i =>
+                [
+                    `<p class="tweet" data-status-id="${i.statusID}">`,
+                    `    <a href="${i.user.url}" target="_blank">`,
+                    `        <img`,
+                    `            alt="${i.user.name} [${
+                        i.user.screenNameResponse
+                    }]"`,
+                    `            src="${i.profileImageUrl}" />`,
+                    '    </a>',
+                    `    ${this.linkifyTweet(i.fullText || i.text)}`,
+                    '</p>'
+                ].join('\n')
+            )
             .join('\n');
         this.documentHtml = this.sanitizer.bypassSecurityTrustHtml(html);
     }
 
     getStatuses(): void {
+        this.documentHtml = '';
+        this.twitterItemsIn = [];
+        this.twitterItemsOut = [];  
         this.socialDataService.loadTwitterItems();
     }
 
