@@ -1,8 +1,13 @@
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.WindowsAzure.Storage;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
+using Songhay.Cloud.BlobStorage.Extensions;
 using Songhay.Extensions;
 using Songhay.Models;
 
@@ -13,45 +18,41 @@ namespace Songhay.Dashboard.Shell.Tests
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
-        [TestProperty("appFile", @"ClientApp\src\assets\data\app.json")]
-        [TestProperty("codepenFile", @"Songhay.Feeds\Songhay.Feeds.Tests\data\codepen.json")]
-        [TestProperty("flickrFile", @"Songhay.Feeds\Songhay.Feeds.Tests\data\flickr.json")]
-        [TestProperty("githubFile", @"Songhay.Feeds\Songhay.Feeds.Tests\data\github.json")]
-        [TestProperty("stackOverflowFile", @"Songhay.Feeds\Songhay.Feeds.Tests\data\stackoverflow.json")]
-        [TestProperty("studioFile", @"Songhay.Feeds\Songhay.Feeds.Tests\data\studio.json")]
-        [TestProperty("serverMetadataFile", @"json\server-meta.json")]
-        public void ShouldGenerateAppData()
+        [TestInitialize]
+        public void InitializeTest()
         {
-            var root = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels : 5);
+            var projectInfo = this.TestContext.ShouldGetSiblingDirectoryInfoByName(this.GetType(), typeof(Program).Namespace);
+
+            var builder = new ConfigurationBuilder();
+            cloudStorageAccount = builder.ToCloudStorageAccount(projectInfo.FullName,
+                "app-settings.songhay-system.json",
+                "SonghayCloudStorage",
+                "general-purpose-v1");
+        }
+
+        [TestMethod]
+        [TestProperty("appFile", @"json\app.json")]
+        [TestProperty("blobContainerName", "studio-dash")]
+        [TestProperty("jsonFiles", "codepen,flickr,github,stackoverflow,studio")]
+        [TestProperty("jsonRoot", "json")]
+        [TestProperty("serverMetadataFile", @"json\server-meta.json")]
+        public async Task ShouldGenerateAppData()
+        {
             var projectDirectoryInfo = this.TestContext.ShouldGetProjectDirectoryInfo(this.GetType());
-            var webProjectInfo = this.TestContext.ShouldGetConventionalProjectDirectoryInfo(this.GetType());
 
             #region test properties:
 
             var appFile = this.TestContext.Properties["appFile"].ToString();
-            appFile = webProjectInfo.FullName.ToCombinedPath(appFile);
+            appFile = projectDirectoryInfo.FullName.ToCombinedPath(appFile);
             this.TestContext.ShouldFindFile(appFile);
 
-            var codepenFile = this.TestContext.Properties["codepenFile"].ToString();
-            codepenFile = root.ToCombinedPath(codepenFile);
-            this.TestContext.ShouldFindFile(codepenFile);
+            var blobContainerName = this.TestContext.Properties["blobContainerName"].ToString();
 
-            var flickrFile = this.TestContext.Properties["flickrFile"].ToString();
-            flickrFile = root.ToCombinedPath(flickrFile);
-            this.TestContext.ShouldFindFile(flickrFile);
+            var jsonFiles = this.TestContext.Properties["jsonFiles"].ToString().Split(',');
 
-            var githubFile = this.TestContext.Properties["githubFile"].ToString();
-            githubFile = root.ToCombinedPath(githubFile);
-            this.TestContext.ShouldFindFile(githubFile);
-
-            var stackOverflowFile = this.TestContext.Properties["stackOverflowFile"].ToString();
-            stackOverflowFile = root.ToCombinedPath(stackOverflowFile);
-            this.TestContext.ShouldFindFile(stackOverflowFile);
-
-            var studioFile = this.TestContext.Properties["studioFile"].ToString();
-            studioFile = root.ToCombinedPath(studioFile);
-            this.TestContext.ShouldFindFile(studioFile);
+            var jsonRoot = this.TestContext.Properties["jsonRoot"].ToString();
+            jsonRoot = projectDirectoryInfo.FullName.ToCombinedPath(jsonRoot);
+            this.TestContext.ShouldFindDirectory(jsonRoot);
 
             var serverMetadataFile = this.TestContext.Properties["serverMetadataFile"].ToString();
             serverMetadataFile = projectDirectoryInfo.FullName.ToCombinedPath(serverMetadataFile);
@@ -68,16 +69,28 @@ namespace Songhay.Dashboard.Shell.Tests
             var jO_serverMetadata = JObject.Parse(File.ReadAllText(serverMetadataFile));
             jO[serverMetaRoot] = jO_serverMetadata;
 
-            var feeds = new [] { codepenFile, flickrFile, githubFile, stackOverflowFile, studioFile };
-            feeds.ForEachInEnumerable(i =>
+            var container = cloudStorageAccount.CreateCloudBlobClient().GetContainerReference(blobContainerName);
+            var tasks = jsonFiles.Select(i =>
             {
-                var fileName = Path.GetFileNameWithoutExtension(i);
-                this.TestContext.WriteLine($"writing {feedsRoot}/{fileName}...");
-                var jO_feed = JObject.Parse(File.ReadAllText(i));
-                jO[feedsRoot][fileName] = jO_feed;
+                var jsonFile = $"{jsonRoot}/{i}.json";
+                this.TestContext.WriteLine($"downloading {jsonFile}.json...");
+                var @ref = container.GetBlobReference(blobName: $"{i}.json");
+                return @ref.DownloadToFileAsync(jsonFile, FileMode.Open);
+            }).ToArray();
+
+            Task.WaitAll(tasks);
+
+            jsonFiles.ForEachInEnumerable(i =>
+            {
+                this.TestContext.WriteLine($"writing {feedsRoot}/{i}...");
+                var jsonFile = $"{jsonRoot}/{i}.json";
+                this.TestContext.ShouldFindFile(jsonFile);
+                var jO_feed = JObject.Parse(File.ReadAllText(jsonFile));
+                jO[feedsRoot][i] = jO_feed;
             });
 
             File.WriteAllText(appFile, jO.ToString());
+            await container.UploadBlob(appFile, string.Empty);
         }
 
         [TestMethod]
@@ -109,5 +122,7 @@ namespace Songhay.Dashboard.Shell.Tests
 
             File.WriteAllText(serverMetadataFile, jO.ToString());
         }
+
+        static CloudStorageAccount cloudStorageAccount;
     }
 }

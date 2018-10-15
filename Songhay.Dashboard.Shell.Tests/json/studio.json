@@ -1,0 +1,124 @@
+{
+  "rss": {
+    "@version": "2.0",
+    "channel": {
+      "pubDate": "Thu, 11 Oct 2018 00:10:33 GMT",
+      "title": ">DayPath_",
+      "description": "The technical journey of @BryanWilhite.",
+      "copyright": "Bryan Wilhite, Songhay System 2018",
+      "link": "http://songhayblog.azurewebsites.net/",
+      "item": [
+        {
+          "title": "studio status report: 2018-10",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/studio-status-report-2018-10",
+          "description": "the new SonghaySystem.com releasedSonghaySystem.com is released. I tweeted about it to capture the moment—which was a moment of exhaustion. I would love to say that this release captured all of the Angular-related topics I plan to study but I can’t. Thes...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "studio-status-report-2018-10"
+          },
+          "pubDate": "Thu, 11 Oct 2018 00:02:11 GMT"
+        },
+        {
+          "title": "studio status report: 2018-09",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/studio-status-report-2018-09",
+          "description": "This report is a extremely late as this writing occurs on the last day of the month.the work on the new SonghaySystem.com continuesThe prime suspect for the lateness of this report is the work represented by Songhay.Dashboardissue #16. This single issue ...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "studio-status-report-2018-09"
+          },
+          "pubDate": "Sun, 30 Sep 2018 22:50:14 GMT"
+        },
+        {
+          "title": "studio status report: 2018-08",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/studio-status-report-2018-08",
+          "description": "Going forward from here my passive-voice intention is to keep track of myself monthly. My work habits have always included keeping a private journal. In the “early years,” one Microsoft Word document per year was enough. As my software-development surfac...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "studio-status-report-2018-08"
+          },
+          "pubDate": "Fri, 10 Aug 2018 17:25:50 GMT"
+        },
+        {
+          "title": "“How to make responsiveness super simple with CSS Variables” and other Tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/how-to-make-responsiveness-super-simple-with-css-variables-and-other-tweeted-links",
+          "description": "How to make responsiveness super simple with CSS Variables A quick tutorial on how to create responsive websites i…\r\n      [twitter.com] The 3.0 releases of our aXe\r\n      #a11y extensions are out! You can now test inside of Shadow DOM and with some new ru...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "how-to-make-responsiveness-super-simple-with-css-variables-and-other-tweeted-links"
+          },
+          "pubDate": "Wed, 08 Aug 2018 17:41:02 GMT"
+        },
+        {
+          "title": "“Glide.js: A Dependency-Free ES6 Slider and Carousel” and other Tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/glide-js-a-dependency-free-es6-slider-and-carousel-and-other-tweeted-links",
+          "description": "Glide.js: A Dependency-Free ES6 Slider and Carousel -\r\n      [glidejs.com] (\"Designed to slide. No less, no more\" says the creator.) A Responsive Accessible Table\r\n      [adrianroselli.com] Since their “redesign”\r\n      @HSBC_UK online banking is now barely...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "glide-js-a-dependency-free-es6-slider-and-carousel-and-other-tweeted-links"
+          },
+          "pubDate": "Tue, 07 Aug 2018 16:59:20 GMT"
+        },
+        {
+          "title": "“SVG Polygon Generator” and other Tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/svg-polygon-generator-and-other-tweeted-links",
+          "description": "SVG Polygon Generator\r\n      [codepen.io] Design—and designers—seem perpetually threatened by democratization. -\r\n      [subtraction.com] -\r\n      [twitter.com] \"...among the eight most important qualities of Google’s top employees, STEM expertise comes in ...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "svg-polygon-generator-and-other-tweeted-links"
+          },
+          "pubDate": "Mon, 06 Aug 2018 21:06:48 GMT"
+        },
+        {
+          "title": "“Implementing an Infinite Scroll with Vue.js” and other Tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/implementing-an-infinite-scroll-with-vue-js-and-other-tweeted-links",
+          "description": "Implementing an Infinite Scroll with Vue.js:\r\n      [alligator.io] Build a Basic CRUD App with Vue.js and Node by sitepointdotcom\r\n      [javascriptkicks.com]#javascript#vuejs#nodejs via JavaScriptKicks How\r\n      #CSS works: Parsing &amp; painting CSS in t...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "implementing-an-infinite-scroll-with-vue-js-and-other-tweeted-links"
+          },
+          "pubDate": "Sat, 04 Aug 2018 00:30:25 GMT"
+        },
+        {
+          "title": "“There are at least 🖐 five services that can process your static &lt;form&gt; for you” and other Tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/there-are-at-least-five-services-that-can-process-your-static-form-for-you-and-other-tweeted-links",
+          "description": "There are at least 🖐 five services that can process your static &lt;form&gt; for you: ①\r\n      [pageclip.co]\r\n\r\n      ②…\r\n      [twitter.com] A Practical Guide to Angular Elements:\r\n      [nitayneeman.com] People keep asking me about CSS Grid \"best practices...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "there-are-at-least-five-services-that-can-process-your-static-form-for-you-and-other-tweeted-links"
+          },
+          "pubDate": "Wed, 01 Aug 2018 15:48:27 GMT"
+        },
+        {
+          "title": "“Using Color Psychology for Better Website Results” and other Tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/using-color-psychology-for-better-website-results-and-other-tweeted-links",
+          "description": "Using Color Psychology for Better Website Results\r\n      [speckyboy.com] Creating smooth sequential animations with Sass\r\n      [glennmccomb.com]#webdevelopment “How we designed page previews for Wikipedia — and what could be done with them in the future”\r\n...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "using-color-psychology-for-better-website-results-and-other-tweeted-links"
+          },
+          "pubDate": "Mon, 30 Jul 2018 23:30:53 GMT"
+        },
+        {
+          "title": "“Everything you need to know about change detection in Angular” and other Tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/everything-you-need-to-know-about-change-detection-in-angular-and-other-tweeted-links",
+          "description": "“Everything you need to know about change detection in Angular” by\r\n      @maxim_koretskyi[blog.angularindepth.com] 🔥 I hear *a lot* from people who would like to create native-like animations on the web, so I made a write-up &amp;&amp; de…\r\n      [twitte...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "everything-you-need-to-know-about-change-detection-in-angular-and-other-tweeted-links"
+          },
+          "pubDate": "Thu, 26 Jul 2018 17:30:26 GMT"
+        }
+      ]
+    }
+  }
+}

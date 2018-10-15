@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Songhay.Dashboard", "Songhay.Dashboard\Songhay.Dashboard.csproj", "{600F1880-70C7-4CEA-A1E8-55951094D6E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Songhay.Dashboard.Shell.Tests", "Songhay.Dashboard.Shell.Tests\Songhay.Dashboard.Shell.Tests.csproj", "{19C7370B-5301-4404-AF2B-21663D8E6F1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Songhay.Dashboard.Shell.Tests", "Songhay.Dashboard.Shell.Tests\Songhay.Dashboard.Shell.Tests.csproj", "{19C7370B-5301-4404-AF2B-21663D8E6F1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Songhay.Dashboard.Shell", "Songhay.Dashboard.Shell\Songhay.Dashboard.Shell.csproj", "{95D8B22F-23A7-4F79-8688-4994331AB65A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,18 @@ Global
 		{19C7370B-5301-4404-AF2B-21663D8E6F1A}.Release|x64.Build.0 = Release|Any CPU
 		{19C7370B-5301-4404-AF2B-21663D8E6F1A}.Release|x86.ActiveCfg = Release|Any CPU
 		{19C7370B-5301-4404-AF2B-21663D8E6F1A}.Release|x86.Build.0 = Release|Any CPU
+		{95D8B22F-23A7-4F79-8688-4994331AB65A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95D8B22F-23A7-4F79-8688-4994331AB65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95D8B22F-23A7-4F79-8688-4994331AB65A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{95D8B22F-23A7-4F79-8688-4994331AB65A}.Debug|x64.Build.0 = Debug|Any CPU
+		{95D8B22F-23A7-4F79-8688-4994331AB65A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{95D8B22F-23A7-4F79-8688-4994331AB65A}.Debug|x86.Build.0 = Debug|Any CPU
+		{95D8B22F-23A7-4F79-8688-4994331AB65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95D8B22F-23A7-4F79-8688-4994331AB65A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95D8B22F-23A7-4F79-8688-4994331AB65A}.Release|x64.ActiveCfg = Release|Any CPU
+		{95D8B22F-23A7-4F79-8688-4994331AB65A}.Release|x64.Build.0 = Release|Any CPU
+		{95D8B22F-23A7-4F79-8688-4994331AB65A}.Release|x86.ActiveCfg = Release|Any CPU
+		{95D8B22F-23A7-4F79-8688-4994331AB65A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
