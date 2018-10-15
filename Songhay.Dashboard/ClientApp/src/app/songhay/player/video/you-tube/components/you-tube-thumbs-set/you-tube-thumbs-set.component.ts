@@ -49,7 +49,7 @@ export class YouTubeThumbsSetComponent implements OnInit {
 
         this.youTubeDataService.channelSetLoaded.subscribe(json => {
             this.youTubeItemsMap = YouTubeDataService.getItemsMap(json);
-            this.youTubeItemsKeys = Array.from(this.youTubeItemsMap.keys());
+            this.youTubeItemsKeys = Array.from(this.youTubeItemsMap.keys()).sort();
         });
     }
 }
