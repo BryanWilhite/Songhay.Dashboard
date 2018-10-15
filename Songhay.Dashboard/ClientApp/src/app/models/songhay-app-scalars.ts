@@ -11,7 +11,7 @@ export class AppScalars {
      * @static
      * @memberof AppScalars
      */
-    static appDataLocation = './assets/data/app.json';
+    static appDataLocation = 'https://songhaystorage.blob.core.windows.net/studio-dash/app.json';
 
     /**
      * syndication feed name
