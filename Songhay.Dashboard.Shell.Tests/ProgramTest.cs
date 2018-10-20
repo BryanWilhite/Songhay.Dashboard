@@ -75,7 +75,7 @@ namespace Songhay.Dashboard.Shell.Tests
                 var jsonFile = $"{jsonRoot}/{i}.json";
                 this.TestContext.WriteLine($"downloading {jsonFile}.json...");
                 var @ref = container.GetBlobReference(blobName: $"{i}.json");
-                return @ref.DownloadToFileAsync(jsonFile, FileMode.Open);
+                return @ref.DownloadToFileAsync(jsonFile, FileMode.Create);
             }).ToArray();
 
             Task.WaitAll(tasks);

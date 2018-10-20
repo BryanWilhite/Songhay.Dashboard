@@ -2,16 +2,27 @@
   "rss": {
     "@version": "2.0",
     "channel": {
-      "pubDate": "Sat, 13 Oct 2018 23:18:23 GMT",
+      "pubDate": "Tue, 16 Oct 2018 06:21:26 GMT",
       "title": ">DayPath_",
       "description": "The technical journey of @BryanWilhite.",
       "copyright": "Bryan Wilhite, Songhay System 2018",
       "link": "http://songhayblog.azurewebsites.net/",
       "item": [
         {
+          "title": "“Mad props to Microsoft for their PWA push!” and other Tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/mad-props-to-microsoft-for-their-pwa-push-and-other-tweeted-links",
+          "description": "Mad props to Microsoft for their PWA push! [developer.microsoft.com] Love seeing PWAs become first class on Windows 10. I am working on a blog post right now about what this means for @Ionicframework users (:\r\n    \r\n      The Power of Flex-Grow [hackerno...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "mad-props-to-microsoft-for-their-pwa-push-and-other-tweeted-links"
+          },
+          "pubDate": "Tue, 16 Oct 2018 06:19:25 GMT"
+        },
+        {
           "title": "“With Angular v6 it’s now as easy as `ng add” and other Tweeted links…",
           "link": "http://songhayblog.azurewebsites.net/blog/entry/with-angular-v6-it-s-now-as-easy-as-ng-add-and-other-tweeted-links",
-          "description": "With Angular v6 it's now as easy as `ng add @angular/pwa`. 🌟🌞⚡ [twitter.com]\n      What's new in #Angular Release 6.0.0 🇬🇧. My article at @JAXenter shows:\n\n      🌴Treeshakable Providers\n      ⚡️Angular Elements (\"Web Components\")\n      📺Outlook to ...",
+          "description": "With Angular v6 it's now as easy as `ng add @angular/pwa`. 🌟🌞⚡ [twitter.com]\r\n      What's new in #Angular Release 6.0.0 🇬🇧. My article at @JAXenter shows:\r\n\r\n      🌴Treeshakable Providers\r\n      ⚡️Angular Elements (\"Web Components\")\r\n      📺Outloo...",
           "author": "rasx@songhaysystem.com",
           "guid": {
             "@isPermaLink": "false",
@@ -55,7 +66,7 @@
         {
           "title": "“How to make responsiveness super simple with CSS Variables” and other Tweeted links…",
           "link": "http://songhayblog.azurewebsites.net/blog/entry/how-to-make-responsiveness-super-simple-with-css-variables-and-other-tweeted-links",
-          "description": "How to make responsiveness super simple with CSS Variables A quick tutorial on how to create responsive websites i…\n      [twitter.com] The 3.0 releases of our aXe\n      #a11y extensions are out! You can now test inside of Shadow DOM and with some new ru...",
+          "description": "How to make responsiveness super simple with CSS Variables A quick tutorial on how to create responsive websites i…\r\n      [twitter.com] The 3.0 releases of our aXe\r\n      #a11y extensions are out! You can now test inside of Shadow DOM and with some new ...",
           "author": "rasx@songhaysystem.com",
           "guid": {
             "@isPermaLink": "false",
@@ -66,7 +77,7 @@
         {
           "title": "“Glide.js: A Dependency-Free ES6 Slider and Carousel” and other Tweeted links…",
           "link": "http://songhayblog.azurewebsites.net/blog/entry/glide-js-a-dependency-free-es6-slider-and-carousel-and-other-tweeted-links",
-          "description": "Glide.js: A Dependency-Free ES6 Slider and Carousel -\n      [glidejs.com] (\"Designed to slide. No less, no more\" says the creator.) A Responsive Accessible Table\n      [adrianroselli.com] Since their “redesign”\n      @HSBC_UK online banking is now barely...",
+          "description": "Glide.js: A Dependency-Free ES6 Slider and Carousel -\r\n      [glidejs.com] (\"Designed to slide. No less, no more\" says the creator.) A Responsive Accessible Table\r\n      [adrianroselli.com] Since their “redesign”\r\n      @HSBC_UK online banking is now bar...",
           "author": "rasx@songhaysystem.com",
           "guid": {
             "@isPermaLink": "false",
@@ -77,7 +88,7 @@
         {
           "title": "“SVG Polygon Generator” and other Tweeted links…",
           "link": "http://songhayblog.azurewebsites.net/blog/entry/svg-polygon-generator-and-other-tweeted-links",
-          "description": "SVG Polygon Generator\n      [codepen.io] Design—and designers—seem perpetually threatened by democratization. -\n      [subtraction.com] -\n      [twitter.com] \"...among the eight most important qualities of Google’s top employees, STEM expertise comes in ...",
+          "description": "SVG Polygon Generator\r\n      [codepen.io] Design—and designers—seem perpetually threatened by democratization. -\r\n      [subtraction.com] -\r\n      [twitter.com] \"...among the eight most important qualities of Google’s top employees, STEM expertise comes ...",
           "author": "rasx@songhaysystem.com",
           "guid": {
             "@isPermaLink": "false",
@@ -88,7 +99,7 @@
         {
           "title": "“Implementing an Infinite Scroll with Vue.js” and other Tweeted links…",
           "link": "http://songhayblog.azurewebsites.net/blog/entry/implementing-an-infinite-scroll-with-vue-js-and-other-tweeted-links",
-          "description": "Implementing an Infinite Scroll with Vue.js:\n      [alligator.io] Build a Basic CRUD App with Vue.js and Node by sitepointdotcom\n      [javascriptkicks.com]#javascript#vuejs#nodejs via JavaScriptKicks How\n      #CSS works: Parsing &amp; painting CSS in t...",
+          "description": "Implementing an Infinite Scroll with Vue.js:\r\n      [alligator.io] Build a Basic CRUD App with Vue.js and Node by sitepointdotcom\r\n      [javascriptkicks.com]#javascript#vuejs#nodejs via JavaScriptKicks How\r\n      #CSS works: Parsing &amp; painting CSS i...",
           "author": "rasx@songhaysystem.com",
           "guid": {
             "@isPermaLink": "false",
@@ -99,24 +110,13 @@
         {
           "title": "“There are at least 🖐 five services that can process your static &lt;form&gt; for you” and other Tweeted links…",
           "link": "http://songhayblog.azurewebsites.net/blog/entry/there-are-at-least-five-services-that-can-process-your-static-form-for-you-and-other-tweeted-links",
-          "description": "There are at least 🖐 five services that can process your static &lt;form&gt; for you: ①\n      [pageclip.co]\n\n      ②…\n      [twitter.com] A Practical Guide to Angular Elements:\n      [nitayneeman.com] People keep asking me about CSS Grid \"best practices...",
+          "description": "There are at least 🖐 five services that can process your static &lt;form&gt; for you: ①\r\n      [pageclip.co]\r\n\r\n      ②…\r\n      [twitter.com] A Practical Guide to Angular Elements:\r\n      [nitayneeman.com] People keep asking me about CSS Grid \"best prac...",
           "author": "rasx@songhaysystem.com",
           "guid": {
             "@isPermaLink": "false",
             "#text": "there-are-at-least-five-services-that-can-process-your-static-form-for-you-and-other-tweeted-links"
           },
           "pubDate": "Wed, 01 Aug 2018 15:48:27 GMT"
-        },
-        {
-          "title": "“Using Color Psychology for Better Website Results” and other Tweeted links…",
-          "link": "http://songhayblog.azurewebsites.net/blog/entry/using-color-psychology-for-better-website-results-and-other-tweeted-links",
-          "description": "Using Color Psychology for Better Website Results\n      [speckyboy.com] Creating smooth sequential animations with Sass\n      [glennmccomb.com]#webdevelopment “How we designed page previews for Wikipedia — and what could be done with them in the future”\n...",
-          "author": "rasx@songhaysystem.com",
-          "guid": {
-            "@isPermaLink": "false",
-            "#text": "using-color-psychology-for-better-website-results-and-other-tweeted-links"
-          },
-          "pubDate": "Mon, 30 Jul 2018 23:30:53 GMT"
         }
       ]
     }
