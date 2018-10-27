@@ -2,12 +2,56 @@
   "rss": {
     "@version": "2.0",
     "channel": {
-      "pubDate": "Tue, 16 Oct 2018 06:21:26 GMT",
+      "pubDate": "Thu, 25 Oct 2018 05:24:40 GMT",
       "title": ">DayPath_",
       "description": "The technical journey of @BryanWilhite.",
       "copyright": "Bryan Wilhite, Songhay System 2018",
       "link": "http://songhayblog.azurewebsites.net/",
       "item": [
+        {
+          "title": "“Using Web Assembly to speed up your Angular Application” and other Tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/using-web-assembly-to-speed-up-your-angular-application-and-other-tweeted-links",
+          "description": "Using Web Assembly to speed up your Angular Application [malcoded.com]#angular#javascript via @malcoded\r\n      Why another state management framework for Angular? by @amcdnl#ngxs#ngrx#angular[medium.com][twitter.com]#RxJS 6.2.0 published - Finally added ...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "using-web-assembly-to-speed-up-your-angular-application-and-other-tweeted-links"
+          },
+          "pubDate": "Thu, 25 Oct 2018 05:23:25 GMT"
+        },
+        {
+          "title": "“Ready for more details about #Angular new engine Ivy?” and other Tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/ready-for-more-details-about-angular-new-engine-ivy-and-other-tweeted-links",
+          "description": "Ready for more details about #Angular new engine Ivy? I just published an article that dives deep into Ivy implementation and provides a comparison with the existing engine. Read it to find out if what you've learnt about Angular internals applies to Ivy...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "ready-for-more-details-about-angular-new-engine-ivy-and-other-tweeted-links"
+          },
+          "pubDate": "Wed, 24 Oct 2018 04:41:48 GMT"
+        },
+        {
+          "title": "“Upgrading to Angular v6: Step by Step” and other Tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/upgrading-to-angular-v6-step-by-step-and-other-tweeted-links",
+          "description": "Upgrading to Angular v6: Step by Step [loiane.com]#angular\r\n      8 Free #JavaScript Image Cropping Scripts &amp; Plugins [webdesignerdepot.com]\r\n      “Version 6 of Angular Now Available” by @stephenfluin[blog.angular.io]\r\n      Using Lektor with Travis...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "upgrading-to-angular-v6-step-by-step-and-other-tweeted-links"
+          },
+          "pubDate": "Mon, 22 Oct 2018 02:27:32 GMT"
+        },
+        {
+          "title": "jupyter central",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/jupyter-central",
+          "description": "I am sure there are many reasons why Span&lt;T&gt; (and Memory&lt;T&gt;) was introduced to the .NET Framework. To me, these C# language features are a response to the dangerous (and tedious) supremacy of handling data in unmanaged memory in general and t...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "jupyter-central"
+          },
+          "pubDate": "Sun, 21 Oct 2018 18:17:34 GMT"
+        },
         {
           "title": "“Mad props to Microsoft for their PWA push!” and other Tweeted links…",
           "link": "http://songhayblog.azurewebsites.net/blog/entry/mad-props-to-microsoft-for-their-pwa-push-and-other-tweeted-links",
@@ -73,50 +117,6 @@
             "#text": "how-to-make-responsiveness-super-simple-with-css-variables-and-other-tweeted-links"
           },
           "pubDate": "Wed, 08 Aug 2018 17:41:02 GMT"
-        },
-        {
-          "title": "“Glide.js: A Dependency-Free ES6 Slider and Carousel” and other Tweeted links…",
-          "link": "http://songhayblog.azurewebsites.net/blog/entry/glide-js-a-dependency-free-es6-slider-and-carousel-and-other-tweeted-links",
-          "description": "Glide.js: A Dependency-Free ES6 Slider and Carousel -\r\n      [glidejs.com] (\"Designed to slide. No less, no more\" says the creator.) A Responsive Accessible Table\r\n      [adrianroselli.com] Since their “redesign”\r\n      @HSBC_UK online banking is now bar...",
-          "author": "rasx@songhaysystem.com",
-          "guid": {
-            "@isPermaLink": "false",
-            "#text": "glide-js-a-dependency-free-es6-slider-and-carousel-and-other-tweeted-links"
-          },
-          "pubDate": "Tue, 07 Aug 2018 16:59:20 GMT"
-        },
-        {
-          "title": "“SVG Polygon Generator” and other Tweeted links…",
-          "link": "http://songhayblog.azurewebsites.net/blog/entry/svg-polygon-generator-and-other-tweeted-links",
-          "description": "SVG Polygon Generator\r\n      [codepen.io] Design—and designers—seem perpetually threatened by democratization. -\r\n      [subtraction.com] -\r\n      [twitter.com] \"...among the eight most important qualities of Google’s top employees, STEM expertise comes ...",
-          "author": "rasx@songhaysystem.com",
-          "guid": {
-            "@isPermaLink": "false",
-            "#text": "svg-polygon-generator-and-other-tweeted-links"
-          },
-          "pubDate": "Mon, 06 Aug 2018 21:06:48 GMT"
-        },
-        {
-          "title": "“Implementing an Infinite Scroll with Vue.js” and other Tweeted links…",
-          "link": "http://songhayblog.azurewebsites.net/blog/entry/implementing-an-infinite-scroll-with-vue-js-and-other-tweeted-links",
-          "description": "Implementing an Infinite Scroll with Vue.js:\r\n      [alligator.io] Build a Basic CRUD App with Vue.js and Node by sitepointdotcom\r\n      [javascriptkicks.com]#javascript#vuejs#nodejs via JavaScriptKicks How\r\n      #CSS works: Parsing &amp; painting CSS i...",
-          "author": "rasx@songhaysystem.com",
-          "guid": {
-            "@isPermaLink": "false",
-            "#text": "implementing-an-infinite-scroll-with-vue-js-and-other-tweeted-links"
-          },
-          "pubDate": "Sat, 04 Aug 2018 00:30:25 GMT"
-        },
-        {
-          "title": "“There are at least 🖐 five services that can process your static &lt;form&gt; for you” and other Tweeted links…",
-          "link": "http://songhayblog.azurewebsites.net/blog/entry/there-are-at-least-five-services-that-can-process-your-static-form-for-you-and-other-tweeted-links",
-          "description": "There are at least 🖐 five services that can process your static &lt;form&gt; for you: ①\r\n      [pageclip.co]\r\n\r\n      ②…\r\n      [twitter.com] A Practical Guide to Angular Elements:\r\n      [nitayneeman.com] People keep asking me about CSS Grid \"best prac...",
-          "author": "rasx@songhaysystem.com",
-          "guid": {
-            "@isPermaLink": "false",
-            "#text": "there-are-at-least-five-services-that-can-process-your-static-form-for-you-and-other-tweeted-links"
-          },
-          "pubDate": "Wed, 01 Aug 2018 15:48:27 GMT"
         }
       ]
     }
