@@ -14,7 +14,7 @@ namespace Songhay.Dashboard.Shell.Tests
     {
         public TestContext TestContext { get; set; }
 
-        //[Ignore("The build server should ignore this test because it should run locally.")]
+        [Ignore("The build server should ignore this test because it should run locally.")]
         [TestMethod]
         [TestProperty("serverAssemblyFile", @"bin\Release\netcoreapp2.0\Songhay.Dashboard.dll")]
         public void ShouldRunAppDataActivity()

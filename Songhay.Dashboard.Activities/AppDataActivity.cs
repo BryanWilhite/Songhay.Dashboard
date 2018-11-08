@@ -74,7 +74,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
         {
             var tasks = this._jsonFiles.Select(i =>
             {
-                var jsonFile = $"{this._dataRoot}/{i}.json";
+                var jsonFile = this._dataRoot.ToCombinedPath($"{i}.json");
                 traceSource.TraceInformation($"downloading {jsonFile}.json...");
 
                 var @ref = container.GetBlobReference(blobName: $"{i}.json");
@@ -84,7 +84,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             Task.WaitAll(tasks);
         }
 
-        internal string GetAppFile() => $"{this._dataRoot}/{this._appFileName}";
+        internal string GetAppFile() => this._dataRoot.ToCombinedPath(this._appFileName);
 
         internal void SetDataRoot(ProgramArgs args)
         {
@@ -152,7 +152,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             this._jsonFiles.ForEachInEnumerable(i =>
             {
                 traceSource.TraceInformation($"writing {feedsRoot}/{i}...");
-                var jsonFile = $"{this._dataRoot}/{i}.json";
+                var jsonFile = this._dataRoot.ToCombinedPath($"{i}.json");
                 if (!File.Exists(jsonFile)) throw new FileNotFoundException("The expected feeds file is not here.");
                 var jO_feed = JObject.Parse(File.ReadAllText(jsonFile));
                 appJO[feedsRoot][i] = jO_feed;
