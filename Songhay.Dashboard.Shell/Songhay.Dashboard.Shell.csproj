@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Songhay.Dashboard.Activities\Songhay.Dashboard.Activities.csproj" />
+  </ItemGroup>
+
 </Project>

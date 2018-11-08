@@ -20,7 +20,7 @@
       }
     ],
     "subtitle": "most recent 30 from stackoverflow.com",
-    "updated": "2018-10-26T23:23:48Z",
+    "updated": "2018-11-08T01:22:19Z",
     "id": "https://stackoverflow.com/feeds/user/22944",
     "creativeCommons:license": "http://www.creativecommons.org/licenses/by-sa/3.0/rdf",
     "entry": [
@@ -672,7 +672,7 @@
         "id": "https://stackoverflow.com/q/3008704",
         "re:rank": {
           "@scheme": "https://stackoverflow.com",
-          "#text": "68"
+          "#text": "69"
         },
         "title": {
           "@type": "text",

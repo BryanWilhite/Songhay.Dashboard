@@ -11,7 +11,7 @@ queue:
 
 variables:
   BuildConfiguration: 'Release'
-  RepoName: 'Songhay.Dashboard'
+  RepoName: 'Songhay.Dashboard.Shell'
 
 steps:
 - task: DotNetCoreCLI@2

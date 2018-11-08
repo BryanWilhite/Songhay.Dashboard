@@ -2,12 +2,34 @@
   "rss": {
     "@version": "2.0",
     "channel": {
-      "pubDate": "Thu, 25 Oct 2018 05:24:40 GMT",
+      "pubDate": "Fri, 02 Nov 2018 05:05:25 GMT",
       "title": ">DayPath_",
       "description": "The technical journey of @BryanWilhite.",
       "copyright": "Bryan Wilhite, Songhay System 2018",
       "link": "http://songhayblog.azurewebsites.net/",
       "item": [
+        {
+          "title": "“A collection of some of the best data visualisation related content discovered during March 2018” and other tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/a-collection-of-some-of-the-best-data-visualisation-related-content-discovered-during-march-2018-and-other-tweeted-links",
+          "description": "NEW POST: A collection of some of the best data visualisation related content discovered during March 2018 [visualisingdata.com][twitter.com]\r\n      ICYMI, 📊short-course &amp;📽s!\r\n      \"Data Visualization Pitfalls to Avoid\" 👩‍💻 @tamaramunzner[buff.l...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "a-collection-of-some-of-the-best-data-visualisation-related-content-discovered-during-march-2018-and-other-tweeted-links"
+          },
+          "pubDate": "Fri, 02 Nov 2018 05:03:56 GMT"
+        },
+        {
+          "title": "“I just published ‘RxJS: Avoiding takeUntil Leaks’” and other tweeted links…",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/i-just-published-rxjs-avoiding-takeuntil-leaks-and-other-tweeted-links",
+          "description": "I just published “RxJS: Avoiding takeUntil Leaks” [medium.com]\r\n      I was looking for a color picker component made for @angular, thanks god [ngx.tools] is here to help me find one 😅\r\n\r\n      [ngx.tools][twitter.com]\r\n      10 essential #typescript ti...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "i-just-published-rxjs-avoiding-takeuntil-leaks-and-other-tweeted-links"
+          },
+          "pubDate": "Sat, 27 Oct 2018 03:54:01 GMT"
+        },
         {
           "title": "“Using Web Assembly to speed up your Angular Application” and other Tweeted links…",
           "link": "http://songhayblog.azurewebsites.net/blog/entry/using-web-assembly-to-speed-up-your-angular-application-and-other-tweeted-links",
@@ -95,28 +117,6 @@
             "#text": "studio-status-report-2018-09"
           },
           "pubDate": "Sun, 30 Sep 2018 22:50:14 GMT"
-        },
-        {
-          "title": "studio status report: 2018-08",
-          "link": "http://songhayblog.azurewebsites.net/blog/entry/studio-status-report-2018-08",
-          "description": "Going forward from here my passive-voice intention is to keep track of myself monthly. My work habits have always included keeping a private journal. In the “early years,” one Microsoft Word document per year was enough. As my software-development surfac...",
-          "author": "rasx@songhaysystem.com",
-          "guid": {
-            "@isPermaLink": "false",
-            "#text": "studio-status-report-2018-08"
-          },
-          "pubDate": "Fri, 10 Aug 2018 17:25:50 GMT"
-        },
-        {
-          "title": "“How to make responsiveness super simple with CSS Variables” and other Tweeted links…",
-          "link": "http://songhayblog.azurewebsites.net/blog/entry/how-to-make-responsiveness-super-simple-with-css-variables-and-other-tweeted-links",
-          "description": "How to make responsiveness super simple with CSS Variables A quick tutorial on how to create responsive websites i…\r\n      [twitter.com] The 3.0 releases of our aXe\r\n      #a11y extensions are out! You can now test inside of Shadow DOM and with some new ...",
-          "author": "rasx@songhaysystem.com",
-          "guid": {
-            "@isPermaLink": "false",
-            "#text": "how-to-make-responsiveness-super-simple-with-css-variables-and-other-tweeted-links"
-          },
-          "pubDate": "Wed, 08 Aug 2018 17:41:02 GMT"
         }
       ]
     }
