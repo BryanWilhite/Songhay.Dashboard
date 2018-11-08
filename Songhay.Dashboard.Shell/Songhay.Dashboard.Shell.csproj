@@ -9,4 +9,16 @@
     <ProjectReference Include="..\Songhay.Dashboard.Activities\Songhay.Dashboard.Activities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="app-settings.songhay-system.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="run.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
