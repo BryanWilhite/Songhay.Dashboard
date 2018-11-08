@@ -21,6 +21,16 @@ namespace Songhay.Dashboard.Shell
             return getter;
         }
 
+        internal static void InitializeTraceSource(TraceListener listener)
+        {
+            var traceSource = TraceSources
+                .Instance
+                .GetTraceSourceFromConfiguredName()
+                .WithAllSourceLevels()
+                .EnsureTraceSource();
+            traceSource.Listeners.Add(listener);
+        }
+
         internal static IConfigurationRoot LoadConfiguration(string basePath)
         {
 
@@ -50,16 +60,6 @@ namespace Songhay.Dashboard.Shell
             Console.WriteLine(string.Format("{0}Press any key to continue...", Environment.NewLine));
             Console.ReadKey(false);
 #endif
-        }
-
-        static void InitializeTraceSource(TraceListener listener)
-        {
-            var traceSource = TraceSources
-                .Instance
-                .GetTraceSourceFromConfiguredName()
-                .WithAllSourceLevels()
-                .EnsureTraceSource();
-            traceSource.Listeners.Add(listener);
         }
 
         static void Main(string[] args)

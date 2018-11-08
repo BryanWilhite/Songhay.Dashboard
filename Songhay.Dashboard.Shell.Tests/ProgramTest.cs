@@ -1,17 +1,11 @@
-using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.WindowsAzure.Storage;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
-using Songhay.Cloud.BlobStorage.Extensions;
 using Songhay.Dashboard.Activities;
+using Songhay.Diagnostics;
 using Songhay.Extensions;
 using Songhay.Models;
-using System.IO;
+using System;
+using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 
 namespace Songhay.Dashboard.Shell.Tests
 {
@@ -20,7 +14,7 @@ namespace Songhay.Dashboard.Shell.Tests
     {
         public TestContext TestContext { get; set; }
 
-        [Ignore("The build server should ignore this test because it should run locally.")]
+        //[Ignore("The build server should ignore this test because it should run locally.")]
         [TestMethod]
         [TestProperty("serverAssemblyFile", @"bin\Release\netcoreapp2.0\Songhay.Dashboard.dll")]
         public void ShouldRunAppDataActivity()
@@ -38,22 +32,31 @@ namespace Songhay.Dashboard.Shell.Tests
             #endregion
 
             var configuration = Program.LoadConfiguration(shellDirectoryInfo.FullName);
-            var metaSection = configuration.GetSection("meta")?.GetChildren();
-            Assert.IsTrue(metaSection.Any(), "The expected section is not here.");
+            TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
 
-            var args = new[]
+            using (var listener = new TextWriterTraceListener(Console.Out))
             {
-                nameof(AppDataActivity),
-                ProgramArgs.BasePath, projectDirectoryInfo.FullName,
-                DashboardActivitiesArgs.ServerAssemblyFile, serverAssemblyFile
-            };
-            var activitiesGetter = Program.GetActivitiesGetter(args);
-            var activity = activitiesGetter
-                .GetActivity()
-                .WithConfiguration(configuration) as AppDataActivity;
-            Assert.IsNotNull(activity, "The expected Activity is not here.");
+                Program.InitializeTraceSource(listener);
 
-            activity.Start(new DashboardActivitiesArgs(args));
+                var metaSection = configuration.GetSection("meta")?.GetChildren();
+                Assert.IsTrue(metaSection.Any(), "The expected section is not here.");
+
+                var args = new[]
+                {
+                    nameof(AppDataActivity),
+                    ProgramArgs.BasePath, projectDirectoryInfo.FullName,
+                    DashboardActivitiesArgs.ServerAssemblyFile, serverAssemblyFile
+                };
+                var activitiesGetter = Program.GetActivitiesGetter(args);
+                var activity = activitiesGetter
+                    .GetActivity()
+                    .WithConfiguration(configuration) as AppDataActivity;
+                Assert.IsNotNull(activity, "The expected Activity is not here.");
+
+                activity.Start(new DashboardActivitiesArgs(args));
+
+                listener.Flush();
+            }
         }
     }
 }

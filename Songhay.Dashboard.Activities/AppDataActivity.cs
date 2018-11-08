@@ -38,18 +38,20 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             if (!args.HasArg(DashboardActivitiesArgs.ServerAssemblyFile, requiresValue: true)) return;
 
             this.SetMetadata(args);
+            this.SetDataRoot(args);
 
             var container = this.GetContainerReference();
             var appJson = this.DownloadAppFile(container);
             var jO = JObject.Parse(appJson);
 
-            var serverAssemblyFile = args.GetArgValue(DashboardActivitiesArgs.ServerAssemblyFile);
-
+            var serverAssemblyFile = this.GetServerAssemblyFile(args);
             this.WriteServerMeta(jO, serverAssemblyFile);
+
             this.DownloadFeedFiles(container);
             this.WriteFeedFiles(jO);
-            this.UploadAppFile(container);
+
             this.WriteAppFile(jO);
+            this.UploadAppFile(container);
         }
 
         internal IConfigurationRoot Configuration { get; private set; }
@@ -84,8 +86,19 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
 
         internal string GetAppFile() => $"{this._dataRoot}/{this._appFileName}";
 
-        internal string GetBasePath(ProgramArgs args) =>
-            args.HasArg(ProgramArgs.BasePath, requiresValue: false) ? args.GetBasePathValue() : Directory.GetCurrentDirectory();
+        internal void SetDataRoot(ProgramArgs args)
+        {
+            var basePath = args.HasArg(ProgramArgs.BasePath, requiresValue: false) ? args.GetBasePathValue() : Directory.GetCurrentDirectory();
+
+            this._dataRoot = basePath.ToCombinedPath(this._metaSet.TryGetValueWithKey("dataRoot", throwException: true));
+
+            if (this._dataRoot.StartsWith("./")) basePath.ToCombinedPath(this._dataRoot);
+            this._dataRoot = Path.GetFullPath(this._dataRoot);
+            if (!Directory.Exists(this._dataRoot)) Directory.CreateDirectory(this._dataRoot);
+
+            traceSource.TraceVerbose($"verifying {this._dataRoot}...");
+            if (!Directory.Exists(this._dataRoot)) throw new DirectoryNotFoundException("The expected data root is not here.");
+        }
 
         internal CloudStorageAccount GetCloudStorageAccount() =>
             this.Configuration.GetCloudStorageAccount("ProgramMetadata:CloudStorageSet:SonghayCloudStorage:general-purpose-v1");
@@ -98,17 +111,21 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             return container;
         }
 
+        internal string GetServerAssemblyFile(ProgramArgs args)
+        {
+            var serverAssemblyFile = args.GetArgValue(DashboardActivitiesArgs.ServerAssemblyFile);
+            traceSource.TraceVerbose($"Looking for {serverAssemblyFile}...");
+
+            if (!File.Exists(serverAssemblyFile)) throw new FileNotFoundException("The expected server assembly file is not here.");
+
+            return serverAssemblyFile;
+        }
+
         internal void SetMetadata(ProgramArgs args)
         {
-            var basePath = this.GetBasePath(args);
             var metaSection = this.Configuration.GetSection("meta")?.GetChildren();
             this._metaSet = metaSection.ToDictionary(i => i.Key, i => i.Value);
-
             this._appFileName = this._metaSet.TryGetValueWithKey("appFileName", throwException: true);
-            this._dataRoot = basePath.ToCombinedPath(this._metaSet.TryGetValueWithKey("dataRoot", throwException: true));
-            traceSource.TraceVerbose($"verifying {this._dataRoot}...");
-            if (!Directory.Exists(this._dataRoot)) throw new DirectoryNotFoundException("The expected data root is not here.");
-
             this._jsonFiles = this._metaSet.TryGetValueWithKey("jsonFiles", throwException: true).Split(',');
         }
 
@@ -136,7 +153,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             {
                 traceSource.TraceInformation($"writing {feedsRoot}/{i}...");
                 var jsonFile = $"{this._dataRoot}/{i}.json";
-                if(!File.Exists(jsonFile)) throw new FileNotFoundException("The expected feeds file is not here.");
+                if (!File.Exists(jsonFile)) throw new FileNotFoundException("The expected feeds file is not here.");
                 var jO_feed = JObject.Parse(File.ReadAllText(jsonFile));
                 appJO[feedsRoot][i] = jO_feed;
             });
@@ -146,7 +163,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
         {
             var serverMetaRoot = this._metaSet.TryGetValueWithKey("serverMetaRoot", throwException: true);
 
-            traceSource.TraceInformation($"writing {serverMetaRoot}...");
+            traceSource.TraceInformation($"writing server {serverMetaRoot}...");
 
             var settings = new JsonSerializerSettings
             {
@@ -155,7 +172,9 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             };
             var serverAssembly = Assembly.LoadFile(serverAssemblyFile);
             var assemblyInfo = new FrameworkAssemblyInfo(serverAssembly);
+
             var jO = JObject.FromObject(assemblyInfo, JsonSerializer.Create(settings));
+            jO = new JObject { { nameof(assemblyInfo), jO } };
             appJO[serverMetaRoot] = jO;
         }
 
