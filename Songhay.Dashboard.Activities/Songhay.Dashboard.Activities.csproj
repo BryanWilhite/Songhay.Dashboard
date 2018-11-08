@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Songhay.Cloud.BlobStorage" Version="2.4.1" />
     <PackageReference Include="SonghayCore" Version="2.8.7" />
   </ItemGroup>
 
