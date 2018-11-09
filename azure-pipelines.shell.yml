@@ -50,7 +50,7 @@ steps:
   displayName: 'dotnet publish'
   inputs:
     command: publish
-    project: $(RepoName)
+    projects: '**/$(RepoName)/*.csproj'
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
