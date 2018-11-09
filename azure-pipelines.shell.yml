@@ -6,8 +6,7 @@ trigger:
       - releases/*
   paths:
     exclude:
-      - *.md
-      - *.yml
+      - azure-*.yml
 
 resources:
 - repo: self
