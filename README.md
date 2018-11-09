@@ -1,6 +1,7 @@
 # Songhay.Dashboard
 
 [![Build Status](https://songhay.visualstudio.com/SonghaySystem/_apis/build/status/songhay-system-dashboard-yaml-build)](https://songhay.visualstudio.com/SonghaySystem/_build/latest?definitionId=14)
+<br />[client build]
 
 This repo stores the code for my professional dashboard at [SonghaySystem.com](http://songhaysystem.com):
 

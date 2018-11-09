@@ -20,12 +20,6 @@ steps:
     command: restore
     projects: '**/*.csproj'
 
-- task: Npm@1
-  displayName: 'npm install'
-  inputs:
-    workingDir: $(RepoName)/ClientApp
-    verbose: true
-
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
   inputs:
