@@ -2,11 +2,11 @@ name: $(System.TeamProject)_$(Build.DefinitionName)_$(Build.SourceBranchName)_$(
 trigger:
   branches:
     include:
-      - master
-      - releases/*
+    - master
+    - releases/*
   paths:
     exclude:
-      - azure-*.yml
+    - azure-*.yml
 
 resources:
 - repo: self
@@ -50,10 +50,8 @@ steps:
   displayName: 'dotnet publish'
   inputs:
     command: publish
-    arguments: |
-     $(RepoName)
-     --configuration $(BuildConfiguration)
-     --output $(Build.ArtifactStagingDirectory)
+    project: $(RepoName)
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'

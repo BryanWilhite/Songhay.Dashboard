@@ -2,11 +2,11 @@ name: $(System.TeamProject)_$(Build.DefinitionName)_$(Build.SourceBranchName)_$(
 trigger:
   branches:
     include:
-      - master
-      - releases/*
+    - master
+    - releases/*
   paths:
     exclude:
-      - azure-*.yml
+    - azure-*.yml
 
 resources:
 - repo: self
