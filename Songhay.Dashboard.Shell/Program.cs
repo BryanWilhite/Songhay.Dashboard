@@ -46,6 +46,21 @@ namespace Songhay.Dashboard.Shell
             return configuration;
         }
 
+        internal static void WriteException(Exception ex)
+        {
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            Console.WriteLine($@"
+EXCEPTION:
+{nameof(ex.Source)}: {ex.Source}
+{nameof(ex.HResult)}: {ex.HResult}
+{nameof(ex.Message)}: {ex.Message}
+{nameof(ex.StackTrace)}: {ex.StackTrace}
+");
+            Console.ResetColor();
+        }
+
         static void DisplayAssemblyInfo()
         {
             Console.Write(FrameworkAssemblyUtility.GetAssemblyInfo(Assembly.GetExecutingAssembly(), true));
@@ -68,8 +83,8 @@ namespace Songhay.Dashboard.Shell
 
             var configuration = LoadConfiguration(Directory.GetCurrentDirectory());
             TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
-
-            using (var listener = new TextWriterTraceListener(Console.Out))
+            var listener = new TextWriterTraceListener(Console.Out);
+            try
             {
                 InitializeTraceSource(listener);
 
@@ -79,13 +94,30 @@ namespace Songhay.Dashboard.Shell
                 if (getter.Args.IsHelpRequest())
                 {
                     Console.WriteLine(activity.DisplayHelp(getter.Args));
-                    return;
+                    Environment.Exit(0);
                 }
 
                 activity
                     .WithConfiguration(configuration)
                     .Start(getter.Args);
+            }
+            catch (Exception ex)
+            {
+                WriteException(ex);
 
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine("Inner Exception:");
+                    WriteException(ex.InnerException);
+                }
+
+                Environment.ExitCode = (ex.HResult != 0) ? ex.HResult : -1;
+                HandleDebug();
+
+                Environment.Exit(Environment.ExitCode);
+            }
+            finally
+            {
                 listener.Flush();
             }
 
