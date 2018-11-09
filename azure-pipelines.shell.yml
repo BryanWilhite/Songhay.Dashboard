@@ -30,8 +30,8 @@ steps:
   displayName: 'dotnet build'
   inputs:
     projects: |
-     '**/$(RepoName).csproj'
-     '**/$(RepoName).Tests.csproj'
+     **/$(RepoName).csproj
+     **/$(RepoName).Tests.csproj
     arguments: '--configuration $(BuildConfiguration)'
 
 - task: mattlabrum.build-task.custom-build-task.downloadsSecureFile@0
