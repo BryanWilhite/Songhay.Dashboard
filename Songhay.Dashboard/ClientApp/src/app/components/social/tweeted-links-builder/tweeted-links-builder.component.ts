@@ -38,7 +38,7 @@ export class TweetedLinksBuilderComponent implements OnInit {
     constructor(
         public socialDataService: SocialDataService,
         private sanitizer: DomSanitizer
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.socialDataService.twitterItemsLoaded.subscribe(
@@ -79,10 +79,10 @@ export class TweetedLinksBuilderComponent implements OnInit {
             .map(i =>
                 [
                     `<p class="tweet" data-status-id="${i.statusID}">`,
-                    `    <a href="${i.user.url}" target="_blank">`,
+                    `    <a href="${this.getUserUri(i)}" target="_blank">`,
                     `        <img`,
                     `            alt="${i.user.name} [${
-                        i.user.screenNameResponse
+                    i.user.screenNameResponse
                     }]"`,
                     `            src="${i.profileImageUrl}" />`,
                     '    </a>',
@@ -97,8 +97,25 @@ export class TweetedLinksBuilderComponent implements OnInit {
     getStatuses(): void {
         this.documentHtml = '';
         this.twitterItemsIn = [];
-        this.twitterItemsOut = [];  
+        this.twitterItemsOut = [];
         this.socialDataService.loadTwitterItems();
+    }
+
+    getUserUri(item: TwitterItem): string | null {
+        if (!item) {
+            console.error('The expected Twitter item is not here');
+            return null;
+        }
+        if (!item.user) {
+            console.error('The expected Twitter user is not here');
+            return null;
+        }
+        if (item.user.url) { return item.user.url; }
+        if (!item.user.name) {
+            console.error('The expected Twitter user name is not here');
+            return null;
+        }
+        return `https://twitter.com/${item.user.screenNameResponse}`;
     }
 
     linkifyTweet(tweet: string): string {
@@ -117,9 +134,5 @@ export class TweetedLinksBuilderComponent implements OnInit {
             });
 
         return tweet;
-    }
-
-    test(): void {
-        console.log('eh?');
     }
 }
