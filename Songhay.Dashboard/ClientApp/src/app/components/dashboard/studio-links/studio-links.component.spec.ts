@@ -4,7 +4,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StudioLinksComponent } from './studio-links.component';
 
-describe('StudioLinksComponent', () => {
+describe(StudioLinksComponent.name, () => {
     let component: StudioLinksComponent;
     let fixture: ComponentFixture<StudioLinksComponent>;
 

@@ -9,7 +9,7 @@ import {
 
 import { AmazonDataService } from './amazon-data.service';
 
-describe('AmazonDataService', () => {
+describe(AmazonDataService.name, () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [HttpModule],

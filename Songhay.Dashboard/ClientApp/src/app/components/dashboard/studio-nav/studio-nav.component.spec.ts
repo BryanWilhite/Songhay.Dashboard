@@ -1,25 +1,32 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { Location } from '@angular/common';
+
 import { StudioNavComponent } from './studio-nav.component';
 
-describe('StudioNavComponent', () => {
-  let component: StudioNavComponent;
-  let fixture: ComponentFixture<StudioNavComponent>;
+describe(StudioNavComponent.name, () => {
+    let component: StudioNavComponent;
+    let fixture: ComponentFixture<StudioNavComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ StudioNavComponent ]
-    })
-    .compileComponents();
-  }));
+    const location  = jasmine.createSpyObj(`${StudioNavComponent.name}-location`, ['back']);
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(StudioNavComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [StudioNavComponent]
+        })
+            .overrideComponent(StudioNavComponent, {
+                set: { providers: [{ provide: Location, useValue: location }] }
+            })
+            .compileComponents();
+    }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(StudioNavComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

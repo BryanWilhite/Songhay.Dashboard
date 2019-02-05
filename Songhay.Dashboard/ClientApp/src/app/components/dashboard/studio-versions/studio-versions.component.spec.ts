@@ -6,7 +6,7 @@ import { DataServiceMock } from '../../../mocks/data-service.mock';
 import { DashboardDataService } from '../../../services/dashboard-data.service';
 import { StudioVersionsComponent } from './studio-versions.component';
 
-describe('StudioVersionsComponent', () => {
+describe(StudioVersionsComponent.name, () => {
     let component: StudioVersionsComponent;
     let fixture: ComponentFixture<StudioVersionsComponent>;
 

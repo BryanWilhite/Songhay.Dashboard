@@ -9,7 +9,7 @@ import { YouTubeDataServiceMock } from '../../mocks/you-tube-data-service.mock';
 import { YouTubeDataService } from '../../services/you-tube-data.service';
 import { YouTubeThumbsSetComponent } from './you-tube-thumbs-set.component';
 
-describe('YouTubeThumbsSetComponent', () => {
+describe(YouTubeThumbsSetComponent.name, () => {
     const location = jasmine.createSpyObj(Location.name, ['replaceState']);
     let component: YouTubeThumbsSetComponent;
     let fixture: ComponentFixture<YouTubeThumbsSetComponent>;

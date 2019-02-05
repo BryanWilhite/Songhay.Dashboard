@@ -1,14 +1,16 @@
+import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StudioToolsComponent } from './studio-tools.component';
 
-describe('StudioToolsComponent', () => {
+describe(StudioToolsComponent.name, () => {
   let component: StudioToolsComponent;
   let fixture: ComponentFixture<StudioToolsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StudioToolsComponent ]
+      declarations: [ StudioToolsComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

@@ -6,7 +6,7 @@ import { SocialDataService } from '../../../services/social-data.service';
 
 import { TweetedLinksBuilderComponent } from './tweeted-links-builder.component';
 
-describe('TweetedLinksBuilderComponent', () => {
+describe(TweetedLinksBuilderComponent.name, () => {
     let component: TweetedLinksBuilderComponent;
     let fixture: ComponentFixture<TweetedLinksBuilderComponent>;
 

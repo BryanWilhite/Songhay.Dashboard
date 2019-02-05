@@ -5,7 +5,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { YouTubeThumbsComponent } from './you-tube-thumbs.component';
 
-describe('YouTubeThumbsComponent', () => {
+describe(YouTubeThumbsComponent.name, () => {
     const animationBuilder = jasmine.createSpyObj(AnimationBuilder.name, [
         'build'
     ]);

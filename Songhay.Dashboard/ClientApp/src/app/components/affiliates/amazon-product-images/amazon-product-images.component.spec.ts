@@ -7,7 +7,7 @@ import { DataServiceMock } from '../../../mocks/data-service.mock';
 import { AmazonProductImagesComponent } from './amazon-product-images.component';
 import { AmazonDataService } from '../../../services/amazon-data.service';
 
-describe('AmazonProductImagesComponent', () => {
+describe(AmazonProductImagesComponent.name, () => {
     const formGroup = jasmine.createSpyObj(FormGroup.name, ['get']);
 
     let component: AmazonProductImagesComponent;

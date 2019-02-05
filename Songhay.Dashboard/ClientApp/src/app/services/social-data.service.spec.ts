@@ -9,7 +9,7 @@ import {
 
 import { SocialDataService } from './social-data.service';
 
-describe('SocialDataService', () => {
+describe(SocialDataService.name, () => {
     beforeEach(() =>
         TestBed.configureTestingModule({
             imports: [HttpModule],

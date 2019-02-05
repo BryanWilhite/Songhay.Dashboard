@@ -9,7 +9,7 @@ import {
 import { AppScalars } from '../models/songhay-app-scalars';
 import { DashboardDataService } from './dashboard-data.service';
 
-describe('DashboardDataService', () => {
+describe(DashboardDataService.name, () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
