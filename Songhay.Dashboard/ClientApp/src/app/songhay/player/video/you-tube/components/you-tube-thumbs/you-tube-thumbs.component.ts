@@ -15,7 +15,7 @@ import { AnimationBuilder, AnimationPlayer } from '@angular/animations';
 import { slideAnimations, slideAnimation } from './slide.animation';
 
 import { DomSanitizerUtility } from '../../../../../core/services/songhay-dom-sanitzer.utility';
-import { DomUtility } from 'songhay-core/src/utilities/dom.utility';
+import { DomUtility } from 'songhay-core/utilities/dom.utility';
 
 import { YouTubeScalars } from '../../models/you-tube-scalars';
 import { YouTubeSnippet } from '../../models/you-tube-snippet';

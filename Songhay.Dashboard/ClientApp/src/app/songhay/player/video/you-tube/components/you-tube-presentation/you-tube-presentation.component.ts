@@ -2,8 +2,8 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { CssUtility } from 'songhay-core/src/utilities/css.utility';
-import { Presentation } from 'songhay-core/src/models/presentation';
+import { CssUtility } from 'songhay-core/utilities/css.utility';
+import { Presentation } from 'songhay-core/models/presentation';
 
 import { YouTubePresentation } from '../../models/you-tube-presentation';
 import { YouTubePresentationStyles } from '../../models/you-tube-presentation-style';
