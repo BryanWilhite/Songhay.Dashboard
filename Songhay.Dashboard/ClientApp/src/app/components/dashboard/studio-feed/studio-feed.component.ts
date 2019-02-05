@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DashboardDataService } from '../../../services/dashboard-data.service';
 import { AppScalars } from '../../../models/songhay-app-scalars';
 
-import { SyndicationFeed } from '../../../songhay/core/models/songhay-syndication-feed';
+import { SyndicationFeed } from 'songhay-core/src/models/syndication-feed';
 
 /**
  * displays syndication feeds

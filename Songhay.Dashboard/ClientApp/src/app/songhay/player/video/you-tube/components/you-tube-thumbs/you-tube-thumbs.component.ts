@@ -14,7 +14,8 @@ import { AnimationBuilder, AnimationPlayer } from '@angular/animations';
 
 import { slideAnimations, slideAnimation } from './slide.animation';
 
-import { DomUtility } from '../../../../../core/services/songhay-dom.utility';
+import { DomSanitizerUtility } from '../../../../../core/services/songhay-dom-sanitzer.utility';
+import { DomUtility } from 'songhay-core/src/utilities/dom.utility';
 
 import { YouTubeScalars } from '../../models/you-tube-scalars';
 import { YouTubeSnippet } from '../../models/you-tube-snippet';
@@ -126,7 +127,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
         a.target = '_blank';
         a.title = title;
         a.innerText = caption;
-        return DomUtility.getSanitizedHtml(this.sanitizer, a);
+        return DomSanitizerUtility.getSanitizedHtml(this.sanitizer, a);
     }
 
     getThumbsTitle(): SafeHtml {
@@ -156,7 +157,7 @@ export class YouTubeThumbsComponent implements AfterViewInit {
             span.innerHTML = a.outerHTML;
         }
 
-        return DomUtility.getSanitizedHtml(this.sanitizer, span);
+        return DomSanitizerUtility.getSanitizedHtml(this.sanitizer, span);
     }
 
     getYouTubeHref(item: YouTubeItem): string {
