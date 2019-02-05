@@ -1,11 +1,11 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import { AppDataService } from '../songhay/core/services/songhay-app-data.service';
 import { AssemblyInfo } from 'songhay-core/models/assembly-info';
 import { SyndicationFeed } from 'songhay-core/models/syndication-feed';
 import { MapObjectUtility } from 'songhay-core/utilities/map-object-utility';
 
+import { AppDataService } from '../../../projects/songhay-angular-core/src/lib/services/songhay-app-data.service';
 import { AppScalars } from '../models/songhay-app-scalars';
 
 /**

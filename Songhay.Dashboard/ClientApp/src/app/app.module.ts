@@ -8,7 +8,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { RoutingModule } from './routing.module';
-import { YouTubeModule } from './songhay/player/video/you-tube/you-tube.module';
+
+import { SonghayAngularCoreModule } from '../../projects/songhay-angular-core/src/public_api';
+import { SonghayPlayerVideoModule } from '../../projects/songhay-player-video/src/public_api';
 
 import { AmazonDataService } from './services/amazon-data.service';
 import { DashboardDataService } from './services/dashboard-data.service';
@@ -36,7 +38,8 @@ import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-
         MaterialModule,
         ReactiveFormsModule,
         RoutingModule,
-        YouTubeModule
+        SonghayAngularCoreModule,
+        SonghayPlayerVideoModule
     ],
     declarations: [
         AppComponent,

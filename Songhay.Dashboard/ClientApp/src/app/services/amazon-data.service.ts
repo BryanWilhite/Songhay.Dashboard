@@ -1,10 +1,8 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-
-
-import { AppDataService } from '../songhay/core/services/songhay-app-data.service';
 import { AmazonProduct } from '../models/amazon-product';
+import { AppDataService } from '../../../projects/songhay-angular-core/src/lib/services/songhay-app-data.service';
 import { AppScalars } from '../models/songhay-app-scalars';
 
 /**

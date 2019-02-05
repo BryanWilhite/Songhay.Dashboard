@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { SonghayAngularCoreComponent } from './songhay-angular-core.component';
+
+import { AppDataService } from './services/songhay-app-data.service';
+import { DomSanitizerUtility } from './services/songhay-dom-sanitzer.utility';
 
 @NgModule({
-  imports: [
-  ],
-  declarations: [SonghayAngularCoreComponent],
-  exports: [SonghayAngularCoreComponent]
+    providers: [AppDataService, DomSanitizerUtility],
+    exports: [AppDataService, DomSanitizerUtility]
 })
-export class SonghayAngularCoreModule { }
+export class SonghayAngularCoreModule {}

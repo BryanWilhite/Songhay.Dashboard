@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DashboardDataService } from '../../services/dashboard-data.service';
-import { YouTubeDataService } from '../../songhay/player/video/you-tube/services/you-tube-data.service';
-import { YouTubeItem } from '../../songhay/player/video/you-tube/models/you-tube-item';
+import { YouTubeItem } from '../../../../projects/songhay-player-video/src/lib/you-tube/models/you-tube-item';
+import { YouTubeDataService } from '../../../../projects/songhay-player-video/src/lib/you-tube/services/you-tube-data.service';
 
 @Component({
     selector: 'app-dashboard',

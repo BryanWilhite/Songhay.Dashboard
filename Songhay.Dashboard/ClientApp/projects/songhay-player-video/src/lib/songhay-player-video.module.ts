@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
-import { SonghayPlayerVideoComponent } from './songhay-player-video.component';
+import { YouTubeModule } from './you-tube/you-tube.module';
 
 @NgModule({
-  imports: [
-  ],
-  declarations: [SonghayPlayerVideoComponent],
-  exports: [SonghayPlayerVideoComponent]
+  imports: [YouTubeModule],
+  exports: [YouTubeModule]
 })
 export class SonghayPlayerVideoModule { }
