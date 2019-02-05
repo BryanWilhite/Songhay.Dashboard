@@ -21,6 +21,12 @@
       ],
       "songhay-angular-core/*": [
         "dist/songhay-angular-core/*"
+      ],
+      "songhay-player-video": [
+        "dist/songhay-player-video"
+      ],
+      "songhay-player-video/*": [
+        "dist/songhay-player-video/*"
       ]
     }
   }
