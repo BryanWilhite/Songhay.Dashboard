@@ -12,9 +12,8 @@ const routes: Routes = [
     { path: 'dash', component: DashboardComponent },
     { path: 'dash/tools', component: StudioToolsComponent },
     { path: 'affiliates/amazon/products/images', component: AmazonProductImagesComponent },
-    { path: 'social/twitter/builder', component: TweetedLinksBuilderComponent }
-    // { path: 'social/twitter/builder', component: TweetedLinksBuilderComponent },
-    // { path: 'player/video/youtube', loadChildren: '../../projects/songhay-player-video/src/lib/songhay-player-video.module.ts#YouTubeModule' }
+    { path: 'social/twitter/builder', component: TweetedLinksBuilderComponent },
+    { path: 'player/video/youtube', loadChildren: './projects.module#YouTubeModule' }
 ];
 
 @NgModule({
