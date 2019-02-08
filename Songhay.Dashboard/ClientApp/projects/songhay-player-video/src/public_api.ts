@@ -2,4 +2,5 @@
  * Public API Surface of songhay-player-video
  */
 
-export * from './lib/songhay-player-video.module';
+export * from './lib/you-tube/you-tube-routing.module';
+export * from './lib/you-tube/you-tube.module';

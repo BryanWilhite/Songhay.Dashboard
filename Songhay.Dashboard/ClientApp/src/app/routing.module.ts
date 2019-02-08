@@ -13,7 +13,7 @@ const routes: Routes = [
     { path: 'dash/tools', component: StudioToolsComponent },
     { path: 'affiliates/amazon/products/images', component: AmazonProductImagesComponent },
     { path: 'social/twitter/builder', component: TweetedLinksBuilderComponent },
-    { path: 'player/video/youtube', loadChildren: './projects.module#YouTubeModule' }
+    { path: 'player/video/youtube', loadChildren: '../../projects/songhay-test/src/lib/songhay-test.module#SonghayTestModule' }
 ];
 
 @NgModule({

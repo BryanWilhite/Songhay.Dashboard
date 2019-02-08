@@ -12,7 +12,7 @@ import {
     MatSelectModule,
     MatToolbarModule
 } from '@angular/material';
-import { DragDropModule } from '@angular/cdk-experimental/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
     imports: [

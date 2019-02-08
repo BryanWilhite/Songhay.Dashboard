@@ -27,6 +27,12 @@
       ],
       "songhay-player-video/*": [
         "dist/songhay-player-video/*"
+      ],
+      "songhay-test": [
+        "dist/songhay-test"
+      ],
+      "songhay-test/*": [
+        "dist/songhay-test/*"
       ]
     }
   }

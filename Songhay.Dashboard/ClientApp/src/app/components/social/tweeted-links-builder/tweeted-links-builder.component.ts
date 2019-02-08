@@ -4,7 +4,7 @@ import {
     CdkDragDrop,
     moveItemInArray,
     transferArrayItem
-} from '@angular/cdk-experimental/drag-drop';
+} from '@angular/cdk/drag-drop';
 
 import { TwitterItem } from '../../../models/twitter-item';
 import { SocialDataService } from '../../../services/social-data.service';
