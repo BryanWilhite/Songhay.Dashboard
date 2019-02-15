@@ -1,9 +1,0 @@
-<rx-you-tube-thumbs-navigation channelsIndexName="songhay"></rx-you-tube-thumbs-navigation>
-<div class="b-roll yt-set">
-    <mat-spinner *ngIf="youTubeDataService.isLoading" aria-hidden="true" color="warn"></mat-spinner>
-    <ng-container *ngIf="youTubeDataService.isLoaded">
-        <div class="channel-block" *ngFor="let key of youTubeItemsKeys">
-            <rx-you-tube-thumbs [disableDefaultSort]="false" [thumbsAnimationDuration]="500" [thumbsHeaderLevel]="2" [thumbsTitle]="" [youTubeItems]="youTubeItemsMap.get(key)"></rx-you-tube-thumbs>
-        </div>
-    </ng-container>
-</div>

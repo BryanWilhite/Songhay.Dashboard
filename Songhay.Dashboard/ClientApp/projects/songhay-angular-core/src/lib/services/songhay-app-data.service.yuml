@@ -1,2 +1,0 @@
-// {type:class}
-[AppDataService|isError;isLoaded;isLoading|getExecutor());initializeLoadState();loadJson()]

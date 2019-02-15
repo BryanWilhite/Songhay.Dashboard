@@ -29,6 +29,8 @@
     "@angular/platform-server": "7.2.3",
     "@angular/router": "7.2.3",
     "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
+    "@songhay/core": "file:../../../songhay-ng-workspace/songhay/dist/songhay/core",
+    "@songhay/player-video-you-tube": "file:../../../songhay-ng-workspace/songhay/dist/songhay/player-video-you-tube",
     "aspnet-prerendering": "^3.0.1",
     "core-js": "^2.6.0",
     "lodash": "^4.17.11",

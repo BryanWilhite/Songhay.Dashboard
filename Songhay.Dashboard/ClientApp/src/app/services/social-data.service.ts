@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import { AppDataService } from '../../../projects/songhay-angular-core/src/lib/services/songhay-app-data.service';
+import { AppDataService } from '@songhay/core';
 import { AppScalars } from '../models/songhay-app-scalars';
 import { TwitterItem } from '../models/twitter-item';
 
