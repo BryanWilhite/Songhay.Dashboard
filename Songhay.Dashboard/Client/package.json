@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "@songhay/core": "file:../../../songhay-ng-workspace/songhay/songhay-core-0.0.1.tgz",
+    "@songhay/player-video-you-tube": "file:../../../songhay-ng-workspace/songhay/songhay-player-video-you-tube-0.0.1.tgz",
     "aspnet-prerendering": "^3.0.1",
     "core-js": "^2.5.4",
     "lodash": "^4.17.11",

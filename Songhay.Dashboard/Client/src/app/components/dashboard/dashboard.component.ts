@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DashboardDataService } from '../../services/dashboard-data.service';
-// import { YouTubeItem, YouTubeDataService } from '@songhay/player-video-you-tube';
+import { YouTubeItem, YouTubeDataService } from '@songhay/player-video-you-tube';
 
 @Component({
     selector: 'app-dashboard',
@@ -10,11 +10,11 @@ import { DashboardDataService } from '../../services/dashboard-data.service';
 })
 export class DashboardComponent implements OnInit {
 
-    youTubeItems: any; // YouTubeItem[];
+    youTubeItems: YouTubeItem[];
 
     constructor(
         public dashService: DashboardDataService,
-        public youTubeDataService: any // YouTubeDataService
+        public youTubeDataService: YouTubeDataService
     ) {}
 
     ngOnInit(): void {
@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
         this.youTubeDataService.loadChannel('youtube-index-songhay-top-ten');
 
         this.youTubeDataService.channelLoaded.subscribe(json => {
-            this.youTubeItems = {}; // YouTubeDataService.getItems(json);
+            this.youTubeItems = YouTubeDataService.getItems(json);
         });
     }
 }
