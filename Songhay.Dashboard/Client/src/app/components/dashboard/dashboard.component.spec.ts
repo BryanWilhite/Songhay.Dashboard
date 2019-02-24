@@ -1,10 +1,10 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-// import { YouTubeDataServiceMock } from '../../songhay/player/video/you-tube/mocks/you-tube-data-service.mock';
+import { YouTubeDataServiceMock } from '@songhay/player-video-you-tube';
 
 import { DashboardDataService } from '../../services/dashboard-data.service';
-// import { YouTubeDataService } from '../../songhay/player/video/you-tube/services/you-tube-data.service';
+import { YouTubeDataService } from '@songhay/player-video-you-tube';
 import { DashboardComponent } from './dashboard.component';
 
 describe(DashboardComponent.name, () => {
@@ -22,11 +22,11 @@ describe(DashboardComponent.name, () => {
                 {
                     provide: DashboardDataService,
                     useValue: dashboardDataService
-                }/*,
+                },
                 {
                     provide: YouTubeDataService,
                     useClass: YouTubeDataServiceMock
-                }*/
+                }
             ],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
