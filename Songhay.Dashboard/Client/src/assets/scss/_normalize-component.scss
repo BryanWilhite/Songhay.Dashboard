@@ -1,0 +1,17 @@
+/*
+    This file “normalizes” components using Angular component styles.
+
+    Usage:
+
+    @import '../../../assets/scss/normalize-component';
+
+
+    References:
+
+    * https://angular.io/guide/component-styles#host
+    * https://stackoverflow.com/a/51564554/22944
+*/
+
+:host {
+    width: 100%;
+}

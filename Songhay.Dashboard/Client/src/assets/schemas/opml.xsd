@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="opml"
+    xmlns:rx="http://songhaysystem.com/schemas/opml.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="unqualified"
+    elementFormDefault="qualified"
+    targetNamespace="http://songhaysystem.com/schemas/opml.xsd">
+    <xs:annotation>
+        <xs:documentation>
+            Based on OPML 2.0 Specification
+            http://www.opml.org/spec2
+            ©2006 UserLand Software, Inc. All Rights Reserved.
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:simpleType name="outlineType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="include" />
+            <xs:enumeration value="link" />
+            <xs:enumeration value="rss" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="rfc822Date">
+        <xs:annotation>
+            <xs:documentation>A date-time displayed in RFC-822 format based on the regexp definiton of rfc-822 date by Sam Ruby at http://www.intertwingly.net/blog/1360.html</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(((Mon)|(Tue)|(Wed)|(Thu)|(Fri)|(Sat)|(Sun)), *)?\d\d? +((Jan)|(Feb)|(Mar)|(Apr)|(May)|(Jun)|(Jul)|(Aug)|(Sep)|(Oct)|(Nov)|(Dec)) +\d\d(\d\d)? +\d\d:\d\d(:\d\d)? +(([+\-]?\d\d\d\d)|(UT)|(GMT)|(EST)|(EDT)|(CST)|(CDT)|(MST)|(MDT)|(PST)|(PDT)|\w)" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="stringBoolean">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="true" />
+            <xs:enumeration value="false" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="rssCategory">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="((\/\w*)|(\w*))+" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="rssVersion">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="RSS" />
+            <xs:enumeration value="RSS1" />
+            <xs:enumeration value="scriptingNews" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="outline">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="rx:outline" />
+            </xs:sequence>
+
+            <xs:attribute name="id" type="xs:string" use="optional" />
+
+            <xs:attribute name="text" type="xs:string" use="required" />
+            <xs:attribute name="category" type="rx:rssCategory" use="optional" />
+            <xs:attribute name="created" type="rx:rfc822Date" use="optional" />
+            <xs:attribute name="isBreakpoint" type="rx:stringBoolean" use="optional" default="false" />
+            <xs:attribute name="isComment" type="rx:stringBoolean" use="optional" default="false" />
+            <xs:attribute name="type" type="rx:outlineType" use="optional" />
+            <xs:attribute name="url" type="xs:string" use="optional" />
+
+            <xs:attribute name="xmlUrl" type="xs:anyURI" use="optional" />
+            <xs:attribute name="htmlUrl" type="xs:anyURI" use="optional" />
+            <xs:attribute name="description" type="xs:string" use="optional" />
+            <xs:attribute name="language" type="xs:language" use="optional" />
+            <xs:attribute name="title" type="xs:string" use="optional" />
+            <xs:attribute name="version" type="rx:rssVersion" use="optional" />
+
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="body">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="unbounded" ref="rx:outline" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="head">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="title" type="xs:string" minOccurs="0" maxOccurs="1" />
+                <xs:element name="dateCreated" type="rx:rfc822Date" minOccurs="0" maxOccurs="1" />
+                <xs:element name="dateModified" type="rx:rfc822Date" minOccurs="0" maxOccurs="1" />
+                <xs:element name="docs" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
+                <xs:element name="ownerId" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
+                <xs:element name="ownerName" type="xs:string" minOccurs="0" maxOccurs="1" />
+                <xs:element name="ownerEmail" type="xs:string" minOccurs="0" maxOccurs="1" />
+                <xs:element name="expansionState" type="xs:string" minOccurs="0" maxOccurs="1" />
+                <xs:element name="vertScrollState" type="xs:int" minOccurs="0" maxOccurs="1" />
+                <xs:element name="windowTop" type="xs:int" minOccurs="0" maxOccurs="1" />
+                <xs:element name="windowLeft" type="xs:int" minOccurs="0" maxOccurs="1" />
+                <xs:element name="windowBottom" type="xs:int" minOccurs="0" maxOccurs="1" />
+                <xs:element name="windowRight" type="xs:int" minOccurs="0" maxOccurs="1" />
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="opml">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="1" ref="rx:head" />
+                <xs:element minOccurs="1" maxOccurs="1" ref="rx:body" />
+            </xs:sequence>
+            <xs:attribute name="version" type="xs:decimal" fixed="2.0" />
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
