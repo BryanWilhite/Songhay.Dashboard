@@ -1,0 +1,16 @@
+@import '../../../../assets/scss/normalize-component';
+
+.mat-card {
+    text-align: center;
+    & ::ng-deep {
+        .mat-card-header-text {
+            display: none;
+        }
+    }
+    & .mat-card-content {
+        min-height: 16rem;
+        & > .app.versions {
+            margin-top: 8rem;
+        }
+    }
+}

@@ -1,0 +1,134 @@
+@import '../../../../assets/scss/normalize-component';
+@import '../../../../assets/scss/themes/akyinkyin/palette';
+
+@mixin drag-animation() {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+@mixin tweet-style() {
+    background-color: #fafad2;
+    border: dashed 2px #1d241d;
+    clear: both;
+    color: #1d241d;
+    cursor: move;
+    margin-bottom: 0.5rem;
+    min-height: 48px;
+    padding: 0.5rem;
+
+    & > a {
+        & > .ordinal {
+            display: inline-block;
+            color: #1d241d;
+            font-size: 2.4rem;
+            vertical-align: top;
+        }
+
+        display: block;
+        float: left;
+        margin-bottom: 1em;
+        margin-right: 1em;
+    }
+
+    & > small {
+        background-color: #cfc;
+        color: #000080;
+        display: inline-block;
+        font-size: 0.8rem;
+    }
+}
+
+.cdk-drag {
+    .cdk-drop-dragging &:not(.cdk-drag-placeholder) {
+        @include drag-animation();
+    }
+}
+
+.cdk-drag-animating {
+    @include drag-animation();
+}
+
+.cdk-drag-placeholder {
+    opacity: 0.25;
+}
+
+.cdk-drag-preview {
+    @include tweet-style();
+    box-sizing: border-box;
+    opacity: 0.5;
+}
+
+.cdk-drop {
+    display: block;
+    min-height: 3rem;
+    width: 100%;
+}
+
+.social {
+    &.header {
+        font-size: 2.4rem;
+        padding: 1rem;
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+    }
+    &.twitter {
+        padding-top: 4rem;
+
+        &.builder {
+            height: 95vh;
+        }
+
+        & ::ng-deep {
+            .mat-spinner {
+                margin: 0 auto;
+            }
+
+            .tweets {
+                height: 100%;
+                min-width: 24rem;
+                padding: 1rem;
+
+                & ::ng-deep .tweet {
+                    @include tweet-style();
+                }
+
+                &.incoming {
+                    ::-webkit-scrollbar {
+                        background-color: $greys-background;
+                    }
+
+                    ::-webkit-scrollbar-thumb {
+                        background-color: $akyinkyin-light-tone;
+                    }
+
+                    overflow-y: auto;
+                }
+
+                &.outgoing {
+                    & > .cdk-drop {
+                        & > button {
+                            visibility: visible;
+                        }
+                        & > .drop-helper {
+                            background-color: #fafad2;
+                            border: dashed 2px #1d241d;
+                            min-height: 48px;
+                            opacity: 0.5;
+                        }
+                    }
+                }
+
+                &.document {
+                    & > textarea {
+                        background-color: #cfc;
+                        border: none;
+                        font-family: Monoid, 'Lucida Console', 'Courier New',
+                            Courier, monospace;
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

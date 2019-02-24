@@ -1,0 +1,37 @@
+<ng-template #tweetTemplate let-t="t">
+    <a href="{{ t.user.url }}" target="_blank" title="{{ t.user.name }} [{{ t.user.screenNameResponse }}]">
+        <span class="ordinal">{{ t.ordinal }}</span>
+        <img alt="{{ t.user.name }} [{{ t.user.screenNameResponse }}]" src="{{ t.profileImageUrl }}" />
+    </a> <span [innerHTML]="t.safeHtml"></span> <small>{{ t.statusID }}</small>
+</ng-template>
+
+<h1 class="app header social mat-app-background"><app-studio-nav></app-studio-nav> tweeted links builder</h1>
+<div class="social twitter builder flex-layout-container" fxLayout="row" fxLayoutAlign="center">
+    <div class="tweets incoming" fxFlex>
+        <h2>
+            <span>last 50 statuses</span>
+            <button (click)="getStatuses()" [disabled]="socialDataService.isLoading" mat-icon-button title="load statuses" type="button">
+                <mat-icon color="accent" svgIcon="rx:mdi_arrow_down_drop_circle_24px"></mat-icon>
+            </button>
+        </h2>
+        <mat-spinner *ngIf="socialDataService.isLoading" color="accent"></mat-spinner>
+        <cdk-drop #tweetsIn [connectedTo]="[tweetsOut]" [data]="twitterItemsIn" [id]="'tweetsIn'" (dropped)="drop($event)">
+            <div class="tweet" *ngFor="let t of twitterItemsIn" cdkDrag>
+                <ng-container *ngTemplateOutlet="tweetTemplate;context:{ t: t }"></ng-container>
+            </div>
+        </cdk-drop>
+    </div>
+    <div class="tweets outgoing" fxFlex>
+        <h2>drop here</h2>
+        <cdk-drop #tweetsOut [connectedTo]="[tweetsIn]" [data]="twitterItemsOut" [id]="'tweetsOut'" (dropped)="drop($event)">
+            <div class="tweet" *ngFor="let t of twitterItemsOut" cdkDrag>
+                <ng-container *ngTemplateOutlet="tweetTemplate;context:{ t: t }"></ng-container>
+            </div>
+            <div class="drop-helper"></div>
+        </cdk-drop>
+    </div>
+    <div class="tweets document" fxFlex>
+        <h2>markup</h2>
+        <textarea [innerHTML]="documentHtml"></textarea>
+    </div>
+</div>

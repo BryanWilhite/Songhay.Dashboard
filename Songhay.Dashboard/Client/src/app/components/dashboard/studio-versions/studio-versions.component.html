@@ -1,0 +1,10 @@
+<div class="version">
+    <span>
+        <mat-icon color="accent" svgIcon="rx:mdi_angular_24px" title="Angular {{clientFrameworkVersion}}"></mat-icon>
+        <span class="framework version" title="Angular {{clientFrameworkVersion}}">{{clientFrameworkVersion}}</span>
+    </span>
+    <span *ngIf="dashService.isLoaded">
+        <mat-icon color="accent" svgIcon="rx:mdi_azure_24px" title="Azure Web App {{serverAssemblyVersion}}"></mat-icon>
+        <span class="server version" title="{{serverAssemblyInfo}}">{{serverAssemblyVersion}}</span>
+    </span>
+</div>

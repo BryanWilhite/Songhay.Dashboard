@@ -1,0 +1,32 @@
+export interface TwitterUser {
+    userID: number;
+    userIdList: string | null;
+    screenName: string | null;
+    screenNameList: string | null;
+    userIDResponse: string | null;
+    screenNameResponse: string | null;
+    name: string | null;
+    location: string | null;
+    description: string | null;
+    profileImageUrl: string | null;
+    profileImageUrlHttps: string | null;
+    defaultProfileImage: false;
+    url: string | null;
+    followersCount: number;
+    profileBackgroundColor: string | null;
+    profileTextColor: string | null;
+    profileLinkColor: string | null;
+    profileSidebarFillColor: string | null;
+    profileSidebarBorderColor: string | null;
+    friendsCount: number;
+    createdAt: Date;
+    favoritesCount: number;
+    statusesCount: number;
+    notifications: boolean;
+    geoEnabled: boolean;
+    verified: boolean;
+    contributorsEnabled: boolean;
+    isTranslator: boolean;
+    following: boolean;
+    email: string | null;
+}
