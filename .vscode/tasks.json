@@ -51,7 +51,7 @@
         {
             "type": "npm",
             "script": "build",
-            "path": "Songhay.Dashboard/ClientApp/",
+            "path": "Songhay.Dashboard/Client/",
             "problemMatcher": [
                 "$tslint5"
             ]
@@ -59,15 +59,7 @@
         {
             "type": "npm",
             "script": "build:prod",
-            "path": "Songhay.Dashboard/ClientApp/",
-            "problemMatcher": [
-                "$tslint5"
-            ]
-        },
-        {
-            "type": "npm",
-            "script": "start",
-            "path": "Songhay.Dashboard/ClientApp/",
+            "path": "Songhay.Dashboard/Client/",
             "problemMatcher": [
                 "$tslint5"
             ]
