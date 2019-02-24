@@ -13,16 +13,16 @@ export class DashboardComponent implements OnInit {
     youTubeItems: YouTubeItem[];
 
     constructor(
-        public dashService: DashboardDataService,
-        public youTubeDataService: YouTubeDataService
+        public dashService: DashboardDataService/*,
+        public youTubeDataService: YouTubeDataService */
     ) {}
 
     ngOnInit(): void {
         this.dashService.loadAppData();
-        this.youTubeDataService.loadChannel('youtube-index-songhay-top-ten');
+        // this.youTubeDataService.loadChannel('youtube-index-songhay-top-ten');
 
-        this.youTubeDataService.channelLoaded.subscribe(json => {
-            this.youTubeItems = YouTubeDataService.getItems(json);
-        });
+        // this.youTubeDataService.channelLoaded.subscribe(json => {
+        //     this.youTubeItems = YouTubeDataService.getItems(json);
+        // });
     }
 }

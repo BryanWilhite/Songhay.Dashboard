@@ -71,6 +71,14 @@
             "problemMatcher": [
                 "$tslint5"
             ]
+        },
+        {
+            "type": "npm",
+            "script": "start",
+            "path": "Songhay.Dashboard/Client/",
+            "problemMatcher": [
+                "$tslint5"
+            ]
         }
     ]
 }

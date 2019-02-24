@@ -15,20 +15,20 @@
             </button>
         </h2>
         <mat-spinner *ngIf="socialDataService.isLoading" color="accent"></mat-spinner>
-        <cdk-drop #tweetsIn [connectedTo]="[tweetsOut]" [data]="twitterItemsIn" [id]="'tweetsIn'" (dropped)="drop($event)">
+        <!-- <cdk-drop #tweetsIn [connectedTo]="[tweetsOut]" [data]="twitterItemsIn" [id]="'tweetsIn'" (dropped)="drop($event)">
             <div class="tweet" *ngFor="let t of twitterItemsIn" cdkDrag>
                 <ng-container *ngTemplateOutlet="tweetTemplate;context:{ t: t }"></ng-container>
             </div>
-        </cdk-drop>
+        </cdk-drop> -->
     </div>
     <div class="tweets outgoing" fxFlex>
         <h2>drop here</h2>
-        <cdk-drop #tweetsOut [connectedTo]="[tweetsIn]" [data]="twitterItemsOut" [id]="'tweetsOut'" (dropped)="drop($event)">
+        <!-- <cdk-drop #tweetsOut [connectedTo]="[tweetsIn]" [data]="twitterItemsOut" [id]="'tweetsOut'" (dropped)="drop($event)">
             <div class="tweet" *ngFor="let t of twitterItemsOut" cdkDrag>
                 <ng-container *ngTemplateOutlet="tweetTemplate;context:{ t: t }"></ng-container>
             </div>
             <div class="drop-helper"></div>
-        </cdk-drop>
+        </cdk-drop> -->
     </div>
     <div class="tweets document" fxFlex>
         <h2>markup</h2>
