@@ -12,8 +12,8 @@ const routes: Routes = [
     { path: 'dash', component: DashboardComponent },
     { path: 'dash/tools', component: StudioToolsComponent },
     { path: 'affiliates/amazon/products/images', component: AmazonProductImagesComponent },
-    { path: 'social/twitter/builder', component: TweetedLinksBuilderComponent }/*,
-    { path: 'player/video/youtube', loadChildren: '@songhay/player-video-you-tube#YouTubeModule' } */
+    { path: 'social/twitter/builder', component: TweetedLinksBuilderComponent },
+    { path: 'player/video/youtube', loadChildren: './you-tube-lib.module#YouTubeLibModule' }
 ];
 
 @NgModule({

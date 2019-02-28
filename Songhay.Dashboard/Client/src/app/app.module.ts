@@ -24,7 +24,7 @@ import { StudioToolsComponent } from './components/dashboard/studio-tools/studio
 import { StudioVersionsComponent } from './components/dashboard/studio-versions/studio-versions.component';
 import { AmazonProductImagesComponent } from './components/affiliates/amazon-product-images/amazon-product-images.component';
 import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-builder/tweeted-links-builder.component';
-import { YouTubeModule, YouTubeRoutingModule } from '@songhay/player-video-you-tube';
+import { YouTubeLibModule } from './you-tube-lib.module';
 
 @NgModule({
     imports: [
@@ -36,8 +36,7 @@ import { YouTubeModule, YouTubeRoutingModule } from '@songhay/player-video-you-t
         MaterialModule,
         ReactiveFormsModule,
         RoutingModule,
-        YouTubeModule,
-        YouTubeRoutingModule
+        YouTubeLibModule
     ],
     declarations: [
         AppComponent,
