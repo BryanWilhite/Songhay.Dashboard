@@ -3,6 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { YouTubeModule } from '@songhay/player-video-you-tube';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -24,7 +26,6 @@ import { StudioToolsComponent } from './components/dashboard/studio-tools/studio
 import { StudioVersionsComponent } from './components/dashboard/studio-versions/studio-versions.component';
 import { AmazonProductImagesComponent } from './components/affiliates/amazon-product-images/amazon-product-images.component';
 import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-builder/tweeted-links-builder.component';
-import { YouTubeLibModule } from './you-tube-lib.module';
 
 @NgModule({
     imports: [
@@ -36,7 +37,7 @@ import { YouTubeLibModule } from './you-tube-lib.module';
         MaterialModule,
         ReactiveFormsModule,
         RoutingModule,
-        YouTubeLibModule
+        YouTubeModule
     ],
     declarations: [
         AppComponent,
