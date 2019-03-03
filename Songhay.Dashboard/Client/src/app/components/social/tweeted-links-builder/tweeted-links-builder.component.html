@@ -5,7 +5,9 @@
     </a> <span [innerHTML]="t.safeHtml"></span> <small>{{ t.statusID }}</small>
 </ng-template>
 
-<h1 class="app header social mat-app-background"><app-studio-nav></app-studio-nav> tweeted links builder</h1>
+<h1 class="app header social mat-app-background">
+    <app-studio-nav></app-studio-nav> tweeted links builder
+</h1>
 <div class="social twitter builder flex-layout-container" fxLayout="row" fxLayoutAlign="center">
     <div class="tweets incoming" fxFlex>
         <h2>
@@ -15,20 +17,20 @@
             </button>
         </h2>
         <mat-spinner *ngIf="socialDataService.isLoading" color="accent"></mat-spinner>
-        <!-- <cdk-drop #tweetsIn [connectedTo]="[tweetsOut]" [data]="twitterItemsIn" [id]="'tweetsIn'" (dropped)="drop($event)">
+        <div cdkDropList #tweetsIn [cdkDropListConnectedTo]="[tweetsOut]" [cdkDropListData]="twitterItemsIn" [id]="'tweetsIn'" (cdkDropListDropped)="drop($event)">
             <div class="tweet" *ngFor="let t of twitterItemsIn" cdkDrag>
                 <ng-container *ngTemplateOutlet="tweetTemplate;context:{ t: t }"></ng-container>
             </div>
-        </cdk-drop> -->
+        </div>
     </div>
     <div class="tweets outgoing" fxFlex>
         <h2>drop here</h2>
-        <!-- <cdk-drop #tweetsOut [connectedTo]="[tweetsIn]" [data]="twitterItemsOut" [id]="'tweetsOut'" (dropped)="drop($event)">
+        <div cdkDropList #tweetsOut [cdkDropListConnectedTo]="[tweetsIn]" [cdkDropListData]="twitterItemsOut" [id]="'tweetsOut'" (cdkDropListDropped)="drop($event)">
             <div class="tweet" *ngFor="let t of twitterItemsOut" cdkDrag>
                 <ng-container *ngTemplateOutlet="tweetTemplate;context:{ t: t }"></ng-container>
             </div>
             <div class="drop-helper"></div>
-        </cdk-drop> -->
+        </div>
     </div>
     <div class="tweets document" fxFlex>
         <h2>markup</h2>
