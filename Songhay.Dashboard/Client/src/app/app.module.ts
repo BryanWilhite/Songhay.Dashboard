@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
+// TODO: loading this module from the lib makes true lazy-loading impossible 😒
 import { YouTubeModule } from '@songhay/player-video-you-tube';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
