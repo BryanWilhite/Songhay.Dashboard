@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DashboardDataService } from '../../services/dashboard-data.service';
-import { YouTubeItem, YouTubeDataService, YouTubeRoutePaths } from '@songhay/player-video-you-tube';
+import { YouTubeItem, YouTubeDataService, YouTubeRouteUtility } from '@songhay/player-video-you-tube';
 
 @Component({
     selector: 'app-dashboard',
@@ -10,11 +10,7 @@ import { YouTubeItem, YouTubeDataService, YouTubeRoutePaths } from '@songhay/pla
 })
 export class DashboardComponent implements OnInit {
 
-    titleRouterLink: string = '/' +
-        YouTubeRoutePaths.root +
-        YouTubeRoutePaths.uploads
-            .replace(':suffix', 'songhay')
-            .replace(':id', 'news');
+    titleRouterLink = YouTubeRouteUtility.getUploadsRoute('songhay', 'news');
 
     youTubeItems: YouTubeItem[];
 
