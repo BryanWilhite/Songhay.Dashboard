@@ -5,7 +5,7 @@
         <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
         <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
         <IsPackable>false</IsPackable>
-        <SpaRoot>ClientApp\</SpaRoot>
+        <SpaRoot>Client\</SpaRoot>
         <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
 
         <!-- Set this to true if you enable server-side prerendering -->
@@ -21,17 +21,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="ClientApp\src\assets\data\app.json" />
-        <Content Include="ClientApp\src\assets\schemas\DarConfiguration.xsd" />
-        <Content Include="ClientApp\src\assets\schemas\msxsl.xsd" />
-        <Content Include="ClientApp\src\assets\schemas\opml.xsd" />
-        <Content Include="ClientApp\src\assets\schemas\rss.xsd" />
-        <Content Include="ClientApp\src\assets\schemas\soap1.1.xsd" />
-        <Content Include="ClientApp\src\assets\schemas\wsdl.xsd" />
-        <Content Include="ClientApp\src\assets\schemas\xhtml.xsd" />
-        <Content Include="ClientApp\src\assets\schemas\xml.xsd" />
-        <Content Include="ClientApp\src\assets\schemas\xsdschema.xsd" />
-        <Content Include="ClientApp\src\assets\schemas\xslt.xsd" />
+        <Content Include="Client\src\assets\data\app.json" />
+        <Content Include="Client\src\assets\schemas\DarConfiguration.xsd" />
+        <Content Include="Client\src\assets\schemas\msxsl.xsd" />
+        <Content Include="Client\src\assets\schemas\opml.xsd" />
+        <Content Include="Client\src\assets\schemas\rss.xsd" />
+        <Content Include="Client\src\assets\schemas\soap1.1.xsd" />
+        <Content Include="Client\src\assets\schemas\wsdl.xsd" />
+        <Content Include="Client\src\assets\schemas\xhtml.xsd" />
+        <Content Include="Client\src\assets\schemas\xml.xsd" />
+        <Content Include="Client\src\assets\schemas\xsdschema.xsd" />
+        <Content Include="Client\src\assets\schemas\xslt.xsd" />
     </ItemGroup>
 
     <ItemGroup>
