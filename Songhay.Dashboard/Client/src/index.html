@@ -2,23 +2,47 @@
 <html lang="en">
 
     <head>
-        <meta name="google-site-verification" content="OrDWLdzCPuQzzy5Rqx0j0mczYCYHRa8kiKI9qZENSGM" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <meta charset="utf-8">
+        <meta name="description" content="The company dashboard of Songhay System. This site centralizes the professional activities of Bryan D. Wilhite, including GitHub, CodePen and blogging activity." />
 
-        <base href="/">
+        <meta name="google-site-verification" content="OrDWLdzCPuQzzy5Rqx0j0mczYCYHRa8kiKI9qZENSGM" />
 
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+
+        <base href="/" />
+
+        <link rel="canonical" href="http://songhaysystem.com/" />
         <link rel="icon" type="image/x-icon" href="favicon.ico">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+        <link rel="stylesheet" href="./assets/css/index.min.css">
 
         <title>SonghaySystem(::)</title>
 
     </head>
 
     <body class="mat-app-background mat-typography">
+        <main class="mdc-typography">
+            <div class="mdc-dialog mdc-dialog--open" role="alertdialog" aria-modal="true" aria-labelledby="splash-title" aria-describedby="splash-content">
+                <div class="mdc-dialog__container">
+                    <div class="mdc-dialog__surface">
+                        <h2 class="mdc-dialog__title" id="splash-title">📚👀😐🤣😉🚀</h2>
+                        <div class="mdc-dialog__content" id="splash-content">
+                            <div class="lds-ripple">
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdc-dialog__scrim"></div>
+            </div>
+        </main>
         <app-root></app-root>
+        <footer>
+            <span class="copyright">© Bryan D. Wilhite 2018</span>
+        </footer>
     </body>
 
 </html>
