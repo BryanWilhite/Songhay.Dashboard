@@ -1,6 +1,4 @@
 main {
-    transition: all 2s linear;
-
     & .mdc-dialog__container {
         height: 90%;
         width: 100%;
@@ -31,10 +29,6 @@ footer {
 
 .collapsed {
     display: none;
-}
-
-.hidden {
-    opacity: 0;
 }
 
 /* https://loading.io/css/ */

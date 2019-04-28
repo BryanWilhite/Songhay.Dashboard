@@ -1,6 +1,3 @@
-main {
-  transition: all 2s linear;
-}
 main .mdc-dialog__container {
   height: 90%;
   width: 100%;
@@ -26,10 +23,6 @@ footer .copyright {
 
 .collapsed {
   display: none;
-}
-
-.hidden {
-  opacity: 0;
 }
 
 /* https://loading.io/css/ */
