@@ -21,13 +21,13 @@ export class AppComponent implements AfterViewInit {
             return new Promise(resolve => setTimeout(resolve, ms));
         };
 
-        await timeout(3000);
+        // await timeout(3000);
 
-        const main = Array.from(document.getElementsByTagName('main')).find(i => true) as HTMLMainElement;
-        main.classList.add('hidden');
+        // const main = Array.from(document.getElementsByTagName('main')).find(i => true) as HTMLMainElement;
+        // main.classList.add('hidden');
 
-        await timeout(1000);
+        // await timeout(1000);
 
-        main.classList.add('collapsed');
+        // main.classList.add('collapsed');
     }
 }
