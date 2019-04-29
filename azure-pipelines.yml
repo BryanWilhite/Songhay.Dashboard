@@ -24,6 +24,7 @@ queue:
 
 steps:
 - task: PowerShell@2
+  displayName: 'npm: install `clean-css-cli` globally'
   inputs:
     targetType: 'inline'
     script: '& npm i -g clean-css-cli'

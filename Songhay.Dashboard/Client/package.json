@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.0.0",
   "scripts": {
-    "index:cleancss":"cleancss -o ./src/assets/css/index.min.css ./src/assets/css/index-bundle.css",
+    "index:cleancss": "cleancss -o ./src/assets/css/index.min.css ./src/assets/css/index-bundle.css",
     "index:concat": "concat -o ./src/assets/css/index-bundle.css ./node_modules/@material/dialog/dist/mdc.dialog.css ./node_modules/@material/typography/dist/mdc.typography.css ./src/assets/css/index.css",
     "index:sass": "sass ./src/assets/scss/index.scss ./src/assets/css/index.css",
     "ng": "ng",
