@@ -23,12 +23,6 @@ queue:
   name: Hosted VS2017
 
 steps:
-- task: petergroenewegen.PeterGroenewegen-Xpirit-Vsts-Build-InlinePowershell.Xpirit-Vsts-Build-InlinePowershell.InlinePowershell@1
-  displayName: 'npm: install cleancss globally'
-  inputs:
-    Script: |
-     & npm i -g clean-css-cli
-
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
   inputs:
