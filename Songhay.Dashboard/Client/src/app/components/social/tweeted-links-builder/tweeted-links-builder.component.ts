@@ -25,12 +25,12 @@ export class TweetedLinksBuilderComponent implements OnInit {
         twitterItemsOut: TwitterItem[]
     ): void {
         console.log({ statusId });
-        const currentArray = twitterItemsOut,
-            targetArray = twitterItemsIn,
-            currentIndex = twitterItemsOut.findIndex(
-                i => i.statusID === statusId
-            ),
-            targetIndex = twitterItemsIn.length;
+        const currentArray = twitterItemsOut;
+        const targetArray = twitterItemsIn;
+        const currentIndex = twitterItemsOut.findIndex(
+            i => i.statusID === statusId
+        );
+        const targetIndex = twitterItemsIn.length;
 
         transferArrayItem(currentArray, targetArray, currentIndex, targetIndex);
     }
@@ -119,9 +119,10 @@ export class TweetedLinksBuilderComponent implements OnInit {
     }
 
     linkifyTweet(tweet: string): string {
-        const reForHtmlLiteral = /((https?|ftp|file):\/\/[\-A-Z0-9+&@@#\/%?=~_|!:,.;]*[\-A-Z0-9+&@@#\/%=~_|])/gi,
-            reForHandle = /[@@]+[A-Za-z0-9-_]+/g,
-            reForHashTag = /[#]+[A-Za-z0-9-_]+/g;
+        const reForHtmlLiteral = /((https?|ftp|file):\/\/[\-A-Z0-9+&@@#\/%?=~_|!:,.;]*[\-A-Z0-9+&@@#\/%=~_|])/gi;
+        const reForHandle = /[@@]+[A-Za-z0-9-_]+/g;
+        const reForHashTag = /[#]+[A-Za-z0-9-_]+/g;
+
         tweet = tweet
             .replace(reForHtmlLiteral, '<a href="$1" target="_blank">$1</a>')
             .replace(reForHandle, s => {
