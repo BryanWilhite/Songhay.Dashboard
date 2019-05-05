@@ -20,7 +20,7 @@
       }
     ],
     "subtitle": "most recent 30 from stackoverflow.com",
-    "updated": "2018-11-08T13:22:19Z",
+    "updated": "2019-04-03T13:23:52Z",
     "id": "https://stackoverflow.com/feeds/user/22944",
     "creativeCommons:license": "http://www.creativecommons.org/licenses/by-sa/3.0/rdf",
     "entry": [
@@ -35,6 +35,10 @@
           "#text": "NUniteLite 3.11.0 throwing Null Reference Exception with AutoRun in LINQpad"
         },
         "category": [
+          {
+            "@scheme": "https://stackoverflow.com/tags",
+            "@term": "c#"
+          },
           {
             "@scheme": "https://stackoverflow.com/tags",
             "@term": "nunit"
@@ -57,7 +61,7 @@
           "@href": "https://stackoverflow.com/questions/52883672/nunitelite-3-11-0-throwing-null-reference-exception-with-autorun-in-linqpad"
         },
         "published": "2018-10-18T22:55:15Z",
-        "updated": "2018-10-19T16:24:06Z",
+        "updated": "2018-12-13T00:01:55Z",
         "summary": {
           "@type": "html",
           "#text": "\r\n            \r\n\r\n            <p>The following LINQPad query throws <code>NullReferenceException</code> in the try-catch block:</p>\n\n<pre><code>void Main()\n{\n    var specialFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);\n    var workingFolder = $@\"{specialFolder}\\NUnitLiteTestResults\";\n    var args = new[]\n        {\n            \"--labels=All\",\n            \"--nocolor\",\n            \"--noheader\",\n            $\"--work={workingFolder}\"\n        };\n\n    try\n    {\n        (new AutoRun()).Execute(args);\n    }\n    catch (NullReferenceException ex)\n    {\n        ex.Dump(\"why?\");\n    }\n}\n\npublic class Runner\n{\n    /*\n        public static int Main(string[] args) {\n            return new AutoRun(Assembly.GetCallingAssembly()).Execute(new String[] {\"--labels=All\"});\n        }\n    */\n    [TestFixture]\n    public class FooTest\n    {\n        [Test]\n        public void ShouldCheckBoolean()\n        {\n            Assert.IsTrue(true);\n        }\n\n        [Test]\n        public void ShouldCompareNumbers()\n        {\n            Assert.AreEqual(2, 2);\n        }\n\n        [Test]\n        public void ShouldCompareStrings()\n        {\n            Assert.AreEqual(\"abc\", \"abc\");\n        }\n\n        [Test]\n        public void TestCompareLists()\n        {\n            Assert.AreEqual(new int[] { 1, 2, 3 }, new int[] { 1, 2, 3 });\n        }\n    }\n}\n</code></pre>\n\n<p>Am I missing any setup code here?</p>\n\n<p>Exception (there is no <code>C:\\src\\nunit</code> folder on my machine): </p>\n\n<pre><code>Object reference not set to an instance of an object.\n at System.IO.TextWriter.Dispose()\n   at System.IO.TextWriter.Dispose()\n   at System.IO.TextWriter.SyncTextWriter.Dispose(Boolean disposing)\n   at System.IO.TextWriter.Dispose()\n   at NUnit.Common.ExtendedTextWrapper.Dispose(Boolean disposing) in C:\\src\\nunit\\nunit\\src\\NUnitFramework\\nunitlite\\ExtendedTextWrapper.cs:line 83\n   at System.IO.TextWriter.Dispose()\n   at NUnitLite.TextRunner.Execute(String[] args) in C:\\src\\nunit\\nunit\\src\\NUnitFramework\\nunitlite\\TextRunner.cs:line 149\n   at NUnitLite.AutoRun.Execute(String[] args) in C:\\src\\nunit\\nunit\\src\\NUnitFramework\\nunitlite\\AutoRun.cs:line 82\n   at UserQuery.Main()\n</code></pre>\n\r\n        "
@@ -209,7 +213,7 @@
         "id": "https://stackoverflow.com/q/51529003",
         "re:rank": {
           "@scheme": "https://stackoverflow.com",
-          "#text": "0"
+          "#text": "1"
         },
         "title": {
           "@type": "text",
@@ -244,7 +248,7 @@
         "id": "https://stackoverflow.com/q/46477166",
         "re:rank": {
           "@scheme": "https://stackoverflow.com",
-          "#text": "1"
+          "#text": "2"
         },
         "title": {
           "@type": "text",
@@ -540,7 +544,7 @@
         "id": "https://stackoverflow.com/questions/24386657/-/43596663#43596663",
         "re:rank": {
           "@scheme": "https://stackoverflow.com",
-          "#text": "11"
+          "#text": "14"
         },
         "title": {
           "@type": "text",
@@ -672,7 +676,7 @@
         "id": "https://stackoverflow.com/q/3008704",
         "re:rank": {
           "@scheme": "https://stackoverflow.com",
-          "#text": "69"
+          "#text": "76"
         },
         "title": {
           "@type": "text",
@@ -761,7 +765,7 @@
         "id": "https://stackoverflow.com/q/36633241",
         "re:rank": {
           "@scheme": "https://stackoverflow.com",
-          "#text": "2"
+          "#text": "3"
         },
         "title": {
           "@type": "text",
@@ -888,10 +892,6 @@
           {
             "@scheme": "https://stackoverflow.com/tags",
             "@term": "docusignapi"
-          },
-          {
-            "@scheme": "https://stackoverflow.com/tags",
-            "@term": "docusign"
           }
         ],
         "author": {
@@ -913,7 +913,7 @@
         "id": "https://stackoverflow.com/questions/987135/-/34403435#34403435",
         "re:rank": {
           "@scheme": "https://stackoverflow.com",
-          "#text": "4"
+          "#text": "6"
         },
         "title": {
           "@type": "text",
