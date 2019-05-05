@@ -14,6 +14,7 @@
     cursor: move;
 
     min-height: 48px;
+    margin: 0.5rem;
     padding: 0.5rem;
 
     & > a {
@@ -106,6 +107,7 @@
                         display: flex;
                         align-items: center;
                         flex-direction: column;
+                        padding: 1em;
                     }
 
                     overflow-y: auto;
@@ -128,6 +130,7 @@
                         display: flex;
                         align-items: center;
                         flex-direction: column;
+                        padding: 1em;
                     }
                 }
 
