@@ -13,8 +13,8 @@ trigger:
   paths:
     exclude:
     - /azure*.yml
-    - $(RepoName).Shell.Tests/*
-    - $(RepoName).Tests/*
+    - Songhay.Dashboard.Shell.Tests/*
+    - Songhay.Dashboard.Tests/*
 
 resources:
 - repo: self

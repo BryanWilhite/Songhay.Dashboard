@@ -20,10 +20,74 @@
       }
     ],
     "subtitle": "most recent 30 from stackoverflow.com",
-    "updated": "2019-04-03T13:23:52Z",
+    "updated": "2019-05-19T16:11:28Z",
     "id": "https://stackoverflow.com/feeds/user/22944",
     "creativeCommons:license": "http://www.creativecommons.org/licenses/by-sa/3.0/rdf",
     "entry": [
+      {
+        "id": "https://stackoverflow.com/q/56158421",
+        "re:rank": {
+          "@scheme": "https://stackoverflow.com",
+          "#text": "0"
+        },
+        "title": {
+          "@type": "text",
+          "#text": "JsonResult and ObjectResult do not derive from each other—why?"
+        },
+        "category": [
+          {
+            "@scheme": "https://stackoverflow.com/tags",
+            "@term": "asp.net-mvc"
+          },
+          {
+            "@scheme": "https://stackoverflow.com/tags",
+            "@term": "asp.net-core"
+          }
+        ],
+        "author": {
+          "name": "rasx",
+          "uri": "https://stackoverflow.com/users/22944"
+        },
+        "link": {
+          "@rel": "alternate",
+          "@href": "https://stackoverflow.com/questions/56158421/jsonresult-and-objectresult-do-not-derive-from-each-other-why"
+        },
+        "published": "2019-05-15T22:23:52Z",
+        "updated": "2019-05-16T05:24:01Z",
+        "summary": {
+          "@type": "html",
+          "#text": "\r\n            \r\n\r\n            <p>folks on my team write stuff like this:</p>\n\n<pre class=\"lang-cs prettyprint-override\"><code>[HttpPost(\"do\")]\npublic async Task&lt;ActionResult&gt; DoAsync()\n{\n    try\n    {\n        var obj = await this.DoThing();\n\n        return new JsonResult(obj);\n    }\n    catch (StatusCodeException x)\n    {\n        return StatusCode(x.StatusCode, new { x.Message, x.StackTrace });\n    }\n    catch (Exception x)\n    {\n        return StatusCode(500, x.GenerateMessage(\" \"));\n    }\n}\n</code></pre>\n\n<p>This means <code>JsonResult</code> or <code>ObjectResult</code> can be returned which makes testing kind of complicated. This is because <code>JsonResult</code> and <code>ObjectResult</code> do <em>not</em> derive from each other.😬 Does anyone know why this is the case?</p>\n\n<p>I had to write a little wrapper class for testing to make life a bit easier:</p>\n\n<pre class=\"lang-cs prettyprint-override\"><code>/// &lt;summary&gt;\n/// Defines all subclasses of &lt;see cref=\"ActionResult\"/&gt;\n/// that have status codes and &lt;see cref=\"object\"/&gt; values.\n/// &lt;/summary&gt;\npublic class ObjectValueActionResult\n{\n    /// &lt;summary&gt;\n    /// Initializes a new instance of the &lt;see cref=\"ObjectValueActionResult\"/&gt; class.\n    /// &lt;/summary&gt;\n    /// &lt;param name=\"result\"&gt;The result.&lt;/param&gt;\n    /// &lt;remarks&gt;\n    /// The majority of &lt;see cref=\"IActionResult\"/&gt; instances like &lt;see cref=\"OkObjectResult\"/&gt; derive\n    /// from &lt;see cref=\"ObjectResult\"/&gt;.\n    /// &lt;/remarks&gt;\n    public ObjectValueActionResult(IActionResult result)\n    {\n        Assert.NotNull(result);\n        switch (result)\n        {\n            case JsonResult j:\n                this.Value = j.Value;\n                this.StatusCode = j.StatusCode;\n                break;\n            case NoContentResult n:\n                this.StatusCode = n.StatusCode;\n                break;\n            case ObjectResult o:\n                this.Value = o.Value;\n                this.StatusCode = o.StatusCode;\n                break;\n            default:\n                throw new NotImplementedException($\"The expected {nameof(IAsyncResult)} type is not here.\");\n        }\n    }\n    /// &lt;summary&gt;\n    /// Gets or sets the value.\n    /// &lt;/summary&gt;\n    /// &lt;value&gt;\n    /// The value.\n    /// &lt;/value&gt;\n    public object Value { get; set; }\n    /// &lt;summary&gt;Gets or sets the HTTP status code.&lt;/summary&gt;\n    public int? StatusCode { get; set; }\n}\n</code></pre>\n\n<p>Is there an alternative to this?</p>\n\r\n        "
+        }
+      },
+      {
+        "id": "https://stackoverflow.com/q/3008704",
+        "re:rank": {
+          "@scheme": "https://stackoverflow.com",
+          "#text": "77"
+        },
+        "title": {
+          "@type": "text",
+          "#text": "How to determine the current version of ASP.NET MVC?"
+        },
+        "category": {
+          "@scheme": "https://stackoverflow.com/tags",
+          "@term": "asp.net-mvc"
+        },
+        "author": {
+          "name": "rasx",
+          "uri": "https://stackoverflow.com/users/22944"
+        },
+        "link": {
+          "@rel": "alternate",
+          "@href": "https://stackoverflow.com/questions/3008704/how-to-determine-the-current-version-of-asp-net-mvc"
+        },
+        "published": "2010-06-09T18:27:39Z",
+        "updated": "2019-05-06T17:54:39Z",
+        "summary": {
+          "@type": "html",
+          "#text": "\r\n            \r\n\r\n            <p>Is there a way to get the current version of ASP.NET MVC in code? Reflecting on MVC assemblies is needed? Any new IIS server variables? Some property to read in HTTP context?</p>\n\r\n        "
+        }
+      },
       {
         "id": "https://stackoverflow.com/q/52883672",
         "re:rank": {
@@ -61,7 +125,7 @@
           "@href": "https://stackoverflow.com/questions/52883672/nunitelite-3-11-0-throwing-null-reference-exception-with-autorun-in-linqpad"
         },
         "published": "2018-10-18T22:55:15Z",
-        "updated": "2018-12-13T00:01:55Z",
+        "updated": "2019-04-16T08:07:11Z",
         "summary": {
           "@type": "html",
           "#text": "\r\n            \r\n\r\n            <p>The following LINQPad query throws <code>NullReferenceException</code> in the try-catch block:</p>\n\n<pre><code>void Main()\n{\n    var specialFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);\n    var workingFolder = $@\"{specialFolder}\\NUnitLiteTestResults\";\n    var args = new[]\n        {\n            \"--labels=All\",\n            \"--nocolor\",\n            \"--noheader\",\n            $\"--work={workingFolder}\"\n        };\n\n    try\n    {\n        (new AutoRun()).Execute(args);\n    }\n    catch (NullReferenceException ex)\n    {\n        ex.Dump(\"why?\");\n    }\n}\n\npublic class Runner\n{\n    /*\n        public static int Main(string[] args) {\n            return new AutoRun(Assembly.GetCallingAssembly()).Execute(new String[] {\"--labels=All\"});\n        }\n    */\n    [TestFixture]\n    public class FooTest\n    {\n        [Test]\n        public void ShouldCheckBoolean()\n        {\n            Assert.IsTrue(true);\n        }\n\n        [Test]\n        public void ShouldCompareNumbers()\n        {\n            Assert.AreEqual(2, 2);\n        }\n\n        [Test]\n        public void ShouldCompareStrings()\n        {\n            Assert.AreEqual(\"abc\", \"abc\");\n        }\n\n        [Test]\n        public void TestCompareLists()\n        {\n            Assert.AreEqual(new int[] { 1, 2, 3 }, new int[] { 1, 2, 3 });\n        }\n    }\n}\n</code></pre>\n\n<p>Am I missing any setup code here?</p>\n\n<p>Exception (there is no <code>C:\\src\\nunit</code> folder on my machine): </p>\n\n<pre><code>Object reference not set to an instance of an object.\n at System.IO.TextWriter.Dispose()\n   at System.IO.TextWriter.Dispose()\n   at System.IO.TextWriter.SyncTextWriter.Dispose(Boolean disposing)\n   at System.IO.TextWriter.Dispose()\n   at NUnit.Common.ExtendedTextWrapper.Dispose(Boolean disposing) in C:\\src\\nunit\\nunit\\src\\NUnitFramework\\nunitlite\\ExtendedTextWrapper.cs:line 83\n   at System.IO.TextWriter.Dispose()\n   at NUnitLite.TextRunner.Execute(String[] args) in C:\\src\\nunit\\nunit\\src\\NUnitFramework\\nunitlite\\TextRunner.cs:line 149\n   at NUnitLite.AutoRun.Execute(String[] args) in C:\\src\\nunit\\nunit\\src\\NUnitFramework\\nunitlite\\AutoRun.cs:line 82\n   at UserQuery.Main()\n</code></pre>\n\r\n        "
@@ -431,7 +495,7 @@
         "id": "https://stackoverflow.com/q/47445703",
         "re:rank": {
           "@scheme": "https://stackoverflow.com",
-          "#text": "1"
+          "#text": "2"
         },
         "title": {
           "@type": "text",
@@ -670,35 +734,6 @@
         "summary": {
           "@type": "html",
           "#text": "\r\n            \r\n\r\n            <p>In these statements (running with <code>MoreLinq</code>):</p>\n\n<pre><code>var xml = @\"\n&lt;div&gt;\n&lt;p&gt;\n    &lt;h2&gt;hey&lt;/h2&gt;\n&lt;/p&gt;\n&lt;pre /&gt;\n&lt;h2 class=\"\"cool\"\" /&gt;\n&lt;p&gt;\n    &lt;h2&gt;okay&lt;/h2&gt;\n&lt;/p&gt;\n&lt;/div&gt;\n\".Trim();\n\nvar div = XElement.Parse(xml);\nvar h2Elements = div.Descendants(\"h2\");\nh2Elements.ToList().ForEach(i =&gt;\n{\n    if(i.Parent.Name != \"p\") return;\n    i.Parent.ReplaceWith(i);\n});\n</code></pre>\n\n<p>I see that <code>i.Parent.ReplaceWith(i)</code> does not throw an exception but this will throw a null-reference exception (using <code>ForEach</code> from <code>MoreLinq</code>):</p>\n\n<pre><code>h2Elements.ForEach(i =&gt;\n{\n    if(i.Parent.Name != \"p\") return;\n    i.Parent.ReplaceWith(i);\n});\n</code></pre>\n\n<p>I understand that LINQ's <code>ToList()</code> is making a copy of the list but would not the copy just throw an exception as well? Also, is there a memory leak happening here with some kind of orphaned references?</p>\n\r\n        "
-        }
-      },
-      {
-        "id": "https://stackoverflow.com/q/3008704",
-        "re:rank": {
-          "@scheme": "https://stackoverflow.com",
-          "#text": "76"
-        },
-        "title": {
-          "@type": "text",
-          "#text": "How to determine the current version of ASP.NET MVC?"
-        },
-        "category": {
-          "@scheme": "https://stackoverflow.com/tags",
-          "@term": "asp.net-mvc"
-        },
-        "author": {
-          "name": "rasx",
-          "uri": "https://stackoverflow.com/users/22944"
-        },
-        "link": {
-          "@rel": "alternate",
-          "@href": "https://stackoverflow.com/questions/3008704/how-to-determine-the-current-version-of-asp-net-mvc"
-        },
-        "published": "2010-06-09T18:27:39Z",
-        "updated": "2017-02-14T09:25:40Z",
-        "summary": {
-          "@type": "html",
-          "#text": "\r\n            \r\n\r\n            <p>Is there a way to get the current version of ASP.NET MVC in code? Reflecting on MVC assemblies is needed? Any new IIS server variables? Some property to read in HTTP context?</p>\n\r\n        "
         }
       },
       {
@@ -1031,31 +1066,6 @@
         "summary": {
           "@type": "html",
           "#text": "<p>Consider <a href=\"http://bizcoder.com/posting-raw-json-to-web-api\" rel=\"nofollow\">this article from Microsoft evangelist Darrel Miller</a>. He shows us that a combination of <code>[FromBody]</code> and <code>XElement</code> is the way to go:</p>\n\n<pre><code>[HttpPost]\n[Route(\"raw\")]\npublic IHttpActionResult ReadRaw([FromBody]XElement rootElement)\n{\n    var requestDocument = new XDocument(rootElement);\n    var request = MyDBContext.GetStuffStaticMethod(requestDocument);\n    var responseDocument = request.GetResponseDocument(this._context);\n    return this.Ok&lt;XElement&gt;(responseDocument.Root);\n}\n</code></pre>\n"
-        }
-      },
-      {
-        "id": "https://stackoverflow.com/questions/2524804/-/33792337#33792337",
-        "re:rank": {
-          "@scheme": "https://stackoverflow.com",
-          "#text": "0"
-        },
-        "title": {
-          "@type": "text",
-          "#text": "Answer by rasx for How do I use XPath with a default namespace with no prefix?"
-        },
-        "author": {
-          "name": "rasx",
-          "uri": "https://stackoverflow.com/users/22944"
-        },
-        "link": {
-          "@rel": "alternate",
-          "@href": "https://stackoverflow.com/questions/2524804/how-do-i-use-xpath-with-a-default-namespace-with-no-prefix/33792337#33792337"
-        },
-        "published": "2015-11-18T23:13:56Z",
-        "updated": "2015-11-18T23:13:56Z",
-        "summary": {
-          "@type": "html",
-          "#text": "<p>I like @mads-hansen, his answer, so well that I wrote these general-purpose utility-class members:</p>\n\n<pre><code>    /// &lt;summary&gt;\n    /// Gets the &lt;see cref=\"XNode\" /&gt; into a &lt;c&gt;local-name()&lt;/c&gt;, XPath-predicate query.\n    /// &lt;/summary&gt;\n    /// &lt;param name=\"childElementName\"&gt;Name of the child element.&lt;/param&gt;\n    /// &lt;returns&gt;&lt;/returns&gt;\n    public static string GetLocalNameXPathQuery(string childElementName)\n    {\n        return GetLocalNameXPathQuery(namespacePrefixOrUri: null, childElementName: childElementName, childAttributeName: null);\n    }\n\n    /// &lt;summary&gt;\n    /// Gets the &lt;see cref=\"XNode\" /&gt; into a &lt;c&gt;local-name()&lt;/c&gt;, XPath-predicate query.\n    /// &lt;/summary&gt;\n    /// &lt;param name=\"namespacePrefixOrUri\"&gt;The namespace prefix or URI.&lt;/param&gt;\n    /// &lt;param name=\"childElementName\"&gt;Name of the child element.&lt;/param&gt;\n    /// &lt;returns&gt;&lt;/returns&gt;\n    public static string GetLocalNameXPathQuery(string namespacePrefixOrUri, string childElementName)\n    {\n        return GetLocalNameXPathQuery(namespacePrefixOrUri, childElementName, childAttributeName: null);\n    }\n\n    /// &lt;summary&gt;\n    /// Gets the &lt;see cref=\"XNode\" /&gt; into a &lt;c&gt;local-name()&lt;/c&gt;, XPath-predicate query.\n    /// &lt;/summary&gt;\n    /// &lt;param name=\"namespacePrefixOrUri\"&gt;The namespace prefix or URI.&lt;/param&gt;\n    /// &lt;param name=\"childElementName\"&gt;Name of the child element.&lt;/param&gt;\n    /// &lt;param name=\"childAttributeName\"&gt;Name of the child attribute.&lt;/param&gt;\n    /// &lt;returns&gt;&lt;/returns&gt;\n    /// &lt;remarks&gt;\n    /// This routine is useful when namespace-resolving is not desirable or available.\n    /// &lt;/remarks&gt;\n    public static string GetLocalNameXPathQuery(string namespacePrefixOrUri, string childElementName, string childAttributeName)\n    {\n        if (string.IsNullOrEmpty(childElementName)) return null;\n\n        if (string.IsNullOrEmpty(childAttributeName))\n        {\n            return string.IsNullOrEmpty(namespacePrefixOrUri) ?\n                string.Format(\"./*[local-name()='{0}']\", childElementName)\n                :\n                string.Format(\"./*[namespace-uri()='{0}' and local-name()='{1}']\", namespacePrefixOrUri, childElementName);\n        }\n        else\n        {\n            return string.IsNullOrEmpty(namespacePrefixOrUri) ?\n                string.Format(\"./*[local-name()='{0}']/@{1}\", childElementName, childAttributeName)\n                :\n                string.Format(\"./*[namespace-uri()='{0}' and local-name()='{1}']/@{2}\", namespacePrefixOrUri, childElementName, childAttributeName);\n        }\n    }\n</code></pre>\n"
         }
       },
       {

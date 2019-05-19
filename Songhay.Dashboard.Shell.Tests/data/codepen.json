@@ -12,8 +12,8 @@
       "description": null,
       "dc:language": "en",
       "dc:creator": "nospam@codepen.io",
-      "dc:rights": "Copyright 2019",
-      "dc:date": "\n        2018-09-04T05:03:45-07:00\n      ",
+      "dc:rights": "Copyright 2018",
+      "dc:date": "\r\n        2018-09-04T05:03:45-07:00\r\n      ",
       "item": [
         {
           "title": "responsive strip of fixed inline blocks",
@@ -21,10 +21,10 @@
           "guid": "https://codepen.io/rasx/pen/mEVdBy",
           "dc:creator": "Bryan Wilhite",
           "description": {
-            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/mEVdBy\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/mEVdBy/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/mEVdBy\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/mEVdBy\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/mEVdBy\">See Details</a>\n    </p>\n    <p>\n      \n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+            "#cdata-section": "\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/mEVdBy\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/mEVdBy/image/large.png\"></a>\r\n    </p>\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/mEVdBy\">See the Code</a> -\r\n      <a href=\"https://codepen.io/rasx/full/mEVdBy\">See it Full Page</a> -\r\n      <a href=\"https://codepen.io/rasx/details/mEVdBy\">See Details</a>\r\n    </p>\r\n    <p>\r\n      \r\n    </p>\r\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\r\n    "
           },
           "dc:subject": "responsive strip of fixed inline blocks",
-          "dc:date": "\n    2018-09-04T05:03:45-07:00\n  "
+          "dc:date": "\r\n    2018-09-04T05:03:45-07:00\r\n  "
         },
         {
           "title": "CSS: Drop-Down Menu",
@@ -32,10 +32,10 @@
           "guid": "https://codepen.io/rasx/pen/CGbio",
           "dc:creator": "Bryan Wilhite",
           "description": {
-            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/CGbio\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/CGbio/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/CGbio\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/CGbio\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/CGbio\">See Details</a>\n    </p>\n    <p>\n      Basic menu item.\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+            "#cdata-section": "\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/CGbio\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/CGbio/image/large.png\"></a>\r\n    </p>\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/CGbio\">See the Code</a> -\r\n      <a href=\"https://codepen.io/rasx/full/CGbio\">See it Full Page</a> -\r\n      <a href=\"https://codepen.io/rasx/details/CGbio\">See Details</a>\r\n    </p>\r\n    <p>\r\n      Basic menu item.\r\n    </p>\r\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\r\n    "
           },
           "dc:subject": "CSS: Drop-Down Menu",
-          "dc:date": "\n    2017-06-10T01:42:43-07:00\n  "
+          "dc:date": "\r\n    2017-06-10T01:42:43-07:00\r\n  "
         },
         {
           "title": "jQuery: input form watermark",
@@ -43,10 +43,10 @@
           "guid": "https://codepen.io/rasx/pen/GgRoxR",
           "dc:creator": "Bryan Wilhite",
           "description": {
-            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/GgRoxR\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/GgRoxR/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/GgRoxR\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/GgRoxR\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/GgRoxR\">See Details</a>\n    </p>\n    <p>\n      \n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+            "#cdata-section": "\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/GgRoxR\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/GgRoxR/image/large.png\"></a>\r\n    </p>\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/GgRoxR\">See the Code</a> -\r\n      <a href=\"https://codepen.io/rasx/full/GgRoxR\">See it Full Page</a> -\r\n      <a href=\"https://codepen.io/rasx/details/GgRoxR\">See Details</a>\r\n    </p>\r\n    <p>\r\n      \r\n    </p>\r\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\r\n    "
           },
           "dc:subject": "jQuery: input form watermark",
-          "dc:date": "\n    2017-06-10T00:55:42-07:00\n  "
+          "dc:date": "\r\n    2017-06-10T00:55:42-07:00\r\n  "
         },
         {
           "title": "CSS3: background-clip",
@@ -54,10 +54,10 @@
           "guid": "https://codepen.io/rasx/pen/Jkevd",
           "dc:creator": "Bryan Wilhite",
           "description": {
-            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/Jkevd\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/Jkevd/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/Jkevd\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/Jkevd\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/Jkevd\">See Details</a>\n    </p>\n    <p>\n      http://www.hongkiat.com/blog/css-masking/\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+            "#cdata-section": "\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/Jkevd\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/Jkevd/image/large.png\"></a>\r\n    </p>\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/Jkevd\">See the Code</a> -\r\n      <a href=\"https://codepen.io/rasx/full/Jkevd\">See it Full Page</a> -\r\n      <a href=\"https://codepen.io/rasx/details/Jkevd\">See Details</a>\r\n    </p>\r\n    <p>\r\n      http://www.hongkiat.com/blog/css-masking/\r\n    </p>\r\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\r\n    "
           },
           "dc:subject": "CSS3: background-clip",
-          "dc:date": "\n    2017-06-06T21:31:28-07:00\n  "
+          "dc:date": "\r\n    2017-06-06T21:31:28-07:00\r\n  "
         },
         {
           "title": "YouTube Data API video presentation",
@@ -65,10 +65,10 @@
           "guid": "https://codepen.io/rasx/pen/JbXjmM",
           "dc:creator": "Bryan Wilhite",
           "description": {
-            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/JbXjmM\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/JbXjmM/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/JbXjmM\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/JbXjmM\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/JbXjmM\">See Details</a>\n    </p>\n    <p>\n      video presentation for YouTube for kintespace.com\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+            "#cdata-section": "\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/JbXjmM\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/JbXjmM/image/large.png\"></a>\r\n    </p>\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/JbXjmM\">See the Code</a> -\r\n      <a href=\"https://codepen.io/rasx/full/JbXjmM\">See it Full Page</a> -\r\n      <a href=\"https://codepen.io/rasx/details/JbXjmM\">See Details</a>\r\n    </p>\r\n    <p>\r\n      video presentation for YouTube for kintespace.com\r\n    </p>\r\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\r\n    "
           },
           "dc:subject": "YouTube Data API video presentation",
-          "dc:date": "\n    2017-01-03T21:01:09-07:00\n  "
+          "dc:date": "\r\n    2017-01-03T21:01:09-07:00\r\n  "
         },
         {
           "title": "CodePen Logo in external SVG",
@@ -76,10 +76,10 @@
           "guid": "https://codepen.io/rasx/pen/GNVZvO",
           "dc:creator": "Bryan Wilhite",
           "description": {
-            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/GNVZvO\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/GNVZvO/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/GNVZvO\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/GNVZvO\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/GNVZvO\">See Details</a>\n    </p>\n    <p>\n      https://css-tricks.com/svg-use-external-source/\n\nhttps://css-tricks.com/svg-use-with-external-reference-take-2/\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+            "#cdata-section": "\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/GNVZvO\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/GNVZvO/image/large.png\"></a>\r\n    </p>\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/GNVZvO\">See the Code</a> -\r\n      <a href=\"https://codepen.io/rasx/full/GNVZvO\">See it Full Page</a> -\r\n      <a href=\"https://codepen.io/rasx/details/GNVZvO\">See Details</a>\r\n    </p>\r\n    <p>\r\n      https://css-tricks.com/svg-use-external-source/\r\n\r\nhttps://css-tricks.com/svg-use-with-external-reference-take-2/\r\n    </p>\r\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\r\n    "
           },
           "dc:subject": "CodePen Logo in external SVG",
-          "dc:date": "\n    2016-12-29T01:07:38-07:00\n  "
+          "dc:date": "\r\n    2016-12-29T01:07:38-07:00\r\n  "
         },
         {
           "title": "CodePen Logo in SVG",
@@ -87,10 +87,10 @@
           "guid": "https://codepen.io/rasx/pen/gLNdLr",
           "dc:creator": "Bryan Wilhite",
           "description": {
-            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/gLNdLr\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/gLNdLr/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/gLNdLr\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/gLNdLr\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/gLNdLr\">See Details</a>\n    </p>\n    <p>\n      https://sarasoueidan.com/blog/svg-coordinate-systems/\n\nhttps://blog.codepen.io/documentation/brand-assets/logos/\n\nhttps://www.idrsolutions.com/online-pdf-to-svg-converter/\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+            "#cdata-section": "\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/gLNdLr\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/gLNdLr/image/large.png\"></a>\r\n    </p>\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/gLNdLr\">See the Code</a> -\r\n      <a href=\"https://codepen.io/rasx/full/gLNdLr\">See it Full Page</a> -\r\n      <a href=\"https://codepen.io/rasx/details/gLNdLr\">See Details</a>\r\n    </p>\r\n    <p>\r\n      https://sarasoueidan.com/blog/svg-coordinate-systems/\r\n\r\nhttps://blog.codepen.io/documentation/brand-assets/logos/\r\n\r\nhttps://www.idrsolutions.com/online-pdf-to-svg-converter/\r\n    </p>\r\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\r\n    "
           },
           "dc:subject": "CodePen Logo in SVG",
-          "dc:date": "\n    2016-12-28T23:25:43-07:00\n  "
+          "dc:date": "\r\n    2016-12-28T23:25:43-07:00\r\n  "
         },
         {
           "title": "YouTube Data API Responsive Angular Directive",
@@ -98,10 +98,10 @@
           "guid": "https://codepen.io/rasx/pen/gMpGWN",
           "dc:creator": "Bryan Wilhite",
           "description": {
-            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/gMpGWN\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/gMpGWN/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/gMpGWN\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/gMpGWN\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/gMpGWN\">See Details</a>\n    </p>\n    <p>\n      using YouTube Data API JSON parsed and stored on Azure, served via ASP.NET Web API\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+            "#cdata-section": "\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/gMpGWN\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/gMpGWN/image/large.png\"></a>\r\n    </p>\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/gMpGWN\">See the Code</a> -\r\n      <a href=\"https://codepen.io/rasx/full/gMpGWN\">See it Full Page</a> -\r\n      <a href=\"https://codepen.io/rasx/details/gMpGWN\">See Details</a>\r\n    </p>\r\n    <p>\r\n      using YouTube Data API JSON parsed and stored on Azure, served via ASP.NET Web API\r\n    </p>\r\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\r\n    "
           },
           "dc:subject": "YouTube Data API Responsive Angular Directive",
-          "dc:date": "\n    2016-12-02T03:51:57-07:00\n  "
+          "dc:date": "\r\n    2016-12-02T03:51:57-07:00\r\n  "
         },
         {
           "title": "b-roll progressive audio presentation API",
@@ -109,10 +109,10 @@
           "guid": "https://codepen.io/rasx/pen/XXWWLz",
           "dc:creator": "Bryan Wilhite",
           "description": {
-            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/XXWWLz\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/XXWWLz/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/XXWWLz\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/XXWWLz\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/XXWWLz\">See Details</a>\n    </p>\n    <p>\n      \n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+            "#cdata-section": "\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/XXWWLz\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/XXWWLz/image/large.png\"></a>\r\n    </p>\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/XXWWLz\">See the Code</a> -\r\n      <a href=\"https://codepen.io/rasx/full/XXWWLz\">See it Full Page</a> -\r\n      <a href=\"https://codepen.io/rasx/details/XXWWLz\">See Details</a>\r\n    </p>\r\n    <p>\r\n      \r\n    </p>\r\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\r\n    "
           },
           "dc:subject": "b-roll progressive audio presentation API",
-          "dc:date": "\n    2016-09-30T01:11:02-07:00\n  "
+          "dc:date": "\r\n    2016-09-30T01:11:02-07:00\r\n  "
         },
         {
           "title": "Angular UI: pagination",
@@ -120,10 +120,10 @@
           "guid": "https://codepen.io/rasx/pen/xGadEB",
           "dc:creator": "Bryan Wilhite",
           "description": {
-            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/xGadEB\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/xGadEB/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/xGadEB\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/xGadEB\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/xGadEB\">See Details</a>\n    </p>\n    <p>\n      https://github.com/angular-ui/bootstrap/tree/master/src/pagination/docs\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+            "#cdata-section": "\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/xGadEB\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/xGadEB/image/large.png\"></a>\r\n    </p>\r\n    <p>\r\n      <a href=\"https://codepen.io/rasx/pen/xGadEB\">See the Code</a> -\r\n      <a href=\"https://codepen.io/rasx/full/xGadEB\">See it Full Page</a> -\r\n      <a href=\"https://codepen.io/rasx/details/xGadEB\">See Details</a>\r\n    </p>\r\n    <p>\r\n      https://github.com/angular-ui/bootstrap/tree/master/src/pagination/docs\r\n    </p>\r\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\r\n    "
           },
           "dc:subject": "Angular UI: pagination",
-          "dc:date": "\n    2016-09-04T19:05:35-07:00\n  "
+          "dc:date": "\r\n    2016-09-04T19:05:35-07:00\r\n  "
         }
       ]
     }

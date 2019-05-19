@@ -2,12 +2,23 @@
   "rss": {
     "@version": "2.0",
     "channel": {
-      "pubDate": "Sat, 23 Mar 2019 03:12:29 GMT",
+      "pubDate": "Sun, 21 Apr 2019 03:10:30 GMT",
       "title": ">DayPath_",
       "description": "The technical journey of @BryanWilhite.",
       "copyright": "Bryan Wilhite, Songhay System 2019",
       "link": "http://songhayblog.azurewebsites.net/",
       "item": [
+        {
+          "title": "studio status report: 2019-04",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/studio-status-report-2019-04",
+          "description": "getting this Index App into songhay-ng-workspaceThis month saw the archiving of angular.io-index-app [GitHub] because it is being moved to songhay-ng-workspace. This was quite a forehead slapping moment and should be reflected in this month’s version of ...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "studio-status-report-2019-04"
+          },
+          "pubDate": "Sun, 21 Apr 2019 03:09:16 GMT"
+        },
         {
           "title": "studio status report: 2019-03",
           "link": "http://songhayblog.azurewebsites.net/blog/entry/studio-status-report-2019-03",
@@ -106,17 +117,6 @@
             "#text": "dynamic-nested-reactive-forms-in-angular-and-other-tweeted-links"
           },
           "pubDate": "Wed, 16 Jan 2019 05:20:45 GMT"
-        },
-        {
-          "title": "“Building Fluid Interfaces” and other tweeted links…",
-          "link": "http://songhayblog.azurewebsites.net/blog/entry/building-fluid-interfaces-and-other-tweeted-links",
-          "description": "Building Fluid Interfaces [medium.com] Who’s a UX writer? [invisionapp.com] How To Set an Apple Touch Icon for Any Site — All in the head: This week, Apple rolled out an update to the ... http://bit.ly/ms8Tui#ux Your CSS Layout Toolkit for 2019 [noti.st]...",
-          "author": "rasx@songhaysystem.com",
-          "guid": {
-            "@isPermaLink": "false",
-            "#text": "building-fluid-interfaces-and-other-tweeted-links"
-          },
-          "pubDate": "Tue, 15 Jan 2019 20:17:04 GMT"
         }
       ]
     }

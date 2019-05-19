@@ -7,25 +7,25 @@
     "@xmlns:flickr": "urn:flickr:user",
     "channel": {
       "title": "Content from Songhay System Screen Shots",
-      "link": "http://www.flickr.com/photos/wilhite/sets/72157625087343217",
+      "link": "https://www.flickr.com/photos/wilhite/sets/72157625087343217",
       "description": "",
       "pubDate": "Fri, 22 Mar 2019 18:56:07 -0700",
       "lastBuildDate": "Fri, 22 Mar 2019 18:56:07 -0700",
-      "generator": "http://www.flickr.com/",
+      "generator": "https://www.flickr.com/",
       "image": {
-        "url": "http://farm5.staticflickr.com/4071/4617984922_8df2b7d96c_s.jpg",
+        "url": "https://live.staticflickr.com/4071/4617984922_8df2b7d96c_s.jpg",
         "title": "Content from Songhay System Screen Shots",
-        "link": "http://www.flickr.com/photos/wilhite/sets/72157625087343217"
+        "link": "https://www.flickr.com/photos/wilhite/sets/72157625087343217"
       },
       "item": [
         {
           "title": "Songhay System on npm",
-          "link": "http://www.flickr.com/photos/wilhite/33569352448/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/33569352448/\" title=\"Songhay System on npm\"><img src=\"http://farm8.staticflickr.com/7821/33569352448_26e910c124_m.jpg\" width=\"240\" height=\"158\" alt=\"Songhay System on npm\" /></a></p>\n\n<p>last hurrah or new leaf?</p>",
+          "link": "https://www.flickr.com/photos/wilhite/33569352448/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/33569352448/\" title=\"Songhay System on npm\"><img src=\"https://live.staticflickr.com/7821/33569352448_26e910c124_m.jpg\" width=\"240\" height=\"158\" alt=\"Songhay System on npm\" /></a></p>\n\n<p>last hurrah or new leaf?</p>",
           "pubDate": "Fri, 22 Mar 2019 18:56:07 -0700",
           "dc:date.Taken": "2019-03-22T18:54:30-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -33,7 +33,7 @@
             "#text": "tag:flickr.com,2004:/photo/33569352448/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm8.staticflickr.com/7821/33569352448_26e910c124_b.jpg",
+            "@url": "https://live.staticflickr.com/7821/33569352448_26e910c124_b.jpg",
             "@type": "image/jpeg",
             "@height": "648",
             "@width": "981"
@@ -44,7 +44,7 @@
             "#text": "<p>last hurrah or new leaf?</p>"
           },
           "media:thumbnail": {
-            "@url": "http://farm8.staticflickr.com/7821/33569352448_26e910c124_s.jpg",
+            "@url": "https://live.staticflickr.com/7821/33569352448_26e910c124_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -57,18 +57,18 @@
             "#text": "npm songhaysystem songhaystudio"
           },
           "enclosure": {
-            "@url": "http://farm8.staticflickr.com/7821/33569352448_26e910c124_b.jpg",
+            "@url": "https://live.staticflickr.com/7821/33569352448_26e910c124_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "Miguel de Icaza on .NET Standard 2.0",
-          "link": "http://www.flickr.com/photos/wilhite/33571835814/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/33571835814/\" title=\"Miguel de Icaza on .NET Standard 2.0\"><img src=\"http://farm5.staticflickr.com/4185/33571835814_79b5c89494_m.jpg\" width=\"240\" height=\"132\" alt=\"Miguel de Icaza on .NET Standard 2.0\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/33571835814/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/33571835814/\" title=\"Miguel de Icaza on .NET Standard 2.0\"><img src=\"https://live.staticflickr.com/4185/33571835814_79b5c89494_m.jpg\" width=\"240\" height=\"132\" alt=\"Miguel de Icaza on .NET Standard 2.0\" /></a></p>\n\n",
           "pubDate": "Tue, 02 May 2017 13:42:00 -0700",
           "dc:date.Taken": "2017-05-02T13:40:55-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -76,14 +76,14 @@
             "#text": "tag:flickr.com,2004:/photo/33571835814/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm5.staticflickr.com/4185/33571835814_79b5c89494_b.jpg",
+            "@url": "https://live.staticflickr.com/4185/33571835814_79b5c89494_b.jpg",
             "@type": "image/jpeg",
             "@height": "333",
             "@width": "606"
           },
           "media:title": "Miguel de Icaza on .NET Standard 2.0",
           "media:thumbnail": {
-            "@url": "http://farm5.staticflickr.com/4185/33571835814_79b5c89494_s.jpg",
+            "@url": "https://live.staticflickr.com/4185/33571835814_79b5c89494_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -96,18 +96,18 @@
             "#text": "migueldeicaza xamarin xaml microsoft netstandard bryandwilhite songhaysystem songhaysystemcom"
           },
           "enclosure": {
-            "@url": "http://farm5.staticflickr.com/4185/33571835814_79b5c89494_b.jpg",
+            "@url": "https://live.staticflickr.com/4185/33571835814_79b5c89494_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "Songhay System Azure Dashboard Q1 2017",
-          "link": "http://www.flickr.com/photos/wilhite/32654113284/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32654113284/\" title=\"Songhay System Azure Dashboard Q1 2017\"><img src=\"http://farm4.staticflickr.com/3834/32654113284_39c83f46f1_m.jpg\" width=\"240\" height=\"196\" alt=\"Songhay System Azure Dashboard Q1 2017\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/32654113284/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/32654113284/\" title=\"Songhay System Azure Dashboard Q1 2017\"><img src=\"https://live.staticflickr.com/3834/32654113284_39c83f46f1_m.jpg\" width=\"240\" height=\"196\" alt=\"Songhay System Azure Dashboard Q1 2017\" /></a></p>\n\n",
           "pubDate": "Fri, 17 Mar 2017 14:07:19 -0700",
           "dc:date.Taken": "2017-03-17T14:06:19-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -115,14 +115,14 @@
             "#text": "tag:flickr.com,2004:/photo/32654113284/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm4.staticflickr.com/3834/32654113284_39c83f46f1_b.jpg",
+            "@url": "https://live.staticflickr.com/3834/32654113284_39c83f46f1_b.jpg",
             "@type": "image/jpeg",
             "@height": "837",
             "@width": "1024"
           },
           "media:title": "Songhay System Azure Dashboard Q1 2017",
           "media:thumbnail": {
-            "@url": "http://farm4.staticflickr.com/3834/32654113284_39c83f46f1_s.jpg",
+            "@url": "https://live.staticflickr.com/3834/32654113284_39c83f46f1_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -135,18 +135,18 @@
             "#text": "songhaysystem songhaystudio songhaysystemcom microsoftazure bryandwilhite"
           },
           "enclosure": {
-            "@url": "http://farm4.staticflickr.com/3834/32654113284_39c83f46f1_b.jpg",
+            "@url": "https://live.staticflickr.com/3834/32654113284_39c83f46f1_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "XAMPP Control Panel in Windows",
-          "link": "http://www.flickr.com/photos/wilhite/32968241460/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32968241460/\" title=\"XAMPP Control Panel in Windows\"><img src=\"http://farm1.staticflickr.com/678/32968241460_091d5021f5_m.jpg\" width=\"240\" height=\"88\" alt=\"XAMPP Control Panel in Windows\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/32968241460/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/32968241460/\" title=\"XAMPP Control Panel in Windows\"><img src=\"https://live.staticflickr.com/678/32968241460_091d5021f5_m.jpg\" width=\"240\" height=\"88\" alt=\"XAMPP Control Panel in Windows\" /></a></p>\n\n",
           "pubDate": "Thu, 09 Mar 2017 18:31:31 -0800",
           "dc:date.Taken": "2017-03-09T18:30:40-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -154,14 +154,14 @@
             "#text": "tag:flickr.com,2004:/photo/32968241460/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm1.staticflickr.com/678/32968241460_091d5021f5_b.jpg",
+            "@url": "https://live.staticflickr.com/678/32968241460_091d5021f5_b.jpg",
             "@type": "image/jpeg",
             "@height": "246",
             "@width": "668"
           },
           "media:title": "XAMPP Control Panel in Windows",
           "media:thumbnail": {
-            "@url": "http://farm1.staticflickr.com/678/32968241460_091d5021f5_s.jpg",
+            "@url": "https://live.staticflickr.com/678/32968241460_091d5021f5_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -174,18 +174,18 @@
             "#text": "songhaystudio xampp mysql apache bryanwilhite"
           },
           "enclosure": {
-            "@url": "http://farm1.staticflickr.com/678/32968241460_091d5021f5_b.jpg",
+            "@url": "https://live.staticflickr.com/678/32968241460_091d5021f5_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "scriptcs layout for EPUB",
-          "link": "http://www.flickr.com/photos/wilhite/32381489003/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32381489003/\" title=\"scriptcs layout for EPUB\"><img src=\"http://farm4.staticflickr.com/3737/32381489003_20b5562073_m.jpg\" width=\"240\" height=\"225\" alt=\"scriptcs layout for EPUB\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/32381489003/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/32381489003/\" title=\"scriptcs layout for EPUB\"><img src=\"https://live.staticflickr.com/3737/32381489003_20b5562073_m.jpg\" width=\"240\" height=\"225\" alt=\"scriptcs layout for EPUB\" /></a></p>\n\n",
           "pubDate": "Wed, 01 Mar 2017 15:50:31 -0800",
           "dc:date.Taken": "2017-03-01T15:49:11-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -193,14 +193,14 @@
             "#text": "tag:flickr.com,2004:/photo/32381489003/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm4.staticflickr.com/3737/32381489003_20b5562073_b.jpg",
+            "@url": "https://live.staticflickr.com/3737/32381489003_20b5562073_b.jpg",
             "@type": "image/jpeg",
             "@height": "775",
             "@width": "828"
           },
           "media:title": "scriptcs layout for EPUB",
           "media:thumbnail": {
-            "@url": "http://farm4.staticflickr.com/3737/32381489003_20b5562073_s.jpg",
+            "@url": "https://live.staticflickr.com/3737/32381489003_20b5562073_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -213,18 +213,18 @@
             "#text": "songhaysystemcom songhaystudio epub scriptcs nuget visualstudiocode"
           },
           "enclosure": {
-            "@url": "http://farm4.staticflickr.com/3737/32381489003_20b5562073_b.jpg",
+            "@url": "https://live.staticflickr.com/3737/32381489003_20b5562073_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "EPUB pipeline in Git repository",
-          "link": "http://www.flickr.com/photos/wilhite/32775732780/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32775732780/\" title=\"EPUB pipeline in Git repository\"><img src=\"http://farm4.staticflickr.com/3716/32775732780_9e4cca30be_m.jpg\" width=\"240\" height=\"120\" alt=\"EPUB pipeline in Git repository\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/32775732780/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/32775732780/\" title=\"EPUB pipeline in Git repository\"><img src=\"https://live.staticflickr.com/3716/32775732780_9e4cca30be_m.jpg\" width=\"240\" height=\"120\" alt=\"EPUB pipeline in Git repository\" /></a></p>\n\n",
           "pubDate": "Mon, 27 Feb 2017 16:28:40 -0800",
           "dc:date.Taken": "2017-02-27T16:12:48-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -232,14 +232,14 @@
             "#text": "tag:flickr.com,2004:/photo/32775732780/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm4.staticflickr.com/3716/32775732780_9e4cca30be_b.jpg",
+            "@url": "https://live.staticflickr.com/3716/32775732780_9e4cca30be_b.jpg",
             "@type": "image/jpeg",
             "@height": "504",
             "@width": "1012"
           },
           "media:title": "EPUB pipeline in Git repository",
           "media:thumbnail": {
-            "@url": "http://farm4.staticflickr.com/3716/32775732780_9e4cca30be_s.jpg",
+            "@url": "https://live.staticflickr.com/3716/32775732780_9e4cca30be_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -252,18 +252,18 @@
             "#text": "songhaysystemcom songhaystudio songhaysystem epub xhtml xml linqtoxml linq"
           },
           "enclosure": {
-            "@url": "http://farm4.staticflickr.com/3716/32775732780_9e4cca30be_b.jpg",
+            "@url": "https://live.staticflickr.com/3716/32775732780_9e4cca30be_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "OData libraries relationship",
-          "link": "http://www.flickr.com/photos/wilhite/32696307530/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32696307530/\" title=\"OData libraries relationship\"><img src=\"http://farm4.staticflickr.com/3919/32696307530_8b56f26fec_m.jpg\" width=\"240\" height=\"82\" alt=\"OData libraries relationship\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/32696307530/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/32696307530/\" title=\"OData libraries relationship\"><img src=\"https://live.staticflickr.com/3919/32696307530_8b56f26fec_m.jpg\" width=\"240\" height=\"82\" alt=\"OData libraries relationship\" /></a></p>\n\n",
           "pubDate": "Thu, 23 Feb 2017 14:36:01 -0800",
           "dc:date.Taken": "2017-02-23T14:33:06-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -271,14 +271,14 @@
             "#text": "tag:flickr.com,2004:/photo/32696307530/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm4.staticflickr.com/3919/32696307530_8b56f26fec_b.jpg",
+            "@url": "https://live.staticflickr.com/3919/32696307530_8b56f26fec_b.jpg",
             "@type": "image/jpeg",
             "@height": "340",
             "@width": "1002"
           },
           "media:title": "OData libraries relationship",
           "media:thumbnail": {
-            "@url": "http://farm4.staticflickr.com/3919/32696307530_8b56f26fec_s.jpg",
+            "@url": "https://live.staticflickr.com/3919/32696307530_8b56f26fec_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -291,18 +291,18 @@
             "#text": "odata odatagithubio github microsoft songhaysystemcom songhaysystem songhaystudio"
           },
           "enclosure": {
-            "@url": "http://farm4.staticflickr.com/3919/32696307530_8b56f26fec_b.jpg",
+            "@url": "https://live.staticflickr.com/3919/32696307530_8b56f26fec_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "ChocolateyGUI doing an update",
-          "link": "http://www.flickr.com/photos/wilhite/32013324403/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32013324403/\" title=\"ChocolateyGUI doing an update\"><img src=\"http://farm3.staticflickr.com/2030/32013324403_b8e474fbcc_m.jpg\" width=\"240\" height=\"111\" alt=\"ChocolateyGUI doing an update\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/32013324403/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/32013324403/\" title=\"ChocolateyGUI doing an update\"><img src=\"https://live.staticflickr.com/2030/32013324403_b8e474fbcc_m.jpg\" width=\"240\" height=\"111\" alt=\"ChocolateyGUI doing an update\" /></a></p>\n\n",
           "pubDate": "Fri, 10 Feb 2017 15:49:38 -0800",
           "dc:date.Taken": "2017-02-10T15:41:00-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -310,14 +310,14 @@
             "#text": "tag:flickr.com,2004:/photo/32013324403/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm3.staticflickr.com/2030/32013324403_b8e474fbcc_b.jpg",
+            "@url": "https://live.staticflickr.com/2030/32013324403_b8e474fbcc_b.jpg",
             "@type": "image/jpeg",
             "@height": "155",
             "@width": "335"
           },
           "media:title": "ChocolateyGUI doing an update",
           "media:thumbnail": {
-            "@url": "http://farm3.staticflickr.com/2030/32013324403_b8e474fbcc_s.jpg",
+            "@url": "https://live.staticflickr.com/2030/32013324403_b8e474fbcc_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -330,18 +330,18 @@
             "#text": "chocolateygui songhaystudio bryanwilhite chocolatey"
           },
           "enclosure": {
-            "@url": "http://farm3.staticflickr.com/2030/32013324403_b8e474fbcc_b.jpg",
+            "@url": "https://live.staticflickr.com/2030/32013324403_b8e474fbcc_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "Swashbuckle Swagger UI with consumes Example Value in Arbitrary XML",
-          "link": "http://www.flickr.com/photos/wilhite/32768627276/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32768627276/\" title=\"Swashbuckle Swagger UI with consumes Example Value in Arbitrary XML\"><img src=\"http://farm3.staticflickr.com/2539/32768627276_be3aeaf0b8_m.jpg\" width=\"240\" height=\"175\" alt=\"Swashbuckle Swagger UI with consumes Example Value in Arbitrary XML\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/32768627276/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/32768627276/\" title=\"Swashbuckle Swagger UI with consumes Example Value in Arbitrary XML\"><img src=\"https://live.staticflickr.com/2539/32768627276_be3aeaf0b8_m.jpg\" width=\"240\" height=\"175\" alt=\"Swashbuckle Swagger UI with consumes Example Value in Arbitrary XML\" /></a></p>\n\n",
           "pubDate": "Thu, 09 Feb 2017 14:46:12 -0800",
           "dc:date.Taken": "2017-02-09T14:45:24-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -349,14 +349,14 @@
             "#text": "tag:flickr.com,2004:/photo/32768627276/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm3.staticflickr.com/2539/32768627276_be3aeaf0b8_b.jpg",
+            "@url": "https://live.staticflickr.com/2539/32768627276_be3aeaf0b8_b.jpg",
             "@type": "image/jpeg",
             "@height": "298",
             "@width": "409"
           },
           "media:title": "Swashbuckle Swagger UI with consumes Example Value in Arbitrary XML",
           "media:thumbnail": {
-            "@url": "http://farm3.staticflickr.com/2539/32768627276_be3aeaf0b8_s.jpg",
+            "@url": "https://live.staticflickr.com/2539/32768627276_be3aeaf0b8_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -369,18 +369,18 @@
             "#text": "songhaysystemcom songhaystudio songhaysystem bryandwilhite swashbuckle swagger xml aspnet webapi"
           },
           "enclosure": {
-            "@url": "http://farm3.staticflickr.com/2539/32768627276_be3aeaf0b8_b.jpg",
+            "@url": "https://live.staticflickr.com/2539/32768627276_be3aeaf0b8_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "Swashbuckle Swagger UI with produces Example Value in Arbitrary XML",
-          "link": "http://www.flickr.com/photos/wilhite/32768627106/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32768627106/\" title=\"Swashbuckle Swagger UI with produces Example Value in Arbitrary XML\"><img src=\"http://farm4.staticflickr.com/3829/32768627106_b00215713c_m.jpg\" width=\"240\" height=\"211\" alt=\"Swashbuckle Swagger UI with produces Example Value in Arbitrary XML\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/32768627106/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/32768627106/\" title=\"Swashbuckle Swagger UI with produces Example Value in Arbitrary XML\"><img src=\"https://live.staticflickr.com/3829/32768627106_b00215713c_m.jpg\" width=\"240\" height=\"211\" alt=\"Swashbuckle Swagger UI with produces Example Value in Arbitrary XML\" /></a></p>\n\n",
           "pubDate": "Thu, 09 Feb 2017 14:46:12 -0800",
           "dc:date.Taken": "2017-02-09T14:45:23-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -388,14 +388,14 @@
             "#text": "tag:flickr.com,2004:/photo/32768627106/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm4.staticflickr.com/3829/32768627106_b00215713c_b.jpg",
+            "@url": "https://live.staticflickr.com/3829/32768627106_b00215713c_b.jpg",
             "@type": "image/jpeg",
             "@height": "292",
             "@width": "332"
           },
           "media:title": "Swashbuckle Swagger UI with produces Example Value in Arbitrary XML",
           "media:thumbnail": {
-            "@url": "http://farm4.staticflickr.com/3829/32768627106_b00215713c_s.jpg",
+            "@url": "https://live.staticflickr.com/3829/32768627106_b00215713c_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -408,18 +408,18 @@
             "#text": "songhaysystemcom songhaystudio songhaysystem bryandwilhite swashbuckle swagger xml aspnet webapi"
           },
           "enclosure": {
-            "@url": "http://farm4.staticflickr.com/3829/32768627106_b00215713c_b.jpg",
+            "@url": "https://live.staticflickr.com/3829/32768627106_b00215713c_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "My LinqPad Plugins Folder",
-          "link": "http://www.flickr.com/photos/wilhite/32638645972/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32638645972/\" title=\"My LinqPad Plugins Folder\"><img src=\"http://farm3.staticflickr.com/2843/32638645972_ce615f35af_m.jpg\" width=\"166\" height=\"240\" alt=\"My LinqPad Plugins Folder\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/32638645972/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/32638645972/\" title=\"My LinqPad Plugins Folder\"><img src=\"https://live.staticflickr.com/2843/32638645972_ce615f35af_m.jpg\" width=\"166\" height=\"240\" alt=\"My LinqPad Plugins Folder\" /></a></p>\n\n",
           "pubDate": "Wed, 08 Feb 2017 16:32:38 -0800",
           "dc:date.Taken": "2017-02-08T16:31:56-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -427,14 +427,14 @@
             "#text": "tag:flickr.com,2004:/photo/32638645972/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm3.staticflickr.com/2843/32638645972_ce615f35af_b.jpg",
+            "@url": "https://live.staticflickr.com/2843/32638645972_ce615f35af_b.jpg",
             "@type": "image/jpeg",
             "@height": "576",
             "@width": "397"
           },
           "media:title": "My LinqPad Plugins Folder",
           "media:thumbnail": {
-            "@url": "http://farm3.staticflickr.com/2843/32638645972_ce615f35af_s.jpg",
+            "@url": "https://live.staticflickr.com/2843/32638645972_ce615f35af_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -447,18 +447,18 @@
             "#text": "songhaystudio songhaysystemcom bryandwilhite linqpad csharp fsharp"
           },
           "enclosure": {
-            "@url": "http://farm3.staticflickr.com/2843/32638645972_ce615f35af_b.jpg",
+            "@url": "https://live.staticflickr.com/2843/32638645972_ce615f35af_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "Swashbuckle Swagger UI with basic XML customization",
-          "link": "http://www.flickr.com/photos/wilhite/32714653736/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/32714653736/\" title=\"Swashbuckle Swagger UI with basic XML customization\"><img src=\"http://farm1.staticflickr.com/584/32714653736_330d5a60cd_m.jpg\" width=\"240\" height=\"176\" alt=\"Swashbuckle Swagger UI with basic XML customization\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/32714653736/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/32714653736/\" title=\"Swashbuckle Swagger UI with basic XML customization\"><img src=\"https://live.staticflickr.com/584/32714653736_330d5a60cd_m.jpg\" width=\"240\" height=\"176\" alt=\"Swashbuckle Swagger UI with basic XML customization\" /></a></p>\n\n",
           "pubDate": "Tue, 07 Feb 2017 00:05:08 -0800",
           "dc:date.Taken": "2017-02-06T17:34:08-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -466,14 +466,14 @@
             "#text": "tag:flickr.com,2004:/photo/32714653736/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm1.staticflickr.com/584/32714653736_330d5a60cd_b.jpg",
+            "@url": "https://live.staticflickr.com/584/32714653736_330d5a60cd_b.jpg",
             "@type": "image/jpeg",
             "@height": "715",
             "@width": "975"
           },
           "media:title": "Swashbuckle Swagger UI with basic XML customization",
           "media:thumbnail": {
-            "@url": "http://farm1.staticflickr.com/584/32714653736_330d5a60cd_s.jpg",
+            "@url": "https://live.staticflickr.com/584/32714653736_330d5a60cd_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -486,18 +486,18 @@
             "#text": "songhaysystemcom songhaystudio swashbuckle bryanwilhite xml xelement aspnet webapi"
           },
           "enclosure": {
-            "@url": "http://farm1.staticflickr.com/584/32714653736_330d5a60cd_b.jpg",
+            "@url": "https://live.staticflickr.com/584/32714653736_330d5a60cd_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "Swashbuckle Swagger UI is JSON-centric by default",
-          "link": "http://www.flickr.com/photos/wilhite/31941217903/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/31941217903/\" title=\"Swashbuckle Swagger UI is JSON-centric by default\"><img src=\"http://farm1.staticflickr.com/645/31941217903_4d0bf088c2_m.jpg\" width=\"240\" height=\"171\" alt=\"Swashbuckle Swagger UI is JSON-centric by default\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/31941217903/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/31941217903/\" title=\"Swashbuckle Swagger UI is JSON-centric by default\"><img src=\"https://live.staticflickr.com/645/31941217903_4d0bf088c2_m.jpg\" width=\"240\" height=\"171\" alt=\"Swashbuckle Swagger UI is JSON-centric by default\" /></a></p>\n\n",
           "pubDate": "Mon, 06 Feb 2017 17:12:48 -0800",
           "dc:date.Taken": "2017-02-06T17:12:01-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -505,14 +505,14 @@
             "#text": "tag:flickr.com,2004:/photo/31941217903/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm1.staticflickr.com/645/31941217903_4d0bf088c2_b.jpg",
+            "@url": "https://live.staticflickr.com/645/31941217903_4d0bf088c2_b.jpg",
             "@type": "image/jpeg",
             "@height": "727",
             "@width": "1022"
           },
           "media:title": "Swashbuckle Swagger UI is JSON-centric by default",
           "media:thumbnail": {
-            "@url": "http://farm1.staticflickr.com/645/31941217903_4d0bf088c2_s.jpg",
+            "@url": "https://live.staticflickr.com/645/31941217903_4d0bf088c2_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -525,18 +525,18 @@
             "#text": "songhaysystemcom songhaystudio bryanwilhite swagger swashbuckle aspnet webapi json"
           },
           "enclosure": {
-            "@url": "http://farm1.staticflickr.com/645/31941217903_4d0bf088c2_b.jpg",
+            "@url": "https://live.staticflickr.com/645/31941217903_4d0bf088c2_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "Sound Forge 11 Registration dialog erroneously prevents startup",
-          "link": "http://www.flickr.com/photos/wilhite/30503921021/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/30503921021/\" title=\"Sound Forge 11 Registration dialog erroneously prevents startup\"><img src=\"http://farm6.staticflickr.com/5476/30503921021_f13636459d_m.jpg\" width=\"179\" height=\"240\" alt=\"Sound Forge 11 Registration dialog erroneously prevents startup\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/30503921021/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/30503921021/\" title=\"Sound Forge 11 Registration dialog erroneously prevents startup\"><img src=\"https://live.staticflickr.com/5476/30503921021_f13636459d_m.jpg\" width=\"179\" height=\"240\" alt=\"Sound Forge 11 Registration dialog erroneously prevents startup\" /></a></p>\n\n",
           "pubDate": "Wed, 26 Oct 2016 20:30:31 -0700",
           "dc:date.Taken": "2016-10-26T20:29:35-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -544,14 +544,14 @@
             "#text": "tag:flickr.com,2004:/photo/30503921021/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm6.staticflickr.com/5476/30503921021_f13636459d_b.jpg",
+            "@url": "https://live.staticflickr.com/5476/30503921021_f13636459d_b.jpg",
             "@type": "image/jpeg",
             "@height": "591",
             "@width": "440"
           },
           "media:title": "Sound Forge 11 Registration dialog erroneously prevents startup",
           "media:thumbnail": {
-            "@url": "http://farm6.staticflickr.com/5476/30503921021_f13636459d_s.jpg",
+            "@url": "https://live.staticflickr.com/5476/30503921021_f13636459d_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -564,18 +564,18 @@
             "#text": "soundforge songhaystudio songhaysystemcom"
           },
           "enclosure": {
-            "@url": "http://farm6.staticflickr.com/5476/30503921021_f13636459d_b.jpg",
+            "@url": "https://live.staticflickr.com/5476/30503921021_f13636459d_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "Sound Forge 11 must run in Windows 7 compatibility mode on Windows 10",
-          "link": "http://www.flickr.com/photos/wilhite/30503920961/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/30503920961/\" title=\"Sound Forge 11 must run in Windows 7 compatibility mode on Windows 10\"><img src=\"http://farm6.staticflickr.com/5654/30503920961_bb2b08f0f5_m.jpg\" width=\"165\" height=\"240\" alt=\"Sound Forge 11 must run in Windows 7 compatibility mode on Windows 10\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/30503920961/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/30503920961/\" title=\"Sound Forge 11 must run in Windows 7 compatibility mode on Windows 10\"><img src=\"https://live.staticflickr.com/5654/30503920961_bb2b08f0f5_m.jpg\" width=\"165\" height=\"240\" alt=\"Sound Forge 11 must run in Windows 7 compatibility mode on Windows 10\" /></a></p>\n\n",
           "pubDate": "Wed, 26 Oct 2016 20:30:31 -0700",
           "dc:date.Taken": "2016-10-26T20:29:35-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -583,14 +583,14 @@
             "#text": "tag:flickr.com,2004:/photo/30503920961/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm6.staticflickr.com/5654/30503920961_bb2b08f0f5_b.jpg",
+            "@url": "https://live.staticflickr.com/5654/30503920961_bb2b08f0f5_b.jpg",
             "@type": "image/jpeg",
             "@height": "527",
             "@width": "363"
           },
           "media:title": "Sound Forge 11 must run in Windows 7 compatibility mode on Windows 10",
           "media:thumbnail": {
-            "@url": "http://farm6.staticflickr.com/5654/30503920961_bb2b08f0f5_s.jpg",
+            "@url": "https://live.staticflickr.com/5654/30503920961_bb2b08f0f5_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -603,18 +603,18 @@
             "#text": "soundforge songhaystudio songhaysystemcom"
           },
           "enclosure": {
-            "@url": "http://farm6.staticflickr.com/5654/30503920961_bb2b08f0f5_b.jpg",
+            "@url": "https://live.staticflickr.com/5654/30503920961_bb2b08f0f5_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "the troubleshooter is the only way to start Sound Forge 11",
-          "link": "http://www.flickr.com/photos/wilhite/29958085413/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/29958085413/\" title=\"the troubleshooter is the only way to start Sound Forge 11\"><img src=\"http://farm6.staticflickr.com/5683/29958085413_98a2236465_m.jpg\" width=\"240\" height=\"185\" alt=\"the troubleshooter is the only way to start Sound Forge 11\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/29958085413/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/29958085413/\" title=\"the troubleshooter is the only way to start Sound Forge 11\"><img src=\"https://live.staticflickr.com/5683/29958085413_98a2236465_m.jpg\" width=\"240\" height=\"185\" alt=\"the troubleshooter is the only way to start Sound Forge 11\" /></a></p>\n\n",
           "pubDate": "Wed, 26 Oct 2016 20:30:31 -0700",
           "dc:date.Taken": "2016-10-26T20:29:35-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -622,14 +622,14 @@
             "#text": "tag:flickr.com,2004:/photo/29958085413/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm6.staticflickr.com/5683/29958085413_98a2236465_b.jpg",
+            "@url": "https://live.staticflickr.com/5683/29958085413_98a2236465_b.jpg",
             "@type": "image/jpeg",
             "@height": "440",
             "@width": "571"
           },
           "media:title": "the troubleshooter is the only way to start Sound Forge 11",
           "media:thumbnail": {
-            "@url": "http://farm6.staticflickr.com/5683/29958085413_98a2236465_s.jpg",
+            "@url": "https://live.staticflickr.com/5683/29958085413_98a2236465_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -642,18 +642,18 @@
             "#text": "soundforge songhaystudio songhaysystemcom"
           },
           "enclosure": {
-            "@url": "http://farm6.staticflickr.com/5683/29958085413_98a2236465_b.jpg",
+            "@url": "https://live.staticflickr.com/5683/29958085413_98a2236465_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "changing compatibility mode starts the Assistant",
-          "link": "http://www.flickr.com/photos/wilhite/29958085263/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/29958085263/\" title=\"changing compatibility mode starts the Assistant\"><img src=\"http://farm6.staticflickr.com/5500/29958085263_cdc05bbea3_m.jpg\" width=\"240\" height=\"176\" alt=\"changing compatibility mode starts the Assistant\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/29958085263/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/29958085263/\" title=\"changing compatibility mode starts the Assistant\"><img src=\"https://live.staticflickr.com/5500/29958085263_cdc05bbea3_m.jpg\" width=\"240\" height=\"176\" alt=\"changing compatibility mode starts the Assistant\" /></a></p>\n\n",
           "pubDate": "Wed, 26 Oct 2016 20:30:31 -0700",
           "dc:date.Taken": "2016-10-26T20:29:35-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -661,14 +661,14 @@
             "#text": "tag:flickr.com,2004:/photo/29958085263/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm6.staticflickr.com/5500/29958085263_cdc05bbea3_b.jpg",
+            "@url": "https://live.staticflickr.com/5500/29958085263_cdc05bbea3_b.jpg",
             "@type": "image/jpeg",
             "@height": "279",
             "@width": "380"
           },
           "media:title": "changing compatibility mode starts the Assistant",
           "media:thumbnail": {
-            "@url": "http://farm6.staticflickr.com/5500/29958085263_cdc05bbea3_s.jpg",
+            "@url": "https://live.staticflickr.com/5500/29958085263_cdc05bbea3_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -681,18 +681,18 @@
             "#text": "soundforge songhaystudio songhaysystemcom"
           },
           "enclosure": {
-            "@url": "http://farm6.staticflickr.com/5500/29958085263_cdc05bbea3_b.jpg",
+            "@url": "https://live.staticflickr.com/5500/29958085263_cdc05bbea3_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "dotnet-standard-chart",
-          "link": "http://www.flickr.com/photos/wilhite/29639839953/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/29639839953/\" title=\"dotnet-standard-chart\"><img src=\"http://farm6.staticflickr.com/5519/29639839953_5f0fe95381_m.jpg\" width=\"240\" height=\"196\" alt=\"dotnet-standard-chart\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/29639839953/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/29639839953/\" title=\"dotnet-standard-chart\"><img src=\"https://live.staticflickr.com/5519/29639839953_5f0fe95381_m.jpg\" width=\"240\" height=\"196\" alt=\"dotnet-standard-chart\" /></a></p>\n\n",
           "pubDate": "Tue, 11 Oct 2016 17:56:17 -0700",
           "dc:date.Taken": "2016-10-11T17:55:40-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -700,14 +700,14 @@
             "#text": "tag:flickr.com,2004:/photo/29639839953/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm6.staticflickr.com/5519/29639839953_5f0fe95381_b.jpg",
+            "@url": "https://live.staticflickr.com/5519/29639839953_5f0fe95381_b.jpg",
             "@type": "image/jpeg",
             "@height": "728",
             "@width": "889"
           },
           "media:title": "dotnet-standard-chart",
           "media:thumbnail": {
-            "@url": "http://farm6.staticflickr.com/5519/29639839953_5f0fe95381_s.jpg",
+            "@url": "https://live.staticflickr.com/5519/29639839953_5f0fe95381_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -720,18 +720,18 @@
             "#text": "netframework netstandard songhaystudio songhaysystemcom"
           },
           "enclosure": {
-            "@url": "http://farm6.staticflickr.com/5519/29639839953_5f0fe95381_b.jpg",
+            "@url": "https://live.staticflickr.com/5519/29639839953_5f0fe95381_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "git repo in TFS",
-          "link": "http://www.flickr.com/photos/wilhite/29764034590/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/29764034590/\" title=\"git repo in TFS\"><img src=\"http://farm9.staticflickr.com/8701/29764034590_7df67842bf_m.jpg\" width=\"240\" height=\"208\" alt=\"git repo in TFS\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/29764034590/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/29764034590/\" title=\"git repo in TFS\"><img src=\"https://live.staticflickr.com/8701/29764034590_7df67842bf_m.jpg\" width=\"240\" height=\"208\" alt=\"git repo in TFS\" /></a></p>\n\n",
           "pubDate": "Sat, 01 Oct 2016 23:16:54 -0700",
           "dc:date.Taken": "2016-10-01T23:15:44-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -739,14 +739,14 @@
             "#text": "tag:flickr.com,2004:/photo/29764034590/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm9.staticflickr.com/8701/29764034590_7df67842bf_b.jpg",
+            "@url": "https://live.staticflickr.com/8701/29764034590_7df67842bf_b.jpg",
             "@type": "image/jpeg",
             "@height": "729",
             "@width": "841"
           },
           "media:title": "git repo in TFS",
           "media:thumbnail": {
-            "@url": "http://farm9.staticflickr.com/8701/29764034590_7df67842bf_s.jpg",
+            "@url": "https://live.staticflickr.com/8701/29764034590_7df67842bf_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -759,18 +759,18 @@
             "#text": "songhaysystemcom songhaysystem songhaystudio bash ubuntu"
           },
           "enclosure": {
-            "@url": "http://farm9.staticflickr.com/8701/29764034590_7df67842bf_b.jpg",
+            "@url": "https://live.staticflickr.com/8701/29764034590_7df67842bf_b.jpg",
             "@type": "image/jpeg"
           }
         },
         {
           "title": "SonghayCore uploaded to NuGet",
-          "link": "http://www.flickr.com/photos/wilhite/29153326301/in/set-72157625087343217/",
-          "description": "\t\t\t<p><a href=\"http://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"http://www.flickr.com/photos/wilhite/29153326301/\" title=\"SonghayCore uploaded to NuGet\"><img src=\"http://farm9.staticflickr.com/8076/29153326301_0c4c6b7fde_m.jpg\" width=\"240\" height=\"125\" alt=\"SonghayCore uploaded to NuGet\" /></a></p>\n\n",
+          "link": "https://www.flickr.com/photos/wilhite/29153326301/in/set-72157625087343217/",
+          "description": "\t\t\t<p><a href=\"https://www.flickr.com/people/wilhite/\">rasx</a> posted a photo:</p>\n\t\n<p><a href=\"https://www.flickr.com/photos/wilhite/29153326301/\" title=\"SonghayCore uploaded to NuGet\"><img src=\"https://live.staticflickr.com/8076/29153326301_0c4c6b7fde_m.jpg\" width=\"240\" height=\"125\" alt=\"SonghayCore uploaded to NuGet\" /></a></p>\n\n",
           "pubDate": "Thu, 25 Aug 2016 16:04:59 -0700",
           "dc:date.Taken": "2016-08-25T16:04:14-08:00",
           "author": {
-            "@flickr:profile": "http://www.flickr.com/people/wilhite/",
+            "@flickr:profile": "https://www.flickr.com/people/wilhite/",
             "#text": "nobody@flickr.com (rasx)"
           },
           "guid": {
@@ -778,14 +778,14 @@
             "#text": "tag:flickr.com,2004:/photo/29153326301/in/set-72157625087343217"
           },
           "media:content": {
-            "@url": "http://farm9.staticflickr.com/8076/29153326301_0c4c6b7fde_b.jpg",
+            "@url": "https://live.staticflickr.com/8076/29153326301_0c4c6b7fde_b.jpg",
             "@type": "image/jpeg",
             "@height": "533",
             "@width": "1024"
           },
           "media:title": "SonghayCore uploaded to NuGet",
           "media:thumbnail": {
-            "@url": "http://farm9.staticflickr.com/8076/29153326301_0c4c6b7fde_s.jpg",
+            "@url": "https://live.staticflickr.com/8076/29153326301_0c4c6b7fde_s.jpg",
             "@height": "75",
             "@width": "75"
           },
@@ -798,7 +798,7 @@
             "#text": "songhaysystemcom songhaystudio songhaysystem nuget bryandwilhite"
           },
           "enclosure": {
-            "@url": "http://farm9.staticflickr.com/8076/29153326301_0c4c6b7fde_b.jpg",
+            "@url": "https://live.staticflickr.com/8076/29153326301_0c4c6b7fde_b.jpg",
             "@type": "image/jpeg"
           }
         }

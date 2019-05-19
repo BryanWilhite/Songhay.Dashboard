@@ -3,8 +3,8 @@ using Songhay.Dashboard.Activities;
 using Songhay.Diagnostics;
 using Songhay.Extensions;
 using Songhay.Models;
-using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 
 namespace Songhay.Dashboard.Shell.Tests
@@ -14,9 +14,9 @@ namespace Songhay.Dashboard.Shell.Tests
     {
         public TestContext TestContext { get; set; }
 
-        [Ignore("The build server should ignore this test because it should run locally.")]
+        //[Ignore("The build server should ignore this test because it should run locally.")]
         [TestMethod]
-        [TestProperty("serverAssemblyFile", @"bin\Release\netcoreapp2.0\Songhay.Dashboard.dll")]
+        [TestProperty("serverAssemblyFile", @"bin\Release\netcoreapp2.2\Songhay.Dashboard.dll")]
         public void ShouldRunAppDataActivity()
         {
             var shellDirectoryInfo = this.TestContext.ShouldGetSiblingDirectoryInfoByName(this.GetType(), typeof(Program).Namespace);
@@ -34,7 +34,8 @@ namespace Songhay.Dashboard.Shell.Tests
             var configuration = Program.LoadConfiguration(shellDirectoryInfo.FullName);
             TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
 
-            using (var listener = new TextWriterTraceListener(Console.Out))
+            using (var writer = new StringWriter())
+            using (var listener = new TextWriterTraceListener(writer))
             {
                 Program.InitializeTraceSource(listener);
 
@@ -56,6 +57,8 @@ namespace Songhay.Dashboard.Shell.Tests
                 activity.Start(new DashboardActivitiesArgs(args));
 
                 listener.Flush();
+
+                this.TestContext.WriteLine(writer.ToString());
             }
         }
     }
