@@ -21,14 +21,12 @@ namespace Songhay.Dashboard.Shell
             return getter;
         }
 
-        internal static void InitializeTraceSource(TraceListener listener)
+        internal static void InitializeTraceSource(TraceListener listener, IConfigurationRoot configuration)
         {
             var traceSource = TraceSources
                 .Instance
-                .GetTraceSourceFromConfiguredName()
-                .WithAllSourceLevels()
-                .EnsureTraceSource();
-            traceSource.Listeners.Add(listener);
+                .GetConfiguredTraceSource(configuration);
+            traceSource?.Listeners.Add(listener);
         }
 
         internal static IConfigurationRoot LoadConfiguration(string basePath)
@@ -86,7 +84,7 @@ EXCEPTION:
             var listener = new TextWriterTraceListener(Console.Out);
             try
             {
-                InitializeTraceSource(listener);
+                InitializeTraceSource(listener, configuration);
 
                 var getter = GetActivitiesGetter(args);
                 var activity = getter.GetActivity();

@@ -1,65 +1,60 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Songhay.Dashboard.Activities;
-using Songhay.Diagnostics;
 using Songhay.Extensions;
 using Songhay.Models;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Songhay.Dashboard.Shell.Tests
 {
-    [TestClass]
     public class ProgramTest
     {
-        public TestContext TestContext { get; set; }
+        public ProgramTest(ITestOutputHelper helper)
+        {
+            this._testOutputHelper = helper;
 
-        //[Ignore("The build server should ignore this test because it should run locally.")]
-        [TestMethod]
-        [TestProperty("serverAssemblyFile", @"bin\Release\netcoreapp2.2\Songhay.Dashboard.dll")]
+            this._basePath = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, @"..\..\");
+        }
+
+        [Fact]
         public void ShouldRunAppDataActivity()
         {
-            var shellDirectoryInfo = this.TestContext.ShouldGetSiblingDirectoryInfoByName(this.GetType(), typeof(Program).Namespace);
-            var webDirectoryInfo = this.TestContext.ShouldGetConventionalProjectDirectoryInfo(this.GetType());
-            var projectDirectoryInfo = this.TestContext.ShouldGetProjectDirectoryInfo(this.GetType());
+            var projectDirectoryInfo = new DirectoryInfo(this._basePath);
 
-            #region test properties:
-
-            var serverAssemblyFile = this.TestContext.Properties["serverAssemblyFile"].ToString();
-            serverAssemblyFile = webDirectoryInfo.FullName.ToCombinedPath(serverAssemblyFile);
-            this.TestContext.ShouldFindFile(serverAssemblyFile);
-
-            #endregion
+            var shellDirectoryInfo = projectDirectoryInfo.Parent.GetDirectories("*.Shell").Single();
 
             var configuration = Program.LoadConfiguration(shellDirectoryInfo.FullName);
-            TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
 
             using (var writer = new StringWriter())
             using (var listener = new TextWriterTraceListener(writer))
             {
-                Program.InitializeTraceSource(listener);
+                Program.InitializeTraceSource(listener, configuration);
 
                 var metaSection = configuration.GetSection("meta")?.GetChildren();
-                Assert.IsTrue(metaSection.Any(), "The expected section is not here.");
+                Assert.True(metaSection.Any(), "The expected section is not here.");
 
                 var args = new[]
                 {
                     nameof(AppDataActivity),
-                    ProgramArgs.BasePath, projectDirectoryInfo.FullName,
-                    DashboardActivitiesArgs.ServerAssemblyFile, serverAssemblyFile
+                    ProgramArgs.BasePath, projectDirectoryInfo.FullName
                 };
                 var activitiesGetter = Program.GetActivitiesGetter(args);
                 var activity = activitiesGetter
                     .GetActivity()
                     .WithConfiguration(configuration) as AppDataActivity;
-                Assert.IsNotNull(activity, "The expected Activity is not here.");
+                Assert.NotNull(activity);
 
-                activity.Start(new DashboardActivitiesArgs(args));
+                activity.Start(new ProgramArgs(args));
 
                 listener.Flush();
 
-                this.TestContext.WriteLine(writer.ToString());
+                this._testOutputHelper.WriteLine(writer.ToString());
             }
         }
+
+        readonly string _basePath;
+        readonly ITestOutputHelper _testOutputHelper;
     }
 }

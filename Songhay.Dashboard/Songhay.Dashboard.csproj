@@ -9,12 +9,14 @@
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
+
     <Authors>Bryan D. Wilhite</Authors>
     <Company>Songhay System</Company>
     <RepositoryUrl>https://github.com/BryanWilhite/Songhay.Dashboard</RepositoryUrl>
     <Description>Songhay System company dashboard.</Description>
     <Version>2.2.0</Version>
-    <Copyright>© Bryan D. Wilhite 2018</Copyright>
+    <Copyright>© Bryan D. Wilhite 2019</Copyright>
+
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Client\src\assets\data\app.json" />

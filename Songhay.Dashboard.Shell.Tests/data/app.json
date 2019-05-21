@@ -1,12 +1,12 @@
 {
   "serverMeta": {
     "assemblyInfo": {
-      "assemblyTitle": "Songhay.Dashboard",
-      "assemblyVersion": "2.0.0.0",
-      "assemblyVersionDetail": "2.00",
-      "assemblyDescription": "Songhay System company dashboard.",
-      "assemblyProduct": "Songhay.Dashboard",
-      "assemblyCopyright": "© Bryan D. Wilhite 2018",
+      "assemblyTitle": "Songhay.Dashboard.Activities",
+      "assemblyVersion": "2.2.0.0",
+      "assemblyVersionDetail": "2.02",
+      "assemblyDescription": "Songhay System company dashboard activities.",
+      "assemblyProduct": "Songhay.Dashboard.Activities",
+      "assemblyCopyright": "© Bryan D. Wilhite 2019",
       "assemblyCompany": "Songhay System"
     }
   },

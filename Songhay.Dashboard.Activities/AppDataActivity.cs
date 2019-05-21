@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Songhay.Dashboard.Activities
@@ -21,9 +20,8 @@ namespace Songhay.Dashboard.Activities
     {
         static AppDataActivity() => traceSource = TraceSources
             .Instance
-            .GetTraceSourceFromConfiguredName()
-            .WithAllSourceLevels()
-            .EnsureTraceSource();
+            .GetConfiguredTraceSource()
+            .WithSourceLevels();
 
         public void AddConfiguration(IConfigurationRoot configuration)
         {
@@ -35,22 +33,22 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
 
         public void Start(ProgramArgs args)
         {
-            if (!args.HasArg(DashboardActivitiesArgs.ServerAssemblyFile, requiresValue: true)) return;
+            var basePath = args.HasArg(ProgramArgs.BasePath, requiresValue: false) ? args.GetBasePathValue() : Directory.GetCurrentDirectory();
 
-            this.SetMetadata(args);
-            this.SetDataRoot(args);
+            this.SetMetadata();
+            this.SetDataRoot(basePath);
 
             var container = this.GetContainerReference();
             var appJson = this.DownloadAppFile(container);
             var jO = JObject.Parse(appJson);
 
-            var serverAssemblyFile = this.GetServerAssemblyFile(args);
-            this.WriteServerMeta(jO, serverAssemblyFile);
+            this.WriteServerMeta(jO);
 
             this.DownloadFeedFiles(container);
             this.WriteFeedFiles(jO);
 
             this.WriteAppFile(jO);
+
             this.UploadAppFile(container);
         }
 
@@ -60,7 +58,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
         {
             var appFile = this.GetAppFile();
 
-            traceSource.TraceVerbose($"downloading to {appFile}...");
+            traceSource?.TraceVerbose($"downloading to {appFile}...");
 
             var @ref = container.GetBlobReference(blobName: this._appFileName);
             @ref.DownloadToFileAsync(appFile, FileMode.Create).Wait();
@@ -75,7 +73,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             var tasks = this._jsonFiles.Select(i =>
             {
                 var jsonFile = this._dataRoot.ToCombinedPath($"{i}.json");
-                traceSource.TraceInformation($"downloading {jsonFile}.json...");
+                traceSource?.TraceInformation($"downloading {jsonFile}.json...");
 
                 var @ref = container.GetBlobReference(blobName: $"{i}.json");
                 return @ref.DownloadToFileAsync(jsonFile, FileMode.Create);
@@ -86,17 +84,15 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
 
         internal string GetAppFile() => this._dataRoot.ToCombinedPath(this._appFileName);
 
-        internal void SetDataRoot(ProgramArgs args)
+        internal void SetDataRoot(string basePath)
         {
-            var basePath = args.HasArg(ProgramArgs.BasePath, requiresValue: false) ? args.GetBasePathValue() : Directory.GetCurrentDirectory();
-
             this._dataRoot = basePath.ToCombinedPath(this._metaSet.TryGetValueWithKey("dataRoot", throwException: true));
 
             if (this._dataRoot.StartsWith("./")) basePath.ToCombinedPath(this._dataRoot);
             this._dataRoot = Path.GetFullPath(this._dataRoot);
             if (!Directory.Exists(this._dataRoot)) Directory.CreateDirectory(this._dataRoot);
 
-            traceSource.TraceVerbose($"verifying {this._dataRoot}...");
+            traceSource?.TraceVerbose($"verifying {this._dataRoot}...");
             if (!Directory.Exists(this._dataRoot)) throw new DirectoryNotFoundException("The expected data root is not here.");
         }
 
@@ -111,17 +107,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             return container;
         }
 
-        internal string GetServerAssemblyFile(ProgramArgs args)
-        {
-            var serverAssemblyFile = args.GetArgValue(DashboardActivitiesArgs.ServerAssemblyFile);
-            traceSource.TraceVerbose($"Looking for {serverAssemblyFile}...");
-
-            if (!File.Exists(serverAssemblyFile)) throw new FileNotFoundException("The expected server assembly file is not here.");
-
-            return serverAssemblyFile;
-        }
-
-        internal void SetMetadata(ProgramArgs args)
+        internal void SetMetadata()
         {
             var metaSection = this.Configuration.GetSection("meta")?.GetChildren();
             this._metaSet = metaSection.ToDictionary(i => i.Key, i => i.Value);
@@ -135,7 +121,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
 
             if (!File.Exists(appFile)) throw new FileNotFoundException("The expected app file is not here.");
 
-            container.UploadBlob(appFile, string.Empty).Wait();
+            container.UploadBlobAsync(appFile, string.Empty).Wait();
         }
 
         internal void WriteAppFile(JObject appJO)
@@ -151,7 +137,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
 
             this._jsonFiles.ForEachInEnumerable(i =>
             {
-                traceSource.TraceInformation($"writing {feedsRoot}/{i}...");
+                traceSource?.TraceInformation($"writing {feedsRoot}/{i}...");
                 var jsonFile = this._dataRoot.ToCombinedPath($"{i}.json");
                 if (!File.Exists(jsonFile)) throw new FileNotFoundException("The expected feeds file is not here.");
                 var jO_feed = JObject.Parse(File.ReadAllText(jsonFile));
@@ -159,19 +145,19 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             });
         }
 
-        internal void WriteServerMeta(JObject appJO, string serverAssemblyFile)
+        internal void WriteServerMeta(JObject appJO)
         {
             var serverMetaRoot = this._metaSet.TryGetValueWithKey("serverMetaRoot", throwException: true);
 
-            traceSource.TraceInformation($"writing server {serverMetaRoot}...");
+            traceSource?.TraceInformation($"writing server {serverMetaRoot}...");
 
             var settings = new JsonSerializerSettings
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
                 Formatting = Formatting.Indented
             };
-            var serverAssembly = Assembly.LoadFile(serverAssemblyFile);
-            var assemblyInfo = new FrameworkAssemblyInfo(serverAssembly);
+
+            var assemblyInfo = new FrameworkAssemblyInfo(this.GetType().Assembly);
 
             var jO = JObject.FromObject(assemblyInfo, JsonSerializer.Create(settings));
             jO = new JObject { { nameof(assemblyInfo), jO } };

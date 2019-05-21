@@ -2,11 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+
+    <Authors>Bryan D. Wilhite</Authors>
+    <Company>Songhay System</Company>
+    <RepositoryUrl>https://github.com/BryanWilhite/Songhay.Dashboard</RepositoryUrl>
+    <Description>Songhay System company dashboard activities.</Description>
+    <Version>2.2.0</Version>
+    <Copyright>© Bryan D. Wilhite 2019</Copyright>
+
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Songhay.Cloud.BlobStorage" Version="2.4.1" />
-    <PackageReference Include="SonghayCore" Version="2.8.8" />
+    <PackageReference Include="Songhay.Cloud.BlobStorage" Version="3.0.0" />
+    <PackageReference Include="SonghayCore" Version="3.2.0" />
   </ItemGroup>
 
 </Project>

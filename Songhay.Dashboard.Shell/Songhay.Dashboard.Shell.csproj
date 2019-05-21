@@ -1,9 +1,32 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <DefineConstants>TRACE</DefineConstants>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="app-settings.songhay-system.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="app-settings.songhay-system.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.2.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.2.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="2.2.0" />
+    <PackageReference Include="Songhay.Cloud.BlobStorage" Version="3.0.0" />
+    <PackageReference Include="SonghayCore" Version="3.2.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Songhay.Dashboard.Activities\Songhay.Dashboard.Activities.csproj" />
