@@ -1,9 +1,5 @@
-trap 
-{ 
-    Write-Output $_ 
-    exit 1 
-}
-
 Set-Location $PSScriptRoot
 
-& dotnet Songhay.Dashboard.Shell.dll 'AppDataActivity'
+$p = Start-Process dotnet -ArgumentList "Songhay.Dashboard.Shell.dll AppDataActivity" -NoNewWindow -PassThru -Wait
+
+exit $p.ExitCode
