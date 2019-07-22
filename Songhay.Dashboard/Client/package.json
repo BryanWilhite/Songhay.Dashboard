@@ -32,7 +32,7 @@
     "@angular/router": "^7.2.15",
     "@material/dialog": "^1.1.1",
     "@material/typography": "^1.0.0",
-    "@songhay/core": "0.0.1",
+    "@songhay/core": "0.0.2",
     "@songhay/player-video-you-tube": "0.0.3",
     "aspnet-prerendering": "^3.0.1",
     "core-js": "^2.6.9",
