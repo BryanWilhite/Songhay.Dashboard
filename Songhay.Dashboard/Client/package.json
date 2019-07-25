@@ -12,6 +12,7 @@
     "prebuild:prod": "npm run index:sass && npm run index:concat && npm run index:cleancss",
     "build:prod": "ng build --prod",
     "test": "ng test",
+    "test:chrome": "ng test --browsers Chrome",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
