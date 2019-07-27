@@ -15,7 +15,7 @@ namespace Songhay.Dashboard.Shell.Tests
         {
             this._testOutputHelper = helper;
 
-            this._basePath = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, @"..\..\");
+            this._basePath = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, @"..\..\..\");
         }
 
         [Fact]

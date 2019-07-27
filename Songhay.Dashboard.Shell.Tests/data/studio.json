@@ -2,12 +2,45 @@
   "rss": {
     "@version": "2.0",
     "channel": {
-      "pubDate": "Sun, 21 Apr 2019 03:10:30 GMT",
+      "pubDate": "Mon, 22 Jul 2019 18:56:15 GMT",
       "title": ">DayPath_",
       "description": "The technical journey of @BryanWilhite.",
       "copyright": "Bryan Wilhite, Songhay System 2019",
       "link": "http://songhayblog.azurewebsites.net/",
       "item": [
+        {
+          "title": "studio status report: 2019-07",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/studio-status-report-2019-07",
+          "description": "month-6 was about switching to Hyper-V, being 134% behind and 11tyMy studio notes on setting up Ubuntu on Hyper-V boil down to this:Install OS (minimal install) from *.ISO on Generation 2 VM without RemoteFX 3D Video Adapter (with Checkpoints Disabled)Co...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "studio-status-report-2019-07"
+          },
+          "pubDate": "Mon, 22 Jul 2019 18:54:32 GMT"
+        },
+        {
+          "title": "flippant remarks about DGML and Visual Studio code visualization",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/flippant-remarks-about-dgml-and-visual-studio-code-visualization",
+          "description": "In 2008, Cameron Skinner of Microsoft wrote, “Introduction to Directed Graph Markup Language (DGML).” In the comments of this post, Chris Lovett is mentioned as an architect working on DGML and Sadi Khan as a Program Manager. Lovett developed DgmlPowerTo...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "flippant-remarks-about-dgml-and-visual-studio-code-visualization"
+          },
+          "pubDate": "Mon, 22 Jul 2019 18:51:53 GMT"
+        },
+        {
+          "title": "studio status report: 2019-06",
+          "link": "http://songhayblog.azurewebsites.net/blog/entry/studio-status-report-2019-06",
+          "description": "I missed last month 😒🤷‍️😁month-4 was all about upgrading SonghayCore 🐰🕳I have started using GitHub projects to batch issues together to mark a NuGet release. My first project, version 3.1.3 release, records the miserable but compelling details aroun...",
+          "author": "rasx@songhaysystem.com",
+          "guid": {
+            "@isPermaLink": "false",
+            "#text": "studio-status-report-2019-06"
+          },
+          "pubDate": "Thu, 06 Jun 2019 18:35:09 GMT"
+        },
         {
           "title": "studio status report: 2019-04",
           "link": "http://songhayblog.azurewebsites.net/blog/entry/studio-status-report-2019-04",
@@ -84,39 +117,6 @@
             "#text": "internet-explorer-critical-security-flaw-and-other-tweeted-links"
           },
           "pubDate": "Sat, 26 Jan 2019 01:47:50 GMT"
-        },
-        {
-          "title": "“You asked, we answered. MSFT open sources WPF, Windows Forms and Windows UI XAML Library” and other tweeted links…",
-          "link": "http://songhayblog.azurewebsites.net/blog/entry/you-asked-we-answered-msft-open-sources-wpf-windows-forms-and-windows-ui-xaml-library-and-other-tweeted-links",
-          "description": "You asked, we answered. MSFT open sources WPF, Windows Forms and Windows UI XAML Library [blogs.windows.com] Microsoft ❤️ OpenSource - the UI toolkits, Windows.Forms and WPF are now open source: [blogs.msdn.microsoft.com] Some big news for developers at ...",
-          "author": "rasx@songhaysystem.com",
-          "guid": {
-            "@isPermaLink": "false",
-            "#text": "you-asked-we-answered-msft-open-sources-wpf-windows-forms-and-windows-ui-xaml-library-and-other-tweeted-links"
-          },
-          "pubDate": "Mon, 21 Jan 2019 20:36:32 GMT"
-        },
-        {
-          "title": "“I just published ‘Implementing Search in GraphQL’\"” and other tweeted links…",
-          "link": "http://songhayblog.azurewebsites.net/blog/entry/i-just-published-implementing-search-in-graphql-and-other-tweeted-links",
-          "description": "I just published \"Implementing Search in GraphQL\" showing how to implement text-based searches that are both case-insensitive &amp; full field!\r\n\r\n            This is a 2 part series, the next will be advanced search using Elasticsearch for things like g...",
-          "author": "rasx@songhaysystem.com",
-          "guid": {
-            "@isPermaLink": "false",
-            "#text": "i-just-published-implementing-search-in-graphql-and-other-tweeted-links"
-          },
-          "pubDate": "Thu, 17 Jan 2019 04:26:24 GMT"
-        },
-        {
-          "title": "“Dynamic Nested Reactive Forms In Angular” and other tweeted links…",
-          "link": "http://songhayblog.azurewebsites.net/blog/entry/dynamic-nested-reactive-forms-in-angular-and-other-tweeted-links",
-          "description": "Dynamic Nested Reactive Forms In Angular – Josh Hicks – Medium [medium.com] How to Create Custom Angular Pipes and Dynamic Locales: [medium.com] Adjustable sidebar using Angular - @nicuvlad89[medium.com]#JavaScript#Typescript#Angular#WebDevelopment Under...",
-          "author": "rasx@songhaysystem.com",
-          "guid": {
-            "@isPermaLink": "false",
-            "#text": "dynamic-nested-reactive-forms-in-angular-and-other-tweeted-links"
-          },
-          "pubDate": "Wed, 16 Jan 2019 05:20:45 GMT"
         }
       ]
     }

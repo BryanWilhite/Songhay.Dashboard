@@ -20,10 +20,53 @@
       }
     ],
     "subtitle": "most recent 30 from stackoverflow.com",
-    "updated": "2019-05-19T16:11:28Z",
+    "updated": "2019-07-27T01:25:42Z",
     "id": "https://stackoverflow.com/feeds/user/22944",
     "creativeCommons:license": "http://www.creativecommons.org/licenses/by-sa/3.0/rdf",
     "entry": [
+      {
+        "id": "https://stackoverflow.com/q/2039887",
+        "re:rank": {
+          "@scheme": "https://stackoverflow.com",
+          "#text": "0"
+        },
+        "title": {
+          "@type": "text",
+          "#text": "WPF Tiled Background Misalignment"
+        },
+        "category": [
+          {
+            "@scheme": "https://stackoverflow.com/tags",
+            "@term": "wpf"
+          },
+          {
+            "@scheme": "https://stackoverflow.com/tags",
+            "@term": "xaml"
+          },
+          {
+            "@scheme": "https://stackoverflow.com/tags",
+            "@term": "background"
+          },
+          {
+            "@scheme": "https://stackoverflow.com/tags",
+            "@term": "expression-blend"
+          }
+        ],
+        "author": {
+          "name": "rasx",
+          "uri": "https://stackoverflow.com/users/22944"
+        },
+        "link": {
+          "@rel": "alternate",
+          "@href": "https://stackoverflow.com/questions/2039887/wpf-tiled-background-misalignment"
+        },
+        "published": "2010-01-11T04:17:57Z",
+        "updated": "2019-05-31T16:08:32Z",
+        "summary": {
+          "@type": "html",
+          "#text": "\r\n            \r\n\r\n            <p>We have quite a complex WPF application (that I cannot show here) that somehow has the tiled background misaligned of one of its user controls. I was unable to reproduce this problem in a \"clean\" WPF project but will try to illustrate the problem in this picture:</p>\n\n<p><a href=\"https://i.stack.imgur.com/OvppF.jpg\" rel=\"nofollow noreferrer\"><img src=\"https://i.stack.imgur.com/OvppF.jpg\" alt=\"WPF Background Tile Misalignment\"></a><br>\n<sub>(source: <a href=\"http://kintespace.com/bitmaps/blog_wpf_tile_misalignment.jpg\" rel=\"nofollow noreferrer\">kintespace.com</a>)</sub>  </p>\n\n<p>The gray area represents the user control and the black and red checks represents the tiled background <em>inside</em> the user control. The white background represents the window hosting the control. The <code>VisualBrush</code> is used here but the same problem comes with the <code>DrawingBrush</code>. I would prefer <em>not</em> to use the <code>ImageBrush</code>.</p>\n\n<p>Can you open a \"clean\" WPF project and build something that will cause a tiled background to be misaligned like this?</p>\n\r\n        "
+        }
+      },
       {
         "id": "https://stackoverflow.com/q/56158421",
         "re:rank": {
@@ -1041,31 +1084,6 @@
         "summary": {
           "@type": "html",
           "#text": "\r\n            \r\n\r\n            <p>This <a href=\"https://stackoverflow.com/a/14287314/22944\">answer from 2012</a> gave me this solution to reading raw XML from a POST:</p>\n\n<pre><code>[HttpPost]\n[Route(\"raw\")]\npublic HttpResponseMessage ReadRaw(HttpRequestMessage rawRequest)\n{\n    var requestDocument = XDocument.Parse(rawRequest.Content.ReadAsStringAsync().Result);\n    var request = MyDBContext.GetStuffStaticMethod(requestDocument);\n    var responseDocument = request.GetResponseDocument(this._context);\n    var xml = responseDocument.ToString();\n    return new HttpResponseMessage\n    {\n        Content = new StringContent(xml, Encoding.UTF8, \"application/xml\")\n    };\n}\n</code></pre>\n\n<p>Is this still the way to go in the current time frame?</p>\n\n<p>BTW: this was the request from my OWIN-based integration test:</p>\n\n<pre><code>using (WebApp.Start&lt;Startup&gt;(url: baseUri))\n{\n    var client = new HttpClient();\n    HttpResponseMessage response = null;\n\n    Func&lt;string, string&gt; callOwin = i =&gt;\n    {\n        var requestUri = baseUri + i;\n        this.TestContext.WriteLine(\"requestUri: {0}\", requestUri);\n        response = client.PostAsync(requestUri,\n            new StringContent(requestDoc.ToString(SaveOptions.DisableFormatting), Encoding.UTF8, \"text/xml\")).Result;\n        this.TestContext.WriteLine(\"response: {0}\", response.ToString());\n        return response.Content.ReadAsStringAsync().Result;\n    };\n\n    var xml = callOwin(path);\n    Assert.IsNotNull(response, \"The expected response is not here.\");\n    Assert.AreEqual(HttpStatusCode.OK, response.StatusCode, \"The expected response status code is not here.\");\n\n    Assert.IsFalse(string.IsNullOrEmpty(xml), \"A response is expected.\");\n    this.TestContext.WriteLine(\"xml: {0}\", xml);\n}\n</code></pre>\n\r\n        "
-        }
-      },
-      {
-        "id": "https://stackoverflow.com/questions/34010328/-/34028520#34028520",
-        "re:rank": {
-          "@scheme": "https://stackoverflow.com",
-          "#text": "0"
-        },
-        "title": {
-          "@type": "text",
-          "#text": "Answer by rasx for Is this still the right way to read raw XML with ApiController?"
-        },
-        "author": {
-          "name": "rasx",
-          "uri": "https://stackoverflow.com/users/22944"
-        },
-        "link": {
-          "@rel": "alternate",
-          "@href": "https://stackoverflow.com/questions/34010328/is-this-still-the-right-way-to-read-raw-xml-with-apicontroller/34028520#34028520"
-        },
-        "published": "2015-12-01T19:29:50Z",
-        "updated": "2015-12-01T20:28:27Z",
-        "summary": {
-          "@type": "html",
-          "#text": "<p>Consider <a href=\"http://bizcoder.com/posting-raw-json-to-web-api\" rel=\"nofollow\">this article from Microsoft evangelist Darrel Miller</a>. He shows us that a combination of <code>[FromBody]</code> and <code>XElement</code> is the way to go:</p>\n\n<pre><code>[HttpPost]\n[Route(\"raw\")]\npublic IHttpActionResult ReadRaw([FromBody]XElement rootElement)\n{\n    var requestDocument = new XDocument(rootElement);\n    var request = MyDBContext.GetStuffStaticMethod(requestDocument);\n    var responseDocument = request.GetResponseDocument(this._context);\n    return this.Ok&lt;XElement&gt;(responseDocument.Root);\n}\n</code></pre>\n"
         }
       },
       {
