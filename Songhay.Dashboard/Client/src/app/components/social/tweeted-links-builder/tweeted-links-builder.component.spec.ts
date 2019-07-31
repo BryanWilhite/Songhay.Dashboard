@@ -4,6 +4,8 @@ import { DataServiceMock } from '../../../mocks/data-service.mock';
 
 import { SocialDataService } from '../../../services/social-data.service';
 
+import { MaterialModule } from '../../../material.module';
+
 import { TweetedLinksBuilderComponent } from './tweeted-links-builder.component';
 
 describe(TweetedLinksBuilderComponent.name, () => {
@@ -12,6 +14,7 @@ describe(TweetedLinksBuilderComponent.name, () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
+            imports: [MaterialModule],
             declarations: [TweetedLinksBuilderComponent],
             providers: [{ provide: SocialDataService, useClass: DataServiceMock }],
             schemas: [NO_ERRORS_SCHEMA]
