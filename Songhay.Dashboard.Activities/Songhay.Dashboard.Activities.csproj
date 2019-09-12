@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -13,8 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Songhay.Cloud.BlobStorage" Version="3.0.4" />
-    <PackageReference Include="SonghayCore" Version="3.2.5" />
+    <PackageReference Include="Songhay.Cloud.BlobStorage" Version="3.0.5" />
+    <PackageReference Include="SonghayCore" Version="3.2.6" />
   </ItemGroup>
 
 </Project>
