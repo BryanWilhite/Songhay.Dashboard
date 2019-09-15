@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.0.0",
   "scripts": {
-    "index:cleancss": "cleancss -o ./src/assets/css/index.min.css ./src/assets/css/index-bundle.css",
+    "index:cleancss": "npx cleancss -o ./src/assets/css/index.min.css ./src/assets/css/index-bundle.css",
     "index:concat": "concat -o ./src/assets/css/index-bundle.css ./node_modules/@material/dialog/dist/mdc.dialog.css ./node_modules/@material/typography/dist/mdc.typography.css ./src/assets/css/index.css",
     "index:sass": "sass ./src/assets/scss/index.scss ./src/assets/css/index.css",
     "ng": "ng",
@@ -54,6 +54,7 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "clean-css-cli": "^4.3.0",
     "codelyzer": "~4.5.0",
     "concat": "^1.0.3",
     "jasmine-core": "~2.99.1",
