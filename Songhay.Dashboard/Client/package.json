@@ -41,7 +41,7 @@
     "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~6.3.3",
-    "songhay": "^0.1.14",
+    "songhay": "^0.1.15",
     "tslib": "^1.10.0",
     "web-animations-js": "^2.3.2",
     "zone.js": "~0.8.26"
