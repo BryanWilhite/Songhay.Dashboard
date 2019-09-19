@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AppDataStore, AppDataStoreOptions } from '@songhay/core';
 
 import { SyndicationFeed } from 'songhay/core/models/syndication-feed';
+import { SyndicationFeedItem } from 'songhay/core/models/syndication-feed-item';
 
 import { AppScalars } from '../models/songhay-app-scalars';
 import { HttpClient } from '@angular/common/http';
@@ -13,6 +14,20 @@ export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed
 
     static getFeed(key: string, rawFeed: any): SyndicationFeed {
         const feed = new SyndicationFeed();
+
+        const getFlickrFeedImage = (item: {}) => {
+            const o = item as { enclosure: {} };
+            if (!o) { return null; }
+            return o.enclosure['@url'] as string;
+        };
+
+        const mapCustomItem = (item: { title: {}, link: {} }) => {
+            return {
+                title: item.title['#text'],
+                link: item.link['@href']
+            } as SyndicationFeedItem;
+        };
+
         let channelItems: {}[];
 
         switch (key) {
@@ -21,9 +36,7 @@ export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed
             case AppScalars.feedNameStudio:
                 feed.feedTitle = SyndicationFeed.getRssChannelTitle(rawFeed);
                 channelItems = SyndicationFeed.getRssChannelItems(rawFeed);
-                feed.feedItems = channelItems.map(item => {
-                    return { title: item['title'], link: item['link'] };
-                });
+                feed.feedItems = channelItems.map(item => item as SyndicationFeedItem);
                 break;
 
             case AppScalars.feedNameGitHub:
@@ -45,26 +58,21 @@ export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed
                 break;
             case AppScalars.feedNameFlickr:
                 feed.feedTitle = feed.feedTitle.replace('Content from ', '');
-                feed.feedImage = channelItems[0]['enclosure']['@url'];
+                feed.feedImage = getFlickrFeedImage(channelItems[0]);
                 break;
             case AppScalars.feedNameGitHub:
-                feed.feedItems = channelItems.map(item => {
-                    return {
-                        title: (item['title']['#text'] as string).replace(
+                feed.feedItems = channelItems
+                    .map(mapCustomItem)
+                    .map(item => ({
+                        title: item.title.replace(
                             'BryanWilhite ',
                             ''
                         ),
-                        link: item['link']['@href']
-                    };
-                });
+                        link: item.link
+                    }));
                 break;
             case AppScalars.feedNameStackOverflow:
-                feed.feedItems = channelItems.map(item => {
-                    return {
-                        title: item['title']['#text'],
-                        link: item['link']['@href']
-                    };
-                });
+                feed.feedItems = channelItems.map(mapCustomItem);
                 break;
         }
 
