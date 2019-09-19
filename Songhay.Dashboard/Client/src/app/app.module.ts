@@ -12,8 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { RoutingModule } from './routing.module';
 
-import { AmazonDataService } from './services/amazon-data.service';
 import { DashboardDataService } from './services/dashboard-data.service';
+import { AmazonDataStore } from './services/amazon-data.store';
 
 import { AppComponent } from './components/app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -54,7 +54,7 @@ import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-
         TweetedLinksBuilderComponent,
         StudioNavComponent
     ],
-    providers: [DashboardDataService, AmazonDataService],
+    providers: [DashboardDataService, AmazonDataStore],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

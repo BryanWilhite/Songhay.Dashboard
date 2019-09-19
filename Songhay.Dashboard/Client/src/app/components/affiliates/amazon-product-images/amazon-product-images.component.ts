@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { AmazonDataService } from '../../../services/amazon-data.service';
+import { AmazonDataStore } from 'src/app/services/amazon-data.store';
 import { AmazonProduct } from '../../../models/amazon-product';
 
 @Component({
@@ -14,7 +14,7 @@ export class AmazonProductImagesComponent implements OnInit {
     amazonProducts: AmazonProduct[];
 
     constructor(
-        public amazonDataService: AmazonDataService,
+        public amazonDataStore: AmazonDataStore,
         private builder: FormBuilder
     ) {}
 
@@ -23,7 +23,7 @@ export class AmazonProductImagesComponent implements OnInit {
             asins: ['B004QRKWKQ,B0769XXGXX,B005LKB0IU', [Validators.required]]
         });
 
-        this.amazonDataService.productsLoaded.subscribe(data => {
+        this.amazonDataStore.serviceData.subscribe(data => {
             this.amazonProducts = data;
         });
     }
@@ -36,6 +36,6 @@ export class AmazonProductImagesComponent implements OnInit {
     }
 
     getProductImages(): void {
-        this.amazonDataService.loadProducts(this.asins.value as string);
+        this.amazonDataStore.loadProducts(this.asins.value as string);
     }
 }

@@ -11,9 +11,9 @@
     <div fxFlex>
         <button (click)="getProductImages()" [disabled]="amazonForm.invalid" mat-raised-button>Get Product Images</button>
     </div>
-    <mat-spinner *ngIf="amazonDataService.isLoading" color="accent"></mat-spinner>
+    <mat-spinner *ngIf="amazonDataStore.isLoading" color="accent"></mat-spinner>
 </form>
-<div class="affiliate amazon products" *ngIf="amazonDataService.isLoaded">
+<div class="affiliate amazon products" *ngIf="amazonDataStore.isLoaded">
     <div class="count">{{ amazonProducts.length }} products found</div>
     <div class="product" *ngFor="let product of amazonProducts">
         <a href="{{product.detailPageUri}}" target="_blank">{{product.title}}</a>

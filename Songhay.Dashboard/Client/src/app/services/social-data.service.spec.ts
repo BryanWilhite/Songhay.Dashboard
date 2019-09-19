@@ -52,11 +52,11 @@ describe(SocialDataService.name, () => {
                         'The expected OK response is not here.'
                     );
 
-                    console.log({
-                        service: SocialDataService.name,
-                        method: SocialDataService.loadTwitterItemsMethodName,
-                        output: response.json()
-                    });
+                    // console.log({
+                    //     service: SocialDataService.name,
+                    //     method: SocialDataService.loadTwitterItemsMethodName,
+                    //     output: response.json()
+                    // });
 
                     done();
                 })

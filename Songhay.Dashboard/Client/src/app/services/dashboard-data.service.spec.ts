@@ -73,11 +73,11 @@ describe(DashboardDataService.name, () => {
                         'The expected Assembly Info is not here.'
                     );
 
-                    console.log({
-                        serviceName: DashboardDataService.name,
-                        assemblyInfo: service.assemblyInfo,
-                        'service.feeds': service.feeds
-                    });
+                    // console.log({
+                    //     serviceName: DashboardDataService.name,
+                    //     assemblyInfo: service.assemblyInfo,
+                    //     'service.feeds': service.feeds
+                    // });
 
                     done();
                 })
