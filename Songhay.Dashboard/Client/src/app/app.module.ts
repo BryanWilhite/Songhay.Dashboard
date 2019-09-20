@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 // TODO: loading this module from the lib makes true lazy-loading impossible 😒
@@ -14,6 +13,7 @@ import { RoutingModule } from './routing.module';
 
 import { AmazonDataStore } from './services/amazon-data.store';
 import { DashboardDataStore } from './services/dashboard-data.store';
+import { SocialDataStore } from './services/social-data.store';
 
 import { AppComponent } from './components/app.component';
 import { AmazonProductImagesComponent } from './components/affiliates/amazon-product-images/amazon-product-images.component';
@@ -34,7 +34,6 @@ import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-
         BrowserAnimationsModule,
         FlexLayoutModule,
         HttpClientModule,
-        HttpModule,
         MaterialModule,
         ReactiveFormsModule,
         RoutingModule,
@@ -54,7 +53,11 @@ import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-
         TweetedLinksBuilderComponent,
         StudioNavComponent
     ],
-    providers: [DashboardDataStore, AmazonDataStore],
+    providers: [
+        AmazonDataStore,
+        DashboardDataStore,
+        SocialDataStore
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

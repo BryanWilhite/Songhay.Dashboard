@@ -6,8 +6,9 @@ import {
     transferArrayItem
 } from '@angular/cdk/drag-drop';
 
+import { SocialDataStore } from 'src/app/services/social-data.store';
+
 import { TwitterItem } from '../../../models/twitter-item';
-import { SocialDataService } from '../../../services/social-data.service';
 
 @Component({
     selector: 'app-tweeted-links-builder',
@@ -36,12 +37,12 @@ export class TweetedLinksBuilderComponent implements OnInit {
     }
 
     constructor(
-        public socialDataService: SocialDataService,
+        public socialDataStore: SocialDataStore,
         private sanitizer: DomSanitizer
     ) { }
 
     ngOnInit() {
-        this.socialDataService.twitterItemsLoaded.subscribe(
+        this.socialDataStore.serviceData.subscribe(
             (items: TwitterItem[]) =>
                 (this.twitterItemsIn = items.map((t, i) => {
                     t.ordinal = i;
@@ -98,7 +99,7 @@ export class TweetedLinksBuilderComponent implements OnInit {
         this.documentHtml = '';
         this.twitterItemsIn = [];
         this.twitterItemsOut = [];
-        this.socialDataService.loadTwitterItems();
+        this.socialDataStore.loadTwitterItems();
     }
 
     getUserUri(item: TwitterItem): string | null {

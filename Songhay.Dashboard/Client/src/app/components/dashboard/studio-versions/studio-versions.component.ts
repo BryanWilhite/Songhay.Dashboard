@@ -26,7 +26,7 @@ export class StudioVersionsComponent implements OnInit {
     constructor(public dashStore: DashboardDataStore) {
         this.clientFrameworkVersion = `${VERSION.major}.${VERSION.minor}.${
             VERSION.patch
-        }`;
+            }`;
     }
 
     /**
@@ -34,11 +34,13 @@ export class StudioVersionsComponent implements OnInit {
      */
     ngOnInit() {
         this.dashStore.serviceData.subscribe(() => {
+            if (!this.dashStore.assemblyInfo) { return; }
+
             this.serverAssemblyInfo = `${
                 this.dashStore.assemblyInfo.assemblyTitle
-            } ${this.dashStore.assemblyInfo.assemblyVersion} ${
+                } ${this.dashStore.assemblyInfo.assemblyVersion} ${
                 this.dashStore.assemblyInfo.assemblyCopyright
-            }`;
+                }`;
 
             this.serverAssemblyVersion = this.dashStore.assemblyInfo.assemblyVersion;
         });

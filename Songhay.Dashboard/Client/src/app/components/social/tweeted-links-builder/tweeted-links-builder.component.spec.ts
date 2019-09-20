@@ -1,13 +1,19 @@
+import { of } from 'rxjs';
+
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SocialDataService } from '../../../services/social-data.service';
-
 import { MaterialModule } from '../../../material.module';
+
+import { SocialDataStore } from 'src/app/services/social-data.store';
 
 import { TweetedLinksBuilderComponent } from './tweeted-links-builder.component';
 
 describe(TweetedLinksBuilderComponent.name, () => {
+    const socialDataStoreMock = {
+        serviceData: of([])
+    };
+
     let component: TweetedLinksBuilderComponent;
     let fixture: ComponentFixture<TweetedLinksBuilderComponent>;
 
@@ -15,7 +21,7 @@ describe(TweetedLinksBuilderComponent.name, () => {
         TestBed.configureTestingModule({
             imports: [MaterialModule],
             declarations: [TweetedLinksBuilderComponent],
-            providers: [{ provide: SocialDataService, useValue: null }],
+            providers: [{ provide: SocialDataStore, useValue: socialDataStoreMock }],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
     }));
