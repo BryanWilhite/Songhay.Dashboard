@@ -25,7 +25,7 @@ describe(AmazonDataStore.name, () => {
                 const asins = 'B004QRKWKQ,B0769XXGXX,B005LKB0IU';
 
                 service.serviceData.subscribe(data => {
-                    console.log('AmazonDataStore.load:', data);
+                    // console.log('AmazonDataStore.loadProducts:', data);
                     expect(service.isError).toEqual(
                         false,
                         'An error was not expected.'

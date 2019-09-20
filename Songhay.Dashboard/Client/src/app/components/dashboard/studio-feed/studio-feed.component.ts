@@ -42,6 +42,8 @@ export class StudioFeedComponent implements OnInit {
             (feeds: Map<string, SyndicationFeed>) => {
                 const feed = feeds.get(this.feedName);
 
+                if (!feed) { return; }
+
                 if (feed.feedImage) {
                     this.feed.feedImage = feed.feedImage;
                 }

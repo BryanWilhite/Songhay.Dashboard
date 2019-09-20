@@ -24,7 +24,7 @@ describe(DashboardDataStore.name, () => {
             (service: DashboardDataStore) => {
 
                 service.serviceData.subscribe(data => {
-                    console.log('DashboardDataStore.load:', data);
+                    // console.log('DashboardDataStore.loadAppData:', data);
                     expect(service.isError).toEqual(
                         false,
                         'An error was not expected.'
