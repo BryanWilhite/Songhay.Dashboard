@@ -1,6 +1,6 @@
 import { Component, OnInit, VERSION } from '@angular/core';
 
-import { DashboardDataService } from '../../../services/dashboard-data.service';
+import { DashboardDataStore } from 'src/app/services/dashboard-data.store';
 
 @Component({
     selector: 'app-studio-versions',
@@ -10,29 +10,20 @@ import { DashboardDataService } from '../../../services/dashboard-data.service';
 export class StudioVersionsComponent implements OnInit {
     /**
      * App version
-     *
-     * @type {string}
-     * @memberof AppComponent
      */
     clientFrameworkVersion: string;
 
     /**
      * server info
-     *
-     * @type {string}
-     * @memberof AppComponent
      */
     serverAssemblyInfo: string;
 
     /**
      * server version
-     *
-     * @type {string}
-     * @memberof AppComponent
      */
     serverAssemblyVersion: string;
 
-    constructor(public dashService: DashboardDataService) {
+    constructor(public dashStore: DashboardDataStore) {
         this.clientFrameworkVersion = `${VERSION.major}.${VERSION.minor}.${
             VERSION.patch
         }`;
@@ -40,18 +31,16 @@ export class StudioVersionsComponent implements OnInit {
 
     /**
      * implementing {OnInit}
-     *
-     * @memberof StudioFeedComponent
      */
     ngOnInit() {
-        this.dashService.appDataLoaded.subscribe(() => {
+        this.dashStore.serviceData.subscribe(() => {
             this.serverAssemblyInfo = `${
-                this.dashService.assemblyInfo.assemblyTitle
-            } ${this.dashService.assemblyInfo.assemblyVersion} ${
-                this.dashService.assemblyInfo.assemblyCopyright
+                this.dashStore.assemblyInfo.assemblyTitle
+            } ${this.dashStore.assemblyInfo.assemblyVersion} ${
+                this.dashStore.assemblyInfo.assemblyCopyright
             }`;
 
-            this.serverAssemblyVersion = this.dashService.assemblyInfo.assemblyVersion;
+            this.serverAssemblyVersion = this.dashStore.assemblyInfo.assemblyVersion;
         });
     }
 }

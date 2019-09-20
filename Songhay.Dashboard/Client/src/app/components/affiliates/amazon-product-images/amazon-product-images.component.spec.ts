@@ -2,13 +2,13 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { DataServiceMock } from '../../../mocks/data-service.mock';
+import { AmazonDataStore } from 'src/app/services/amazon-data.store';
 
 import { AmazonProductImagesComponent } from './amazon-product-images.component';
-import { AmazonDataService } from '../../../services/amazon-data.service';
 
 describe(AmazonProductImagesComponent.name, () => {
-    const formGroup = jasmine.createSpyObj(FormGroup.name, ['get']);
+    const amazonDataStoreSpy = jasmine.createSpyObj<AmazonDataStore>(AmazonDataStore.name, []);
+    const formGroupSpy = jasmine.createSpyObj<FormGroup>(FormGroup.name, ['get']);
 
     let component: AmazonProductImagesComponent;
     let fixture: ComponentFixture<AmazonProductImagesComponent>;
@@ -18,8 +18,8 @@ describe(AmazonProductImagesComponent.name, () => {
             declarations: [AmazonProductImagesComponent],
             providers: [
                 FormBuilder,
-                {provide: AmazonDataService, useClass: DataServiceMock },
-                { provide: FormGroup, useValue: formGroup }
+                { provide: AmazonDataStore, useValue: amazonDataStoreSpy },
+                { provide: FormGroup, useValue: formGroupSpy }
             ],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();

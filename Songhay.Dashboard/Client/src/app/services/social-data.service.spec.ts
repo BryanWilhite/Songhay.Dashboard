@@ -61,12 +61,12 @@ describe(SocialDataService.name, () => {
                     done();
                 })
                 .catch(responseOrVoid => {
-                    console.warn({
-                        catchResponse: true,
-                        service: SocialDataService.name,
-                        method: SocialDataService.loadTwitterItemsMethodName,
-                        responseOrVoid
-                    });
+                    // console.warn({
+                    //     catchResponse: true,
+                    //     service: SocialDataService.name,
+                    //     method: SocialDataService.loadTwitterItemsMethodName,
+                    //     responseOrVoid
+                    // });
 
                     const response = responseOrVoid as Response;
                     expect(response).toBeDefined(

@@ -1,12 +1,16 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { DataServiceMock } from '../../../mocks/data-service.mock';
 
-import { DashboardDataService } from '../../../services/dashboard-data.service';
+import { DashboardDataStore } from 'src/app/services/dashboard-data.store';
+
 import { StudioVersionsComponent } from './studio-versions.component';
 
 describe(StudioVersionsComponent.name, () => {
+    const dashboardDataStore = jasmine.createSpyObj<DashboardDataStore>(
+        DashboardDataStore.name,
+        ['loadAppData']
+    );
+
     let component: StudioVersionsComponent;
     let fixture: ComponentFixture<StudioVersionsComponent>;
 
@@ -14,7 +18,7 @@ describe(StudioVersionsComponent.name, () => {
         TestBed.configureTestingModule({
             declarations: [StudioVersionsComponent],
             providers: [
-                { provide: DashboardDataService, useClass: DataServiceMock }
+                { provide: DashboardDataStore, useValue: dashboardDataStore }
             ],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();

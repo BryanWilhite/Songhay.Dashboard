@@ -12,10 +12,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { RoutingModule } from './routing.module';
 
-import { DashboardDataService } from './services/dashboard-data.service';
 import { AmazonDataStore } from './services/amazon-data.store';
+import { DashboardDataStore } from './services/dashboard-data.store';
 
 import { AppComponent } from './components/app.component';
+import { AmazonProductImagesComponent } from './components/affiliates/amazon-product-images/amazon-product-images.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StudioComponent } from './components/dashboard/studio/studio.component';
 import { StudioFeedComponent } from './components/dashboard/studio-feed/studio-feed.component';
@@ -25,7 +26,6 @@ import { StudioNavComponent } from './components/dashboard/studio-nav/studio-nav
 import { StudioSocialComponent } from './components/dashboard/studio-social/studio-social.component';
 import { StudioToolsComponent } from './components/dashboard/studio-tools/studio-tools.component';
 import { StudioVersionsComponent } from './components/dashboard/studio-versions/studio-versions.component';
-import { AmazonProductImagesComponent } from './components/affiliates/amazon-product-images/amazon-product-images.component';
 import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-builder/tweeted-links-builder.component';
 
 @NgModule({
@@ -54,7 +54,7 @@ import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-
         TweetedLinksBuilderComponent,
         StudioNavComponent
     ],
-    providers: [DashboardDataService, AmazonDataStore],
+    providers: [DashboardDataStore, AmazonDataStore],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

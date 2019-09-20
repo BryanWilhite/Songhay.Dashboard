@@ -18,4 +18,22 @@ describe(DashboardDataStore.name, () => {
         }
     ));
 
+    it('should load app data from live server', async(
+        inject(
+            [DashboardDataStore],
+            (service: DashboardDataStore) => {
+
+                service.serviceData.subscribe(data => {
+                    console.log('DashboardDataStore.load:', data);
+                    expect(service.isError).toEqual(
+                        false,
+                        'An error was not expected.'
+                    );
+                    expect(data).toBeTruthy();
+                    expect(service.assemblyInfo).toBeTruthy();
+                });
+                service.loadAppData();
+            }
+        )
+    ));
 });

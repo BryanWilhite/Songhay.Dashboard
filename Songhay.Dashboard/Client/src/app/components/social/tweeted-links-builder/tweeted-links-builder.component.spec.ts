@@ -1,6 +1,5 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { DataServiceMock } from '../../../mocks/data-service.mock';
 
 import { SocialDataService } from '../../../services/social-data.service';
 
@@ -16,7 +15,7 @@ describe(TweetedLinksBuilderComponent.name, () => {
         TestBed.configureTestingModule({
             imports: [MaterialModule],
             declarations: [TweetedLinksBuilderComponent],
-            providers: [{ provide: SocialDataService, useClass: DataServiceMock }],
+            providers: [{ provide: SocialDataService, useValue: null }],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
     }));

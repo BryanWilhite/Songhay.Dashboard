@@ -3,14 +3,15 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { YouTubeDataServiceMock } from '@songhay/player-video-you-tube';
 
-import { DashboardDataService } from '../../services/dashboard-data.service';
+import { DashboardDataStore } from 'src/app/services/dashboard-data.store';
 import { YouTubeDataService } from '@songhay/player-video-you-tube';
+
 import { DashboardComponent } from './dashboard.component';
 
 describe(DashboardComponent.name, () => {
-    const dashboardDataService = jasmine.createSpyObj(
-        DashboardDataService.name,
-        [DashboardDataService.loadAppDataMethodName]
+    const dashboardDataStore = jasmine.createSpyObj<DashboardDataStore>(
+        DashboardDataStore.name,
+        ['loadAppData']
     );
     let component: DashboardComponent;
     let fixture: ComponentFixture<DashboardComponent>;
@@ -20,8 +21,8 @@ describe(DashboardComponent.name, () => {
             declarations: [DashboardComponent],
             providers: [
                 {
-                    provide: DashboardDataService,
-                    useValue: dashboardDataService
+                    provide: DashboardDataStore,
+                    useValue: dashboardDataStore
                 },
                 {
                     provide: YouTubeDataService,

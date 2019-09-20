@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
 
-import { AppDataStore, AppDataStoreOptions } from '@songhay/core';
+import { HttpClient } from '@angular/common/http';
 
+import { AssemblyInfo } from 'songhay/core/models/assembly-info';
 import { SyndicationFeed } from 'songhay/core/models/syndication-feed';
 import { SyndicationFeedItem } from 'songhay/core/models/syndication-feed-item';
+import { MapObjectUtility } from 'songhay/core/utilities/map-object.utility';
+
+import { AppDataStore, AppDataStoreOptions } from '@songhay/core';
 
 import { AppScalars } from '../models/songhay-app-scalars';
-import { HttpClient } from '@angular/common/http';
-import { MapObjectUtility } from 'songhay/core/utilities/map-object.utility';
 
 @Injectable()
 export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed>, any> {
+    /**
+     * Returns server assembly info.
+     */
+    assemblyInfo: AssemblyInfo;
 
     static getFeed(key: string, rawFeed: any): SyndicationFeed {
         const feed = new SyndicationFeed();
@@ -87,6 +93,9 @@ export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed
                 switch (method) {
                     default:
                     case 'get':
+                        const sm = data as { serverMeta: { assemblyInfo: AssemblyInfo } };
+                        this.assemblyInfo = sm.serverMeta.assemblyInfo;
+
                         return MapObjectUtility.getMap<SyndicationFeed>(
                             data,
                             (propertyName, propertyValue) =>
@@ -97,5 +106,9 @@ export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed
         };
 
         this.options = options;
+    }
+
+    loadAppData(): void {
+        this.load(AppScalars.appDataLocation);
     }
 }
