@@ -10,6 +10,7 @@ import { MapObjectUtility } from 'songhay/core/utilities/map-object.utility';
 import { AppDataStore, AppDataStoreOptions } from '@songhay/core';
 
 import { AppScalars } from '../models/songhay-app-scalars';
+import { throwError } from 'rxjs';
 
 @Injectable()
 export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed>, any> {
@@ -89,18 +90,22 @@ export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed
         super(client);
 
         const options: AppDataStoreOptions<Map<string, SyndicationFeed>, any> = {
-            domainConverter: (method, data) => {
+            domainConverter: (method, dataObject) => {
+                const data = dataObject as { feeds: {}, serverMeta: { assemblyInfo: AssemblyInfo } };
+                if (!data) { throw new Error(`The expected data object is not here. [${DashboardDataStore.name}]`); }
+
+                this.assemblyInfo = data.serverMeta.assemblyInfo;
+
                 switch (method) {
                     default:
                     case 'get':
-                        const sm = data as { serverMeta: { assemblyInfo: AssemblyInfo } };
-                        this.assemblyInfo = sm.serverMeta.assemblyInfo;
-
-                        return MapObjectUtility.getMap<SyndicationFeed>(
-                            data,
+                        const map = MapObjectUtility.getMap<SyndicationFeed>(
+                            data.feeds,
                             (propertyName, propertyValue) =>
                                 DashboardDataStore.getFeed(propertyName, propertyValue)
                         );
+
+                        return map;
                 }
             }
         };
