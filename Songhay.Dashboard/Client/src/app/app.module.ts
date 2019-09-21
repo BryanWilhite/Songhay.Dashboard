@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 // TODO: loading this module from the lib makes true lazy-loading impossible 😒
@@ -37,7 +36,6 @@ import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-
         BrowserAnimationsModule,
         FlexLayoutModule,
         HttpClientModule,
-        HttpModule,
         MaterialModule,
         ReactiveFormsModule,
         RoutingModule,
