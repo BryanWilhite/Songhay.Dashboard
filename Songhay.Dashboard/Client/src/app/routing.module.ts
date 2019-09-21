@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: 'dash/tools', component: StudioToolsComponent },
     { path: 'affiliates/amazon/products/images', component: AmazonProductImagesComponent },
     { path: 'social/twitter/builder', component: TweetedLinksBuilderComponent },
-    { path: YouTubeRoutePaths.root + YouTubeRoutePaths.uploads, loadChildren: './you-tube-lib.module#YouTubeLibModule' }
+    { path: `${YouTubeRoutePaths.root}/${YouTubeRoutePaths.uploads}`, loadChildren: './you-tube-lib.module#YouTubeLibModule' }
 ];
 
 @NgModule({

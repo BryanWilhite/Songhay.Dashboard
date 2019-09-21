@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { RoutingModule } from './routing.module';
 
+import { YOU_TUBE_OPTIONS } from './models/you-tube-options';
+
 import { AmazonDataStore } from './services/amazon-data.store';
 import { DashboardDataStore } from './services/dashboard-data.store';
 import { SocialDataStore } from './services/social-data.store';
@@ -39,7 +41,7 @@ import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-
         MaterialModule,
         ReactiveFormsModule,
         RoutingModule,
-        YouTubeModule
+        YouTubeModule.forRoot(YOU_TUBE_OPTIONS)
     ],
     declarations: [
         AppComponent,
@@ -62,4 +64,4 @@ import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
