@@ -3,15 +3,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 // TODO: loading this module from the lib makes true lazy-loading impossible 😒
-import { YouTubeModule } from '@songhay/player-video-you-tube';
+import { YouTubeModule, YouTubeOptions, YouTubeCssOptionUtility } from '@songhay/player-video-you-tube';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { RoutingModule } from './routing.module';
-
-import { YOU_TUBE_OPTIONS } from './models/you-tube-options';
 
 import { AmazonDataStore } from './services/amazon-data.store';
 import { DashboardDataStore } from './services/dashboard-data.store';
@@ -30,6 +28,42 @@ import { StudioToolsComponent } from './components/dashboard/studio-tools/studio
 import { StudioVersionsComponent } from './components/dashboard/studio-versions/studio-versions.component';
 import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-builder/tweeted-links-builder.component';
 
+const options: YouTubeOptions = {
+    youTubeCssOptions: YouTubeCssOptionUtility
+        .getDefaultOptions()
+        .map(i => {
+            switch (i.variableName) {
+                case '--thumbs-header-link-color':
+                    return {
+                        variableName: i.variableName,
+                        variableValue: '#6eff93'
+                    };
+
+                case '--thumbs-set-header-color':
+                    return {
+                        variableName: i.variableName,
+                        variableValue: '#6eff93'
+                    };
+
+                case '--thumbs-set-header-position':
+                    return {
+                        variableName: i.variableName,
+                        variableValue: 'static'
+                    };
+
+                case '--thumbs-set-padding-top':
+                    return {
+                        variableName: i.variableName,
+                        variableValue: '0'
+                    };
+
+                default:
+                    return i;
+            }
+        }),
+    youTubeSpritesUri: 'assets/svg/sprites.svg'
+};
+
 @NgModule({
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -39,7 +73,7 @@ import { TweetedLinksBuilderComponent } from './components/social/tweeted-links-
         MaterialModule,
         ReactiveFormsModule,
         RoutingModule,
-        YouTubeModule.forRoot(YOU_TUBE_OPTIONS)
+        YouTubeModule.forRoot(options)
     ],
     declarations: [
         AppComponent,
