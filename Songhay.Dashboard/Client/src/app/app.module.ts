@@ -92,7 +92,8 @@ const options: YouTubeOptions = {
     providers: [
         AmazonDataStore,
         DashboardDataStore,
-        SocialDataStore
+        SocialDataStore,
+        { provide: YouTubeOptions, useValue: options }
     ],
     bootstrap: [AppComponent]
 })
