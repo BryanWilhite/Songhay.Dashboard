@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AmazonDataStore } from 'src/app/services/amazon-data.store';
@@ -9,9 +11,11 @@ import { AmazonProduct } from '../../../models/amazon-product';
     templateUrl: './amazon-product-images.component.html',
     styleUrls: ['./amazon-product-images.component.scss']
 })
-export class AmazonProductImagesComponent implements OnInit {
+export class AmazonProductImagesComponent implements OnInit, OnDestroy {
     amazonForm: FormGroup;
     amazonProducts: AmazonProduct[];
+
+    private subscriptions: Subscription[] = [];
 
     constructor(
         public amazonDataStore: AmazonDataStore,
@@ -23,9 +27,17 @@ export class AmazonProductImagesComponent implements OnInit {
             asins: ['B004QRKWKQ,B0769XXGXX,B005LKB0IU', [Validators.required]]
         });
 
-        this.amazonDataStore.serviceData.subscribe(data => {
+        const sub = this.amazonDataStore.serviceData.subscribe(data => {
             this.amazonProducts = data;
         });
+
+        this.subscriptions.push(sub);
+    }
+
+    ngOnDestroy(): void {
+        for (const sub of this.subscriptions) {
+            sub.unsubscribe();
+        }
     }
 
     get asins() {

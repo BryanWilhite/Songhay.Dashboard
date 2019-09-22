@@ -1,4 +1,6 @@
-import { Component, OnInit, VERSION } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { Component, OnInit, VERSION, OnDestroy } from '@angular/core';
 
 import { DashboardDataStore } from 'src/app/services/dashboard-data.store';
 
@@ -7,7 +9,7 @@ import { DashboardDataStore } from 'src/app/services/dashboard-data.store';
     templateUrl: './studio-versions.component.html',
     styleUrls: ['./studio-versions.component.scss']
 })
-export class StudioVersionsComponent implements OnInit {
+export class StudioVersionsComponent implements OnInit, OnDestroy {
     /**
      * App version
      */
@@ -23,6 +25,8 @@ export class StudioVersionsComponent implements OnInit {
      */
     serverAssemblyVersion: string;
 
+    private subscriptions: Subscription[] = [];
+
     constructor(public dashStore: DashboardDataStore) {
         this.clientFrameworkVersion = `${VERSION.major}.${VERSION.minor}.${
             VERSION.patch
@@ -33,7 +37,7 @@ export class StudioVersionsComponent implements OnInit {
      * implementing {OnInit}
      */
     ngOnInit() {
-        this.dashStore.serviceData.subscribe(() => {
+        const sub = this.dashStore.serviceData.subscribe(() => {
             if (!this.dashStore.assemblyInfo) { return; }
 
             this.serverAssemblyInfo = `${
@@ -44,5 +48,14 @@ export class StudioVersionsComponent implements OnInit {
 
             this.serverAssemblyVersion = this.dashStore.assemblyInfo.assemblyVersion;
         });
+
+        this.subscriptions.push(sub);
     }
+
+    ngOnDestroy(): void {
+        for (const sub of this.subscriptions) {
+            sub.unsubscribe();
+        }
+    }
+
 }

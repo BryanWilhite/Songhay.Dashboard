@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
     CdkDragDrop,
@@ -15,10 +17,12 @@ import { TwitterItem } from '../../../models/twitter-item';
     templateUrl: './tweeted-links-builder.component.html',
     styleUrls: ['./tweeted-links-builder.component.scss']
 })
-export class TweetedLinksBuilderComponent implements OnInit {
+export class TweetedLinksBuilderComponent implements OnInit, OnDestroy {
     documentHtml: SafeHtml;
     twitterItemsIn: TwitterItem[];
     twitterItemsOut: TwitterItem[];
+
+    private subscriptions: Subscription[] = [];
 
     static remove(
         statusId: number,
@@ -42,7 +46,7 @@ export class TweetedLinksBuilderComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.socialDataStore.serviceData.subscribe(
+        const sub = this.socialDataStore.serviceData.subscribe(
             (items: TwitterItem[]) =>
                 (this.twitterItemsIn = items.map((t, i) => {
                     t.ordinal = i;
@@ -53,8 +57,16 @@ export class TweetedLinksBuilderComponent implements OnInit {
                 }))
         );
 
+        this.subscriptions.push(sub);
+
         this.documentHtml = '';
         this.twitterItemsOut = [];
+    }
+
+    ngOnDestroy(): void {
+        for (const sub of this.subscriptions) {
+            sub.unsubscribe();
+        }
     }
 
     drop(event: CdkDragDrop<TwitterItem[]>): void {
