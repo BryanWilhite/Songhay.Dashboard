@@ -12,11 +12,11 @@
     <div class="tweets incoming" fxFlex>
         <h2>
             <span>last 50 statuses</span>
-            <button (click)="getStatuses()" [disabled]="socialDataStore.isLoading" mat-icon-button title="load statuses" type="button">
+            <button (click)="getStatuses()" [disabled]="socialDataStore.isBusy" mat-icon-button title="load statuses" type="button">
                 <mat-icon color="accent" svgIcon="rx:mdi_arrow_down_drop_circle_24px"></mat-icon>
             </button>
         </h2>
-        <mat-spinner *ngIf="socialDataStore.isLoading" color="accent"></mat-spinner>
+        <mat-spinner *ngIf="socialDataStore.isBusy" color="accent"></mat-spinner>
         <div cdkDropList cdkDropListOrientation="vertical" #tweetsIn="cdkDropList" [cdkDropListConnectedTo]="[tweetsOut]" [cdkDropListData]="twitterItemsIn" [id]="'tweetsIn'" (cdkDropListDropped)="drop($event)">
             <div class="tweet" *ngFor="let t of twitterItemsIn" cdkDrag>
                 <ng-container *ngTemplateOutlet="tweetTemplate;context:{ t: t }"></ng-container>

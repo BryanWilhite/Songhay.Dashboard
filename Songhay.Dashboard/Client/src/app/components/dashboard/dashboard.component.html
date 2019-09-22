@@ -5,7 +5,7 @@
     <div fxFlex>
         <app-studio-links></app-studio-links>
     </div>
-    <div fxFlex *ngIf="dashStore.isLoading">
+    <div fxFlex *ngIf="dashStore.isBusy">
         <mat-spinner color="accent"></mat-spinner>
     </div>
     <div fxFlex="24rem">
@@ -25,6 +25,6 @@
     </div>
 </div>
 <div class="dash b-roll yt">
-    <mat-spinner *ngIf="youTubeChannelDataStore.isLoading" color="accent"></mat-spinner>
+    <mat-spinner *ngIf="youTubeChannelDataStore.isBusy" color="accent"></mat-spinner>
     <rx-you-tube-thumbs *ngIf="youTubeChannelDataStore.isLoaded" [disableDefaultSort]="false" [thumbsAnimationDuration]="500" [thumbsHeaderLevel]="2" [thumbsTitle]="'songhay tube'" [titleRouterLink]="titleRouterLink" [youTubeItems]="youTubeItems"></rx-you-tube-thumbs>
 </div>
