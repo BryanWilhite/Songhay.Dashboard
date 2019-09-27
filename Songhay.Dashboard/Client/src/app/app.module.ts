@@ -39,6 +39,12 @@ const options: YouTubeOptions = {
                         variableValue: '#6eff93'
                     };
 
+                case '--thumbs-set-background-color':
+                    return {
+                        variableName: i.variableName,
+                        variableValue: '#303130'
+                    };
+
                 case '--thumbs-set-header-color':
                     return {
                         variableName: i.variableName,
@@ -48,13 +54,13 @@ const options: YouTubeOptions = {
                 case '--thumbs-set-header-position':
                     return {
                         variableName: i.variableName,
-                        variableValue: 'static'
+                        variableValue: 'fixed'
                     };
 
                 case '--thumbs-set-padding-top':
                     return {
                         variableName: i.variableName,
-                        variableValue: '0'
+                        variableValue: '6rem'
                     };
 
                 default:
