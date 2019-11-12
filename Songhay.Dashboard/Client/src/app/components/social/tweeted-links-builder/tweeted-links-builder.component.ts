@@ -10,7 +10,8 @@ import {
 
 import { SocialDataStore } from 'src/app/services/social-data.store';
 
-import { TwitterItem } from '../../../models/twitter-item';
+import { TwitterMarkingUtility } from 'src/app/utilities/twitter-marking.utility';
+import { TwitterItem } from 'src/app/models/twitter-item';
 
 @Component({
     selector: 'app-tweeted-links-builder',
@@ -18,7 +19,8 @@ import { TwitterItem } from '../../../models/twitter-item';
     styleUrls: ['./tweeted-links-builder.component.scss']
 })
 export class TweetedLinksBuilderComponent implements OnInit, OnDestroy {
-    documentHtml: SafeHtml;
+    documentMarkdown: SafeHtml;
+    documentMarkup: SafeHtml;
     twitterItemsIn: TwitterItem[];
     twitterItemsOut: TwitterItem[];
 
@@ -50,8 +52,8 @@ export class TweetedLinksBuilderComponent implements OnInit, OnDestroy {
             (items: TwitterItem[]) =>
                 (this.twitterItemsIn = items.map((t, i) => {
                     t.ordinal = i;
-                    t.safeHtml = this.sanitizer.bypassSecurityTrustHtml(
-                        this.linkifyTweet(t.text || t.fullText)
+                    t.markup = this.sanitizer.bypassSecurityTrustHtml(
+                        TwitterMarkingUtility.getMarkupLinks(t.text || t.fullText)
                     );
                     return t;
                 }))
@@ -59,7 +61,8 @@ export class TweetedLinksBuilderComponent implements OnInit, OnDestroy {
 
         this.subscriptions.push(sub);
 
-        this.documentHtml = '';
+        this.documentMarkdown = '';
+        this.documentMarkup = '';
         this.twitterItemsOut = [];
     }
 
@@ -71,9 +74,6 @@ export class TweetedLinksBuilderComponent implements OnInit, OnDestroy {
 
     drop(event: CdkDragDrop<TwitterItem[]>): void {
         if (event.previousContainer === event.container) {
-            // if (event.container.id === 'tweetsIn') {
-            //     return;
-            // }
             moveItemInArray(
                 event.container.data,
                 event.previousIndex,
@@ -88,65 +88,17 @@ export class TweetedLinksBuilderComponent implements OnInit, OnDestroy {
             );
         }
 
-        const html = this.twitterItemsOut
-            .map(i =>
-                [
-                    `<p class="tweet" data-status-id="${i.statusID}">`,
-                    `    <a href="${this.getUserUri(i)}" target="_blank">`,
-                    `        <img`,
-                    `            alt="${i.user.name} [${
-                    i.user.screenNameResponse
-                    }]"`,
-                    `            src="${i.profileImageUrl}" />`,
-                    '    </a>',
-                    `    ${this.linkifyTweet(i.fullText || i.text)}`,
-                    '</p>'
-                ].join('\n')
-            )
-            .join('\n');
-        this.documentHtml = this.sanitizer.bypassSecurityTrustHtml(html);
-    }
+        const markdown = this.twitterItemsOut.map(TwitterMarkingUtility.getMarkdown).join('\n');
+        this.documentMarkdown = this.sanitizer.bypassSecurityTrustHtml(markdown);
 
+        const markup = this.twitterItemsOut.map(TwitterMarkingUtility.getMarkup).join('\n');
+        this.documentMarkup = this.sanitizer.bypassSecurityTrustHtml(markup);
+    }
     getStatuses(): void {
-        this.documentHtml = '';
+        this.documentMarkdown = '';
+        this.documentMarkup = '';
         this.twitterItemsIn = [];
         this.twitterItemsOut = [];
         this.socialDataStore.loadTwitterItems();
-    }
-
-    getUserUri(item: TwitterItem): string | null {
-        if (!item) {
-            console.error('The expected Twitter item is not here');
-            return null;
-        }
-        if (!item.user) {
-            console.error('The expected Twitter user is not here');
-            return null;
-        }
-        if (item.user.url) { return item.user.url; }
-        if (!item.user.name) {
-            console.error('The expected Twitter user name is not here');
-            return null;
-        }
-        return `https://twitter.com/${item.user.screenNameResponse}`;
-    }
-
-    linkifyTweet(tweet: string): string {
-        const reForHtmlLiteral = /((https?|ftp|file):\/\/[\-A-Z0-9+&@@#\/%?=~_|!:,.;]*[\-A-Z0-9+&@@#\/%=~_|])/gi;
-        const reForHandle = /[@@]+[A-Za-z0-9-_]+/g;
-        const reForHashTag = /[#]+[A-Za-z0-9-_]+/g;
-
-        tweet = tweet
-            .replace(reForHtmlLiteral, '<a href="$1" target="_blank">$1</a>')
-            .replace(reForHandle, s => {
-                const username = s.replace('@@', '');
-                return `<a href="http://twitter.com/${username}" target="_blank">${s}</a>`;
-            })
-            .replace(reForHashTag, s => {
-                const tag = s.replace('#', '%23');
-                return `<a href="http://twitter.com/search?q='${tag}" target="_blank">${s}</a>`;
-            });
-
-        return tweet;
     }
 }

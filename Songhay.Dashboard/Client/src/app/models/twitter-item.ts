@@ -8,7 +8,8 @@ export interface TwitterItem {
     text: string | null;
     fullText: string | null;
     ordinal: number;
-    safeHtml: SafeHtml;
+    markdown: SafeHtml;
+    markup: SafeHtml;
     source: string;
     user: TwitterUser;
 }

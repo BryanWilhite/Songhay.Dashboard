@@ -2,7 +2,7 @@
     <a href="{{ t.user.url }}" target="_blank" title="{{ t.user.name }} [{{ t.user.screenNameResponse }}]">
         <span class="ordinal">{{ t.ordinal }}</span>
         <img alt="{{ t.user.name }} [{{ t.user.screenNameResponse }}]" src="{{ t.profileImageUrl }}" />
-    </a> <span [innerHTML]="t.safeHtml"></span> <small>{{ t.statusID }}</small>
+    </a> <span [innerHTML]="t.markup"></span> <small>{{ t.statusID }}</small>
 </ng-template>
 
 <h1 class="app header social mat-app-background">
@@ -34,6 +34,6 @@
     </div>
     <div class="tweets document" fxFlex>
         <h2>markup</h2>
-        <textarea [innerHTML]="documentHtml"></textarea>
+        <textarea [innerHTML]="documentMarkup"></textarea>
     </div>
 </div>
