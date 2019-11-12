@@ -88,12 +88,19 @@ export class TweetedLinksBuilderComponent implements OnInit, OnDestroy {
             );
         }
 
-        const markdown = this.twitterItemsOut.map(TwitterMarkingUtility.getMarkdown).join('\n');
+        const markings: { markdown: string; markup: string; }[] =
+            this.twitterItemsOut.map(i => ({
+                markdown: TwitterMarkingUtility.getMarkdown(i),
+                markup: TwitterMarkingUtility.getMarkup(i)
+            }));
+
+        const markdown = markings.map(i => i.markdown).join('\n');
         this.documentMarkdown = this.sanitizer.bypassSecurityTrustHtml(markdown);
 
-        const markup = this.twitterItemsOut.map(TwitterMarkingUtility.getMarkup).join('\n');
+        const markup = markings.map(i => i.markup).join('\n');
         this.documentMarkup = this.sanitizer.bypassSecurityTrustHtml(markup);
     }
+
     getStatuses(): void {
         this.documentMarkdown = '';
         this.documentMarkup = '';
