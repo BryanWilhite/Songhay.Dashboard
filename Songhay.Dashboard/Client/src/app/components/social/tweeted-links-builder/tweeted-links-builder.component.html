@@ -33,7 +33,13 @@
         </div>
     </div>
     <div class="tweets document" fxFlex>
-        <h2>markup</h2>
-        <textarea [innerHTML]="documentMarkup"></textarea>
+        <mat-tab-group>
+            <mat-tab label="markdown">
+                <textarea [innerHTML]="documentMarkdown"></textarea>
+            </mat-tab>
+            <mat-tab label="markup">
+                <textarea [innerHTML]="documentMarkup"></textarea>
+            </mat-tab>
+        </mat-tab-group>
     </div>
 </div>

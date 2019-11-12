@@ -10,7 +10,8 @@ import {
     MatMenuModule,
     MatProgressSpinnerModule,
     MatSelectModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTabsModule
 } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
@@ -26,6 +27,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
         MatMenuModule,
         MatProgressSpinnerModule,
         MatSelectModule,
+        MatTabsModule,
         MatToolbarModule,
         DragDropModule
     ],
@@ -40,6 +42,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
         MatMenuModule,
         MatProgressSpinnerModule,
         MatSelectModule,
+        MatTabsModule,
         MatToolbarModule,
         DragDropModule
     ]

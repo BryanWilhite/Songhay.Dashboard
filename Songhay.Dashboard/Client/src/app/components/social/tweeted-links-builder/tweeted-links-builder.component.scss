@@ -135,13 +135,23 @@
                 }
 
                 &.document {
-                    & > textarea {
-                        background-color: #cfc;
-                        border: none;
-                        font-family: Monoid, "Lucida Console", "Courier New",
-                            Courier, monospace;
+                    & ::ng-deep .mat-tab-group {
                         height: 100%;
-                        width: 100%;
+
+                        .mat-tab-body-wrapper {
+                            height: 100%;
+
+                            .mat-tab-body-content {
+                                textarea {
+                                    background-color: #cfc;
+                                    border: none;
+                                    font-family: Monoid, "Lucida Console",
+                                        "Courier New", Courier, monospace;
+                                    height: 95%;
+                                    width: 95%;
+                                }
+                            }
+                        }
                     }
                 }
             }
