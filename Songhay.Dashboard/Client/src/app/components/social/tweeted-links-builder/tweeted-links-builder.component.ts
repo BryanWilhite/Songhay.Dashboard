@@ -88,11 +88,13 @@ export class TweetedLinksBuilderComponent implements OnInit, OnDestroy {
             );
         }
 
-        const markings: { markdown: string; markup: string; }[] =
+        interface Marking { markdown: string; markup: string; }
+
+        const markings: Marking[] =
             this.twitterItemsOut.map(i => ({
                 markdown: TwitterMarkingUtility.getMarkdown(i),
                 markup: TwitterMarkingUtility.getMarkup(i)
-            }));
+            } as Marking));
 
         const markdown = markings.map(i => i.markdown).join('\n');
         this.documentMarkdown = this.sanitizer.bypassSecurityTrustHtml(markdown);
