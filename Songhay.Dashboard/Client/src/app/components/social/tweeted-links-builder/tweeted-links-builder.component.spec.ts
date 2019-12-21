@@ -2,6 +2,7 @@ import { of } from 'rxjs';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from '../../../material.module';
 
@@ -19,7 +20,10 @@ describe(TweetedLinksBuilderComponent.name, () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [MaterialModule],
+            imports: [
+                MaterialModule,
+                NoopAnimationsModule
+            ],
             declarations: [TweetedLinksBuilderComponent],
             providers: [{ provide: SocialDataStore, useValue: socialDataStoreMock }],
             schemas: [NO_ERRORS_SCHEMA]
