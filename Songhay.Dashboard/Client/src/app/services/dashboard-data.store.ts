@@ -10,7 +10,6 @@ import { MapObjectUtility } from 'songhay/core/utilities/map-object.utility';
 import { AppDataStore, AppDataStoreOptions } from '@songhay/core';
 
 import { AppScalars } from '../models/songhay-app-scalars';
-import { throwError } from 'rxjs';
 
 @Injectable()
 export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed>, any> {
@@ -45,8 +44,8 @@ export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed
                 feed.feedItems = channelItems.map(item => item as SyndicationFeedItem);
                 break;
 
-            case AppScalars.feedNameStudio:
             case AppScalars.feedNameGitHub:
+            case AppScalars.feedNameStudio:
                 feed.feedTitle = SyndicationFeed.getAtomChannelTitle(rawFeed);
                 channelItems = SyndicationFeed.getAtomChannelItems(rawFeed);
                 break;
@@ -80,6 +79,13 @@ export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed
                 break;
             case AppScalars.feedNameStackOverflow:
                 feed.feedItems = channelItems.map(mapCustomItem);
+                break;
+            case AppScalars.feedNameStudio:
+                feed.feedItems = channelItems
+                    .map((item: SyndicationFeedItem) => ({
+                        title: item.title,
+                        link: item.link[0]['@href']
+                    }));
                 break;
         }
 
