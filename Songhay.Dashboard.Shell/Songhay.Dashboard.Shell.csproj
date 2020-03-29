@@ -24,8 +24,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="2.2.0" />
-    <PackageReference Include="Songhay.Cloud.BlobStorage" Version="3.0.5" />
-    <PackageReference Include="SonghayCore" Version="3.2.7" />
+    <PackageReference Include="Songhay.Cloud.BlobStorage" Version="3.0.12" />
+    <PackageReference Include="SonghayCore" Version="3.2.18" />
   </ItemGroup>
 
   <ItemGroup>
