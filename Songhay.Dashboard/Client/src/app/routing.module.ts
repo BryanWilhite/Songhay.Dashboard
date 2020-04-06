@@ -17,7 +17,7 @@ const routes: Routes = [
     { path: `dash/${YouTubeRoutePaths.root}/${YouTubeRoutePaths.uploads}`,
         redirectTo: `${YouTubeRoutePaths.root}/${YouTubeRoutePaths.uploads}` },
     { path: `${YouTubeRoutePaths.root}/${YouTubeRoutePaths.uploads}`,
-        loadChildren: './you-tube-lib.module#YouTubeLibModule' }
+        loadChildren: () => import('./you-tube-lib.module').then(m => m.YouTubeLibModule) }
 ];
 
 @NgModule({
