@@ -23,7 +23,7 @@ export class AppComponent implements AfterViewInit {
 
         await timeout(3000);
 
-        const main = Array.from(document.getElementsByTagName('main')).find(i => true) as HTMLMainElement;
+        const main = Array.from(document.getElementsByTagName('main')).find(i => true) as HTMLElement;
 
         if (!main) {
             console.warn('The expected main splash element is not here.');
