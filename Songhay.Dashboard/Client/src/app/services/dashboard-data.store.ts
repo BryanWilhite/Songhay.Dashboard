@@ -39,13 +39,13 @@ export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed
         switch (key) {
             case AppScalars.feedNameCodePen:
             case AppScalars.feedNameFlickr:
+            case AppScalars.feedNameStudio:
                 feed.feedTitle = SyndicationFeed.getRssChannelTitle(rawFeed);
                 channelItems = SyndicationFeed.getRssChannelItems(rawFeed);
                 feed.feedItems = channelItems.map(item => item as SyndicationFeedItem);
                 break;
 
             case AppScalars.feedNameGitHub:
-            case AppScalars.feedNameStudio:
                 feed.feedTitle = SyndicationFeed.getAtomChannelTitle(rawFeed);
                 channelItems = SyndicationFeed.getAtomChannelItems(rawFeed);
                 break;
