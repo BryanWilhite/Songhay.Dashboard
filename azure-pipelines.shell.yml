@@ -37,11 +37,11 @@ steps:
      **/$(RepoName).Shell.Tests.csproj
     arguments: '--configuration $(BuildConfiguration)'
 
-- task: mattlabrum.build-task.custom-build-task.downloadsSecureFile@0
-  displayName: 'Download Secure File 7b7b494f-fe60-4ad6-90dc-f2abc430f4d6'
+- task: downloadsSecureFile@0
   inputs:
-    fileInput: '7b7b494f-fe60-4ad6-90dc-f2abc430f4d6'
-    targetPath: '$(RepoName).Shell'
+    fileInput: 'ba7c05e4-8c8b-45fd-b72d-2d3d0ba92341'
+    targetPath: $(RepoName).Shell
+    targetName: 'app-settings.songhay-system.json'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
