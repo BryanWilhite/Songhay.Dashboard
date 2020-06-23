@@ -5,7 +5,7 @@ variables:
   RepoName: 'Songhay.Dashboard'
 
 trigger:
-  batch: false
+  batch: 'false'
   branches:
     include:
     - master
@@ -18,9 +18,6 @@ trigger:
 
 resources:
 - repo: self
-
-queue:
-  name: Hosted VS2017
 
 steps:
 - task: PowerShell@2
