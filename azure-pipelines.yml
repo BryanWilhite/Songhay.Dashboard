@@ -12,7 +12,6 @@ trigger:
     - releases/*
   paths:
     exclude:
-    - /azure*.yml
     - Songhay.Dashboard.Shell.Tests/*
     - Songhay.Dashboard.Tests/*
 
@@ -20,6 +19,13 @@ resources:
 - repo: self
 
 steps:
+
+- task: UseDotNet@2
+  displayName: 'Use .NET Core SDK 2.x'
+  inputs:
+    packageType: sdk
+    version: 2.x
+
 - task: PowerShell@2
   displayName: 'npm: install `clean-css-cli` globally'
   inputs:
