@@ -12,7 +12,6 @@ trigger:
     - releases/*
   paths:
     exclude:
-    - /azure*.yml
     - Songhay.Dashboard.Shell.Tests/*
     - Songhay.Dashboard.Tests/*
 
