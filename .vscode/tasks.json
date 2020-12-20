@@ -74,7 +74,7 @@
         },
         {
             "type": "npm",
-            "script": "test:chrome",
+            "script": "test",
             "path": "Songhay.Dashboard/Client/",
             "problemMatcher": [
                 "$tslint5"
