@@ -84,7 +84,7 @@ export class DashboardDataStore extends AppDataStore<Map<string, SyndicationFeed
                 feed.feedItems = channelItems
                     .map((item: SyndicationFeedItem) => ({
                         title: item.title,
-                        link: item.link[0]['@href']
+                        link: item.link
                     }));
                 break;
         }
