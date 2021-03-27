@@ -54,7 +54,7 @@ steps:
 
 - task: downloadsSecureFile@0
   inputs:
-    fileInput: 'ba7c05e4-8c8b-45fd-b72d-2d3d0ba92341'
+    fileInput: 'ad50f588-a3c3-4588-9493-25f8928df05d'
     targetPath: $(RepoName)
     targetName: 'app-settings.songhay-system.json'
 
