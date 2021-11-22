@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Songhay.Dashboard/bin/Debug/netcoreapp2.0/Songhay.Dashboard.dll",
+            "program": "${workspaceFolder}/Songhay.Dashboard.Server/bin/Debug/net5.0/Songhay.Dashboard.Server.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Songhay.Dashboard",
+            "cwd": "${workspaceFolder}/Songhay.Dashboard.Server",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
