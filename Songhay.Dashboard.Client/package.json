@@ -1,0 +1,23 @@
+{
+  "name": "songhay.dashboard.client",
+  "version": "2021.11.22",
+  "description": "Bolero Client",
+  "main": "index.js",
+  "scripts": {
+    "index:sass": "npx sass ./src/scss/index.scss ./src/css/index.css --load-path ./node_modules",
+    "index:cleancss": "npx cleancss -o ./wwwroot/css/index.min.css ./src/css/index.css",
+    "index:css:build": "npm run index:sass && npm run index:cleancss"
+  },
+  "keywords": [],
+  "author": "Bryan Wilhite",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-css-cli": "^5.4.2",
+    "sass": "^1.43.4"
+  },
+  "dependencies": {
+    "@material/dialog": "^13.0.0",
+    "@material/typography": "^13.0.0",
+    "normalize.css": "^8.0.1"
+  }
+}
