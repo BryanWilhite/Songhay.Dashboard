@@ -16,8 +16,6 @@
     "sass": "^1.43.4"
   },
   "dependencies": {
-    "@material/dialog": "^13.0.0",
-    "@material/typography": "^13.0.0",
-    "normalize.css": "^8.0.1"
+    "bulma": "^0.9.3"
   }
 }

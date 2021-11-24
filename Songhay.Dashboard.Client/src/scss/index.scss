@@ -1,18 +1,3 @@
-@use 'normalize.css/normalize.css';
-@use '@material/typography/mdc-typography';
-@import './themes/akyinkyin/theme';
-@import './flex-layout';
+@charset "utf-8";
 
-footer {
-    font-size: 0.8em;
-    margin: 1em auto;
-    max-width: 60%;
-    .copyright {
-        display: block;
-        text-align: center;
-    }
-}
-
-.collapsed {
-    display: none;
-}
+@import 'bulma/bulma.sass';
