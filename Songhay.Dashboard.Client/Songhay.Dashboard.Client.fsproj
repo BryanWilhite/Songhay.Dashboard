@@ -5,10 +5,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BoleroUtility.fs" />
-    <Compile Include="BoleroTypes.fs" />
-    <Compile Include="BoleroRouter.fs" />
-    <Compile Include="Templates/MainTemplate.fs" />
-    <Compile Include="Main.fs" />
+    <Compile Include="ElmishTypes.fs" />
+    <Compile Include="ElmishRoutes.fs" />
+    <Compile Include="Templates/ContentBlockTemplate.fs" />
+    <Compile Include="ContentBlockComponent.fs" />
     <Compile Include="Startup.fs" />
   </ItemGroup>
   <ItemGroup>

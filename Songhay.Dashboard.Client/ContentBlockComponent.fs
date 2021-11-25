@@ -1,12 +1,12 @@
-module Songhay.Dashboard.Client.Main
+module Songhay.Dashboard.Client.Components.ContentBlock
 
 open Elmish
 open Bolero
 open Bolero.Remoting.Client
 open Bolero.Templating.Client
-open Songhay.Dashboard.Client.BoleroTypes
-open Songhay.Dashboard.Client.Routing
-open Songhay.Dashboard.Client.Templates.MainTemplate
+open Songhay.Dashboard.Client.ElmishTypes
+open Songhay.Dashboard.Client.ElmishRoutes
+open Songhay.Dashboard.Client.Templates.ContentBlock
 
 let initModel =
     {
@@ -23,7 +23,7 @@ let update message model =
 let view model dispatch =
     viewMainTemplate model dispatch
 
-type MainApp() =
+type ContentBlockComponent() =
     inherit ProgramComponent<Model, Message>()
 
     override this.Program =

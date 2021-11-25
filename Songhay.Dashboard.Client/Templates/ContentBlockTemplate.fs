@@ -1,24 +1,25 @@
-module Songhay.Dashboard.Client.Templates.MainTemplate
+module Songhay.Dashboard.Client.Templates.ContentBlock
 
 open Bolero
 open Bolero.Html
-open Songhay.Dashboard.Client.BoleroTypes
-open Songhay.Dashboard.Client.Routing
+open Bolero.Templating
+open Songhay.Dashboard.Client.ElmishTypes
+open Songhay.Dashboard.Client.ElmishRoutes
 
-type Main = Template<"wwwroot/main.html">
+type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
 let homePage model dispatch =
-    Main.Home().Elt()
+    ContentBlockTemplate.Home().Elt()
 
 let menuItem (model: Model) (page: Page) (text: string) =
-    Main.MenuItem()
+    ContentBlockTemplate.MenuItem()
         .Active(if model.page = page then "is-active" else "")
         .Url(router.Link page)
         .Text(text)
         .Elt()
 
 let viewMainTemplate model dispatch =
-    Main()
+    ContentBlockTemplate()
         .Menu(concat [
             menuItem model Home (nameof Home)
         ])
@@ -30,7 +31,7 @@ let viewMainTemplate model dispatch =
             cond model.error <| function
             | None -> empty
             | Some err ->
-                Main.ErrorNotification()
+                ContentBlockTemplate.ErrorNotification()
                     .Text(err)
                     .Hide(fun _ -> dispatch ClearError)
                     .Elt()

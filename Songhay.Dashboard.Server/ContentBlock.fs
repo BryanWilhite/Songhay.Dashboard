@@ -1,11 +1,11 @@
 module Songhay.Dashboard.Server.ContentBlock
 
+open System
 open Bolero
 open Bolero.Html
 open Bolero.Server.Html
 open Songhay.Blazor.BoleroUtility
-open Songhay.Dashboard.Client
-open System
+open Songhay.Dashboard.Client.Components.ContentBlock
 
 let metaElements =
     [
@@ -35,7 +35,7 @@ let footerElement =
 
 let bodyElements =
     [
-        div [ attr.id "main" ] ([ rootComp<Main.MainApp> ] |> wrapn 3)
+        div [ attr.id "main" ] ([ rootComp<ContentBlockComponent> ] |> wrapn 3)
         boleroScript
         footerElement
         newLine

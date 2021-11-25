@@ -1,4 +1,4 @@
-namespace Songhay.Dashboard.Client.BoleroTypes
+namespace Songhay.Dashboard.Client.ElmishTypes
 
 open Bolero
 
