@@ -4,7 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Index.fs" />
+    <Compile Include="ContentBlock.fs" />
     <Compile Include="Startup.fs" />
   </ItemGroup>
   <ItemGroup>

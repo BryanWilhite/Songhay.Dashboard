@@ -1,4 +1,4 @@
-module Songhay.Dashboard.Server.Index
+module Songhay.Dashboard.Server.ContentBlock
 
 open Bolero
 open Bolero.Html
