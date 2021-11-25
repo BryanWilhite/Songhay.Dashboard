@@ -1,3 +1,6 @@
 @charset "utf-8";
 
-@import 'bulma/bulma.sass';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+@import 'bulma/bulma.sass'; //TODO: consider loading ony what is needed [ https://bulma.io/documentation/customize/with-sass-cli/#6-add-your-own-bulma-styles ]
