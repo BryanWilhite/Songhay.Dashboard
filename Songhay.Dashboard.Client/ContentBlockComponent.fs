@@ -26,6 +26,8 @@ let view model dispatch =
 type ContentBlockComponent() =
     inherit ProgramComponent<Model, Message>()
 
+    static member Id with get() = "content-block"
+
     override this.Program =
         let init = (fun _ -> initModel, Cmd.none)
         Program.mkProgram init update view

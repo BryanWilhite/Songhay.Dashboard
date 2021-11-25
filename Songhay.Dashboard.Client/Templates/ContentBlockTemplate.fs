@@ -2,7 +2,6 @@ module Songhay.Dashboard.Client.Templates.ContentBlock
 
 open Bolero
 open Bolero.Html
-open Bolero.Templating
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.ElmishRoutes
 

@@ -35,7 +35,10 @@ let footerElement =
 
 let bodyElements =
     [
-        div [ attr.id "main" ] ([ rootComp<ContentBlockComponent> ] |> wrapn 3)
+        section [
+            attr.id ContentBlockComponent.Id
+            attr.classes [ "section" ] ] 
+            ([ rootComp<ContentBlockComponent> ] |> wrapn 3)
         boleroScript
         footerElement
         newLine
