@@ -3,7 +3,7 @@ module Songhay.Dashboard.Server.Index
 open Bolero
 open Bolero.Html
 open Bolero.Server.Html
-open Songhay.Dashboard
+open Songhay.Dashboard.Client
 open System
 
 let newLine = RawHtml $"{Environment.NewLine}"
@@ -42,20 +42,21 @@ let headElements =
 let footerElement =
     footer [] [
         span [ attr.classes ["copyright"] ] [ RawHtml $"© Bryan D. Wilhite {DateTime.Now.Year}" ]
-        newLine
     ]
 
 let bodyElements =
     [
-        div [ attr.id "main" ] ([ rootComp<Client.Main.MyApp> ] |> wrapn 3)
+        div [ attr.id "main" ] ([ rootComp<Main.MainApp> ] |> wrapn 3)
         boleroScript
         footerElement
+        newLine
     ]
 
 let pageElements =
     [
         head [] (headElements |> wrapn 2)
         body [] (bodyElements |> wrapn 2)
+        newLine
     ]
 
 let page = doctypeHtml [] (pageElements |> wrapn 1)
