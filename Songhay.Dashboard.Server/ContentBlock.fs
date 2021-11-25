@@ -15,7 +15,7 @@ let metaElements =
 
 let linkElements =
     [
-        link [ attr.rel "stylesheet"; attr.href "css/index.min.css" ]
+        link [ attr.rel "stylesheet"; attr.href $"css/{ContentBlockComponent.Id}.min.css" ]
         link [ attr.rel "icon"; attr.``type`` "image/x-icon"; attr.href "favicon.ico" ]
     ]
 
