@@ -29,15 +29,20 @@ let headElements =
     [ title [] [ text "SonghaySystem(::)"] ]
 
 let footerElement =
-    footer [] [
-        span [ attr.classes ["copyright"] ] [ RawHtml $"© Bryan D. Wilhite {DateTime.Now.Year}" ]
+    footer [ attr.classes [ nameof footer ] ] [
+        div [ attr.classes [ "content"; "has-text-centered"; "is-small" ] ] [
+            p [] [
+                span [ attr.classes [ "copyright" ] ]
+                    [ RawHtml $"© Bryan D. Wilhite {DateTime.Now.Year}" ]
+            ]
+        ]
     ]
 
 let bodyElements =
     [
         section [
             attr.id ContentBlockComponent.Id
-            attr.classes [ "section" ] ] 
+            attr.classes [ nameof section ] ] 
             ([ rootComp<ContentBlockComponent> ] |> wrapn 3)
         boleroScript
         footerElement

@@ -150,6 +150,10 @@ $greys-dark-tone: map-get(
 
 // [ https://bulma.io/documentation/customize/variables/ ]
 $body-background-color: #303130;
+$footer-background-color: map-get(
+    $map: $mat-akyinkyin-dark,
+    $key: 500
+);
 
 $link: $light;
 $link-light: $light;
@@ -167,11 +171,12 @@ $text-light: $light;
 $text-strong: $light;
 
 // [ https://bulma.io/documentation/customize/with-sass-cli/#6-add-your-own-bulma-styles ]
-@import "bulma/sass/base/_all.sass";
-@import "bulma/sass/elements/button.sass";
-@import "bulma/sass/elements/container.sass";
-@import "bulma/sass/elements/title.sass";
-// @import "bulma/sass/form/_all.sass";
-@import "bulma/sass/components/navbar.sass";
-// @import "bulma/sass/layout/hero.sass";
-@import "bulma/sass/layout/section.sass";
+// from `bulma/bulma.sass`:
+@import "bulma/sass/utilities/_all";
+@import "bulma/sass/base/_all";
+@import "bulma/sass/elements/_all";
+// @import "sass/form/_all";
+// @import "bulma/sass/components/_all";
+@import "bulma/sass/grid/_all";
+@import "bulma/sass/helpers/_all";
+@import "bulma/sass/layout/_all";
