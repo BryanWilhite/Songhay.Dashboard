@@ -1,15 +1,11 @@
 <div class="container">
-    <section class="section">
-        ${Body}
+    <div class="tile is-ancestor">
+
+        ${StudioComponentNode}
 
         <div id="notification-area">
             <div>${Error}</div>
         </div>
-
-        <template id="Home">
-            <div class="content">
-            </div>
-        </template>
 
         <template id="ErrorNotification">
             <div class="notification is-warning">
@@ -18,5 +14,10 @@
             </div>
         </template>
 
-    </section>
+    </div>
+    <div class="tile is-ancestor">
+
+        ${Content}
+
+    </div>
 </div>

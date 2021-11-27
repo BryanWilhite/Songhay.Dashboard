@@ -6,14 +6,17 @@ open Songhay.Dashboard.Client.ElmishTypes
 
 type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
-let homePage model dispatch =
-    ContentBlockTemplate.Home().Elt()
+let contentBlock model dispatch =
+    Empty //TODO return content
 
 let viewMainTemplate model dispatch =
     ContentBlockTemplate()
-        .Body(
+        .StudioComponentNode(
+            Empty //TODO return StudioComponentNode
+        )
+        .Content(
             cond model.page <| function
-            | Home -> homePage model dispatch
+            | _ -> contentBlock model dispatch
         )
         .Error(
             cond model.error <| function
