@@ -3,6 +3,7 @@ module Songhay.Dashboard.Client.Templates.ContentBlock
 open Bolero
 open Bolero.Html
 open Songhay.Dashboard.Client.ElmishTypes
+open Songhay.Dashboard.Client.Visuals
 
 type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
@@ -12,7 +13,7 @@ let contentBlock model dispatch =
 let viewMainTemplate model dispatch =
     ContentBlockTemplate()
         .StudioComponentNode(
-            Empty //TODO return StudioComponentNode
+            Tile.bulmaParentTile 4 [] //TODO return StudioComponentNode
         )
         .Content(
             cond model.page <| function
