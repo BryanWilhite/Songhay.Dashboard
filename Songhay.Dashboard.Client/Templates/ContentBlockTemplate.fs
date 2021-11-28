@@ -7,17 +7,12 @@ open Songhay.Dashboard.Client.Visuals
 
 type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
-let contentBlock model dispatch =
-    Empty //TODO return content
-
 let viewMainTemplate model dispatch =
     ContentBlockTemplate()
-        .StudioComponentNode(
-            Tile.bulmaParentTile 4 [] //TODO return StudioComponentNode
-        )
+        .StudioComponentNode(Tile.studioComponentNode)
         .Content(
             cond model.page <| function
-            | _ -> contentBlock model dispatch
+            | _ -> Empty // TODO: define pages
         )
         .Error(
             cond model.error <| function

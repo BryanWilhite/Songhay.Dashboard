@@ -1,23 +1,29 @@
 <div class="container">
-    <div class="tile is-ancestor">
+    <div class="columns">
+        <div class="column is-one-third-fullhd">
+            <div class="tile is-ancestor">
 
-        ${StudioComponentNode}
+                ${StudioComponentNode}
 
-        <div id="notification-area">
-            <div>${Error}</div>
-        </div>
+                <div id="notification-area">
+                    <div>${Error}</div>
+                </div>
 
-        <template id="ErrorNotification">
-            <div class="notification is-warning">
-                <button class="delete ${HideClass}" onclick="${Hide}"></button>
-                ${Text}
+                <template id="ErrorNotification">
+                    <div class="notification is-warning">
+                        <button class="delete ${HideClass}" onclick="${Hide}"></button>
+                        ${Text}
+                    </div>
+                </template>
+
             </div>
-        </template>
+        </div>
+        <div class="column">
+            <div class="column tile is-ancestor">
 
-    </div>
-    <div class="tile is-ancestor">
+                ${Content}
 
-        ${Content}
-
+            </div>
+        </div>
     </div>
 </div>

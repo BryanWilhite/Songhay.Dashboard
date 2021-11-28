@@ -4,6 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ClientInfo.fs" />
     <Compile Include="BoleroUtility.fs" />
     <Compile Include="ElmishTypes.fs" />
     <Compile Include="ElmishRoutes.fs" />

@@ -1,6 +1,7 @@
 module Songhay.Dashboard.Server.Visuals.Head
 
 open Bolero.Html
+open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.Components.ContentBlock
 
 let metaElements =
@@ -22,4 +23,4 @@ let headElements =
     @
     linkElements
     @
-    [ title [] [ text "SonghaySystem(::)"] ]
+    [ title [] [ text Info.title ] ]
