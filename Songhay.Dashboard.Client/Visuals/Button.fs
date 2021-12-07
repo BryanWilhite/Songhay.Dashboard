@@ -2,16 +2,8 @@ module Songhay.Dashboard.Client.Visuals.Button
 
 open Bolero
 open Bolero.Html
+open Songhay.Dashboard.Client.Visuals.Svg
 open Songhay.Dashboard.Client.Visuals.Types
-
-let svgSpriteNode (href: string) (viewBox: string) =
-    svg
-        [
-            "fill" => "currentColor"
-            nameof viewBox => viewBox
-            "xmlns" => "http://www.w3.org/2000/svg"
-        ]
-        [ RawHtml $@"<use href=""{href}""></use>" ]
 
 let bulmaAnchorIconButton data =
     a

@@ -1,8 +1,10 @@
 module Songhay.Dashboard.Client.Visuals.Block.Studio
 
+open System
 open Bolero.Html
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.Visuals.Button
+open Songhay.Dashboard.Client.Visuals.Svg
 open Songhay.Dashboard.Client.Visuals.Types
 
 let studioLogo =
@@ -45,6 +47,24 @@ let data =
         }
     ]
 
-let spriteNodes =
+let svgLinkNodes =
     data
     |> List.map bulmaAnchorIconButton
+
+let svgVersionNode (title, id, ver) =
+    div
+        [ attr.classes [ "tile"; "is-child"; "is-unselectable"; "has-text-centered" ]; attr.title title ]
+        [
+            span [ attr.classes [ "icon"; ] ] [ svgSpriteNode $"./#{id}" viewBox ]
+            span [ attr.classes [ "is-size-7"; ] ] [ text ver ]
+        ]
+
+let boleroVersion = Bolero.Node.Empty.GetType().Assembly.GetName().Version.ToString()
+let dotnetRuntimeVersion = $"{Environment.Version.Major:D}.{Environment.Version.Minor:D2}"
+
+let svgVersionNodes =
+    [
+        ( $"Bolero {boleroVersion}", "mdi_bolero_dance_24px", boleroVersion )
+        ( $".NET Runtime {dotnetRuntimeVersion}", "mdi_dotnet_24px", dotnetRuntimeVersion )
+    ]
+    |> List.map svgVersionNode

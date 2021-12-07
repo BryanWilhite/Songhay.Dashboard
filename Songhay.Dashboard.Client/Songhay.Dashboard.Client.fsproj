@@ -9,6 +9,7 @@
     <Compile Include="ElmishTypes.fs" />
     <Compile Include="ElmishRoutes.fs" />
     <Compile Include="Visuals/Types.fs" />
+    <Compile Include="Visuals/Svg.fs" />
     <Compile Include="Visuals/Button.fs" />
     <Compile Include="Visuals/Block/Studio.fs" />
     <Compile Include="Visuals/Tile.fs" />
