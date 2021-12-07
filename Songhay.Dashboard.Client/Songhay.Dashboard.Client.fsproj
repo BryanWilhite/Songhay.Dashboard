@@ -8,6 +8,9 @@
     <Compile Include="BoleroUtility.fs" />
     <Compile Include="ElmishTypes.fs" />
     <Compile Include="ElmishRoutes.fs" />
+    <Compile Include="Visuals/Types.fs" />
+    <Compile Include="Visuals/Button.fs" />
+    <Compile Include="Visuals/Block/Studio.fs" />
     <Compile Include="Visuals/Tile.fs" />
     <Compile Include="Templates/SvgSprites.fs" />
     <Compile Include="Templates/ContentBlockTemplate.fs" />
