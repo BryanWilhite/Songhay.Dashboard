@@ -1,11 +1,3 @@
-// [ https://bulma.io/2019/10/15/light-dark-colors/ ]
-$scheme-main: $black;           //default: $white
-$scheme-main-bis: $black-bis;   //default: $white-bis
-$scheme-main-ter: $black-ter;   //default: $white-ter
-$scheme-invert: $white;         //default: $black
-$scheme-invert-bis: $white-bis; //default: $black-bis
-$scheme-invert-ter: $white-ter; //default: $black-ter
-
 /*
     This palette is based on:
     http://mcg.mbitson.com/#!?mcgpalette0=%23006633&themename=mat-akyinkyin-green
@@ -76,6 +68,14 @@ $mat-akyinkyin-green: (
 );
 $akyinkyin-background: map-get(
     $map: $mat-akyinkyin-dark,
+    $key: 500
+);
+$akyinkyin-background-bis: map-get(
+    $map: $mat-akyinkyin-dark,
+    $key: 400
+);
+$akyinkyin-background-ter: map-get(
+    $map: $mat-akyinkyin-dark,
     $key: 300
 );
 $akyinkyin-base: map-get(
@@ -136,29 +136,15 @@ $greys-background: map-get(
     $map: $md-grey-tones,
     $key: 400
 );
+$greys-background-bis: map-get(
+    $map: $md-grey-tones,
+    $key: 300
+);
+$greys-background-ter: map-get(
+    $map: $md-grey-tones,
+    $key: 200
+);
 $greys-dark-tone: map-get(
     $map: $md-grey-tones,
     $key: 200
 );
-
-// [ https://bulma.io/documentation/customize/variables/ ]
-$body-background-color: #303130;
-$footer-background-color: map-get(
-    $map: $mat-akyinkyin-dark,
-    $key: 500
-);
-
-$link: $light;
-$link-light: $light;
-$link-dark: $light;
-$link-visited: $light;
-$link-hover: $akyinkyin-light-tint;
-$link-hover-border: $akyinkyin-light-tint;
-$link-focus: $light;
-$link-focus-border: $light;
-$link-active: $light;
-$link-active-border: $light;
-
-$text: $light;
-$text-light: $light;
-$text-strong: $light;
