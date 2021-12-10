@@ -15,16 +15,25 @@ let bulmaContentParentTile nodes =
     div [ attr.classes [ "tile"; "is-parent" ] ] nodes
 
 let studioComponentNode =
+    let classesParentLevel = [ "level"; "is-mobile" ]
+    let classesSvgLinkNodes = classesParentLevel @ [ "ml-6"; "mr-6" ]
+    let classesSvgVersionNodes = classesParentLevel @ [ "mt-6"; "pt-6" ]
+
     bulmaColumnTile 0 [
-        bulmaContentParentTile [
-            div [ attr.classes [ "card"; "has-background-grey-darker"; "is-child"; "tile" ] ] [
-                div [ attr.classes [ "card-content" ] ] [
-                    div [ attr.classes [ "content"; "has-text-centered" ] ] [ Studio.studioLogo ]
-                    div [ attr.classes [ "content"; "has-text-centered" ] ] Studio.svgLinkNodes
-                    div
-                        [ attr.classes [ "tile"; "is-parent"; "mt-6"; "pt-6" ] ]
-                        Studio.svgVersionNodes
-                ]
+        bulmaContentParentTile
+            [
+                div
+                    [ attr.classes [ "card"; "has-background-grey-darker"; "is-child"; "tile" ] ]
+                    [
+                        div
+                            [ attr.classes [ "card-content" ] ]
+                            [
+                                div
+                                    [ attr.classes [ "content"; "has-text-centered" ] ]
+                                    [ Studio.studioLogo ]
+                                div [ attr.classes classesSvgLinkNodes ] Studio.svgLinkNodes
+                                div [ attr.classes classesSvgVersionNodes ] Studio.svgVersionNodes
+                            ]
+                    ]
             ]
-        ]
     ]

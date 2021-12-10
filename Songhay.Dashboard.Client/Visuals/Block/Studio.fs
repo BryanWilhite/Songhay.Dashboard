@@ -52,8 +52,15 @@ let svgLinkNodes =
     |> List.map bulmaAnchorIconButton
 
 let svgVersionNode (title, id, ver) =
+    let classes = [
+        "level-item"
+        "is-akyinkyin-base"
+        "is-unselectable"
+        "has-text-centered"
+    ]
+
     div
-        [ attr.classes [ "tile"; "is-child"; "is-unselectable"; "has-text-centered" ]; attr.title title ]
+        [ attr.classes classes; attr.title title ]
         [
             span [ attr.classes [ "icon"; ] ] [ svgSpriteNode $"./#{id}" viewBox ]
             span [ attr.classes [ "is-size-7"; ] ] [ text ver ]

@@ -1,12 +1,13 @@
 /*
     the attempt here is to cascade Bulma variables in the following order:
 
-    1. color scheme
-    2. link and text
-    3. body element
-    4. `*` element background and border
-    5. `*` element prompts
-    6. `pre` and `code` elements
+    1. custom colors
+    2. scheme variables
+    3. link and text
+    4. body element
+    5. `*` element background and border
+    6. `*` element prompts
+    7. `pre` and `code` elements
 
     [ https://bulma.io/documentation/customize/variables/ ]
 
@@ -14,97 +15,108 @@
     [ https://github.com/jgthms/bulma/issues/1756#issuecomment-376188013 ]
 */
 
+@import "./akyinkyin.scss";
+
 /*
-    color scheme: dark mode
-
-    [ https://bulma.io/2019/10/15/light-dark-colors/ ]
-
-    $light: $white-ter;
-    $dark: $grey-darker;
+    custom colors
 */
-$scheme-main: $akyinkyin-background;            // default: $white;
-$scheme-main-bis: $akyinkyin-background-bis;    // default: $white-bis;
-$scheme-main-ter: $akyinkyin-background-ter;    // default: $white-ter;
-$scheme-invert: $white;                         // default: $black;
-$scheme-invert-bis: $white-bis;                 // default: $black-bis;
-$scheme-invert-ter: $white-ter;                 // default: $black-ter;
+$custom-colors: (
+    ("akyinkyin-background": ($akyinkyin-background)),
+    ("akyinkyin-base": ($akyinkyin-base)),
+    ("akyinkyin-dark-tone": ($akyinkyin-dark-tone)),
+    ("akyinkyin-light-tone": ($akyinkyin-light-tone)),
+    ("akyinkyin-light-text": ($akyinkyin-light-text)),
+);
+$custom-shades: (
+    ("greys-background": ($greys-background)),
+    ("greys-dark-tone": ($greys-dark-tone)),
+    ("greys-lightest-tone": ($greys-dark-tone)),
+);
+
+/*
+    scheme variables
+
+    [ https://bulma.io/2019/10/15/light-dark-colors/#scheme-variables-for-dark-mode ]
+*/
+// $scheme-main: $white;
+// $scheme-main-bis: $white-bis;
+// $scheme-main-ter: $white-ter;
+// $scheme-invert: $black;
+// $scheme-invert-bis: $black-bis;
+// $scheme-invert-ter: $black-ter;
 
 /*
     link and text
 */
-$link: $light;                              // default: $blue;
-$link-light: $light;                        // default: findLightColor($link);
-$link-dark: $light;                         // default: findDarkColor($link);
-$link-visited: $light;                      // default: $purple;
+$link: $greys-lightest-tone;                // default: $blue;
+$link-light: $greys-lightest-tone;          // default: findLightColor($link);
+$link-dark: $greys-lightest-tone;           // default: findDarkColor($link);
+$link-visited: $greys-lightest-tone;        // default: $purple;
 $link-hover: $akyinkyin-light-tint;         // default: $grey-darker;
 $link-hover-border: $akyinkyin-light-tint;  // default: $grey-light;
-$link-focus: $light;                        // default: $grey-darker;
-$link-focus-border: $light;                 // default: $blue;
-$link-active: $light;                       // default: $grey-darker;
-$link-active-border: $light;                // default: $grey-dark;
+$link-focus: $greys-lightest-tone;          // default: $grey-darker;
+$link-focus-border: $greys-lightest-tone;   // default: $blue;
+$link-active: $greys-lightest-tone;         // default: $grey-darker;
+$link-active-border: $greys-lightest-tone;  // default: $grey-dark;
 
-$text: $akyinkyin-base;             // default: $grey-dark;
-$text-light: $akyinkyin-light-tone; // default: $grey;
-$text-strong: $akyinkyin-dark-tone; // default: $grey-darker;
+// $text: $akyinkyin-base;             // default: $grey-dark;
+// $text-light: $akyinkyin-light-tone; // default: $grey;
+// $text-strong: $akyinkyin-dark-tone; // default: $grey-darker;
 // default: $strong-color: $text-strong;
 
 /*
     body element
-
-    $body-background-color: $scheme-main; 
-    $body-color: $text;
 */
-
-$footer-background-color: $akyinkyin-dark-tone;     // default: $scheme-main-bis;
-$footer-color: $akyinkyin-light-tone;               // default: false;
-// `footer-*` is not documented 😶
+$body-background-color: $akyinkyin-background;  // default: $scheme-main; 
+$body-color: $akyinkyin-base;                   // default: $text;
+$footer-background-color: $akyinkyin-dark-tone; // default: $scheme-main-bis;
+$footer-color: $akyinkyin-base;                 // default: false;
+// [ https://bulma.io/documentation/layout/footer/ ]
+// TODO: `footer-*` is not documented 😶
 // [ see https://github.com/jgthms/bulma/blob/master/sass/layout/footer.sass ]
 
 /*
     `*` element background and border
-
-    $background: $white-ter;
-
-    $border: $grey-lighter;
-    $border-hover: $grey-light;
-    $border-light: $grey-lightest;
-    $border-light-hover: $grey-light;
-
-    $hr-background-color: $background;
-
-    $shadow: 0 0.5em 1em -0.125em rgba($scheme-invert, 0.1), 0 0px 0 1px rgba($scheme-invert, 0.02);
 */
+// $background: $white-ter;
+
+// $border: $grey-lighter;
+// $border-hover: $grey-light;
+// $border-light: $grey-lightest;
+// $border-light-hover: $grey-light;
+
+// $hr-background-color: $background;
+
+// $shadow: 0 0.5em 1em -0.125em rgba($scheme-invert, 0.1), 0 0px 0 1px rgba($scheme-invert, 0.02);
 
 /*
     `*` element prompts
-
-    $primary: $turquoise;
-    $primary-dark: findDarkColor($primary);
-    $primary-light: findLightColor($primary);
-
-    $info: $cyan;
-    $info-light: findLightColor($info);
-    $info-dark: findDarkColor($info);
-
-    $success: $green;
-    $success-light: findLightColor($success);
-    $success-dark: findDarkColor($success);
-
-    $warning: $yellow;
-    $warning-light: findLightColor($warning);
-    $warning-dark: findDarkColor($warning);
-    
-    $danger: $red;
-    $danger-light: findLightColor($danger);
-    $danger-dark: findDarkColor($danger);
 */
+// $primary: $turquoise;
+// $primary-dark: findDarkColor($primary);
+// $primary-light: findLightColor($primary);
+
+// $info: $cyan;
+// $info-light: findLightColor($info);
+// $info-dark: findDarkColor($info);
+
+// $success: $green;
+// $success-light: findLightColor($success);
+// $success-dark: findDarkColor($success);
+
+// $warning: $yellow;
+// $warning-light: findLightColor($warning);
+// $warning-dark: findDarkColor($warning);
+
+// $danger: $red;
+// $danger-light: findLightColor($danger);
+// $danger-dark: findDarkColor($danger);
 
 /*
     `pre` and `code` elements
-
-    $pre: $text;
-    $pre-background: $background;
-    
-    $code: darken($red, 15%);
-    $code-background: $background;
 */
+// $pre: $text;
+// $pre-background: $background;
+
+// $code: darken($red, 15%);
+// $code-background: $background;

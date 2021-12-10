@@ -16,23 +16,7 @@ $mat-akyinkyin-dark: (
     A100: #53ff53,
     A200: #20ff20,
     A400: #00ec00,
-    A700: #00d300,
-    contrast: (
-        50: $dark,
-        100: $dark,
-        200: $dark,
-        300: $light,
-        400: $light,
-        500: $light,
-        600: $light,
-        700: $light,
-        800: $light,
-        900: $light,
-        A100: $dark,
-        A200: $dark,
-        A400: $dark,
-        A700: $light
-    )
+    A700: #00d300
 );
 $mat-akyinkyin-green: (
     50: #e0ede7,
@@ -49,34 +33,10 @@ $mat-akyinkyin-green: (
     A200: #3bff6c,
     A400: #08ff46,
     A700: #00ee3b,
-    contrast: (
-        50: $dark,
-        100: $dark,
-        200: $dark,
-        300: $light,
-        400: $light,
-        500: $light,
-        600: $light,
-        700: $light,
-        800: $light,
-        900: $light,
-        A100: $dark,
-        A200: $dark,
-        A400: $dark,
-        A700: $dark
-    )
 );
 $akyinkyin-background: map-get(
     $map: $mat-akyinkyin-dark,
-    $key: 500
-);
-$akyinkyin-background-bis: map-get(
-    $map: $mat-akyinkyin-dark,
-    $key: 400
-);
-$akyinkyin-background-ter: map-get(
-    $map: $mat-akyinkyin-dark,
-    $key: 300
+    $key: 800
 );
 $akyinkyin-base: map-get(
     $map: $mat-akyinkyin-green,
@@ -136,15 +96,11 @@ $greys-background: map-get(
     $map: $md-grey-tones,
     $key: 400
 );
-$greys-background-bis: map-get(
-    $map: $md-grey-tones,
-    $key: 300
-);
-$greys-background-ter: map-get(
-    $map: $md-grey-tones,
-    $key: 200
-);
 $greys-dark-tone: map-get(
     $map: $md-grey-tones,
     $key: 200
+);
+$greys-lightest-tone: map-get(
+    $map: $md-grey-tones,
+    $key: 50
 );
