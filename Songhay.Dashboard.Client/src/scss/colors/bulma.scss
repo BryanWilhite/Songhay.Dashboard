@@ -20,6 +20,7 @@
 /*
     custom colors
 */
+
 $custom-colors: (
     ("akyinkyin-background": ($akyinkyin-background)),
     ("akyinkyin-base": ($akyinkyin-base)),
@@ -67,9 +68,9 @@ $link-active-border: $greys-lightest-tone;  // default: $grey-dark;
 /*
     body element
 */
-$body-background-color: $akyinkyin-background;  // default: $scheme-main; 
+$body-background-color: $greys-background;      // default: $scheme-main; 
 $body-color: $akyinkyin-base;                   // default: $text;
-$footer-background-color: $akyinkyin-dark-tone; // default: $scheme-main-bis;
+$footer-background-color: $greys-background;    // default: $scheme-main-bis;
 $footer-color: $akyinkyin-base;                 // default: false;
 // [ https://bulma.io/documentation/layout/footer/ ]
 // TODO: `footer-*` is not documented 😶
