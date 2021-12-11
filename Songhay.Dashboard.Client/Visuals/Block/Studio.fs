@@ -75,3 +75,26 @@ let svgVersionNodes =
         ( $".NET Runtime {dotnetRuntimeVersion}", "mdi_dotnet_24px", dotnetRuntimeVersion )
     ]
     |> List.map svgVersionNode
+
+let studioNode =
+    let cssClassesParentLevel = [ "level"; "is-mobile" ]
+
+    let cssClassesSvgLinkNodes =
+        cssClassesParentLevel @ [ "ml-6"; "mr-6" ]
+
+    let cssClassesSvgVersionNodes =
+        cssClassesParentLevel @ [ "has-text-greys-light-tone"; "mt-6"; "pt-6" ]
+
+    div
+        [ attr.classes [ "card"; "has-background-greys-dark-tone"; "is-child"; "tile" ] ]
+        [
+            div
+                [ attr.classes [ "card-content" ] ]
+                [
+                    div
+                        [ attr.classes [ "content"; "has-text-centered" ] ]
+                        [ studioLogo ]
+                    div [ attr.classes cssClassesSvgLinkNodes ] svgLinkNodes
+                    div [ attr.classes cssClassesSvgVersionNodes ] svgVersionNodes
+                ]
+        ]
