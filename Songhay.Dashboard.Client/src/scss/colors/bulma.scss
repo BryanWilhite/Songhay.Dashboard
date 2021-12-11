@@ -15,23 +15,21 @@
     [ https://github.com/jgthms/bulma/issues/1756#issuecomment-376188013 ]
 */
 
-@import "./akyinkyin.scss";
+@import './akyinkyin.scss';
 
 /*
     custom colors
 */
-
 $custom-colors: (
-    ("akyinkyin-background": ($akyinkyin-background)),
-    ("akyinkyin-base": ($akyinkyin-base)),
-    ("akyinkyin-dark-tone": ($akyinkyin-dark-tone)),
-    ("akyinkyin-light-tone": ($akyinkyin-light-tone)),
-    ("akyinkyin-light-text": ($akyinkyin-light-text)),
-);
-$custom-shades: (
-    ("greys-background": ($greys-background)),
-    ("greys-dark-tone": ($greys-dark-tone)),
-    ("greys-lightest-tone": ($greys-dark-tone)),
+    'akyinkyin-bg': ($akyinkyin-background),
+    'akyinkyin-base': ($akyinkyin-base),
+    'akyinkyin-dark-tone': ($akyinkyin-dark-tone),
+    'akyinkyin-light-tone': ($akyinkyin-light-tone),
+    'akyinkyin-light-text': ($akyinkyin-light-text),
+    'greys-bg': ($greys-background),
+    'greys-dark-tone': ($greys-dark-tone),
+    'greys-light-tone': ($greys-light-tone),
+    'greys-lightest-tone': ($greys-lightest-tone),
 );
 
 /*

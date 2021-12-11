@@ -98,7 +98,11 @@ $greys-background: map-get(
 );
 $greys-dark-tone: map-get(
     $map: $md-grey-tones,
-    $key: 200
+    $key: 300
+);
+$greys-light-tone: map-get(
+    $map: $md-grey-tones,
+    $key: 100
 );
 $greys-lightest-tone: map-get(
     $map: $md-grey-tones,

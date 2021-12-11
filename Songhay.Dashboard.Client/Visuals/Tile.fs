@@ -17,13 +17,13 @@ let bulmaContentParentTile nodes =
 let studioComponentNode =
     let classesParentLevel = [ "level"; "is-mobile" ]
     let classesSvgLinkNodes = classesParentLevel @ [ "ml-6"; "mr-6" ]
-    let classesSvgVersionNodes = classesParentLevel @ [ "mt-6"; "pt-6" ]
+    let classesSvgVersionNodes = classesParentLevel @ [ "has-text-greys-light-tone"; "mt-6"; "pt-6" ]
 
     bulmaColumnTile 0 [
         bulmaContentParentTile
             [
                 div
-                    [ attr.classes [ "card"; "has-background-grey-darker"; "is-child"; "tile" ] ]
+                    [ attr.classes [ "card"; "has-background-greys-dark-tone"; "is-child"; "tile" ] ]
                     [
                         div
                             [ attr.classes [ "card-content" ] ]
