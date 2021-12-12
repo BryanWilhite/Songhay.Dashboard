@@ -10,7 +10,7 @@ open Songhay.Dashboard.Client.Templates.ContentBlock
 
 let initModel =
     {
-        page = StudioLinks
+        page = StudioToolsPage
         error = None
     }
 

@@ -3,9 +3,8 @@ namespace Songhay.Dashboard.Client.ElmishTypes
 open Bolero
 
 type Page =
-    | [<EndPoint "/">] StudioLinks
-    | [<EndPoint "/dash">] Dashboard
-    | [<EndPoint "/tools">] StudioTools
+    | [<EndPoint "/">] StudioToolsPage
+    | [<EndPoint "/dash">] DashboardPage
 
 type Message =
     | SetPage of Page

@@ -22,3 +22,6 @@ let bulmaContentParentTile isVertical nodes =
 
 let studioComponentNode =
     bulmaColumnTile 0 [ bulmaContentParentTile false [ Studio.studioNode ] ]
+
+let studioToolsComponentNode =
+    bulmaColumnTile 0 [ bulmaContentParentTile false [ StudioTools.studioToolsNode ] ]

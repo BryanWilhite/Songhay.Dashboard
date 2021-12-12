@@ -12,6 +12,7 @@
     <Compile Include="Visuals/Svg.fs" />
     <Compile Include="Visuals/Button.fs" />
     <Compile Include="Visuals/Block/Studio.fs" />
+    <Compile Include="Visuals/Block/StudioTools.fs" />
     <Compile Include="Visuals/Tile.fs" />
     <Compile Include="Templates/SvgSprites.fs" />
     <Compile Include="Templates/ContentBlockTemplate.fs" />

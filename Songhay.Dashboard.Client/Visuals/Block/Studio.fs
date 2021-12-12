@@ -66,10 +66,10 @@ let svgVersionNode (title, id, ver) =
             span [ attr.classes [ "is-size-7"; ] ] [ text ver ]
         ]
 
-let boleroVersion = Bolero.Node.Empty.GetType().Assembly.GetName().Version.ToString()
-let dotnetRuntimeVersion = $"{Environment.Version.Major:D}.{Environment.Version.Minor:D2}"
-
 let svgVersionNodes =
+    let boleroVersion = Bolero.Node.Empty.GetType().Assembly.GetName().Version.ToString()
+    let dotnetRuntimeVersion = $"{Environment.Version.Major:D}.{Environment.Version.Minor:D2}"
+
     [
         ( $"Bolero {boleroVersion}", "mdi_bolero_dance_24px", boleroVersion )
         ( $".NET Runtime {dotnetRuntimeVersion}", "mdi_dotnet_24px", dotnetRuntimeVersion )
