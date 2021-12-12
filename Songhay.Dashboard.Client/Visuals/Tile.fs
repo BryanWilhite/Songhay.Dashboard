@@ -4,19 +4,19 @@ open Bolero.Html
 open Songhay.Dashboard.Client.Visuals.Block
 
 let bulmaColumnTile width nodes =
-    let cssClasses =
-        match width with
-        | 0 -> [ "tile" ]
-        | _ -> [ "tile"; $"is-{width}" ]
+    let cssClasses = [
+        "tile"
+        if width > 0 then $"is-{width}"
+    ]
 
     div [ attr.classes cssClasses ] nodes
 
 let bulmaContentParentTile isVertical nodes =
-    let cssClasses =
-        let cssDefault = [ "tile"; "is-parent" ]
-        match isVertical with
-        | true -> cssDefault @ [ "is-vertical" ]
-        | _ -> cssDefault
+    let cssClasses = [
+        "tile"
+        "is-parent"
+        if isVertical then "is-vertical"
+    ]
 
     div [ attr.classes cssClasses ] nodes
 
