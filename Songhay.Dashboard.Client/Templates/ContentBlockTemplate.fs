@@ -12,6 +12,7 @@ let viewMainTemplate model dispatch =
     ContentBlockTemplate()
         .SvgSpritesNode(SvgSpritesTemplate().Elt())
         .StudioComponentNode(Tile.studioComponentNode)
+        .StudioLinksNode(Empty)
         .Content(
             cond model.page <| function
             | StudioToolsPage -> Block.StudioTools.studioToolsNode
