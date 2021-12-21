@@ -47,38 +47,6 @@
                 ]
             },
             "problemMatcher": []
-        },
-        {
-            "type": "npm",
-            "script": "build",
-            "path": "Songhay.Dashboard/Client/",
-            "problemMatcher": [
-                "$tslint5"
-            ]
-        },
-        {
-            "type": "npm",
-            "script": "build:prod",
-            "path": "Songhay.Dashboard/Client/",
-            "problemMatcher": [
-                "$tslint5"
-            ]
-        },
-        {
-            "type": "npm",
-            "script": "start",
-            "path": "Songhay.Dashboard/Client/",
-            "problemMatcher": [
-                "$tslint5"
-            ]
-        },
-        {
-            "type": "npm",
-            "script": "test",
-            "path": "Songhay.Dashboard/Client/",
-            "problemMatcher": [
-                "$tslint5"
-            ]
         }
     ]
 }
