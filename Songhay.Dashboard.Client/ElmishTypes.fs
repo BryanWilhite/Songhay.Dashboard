@@ -4,7 +4,7 @@ open Bolero
 
 type Page =
     | [<EndPoint "/">] StudioToolsPage
-    | [<EndPoint "/dash">] DashboardPage
+    | [<EndPoint "/feeds">] StudioFeedsPage
 
 type Message =
     | SetPage of Page
