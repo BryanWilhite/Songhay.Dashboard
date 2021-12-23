@@ -1,5 +1,6 @@
 module Songhay.Dashboard.Client.Visuals.Block.StudioLinks
 
+open Microsoft.AspNetCore.Components.Routing
 open Bolero.Html
 open Songhay.Dashboard.Client.ElmishRoutes
 open Songhay.Dashboard.Client.ElmishTypes
@@ -11,7 +12,7 @@ let studioLinksNode =
     ]
 
     let node (page, caption) =
-        a [
+        navLink NavLinkMatch.All [
             attr.classes [ "panel-block" ]
             attr.href (router.Link page)
         ] [ text caption ]
