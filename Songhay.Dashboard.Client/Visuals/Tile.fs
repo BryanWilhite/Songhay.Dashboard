@@ -23,8 +23,8 @@ let bulmaContentParentTile isVertical nodes =
 let studioComponentNode =
     bulmaColumnTile 0 [ bulmaContentParentTile false [ Studio.studioNode ] ]
 
-let studioLinksNode = //TODO add `Block.StudioLinks`
-    bulmaColumnTile 0 [ bulmaContentParentTile false [ text "[StudioLinks]"  ] ]
+let studioLinksNode =
+    bulmaColumnTile 0 [ bulmaContentParentTile false [ StudioLinks.studioLinksNode ] ]
 
 let studioPageNode block =
     bulmaColumnTile 0 [ bulmaContentParentTile false [ block ] ]

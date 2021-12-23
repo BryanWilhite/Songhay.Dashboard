@@ -15,8 +15,8 @@ let viewMainTemplate model dispatch =
         .StudioLinksNode(Tile.studioLinksNode)
         .Content(
             cond model.page <| function
+            | StudioFeedsPage -> Tile.studioPageNode Block.StudioFeeds.studioFeedsNode
             | StudioToolsPage -> Tile.studioPageNode Block.StudioTools.studioToolsNode
-            | _ -> Empty // TODO: define pages
         )
         .Error(
             cond model.error <| function
