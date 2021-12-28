@@ -12,4 +12,7 @@ let bulmaAnchorIconButton data =
             attr.target "_blank"
             attr.title data.title
         ]
-        [ span [ attr.classes [ "icon" ] ] [ svgSpriteNode $"./#{data.id}" data.viewBox ] ]
+        [ span [
+            attr.classes [ "icon" ]
+            "aria-hidden" => "true"
+        ] [ svgSpriteNode $"./#{data.id}" data.viewBox ] ]

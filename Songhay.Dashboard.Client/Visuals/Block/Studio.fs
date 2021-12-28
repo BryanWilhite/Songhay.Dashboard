@@ -62,8 +62,11 @@ let svgVersionNode (title, id, ver) =
     div
         [ attr.classes classes; attr.title title ]
         [
-            span [ attr.classes [ "icon"; ] ] [ svgSpriteNode $"./#{id}" viewBox ]
-            span [ attr.classes [ "is-size-7"; ] ] [ text ver ]
+            span [
+                attr.classes [ "icon" ]
+                "aria-hidden" => "true"
+            ] [ svgSpriteNode $"./#{id}" viewBox ]
+            span [ attr.classes [ "is-size-7" ] ] [ text ver ]
         ]
 
 let svgVersionNodes =
