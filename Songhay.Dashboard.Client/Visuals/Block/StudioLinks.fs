@@ -12,13 +12,14 @@ let studioLinksNode =
     ]
 
     let node (page, caption) =
+
         navLink NavLinkMatch.All [
+            "ActiveClass" => "is-active"
             attr.classes [ "panel-block" ]
             attr.href (router.Link page)
         ] [ text caption ]
 
     let nodes = data |> List.map node
-
     nav
         [ attr.classes [ "panel"; "has-background-greys-dark-tone"; "is-child"; "tile" ] ]
         ([ p [ attr.classes [ "panel-heading" ] ] [ text "studio links" ] ] @ nodes)

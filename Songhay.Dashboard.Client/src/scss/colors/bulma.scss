@@ -8,6 +8,7 @@
     5. `*` element background and border
     6. `*` element prompts
     7. `pre` and `code` elements
+    8. panel component
 
     [ https://bulma.io/documentation/customize/variables/ ]
 
@@ -119,3 +120,23 @@ $footer-color: $akyinkyin-base;                 // default: false;
 
 // $code: darken($red, 15%);
 // $code-background: $background;
+
+/*
+    panel component
+
+    [ https://bulma.io/documentation/components/panel/#variables ]
+*/
+$panel-item-border: 1px solid $akyinkyin-dark-tone;             // default: 1px solid $border-light;
+$panel-heading-background-color: $akyinkyin-dark-tone;          // default: $border-light;
+$panel-heading-color: $akyinkyin-light-tint;                    // default: $text-strong;
+// $panel-tab-border-bottom: 1px solid $border;
+// $panel-tab-active-border-bottom-color: $link-active-border;
+// $panel-tab-active-color: $link-active;
+// $panel-list-item-color: $text;
+$panel-list-item-hover-color: $akyinkyin-dark-tone;             // default: $link;
+$panel-block-color: $greys-lightest-tone;                       // default: $text-strong;
+$panel-block-hover-background-color: $akyinkyin-base;           // default: $background;
+$panel-block-active-color: $akyinkyin-dark-tone;                // default: $link-active;
+// $panel-block-active-icon-color: $link;
+// $panel-icon-color: $text-light;
+// $panel-colors: $colors;
