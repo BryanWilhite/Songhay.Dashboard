@@ -72,7 +72,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
         {
             var tasks = this._jsonFiles.Select(i =>
             {
-                var jsonFile = FrameworkFileUtility.GetCombinedPath(this._dataRoot, $"{i}.json");
+                var jsonFile = ProgramFileUtility.GetCombinedPath(this._dataRoot, $"{i}.json");
                 traceSource?.TraceInformation($"downloading {jsonFile}.json...");
 
                 var @ref = container.GetBlobReference(blobName: $"{i}.json");
@@ -82,13 +82,13 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             Task.WaitAll(tasks);
         }
 
-        internal string GetAppFile() => FrameworkFileUtility.GetCombinedPath(this._dataRoot, this._appFileName);
+        internal string GetAppFile() => ProgramFileUtility.GetCombinedPath(this._dataRoot, this._appFileName);
 
         internal void SetDataRoot(string basePath)
         {
-            this._dataRoot = FrameworkFileUtility.GetCombinedPath(basePath, this._metaSet.TryGetValueWithKey("dataRoot", throwException: true));
+            this._dataRoot = ProgramFileUtility.GetCombinedPath(basePath, this._metaSet.TryGetValueWithKey("dataRoot", throwException: true));
 
-            if (this._dataRoot.StartsWith("./")) FrameworkFileUtility.GetCombinedPath(basePath, this._dataRoot);
+            if (this._dataRoot.StartsWith("./")) ProgramFileUtility.GetCombinedPath(basePath, this._dataRoot);
             this._dataRoot = Path.GetFullPath(this._dataRoot);
             if (!Directory.Exists(this._dataRoot)) Directory.CreateDirectory(this._dataRoot);
 
@@ -138,7 +138,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             this._jsonFiles.ForEachInEnumerable(i =>
             {
                 traceSource?.TraceInformation($"writing {feedsRoot}/{i}...");
-                var jsonFile = FrameworkFileUtility.GetCombinedPath(this._dataRoot, $"{i}.json");
+                var jsonFile = ProgramFileUtility.GetCombinedPath(this._dataRoot, $"{i}.json");
                 if (!File.Exists(jsonFile)) throw new FileNotFoundException("The expected feeds file is not here.");
                 var jO_feed = JObject.Parse(File.ReadAllText(jsonFile));
                 appJO[feedsRoot][i] = jO_feed;
@@ -157,7 +157,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
                 Formatting = Formatting.Indented
             };
 
-            var assemblyInfo = new FrameworkAssemblyInfo(this.GetType().Assembly);
+            var assemblyInfo = new ProgramAssemblyInfo(this.GetType().Assembly);
 
             var jO = JObject.FromObject(assemblyInfo, JsonSerializer.Create(settings));
             jO = new JObject { { nameof(assemblyInfo), jO } };

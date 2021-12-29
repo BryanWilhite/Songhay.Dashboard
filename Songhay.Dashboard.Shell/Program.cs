@@ -61,10 +61,10 @@ EXCEPTION:
 
         static void DisplayAssemblyInfo()
         {
-            Console.Write(FrameworkAssemblyUtility.GetAssemblyInfo(Assembly.GetExecutingAssembly(), true));
+            Console.Write(ProgramAssemblyUtility.GetAssemblyInfo(Assembly.GetExecutingAssembly(), true));
             Console.WriteLine(string.Empty);
             Console.WriteLine("Activities Assembly:");
-            Console.Write(FrameworkAssemblyUtility.GetAssemblyInfo(typeof(DashboardActivitiesGetter).Assembly, true));
+            Console.Write(ProgramAssemblyUtility.GetAssemblyInfo(typeof(DashboardActivitiesGetter).Assembly, true));
         }
 
         static void HandleDebug()
