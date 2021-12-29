@@ -23,4 +23,4 @@ let headElements =
     @
     linkElements
     @
-    [ title [] [ text Info.appTitle ] ]
+    [ title [] [ text App.appTitle ] ]

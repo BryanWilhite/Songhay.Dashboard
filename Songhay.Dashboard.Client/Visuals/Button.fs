@@ -1,8 +1,8 @@
 module Songhay.Dashboard.Client.Visuals.Button
 
 open Bolero.Html
-open Songhay.Dashboard.Client.Visuals.Svg
-open Songhay.Dashboard.Client.Visuals.Types
+open Songhay.Dashboard.Client.App
+open Songhay.Dashboard.Client.Visuals
 
 let bulmaAnchorIconButton data =
     a
@@ -15,4 +15,4 @@ let bulmaAnchorIconButton data =
         [ span [
             attr.classes [ "icon" ]
             "aria-hidden" => "true"
-        ] [ svgSpriteNode $"./#{data.id}" data.viewBox ] ]
+        ] [ Svg.svgSpriteNode $"./#{data.id}" data.viewBox ] ]
