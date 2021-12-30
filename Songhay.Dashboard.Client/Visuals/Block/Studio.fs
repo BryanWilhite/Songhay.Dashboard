@@ -14,10 +14,10 @@ let studioLogo =
     ]
 
 let svgLinkNodes =
-    App.appSocial
+    App.appSocialLinks
     |> List.map Button.bulmaAnchorIconButton
 
-let svgVersionNode (title, id, ver) =
+let svgVersionNode (data: App.VersionData) =
     let classes = [
         "level-item"
         "is-akyinkyin-base"
@@ -26,13 +26,13 @@ let svgVersionNode (title, id, ver) =
     ]
 
     div
-        [ attr.classes classes; attr.title title ]
+        [ attr.classes classes; attr.title data.title ]
         [
             span [
                 attr.classes [ "icon" ]
                 "aria-hidden" => "true"
-            ] [ Svg.svgSpriteNode $"./#{id}" App.appSvgViewBox ]
-            span [ attr.classes [ "is-size-7" ] ] [ text ver ]
+            ] [ Svg.svgSpriteNode $"./#{data.id}" App.appSvgViewBox ]
+            span [ attr.classes [ "is-size-7" ] ] [ text data.version ]
         ]
 
 let svgVersionNodes = App.appVersions |> List.map svgVersionNode
@@ -47,7 +47,7 @@ let studioNode =
         cssClassesParentLevel @ [ "has-text-greys-light-tone"; "mt-6"; "pt-6" ]
 
     div
-        [ attr.classes [ "card"; "has-background-greys-dark-tone"; "is-child"; "tile" ] ]
+        [ attr.classes ([ "card" ] @ App.appBlockChildCssClasses) ]
         [
             div
                 [ attr.classes [ "card-content" ] ]

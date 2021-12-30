@@ -1,10 +1,11 @@
 module Songhay.Dashboard.Client.Visuals.Block.StudioTools
 
 open Bolero.Html
+open Songhay.Dashboard.Client
 
 let studioToolsNode =
     div
-        [ attr.classes [ "card"; "has-background-greys-dark-tone"; "is-child"; "tile" ] ]
+        [ attr.classes ([ "card" ] @ App.appBlockChildCssClasses) ]
         [
             div
                 [ attr.classes [ "card-content" ] ]
