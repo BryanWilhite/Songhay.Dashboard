@@ -26,6 +26,20 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "test [Songhay.Modules.Tests, filtered by selected text]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "test",
+                "${workspaceFolder}/Songhay.Modules.Tests/Songhay.Modules.Tests.fsproj",
+                "--filter:${selectedText}",
+                "--logger:trx",
+                "--results-directory:${workspaceFolder}/TestResults",
+                "--verbosity:normal"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "test [clean test output folder]",
             "type": "shell",
             "options": {

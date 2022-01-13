@@ -7,7 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="ProgramFileUtility.fs" />
         <Compile Include="Models/SyndicationFeed.fs" />
+        <Compile Include="Models/ProgramAssemblyInfo.fs" />
     </ItemGroup>
 
 </Project>

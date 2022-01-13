@@ -1,5 +1,6 @@
 ﻿namespace Songhay.Modules.Models
 
+open System
 open System.Text.Json
 
 type SyndicationFeedItem =
@@ -15,14 +16,21 @@ type SyndicationFeed =
         feedTitle: string
     }
 
-    static member getAtomChannelTitle(rawFeed: JsonElement): string option =
-        Some System.String.Empty
+    static member fromInput(rawFeed: JsonElement): SyndicationFeed =
+        let feedImage: string option = Some String.Empty
+        let feedItems: SyndicationFeedItem list = []
+        let feedTitle: string = String.Empty
 
-    static member getAtomChannelItems(rawFeed: JsonElement): SyndicationFeedItem list =
-        [{title = System.String.Empty; link = System.String.Empty}]
+        raise (NotImplementedException (nameof SyndicationFeed.fromInput))
 
-    static member getRssChannelItems(rawFeed: JsonElement): SyndicationFeedItem list =
-        [{title = System.String.Empty; link = System.String.Empty}]
+    static member getAtomChannelTitle(element: JsonElement): string =
+        raise (NotImplementedException (nameof SyndicationFeed.getAtomChannelTitle))
 
-    static member getRssChannelTitle(rawFeed: JsonElement): string option =
-        Some System.String.Empty
+    static member getAtomChannelItems(element: JsonElement): SyndicationFeedItem list =
+        raise (NotImplementedException (nameof SyndicationFeed.getAtomChannelItems))
+
+    static member getRssChannelItems(element: JsonElement): SyndicationFeedItem list =
+        raise (NotImplementedException (nameof SyndicationFeed.getRssChannelItems))
+
+    static member getRssChannelTitle(element: JsonElement): string =
+        raise (NotImplementedException (nameof SyndicationFeed.getRssChannelTitle))
