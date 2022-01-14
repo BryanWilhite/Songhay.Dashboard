@@ -1,11 +1,11 @@
-module Songhay.Modules.Models.Tests
+namespace Songhay.Modules.Models.Tests
 
-open NUnit.Framework
+module SyndicationFeedTests =
 
-[<SetUp>]
-let Setup () =
-    ()
+    open System
+    open Xunit
 
-[<Test>]
-let Test1 () =
-    Assert.Pass()
+    [<Fact>]
+    let ``My test`` () =
+        Assert.True(true)
+

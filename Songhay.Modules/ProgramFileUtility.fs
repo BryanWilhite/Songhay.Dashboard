@@ -106,7 +106,7 @@ module ProgramFileUtility =
             |> removeBackslashPrefixes
             |> removeForwardslashPrefixes
 
-    let getCombinedPath path root =
+    let getCombinedPath root path =
         if (String.IsNullOrWhiteSpace(root)) then raise (NullReferenceException $"The expected {nameof(root)} is not here.")
         if (String.IsNullOrWhiteSpace(path)) then raise (NullReferenceException $"The expected {nameof(path)} is not here.")
 

@@ -8,16 +8,28 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Models/ProgramAssemblyInfoTests.fs"/>
-        <Compile Include="Models/SyndicationFeedTests.fs"/>
-        <Compile Include="Program.fs"/>
+        <Compile Include="Models/ProgramAssemblyInfoTests.fs" />
+        <Compile Include="Models/SyndicationFeedTests.fs" />
+        <Compile Include="ProgramFileUtilityTests.fs" />
+        <Compile Include="Program.fs" />
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
-        <PackageReference Include="NUnit" Version="3.13.1" />
-        <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
-        <PackageReference Include="coverlet.collector" Version="3.0.2" />
+        <PackageReference Include="xunit" Version="2.4.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="coverlet.collector" Version="3.0.2">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Songhay.Modules\Songhay.Modules.fsproj" />
     </ItemGroup>
 
 </Project>
