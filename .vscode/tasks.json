@@ -12,6 +12,20 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "test [Songhay.Dashboard.Bolero.Tests, filtered by selected text]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "test",
+                "${workspaceFolder}/Songhay.Dashboard.Bolero.Tests/Songhay.Dashboard.Bolero.Tests.fsproj",
+                "--filter:${selectedText}",
+                "--logger:trx",
+                "--results-directory:${workspaceFolder}/TestResults",
+                "--verbosity:normal"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "test [Songhay.Dashboard.Shell.Tests, filtered by selected text]",
             "command": "dotnet",
             "type": "shell",

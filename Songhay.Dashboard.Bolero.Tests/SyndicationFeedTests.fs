@@ -1,4 +1,4 @@
-namespace Songhay.Modules.Models.Tests
+namespace Songhay.Dashboard.Bolero.Tests
 
 module SyndicationFeedTests =
 
@@ -9,6 +9,7 @@ module SyndicationFeedTests =
 
     open Songhay.Modules
     open Songhay.Modules.Models
+    open Songhay.Dashboard.Client.Models
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()
@@ -24,8 +25,20 @@ module SyndicationFeedTests =
     [<Fact>]
     let ``app.json should have `feeds` property`` () =
         let result =
-            match appJsonDocument.RootElement.TryGetProperty "feeds" with
+            match appJsonDocument.RootElement.TryGetProperty SyndicationFeedUtility.SyndicationFeedPropertyName with
             | true, _ -> true
             | _ -> false
 
         Assert.True(result)
+
+    [<Theory>]
+    [<InlineData("codepen", true)>]
+    [<InlineData("flickr", true)>]
+    [<InlineData("github", false)>]
+    [<InlineData("studio", true)>]
+    [<InlineData("stackoverflow", false)>]
+    let ``isRssFeed test`` (elementName, expectedResult) =
+        let actual =  appJsonDocument.RootElement |> SyndicationFeedUtility.isRssFeed elementName
+        match expectedResult with
+        | true -> Assert.True(actual)
+        | _ -> Assert.False(actual)
