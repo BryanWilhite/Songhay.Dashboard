@@ -50,8 +50,8 @@ module ProgramFileUtility =
                 | _ ->
                     let nextLevels = levels - 1
                     match nextLevels with
-                    | _ when nextLevels >= 1 -> getParentDirectoryInfo nextLevels info.FullName
-                    | _ -> Some info
+                    | _ when nextLevels >= 1 -> getParentDirectoryInfo nextLevels info.Parent.FullName
+                    | _ -> Some info.Parent
 
     let rec getParentDirectory levels path =
         if (String.IsNullOrWhiteSpace(path)) then None

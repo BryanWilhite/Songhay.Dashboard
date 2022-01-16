@@ -23,6 +23,28 @@ module ProgramFileUtilityTests =
         let actual = (root, path) ||> ProgramFileUtility.getCombinedPath
         Assert.Equal(expectedResult.Replace('|', Path.DirectorySeparatorChar), actual)
 
+    [<Fact>]
+    let ``getParentDirectory test`` () =
+        let assembly = Assembly.GetExecutingAssembly()
+        let expected = assembly |> ProgramAssemblyInfo.getPathFromAssembly "../../../"
+        let actual =
+            assembly.Location
+            |> ProgramFileUtility.getParentDirectory 4
+            |> Option.defaultWith (fun () -> failwith "The expected directory is not here.")
+
+        Assert.Equal(expected, actual)
+
+    [<Fact>]
+    let ``getParentDirectoryInfo test`` () =
+        let assembly = Assembly.GetExecutingAssembly()
+        let expected = assembly |> ProgramAssemblyInfo.getPathFromAssembly "../../../"
+        let actual =
+            assembly.Location
+            |> ProgramFileUtility.getParentDirectoryInfo 4
+            |> Option.defaultWith (fun () -> failwith "The expected directory is not here.")
+
+        Assert.Equal(expected, actual.FullName)
+
     [<Theory>]
     [<InlineData("./one/", "one|")>]
     [<InlineData("../../one/", "one|")>]
