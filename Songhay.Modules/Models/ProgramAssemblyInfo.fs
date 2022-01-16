@@ -5,6 +5,8 @@ open System.IO
 open System.Reflection
 open System.Text
 
+open Songhay.Modules
+
 type ProgramAssemblyInfo =
     {
         AssemblyCompany: string
@@ -14,6 +16,7 @@ type ProgramAssemblyInfo =
         AssemblyTitle: string
         AssemblyVersion: string
         AssemblyVersionDetail: string
+        AssemblyFileName: string
         AssemblyPath: string
     }
 
@@ -26,6 +29,7 @@ type ProgramAssemblyInfo =
             AssemblyTitle = assembly |> ProgramAssemblyInfo.getAssemblyTitle
             AssemblyVersion = assembly |> ProgramAssemblyInfo.getAssemblyVersion
             AssemblyVersionDetail = assembly |> ProgramAssemblyInfo.getAssemblyVersionDetail
+            AssemblyFileName = assembly |> ProgramAssemblyInfo.getAssemblyFileName
             AssemblyPath = assembly |> ProgramAssemblyInfo.getAssemblyPath
         }
 
@@ -75,12 +79,32 @@ type ProgramAssemblyInfo =
         let name = assembly.GetName()
         $"{name.Version.Major:D}.{name.Version.Minor:D2}"
 
+    static member getAssemblyFileName(assembly: Assembly) =
+        Path.GetFileName(assembly.Location)
+
     static member getAssemblyPath(assembly: Assembly) =
         Path.GetDirectoryName(assembly.Location)
 
+    static member getPathFromAssembly path (assembly: Assembly) =
+        let pathNormalized =
+            path
+            |> ProgramFileUtility.ensureRelativePath
+            |> ProgramFileUtility.normalizePath
+
+        let root = assembly |> ProgramAssemblyInfo.getAssemblyPath
+        let levels = pathNormalized |> ProgramFileUtility.countParentDirectoryChars
+        let parentDirectory =
+            if (levels > 0) then
+                root
+                |> ProgramFileUtility.getParentDirectory levels
+                |> Option.defaultWith (fun () -> raise (NullReferenceException "The expected parent directory is not here."))
+            else
+                root
+
+        (parentDirectory, pathNormalized) ||> ProgramFileUtility.getCombinedPath
+
     member this.getAssemblyInfo =
-        let sb = StringBuilder()
-        sb
+        StringBuilder()
             .AppendFormat($"{this.AssemblyTitle} {this.AssemblyVersion}")
             .Append(Environment.NewLine)
             .AppendLine(this.AssemblyDescription)

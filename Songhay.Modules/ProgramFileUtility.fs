@@ -42,20 +42,31 @@ module ProgramFileUtility =
         if (String.IsNullOrWhiteSpace(path)) then None
         else
             let info = new DirectoryInfo(path)
+            match levels with
+            | _ when (abs levels) = 0 -> Some info
+            | _ ->
+                match info with
+                | _ when info = null -> Some info
+                | _ ->
+                    let nextLevels = levels - 1
+                    match nextLevels with
+                    | _ when nextLevels >= 1 -> getParentDirectoryInfo nextLevels info.FullName
+                    | _ -> Some info
 
-            let isLevelZero = (levels = 0)
-            let hasNoParent = (info.Parent = null)
-
-            if isLevelZero || hasNoParent then Some info
-            else
-                let nextLevels = (abs levels) - 1
-
-                if (nextLevels >= 1) then (nextLevels, info.FullName) ||> getParentDirectoryInfo
-                else Some info
-
-    let getParentDirectory levels path =
-        let info = (levels, path) ||> getParentDirectoryInfo
-        info |> Option.map (fun i -> i.FullName)
+    let rec getParentDirectory levels path =
+        if (String.IsNullOrWhiteSpace(path)) then None
+        else
+            match levels with
+            | _ when (abs levels) = 0 -> Some path
+            | _ ->
+                let info = Directory.GetParent(path)
+                match info with
+                | _ when info = null -> Some path
+                | _ ->
+                    let nextLevels = levels - 1
+                    match nextLevels with
+                    | _ when nextLevels >= 1 -> getParentDirectory nextLevels info.FullName
+                    | _ -> Some info.FullName
 
     let normalizePath path =
         if (String.IsNullOrWhiteSpace(path)) then path
@@ -97,10 +108,19 @@ module ProgramFileUtility =
         if String.IsNullOrWhiteSpace(path) then path
         else path.TrimStart(backSlash, forwardSlash)
 
-    let getRelativePath fileSegment =
-        if (String.IsNullOrWhiteSpace(fileSegment)) then raise (ArgumentNullException (nameof fileSegment))
+    let ensureRelativePath path =
+        if (String.IsNullOrWhiteSpace(path)) then raise (ArgumentNullException (nameof path))
 
-        fileSegment
+        path
+            |> trimLeadingDirectorySeparatorChars
+            |> fun p ->
+                if Path.IsPathRooted(p) then raise (FormatException("The expected relative path is not here."))
+                else p
+
+    let getRelativePath path =
+        if (String.IsNullOrWhiteSpace(path)) then raise (ArgumentNullException (nameof path))
+
+        path
             |> trimLeadingDirectorySeparatorChars
             |> normalizePath
             |> removeBackslashPrefixes
