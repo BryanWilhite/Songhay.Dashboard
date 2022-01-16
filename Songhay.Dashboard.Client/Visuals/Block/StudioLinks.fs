@@ -3,6 +3,7 @@ module Songhay.Dashboard.Client.Visuals.Block.StudioLinks
 open Microsoft.AspNetCore.Components.Routing
 open Bolero.Html
 open Songhay.Dashboard.Client
+open Songhay.Dashboard.Client.Models
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Visuals
 
@@ -12,7 +13,7 @@ let bulmaPanelIcon (id: string) =
     ] [ Svg.svgSpriteNode $"./#{id}" App.appSvgViewBox ]
 
 let linkNodes =
-    let linkNode (data: App.SvgSpriteData) =
+    let linkNode (data: SvgSpriteData) =
         a [
             attr.classes [ "panel-block" ]
             attr.href data.href

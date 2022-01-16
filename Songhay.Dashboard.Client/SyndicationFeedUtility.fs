@@ -1,4 +1,4 @@
-namespace Songhay.Dashboard.Client.Models
+namespace Songhay.Dashboard.Client
 
 module SyndicationFeedUtility =
 
@@ -45,3 +45,23 @@ module SyndicationFeedUtility =
                 match targetElement.TryGetProperty RssFeedPropertyName with
                 | false, _ -> false
                 | _ -> true
+
+    let getFeedElement(elementName: string) (element: JsonElement): JsonElement =
+        let getElement (feedPropertyName: string) =
+            match element.TryGetProperty SyndicationFeedPropertyName with
+            | false, _ -> None
+            | true, feedsElement ->
+                match feedsElement.TryGetProperty elementName with
+                | false, _ -> None
+                | true, targetElement ->
+                    match targetElement.TryGetProperty feedPropertyName with
+                    | false, _ -> None
+                    | _, feedElement -> Some feedElement
+
+        match isRssFeed elementName element with
+        | true ->
+            ()
+        | false ->
+            ()
+
+        raise (NotImplementedException "getFeedElement")

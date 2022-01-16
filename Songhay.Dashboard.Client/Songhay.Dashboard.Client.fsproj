@@ -4,7 +4,10 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <Compile Include="Models/SyndicationFeedUtility.fs" />
+        <Compile Include="Models/FeedName.fs" />
+        <Compile Include="Models/SvgSpriteData.fs" />
+        <Compile Include="Models/VersionData.fs" />
+        <Compile Include="SyndicationFeedUtility.fs" />
         <Compile Include="App.fs" />
         <Compile Include="BoleroUtility.fs" />
         <Compile Include="ElmishTypes.fs" />

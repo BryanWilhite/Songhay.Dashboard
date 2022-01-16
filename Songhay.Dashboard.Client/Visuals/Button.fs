@@ -1,7 +1,7 @@
 module Songhay.Dashboard.Client.Visuals.Button
 
 open Bolero.Html
-open Songhay.Dashboard.Client.App
+open Songhay.Dashboard.Client.Models
 open Songhay.Dashboard.Client.Visuals
 
 let bulmaAnchorIconButton data =

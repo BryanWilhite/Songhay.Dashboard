@@ -9,6 +9,7 @@ module SyndicationFeedTests =
 
     open Songhay.Modules
     open Songhay.Modules.Models
+    open Songhay.Dashboard.Client
     open Songhay.Dashboard.Client.Models
 
     let projectDirectoryInfo =
@@ -32,13 +33,16 @@ module SyndicationFeedTests =
         Assert.True(result)
 
     [<Theory>]
-    [<InlineData("codepen", true)>]
-    [<InlineData("flickr", true)>]
-    [<InlineData("github", false)>]
-    [<InlineData("studio", true)>]
-    [<InlineData("stackoverflow", false)>]
-    let ``isRssFeed test`` (elementName, expectedResult) =
-        let actual =  appJsonDocument.RootElement |> SyndicationFeedUtility.isRssFeed elementName
+    [<InlineData(nameof CodePen, true)>]
+    [<InlineData(nameof Flickr, true)>]
+    [<InlineData(nameof GitHub, false)>]
+    [<InlineData(nameof Studio, true)>]
+    [<InlineData(nameof StackOverflow, false)>]
+    let ``isRssFeed test`` (elementName: string, expectedResult) =
+        let actual =
+            appJsonDocument.RootElement
+            |> SyndicationFeedUtility.isRssFeed (elementName.ToLowerInvariant())
+
         match expectedResult with
         | true -> Assert.True(actual)
         | _ -> Assert.False(actual)

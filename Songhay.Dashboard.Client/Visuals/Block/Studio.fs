@@ -2,6 +2,7 @@ module Songhay.Dashboard.Client.Visuals.Block.Studio
 
 open Bolero.Html
 open Songhay.Dashboard.Client
+open Songhay.Dashboard.Client.Models
 open Songhay.Dashboard.Client.Visuals
 
 let studioLogo =
@@ -17,7 +18,7 @@ let svgLinkNodes =
     App.appSocialLinks
     |> List.map Button.bulmaAnchorIconButton
 
-let svgVersionNode (data: App.VersionData) =
+let svgVersionNode (data: VersionData) =
     let classes = [
         "level-item"
         "is-akyinkyin-base"

@@ -2,17 +2,7 @@ module Songhay.Dashboard.Client.App
 
 open System
 
-type FeedName =
-    | CodePen
-    | Flickr
-    | GitHub
-    | StackOverflow
-    | Studio
-    | Unknown
-
-type VersionData = { title: string; id: string; version: string }
-
-type SvgSpriteData = { title: string; href: string; id: string; viewBox: string }
+open Songhay.Dashboard.Client.Models
 
 [<Literal>]
 let appTitle = "SonghaySystem(::)"
