@@ -46,3 +46,16 @@ module SyndicationFeedTests =
         match expectedResult with
         | true -> Assert.True(actual)
         | _ -> Assert.False(actual)
+
+    [<Theory>]
+    [<InlineData(nameof CodePen)>]
+    [<InlineData(nameof Flickr)>]
+    [<InlineData(nameof GitHub)>]
+    [<InlineData(nameof Studio)>]
+    [<InlineData(nameof StackOverflow)>]
+    let ``getFeedElement test`` (elementName: string) =
+        let actual =
+            appJsonDocument.RootElement
+            |> SyndicationFeedUtility.getFeedElement (elementName.ToLowerInvariant())
+
+        Assert.True(Option.isSome (snd actual))
