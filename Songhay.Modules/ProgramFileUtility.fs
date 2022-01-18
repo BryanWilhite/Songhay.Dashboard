@@ -91,7 +91,7 @@ module ProgramFileUtility =
                 .Replace($"..{backSlash}", String.Empty)
                 .Replace($".{backSlash}", String.Empty)
 
-    let removeForwardslashPrefixes (path: string) =
+    let removeForwardSlashPrefixes (path: string) =
         if String.IsNullOrWhiteSpace(path) then path
         else
             path
@@ -101,7 +101,7 @@ module ProgramFileUtility =
 
     let removeConventionalPrefixes path =
         if String.IsNullOrWhiteSpace(path) then path
-        elif isForwardSlashSystem then removeForwardslashPrefixes path
+        elif isForwardSlashSystem then removeForwardSlashPrefixes path
         else removeBackslashPrefixes path
 
     let trimLeadingDirectorySeparatorChars path =
@@ -124,7 +124,7 @@ module ProgramFileUtility =
             |> trimLeadingDirectorySeparatorChars
             |> normalizePath
             |> removeBackslashPrefixes
-            |> removeForwardslashPrefixes
+            |> removeForwardSlashPrefixes
 
     let getCombinedPath root path =
         if (String.IsNullOrWhiteSpace(root)) then raise (NullReferenceException $"The expected {nameof(root)} is not here.")

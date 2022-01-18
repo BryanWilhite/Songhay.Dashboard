@@ -98,10 +98,12 @@ module SyndicationFeedUtility =
             | true, titleElement -> titleElement.GetString()
 
     let isRssFeed(elementName: string) (element: JsonElement) =
+        let elementNameNormalized = elementName.ToLowerInvariant()
+
         match element.TryGetProperty SyndicationFeedPropertyName with
         | false, _ -> false
         | true, feedsElement ->
-            match feedsElement.TryGetProperty elementName with
+            match feedsElement.TryGetProperty elementNameNormalized with
             | false, _ -> false
             | true, targetElement ->
                 match targetElement.TryGetProperty RssFeedPropertyName with
@@ -109,18 +111,20 @@ module SyndicationFeedUtility =
                 | _ -> true
 
     let getFeedElement(elementName: string) (element: JsonElement) =
+        let elementNameNormalized = elementName.ToLowerInvariant()
+
         let getElement (feedPropertyName: string) =
             match element.TryGetProperty SyndicationFeedPropertyName with
             | false, _ -> raiseNullReferenceException SyndicationFeedPropertyName
             | true, feedsElement ->
-                match feedsElement.TryGetProperty elementName with
-                | false, _ -> raiseNullReferenceException elementName
+                match feedsElement.TryGetProperty elementNameNormalized with
+                | false, _ -> raiseNullReferenceException elementNameNormalized
                 | true, targetElement ->
                     match targetElement.TryGetProperty feedPropertyName with
                     | false, _ -> raiseNullReferenceException feedPropertyName
                     | _, feedElement -> feedElement
 
-        match isRssFeed elementName element with
+        match isRssFeed elementNameNormalized element with
         | true -> true, getElement RssFeedPropertyName
         | false -> true, getElement AtomFeedPropertyName
 
@@ -143,22 +147,22 @@ module SyndicationFeedUtility =
         [
             (
                 CodePen,
-                element |> getFeedElement ((nameof CodePen).ToLowerInvariant()) |> toSyndicationFeed
+                element |> getFeedElement (nameof CodePen) |> toSyndicationFeed
             )
             (
                 Flickr,
-                element |> getFeedElement ((nameof Flickr).ToLowerInvariant()) |> toSyndicationFeed
+                element |> getFeedElement (nameof Flickr) |> toSyndicationFeed
             )
             (
                 GitHub,
-                element |> getFeedElement ((nameof GitHub).ToLowerInvariant()) |> toSyndicationFeed
+                element |> getFeedElement (nameof GitHub) |> toSyndicationFeed
             )
             (
                 StackOverflow,
-                element |> getFeedElement ((nameof StackOverflow).ToLowerInvariant()) |> toSyndicationFeed
+                element |> getFeedElement (nameof StackOverflow) |> toSyndicationFeed
             )
             (
                 Studio,
-                element |> getFeedElement ((nameof Studio).ToLowerInvariant()) |> toSyndicationFeed
+                element |> getFeedElement (nameof Studio) |> toSyndicationFeed
             )
         ]

@@ -41,7 +41,7 @@ module SyndicationFeedTests =
     let ``isRssFeed test`` (elementName: string, expectedResult) =
         let actual =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.isRssFeed (elementName.ToLowerInvariant())
+            |> SyndicationFeedUtility.isRssFeed (elementName)
 
         match expectedResult with
         | true -> Assert.True(actual)
@@ -53,20 +53,20 @@ module SyndicationFeedTests =
     [<InlineData(nameof GitHub)>]
     [<InlineData(nameof Studio)>]
     [<InlineData(nameof StackOverflow)>]
-    let ``getFeedElement test`` (elementName: string) =
+    let ``getFeedElement test`` (elementName) =
         let _, element =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement (elementName.ToLowerInvariant())
+            |> SyndicationFeedUtility.getFeedElement (elementName)
 
         Assert.Equal(JsonValueKind.Object, element.ValueKind)
 
     [<Theory>]
     [<InlineData(nameof GitHub)>]
     [<InlineData(nameof StackOverflow)>]
-    let ``getAtomChannelTitle test`` (elementName: string) =
+    let ``getAtomChannelTitle test`` (elementName) =
         let _, element =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement (elementName.ToLowerInvariant())
+            |> SyndicationFeedUtility.getFeedElement (elementName)
 
         let actual =
             element
@@ -77,10 +77,10 @@ module SyndicationFeedTests =
     [<Theory>]
     [<InlineData(nameof GitHub)>]
     [<InlineData(nameof StackOverflow)>]
-    let ``getAtomChannelItems test`` (elementName: string) =
+    let ``getAtomChannelItems test`` (elementName) =
         let _, element =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement (elementName.ToLowerInvariant())
+            |> SyndicationFeedUtility.getFeedElement (elementName)
 
         let actual =
             element
@@ -92,10 +92,10 @@ module SyndicationFeedTests =
     [<InlineData(nameof CodePen)>]
     [<InlineData(nameof Flickr)>]
     [<InlineData(nameof Studio)>]
-    let ``getRssChannelTitle test`` (elementName: string) =
+    let ``getRssChannelTitle test`` (elementName) =
         let _, element =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement (elementName.ToLowerInvariant())
+            |> SyndicationFeedUtility.getFeedElement (elementName)
 
         let actual =
             element
@@ -107,10 +107,10 @@ module SyndicationFeedTests =
     [<InlineData(nameof CodePen)>]
     [<InlineData(nameof Flickr)>]
     [<InlineData(nameof Studio)>]
-    let ``getRssChannelItems test`` (elementName: string) =
+    let ``getRssChannelItems test`` (elementName) =
         let _, element =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement (elementName.ToLowerInvariant())
+            |> SyndicationFeedUtility.getFeedElement (elementName)
 
         let actual =
             element
