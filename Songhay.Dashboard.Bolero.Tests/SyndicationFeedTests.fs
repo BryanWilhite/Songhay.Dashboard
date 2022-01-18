@@ -54,8 +54,66 @@ module SyndicationFeedTests =
     [<InlineData(nameof Studio)>]
     [<InlineData(nameof StackOverflow)>]
     let ``getFeedElement test`` (elementName: string) =
-        let actual =
+        let _, element =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement (elementName.ToLowerInvariant())
 
-        Assert.True(Option.isSome (snd actual))
+        Assert.Equal(JsonValueKind.Object, element.ValueKind)
+
+    [<Theory>]
+    [<InlineData(nameof GitHub)>]
+    [<InlineData(nameof StackOverflow)>]
+    let ``getAtomChannelTitle test`` (elementName: string) =
+        let _, element =
+            appJsonDocument.RootElement
+            |> SyndicationFeedUtility.getFeedElement (elementName.ToLowerInvariant())
+
+        let actual =
+            element
+            |> SyndicationFeedUtility.getAtomChannelTitle
+
+        Assert.False(System.String.IsNullOrWhiteSpace(actual))
+
+    [<Theory>]
+    [<InlineData(nameof GitHub)>]
+    [<InlineData(nameof StackOverflow)>]
+    let ``getAtomChannelItems test`` (elementName: string) =
+        let _, element =
+            appJsonDocument.RootElement
+            |> SyndicationFeedUtility.getFeedElement (elementName.ToLowerInvariant())
+
+        let actual =
+            element
+            |> SyndicationFeedUtility.getAtomChannelItems
+
+        Assert.NotEmpty(actual)
+
+    [<Theory>]
+    [<InlineData(nameof CodePen)>]
+    [<InlineData(nameof Flickr)>]
+    [<InlineData(nameof Studio)>]
+    let ``getRssChannelTitle test`` (elementName: string) =
+        let _, element =
+            appJsonDocument.RootElement
+            |> SyndicationFeedUtility.getFeedElement (elementName.ToLowerInvariant())
+
+        let actual =
+            element
+            |> SyndicationFeedUtility.getRssChannelTitle
+
+        Assert.False(System.String.IsNullOrWhiteSpace(actual))
+
+    [<Theory>]
+    [<InlineData(nameof CodePen)>]
+    [<InlineData(nameof Flickr)>]
+    [<InlineData(nameof Studio)>]
+    let ``getRssChannelItems test`` (elementName: string) =
+        let _, element =
+            appJsonDocument.RootElement
+            |> SyndicationFeedUtility.getFeedElement (elementName.ToLowerInvariant())
+
+        let actual =
+            element
+            |> SyndicationFeedUtility.getRssChannelItems
+
+        Assert.NotEmpty(actual)
