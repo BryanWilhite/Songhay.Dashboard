@@ -126,7 +126,7 @@ module SyndicationFeedUtility =
 
         match isRssFeed elementNameNormalized element with
         | true -> true, getElement RssFeedPropertyName
-        | false -> true, getElement AtomFeedPropertyName
+        | false -> false, getElement AtomFeedPropertyName
 
     let toSyndicationFeed(isRssFeed: bool, element: JsonElement) =
         let feedImage: string option = None

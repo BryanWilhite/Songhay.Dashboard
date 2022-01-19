@@ -117,3 +117,40 @@ module SyndicationFeedTests =
             |> SyndicationFeedUtility.getRssChannelItems
 
         Assert.NotEmpty(actual)
+
+    [<Theory>]
+    [<InlineData(nameof CodePen)>]
+    [<InlineData(nameof Flickr)>]
+    [<InlineData(nameof GitHub)>]
+    [<InlineData(nameof Studio)>]
+    [<InlineData(nameof StackOverflow)>]
+    let ``toSyndicationFeed test`` (elementName) =
+        let feed =
+            appJsonDocument.RootElement
+            |> SyndicationFeedUtility.getFeedElement (elementName)
+            |> SyndicationFeedUtility.toSyndicationFeed
+
+        Assert.False(System.String.IsNullOrWhiteSpace(feed.feedTitle))
+        Assert.NotEmpty(feed.feedItems)
+        Assert.All(feed.feedItems,
+            fun i ->
+                Assert.False(System.String.IsNullOrWhiteSpace(i.title))
+                Assert.False(System.String.IsNullOrWhiteSpace(i.link))
+            )
+
+    [<Fact>]
+    let ``fromInput test`` () =
+        let actual =
+            appJsonDocument.RootElement
+            |> SyndicationFeedUtility.fromInput
+
+        Assert.NotEmpty(actual)
+        Assert.All(actual,
+            fun (_, feed) ->
+                Assert.NotEmpty(feed.feedItems)
+                Assert.All(feed.feedItems,
+                        fun i ->
+                            Assert.False(System.String.IsNullOrWhiteSpace(i.title))
+                            Assert.False(System.String.IsNullOrWhiteSpace(i.link))
+                        )
+            )
