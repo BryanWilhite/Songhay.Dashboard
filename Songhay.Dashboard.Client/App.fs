@@ -92,18 +92,3 @@ let appVersions =
             version = dotnetRuntimeVersion
         }
     ]
-
-let toFeedName sInput =
-    let mapping (s: string) =
-        match s with
-        | nameof CodePen        -> CodePen
-        | nameof Flickr         -> Flickr
-        | nameof GitHub         -> GitHub
-        | nameof StackOverflow  -> StackOverflow
-        | nameof Studio         -> Studio
-        | _                     -> Unknown
-
-    sInput
-    |> Option.ofObj
-    |> Option.map mapping
-    |> Option.defaultWith (fun () -> Unknown)

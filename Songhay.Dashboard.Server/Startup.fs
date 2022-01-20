@@ -1,13 +1,15 @@
 namespace Songhay.Dashboard.Server
 
 open Microsoft.AspNetCore
-open Microsoft.AspNetCore.Authentication.Cookies
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Hosting
 open Microsoft.Extensions.DependencyInjection
+
 open Bolero.Remoting.Server
 open Bolero.Server
 open Bolero.Templating.Server
+
+open Songhay.Dashboard.Server.RemoteHandlers
 
 type Startup() =
 
@@ -17,10 +19,7 @@ type Startup() =
         services.AddMvc() |> ignore
         services.AddServerSideBlazor() |> ignore
         services
-            .AddAuthorization()
-            .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie()
-                .Services
+            .AddRemoting<DashboardServiceHandler>()
             .AddBoleroHost()
 #if DEBUG
             .AddHotReload(templateDir = __SOURCE_DIRECTORY__ + "/../Songhay.Dashboard.Client")
@@ -30,7 +29,6 @@ type Startup() =
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     member this.Configure(app: IApplicationBuilder, env: IWebHostEnvironment) =
         app
-            .UseAuthentication()
             .UseRemoting()
             .UseStaticFiles()
             .UseRouting()

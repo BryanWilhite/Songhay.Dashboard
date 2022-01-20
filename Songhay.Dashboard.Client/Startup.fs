@@ -1,7 +1,9 @@
 namespace Songhay.Dashboard.Client
 
 open Microsoft.AspNetCore.Components.WebAssembly.Hosting
+
 open Bolero.Remoting.Client
+
 open Songhay.Dashboard.Client.Components.ContentBlock
 
 module Program =

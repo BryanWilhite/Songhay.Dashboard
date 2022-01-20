@@ -2,10 +2,13 @@ module Songhay.Dashboard.Client.Components.ContentBlock
 
 open Elmish
 open Bolero
+open Bolero.Remoting
 open Bolero.Remoting.Client
 open Bolero.Templating.Client
+
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.ElmishRoutes
+open Songhay.Dashboard.Client.Models
 open Songhay.Dashboard.Client.Templates.ContentBlock
 
 let initModel =
@@ -14,7 +17,7 @@ let initModel =
         error = None
     }
 
-let update message model =
+let update remote message model =
     match message with
     | SetPage page -> { model with page = page }, Cmd.none
     | Error exn -> { model with error = Some exn.Message }, Cmd.none
@@ -30,6 +33,8 @@ type ContentBlockComponent() =
 
     override this.Program =
         let init = (fun _ -> initModel, Cmd.none)
+        let dashboardService = this.Remote<DashboardService>()
+        let update = update dashboardService
         Program.mkProgram init update view
         |> Program.withRouter router
 #if DEBUG
