@@ -4,6 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="RemoteHandlers/DashboardServiceHandler.fs" />
     <Compile Include="Visuals/Head.fs" />
     <Compile Include="Visuals/Body.fs" />
     <Compile Include="Visuals/ContentBlock.fs" />
