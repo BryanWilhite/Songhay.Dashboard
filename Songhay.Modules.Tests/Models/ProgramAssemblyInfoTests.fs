@@ -5,14 +5,17 @@ module ProgramAssemblyInfoTests =
     open System.IO
     open System.Reflection
     open Xunit
+    open FsUnit.Xunit
 
     open Songhay.Modules.Models
 
     [<Theory>]
-    [<InlineData(@"..\..\..\Models\SyndicationFeedTests.fs")>]
-    [<InlineData("../../../Models/SyndicationFeedTests.fs")>]
+    [<InlineData(@"..\..\..\Models\ProgramAssemblyInfoTests.fs")>]
+    [<InlineData("../../../Models/ProgramAssemblyInfoTests.fs")>]
     let ``getPathFromAssembly test`` (path: string) =
         let actual =
             Assembly.GetExecutingAssembly()
             |> ProgramAssemblyInfo.getPathFromAssembly path
-        Assert.True(File.Exists(actual))
+            |> File.Exists
+
+        actual |> should be True

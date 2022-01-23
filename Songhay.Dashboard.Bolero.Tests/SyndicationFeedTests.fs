@@ -6,6 +6,7 @@ module SyndicationFeedTests =
     open System.Reflection
     open System.Text.Json
     open Xunit
+    open FsUnit.Xunit
 
     open Songhay.Modules
     open Songhay.Modules.Models
@@ -25,12 +26,12 @@ module SyndicationFeedTests =
 
     [<Fact>]
     let ``app.json should have `feeds` property`` () =
-        let result =
+        let actual =
             match appJsonDocument.RootElement.TryGetProperty SyndicationFeedUtility.SyndicationFeedPropertyName with
             | true, _ -> true
             | _ -> false
 
-        Assert.True(result)
+        actual |> should be True
 
     [<Theory>]
     [<InlineData(nameof CodePen, true)>]
@@ -44,8 +45,8 @@ module SyndicationFeedTests =
             |> SyndicationFeedUtility.isRssFeed (elementName)
 
         match expectedResult with
-        | true -> Assert.True(actual)
-        | _ -> Assert.False(actual)
+        | true -> actual |> should be True
+        | _ -> actual |> should be False
 
     [<Theory>]
     [<InlineData(nameof CodePen)>]
@@ -58,7 +59,7 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement (elementName)
 
-        Assert.Equal(JsonValueKind.Object, element.ValueKind)
+        JsonValueKind.Object |> should equal element.ValueKind
 
     [<Theory>]
     [<InlineData(nameof GitHub)>]
@@ -71,8 +72,9 @@ module SyndicationFeedTests =
         let actual =
             element
             |> SyndicationFeedUtility.getAtomChannelTitle
+            |> System.String.IsNullOrWhiteSpace
 
-        Assert.False(System.String.IsNullOrWhiteSpace(actual))
+        actual |> should be False
 
     [<Theory>]
     [<InlineData(nameof GitHub)>]
@@ -86,7 +88,7 @@ module SyndicationFeedTests =
             element
             |> SyndicationFeedUtility.getAtomChannelItems
 
-        Assert.NotEmpty(actual)
+        actual |> should not' (be Empty)
 
     [<Theory>]
     [<InlineData(nameof CodePen)>]
@@ -100,8 +102,9 @@ module SyndicationFeedTests =
         let actual =
             element
             |> SyndicationFeedUtility.getRssChannelTitle
+            |> System.String.IsNullOrWhiteSpace
 
-        Assert.False(System.String.IsNullOrWhiteSpace(actual))
+        actual |> should be False
 
     [<Theory>]
     [<InlineData(nameof CodePen)>]
@@ -116,7 +119,7 @@ module SyndicationFeedTests =
             element
             |> SyndicationFeedUtility.getRssChannelItems
 
-        Assert.NotEmpty(actual)
+        actual |> should not' (be Empty)
 
     [<Theory>]
     [<InlineData(nameof CodePen)>]
@@ -130,12 +133,12 @@ module SyndicationFeedTests =
             |> SyndicationFeedUtility.getFeedElement (elementName)
             |> SyndicationFeedUtility.toSyndicationFeed
 
-        Assert.False(System.String.IsNullOrWhiteSpace(feed.feedTitle))
-        Assert.NotEmpty(feed.feedItems)
+        System.String.IsNullOrWhiteSpace(feed.feedTitle) |> should be False
+        feed.feedItems |> should not' (be Empty)
         Assert.All(feed.feedItems,
             fun i ->
-                Assert.False(System.String.IsNullOrWhiteSpace(i.title))
-                Assert.False(System.String.IsNullOrWhiteSpace(i.link))
+                System.String.IsNullOrWhiteSpace(i.title) |> should be False
+                System.String.IsNullOrWhiteSpace(i.link) |> should be False
             )
 
     [<Fact>]
@@ -144,13 +147,13 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.fromInput
 
-        Assert.NotEmpty(actual)
+        actual |> should not' (be Empty)
         Assert.All(actual,
             fun (_, feed) ->
-                Assert.NotEmpty(feed.feedItems)
+                feed.feedItems |> should not' (be Empty)
                 Assert.All(feed.feedItems,
                         fun i ->
-                            Assert.False(System.String.IsNullOrWhiteSpace(i.title))
-                            Assert.False(System.String.IsNullOrWhiteSpace(i.link))
+                            System.String.IsNullOrWhiteSpace(i.title) |> should be False
+                            System.String.IsNullOrWhiteSpace(i.link) |> should be False
                         )
             )

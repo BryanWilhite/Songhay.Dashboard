@@ -6,6 +6,7 @@ module ProgramFileUtilityTests =
     open System.Linq
     open System.Reflection
     open Xunit
+    open FsUnit.Xunit
 
     open Songhay.Modules
     open Songhay.Modules.Models
@@ -21,7 +22,9 @@ module ProgramFileUtilityTests =
         Skip.If(requiresWindows && ProgramFileUtility.isForwardSlashSystem, "OS is not Windows")
 
         let actual = (root, path) ||> ProgramFileUtility.getCombinedPath
-        Assert.Equal(expectedResult.Replace('|', Path.DirectorySeparatorChar), actual)
+        let expected = expectedResult.Replace('|', Path.DirectorySeparatorChar)
+
+        expected |> should equal actual
 
     [<Fact>]
     let ``getParentDirectory test`` () =
@@ -32,7 +35,7 @@ module ProgramFileUtilityTests =
             |> ProgramFileUtility.getParentDirectory 4
             |> Option.defaultWith (fun () -> failwith "The expected directory is not here.")
 
-        Assert.Equal(expected, actual)
+        expected |> should equal actual
 
     [<Fact>]
     let ``getParentDirectoryInfo test`` () =
@@ -43,7 +46,7 @@ module ProgramFileUtilityTests =
             |> ProgramFileUtility.getParentDirectoryInfo 4
             |> Option.defaultWith (fun () -> failwith "The expected directory is not here.")
 
-        Assert.Equal(expected, actual.FullName)
+        expected |> should equal actual.FullName
 
     [<Theory>]
     [<InlineData("./one/", "one|")>]
@@ -52,7 +55,9 @@ module ProgramFileUtilityTests =
     [<InlineData(@"..\..\one\", @"one|")>]
     let ``getRelativePath test`` (input, expectedResult: string) =
         let actual = input |> ProgramFileUtility.getRelativePath
-        Assert.Equal(expectedResult.Replace('|', Path.DirectorySeparatorChar), actual)
+        let expected = expectedResult.Replace('|', Path.DirectorySeparatorChar)
+
+        expected |> should equal actual
 
     [<Fact>]
     let ``raiseExceptionForExpectedDirectory test`` () =
@@ -62,7 +67,8 @@ module ProgramFileUtilityTests =
             $"{dirInfo.GetDirectories().First().FullName}.fubar"
             |> ProgramFileUtility.raiseExceptionForExpectedDirectory
             |> ignore
-        Assert.Throws<DirectoryNotFoundException>(action)
+
+        action |> should throw typeof<DirectoryNotFoundException>
 
     [<Fact>]
     let ``raiseExceptionForExpectedFile test`` () =
@@ -72,10 +78,12 @@ module ProgramFileUtilityTests =
             $"{dirInfo.GetFiles().First().FullName}.fubar"
             |> ProgramFileUtility.raiseExceptionForExpectedFile
             |> ignore
-        Assert.Throws<FileNotFoundException>(action)
+
+        action |> should throw typeof<FileNotFoundException>
 
     [<Theory>]
     [<InlineData(@"/\foo\bar\my-file.json", @"foo\bar\my-file.json")>]
-    let ``trimLeadingDirectorySeparatorChars test``(path, expectedResult: string) =
+    let ``trimLeadingDirectorySeparatorChars test``(path, expected: string) =
         let actual = path |> ProgramFileUtility.trimLeadingDirectorySeparatorChars
-        Assert.Equal(expectedResult, actual)
+
+        expected |> should equal actual
