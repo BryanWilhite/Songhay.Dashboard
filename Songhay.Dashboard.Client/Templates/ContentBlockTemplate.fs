@@ -8,7 +8,7 @@ open Songhay.Dashboard.Client.Visuals
 
 type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
-let viewMainTemplate model dispatch =
+let viewContentBlockTemplate model dispatch =
     ContentBlockTemplate()
         .SvgSpritesNode(SvgSpritesTemplate().Elt())
         .StudioComponentNode(Tile.studioComponentNode)

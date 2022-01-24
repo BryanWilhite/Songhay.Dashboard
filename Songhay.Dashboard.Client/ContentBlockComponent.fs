@@ -24,7 +24,7 @@ let update remote message model =
     | ClearError -> { model with error = None }, Cmd.none
 
 let view model dispatch =
-    viewMainTemplate model dispatch
+    viewContentBlockTemplate model dispatch
 
 type ContentBlockComponent() =
     inherit ProgramComponent<Model, Message>()
