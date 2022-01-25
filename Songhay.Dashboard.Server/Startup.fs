@@ -18,6 +18,7 @@ type Startup() =
     member this.ConfigureServices(services: IServiceCollection) =
         services.AddMvc() |> ignore
         services.AddServerSideBlazor() |> ignore
+        services.AddHttpClient<DashboardServiceHandler>() |> ignore
         services
             .AddRemoting<DashboardServiceHandler>()
             .AddBoleroHost()

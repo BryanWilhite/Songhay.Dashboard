@@ -4,7 +4,7 @@ open Bolero.Remoting
 
 type DashboardService =
     {
-        getAppData: string -> Async<string option>
+        getAppData: string -> Async<Result<string, exn>>
     }
 
     interface IRemoteService with
