@@ -28,7 +28,11 @@ let update remote message model =
         let cmd = Cmd.OfAsync.either remote.getAppData uri GotFeeds Error
         { model with feeds = None }, cmd
     | GotFeeds feeds -> { model with feeds = feeds }, Cmd.none
-    | SetPage page -> { model with page = page }, Cmd.none
+    | SetPage page ->
+        let m = { model with page = page }
+        match page with
+        | StudioFeedsPage -> m , Cmd.ofMsg GetFeeds
+        | _ -> m, Cmd.none
 
 let view model dispatch =
     viewContentBlockTemplate model dispatch
