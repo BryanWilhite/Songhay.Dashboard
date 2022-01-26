@@ -128,6 +128,10 @@ module SyndicationFeedUtility =
         | true -> true, getElement RssFeedPropertyName
         | false -> false, getElement AtomFeedPropertyName
 
+    let toJsonElement (rawDocument: string) =
+        let document = rawDocument |> JsonDocument.Parse
+        document.RootElement
+
     let toSyndicationFeed(isRssFeed: bool, element: JsonElement) =
         let feedImage: string option = None
 

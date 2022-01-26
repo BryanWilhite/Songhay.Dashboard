@@ -4,7 +4,6 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <Compile Include="Models/DashboardService.fs" />
         <Compile Include="Models/FeedName.fs" />
         <Compile Include="Models/SvgSpriteData.fs" />
         <Compile Include="Models/VersionData.fs" />

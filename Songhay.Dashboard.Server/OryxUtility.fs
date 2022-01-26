@@ -8,6 +8,9 @@ module OryxUtility =
 
     let options = JsonSerializerOptions()
 
+    let contextGetter() =
+        HttpContext.defaultContext
+
     let requestForJson uri =
         GET
         >=> withUrl uri
@@ -16,6 +19,6 @@ module OryxUtility =
 
     let runRequest context request = request |> runAsync context
 
-    let toHttpContext client =
-        HttpContext.defaultContext
+    let withHttpContext contextGetter client =
+        contextGetter()
         |> HttpContext.withHttpClient client
