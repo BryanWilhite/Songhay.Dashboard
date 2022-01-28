@@ -7,6 +7,7 @@ module SyndicationFeedTests =
     open System.Text.Json
     open Xunit
     open FsUnit.Xunit
+    open FsUnit.CustomMatchers
 
     open Songhay.Modules
     open Songhay.Modules.Models
@@ -42,7 +43,7 @@ module SyndicationFeedTests =
     let ``isRssFeed test`` (elementName: string, expectedResult) =
         let actual =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.isRssFeed (elementName)
+            |> SyndicationFeedUtility.isRssFeed elementName
 
         match expectedResult with
         | true -> actual |> should be True
@@ -54,72 +55,111 @@ module SyndicationFeedTests =
     [<InlineData(nameof GitHub)>]
     [<InlineData(nameof Studio)>]
     [<InlineData(nameof StackOverflow)>]
-    let ``getFeedElement test`` (elementName) =
-        let _, element =
+    let ``getFeedElement test`` elementName =
+        let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement (elementName)
+            |> SyndicationFeedUtility.getFeedElement elementName
 
-        JsonValueKind.Object |> should equal element.ValueKind
+        result |> should be (ofCase <@ Ok @>)
+
+        match result with
+        | Ok (_, element) -> JsonValueKind.Object |> should equal element.ValueKind
+        | _ -> ()
 
     [<Theory>]
     [<InlineData(nameof GitHub)>]
     [<InlineData(nameof StackOverflow)>]
-    let ``getAtomChannelTitle test`` (elementName) =
-        let _, element =
+    let ``getAtomChannelTitle test`` elementName =
+        let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement (elementName)
+            |> SyndicationFeedUtility.getFeedElement elementName
 
-        let actual =
-            element
-            |> SyndicationFeedUtility.getAtomChannelTitle
-            |> System.String.IsNullOrWhiteSpace
+        result |> should be (ofCase <@ Ok @>)
 
-        actual |> should be False
+        match result with
+        | Error _ -> ()
+        | Ok (_, element) ->
+            let titleResult =
+                element
+                |> SyndicationFeedUtility.getAtomChannelTitle
+
+            titleResult |> should be (ofCase <@ Ok @>)
+            match titleResult with
+            | Error _ -> ()
+            | Ok title ->
+                let actual = title |> System.String.IsNullOrWhiteSpace
+                actual |> should be False
+
 
     [<Theory>]
     [<InlineData(nameof GitHub)>]
     [<InlineData(nameof StackOverflow)>]
-    let ``getAtomChannelItems test`` (elementName) =
-        let _, element =
+    let ``getAtomChannelItems test`` elementName =
+        let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement (elementName)
+            |> SyndicationFeedUtility.getFeedElement elementName
 
-        let actual =
-            element
-            |> SyndicationFeedUtility.getAtomChannelItems
+        result |> should be (ofCase <@ Ok @>)
 
-        actual |> should not' (be Empty)
+        match result with
+        | Error _ -> ()
+        | Ok (_, element) ->
+            let itemsResult =
+                element
+                |> SyndicationFeedUtility.getAtomChannelItems
+
+            itemsResult |> should be (ofCase <@ Ok @>)
+            match itemsResult with
+            | Error _ -> ()
+            | Ok actual -> actual |> should not' (be Empty)
 
     [<Theory>]
     [<InlineData(nameof CodePen)>]
     [<InlineData(nameof Flickr)>]
     [<InlineData(nameof Studio)>]
-    let ``getRssChannelTitle test`` (elementName) =
-        let _, element =
+    let ``getRssChannelTitle test`` elementName =
+        let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement (elementName)
+            |> SyndicationFeedUtility.getFeedElement elementName
 
-        let actual =
-            element
-            |> SyndicationFeedUtility.getRssChannelTitle
-            |> System.String.IsNullOrWhiteSpace
+        result |> should be (ofCase <@ Ok @>)
 
-        actual |> should be False
+        match result with
+        | Error _ -> ()
+        | Ok (_, element) ->
+            let titleResult =
+                element
+                |> SyndicationFeedUtility.getRssChannelTitle
+
+            titleResult |> should be (ofCase <@ Ok @>)
+            match titleResult with
+            | Error _ -> ()
+            | Ok title ->
+                let actual = title |> System.String.IsNullOrWhiteSpace
+                actual |> should be False
 
     [<Theory>]
     [<InlineData(nameof CodePen)>]
     [<InlineData(nameof Flickr)>]
     [<InlineData(nameof Studio)>]
-    let ``getRssChannelItems test`` (elementName) =
-        let _, element =
+    let ``getRssChannelItems test`` elementName =
+        let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement (elementName)
+            |> SyndicationFeedUtility.getFeedElement elementName
 
-        let actual =
-            element
-            |> SyndicationFeedUtility.getRssChannelItems
+        result |> should be (ofCase <@ Ok @>)
 
-        actual |> should not' (be Empty)
+        match result with
+        | Error _ -> ()
+        | Ok (_, element) ->
+            let itemsResult =
+                element
+                |> SyndicationFeedUtility.getRssChannelItems
+
+            itemsResult |> should be (ofCase <@ Ok @>)
+            match itemsResult with
+            | Error _ -> ()
+            | Ok actual -> actual |> should not' (be Empty)
 
     [<Theory>]
     [<InlineData(nameof CodePen)>]
@@ -127,33 +167,46 @@ module SyndicationFeedTests =
     [<InlineData(nameof GitHub)>]
     [<InlineData(nameof Studio)>]
     [<InlineData(nameof StackOverflow)>]
-    let ``toSyndicationFeed test`` (elementName) =
-        let feed =
+    let ``toSyndicationFeed test`` elementName =
+        let feedElementResult =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement (elementName)
-            |> SyndicationFeedUtility.toSyndicationFeed
+            |> SyndicationFeedUtility.getFeedElement elementName
 
-        System.String.IsNullOrWhiteSpace(feed.feedTitle) |> should be False
-        feed.feedItems |> should not' (be Empty)
-        Assert.All(feed.feedItems,
-            fun i ->
-                System.String.IsNullOrWhiteSpace(i.title) |> should be False
-                System.String.IsNullOrWhiteSpace(i.link) |> should be False
-            )
+        feedElementResult |> should be (ofCase <@ Ok @>)
+        match feedElementResult with
+        | Error _ -> ()
+        | Ok pair ->
+            let feedResult = pair |> SyndicationFeedUtility.toSyndicationFeed
+
+            feedResult |> should be (ofCase <@ Ok @>)
+            match feedResult with
+            | Error _ -> ()
+            | Ok feed ->
+                System.String.IsNullOrWhiteSpace(feed.feedTitle) |> should be False
+                feed.feedItems |> should not' (be Empty)
+                Assert.All(feed.feedItems,
+                    fun i ->
+                        System.String.IsNullOrWhiteSpace(i.title) |> should be False
+                        System.String.IsNullOrWhiteSpace(i.link) |> should be False
+                    )
 
     [<Fact>]
     let ``fromInput test`` () =
-        let actual =
+        let actualResult =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.fromInput
 
-        actual |> should not' (be Empty)
-        Assert.All(actual,
-            fun (_, feed) ->
-                feed.feedItems |> should not' (be Empty)
-                Assert.All(feed.feedItems,
-                        fun i ->
-                            System.String.IsNullOrWhiteSpace(i.title) |> should be False
-                            System.String.IsNullOrWhiteSpace(i.link) |> should be False
-                        )
-            )
+        actualResult |> should be (ofCase <@ Ok @>)
+        match actualResult with
+        | Error _ -> ()
+        | Ok actual ->
+            actual |> should not' (be Empty)
+            Assert.All(actual,
+                fun (_, feed) ->
+                    feed.feedItems |> should not' (be Empty)
+                    Assert.All(feed.feedItems,
+                            fun i ->
+                                System.String.IsNullOrWhiteSpace(i.title) |> should be False
+                                System.String.IsNullOrWhiteSpace(i.link) |> should be False
+                            )
+                )

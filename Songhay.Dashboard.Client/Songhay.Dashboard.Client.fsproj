@@ -28,6 +28,7 @@
         <PackageReference Include="Bolero" Version="0.*" />
         <PackageReference Include="Bolero.Build" Version="0.*" />
         <PackageReference Include="Bolero.HotReload" Version="0.*" />
+        <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.*" />
         <PackageReference Include="Oryx" Version="4.1.1" />
         <PackageReference Include="Oryx.SystemTextJson" Version="4.1.1" />

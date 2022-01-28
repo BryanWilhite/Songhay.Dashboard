@@ -20,7 +20,11 @@ type DashboardServiceHandler(client: HttpClient) =
 
                 return
                     match result with
-                    | Ok json -> json |> toJsonElement |> fromInput |> List.toArray |> Option.ofObj
+                    | Ok json ->
+                        let inputResult = json |> toJsonElement |> fromInput
+                        match inputResult with
+                        | Ok input -> input |> List.toArray |> Option.ofObj
+                        | _ -> None
                     | _ -> None
             }
         }

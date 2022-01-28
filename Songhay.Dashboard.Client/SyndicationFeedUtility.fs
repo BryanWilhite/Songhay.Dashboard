@@ -2,8 +2,10 @@ namespace Songhay.Dashboard.Client
 
 module SyndicationFeedUtility =
 
-    open System
     open System.Text.Json
+    open Microsoft.FSharp.Core
+
+    open FsToolkit.ErrorHandling
 
     open Songhay.Modules.Models
     open Songhay.Dashboard.Client.Models
@@ -17,116 +19,142 @@ module SyndicationFeedUtility =
     [<Literal>]
     let SyndicationFeedPropertyName = "feeds"
 
-    let raiseNullReferenceException (elementName: string) =
-        raise (NullReferenceException $"the expected `{elementName}` element is not here")
+    let resultError (elementName: string) =
+        Error (JsonException $"the expected `{elementName}` element is not here")
 
-    let getAtomChannelTitle(element: JsonElement): string =
-        match element.TryGetProperty "title" with
-        | false, _ -> raiseNullReferenceException "title"
-        | true, titleElement ->
+    let tryGetProperty (elementName: string) (element: JsonElement) =
+        match element.TryGetProperty elementName with
+        | false, _ -> resultError elementName
+        | true, el -> Ok el
+
+    let getAtomChannelTitle(element: JsonElement) : Result<string, JsonException> =
+        match element |> tryGetProperty "title" with
+        | Error err -> Error err
+        | Ok titleElement ->
             match titleElement.ValueKind with
-            | JsonValueKind.String -> titleElement.GetString()
+            | JsonValueKind.String -> Ok (titleElement.GetString())
             | JsonValueKind.Object ->
-                match titleElement.TryGetProperty "#text" with
-                | false, _ -> raiseNullReferenceException "#text"
-                | true, textElement -> textElement.GetString()
-            | _ -> raise (JsonException $"The expected JSON type of `{nameof titleElement}` is not here.")
+                match element |> tryGetProperty "#text" with
+                | Error err -> Error err
+                | Ok textElement -> Ok (textElement.GetString())
+            | _ -> resultError (nameof titleElement)
 
-    let getAtomChannelItems(element: JsonElement): SyndicationFeedItem list =   
-        let entryElement =
-            match element.TryGetProperty "entry" with
-            | false, _ -> raiseNullReferenceException "entry"
-            | true, entry -> entry
+    let getAtomChannelItems(element: JsonElement) =
 
         let toSyndicationFeedItem(el: JsonElement) =
 
-            let title =
-                match el.TryGetProperty "title" with
-                | false, _ -> raiseNullReferenceException "`entry.title`"
-                | true, titleElement ->
-                    match titleElement.TryGetProperty "#text" with
-                    | false, _ -> raiseNullReferenceException "entry.title.#text"
-                    | true, textElement -> textElement.GetString()
+            let titleResult =
+                match el |> tryGetProperty "title" with
+                | Error err -> Error err
+                | Ok titleElement ->
+                    match titleElement |> tryGetProperty "#text" with
+                    | Error err -> Error err
+                    | Ok textElement -> Ok (textElement.GetString())
 
-            let link =
-                match el.TryGetProperty "link" with
-                | false, _ -> raiseNullReferenceException "entry.link"
-                | true, linkElement ->
-                    match linkElement.TryGetProperty "@href" with
-                    | false, _ -> raiseNullReferenceException "entry.link.@href"
-                    | true, hrefElement -> hrefElement.GetString()
+            let linkResult =
+                match el |> tryGetProperty "link" with
+                | Error err -> Error err
+                | Ok linkElement ->
+                    match linkElement |> tryGetProperty "@href" with
+                    | Error err -> Error err
+                    | Ok hrefElement -> Ok (hrefElement.GetString())
 
-            { title = title; link = link }
+            match [titleResult; linkResult] |> List.sequenceResultM with
+            | Ok [title; link] -> Ok { title = title; link = link }
+            | Ok _ -> Error (JsonException "The expected number of list items is not here.")
+            | Error err -> Error err
 
-        entryElement.EnumerateArray()
+        let entryElementResult = element |> tryGetProperty "entry"
+
+        match entryElementResult with
+        | Error err -> Error err
+        | Ok el ->
+            el.EnumerateArray()
             |> Seq.map (fun el -> el |> toSyndicationFeedItem)
             |> List.ofSeq
+            |> List.sequenceResultM
 
-    let getRssChannelItems(element: JsonElement): SyndicationFeedItem list =
-        let itemElement =
-            match element.TryGetProperty "channel" with
-            | false, _ -> raiseNullReferenceException "channel"
-            | true, channelElement ->
-                match channelElement.TryGetProperty "item" with
-                | false, _ -> raiseNullReferenceException "item"
-                | true, item -> item
+    let getRssChannelItems(element: JsonElement) =
 
         let toSyndicationFeedItem(el: JsonElement) =
 
-            let title =
-                match el.TryGetProperty "title" with
-                | false, _ -> raiseNullReferenceException "item.title"
-                | true, titleElement -> titleElement.GetString()
+            let titleResult =
+                match el |> tryGetProperty "title" with
+                | Error err -> Error err
+                | Ok titleElement -> Ok (titleElement.GetString())
 
-            let link =
-                match el.TryGetProperty "link" with
-                | false, _ -> raiseNullReferenceException "item.link"
-                | true, linkElement -> linkElement.GetString()
+            let linkResult =
+                match el |> tryGetProperty "link" with
+                | Error err -> Error err
+                | Ok linkElement -> Ok (linkElement.GetString())
 
-            { title = title; link = link }
+            match [titleResult; linkResult] |> List.sequenceResultM with
+            | Ok [title; link] -> Ok { title = title; link = link }
+            | Ok _ -> Error (JsonException "The expected number of list items is not here.")
+            | Error err -> Error err
 
-        itemElement.EnumerateArray()
+        let itemElementResult =
+            match element |> tryGetProperty "channel" with
+            | Error err -> Error err
+            | Ok channelElement -> channelElement |> tryGetProperty "item"
+
+        match itemElementResult with
+        | Error err -> Error err
+        | Ok el ->
+            el.EnumerateArray()
             |> Seq.map (fun el -> el |> toSyndicationFeedItem)
             |> List.ofSeq
+            |> List.sequenceResultM
 
-    let getRssChannelTitle(element: JsonElement): string =
-        match element.TryGetProperty "channel" with
-        | false, _ -> raiseNullReferenceException "channel"
-        | true, channelElement ->
-            match channelElement.TryGetProperty "title" with
-            | false, _ -> raiseNullReferenceException "title"
-            | true, titleElement -> titleElement.GetString()
+    let getRssChannelTitle(element: JsonElement) =
+        match element |> tryGetProperty "channel" with
+        | Error err -> Error err
+        | Ok channelElement ->
+            match channelElement |> tryGetProperty "title" with
+            | Error err -> Error err
+            | Ok titleElement -> Ok (titleElement.GetString())
 
     let isRssFeed(elementName: string) (element: JsonElement) =
         let elementNameNormalized = elementName.ToLowerInvariant()
 
-        match element.TryGetProperty SyndicationFeedPropertyName with
-        | false, _ -> false
-        | true, feedsElement ->
-            match feedsElement.TryGetProperty elementNameNormalized with
-            | false, _ -> false
-            | true, targetElement ->
-                match targetElement.TryGetProperty RssFeedPropertyName with
-                | false, _ -> false
-                | _ -> true
+        let testResult =
+            match element |> tryGetProperty SyndicationFeedPropertyName with
+            | Error err -> Error err
+            | Ok feedsElement ->
+                match feedsElement |> tryGetProperty elementNameNormalized with
+                | Error err -> Error err
+                | Ok targetElement ->
+                    match targetElement |> tryGetProperty RssFeedPropertyName with
+                    | Error err -> Error err
+                    | _ -> Ok true
+
+        match testResult with
+        | Error _ -> false
+        | Ok test -> test
 
     let getFeedElement(elementName: string) (element: JsonElement) =
         let elementNameNormalized = elementName.ToLowerInvariant()
 
         let getElement (feedPropertyName: string) =
-            match element.TryGetProperty SyndicationFeedPropertyName with
-            | false, _ -> raiseNullReferenceException SyndicationFeedPropertyName
-            | true, feedsElement ->
-                match feedsElement.TryGetProperty elementNameNormalized with
-                | false, _ -> raiseNullReferenceException elementNameNormalized
-                | true, targetElement ->
-                    match targetElement.TryGetProperty feedPropertyName with
-                    | false, _ -> raiseNullReferenceException feedPropertyName
-                    | _, feedElement -> feedElement
+            match element |> tryGetProperty SyndicationFeedPropertyName with
+            | Error err -> Error err
+            | Ok feedsElement ->
+                match feedsElement |> tryGetProperty elementNameNormalized with
+                | Error err -> Error err
+                | Ok targetElement ->
+                    match targetElement |> tryGetProperty feedPropertyName with
+                    | Error err -> Error err
+                    | Ok feedElement -> Ok feedElement
 
         match isRssFeed elementNameNormalized element with
-        | true -> true, getElement RssFeedPropertyName
-        | false -> false, getElement AtomFeedPropertyName
+        | true ->
+            match getElement RssFeedPropertyName with
+            | Error err -> Error err
+            | Ok rssElement -> Ok (true, rssElement)
+        | _ ->
+            match getElement AtomFeedPropertyName with
+            | Error err -> Error err
+            | Ok atomElement -> Ok (false, atomElement)
 
     let toJsonElement (rawDocument: string) =
         let document = rawDocument |> JsonDocument.Parse
@@ -135,38 +163,38 @@ module SyndicationFeedUtility =
     let toSyndicationFeed(isRssFeed: bool, element: JsonElement) =
         let feedImage: string option = None
 
-        let feedItems =
+        let feedItemsResult =
             match isRssFeed with
             | true -> getRssChannelItems element
             | _ -> getAtomChannelItems element
 
-        let feedTitle =
+        let feedTitleResult =
             match isRssFeed with
             | true -> getRssChannelTitle element
             | _ -> getAtomChannelTitle element
 
-        { feedImage = feedImage; feedItems = feedItems; feedTitle = feedTitle }
+        match feedItemsResult with
+        | Error err -> Error err
+        | Ok feedItems ->
+            match feedTitleResult with
+            | Error err -> Error err
+            | Ok feedTitle  -> Ok { feedImage = feedImage; feedItems = feedItems; feedTitle = feedTitle }
 
     let fromInput element =
         [
-            (
-                CodePen,
-                element |> getFeedElement (nameof CodePen) |> toSyndicationFeed
-            )
-            (
-                Flickr,
-                element |> getFeedElement (nameof Flickr) |> toSyndicationFeed
-            )
-            (
-                GitHub,
-                element |> getFeedElement (nameof GitHub) |> toSyndicationFeed
-            )
-            (
-                StackOverflow,
-                element |> getFeedElement (nameof StackOverflow) |> toSyndicationFeed
-            )
-            (
-                Studio,
-                element |> getFeedElement (nameof Studio) |> toSyndicationFeed
-            )
+            CodePen, nameof CodePen
+            Flickr, nameof Flickr
+            GitHub, nameof GitHub
+            StackOverflow, nameof StackOverflow
+            Studio, nameof Studio
         ]
+        |> List.map (fun (feedName, elementName) ->
+            match element |> getFeedElement elementName with
+            | Error err -> Error err
+            | Ok el ->
+                let feedResult = el |> toSyndicationFeed
+                match feedResult with
+                | Error err -> Error err
+                | Ok feed -> Ok (feedName, feed)
+        )
+        |> List.sequenceResultM
