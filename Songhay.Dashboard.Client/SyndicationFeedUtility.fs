@@ -34,7 +34,7 @@ module SyndicationFeedUtility =
             match titleElement.ValueKind with
             | JsonValueKind.String -> Ok (titleElement.GetString())
             | JsonValueKind.Object ->
-                match element |> tryGetProperty "#text" with
+                match titleElement |> tryGetProperty "#text" with
                 | Error err -> Error err
                 | Ok textElement -> Ok (textElement.GetString())
             | _ -> resultError (nameof titleElement)

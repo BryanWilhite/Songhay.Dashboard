@@ -60,11 +60,9 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        result |> should be (ofCase <@ Ok @>)
-
         match result with
+        | Error err -> raise err
         | Ok (_, element) -> JsonValueKind.Object |> should equal element.ValueKind
-        | _ -> ()
 
     [<Theory>]
     [<InlineData(nameof GitHub)>]
@@ -74,22 +72,18 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        result |> should be (ofCase <@ Ok @>)
-
         match result with
-        | Error _ -> ()
+        | Error err -> raise err
         | Ok (_, element) ->
             let titleResult =
                 element
                 |> SyndicationFeedUtility.getAtomChannelTitle
 
-            titleResult |> should be (ofCase <@ Ok @>)
             match titleResult with
-            | Error _ -> ()
+            | Error err -> raise err
             | Ok title ->
                 let actual = title |> System.String.IsNullOrWhiteSpace
                 actual |> should be False
-
 
     [<Theory>]
     [<InlineData(nameof GitHub)>]
@@ -99,18 +93,15 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        result |> should be (ofCase <@ Ok @>)
-
         match result with
-        | Error _ -> ()
+        | Error _ -> failwith "The expected result is not here"
         | Ok (_, element) ->
             let itemsResult =
                 element
                 |> SyndicationFeedUtility.getAtomChannelItems
 
-            itemsResult |> should be (ofCase <@ Ok @>)
             match itemsResult with
-            | Error _ -> ()
+            | Error _ -> failwith "The expected result is not here"
             | Ok actual -> actual |> should not' (be Empty)
 
     [<Theory>]
@@ -122,18 +113,15 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        result |> should be (ofCase <@ Ok @>)
-
         match result with
-        | Error _ -> ()
+        | Error _ -> failwith "The expected result is not here"
         | Ok (_, element) ->
             let titleResult =
                 element
                 |> SyndicationFeedUtility.getRssChannelTitle
 
-            titleResult |> should be (ofCase <@ Ok @>)
             match titleResult with
-            | Error _ -> ()
+            | Error _ -> failwith "The expected result is not here"
             | Ok title ->
                 let actual = title |> System.String.IsNullOrWhiteSpace
                 actual |> should be False
@@ -147,18 +135,15 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        result |> should be (ofCase <@ Ok @>)
-
         match result with
-        | Error _ -> ()
+        | Error _ -> failwith "The expected result is not here"
         | Ok (_, element) ->
             let itemsResult =
                 element
                 |> SyndicationFeedUtility.getRssChannelItems
 
-            itemsResult |> should be (ofCase <@ Ok @>)
             match itemsResult with
-            | Error _ -> ()
+            | Error _ -> failwith "The expected result is not here"
             | Ok actual -> actual |> should not' (be Empty)
 
     [<Theory>]
@@ -172,15 +157,13 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        feedElementResult |> should be (ofCase <@ Ok @>)
         match feedElementResult with
-        | Error _ -> ()
+        | Error _ -> failwith "The expected result is not here"
         | Ok pair ->
             let feedResult = pair |> SyndicationFeedUtility.toSyndicationFeed
 
-            feedResult |> should be (ofCase <@ Ok @>)
             match feedResult with
-            | Error _ -> ()
+            | Error _ -> failwith "The expected result is not here"
             | Ok feed ->
                 System.String.IsNullOrWhiteSpace(feed.feedTitle) |> should be False
                 feed.feedItems |> should not' (be Empty)
@@ -196,9 +179,8 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.fromInput
 
-        actualResult |> should be (ofCase <@ Ok @>)
         match actualResult with
-        | Error _ -> ()
+        | Error _ -> failwith "The expected result is not here"
         | Ok actual ->
             actual |> should not' (be Empty)
             Assert.All(actual,
