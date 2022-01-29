@@ -23,12 +23,15 @@ module HttpClientUtility =
 
     let tryDownloadToStringAsync (response: HttpResponseMessage) =
         let contentResult =
-            task {
-                if response.StatusCode = HttpStatusCode.OK then
-                    let! s = response.Content.ReadAsStringAsync().ConfigureAwait(false)
-                    return Ok s
-                else
-                    return Error response.StatusCode
-            }
+            try
+                task {
+                    if response.StatusCode = HttpStatusCode.OK then
+                        let! s = response.Content.ReadAsStringAsync().ConfigureAwait(false)
+                        return Ok s
+                    else
+                        return Error response.StatusCode
+                }
+            finally
+                response.Dispose()
 
         contentResult
