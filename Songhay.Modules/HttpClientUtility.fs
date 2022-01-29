@@ -5,33 +5,33 @@ open System.Net
 open System.Net.Http
 
 module HttpClientUtility =
+    let message (uri: Uri) (method: HttpMethod) =
+        new HttpRequestMessage(method, uri)
 
-    let sendAsync (uri: Uri) (method: HttpMethod) (client: HttpClient) =
-        task {
-            use request = new HttpRequestMessage(method, uri)
-            let! response = client.SendAsync(request).ConfigureAwait(false)
+    let get (uri: Uri) =
+        HttpMethod.Get |> message uri
 
-            return response
-        }
+    let trySendAsync (message: HttpRequestMessage) (client: HttpClient) =
+        try
+            task {
+                try
+                    let! response = client.SendAsync(message).ConfigureAwait(false)
 
-    let getAsync (uri: Uri) (client: HttpClient) =
-        task {
-            let! response = client |> sendAsync uri HttpMethod.Get
-
-            return response
-        }
+                    return Ok response
+                with
+                | exn -> return Error exn
+            }
+        finally
+            message.Dispose()
 
     let tryDownloadToStringAsync (response: HttpResponseMessage) =
-        let contentResult =
-            try
-                task {
-                    if response.StatusCode = HttpStatusCode.OK then
-                        let! s = response.Content.ReadAsStringAsync().ConfigureAwait(false)
-                        return Ok s
-                    else
-                        return Error response.StatusCode
-                }
-            finally
-                response.Dispose()
-
-        contentResult
+        try
+            task {
+                if response.StatusCode = HttpStatusCode.OK then
+                    let! s = response.Content.ReadAsStringAsync().ConfigureAwait(false)
+                    return Ok s
+                else
+                    return Error response.StatusCode
+            }
+        finally
+            response.Dispose()
