@@ -15,16 +15,16 @@ type DashboardServiceHandler(client: HttpClient) =
         {
             getAppData = fun uri -> async {
                 let ctx = client |> withHttpContext contextGetter
-                let request = requestForJson uri.AbsoluteUri
+                let request = requestForJson uri.OriginalString
                 let! result = request |> runRequest ctx |> Async.AwaitTask
 
                 return
                     match result with
-                    | Ok json ->
+                    | Result.Error _ -> None
+                    | Result.Ok json ->
                         let inputResult = json |> toJsonElement |> fromInput
                         match inputResult with
                         | Ok input -> input |> List.toArray |> Option.ofObj
                         | _ -> None
-                    | _ -> None
             }
         }

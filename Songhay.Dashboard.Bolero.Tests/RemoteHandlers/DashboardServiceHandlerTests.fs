@@ -28,7 +28,24 @@ module DashboardServiceHandlerTests =
 
     [<Theory>]
     [<InlineData(App.appDataLocation)>]
-    let ``runRequest test`` (location) =
+    let ``runRequest test (async)`` (location) =
+        async {
+            let uri = Uri(location, UriKind.Absolute)
+            let ctx = client |> OryxUtility.withHttpContext OryxUtility.contextGetter
+            let request = OryxUtility.requestForJson uri.AbsoluteUri
+            let! result = request |> OryxUtility.runRequest ctx |> Async.AwaitTask
+
+            let actual =
+                match result with
+                | Ok json -> true
+                | Error _ -> false
+
+            actual |> should be True
+        }
+
+    [<Theory>]
+    [<InlineData(App.appDataLocation)>]
+    let ``runRequest test (task)`` (location) =
         task {
             let uri = Uri(location, UriKind.Absolute)
             let ctx = client |> OryxUtility.withHttpContext OryxUtility.contextGetter
