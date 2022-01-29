@@ -10,6 +10,7 @@
         <Compile Include="ProgramFileUtility.fs" />
         <Compile Include="Models/SyndicationFeed.fs" />
         <Compile Include="Models/ProgramAssemblyInfo.fs" />
+        <Compile Include="HttpClientUtility.fs" />
     </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@ open Bolero.Remoting.Server
 
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.SyndicationFeedUtility
-open Songhay.Dashboard.Server.OryxUtility
+open Songhay.Modules.HttpClientUtility
 
 type DashboardServiceHandler(client: HttpClient) =
     inherit RemoteHandler<DashboardService>()
@@ -14,12 +14,12 @@ type DashboardServiceHandler(client: HttpClient) =
     override this.Handler =
         {
             getAppData = fun uri -> async {
-                let ctx = client |> withHttpContext contextGetter
-                let request = requestForJson uri.OriginalString
-                let! result = request |> runRequest ctx |> Async.AwaitTask
+
+                let! response = client |> getAsync uri |> Async.AwaitTask
+                let! jsonResult = response |> tryDownloadToStringAsync |> Async.AwaitTask
 
                 return
-                    match result with
+                    match jsonResult with
                     | Result.Error _ -> None
                     | Result.Ok json ->
                         let inputResult = json |> toJsonElement |> fromInput
