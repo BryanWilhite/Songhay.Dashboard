@@ -7,10 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="MimeTypes.fs" />
+        <Compile Include="HttpClientUtility.fs" />
+        <Compile Include="HttpRequestMessageUtility.fs" />
+        <Compile Include="HttpResponseMessageUtility.fs" />
         <Compile Include="ProgramFileUtility.fs" />
         <Compile Include="Models/SyndicationFeed.fs" />
         <Compile Include="Models/ProgramAssemblyInfo.fs" />
-        <Compile Include="HttpClientUtility.fs" />
     </ItemGroup>
 
 </Project>

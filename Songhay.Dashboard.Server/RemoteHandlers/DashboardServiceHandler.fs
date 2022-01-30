@@ -9,6 +9,8 @@ open Bolero.Remoting.Server
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.SyndicationFeedUtility
 open Songhay.Modules.HttpClientUtility
+open Songhay.Modules.HttpRequestMessageUtility
+open Songhay.Modules.HttpResponseMessageUtility
 
 type DashboardServiceHandler(client: HttpClient) =
     inherit RemoteHandler<DashboardService>()
