@@ -6,18 +6,16 @@ module DashboardServiceHandlerTests =
     open System.IO
     open System.Net.Http
     open System.Reflection
-    open System.Text.Json
-
-    open Oryx
 
     open Xunit
     open FsUnit.Xunit
     open FsUnit.CustomMatchers
 
     open Songhay.Modules.Models
+    open Songhay.Modules.HttpClientUtility
+    open Songhay.Modules.HttpRequestMessageUtility
 
     open Songhay.Dashboard.Client
-    open Songhay.Dashboard.Server
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()
@@ -31,12 +29,13 @@ module DashboardServiceHandlerTests =
     let ``runRequest test (async)`` (location) =
         async {
             let uri = Uri(location, UriKind.Absolute)
-            let ctx = client |> OryxUtility.withHttpContext OryxUtility.contextGetter
-            let request = OryxUtility.requestForJson uri.AbsoluteUri
-            let! result = request |> OryxUtility.runRequest ctx |> Async.AwaitTask
+            let! responseResult =
+                client
+                |> trySendAsync (get uri)
+                |> Async.AwaitTask
 
             let actual =
-                match result with
+                match responseResult with
                 | Ok json -> true
                 | Error _ -> false
 
@@ -48,12 +47,13 @@ module DashboardServiceHandlerTests =
     let ``runRequest test (task)`` (location) =
         task {
             let uri = Uri(location, UriKind.Absolute)
-            let ctx = client |> OryxUtility.withHttpContext OryxUtility.contextGetter
-            let request = OryxUtility.requestForJson uri.AbsoluteUri
-            let! result = request |> OryxUtility.runRequest ctx
+            let! responseResult =
+                client
+                |> trySendAsync (get uri)
+                |> Async.AwaitTask
 
             let actual =
-                match result with
+                match responseResult with
                 | Ok json -> true
                 | Error _ -> false
 

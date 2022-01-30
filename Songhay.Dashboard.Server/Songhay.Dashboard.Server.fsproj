@@ -4,7 +4,6 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="OryxUtility.fs" />
     <Compile Include="RemoteHandlers/DashboardServiceHandler.fs" />
     <Compile Include="Visuals/Head.fs" />
     <Compile Include="Visuals/Body.fs" />
@@ -12,8 +11,6 @@
     <Compile Include="Startup.fs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Oryx" Version="4.1.1" />
-    <PackageReference Include="Oryx.SystemTextJson" Version="4.1.1" />
     <ProjectReference Include="..\Songhay.Dashboard.Client\Songhay.Dashboard.Client.fsproj" />
     <PackageReference Include="Bolero.Server" Version="0.*" />
     <PackageReference Include="Bolero.HotReload.Server" Version="0.*" />
