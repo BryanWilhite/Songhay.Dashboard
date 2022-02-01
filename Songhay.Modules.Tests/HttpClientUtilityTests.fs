@@ -8,11 +8,12 @@ module HttpClientUtilityTests =
     open System.Reflection
     open System.Threading.Tasks
 
+    open FSharp.Data
+
     open Xunit
     open FsUnit.Xunit
     open FsUnit.CustomMatchers
 
-    open Songhay.Modules.MimeTypes
     open Songhay.Modules.Models
     open Songhay.Modules.HttpClientUtility
     open Songhay.Modules.HttpRequestMessageUtility
@@ -28,22 +29,28 @@ module HttpClientUtilityTests =
     [<Literal>]
     let LIVE_API_BASE_URI = "http://jsonplaceholder.typicode.com"
 
+    let isJsonResult isExpectedJson response = task {
+
+        let! jsonResult = response |> tryDownloadToStringAsync
+
+        match jsonResult with
+        |Error _ -> return false
+        | Ok json ->
+            String.IsNullOrWhiteSpace(json) |> should be False
+            return isExpectedJson json
+    }
+
+    type providerGet = JsonProvider<"""[{ "id": 1, "title": "foo", "body": "bar", "userId": 1 }]""">
+
     [<Theory>]
     [<InlineData("/posts")>]
-    [<InlineData("/posts/1")>]
-    [<InlineData("/posts/1/comments")>]
-    [<InlineData("/comments?postId=1")>]
     let ``client should get`` (location: string) =
-        let getJsonResult response = task {
 
-            let! jsonResult = response |> tryDownloadToStringAsync
-
-            match jsonResult with
-            |Error _ -> return false
-            | Ok json ->
-                String.IsNullOrWhiteSpace(json) |> should be False
-                return true
-        }
+        let isExpectedJson json =
+            let docs = json |> providerGet.Parse
+            docs.Length |> should be (greaterThan 0)
+            docs |> Array.forall (fun doc -> doc.Id > 0 && doc.UserId > 0) |> should be True
+            true
 
         async {
             let uri = Uri($"{LIVE_API_BASE_URI}{location}", UriKind.Absolute)
@@ -58,27 +65,26 @@ module HttpClientUtilityTests =
                 | Error _ -> Task.FromResult(false)
                 | Ok response ->
                     response.EnsureSuccessStatusCode() |> ignore
-                    response.RequestMessage.Method |> should equal HttpMethod.Get
-                    response |> getJsonResult
+
+                    response.RequestMessage.Method.ToString().ToUpperInvariant()
+                    |> should equal (HttpMethod.Get.ToUpperInvariant())
+
+                    response |> isJsonResult isExpectedJson
 
             let! actual = actualTask |> Async.AwaitTask
 
             actual |> should be True
         }
 
+    type providerPost = JsonProvider<"""{ "id": 101, "title": "foo", "body": "bar", "userId": 1 }""">
+
     [<Theory>]
-    [<InlineData("/posts", " { title: 'foo', body: 'bar', userId: 1, }")>]
+    [<InlineData("/posts", """{ "title": "foo", "body": "bar", "userId": 1 }""")>]
     let ``client should post`` (location: string, data: string) =
-        let getJsonResult response = task {
-
-            let! jsonResult = response |> tryDownloadToStringAsync
-
-            match jsonResult with
-            |Error _ -> return false
-            | Ok json ->
-                String.IsNullOrWhiteSpace(json) |> should be False
-                return true
-        }
+        let isExpectedJson json =
+            let doc = json |> providerPost.Parse
+            (doc.Id > 0 && doc.Title = "foo" && doc.Body = "bar" && doc.UserId = 1) |> should be True
+            true
 
         async {
             let uri = Uri($"{LIVE_API_BASE_URI}{location}", UriKind.Absolute)
@@ -90,30 +96,29 @@ module HttpClientUtilityTests =
 
             let actualTask =
                 match responseResult with
-                | Error err -> Task.FromResult(false)
+                | Error _ -> Task.FromResult(false)
                 | Ok response ->
                     response.EnsureSuccessStatusCode() |> ignore
-                    response.RequestMessage.Method |> should equal HttpMethod.Post
-                    response |> getJsonResult
+
+                    response.RequestMessage.Method.ToString().ToUpperInvariant()
+                    |> should equal (HttpMethod.Post.ToUpperInvariant())
+
+                    response |> isJsonResult isExpectedJson
 
             let! actual = actualTask |> Async.AwaitTask
 
             actual |> should be True
         }
 
+    type providerPut = JsonProvider<"""{ "id": 1, "title": "foo", "body": "bar", "userId": 1 }""">
+
     [<Theory>]
-    [<InlineData("/posts", " { id: 1, title: 'foo', body: 'bar', userId: 1, }")>]
+    [<InlineData("/posts/1", """{ "id": 1, "title": "foo", "body": "bar", "userId": 1 }""")>]
     let ``client should put`` (location: string, data: string) =
-        let getJsonResult response = task {
-
-            let! jsonResult = response |> tryDownloadToStringAsync
-
-            match jsonResult with
-            |Error _ -> return false
-            | Ok json ->
-                String.IsNullOrWhiteSpace(json) |> should be False
-                return true
-        }
+        let isExpectedJson json =
+            let doc = json |> providerPost.Parse
+            (doc.Id = 1 && doc.Title = "foo" && doc.Body = "bar" && doc.UserId = 1) |> should be True
+            true
 
         async {
             let uri = Uri($"{LIVE_API_BASE_URI}{location}", UriKind.Absolute)
@@ -125,11 +130,14 @@ module HttpClientUtilityTests =
 
             let actualTask =
                 match responseResult with
-                | Error err -> Task.FromResult(false)
+                | Error _ -> Task.FromResult(false)
                 | Ok response ->
                     response.EnsureSuccessStatusCode() |> ignore
-                    response.RequestMessage.Method |> should equal HttpMethod.Post
-                    response |> getJsonResult
+
+                    response.RequestMessage.Method.ToString().ToUpperInvariant()
+                    |> should equal (HttpMethod.Put.ToUpperInvariant())
+
+                    response |> isJsonResult isExpectedJson
 
             let! actual = actualTask |> Async.AwaitTask
 
