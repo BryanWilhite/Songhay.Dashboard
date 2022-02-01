@@ -76,6 +76,38 @@ module HttpClientUtilityTests =
             actual |> should be True
         }
 
+    [<Theory>]
+    [<InlineData("/posts/1")>]
+    let ``client should delete`` (location: string) =
+
+        let isExpectedJson json =
+            json |> should equal "{}"
+            true
+
+        async {
+            let uri = Uri($"{LIVE_API_BASE_URI}{location}", UriKind.Absolute)
+
+            let! responseResult =
+                client
+                |> trySendAsync (delete uri)
+                |> Async.AwaitTask
+
+            let actualTask =
+                match responseResult with
+                | Error _ -> Task.FromResult(false)
+                | Ok response ->
+                    response.EnsureSuccessStatusCode() |> ignore
+
+                    response.RequestMessage.Method.ToString().ToUpperInvariant()
+                    |> should equal (HttpMethod.Delete.ToUpperInvariant())
+
+                    response |> isJsonResult isExpectedJson
+
+            let! actual = actualTask |> Async.AwaitTask
+
+            actual |> should be True
+        }
+
     type providerPost = JsonProvider<"""{ "id": 101, "title": "foo", "body": "bar", "userId": 1 }""">
 
     [<Theory>]
@@ -99,6 +131,9 @@ module HttpClientUtilityTests =
                 | Error _ -> Task.FromResult(false)
                 | Ok response ->
                     response.EnsureSuccessStatusCode() |> ignore
+
+                    (int)response.StatusCode
+                    |> should equal (HttpStatusCodes.Created)
 
                     response.RequestMessage.Method.ToString().ToUpperInvariant()
                     |> should equal (HttpMethod.Post.ToUpperInvariant())
@@ -136,6 +171,39 @@ module HttpClientUtilityTests =
 
                     response.RequestMessage.Method.ToString().ToUpperInvariant()
                     |> should equal (HttpMethod.Put.ToUpperInvariant())
+
+                    response |> isJsonResult isExpectedJson
+
+            let! actual = actualTask |> Async.AwaitTask
+
+            actual |> should be True
+        }
+    type providerPatch = JsonProvider<"""{ "body": "bar" }""">
+
+    [<Theory>]
+    [<InlineData("/posts/1", """{ "id": 1, "title": "foo", "body": "bar", "userId": 1 }""")>]
+    let ``client should patch`` (location: string, data: string) =
+        let isExpectedJson json =
+            let doc = json |> providerPost.Parse
+            (doc.Id = 1 && doc.Body = "bar") |> should be True
+            true
+
+        async {
+            let uri = Uri($"{LIVE_API_BASE_URI}{location}", UriKind.Absolute)
+
+            let! responseResult =
+                client
+                |> trySendAsync (patch uri |> withJsonStringContent data)
+                |> Async.AwaitTask
+
+            let actualTask =
+                match responseResult with
+                | Error _ -> Task.FromResult(false)
+                | Ok response ->
+                    response.EnsureSuccessStatusCode() |> ignore
+
+                    response.RequestMessage.Method.ToString().ToUpperInvariant()
+                    |> should equal (HttpMethod.Patch.ToUpperInvariant())
 
                     response |> isJsonResult isExpectedJson
 
