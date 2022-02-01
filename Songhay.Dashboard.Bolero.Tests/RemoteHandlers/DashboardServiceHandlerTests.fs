@@ -47,10 +47,8 @@ module DashboardServiceHandlerTests =
     let ``runRequest test (task)`` (location) =
         task {
             let uri = Uri(location, UriKind.Absolute)
-            let! responseResult =
-                client
-                |> trySendAsync (get uri)
-                |> Async.AwaitTask
+
+            let! responseResult = client |> trySendAsync (get uri)
 
             let actual =
                 match responseResult with
