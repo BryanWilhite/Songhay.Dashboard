@@ -86,22 +86,19 @@ type ProgramAssemblyInfo =
         Path.GetDirectoryName(assembly.Location)
 
     static member getPathFromAssembly path (assembly: Assembly) =
-        let pathNormalized =
-            path
-            |> ProgramFileUtility.ensureRelativePath
-            |> ProgramFileUtility.normalizePath
+        match path |> ProgramFileUtility.ensureRelativePath with
+        | Error err -> Error err
+        | Ok relativePath ->
+            let pathNormalized = relativePath |> ProgramFileUtility.normalizePath
 
-        let root = assembly |> ProgramAssemblyInfo.getAssemblyPath
-        let levels = pathNormalized |> ProgramFileUtility.countParentDirectoryChars
-        let parentDirectory =
+            let root = assembly |> ProgramAssemblyInfo.getAssemblyPath
+            let levels = pathNormalized |> ProgramFileUtility.countParentDirectoryChars
             if (levels > 0) then
-                root
-                |> ProgramFileUtility.getParentDirectory levels
-                |> Option.defaultWith (fun () -> raise (NullReferenceException "The expected parent directory is not here."))
+                match root |> ProgramFileUtility.getParentDirectory levels with
+                | Error err -> Error err
+                | Ok parentDirectory -> (parentDirectory, pathNormalized) ||> ProgramFileUtility.getCombinedPath
             else
-                root
-
-        (parentDirectory, pathNormalized) ||> ProgramFileUtility.getCombinedPath
+                Ok root
 
     member this.getAssemblyInfo =
         StringBuilder()

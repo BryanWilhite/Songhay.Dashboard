@@ -14,14 +14,16 @@ module HttpClientUtilityTests =
     open FsUnit.Xunit
     open FsUnit.CustomMatchers
 
-    open Songhay.Modules.Models
     open Songhay.Modules.HttpClientUtility
     open Songhay.Modules.HttpRequestMessageUtility
     open Songhay.Modules.HttpResponseMessageUtility
+    open Songhay.Modules.Models
+    open Songhay.Modules.ProgramFileUtility
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()
         |> ProgramAssemblyInfo.getPathFromAssembly "../../../"
+        |> Result.valueOr raiseProgramFileError
         |> DirectoryInfo
 
     let client = new HttpClient()

@@ -7,9 +7,10 @@ module ProgramFileUtilityTests =
     open System.Reflection
     open Xunit
     open FsUnit.Xunit
+    open FsToolkit.ErrorHandling
 
-    open Songhay.Modules
     open Songhay.Modules.Models
+    open Songhay.Modules.ProgramFileUtility
 
     [<SkippableTheory>]
     [<InlineData("root1", @"z:\one", "z:|one", true)>]
@@ -19,32 +20,44 @@ module ProgramFileUtilityTests =
     [<InlineData("path2", @"\two\three\four", "path2|two|three|four", false)>]
     let ``getCombinedPath test`` (root, path, expectedResult: string, requiresWindows) =
 
-        Skip.If(requiresWindows && ProgramFileUtility.isForwardSlashSystem, "OS is not Windows")
+        Skip.If(requiresWindows && isForwardSlashSystem, "OS is not Windows")
 
-        let actual = (root, path) ||> ProgramFileUtility.getCombinedPath
-        let expected = expectedResult.Replace('|', Path.DirectorySeparatorChar)
+        let actual = (root, path) ||> getCombinedPath |> Result.valueOr raiseProgramFileError
+
+        let expected =
+            expectedResult.Replace('|', Path.DirectorySeparatorChar)
 
         expected |> should equal actual
 
     [<Fact>]
     let ``getParentDirectory test`` () =
         let assembly = Assembly.GetExecutingAssembly()
-        let expected = assembly |> ProgramAssemblyInfo.getPathFromAssembly "../../../"
+
+        let expected =
+            assembly
+            |> ProgramAssemblyInfo.getPathFromAssembly "../../../"
+            |> Result.valueOr raiseProgramFileError
+
         let actual =
             assembly.Location
-            |> ProgramFileUtility.getParentDirectory 4
-            |> Option.defaultWith (fun () -> failwith "The expected directory is not here.")
+            |> getParentDirectory 4
+            |> Result.valueOr raiseProgramFileError
 
         expected |> should equal actual
 
     [<Fact>]
     let ``getParentDirectoryInfo test`` () =
         let assembly = Assembly.GetExecutingAssembly()
-        let expected = assembly |> ProgramAssemblyInfo.getPathFromAssembly "../../../"
+
+        let expected =
+            assembly
+            |> ProgramAssemblyInfo.getPathFromAssembly "../../../"
+            |> Result.valueOr raiseProgramFileError
+
         let actual =
             assembly.Location
-            |> ProgramFileUtility.getParentDirectoryInfo 4
-            |> Option.defaultWith (fun () -> failwith "The expected directory is not here.")
+            |> getParentDirectoryInfo 4
+            |> Result.valueOr raiseProgramFileError
 
         expected |> should equal actual.FullName
 
@@ -54,36 +67,54 @@ module ProgramFileUtilityTests =
     [<InlineData(@".\one/two\", @"one|two|")>]
     [<InlineData(@"..\..\one\", @"one|")>]
     let ``getRelativePath test`` (input, expectedResult: string) =
-        let actual = input |> ProgramFileUtility.getRelativePath
-        let expected = expectedResult.Replace('|', Path.DirectorySeparatorChar)
+        let actual =
+            input
+            |> getRelativePath
+            |> Result.valueOr raiseProgramFileError
+
+        let expected =
+            expectedResult.Replace('|', Path.DirectorySeparatorChar)
 
         expected |> should equal actual
 
     [<Fact>]
     let ``raiseExceptionForExpectedDirectory test`` () =
-        let assemblyInfo = Assembly.GetExecutingAssembly() |> ProgramAssemblyInfo.fromInput
-        let dirInfo = DirectoryInfo(assemblyInfo.AssemblyPath)
-        let action = fun () ->
-            $"{dirInfo.GetDirectories().First().FullName}.fubar"
-            |> ProgramFileUtility.raiseExceptionForExpectedDirectory
-            |> ignore
+        let assemblyInfo =
+            Assembly.GetExecutingAssembly()
+            |> ProgramAssemblyInfo.fromInput
 
-        action |> should throw typeof<DirectoryNotFoundException>
+        let dirInfo = DirectoryInfo(assemblyInfo.AssemblyPath)
+
+        let action =
+            fun () ->
+                $"{dirInfo.GetDirectories().First().FullName}.fubar"
+                |> raiseExceptionForExpectedDirectory
+                |> ignore
+
+        action
+        |> should throw typeof<DirectoryNotFoundException>
 
     [<Fact>]
     let ``raiseExceptionForExpectedFile test`` () =
-        let assemblyInfo = Assembly.GetExecutingAssembly() |> ProgramAssemblyInfo.fromInput
-        let dirInfo = DirectoryInfo(assemblyInfo.AssemblyPath)
-        let action = fun () ->
-            $"{dirInfo.GetFiles().First().FullName}.fubar"
-            |> ProgramFileUtility.raiseExceptionForExpectedFile
-            |> ignore
+        let assemblyInfo =
+            Assembly.GetExecutingAssembly()
+            |> ProgramAssemblyInfo.fromInput
 
-        action |> should throw typeof<FileNotFoundException>
+        let dirInfo = DirectoryInfo(assemblyInfo.AssemblyPath)
+
+        let action =
+            fun () ->
+                $"{dirInfo.GetFiles().First().FullName}.fubar"
+                |> raiseExceptionForExpectedFile
+                |> ignore
+
+        action
+        |> should throw typeof<FileNotFoundException>
 
     [<Theory>]
     [<InlineData(@"/\foo\bar\my-file.json", @"foo\bar\my-file.json")>]
-    let ``trimLeadingDirectorySeparatorChars test``(path, expected: string) =
-        let actual = path |> ProgramFileUtility.trimLeadingDirectorySeparatorChars
+    let ``trimLeadingDirectorySeparatorChars test`` (path, expected: string) =
+        let actual =
+            path |> trimLeadingDirectorySeparatorChars
 
         expected |> should equal actual

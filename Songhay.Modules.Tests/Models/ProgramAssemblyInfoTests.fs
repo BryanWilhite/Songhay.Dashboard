@@ -6,8 +6,10 @@ module ProgramAssemblyInfoTests =
     open System.Reflection
     open Xunit
     open FsUnit.Xunit
+    open FsToolkit.ErrorHandling
 
     open Songhay.Modules.Models
+    open Songhay.Modules.ProgramFileUtility
 
     [<Theory>]
     [<InlineData(@"..\..\..\Models\ProgramAssemblyInfoTests.fs")>]
@@ -16,6 +18,7 @@ module ProgramAssemblyInfoTests =
         let actual =
             Assembly.GetExecutingAssembly()
             |> ProgramAssemblyInfo.getPathFromAssembly path
+            |> Result.valueOr raiseProgramFileError
             |> File.Exists
 
         actual |> should be True

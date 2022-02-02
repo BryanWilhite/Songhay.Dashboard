@@ -10,50 +10,41 @@ module DashboardServiceHandlerTests =
     open Xunit
     open FsUnit.Xunit
     open FsUnit.CustomMatchers
+    open FsToolkit.ErrorHandling
 
     open Songhay.Modules.Models
     open Songhay.Modules.HttpClientUtility
     open Songhay.Modules.HttpRequestMessageUtility
+    open Songhay.Modules.ProgramFileUtility
 
     open Songhay.Dashboard.Client
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()
         |> ProgramAssemblyInfo.getPathFromAssembly "../../../"
+        |> Result.valueOr raiseProgramFileError
         |> DirectoryInfo
 
     let client = new HttpClient()
 
     [<Theory>]
     [<InlineData(App.appDataLocation)>]
-    let ``runRequest test (async)`` (location) =
+    let ``runRequest test (async)`` location =
         async {
             let uri = Uri(location, UriKind.Absolute)
-            let! responseResult =
-                client
-                |> trySendAsync (get uri)
-                |> Async.AwaitTask
 
-            let actual =
-                match responseResult with
-                | Ok json -> true
-                | Error _ -> false
+            let! responseResult = client |> trySendAsync (get uri) |> Async.AwaitTask
 
-            actual |> should be True
+            responseResult |> should be (ofCase<@ Result<HttpResponseMessage,exn>.Ok @>)
         }
 
     [<Theory>]
     [<InlineData(App.appDataLocation)>]
-    let ``runRequest test (task)`` (location) =
+    let ``runRequest test (task)`` location =
         task {
             let uri = Uri(location, UriKind.Absolute)
 
             let! responseResult = client |> trySendAsync (get uri)
 
-            let actual =
-                match responseResult with
-                | Ok json -> true
-                | Error _ -> false
-
-            actual |> should be True
+            responseResult |> should be (ofCase<@ Result<HttpResponseMessage,exn>.Ok @>)
         }

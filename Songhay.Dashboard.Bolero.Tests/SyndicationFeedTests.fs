@@ -10,19 +10,21 @@ module SyndicationFeedTests =
     open FsUnit.CustomMatchers
     open FsToolkit.ErrorHandling
 
-    open Songhay.Modules
     open Songhay.Modules.Models
     open Songhay.Dashboard.Client
     open Songhay.Dashboard.Client.Models
+    open Songhay.Modules.ProgramFileUtility
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()
         |> ProgramAssemblyInfo.getPathFromAssembly "../../../"
+        |> Result.valueOr raiseProgramFileError
         |> DirectoryInfo
 
     let appJsonDocumentPath =
         "./json/app.json"
-        |> ProgramFileUtility.getCombinedPath projectDirectoryInfo.FullName
+        |> getCombinedPath projectDirectoryInfo.FullName
+        |> Result.valueOr raiseProgramFileError
 
     let appJsonDocument =
         JsonDocument.Parse(File.ReadAllText(appJsonDocumentPath))
@@ -62,7 +64,7 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        result |> should be (ofCase <@ Result<(bool * JsonElement), JsonException>.Ok @>)
+        result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
 
         element.ValueKind |> should equal JsonValueKind.Object
@@ -75,7 +77,7 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        result |> should be (ofCase <@ Result<(bool * JsonElement), JsonException>.Ok @>)
+        result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
         let titleResult = element |> SyndicationFeedUtility.getAtomChannelTitle
 
@@ -93,7 +95,7 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        result |> should be (ofCase <@ Result<(bool * JsonElement), JsonException>.Ok @>)
+        result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
         let itemsResult = element |> SyndicationFeedUtility.getAtomChannelItems
 
@@ -111,7 +113,7 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        result |> should be (ofCase <@ Result<(bool * JsonElement), JsonException>.Ok @>)
+        result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
         let titleResult = element |> SyndicationFeedUtility.getRssChannelTitle
 
@@ -130,7 +132,7 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        result |> should be (ofCase <@ Result<(bool * JsonElement), JsonException>.Ok @>)
+        result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
         let itemsResult = element |> SyndicationFeedUtility.getRssChannelItems
 
@@ -150,7 +152,7 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        feedElementResult |> should be (ofCase <@ Result<(bool * JsonElement), JsonException>.Ok @>)
+        feedElementResult |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let pair = feedElementResult |> Result.valueOr raise
         let feedResult = pair |> SyndicationFeedUtility.toSyndicationFeed
 

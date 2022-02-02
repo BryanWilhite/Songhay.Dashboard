@@ -6,6 +6,8 @@ module ProgramFileUtility =
     open System.IO
     open System.Text.RegularExpressions
 
+    type ProgramFileError = ProgramFileError of exn
+
     let backSlash = '\\'
     let forwardSlash = '/'
     let isForwardSlashSystem = Path.DirectorySeparatorChar.Equals(forwardSlash)
@@ -18,9 +20,10 @@ module ProgramFileUtility =
             matches.Count
 
     let rec findParentDirectoryInfo parentName levels path =
-        if (String.IsNullOrWhiteSpace path) then raise (DirectoryNotFoundException "The expected directory is not here.")
+        if (String.IsNullOrWhiteSpace path) then
+            Error (ProgramFileError (DirectoryNotFoundException "The expected directory is not here."))
         else
-            let info = new DirectoryInfo(path)
+            let info = DirectoryInfo(path)
 
             let doesNotExist = (not info.Exists)
             let isParent = (info.Name = parentName)
@@ -28,45 +31,47 @@ module ProgramFileUtility =
             let hasTargetParent = not hasNullParent && (info.Parent.Name = parentName)
 
             match info with
-            | _ when doesNotExist || hasNullParent -> None
-            | _ when isParent -> Some info
-            | _ when hasTargetParent -> Some info.Parent
+            | _ when doesNotExist || hasNullParent ->
+                Error (ProgramFileError (DirectoryNotFoundException "Directory does not exist."))
+            | _ when isParent -> Ok info
+            | _ when hasTargetParent -> Ok info.Parent
             | _ ->
                 let nextLevels = (abs levels) - 1
                 let hasNoMoreLevels = (nextLevels = 0)
 
-                if hasNoMoreLevels then None
+                if hasNoMoreLevels then Error (ProgramFileError (DirectoryNotFoundException "Has no more levels"))
                 else (parentName, nextLevels, info.Parent.FullName) |||> findParentDirectoryInfo
 
     let rec getParentDirectoryInfo levels path =
-        if (String.IsNullOrWhiteSpace(path)) then None
+        if (String.IsNullOrWhiteSpace(path)) then
+            Error (ProgramFileError (DirectoryNotFoundException "The expected path is not here."))
         else
-            let info = new DirectoryInfo(path)
+            let info = DirectoryInfo(path)
             match levels with
-            | _ when (abs levels) = 0 -> Some info
+            | _ when (abs levels) = 0 -> Ok info
             | _ ->
                 match info with
-                | _ when info = null -> Some info
+                | _ when info = null -> Ok info
                 | _ ->
                     let nextLevels = levels - 1
                     match nextLevels with
                     | _ when nextLevels >= 1 -> getParentDirectoryInfo nextLevels info.Parent.FullName
-                    | _ -> Some info.Parent
+                    | _ -> Ok info.Parent
 
     let rec getParentDirectory levels path =
-        if (String.IsNullOrWhiteSpace(path)) then None
+        if (String.IsNullOrWhiteSpace(path)) then Error (ProgramFileError (NullReferenceException "The expected path is not here."))
         else
             match levels with
-            | _ when (abs levels) = 0 -> Some path
+            | _ when (abs levels) = 0 -> Ok path
             | _ ->
                 let info = Directory.GetParent(path)
                 match info with
-                | _ when info = null -> Some path
+                | _ when info = null -> Ok path
                 | _ ->
                     let nextLevels = levels - 1
                     match nextLevels with
                     | _ when nextLevels >= 1 -> getParentDirectory nextLevels info.FullName
-                    | _ -> Some info.FullName
+                    | _ -> Ok info.FullName
 
     let normalizePath path =
         if (String.IsNullOrWhiteSpace(path)) then path
@@ -82,6 +87,8 @@ module ProgramFileUtility =
         if (String.IsNullOrWhiteSpace(path)) then raise (FileNotFoundException $"The expected file is not here.")
         elif File.Exists(path) then path
         else raise (FileNotFoundException $"The expected file, `{path}`, is not here.")
+
+    let raiseProgramFileError (ProgramFileError e) = raise e
 
     let  removeBackslashPrefixes (path: string) =
         if String.IsNullOrWhiteSpace(path) then path
@@ -109,28 +116,36 @@ module ProgramFileUtility =
         else path.TrimStart(backSlash, forwardSlash)
 
     let ensureRelativePath path =
-        if (String.IsNullOrWhiteSpace(path)) then raise (ArgumentNullException (nameof path))
-
-        path
-            |> trimLeadingDirectorySeparatorChars
-            |> fun p ->
-                if Path.IsPathRooted(p) then raise (FormatException("The expected relative path is not here."))
-                else p
+        if (String.IsNullOrWhiteSpace(path)) then
+            Error (ProgramFileError (NullReferenceException "The expected path is not here."))
+        else
+            path
+                |> trimLeadingDirectorySeparatorChars
+                |> fun p ->
+                    if Path.IsPathRooted(p) then
+                        Error (ProgramFileError (FormatException "The expected relative path is not here."))
+                    else Ok p
 
     let getRelativePath path =
-        if (String.IsNullOrWhiteSpace(path)) then raise (ArgumentNullException (nameof path))
-
-        path
-            |> trimLeadingDirectorySeparatorChars
-            |> normalizePath
-            |> removeBackslashPrefixes
-            |> removeForwardSlashPrefixes
+        if (String.IsNullOrWhiteSpace(path)) then
+            Error (ProgramFileError (NullReferenceException "The expected path is not here."))
+        else
+            path
+                |> trimLeadingDirectorySeparatorChars
+                |> normalizePath
+                |> removeBackslashPrefixes
+                |> removeForwardSlashPrefixes
+                |> Ok
 
     let getCombinedPath root path =
-        if (String.IsNullOrWhiteSpace(root)) then raise (NullReferenceException $"The expected {nameof(root)} is not here.")
-        if (String.IsNullOrWhiteSpace(path)) then raise (NullReferenceException $"The expected {nameof(path)} is not here.")
-
-        let relativePath = path |> getRelativePath
-
-        if Path.IsPathRooted(relativePath) then relativePath
-        else Path.Combine(normalizePath(root), relativePath)
+        if (String.IsNullOrWhiteSpace(root)) then
+            Error (ProgramFileError (NullReferenceException $"The expected {nameof(root)} is not here."))
+        else if (String.IsNullOrWhiteSpace(path)) then
+            Error (ProgramFileError (NullReferenceException $"The expected {nameof(path)} is not here."))
+        else
+            let relativePathResult = path |> getRelativePath
+            match relativePathResult with
+            | Error err -> Error err
+            | Ok relativePath ->
+                if Path.IsPathRooted(relativePath) then Ok relativePath
+                else Ok (Path.Combine(normalizePath(root), relativePath))
