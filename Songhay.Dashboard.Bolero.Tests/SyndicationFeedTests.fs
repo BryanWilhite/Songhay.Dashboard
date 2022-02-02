@@ -8,6 +8,7 @@ module SyndicationFeedTests =
     open Xunit
     open FsUnit.Xunit
     open FsUnit.CustomMatchers
+    open FsToolkit.ErrorHandling
 
     open Songhay.Modules
     open Songhay.Modules.Models
@@ -23,7 +24,8 @@ module SyndicationFeedTests =
         "./json/app.json"
         |> ProgramFileUtility.getCombinedPath projectDirectoryInfo.FullName
 
-    let appJsonDocument = JsonDocument.Parse(File.ReadAllText(appJsonDocumentPath))
+    let appJsonDocument =
+        JsonDocument.Parse(File.ReadAllText(appJsonDocumentPath))
 
     [<Fact>]
     let ``app.json should have `feeds` property`` () =
@@ -60,9 +62,12 @@ module SyndicationFeedTests =
             appJsonDocument.RootElement
             |> SyndicationFeedUtility.getFeedElement elementName
 
-        match result with
-        | Error err -> raise err
-        | Ok (_, element) -> JsonValueKind.Object |> should equal element.ValueKind
+        result |> should be (ofCase <@ Result<(bool * JsonElement), JsonException>.Ok @>)
+
+        let _, element = result |> Result.valueOr raise
+
+        element.ValueKind
+        |> should equal JsonValueKind.Object
 
     [<Theory>]
     [<InlineData(nameof GitHub)>]
@@ -82,7 +87,9 @@ module SyndicationFeedTests =
             match titleResult with
             | Error err -> raise err
             | Ok title ->
-                let actual = title |> System.String.IsNullOrWhiteSpace
+                let actual =
+                    title |> System.String.IsNullOrWhiteSpace
+
                 actual |> should be False
 
     [<Theory>]
@@ -123,7 +130,9 @@ module SyndicationFeedTests =
             match titleResult with
             | Error _ -> failwith "The expected result is not here"
             | Ok title ->
-                let actual = title |> System.String.IsNullOrWhiteSpace
+                let actual =
+                    title |> System.String.IsNullOrWhiteSpace
+
                 actual |> should be False
 
     [<Theory>]
@@ -160,18 +169,26 @@ module SyndicationFeedTests =
         match feedElementResult with
         | Error _ -> failwith "The expected result is not here"
         | Ok pair ->
-            let feedResult = pair |> SyndicationFeedUtility.toSyndicationFeed
+            let feedResult =
+                pair |> SyndicationFeedUtility.toSyndicationFeed
 
             match feedResult with
             | Error _ -> failwith "The expected result is not here"
             | Ok feed ->
-                System.String.IsNullOrWhiteSpace(feed.feedTitle) |> should be False
+                System.String.IsNullOrWhiteSpace(feed.feedTitle)
+                |> should be False
+
                 feed.feedItems |> should not' (be Empty)
-                Assert.All(feed.feedItems,
+
+                Assert.All(
+                    feed.feedItems,
                     fun i ->
-                        System.String.IsNullOrWhiteSpace(i.title) |> should be False
-                        System.String.IsNullOrWhiteSpace(i.link) |> should be False
-                    )
+                        System.String.IsNullOrWhiteSpace(i.title)
+                        |> should be False
+
+                        System.String.IsNullOrWhiteSpace(i.link)
+                        |> should be False
+                )
 
     [<Fact>]
     let ``fromInput test`` () =
@@ -183,12 +200,19 @@ module SyndicationFeedTests =
         | Error _ -> failwith "The expected result is not here"
         | Ok actual ->
             actual |> should not' (be Empty)
-            Assert.All(actual,
+
+            Assert.All(
+                actual,
                 fun (_, feed) ->
                     feed.feedItems |> should not' (be Empty)
-                    Assert.All(feed.feedItems,
-                            fun i ->
-                                System.String.IsNullOrWhiteSpace(i.title) |> should be False
-                                System.String.IsNullOrWhiteSpace(i.link) |> should be False
-                            )
-                )
+
+                    Assert.All(
+                        feed.feedItems,
+                        fun i ->
+                            System.String.IsNullOrWhiteSpace(i.title)
+                            |> should be False
+
+                            System.String.IsNullOrWhiteSpace(i.link)
+                            |> should be False
+                    )
+            )
