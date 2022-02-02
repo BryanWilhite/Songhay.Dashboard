@@ -6,9 +6,9 @@ module HttpClientUtilityTests =
     open System.IO
     open System.Net.Http
     open System.Reflection
-    open System.Threading.Tasks
 
     open FSharp.Data
+    open FsToolkit.ErrorHandling
 
     open Xunit
     open FsUnit.Xunit
@@ -60,18 +60,15 @@ module HttpClientUtilityTests =
                 |> trySendAsync (get uri)
                 |> Async.AwaitTask
 
-            let actualTask =
-                match responseResult with
-                | Error _ -> Task.FromResult(false)
-                | Ok response ->
-                    response.EnsureSuccessStatusCode() |> ignore
+            responseResult |> should be (ofCase <@ Result<HttpResponseMessage, exn>.Ok @>)
 
-                    response.RequestMessage.Method.ToString().ToUpperInvariant()
-                    |> should equal (HttpMethod.Get.ToUpperInvariant())
+            let response = responseResult |> Result.valueOr raise
+            response.EnsureSuccessStatusCode() |> ignore
 
-                    response |> isJsonResult isExpectedJson
+            response.RequestMessage.Method.ToString().ToUpperInvariant()
+            |> should equal (HttpMethod.Get.ToUpperInvariant())
 
-            let! actual = actualTask |> Async.AwaitTask
+            let! actual = response |> isJsonResult isExpectedJson |> Async.AwaitTask
 
             actual |> should be True
         }
@@ -92,18 +89,15 @@ module HttpClientUtilityTests =
                 |> trySendAsync (delete uri)
                 |> Async.AwaitTask
 
-            let actualTask =
-                match responseResult with
-                | Error _ -> Task.FromResult(false)
-                | Ok response ->
-                    response.EnsureSuccessStatusCode() |> ignore
+            responseResult |> should be (ofCase <@ Result<HttpResponseMessage, exn>.Ok @>)
 
-                    response.RequestMessage.Method.ToString().ToUpperInvariant()
-                    |> should equal (HttpMethod.Delete.ToUpperInvariant())
+            let response = responseResult |> Result.valueOr raise
+            response.EnsureSuccessStatusCode() |> ignore
 
-                    response |> isJsonResult isExpectedJson
+            response.RequestMessage.Method.ToString().ToUpperInvariant()
+            |> should equal (HttpMethod.Delete.ToUpperInvariant())
 
-            let! actual = actualTask |> Async.AwaitTask
+            let! actual = response |> isJsonResult isExpectedJson |> Async.AwaitTask
 
             actual |> should be True
         }
@@ -126,21 +120,18 @@ module HttpClientUtilityTests =
                 |> trySendAsync (post uri |> withJsonStringContent data)
                 |> Async.AwaitTask
 
-            let actualTask =
-                match responseResult with
-                | Error _ -> Task.FromResult(false)
-                | Ok response ->
-                    response.EnsureSuccessStatusCode() |> ignore
+            responseResult |> should be (ofCase <@ Result<HttpResponseMessage, exn>.Ok @>)
 
-                    (int)response.StatusCode
-                    |> should equal (HttpStatusCodes.Created)
+            let response = responseResult |> Result.valueOr raise
+            response.EnsureSuccessStatusCode() |> ignore
 
-                    response.RequestMessage.Method.ToString().ToUpperInvariant()
-                    |> should equal (HttpMethod.Post.ToUpperInvariant())
+            int response.StatusCode
+            |> should equal HttpStatusCodes.Created
 
-                    response |> isJsonResult isExpectedJson
+            response.RequestMessage.Method.ToString().ToUpperInvariant()
+            |> should equal (HttpMethod.Post.ToUpperInvariant())
 
-            let! actual = actualTask |> Async.AwaitTask
+            let! actual = response |> isJsonResult isExpectedJson |> Async.AwaitTask
 
             actual |> should be True
         }
@@ -163,18 +154,15 @@ module HttpClientUtilityTests =
                 |> trySendAsync (put uri |> withJsonStringContent data)
                 |> Async.AwaitTask
 
-            let actualTask =
-                match responseResult with
-                | Error _ -> Task.FromResult(false)
-                | Ok response ->
-                    response.EnsureSuccessStatusCode() |> ignore
+            responseResult |> should be (ofCase <@ Result<HttpResponseMessage, exn>.Ok @>)
 
-                    response.RequestMessage.Method.ToString().ToUpperInvariant()
-                    |> should equal (HttpMethod.Put.ToUpperInvariant())
+            let response = responseResult |> Result.valueOr raise
+            response.EnsureSuccessStatusCode() |> ignore
 
-                    response |> isJsonResult isExpectedJson
+            response.RequestMessage.Method.ToString().ToUpperInvariant()
+            |> should equal (HttpMethod.Put.ToUpperInvariant())
 
-            let! actual = actualTask |> Async.AwaitTask
+            let! actual = response |> isJsonResult isExpectedJson |> Async.AwaitTask
 
             actual |> should be True
         }
@@ -196,18 +184,15 @@ module HttpClientUtilityTests =
                 |> trySendAsync (patch uri |> withJsonStringContent data)
                 |> Async.AwaitTask
 
-            let actualTask =
-                match responseResult with
-                | Error _ -> Task.FromResult(false)
-                | Ok response ->
-                    response.EnsureSuccessStatusCode() |> ignore
+            responseResult |> should be (ofCase <@ Result<HttpResponseMessage, exn>.Ok @>)
 
-                    response.RequestMessage.Method.ToString().ToUpperInvariant()
-                    |> should equal (HttpMethod.Patch.ToUpperInvariant())
+            let response = responseResult |> Result.valueOr raise
+            response.EnsureSuccessStatusCode() |> ignore
 
-                    response |> isJsonResult isExpectedJson
+            response.RequestMessage.Method.ToString().ToUpperInvariant()
+            |> should equal (HttpMethod.Patch.ToUpperInvariant())
 
-            let! actual = actualTask |> Async.AwaitTask
+            let! actual = response |> isJsonResult isExpectedJson |> Async.AwaitTask
 
             actual |> should be True
         }
