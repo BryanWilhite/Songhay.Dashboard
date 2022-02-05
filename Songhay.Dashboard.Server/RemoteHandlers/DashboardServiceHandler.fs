@@ -2,6 +2,7 @@ namespace Songhay.Dashboard.Server.RemoteHandlers
 
 open System.Net.Http
 open System.Threading.Tasks
+open Microsoft.Extensions.Logging
 open Microsoft.FSharp.Core
 
 open Bolero.Remoting.Server
@@ -12,7 +13,7 @@ open Songhay.Modules.HttpClientUtility
 open Songhay.Modules.HttpRequestMessageUtility
 open Songhay.Modules.HttpResponseMessageUtility
 
-type DashboardServiceHandler(client: HttpClient) =
+type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServiceHandler>) =
     inherit RemoteHandler<DashboardService>()
 
     static member getOutputResult response =
@@ -31,6 +32,7 @@ type DashboardServiceHandler(client: HttpClient) =
     override this.Handler =
         {
             getAppData = fun uri -> async {
+                logger.LogInformation($"calling {uri.OriginalString}...")
 
                 let! responseResult =
                     client
@@ -39,7 +41,9 @@ type DashboardServiceHandler(client: HttpClient) =
 
                 return!
                     match responseResult with
-                    | Result.Error _ -> Task.FromResult(None) |> Async.AwaitTask
+                    | Result.Error err ->
+                        logger.LogError(err.Message, err.GetType().FullName, err.Source, err.StackTrace)
+                        Task.FromResult(None) |> Async.AwaitTask
                     | Result.Ok response -> (DashboardServiceHandler.getOutputResult response) |> Async.AwaitTask 
             }
         }

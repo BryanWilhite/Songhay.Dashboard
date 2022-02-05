@@ -1,9 +1,11 @@
 module Songhay.Dashboard.Client.Visuals.Block.StudioFeeds
 
 open Bolero.Html
-open Songhay.Dashboard.Client
 
-let studioFeedsNode =
+open Songhay.Dashboard.Client
+open Songhay.Dashboard.Client.ElmishTypes
+
+let studioFeedsNode (model: Model) =
     div
         [ attr.classes ([ "card" ] @ App.appBlockChildCssClasses) ]
         [

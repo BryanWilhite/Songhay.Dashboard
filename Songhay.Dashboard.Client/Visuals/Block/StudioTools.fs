@@ -2,8 +2,9 @@ module Songhay.Dashboard.Client.Visuals.Block.StudioTools
 
 open Bolero.Html
 open Songhay.Dashboard.Client
+open Songhay.Dashboard.Client.ElmishTypes
 
-let studioToolsNode =
+let studioToolsNode (model: Model) =
     div
         [ attr.classes ([ "card" ] @ App.appBlockChildCssClasses) ]
         [

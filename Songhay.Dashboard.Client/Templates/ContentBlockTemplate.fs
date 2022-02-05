@@ -15,8 +15,8 @@ let viewContentBlockTemplate model dispatch =
         .StudioLinksNode(Tile.studioLinksNode)
         .Content(
             cond model.page <| function
-            | StudioFeedsPage -> Tile.studioPageNode Block.StudioFeeds.studioFeedsNode
-            | StudioToolsPage -> Tile.studioPageNode Block.StudioTools.studioToolsNode
+            | StudioFeedsPage -> Tile.studioPageNode Block.StudioFeeds.studioFeedsNode model
+            | StudioToolsPage -> Tile.studioPageNode Block.StudioTools.studioToolsNode model
         )
         .Error(
             cond model.error <| function
