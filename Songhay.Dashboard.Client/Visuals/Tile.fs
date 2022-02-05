@@ -2,7 +2,6 @@ module Songhay.Dashboard.Client.Visuals.Tile
 
 open Bolero.Html
 
-open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Visuals.Block
 
 let bulmaColumnTile width nodes =
@@ -28,5 +27,5 @@ let studioComponentNode =
 let studioLinksNode =
     bulmaColumnTile 0 [ bulmaContentParentTile false [ StudioLinks.studioLinksNode ] ]
 
-let studioPageNode block (model: Model) =
-    bulmaColumnTile 0 [ bulmaContentParentTile false [ block model ] ]
+let studioPageNode block =
+    bulmaColumnTile 0 [ bulmaContentParentTile false [ block ] ]

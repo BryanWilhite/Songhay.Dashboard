@@ -1,7 +1,11 @@
 module Songhay.Dashboard.Client.Components.ContentBlock
 
 open System
+
+open Microsoft.AspNetCore.Components
+open Microsoft.JSInterop
 open Elmish
+
 open Bolero
 open Bolero.Remoting
 open Bolero.Remoting.Client
@@ -34,18 +38,22 @@ let update remote message model =
         | StudioFeedsPage -> m , Cmd.ofMsg GetFeeds
         | _ -> m, Cmd.none
 
-let view model dispatch =
-    viewContentBlockTemplate model dispatch
+let view (jsRuntime: IJSRuntime) model dispatch =
+    viewContentBlockTemplate jsRuntime model dispatch
 
 type ContentBlockComponent() =
     inherit ProgramComponent<Model, Message>()
 
-    static member Id with get() = "content-block"
+    static member val Id = "content-block" with get
+
+    [<Inject>]
+    member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
     override this.Program =
         let init = (fun _ -> initModel, Cmd.none)
-        let dashboardService = this.Remote<DashboardService>()
-        let update = update dashboardService
+        let update = update (this.Remote<DashboardService>())
+        let view = view this.JSRuntime
+
         Program.mkProgram init update view
         |> Program.withRouter router
 #if DEBUG
