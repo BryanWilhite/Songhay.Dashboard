@@ -21,7 +21,7 @@ let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
                         [ attr.classes [ "media-content" ] ]
                         [
                             p [ attr.classes [ "title"; "is-4"] ] [ text feed.feedTitle ]
-                            p [ attr.classes [ "subtitle"; "is-6"] ] [ text "[StudioFeeds]" ]
+                            p [ attr.classes [ "subtitle"; "is-6"] ] [ text (feed.modificationDate.ToString("yyyy-MM-dd")) ]
                         ]
                     div
                         [ attr.classes [ "content" ] ]
@@ -36,4 +36,5 @@ let studioFeedsNodes (jsRuntime: IJSRuntime) (model: Model) : Node list =
     | Some feeds ->
         feeds
         |> List.ofArray
+        |> List.sortByDescending (fun (_, feed) -> feed.modificationDate)
         |> List.map studioFeedsNode
