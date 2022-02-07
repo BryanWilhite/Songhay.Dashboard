@@ -18,10 +18,14 @@ let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
                 [ attr.classes [ "card-content" ] ]
                 [
                     div
-                        [ attr.classes [ "media-content" ] ]
+                        [attr.classes [ "media" ]]
                         [
-                            p [ attr.classes [ "title"; "is-4"] ] [ text feed.feedTitle ]
-                            p [ attr.classes [ "subtitle"; "is-6"] ] [ text (feed.modificationDate.ToString("yyyy-MM-dd")) ]
+                            div
+                                [ attr.classes [ "media-content" ] ]
+                                [
+                                    p [ attr.classes [ "title"; "is-4"] ] [ text feed.feedTitle ]
+                                    p [ attr.classes [ "subtitle"; "is-6"] ] [ text (feed.modificationDate.ToString("yyyy-MM-dd")) ]
+                                ]
                         ]
                     div
                         [ attr.classes [ "content" ] ]
