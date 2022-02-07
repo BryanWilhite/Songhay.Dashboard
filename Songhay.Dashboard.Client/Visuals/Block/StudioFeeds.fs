@@ -24,12 +24,22 @@ let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
                                 [ attr.classes [ "media-content" ] ]
                                 [
                                     p [ attr.classes [ "title"; "is-4"] ] [ text feed.feedTitle ]
-                                    p [ attr.classes [ "subtitle"; "is-6"] ] [ text (feed.modificationDate.ToString("yyyy-MM-dd")) ]
+                                    p
+                                        [ attr.classes [ "subtitle"; "is-6"] ]
+                                        [ text (feed.modificationDate.ToString("yyyy-MM-dd")) ]
                                 ]
                         ]
                     div
                         [ attr.classes [ "content" ] ]
-                        [ text "[StudioFeeds]" ]
+                        [
+                            ul
+                                []
+                                (
+                                    feed.feedItems
+                                    |> List.take 10
+                                    |> List.map (fun i -> li [] [ a [ attr.href i.link ] [ text i.title ] ])
+                                )
+                        ]
                 ]
         ]
 
@@ -40,5 +50,8 @@ let studioFeedsNodes (jsRuntime: IJSRuntime) (model: Model) : Node list =
     | Some feeds ->
         feeds
         |> List.ofArray
-        |> List.sortByDescending (fun (_, feed) -> feed.modificationDate)
+        |> List.sortByDescending (fun (_, feed) ->
+                let ordinal = feed.modificationDate.ToString("yyyy-MM-dd") + feed.feedTitle
+                ordinal
+            )
         |> List.map studioFeedsNode
