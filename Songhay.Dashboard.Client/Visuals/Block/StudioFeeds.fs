@@ -1,13 +1,16 @@
 module Songhay.Dashboard.Client.Visuals.Block.StudioFeeds
 
 open Microsoft.JSInterop
+open Bolero
 open Bolero.Html
+
+open Songhay.Modules.Models
 
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
+open Songhay.Dashboard.Client.Models
 
-let studioFeedsNode (jsRuntime: IJSRuntime) (model: Model) =
-    jsRuntime.InvokeVoidAsync("console.log", "yup", model) |> ignore
+let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
     div
         [ attr.classes ([ "card" ] @ App.appBlockChildCssClasses) ]
         [
@@ -15,7 +18,22 @@ let studioFeedsNode (jsRuntime: IJSRuntime) (model: Model) =
                 [ attr.classes [ "card-content" ] ]
                 [
                     div
-                        [ attr.classes [ "content"; "has-text-centered" ] ]
+                        [ attr.classes [ "media-content" ] ]
+                        [
+                            p [ attr.classes [ "title"; "is-4"] ] [ text feed.feedTitle ]
+                            p [ attr.classes [ "subtitle"; "is-6"] ] [ text "[StudioFeeds]" ]
+                        ]
+                    div
+                        [ attr.classes [ "content" ] ]
                         [ text "[StudioFeeds]" ]
                 ]
         ]
+
+let studioFeedsNodes (jsRuntime: IJSRuntime) (model: Model) : Node list =
+    jsRuntime.InvokeVoidAsync("console.log", "yup", model) |> ignore
+    match model.feeds with
+    | None -> [ div [] [ text "loading…" ] ]
+    | Some feeds ->
+        feeds
+        |> List.ofArray
+        |> List.map studioFeedsNode

@@ -2,6 +2,7 @@ namespace Songhay.Dashboard.Bolero.Tests
 
 module SyndicationFeedTests =
 
+    open System
     open System.IO
     open System.Reflection
     open System.Text.Json
@@ -59,10 +60,10 @@ module SyndicationFeedTests =
     [<InlineData(nameof GitHub)>]
     [<InlineData(nameof Studio)>]
     [<InlineData(nameof StackOverflow)>]
-    let ``getFeedElement test`` elementName =
+    let ``tryGetFeedElement test`` elementName =
         let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement elementName
+            |> SyndicationFeedUtility.tryGetFeedElement elementName
 
         result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
@@ -70,34 +71,54 @@ module SyndicationFeedTests =
         element.ValueKind |> should equal JsonValueKind.Object
 
     [<Theory>]
-    [<InlineData(nameof GitHub)>]
-    [<InlineData(nameof StackOverflow)>]
-    let ``getAtomChannelTitle test`` elementName =
+    [<InlineData(nameof CodePen, true)>]
+    [<InlineData(nameof Flickr, true)>]
+    [<InlineData(nameof GitHub, false)>]
+    [<InlineData(nameof Studio, true)>]
+    [<InlineData(nameof StackOverflow, false)>]
+    let ``tryGetFeedModificationDate test`` elementName isRssFeed =
         let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement elementName
+            |> SyndicationFeedUtility.tryGetFeedElement elementName
 
         result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
-        let titleResult = element |> SyndicationFeedUtility.getAtomChannelTitle
+        let modificationDateResult = element |> SyndicationFeedUtility.tryGetFeedModificationDate isRssFeed
+
+        modificationDateResult |> should be (ofCase <@ Result<DateTime, JsonException>.Ok @>)
+        let modificationDate = modificationDateResult |> Result.valueOr raise
+
+        modificationDate |> should be (greaterThan DateTime.MinValue)
+
+    [<Theory>]
+    [<InlineData(nameof GitHub)>]
+    [<InlineData(nameof StackOverflow)>]
+    let ``tryGetAtomChannelTitle test`` elementName =
+        let result =
+            appJsonDocument.RootElement
+            |> SyndicationFeedUtility.tryGetFeedElement elementName
+
+        result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
+        let _, element = result |> Result.valueOr raise
+        let titleResult = element |> SyndicationFeedUtility.tryGetAtomChannelTitle
 
         titleResult |> should be (ofCase <@ Result<string, JsonException>.Ok @>)
         let title = titleResult |> Result.valueOr raise
-        let actual = title |> System.String.IsNullOrWhiteSpace
+        let actual = title |> String.IsNullOrWhiteSpace
 
         actual |> should be False
 
     [<Theory>]
     [<InlineData(nameof GitHub)>]
     [<InlineData(nameof StackOverflow)>]
-    let ``getAtomChannelItems test`` elementName =
+    let ``tryGetAtomChannelItems test`` elementName =
         let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement elementName
+            |> SyndicationFeedUtility.tryGetFeedElement elementName
 
         result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
-        let itemsResult = element |> SyndicationFeedUtility.getAtomChannelItems
+        let itemsResult = element |> SyndicationFeedUtility.tryGetAtomChannelItems
 
         itemsResult |> should be (ofCase <@ Result<SyndicationFeedItem list, JsonException>.Ok @>)
         let actual = itemsResult |> Result.valueOr raise
@@ -108,18 +129,18 @@ module SyndicationFeedTests =
     [<InlineData(nameof CodePen)>]
     [<InlineData(nameof Flickr)>]
     [<InlineData(nameof Studio)>]
-    let ``getRssChannelTitle test`` elementName =
+    let ``tryGetRssChannelTitle test`` elementName =
         let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement elementName
+            |> SyndicationFeedUtility.tryGetFeedElement elementName
 
         result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
-        let titleResult = element |> SyndicationFeedUtility.getRssChannelTitle
+        let titleResult = element |> SyndicationFeedUtility.tryGetRssChannelTitle
 
         titleResult |> should be (ofCase <@ Result<string, JsonException>.Ok @>)
         let title = titleResult |> Result.valueOr raise
-        let actual = title |> System.String.IsNullOrWhiteSpace
+        let actual = title |> String.IsNullOrWhiteSpace
 
         actual |> should be False
 
@@ -127,14 +148,14 @@ module SyndicationFeedTests =
     [<InlineData(nameof CodePen)>]
     [<InlineData(nameof Flickr)>]
     [<InlineData(nameof Studio)>]
-    let ``getRssChannelItems test`` elementName =
+    let ``tryGetRssChannelItems test`` elementName =
         let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement elementName
+            |> SyndicationFeedUtility.tryGetFeedElement elementName
 
         result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
-        let itemsResult = element |> SyndicationFeedUtility.getRssChannelItems
+        let itemsResult = element |> SyndicationFeedUtility.tryGetRssChannelItems
 
         itemsResult |> should be (ofCase <@ Result<SyndicationFeedItem list, JsonException>.Ok @>)
         let actual = itemsResult |> Result.valueOr raise
@@ -147,29 +168,29 @@ module SyndicationFeedTests =
     [<InlineData(nameof GitHub)>]
     [<InlineData(nameof Studio)>]
     [<InlineData(nameof StackOverflow)>]
-    let ``toSyndicationFeed test`` elementName =
+    let ``tryGetSyndicationFeed test`` elementName =
         let feedElementResult =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.getFeedElement elementName
+            |> SyndicationFeedUtility.tryGetFeedElement elementName
 
         feedElementResult |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let pair = feedElementResult |> Result.valueOr raise
-        let feedResult = pair |> SyndicationFeedUtility.toSyndicationFeed
+        let feedResult = pair |> SyndicationFeedUtility.tryGetSyndicationFeed
 
         feedResult |> should be (ofCase <@ Result<SyndicationFeed, JsonException>.Ok @>)
         let feed = feedResult |> Result.valueOr raise
 
-        System.String.IsNullOrWhiteSpace(feed.feedTitle) |> should be False
+        String.IsNullOrWhiteSpace(feed.feedTitle) |> should be False
 
         feed.feedItems |> should not' (be Empty)
 
         Assert.All(
             feed.feedItems,
             fun i ->
-                System.String.IsNullOrWhiteSpace(i.title)
+                String.IsNullOrWhiteSpace(i.title)
                 |> should be False
 
-                System.String.IsNullOrWhiteSpace(i.link)
+                String.IsNullOrWhiteSpace(i.link)
                 |> should be False
         )
 
@@ -192,10 +213,10 @@ module SyndicationFeedTests =
                 Assert.All(
                     feed.feedItems,
                     fun i ->
-                        System.String.IsNullOrWhiteSpace(i.title)
+                        String.IsNullOrWhiteSpace(i.title)
                         |> should be False
 
-                        System.String.IsNullOrWhiteSpace(i.link)
+                        String.IsNullOrWhiteSpace(i.link)
                         |> should be False
                 )
         )

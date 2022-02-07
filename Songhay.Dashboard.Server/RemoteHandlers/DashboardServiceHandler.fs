@@ -23,10 +23,12 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
                 match jsonResult with
                 | Result.Error _ -> None
                 | Result.Ok json ->
-                    let outputResult = json |> toJsonElement |> fromInput
-                    match outputResult with
-                    | Ok input -> input |> List.toArray |> Option.ofObj
-                    | _ -> None
+                    match json |> tryGetJsonElement with
+                    | Result.Error _ -> None
+                    | Result.Ok jsonElement ->
+                        match jsonElement |> fromInput with
+                        | Result.Error _ -> None
+                        | Result.Ok input -> input |> List.toArray |> Option.ofObj
         }
 
     override this.Handler =

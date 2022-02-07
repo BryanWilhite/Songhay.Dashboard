@@ -27,5 +27,5 @@ let studioComponentNode =
 let studioLinksNode =
     bulmaColumnTile 0 [ bulmaContentParentTile false [ StudioLinks.studioLinksNode ] ]
 
-let studioPageNode block =
-    bulmaColumnTile 0 [ bulmaContentParentTile false [ block ] ]
+let studioPageNode nodes =
+    bulmaColumnTile 0 [ bulmaContentParentTile true nodes ]
