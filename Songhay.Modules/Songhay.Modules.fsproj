@@ -13,6 +13,7 @@
         <Compile Include="HttpResponseMessageUtility.fs" />
         <Compile Include="ProgramFileUtility.fs" />
         <Compile Include="ProgramTypeUtility.fs" />
+        <Compile Include="StringUtility.fs" />
         <Compile Include="Models/SyndicationFeed.fs" />
         <Compile Include="Models/ProgramAssemblyInfo.fs" />
     </ItemGroup>

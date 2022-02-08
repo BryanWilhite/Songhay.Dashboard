@@ -8,10 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Models/ProgramAssemblyInfoTests.fs" />
         <Compile Include="HttpClientUtilityTests.fs" />
         <Compile Include="ProgramFileUtilityTests.fs" />
         <Compile Include="ProgramTypeUtilityTests.fs" />
+        <Compile Include="StringUtilityTests.fs" />
+        <Compile Include="Models/ProgramAssemblyInfoTests.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 

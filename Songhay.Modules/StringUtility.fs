@@ -1,0 +1,48 @@
+namespace Songhay.Modules
+
+module StringUtility =
+
+    open System
+    open System.Text.RegularExpressions
+
+    let defaultRegexOptions = RegexOptions.IgnoreCase
+
+    let regexReplace (pattern: string) (replace: string) (options: RegexOptions) (input: string) =
+        Regex.Replace(input, pattern, replace, options)
+
+    let toLowerInvariant (input: string) =
+        if String.IsNullOrWhiteSpace input then None
+        else Some (input.ToLowerInvariant())
+
+    let toBlogSlug (input: string) =
+        if String.IsNullOrWhiteSpace input then None
+        else
+            let removeEntities s =
+                s
+                |> regexReplace @"\&\w+\;" String.Empty defaultRegexOptions
+                |> regexReplace @"\&\#\d+\;" String.Empty defaultRegexOptions
+
+            let replaceNonAlphanumericWithHyphen s =
+                s
+                |> regexReplace "[^a-z^0-9]" "-" defaultRegexOptions
+
+            let rec removeDoubleHyphens s =
+                let pattern = "--"
+                if Regex.IsMatch(s, pattern) then
+                    s
+                    |> regexReplace pattern "-" defaultRegexOptions
+                    |> removeDoubleHyphens
+                else
+                    s
+
+            let removeTrailingAndLeadingHyphens s =
+                s
+                |> regexReplace "^-|-$" String.Empty defaultRegexOptions
+
+            input
+                .Replace("&amp;", "and")
+                |> removeEntities
+                |> replaceNonAlphanumericWithHyphen
+                |> removeDoubleHyphens
+                |> removeTrailingAndLeadingHyphens
+                |> toLowerInvariant

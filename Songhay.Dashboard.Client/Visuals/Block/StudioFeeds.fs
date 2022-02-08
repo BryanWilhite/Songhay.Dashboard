@@ -1,10 +1,12 @@
 module Songhay.Dashboard.Client.Visuals.Block.StudioFeeds
 
+open System
 open Microsoft.JSInterop
 open Bolero
 open Bolero.Html
 
 open Songhay.Modules.Models
+open Songhay.Modules.StringUtility
 
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
@@ -51,7 +53,8 @@ let studioFeedsNodes (jsRuntime: IJSRuntime) (model: Model) : Node list =
         feeds
         |> List.ofArray
         |> List.sortByDescending (fun (_, feed) ->
-                let ordinal = feed.modificationDate.ToString("yyyy-MM-dd") + feed.feedTitle
+                let slug = feed.feedTitle |> toBlogSlug |> Option.defaultWith (fun () -> String.Empty)
+                let ordinal = feed.modificationDate.ToString("yyyy-MM-dd-") + slug
                 ordinal
             )
         |> List.map studioFeedsNode
