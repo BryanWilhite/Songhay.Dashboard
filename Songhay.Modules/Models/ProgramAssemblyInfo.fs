@@ -86,7 +86,7 @@ type ProgramAssemblyInfo =
         Path.GetDirectoryName(assembly.Location)
 
     static member getPathFromAssembly path (assembly: Assembly) =
-        match path |> ProgramFileUtility.ensureRelativePath with
+        match path |> ProgramFileUtility.tryRelativePath with
         | Error err -> Error err
         | Ok relativePath ->
             let pathNormalized = relativePath |> ProgramFileUtility.normalizePath
@@ -94,9 +94,9 @@ type ProgramAssemblyInfo =
             let root = assembly |> ProgramAssemblyInfo.getAssemblyPath
             let levels = pathNormalized |> ProgramFileUtility.countParentDirectoryChars
             if (levels > 0) then
-                match root |> ProgramFileUtility.getParentDirectory levels with
+                match root |> ProgramFileUtility.tryGetParentDirectory levels with
                 | Error err -> Error err
-                | Ok parentDirectory -> (parentDirectory, pathNormalized) ||> ProgramFileUtility.getCombinedPath
+                | Ok parentDirectory -> (parentDirectory, pathNormalized) ||> ProgramFileUtility.tryGetCombinedPath
             else
                 Ok root
 

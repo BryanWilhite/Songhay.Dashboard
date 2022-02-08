@@ -19,7 +19,7 @@ module ProgramFileUtility =
             let matches = Regex.Matches(path, parentDirectoryCharsPattern)
             matches.Count
 
-    let rec findParentDirectoryInfo parentName levels path =
+    let rec tryFindParentDirectoryInfo parentName levels path =
         if (String.IsNullOrWhiteSpace path) then
             Error (ProgramFileError (DirectoryNotFoundException "The expected directory is not here."))
         else
@@ -40,9 +40,9 @@ module ProgramFileUtility =
                 let hasNoMoreLevels = (nextLevels = 0)
 
                 if hasNoMoreLevels then Error (ProgramFileError (DirectoryNotFoundException "Has no more levels"))
-                else (parentName, nextLevels, info.Parent.FullName) |||> findParentDirectoryInfo
+                else (parentName, nextLevels, info.Parent.FullName) |||> tryFindParentDirectoryInfo
 
-    let rec getParentDirectoryInfo levels path =
+    let rec tryGetParentDirectoryInfo levels path =
         if (String.IsNullOrWhiteSpace(path)) then
             Error (ProgramFileError (DirectoryNotFoundException "The expected path is not here."))
         else
@@ -55,10 +55,10 @@ module ProgramFileUtility =
                 | _ ->
                     let nextLevels = levels - 1
                     match nextLevels with
-                    | _ when nextLevels >= 1 -> getParentDirectoryInfo nextLevels info.Parent.FullName
+                    | _ when nextLevels >= 1 -> tryGetParentDirectoryInfo nextLevels info.Parent.FullName
                     | _ -> Ok info.Parent
 
-    let rec getParentDirectory levels path =
+    let rec tryGetParentDirectory levels path =
         if (String.IsNullOrWhiteSpace(path)) then Error (ProgramFileError (NullReferenceException "The expected path is not here."))
         else
             match levels with
@@ -70,7 +70,7 @@ module ProgramFileUtility =
                 | _ ->
                     let nextLevels = levels - 1
                     match nextLevels with
-                    | _ when nextLevels >= 1 -> getParentDirectory nextLevels info.FullName
+                    | _ when nextLevels >= 1 -> tryGetParentDirectory nextLevels info.FullName
                     | _ -> Ok info.FullName
 
     let normalizePath path =
@@ -115,7 +115,7 @@ module ProgramFileUtility =
         if String.IsNullOrWhiteSpace(path) then path
         else path.TrimStart(backSlash, forwardSlash)
 
-    let ensureRelativePath path =
+    let tryRelativePath path =
         if (String.IsNullOrWhiteSpace(path)) then
             Error (ProgramFileError (NullReferenceException "The expected path is not here."))
         else
@@ -126,7 +126,7 @@ module ProgramFileUtility =
                         Error (ProgramFileError (FormatException "The expected relative path is not here."))
                     else Ok p
 
-    let getRelativePath path =
+    let tryGetRelativePath path =
         if (String.IsNullOrWhiteSpace(path)) then
             Error (ProgramFileError (NullReferenceException "The expected path is not here."))
         else
@@ -137,13 +137,13 @@ module ProgramFileUtility =
                 |> removeForwardSlashPrefixes
                 |> Ok
 
-    let getCombinedPath root path =
+    let tryGetCombinedPath root path =
         if (String.IsNullOrWhiteSpace(root)) then
             Error (ProgramFileError (NullReferenceException $"The expected {nameof(root)} is not here."))
         else if (String.IsNullOrWhiteSpace(path)) then
             Error (ProgramFileError (NullReferenceException $"The expected {nameof(path)} is not here."))
         else
-            let relativePathResult = path |> getRelativePath
+            let relativePathResult = path |> tryGetRelativePath
             match relativePathResult with
             | Error err -> Error err
             | Ok relativePath ->

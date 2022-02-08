@@ -24,7 +24,7 @@ module SyndicationFeedTests =
 
     let appJsonDocumentPath =
         "./json/app.json"
-        |> getCombinedPath projectDirectoryInfo.FullName
+        |> tryGetCombinedPath projectDirectoryInfo.FullName
         |> Result.valueOr raiseProgramFileError
 
     let appJsonDocument =

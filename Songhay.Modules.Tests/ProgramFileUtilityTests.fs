@@ -18,11 +18,11 @@ module ProgramFileUtilityTests =
     [<InlineData("root2", @"/home/one", "root2|home|one", false)>]
     [<InlineData("path1", @"/two/three/four/", "path1|two|three|four|", false)>]
     [<InlineData("path2", @"\two\three\four", "path2|two|three|four", false)>]
-    let ``getCombinedPath test`` (root, path, expectedResult: string, requiresWindows) =
+    let ``tryGetCombinedPath test`` (root, path, expectedResult: string, requiresWindows) =
 
         Skip.If(requiresWindows && isForwardSlashSystem, "OS is not Windows")
 
-        let actual = (root, path) ||> getCombinedPath |> Result.valueOr raiseProgramFileError
+        let actual = (root, path) ||> tryGetCombinedPath |> Result.valueOr raiseProgramFileError
 
         let expected =
             expectedResult.Replace('|', Path.DirectorySeparatorChar)
@@ -30,7 +30,7 @@ module ProgramFileUtilityTests =
         expected |> should equal actual
 
     [<Fact>]
-    let ``getParentDirectory test`` () =
+    let ``tryGetParentDirectory test`` () =
         let assembly = Assembly.GetExecutingAssembly()
 
         let expected =
@@ -40,13 +40,13 @@ module ProgramFileUtilityTests =
 
         let actual =
             assembly.Location
-            |> getParentDirectory 4
+            |> tryGetParentDirectory 4
             |> Result.valueOr raiseProgramFileError
 
         expected |> should equal actual
 
     [<Fact>]
-    let ``getParentDirectoryInfo test`` () =
+    let ``tryGetParentDirectoryInfo test`` () =
         let assembly = Assembly.GetExecutingAssembly()
 
         let expected =
@@ -56,7 +56,7 @@ module ProgramFileUtilityTests =
 
         let actual =
             assembly.Location
-            |> getParentDirectoryInfo 4
+            |> tryGetParentDirectoryInfo 4
             |> Result.valueOr raiseProgramFileError
 
         expected |> should equal actual.FullName
@@ -66,10 +66,10 @@ module ProgramFileUtilityTests =
     [<InlineData("../../one/", "one|")>]
     [<InlineData(@".\one/two\", @"one|two|")>]
     [<InlineData(@"..\..\one\", @"one|")>]
-    let ``getRelativePath test`` (input, expectedResult: string) =
+    let ``tryGetRelativePath test`` (input, expectedResult: string) =
         let actual =
             input
-            |> getRelativePath
+            |> tryGetRelativePath
             |> Result.valueOr raiseProgramFileError
 
         let expected =
