@@ -52,9 +52,7 @@ let studioFeedsNodes (jsRuntime: IJSRuntime) (model: Model) : Node list =
     | Some feeds ->
         feeds
         |> List.ofArray
-        |> List.sortByDescending (fun (_, feed) ->
-                let slug = feed.feedTitle |> toBlogSlug |> Option.defaultWith (fun () -> String.Empty)
-                let ordinal = feed.modificationDate.ToString("yyyy-MM-dd-") + slug
-                ordinal
-            )
+        |> List.groupBy (fun (_, feed) -> feed.modificationDate.ToString("yyyy-MM-dd"))
+        |> List.sortByDescending fst
+        |> List.collect (fun (_, g) -> g |> List.sortBy (fun (_, feed) -> feed.feedTitle |> toBlogSlug))
         |> List.map studioFeedsNode
