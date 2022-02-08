@@ -1,6 +1,5 @@
 module Songhay.Dashboard.Client.Visuals.Block.StudioFeeds
 
-open System
 open Microsoft.JSInterop
 open Bolero
 open Bolero.Html

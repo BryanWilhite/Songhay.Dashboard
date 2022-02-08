@@ -10,6 +10,12 @@ module StringUtility =
     let regexReplace (pattern: string) (replace: string) (options: RegexOptions) (input: string) =
         Regex.Replace(input, pattern, replace, options)
 
+    let tryRegexReplace (pattern: string) (replace: string) (options: RegexOptions) (input: string) =
+        try
+            Ok (input |> regexReplace pattern replace options)
+        with
+        | ex -> Error ex
+
     let toLowerInvariant (input: string) =
         if String.IsNullOrWhiteSpace input then None
         else Some (input.ToLowerInvariant())
