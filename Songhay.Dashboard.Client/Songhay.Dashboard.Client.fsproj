@@ -19,7 +19,6 @@
         <Compile Include="Visuals/Block/StudioLinks.fs" />
         <Compile Include="Visuals/Block/StudioTools.fs" />
         <Compile Include="Visuals/Tile.fs" />
-        <Compile Include="Templates/SvgSprites.fs" />
         <Compile Include="Templates/ContentBlockTemplate.fs" />
         <Compile Include="ContentBlockComponent.fs" />
         <Compile Include="Startup.fs" />
