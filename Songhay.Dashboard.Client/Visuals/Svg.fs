@@ -46,3 +46,9 @@ let svgSpriteNode (href: string) (viewBox: string) =
             "xmlns" => "http://www.w3.org/2000/svg"
         ]
         [ RawHtml $@"<use href=""{href}""></use>" ]
+
+let svgViewBox (minX: int, minY: int) (width: int, height: int) =
+    $"{minX} {minY} {width} {height}"
+
+let svgViewBoxSquare widthAndHeight =
+    svgViewBox (0,0) (widthAndHeight, widthAndHeight)
