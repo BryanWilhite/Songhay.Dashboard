@@ -11,7 +11,6 @@ type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
 let viewContentBlockTemplate jsRuntime model dispatch =
     ContentBlockTemplate()
-        .SvgSpritesNode(SvgSpritesTemplate().Elt())
         .StudioComponentNode(Tile.studioComponentNode)
         .StudioLinksNode(Tile.studioLinksNode)
         .Content(

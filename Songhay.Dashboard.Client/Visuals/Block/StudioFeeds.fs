@@ -13,7 +13,7 @@ open Songhay.Dashboard.Client.Models
 open Songhay.Dashboard.Client.Visuals.Svg
 
 let studioFeedIcon (feedName: FeedName) =
-    let data = Map [
+    let feedNameMap = Map [
         CodePen, "mdi_codepen_24px"
         Flickr, "mdi_rss_24px"
         GitHub, "mdi_github_circle_24px"
@@ -21,7 +21,7 @@ let studioFeedIcon (feedName: FeedName) =
         Studio, "mdi_rss_24px"
     ]
 
-    let svgPathData = svgData[data[feedName]]
+    let svgPathData = svgData[feedNameMap[feedName]]
 
     div
         [ attr.classes [ "media-left" ] ]

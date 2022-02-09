@@ -1,9 +1,11 @@
 module Songhay.Dashboard.Client.Visuals.Block.Studio
 
 open Bolero.Html
+
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.Models
-open Songhay.Dashboard.Client.Visuals
+open Songhay.Dashboard.Client.Visuals.Button
+open Songhay.Dashboard.Client.Visuals.Svg
 
 let studioLogo =
     let spanClasses = [ "title"; "is-2"; "is-hidden-tablet-only" ]
@@ -15,8 +17,8 @@ let studioLogo =
     ]
 
 let svgLinkNodes =
-    App.appSocialLinks
-    |> List.map Button.bulmaAnchorIconButton
+    appSocialLinks
+    |> List.map bulmaAnchorIconButton
 
 let svgVersionNode (data: VersionData) =
     let classes = [
@@ -32,7 +34,7 @@ let svgVersionNode (data: VersionData) =
             span [
                 attr.classes [ "icon" ]
                 "aria-hidden" => "true"
-            ] [ Svg.svgSpriteNode $"./#{data.id}" App.appSvgViewBox ]
+            ] [ svgNode (svgViewBoxSquare 24) svgData[data.id] ]
             span [ attr.classes [ "is-size-7" ] ] [ text data.version ]
         ]
 

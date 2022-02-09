@@ -6,12 +6,12 @@ open Bolero.Html
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.Models
 open Songhay.Dashboard.Client.ElmishTypes
-open Songhay.Dashboard.Client.Visuals
+open Songhay.Dashboard.Client.Visuals.Svg
 
 let bulmaPanelIcon (id: string) =
     span [
         attr.classes [ "panel-icon" ]
-    ] [ Svg.svgSpriteNode $"./#{id}" App.appSvgViewBox ]
+    ] [ svgNode (svgViewBoxSquare 24) svgData[id] ]
 
 let linkNodes =
     let linkNode (data: SvgSpriteData) =
@@ -21,7 +21,7 @@ let linkNodes =
             attr.target "_blank"
         ] [ bulmaPanelIcon data.id; text data.title ]
 
-    App.appStudioLinks |> List.map linkNode
+    appStudioLinks |> List.map linkNode
 
 let routeNodes =
     let routeData = [
