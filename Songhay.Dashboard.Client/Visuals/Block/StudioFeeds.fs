@@ -10,6 +10,28 @@ open Songhay.Modules.StringUtility
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Models
+open Songhay.Dashboard.Client.Visuals
+
+let studioFeedIcon (feedName: FeedName) =
+    let data = Map [
+        CodePen, "mdi_codepen_24px"
+        Flickr, "mdi_rss_24px"
+        GitHub, "mdi_github_circle_24px"
+        StackOverflow, "mdi_stack_overflow_24px"
+        Studio, "mdi_rss_24px"
+    ]
+
+    let svgPathData = Svg.svgData[data[feedName]]
+
+    div
+        [ attr.classes [ "media-left" ] ]
+        [
+            figure
+                [ attr.classes [ "image"; "is-24x24" ]; "aria-hidden" => "true" ]
+                [
+                    Svg.svgNode App.appSvgViewBox svgPathData
+                ]
+        ]
 
 let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
     div
@@ -21,6 +43,7 @@ let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
                     div
                         [attr.classes [ "media" ]]
                         [
+                            studioFeedIcon feedName
                             div
                                 [ attr.classes [ "media-content" ] ]
                                 [
