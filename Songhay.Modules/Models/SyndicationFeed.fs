@@ -6,6 +6,8 @@ type SyndicationFeedItem =
     {
         title: string
         link: string
+        extract: string option
+        publicationDate: DateTime option
     }
 
 type SyndicationFeed =

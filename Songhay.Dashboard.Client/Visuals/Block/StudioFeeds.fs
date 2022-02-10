@@ -21,7 +21,7 @@ let studioFeedIcon (feedName: FeedName) =
         Studio, "mdi_rss_24px"
     ]
 
-    let svgPathData = svgData[feedNameMap[feedName]]
+    let svgPathData = svgData[ feedNameMap[ feedName ] ]
 
     div
         [ attr.classes [ "media-left" ] ]
@@ -41,7 +41,7 @@ let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
                 [ attr.classes [ "card-content" ] ]
                 [
                     div
-                        [attr.classes [ "media" ]]
+                        [ attr.classes [ "media" ] ]
                         [
                             studioFeedIcon feedName
                             div
@@ -68,7 +68,7 @@ let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
         ]
 
 let studioFeedsNodes (jsRuntime: IJSRuntime) (model: Model) : Node list =
-    jsRuntime.InvokeVoidAsync("console.log", "yup", model) |> ignore
+    // jsRuntime.InvokeVoidAsync("console.log", "yup", model) |> ignore
     match model.feeds with
     | None -> [ div [] [ text "loading…" ] ]
     | Some feeds ->

@@ -31,10 +31,12 @@ let svgVersionNode (data: VersionData) =
     div
         [ attr.classes classes; attr.title data.title ]
         [
-            span [
-                attr.classes [ "icon" ]
-                "aria-hidden" => "true"
-            ] [ svgNode (svgViewBoxSquare 24) svgData[data.id] ]
+            span
+                [
+                    attr.classes [ "icon" ]
+                    "aria-hidden" => "true"
+                ]
+                [ svgNode (svgViewBoxSquare 24) svgData[data.id] ]
             span [ attr.classes [ "is-size-7" ] ] [ text data.version ]
         ]
 

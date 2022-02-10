@@ -12,9 +12,10 @@ module SyndicationFeedTests =
     open FsToolkit.ErrorHandling
 
     open Songhay.Modules.Models
-    open Songhay.Dashboard.Client
-    open Songhay.Dashboard.Client.Models
     open Songhay.Modules.ProgramFileUtility
+
+    open Songhay.Dashboard.Client.Models
+    open Songhay.Dashboard.Client.SyndicationFeedUtility
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()
@@ -33,7 +34,7 @@ module SyndicationFeedTests =
     [<Fact>]
     let ``app.json should have `feeds` property`` () =
         let actual =
-            match appJsonDocument.RootElement.TryGetProperty SyndicationFeedUtility.SyndicationFeedPropertyName with
+            match appJsonDocument.RootElement.TryGetProperty SyndicationFeedPropertyName with
             | true, _ -> true
             | _ -> false
 
@@ -48,7 +49,7 @@ module SyndicationFeedTests =
     let ``isRssFeed test`` (elementName: string, expectedResult) =
         let actual =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.isRssFeed elementName
+            |> isRssFeed elementName
 
         match expectedResult with
         | true -> actual |> should be True
@@ -63,7 +64,7 @@ module SyndicationFeedTests =
     let ``tryGetFeedElement test`` elementName =
         let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.tryGetFeedElement elementName
+            |> tryGetFeedElement elementName
 
         result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
@@ -79,11 +80,11 @@ module SyndicationFeedTests =
     let ``tryGetFeedModificationDate test`` elementName isRssFeed =
         let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.tryGetFeedElement elementName
+            |> tryGetFeedElement elementName
 
         result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
-        let modificationDateResult = element |> SyndicationFeedUtility.tryGetFeedModificationDate isRssFeed
+        let modificationDateResult = element |> tryGetFeedModificationDate isRssFeed
 
         modificationDateResult |> should be (ofCase <@ Result<DateTime, JsonException>.Ok @>)
         let modificationDate = modificationDateResult |> Result.valueOr raise
@@ -96,11 +97,11 @@ module SyndicationFeedTests =
     let ``tryGetAtomChannelTitle test`` elementName =
         let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.tryGetFeedElement elementName
+            |> tryGetFeedElement elementName
 
         result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
-        let titleResult = element |> SyndicationFeedUtility.tryGetAtomChannelTitle
+        let titleResult = element |> tryGetAtomChannelTitle
 
         titleResult |> should be (ofCase <@ Result<string, JsonException>.Ok @>)
         let title = titleResult |> Result.valueOr raise
@@ -111,16 +112,16 @@ module SyndicationFeedTests =
     [<Theory>]
     [<InlineData(nameof GitHub)>]
     [<InlineData(nameof StackOverflow)>]
-    let ``tryGetAtomChannelItems test`` elementName =
+    let ``tryGetAtomEntries test`` elementName =
         let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.tryGetFeedElement elementName
+            |> tryGetFeedElement elementName
 
         result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
-        let itemsResult = element |> SyndicationFeedUtility.tryGetAtomChannelItems
+        let itemsResult = element |> tryGetAtomEntries
 
-        itemsResult |> should be (ofCase <@ Result<SyndicationFeedItem list, JsonException>.Ok @>)
+        itemsResult |> should be (ofCase <@ Result<JsonElement list, JsonException>.Ok @>)
         let actual = itemsResult |> Result.valueOr raise
 
         actual |> should not' (be Empty)
@@ -132,11 +133,11 @@ module SyndicationFeedTests =
     let ``tryGetRssChannelTitle test`` elementName =
         let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.tryGetFeedElement elementName
+            |> tryGetFeedElement elementName
 
         result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
-        let titleResult = element |> SyndicationFeedUtility.tryGetRssChannelTitle
+        let titleResult = element |> tryGetRssChannelTitle
 
         titleResult |> should be (ofCase <@ Result<string, JsonException>.Ok @>)
         let title = titleResult |> Result.valueOr raise
@@ -151,13 +152,13 @@ module SyndicationFeedTests =
     let ``tryGetRssChannelItems test`` elementName =
         let result =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.tryGetFeedElement elementName
+            |> tryGetFeedElement elementName
 
         result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let _, element = result |> Result.valueOr raise
-        let itemsResult = element |> SyndicationFeedUtility.tryGetRssChannelItems
+        let itemsResult = element |> tryGetRssChannelItems
 
-        itemsResult |> should be (ofCase <@ Result<SyndicationFeedItem list, JsonException>.Ok @>)
+        itemsResult |> should be (ofCase <@ Result<JsonElement list, JsonException>.Ok @>)
         let actual = itemsResult |> Result.valueOr raise
 
         actual |> should not' (be Empty)
@@ -171,11 +172,11 @@ module SyndicationFeedTests =
     let ``tryGetSyndicationFeed test`` elementName =
         let feedElementResult =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.tryGetFeedElement elementName
+            |> tryGetFeedElement elementName
 
         feedElementResult |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
         let pair = feedElementResult |> Result.valueOr raise
-        let feedResult = pair |> SyndicationFeedUtility.tryGetSyndicationFeed
+        let feedResult = pair |> tryGetSyndicationFeed (elementName |> getFeedName)
 
         feedResult |> should be (ofCase <@ Result<SyndicationFeed, JsonException>.Ok @>)
         let feed = feedResult |> Result.valueOr raise
@@ -198,7 +199,7 @@ module SyndicationFeedTests =
     let ``fromInput test`` () =
         let actualResult =
             appJsonDocument.RootElement
-            |> SyndicationFeedUtility.fromInput
+            |> fromInput
 
         actualResult |> should be (ofCase <@ Result<(FeedName * SyndicationFeed) list, JsonException>.Ok @>)
         let actual = actualResult |> Result.valueOr raise

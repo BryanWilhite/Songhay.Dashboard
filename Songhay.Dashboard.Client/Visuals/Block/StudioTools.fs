@@ -6,7 +6,7 @@ open Songhay.Dashboard.Client.ElmishTypes
 
 let studioToolsNode (model: Model) =
     div
-        [ attr.classes ([ "card" ] @ App.appBlockChildCssClasses) ]
+        [ attr.classes ( [ "card" ] @ App.appBlockChildCssClasses) ]
         [
             div
                 [ attr.classes [ "card-content" ] ]

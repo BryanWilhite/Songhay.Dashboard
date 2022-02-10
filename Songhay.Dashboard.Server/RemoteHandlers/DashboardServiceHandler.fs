@@ -12,6 +12,7 @@ open Songhay.Dashboard.Client.SyndicationFeedUtility
 open Songhay.Modules.HttpClientUtility
 open Songhay.Modules.HttpRequestMessageUtility
 open Songhay.Modules.HttpResponseMessageUtility
+open Songhay.Modules.JsonDocumentUtility
 
 type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServiceHandler>) =
     inherit RemoteHandler<DashboardService>()
@@ -23,7 +24,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
                 match jsonResult with
                 | Result.Error _ -> None
                 | Result.Ok json ->
-                    match json |> tryGetJsonElement with
+                    match json |> tryGetRootElement with
                     | Result.Error _ -> None
                     | Result.Ok jsonElement ->
                         match jsonElement |> fromInput with
