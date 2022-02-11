@@ -115,9 +115,9 @@ module SyndicationFeedUtility =
             match titleElement.ValueKind with
             | JsonValueKind.String -> Ok(titleElement.GetString())
             | JsonValueKind.Object ->
-                match titleElement |> tryGetProperty "#text" with
-                | Error err -> Error err
-                | Ok textElement -> Ok(textElement.GetString())
+                titleElement
+                |> tryGetProperty "#text"
+                |> Result.map (fun textElement -> textElement.GetString())
             | _ -> resultError (nameof titleElement)
 
     let tryGetRssSyndicationFeedItem (el: JsonElement) =
