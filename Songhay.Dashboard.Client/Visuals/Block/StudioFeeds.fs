@@ -12,6 +12,23 @@ open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Models
 open Songhay.Dashboard.Client.Visuals.Svg
 
+let studioFeedImage (feedName: FeedName, feed: SyndicationFeed) =
+    match feedName with
+    | CodePen | Flickr ->
+        div
+            [ attr.classes [ "card-image" ] ]
+            [
+                figure
+                    [ attr.classes [ "image"; "is-3by2" ] ]
+                    [
+                        img [
+                            attr.alt $"{feed.feedTitle} feed image"
+                            attr.src (feed.feedImage |> Option.get)
+                        ]
+                    ]
+            ]
+    | _ -> empty
+
 let studioFeedIcon (feedName: FeedName) =
     let feedNameMap = Map [
         CodePen, "mdi_codepen_24px"
@@ -37,6 +54,7 @@ let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
     div
         [ attr.classes ([ "card" ] @ App.appBlockChildCssClasses) ]
         [
+            (feedName, feed) |> studioFeedImage
             div
                 [ attr.classes [ "card-content" ] ]
                 [
