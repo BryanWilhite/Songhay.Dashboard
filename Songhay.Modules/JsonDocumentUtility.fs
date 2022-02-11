@@ -6,7 +6,7 @@ module JsonDocumentUtility =
     open System.Text.Json
 
     let resultError (elementName: string) =
-        Error(JsonException $"the expected `{elementName}` element is not here")
+        Error(JsonException $"the expected `{elementName}` element is not here.")
 
     let toPropertyName (element: JsonElement) =
         if element.ValueKind <> JsonValueKind.Object then None

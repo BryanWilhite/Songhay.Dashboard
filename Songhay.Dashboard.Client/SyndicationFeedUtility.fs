@@ -37,18 +37,11 @@ module SyndicationFeedUtility =
         let elementNameNormalized = elementName.ToLowerInvariant()
 
         let testResult =
-            match element
-                  |> tryGetProperty SyndicationFeedPropertyName with
-            | Error err -> Error err
-            | Ok feedsElement ->
-                match feedsElement
-                      |> tryGetProperty elementNameNormalized with
-                | Error err -> Error err
-                | Ok targetElement ->
-                    match targetElement
-                          |> tryGetProperty RssFeedPropertyName with
-                    | Error err -> Error err
-                    | _ -> Ok true
+            element
+            |> tryGetProperty SyndicationFeedPropertyName
+            |> Result.bind (tryGetProperty elementNameNormalized)
+            |> Result.bind (tryGetProperty RssFeedPropertyName)
+            |> Result.map (fun _ -> true)
 
         match testResult with
         | Error _ -> false
@@ -58,34 +51,18 @@ module SyndicationFeedUtility =
         let elementNameNormalized = elementName.ToLowerInvariant()
 
         let getElement (feedPropertyName: string) =
-            match element
-                  |> tryGetProperty SyndicationFeedPropertyName with
-            | Error err -> Error err
-            | Ok feedsElement ->
-                match feedsElement
-                      |> tryGetProperty elementNameNormalized with
-                | Error err -> Error err
-                | Ok targetElement ->
-                    match targetElement |> tryGetProperty feedPropertyName with
-                    | Error err -> Error err
-                    | Ok feedElement -> Ok feedElement
+            element |> tryGetProperty SyndicationFeedPropertyName
+            |> Result.bind (tryGetProperty elementNameNormalized)
+            |> Result.bind (tryGetProperty feedPropertyName)
 
         match isRssFeed elementNameNormalized element with
-        | true ->
-            match getElement RssFeedPropertyName with
-            | Error err -> Error err
-            | Ok rssElement -> Ok(true, rssElement)
-        | _ ->
-            match getElement AtomFeedPropertyName with
-            | Error err -> Error err
-            | Ok atomElement -> Ok(false, atomElement)
+        | true -> (getElement RssFeedPropertyName) |> Result.map (fun rssElement -> true, rssElement)
+        | _ -> (getElement AtomFeedPropertyName) |> Result.map (fun atomElement -> false, atomElement)
 
     let tryGetFeedModificationDate (isRssFeed: bool) (element: JsonElement) =
         match isRssFeed with
         | false ->
-            match element |> tryGetProperty "updated" with
-            | Error err -> Error err
-            | Ok updatedElement -> Ok(updatedElement.GetDateTime())
+            element |> tryGetProperty "updated" |> Result.map (fun updatedElement -> updatedElement.GetDateTime())
         | true ->
             match element |> tryGetProperty "channel" with
             | Error err -> Error err
@@ -110,20 +87,16 @@ module SyndicationFeedUtility =
     let tryGetAtomSyndicationFeedItem (el: JsonElement) =
 
         let titleResult =
-            match el |> tryGetProperty "title" with
-            | Error err -> Error err
-            | Ok titleElement ->
-                match titleElement |> tryGetProperty "#text" with
-                | Error err -> Error err
-                | Ok textElement -> Ok(textElement.GetString())
+            el
+            |> tryGetProperty "title"
+            |> Result.bind (tryGetProperty "#text")
+            |> Result.map (fun textElement -> textElement.GetString())
 
         let linkResult =
-            match el |> tryGetProperty "link" with
-            | Error err -> Error err
-            | Ok linkElement ->
-                match linkElement |> tryGetProperty "@href" with
-                | Error err -> Error err
-                | Ok hrefElement -> Ok(hrefElement.GetString())
+            el
+            |> tryGetProperty "link"
+            |> Result.bind (tryGetProperty "@href")
+            |> Result.map (fun hrefElement -> hrefElement.GetString())
 
         match [ titleResult; linkResult ] |> List.sequenceResultM with
         | Ok [ title; link ] -> Ok { title = title; link = link; extract = None; publicationDate = None }
@@ -131,9 +104,9 @@ module SyndicationFeedUtility =
         | Error err -> Error err
 
     let tryGetAtomEntries (element: JsonElement) =
-        match element |> tryGetProperty "entry" with
-        | Error err -> Error err
-        | Ok el -> Ok(el.EnumerateArray() |> List.ofSeq)
+        element
+        |> tryGetProperty "entry"
+        |> Result.map (fun el -> el.EnumerateArray() |> List.ofSeq)
 
     let tryGetAtomChannelTitle (element: JsonElement) : Result<string, JsonException> =
         match element |> tryGetProperty "title" with
@@ -150,14 +123,14 @@ module SyndicationFeedUtility =
     let tryGetRssSyndicationFeedItem (el: JsonElement) =
 
         let titleResult =
-            match el |> tryGetProperty "title" with
-            | Error err -> Error err
-            | Ok titleElement -> Ok(titleElement.GetString())
+            el
+            |> tryGetProperty "title"
+            |> Result.map (fun titleElement -> titleElement.GetString())
 
         let linkResult =
-            match el |> tryGetProperty "link" with
-            | Error err -> Error err
-            | Ok linkElement -> Ok(linkElement.GetString())
+            el
+            |> tryGetProperty "link"
+            |> Result.map (fun linkElement -> linkElement.GetString())
 
         match [ titleResult; linkResult ] |> List.sequenceResultM with
         | Ok [ title; link ] -> Ok { title = title; link = link; extract = None; publicationDate = None }
@@ -165,23 +138,15 @@ module SyndicationFeedUtility =
         | Error err -> Error err
 
     let tryGetRssChannelItems (element: JsonElement) =
-
-        let itemElementResult =
-            match element |> tryGetProperty "channel" with
-            | Error err -> Error err
-            | Ok channelElement -> channelElement |> tryGetProperty "item"
-
-        match itemElementResult with
-        | Error err -> Error err
-        | Ok el -> Ok(el.EnumerateArray() |> List.ofSeq)
+        element
+        |> tryGetProperty "channel"
+        |> Result.bind (tryGetProperty "item")
+        |> Result.map (fun el -> el.EnumerateArray() |> List.ofSeq)
 
     let tryGetRssChannelTitle (element: JsonElement) =
-        match element |> tryGetProperty "channel" with
-        | Error err -> Error err
-        | Ok channelElement ->
-            match channelElement |> tryGetProperty "title" with
-            | Error err -> Error err
-            | Ok titleElement -> Ok(titleElement.GetString())
+        element |> tryGetProperty "channel"
+        |> Result.bind (tryGetProperty "title")
+        |> Result.map (fun titleElement -> titleElement.GetString())
 
     let tryGetSyndicationFeed (feedName: FeedName) (isRssFeed: bool, element: JsonElement) =
         let feedElementsResult =
@@ -190,7 +155,20 @@ module SyndicationFeedUtility =
             | false -> element |> tryGetAtomEntries
 
         let feedImage: string option =
+            let headElementResult = feedElementsResult |> Result.map (fun elements -> elements |> List.head)
+
             match feedName with
+            | CodePen ->
+                match headElementResult |> Result.bind (tryGetProperty "link") with
+                | Ok linkProperty -> Some $"{linkProperty.GetString()}/image/large.png"
+                | _ -> None
+            | Flickr ->
+                match headElementResult |> Result.bind (tryGetProperty "enclosure") with
+                | Ok enclosureProperty ->
+                    match enclosureProperty |> tryGetProperty "@url" with
+                    | Ok urlProperty -> Some (urlProperty.GetString())
+                    | _ -> None
+                | _ -> None
             | _ -> None
 
         let modificationDateResult =
@@ -218,14 +196,16 @@ module SyndicationFeedUtility =
             match feedItemsResult with
             | Error err -> Error err
             | Ok feedItems ->
-                match feedTitleResult with
-                | Error err -> Error err
-                | Ok feedTitle ->
-                    Ok
-                        { feedImage = feedImage
-                          feedItems = feedItems
-                          feedTitle = feedTitle
-                          modificationDate = modificationDate }
+                feedTitleResult |> Result.map
+                    (
+                       fun feedTitle ->
+                           {
+                               feedImage = feedImage
+                               feedItems = feedItems
+                               feedTitle = feedTitle
+                               modificationDate = modificationDate
+                           }
+                    )
 
     let fromInput element =
         [ CodePen, nameof CodePen
@@ -235,12 +215,8 @@ module SyndicationFeedUtility =
           Studio, nameof Studio ]
         |> List.map
             (fun (feedName, elementName) ->
-                match element |> tryGetFeedElement elementName with
-                | Error err -> Error err
-                | Ok el ->
-                    let feedResult = el |> tryGetSyndicationFeed feedName
-
-                    match feedResult with
-                    | Error err -> Error err
-                    | Ok feed -> Ok(feedName, feed))
+                element |> tryGetFeedElement elementName
+                |> Result.bind (tryGetSyndicationFeed feedName)
+                |> Result.map (fun feed -> feedName, feed)
+            )
         |> List.sequenceResultM
