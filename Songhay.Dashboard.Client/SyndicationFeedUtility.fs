@@ -1,14 +1,15 @@
 namespace Songhay.Dashboard.Client
 
 open System
+
+open FsToolkit.ErrorHandling
+
 open Songhay.Dashboard.Client.Models
 
 module SyndicationFeedUtility =
 
     open System.Text.Json
     open Microsoft.FSharp.Core
-
-    open FsToolkit.ErrorHandling
 
     open Songhay.Modules.Models
 
@@ -36,16 +37,29 @@ module SyndicationFeedUtility =
     let isRssFeed (elementName: string) (element: JsonElement) =
         let elementNameNormalized = elementName.ToLowerInvariant()
 
-        let testResult =
-            element
-            |> tryGetProperty SyndicationFeedPropertyName
-            |> Result.bind (tryGetProperty elementNameNormalized)
-            |> Result.bind (tryGetProperty RssFeedPropertyName)
-            |> Result.map (fun _ -> true)
+        element
+        |> tryGetProperty SyndicationFeedPropertyName
+        |> Result.bind (tryGetProperty elementNameNormalized)
+        |> Result.bind (tryGetProperty RssFeedPropertyName)
+        |> Result.map (fun _ -> true)
+        |> Result.valueOr (fun _ -> false)
 
-        match testResult with
-        | Error _ -> false
-        | Ok test -> test
+    let toFeedImage (feedName: FeedName) (headElementResult: Result<JsonElement,JsonException>) =
+            match feedName with
+            | CodePen ->
+                headElementResult
+                |> Result.bind (tryGetProperty "link")
+                |> Result.either
+                    (fun linkProperty -> Some $"{linkProperty.GetString()}/image/large.png")
+                    (fun _ -> None)
+            | Flickr ->
+                headElementResult
+                |> Result.bind (tryGetProperty "enclosure")
+                |> Result.bind (tryGetProperty "@url")
+                |> Result.either
+                    (fun urlProperty -> Some (urlProperty.GetString()))
+                    (fun _ -> None)
+            | _ -> None
 
     let tryGetFeedElement (elementName: string) (element: JsonElement) =
         let elementNameNormalized = elementName.ToLowerInvariant()
@@ -55,7 +69,7 @@ module SyndicationFeedUtility =
             |> Result.bind (tryGetProperty elementNameNormalized)
             |> Result.bind (tryGetProperty feedPropertyName)
 
-        match isRssFeed elementNameNormalized element with
+        match element |> isRssFeed elementNameNormalized with
         | true -> (getElement RssFeedPropertyName) |> Result.map (fun rssElement -> true, rssElement)
         | _ -> (getElement AtomFeedPropertyName) |> Result.map (fun atomElement -> false, atomElement)
 
@@ -64,25 +78,57 @@ module SyndicationFeedUtility =
         | false ->
             element |> tryGetProperty "updated" |> Result.map (fun updatedElement -> updatedElement.GetDateTime())
         | true ->
-            match element |> tryGetProperty "channel" with
-            | Error err -> Error err
-            | Ok channelElement ->
-                match channelElement |> tryGetProperty "pubDate" with
-                | Error _ ->
-                    match channelElement |> tryGetProperty "dc:date" with
-                    | Error err -> Error err
-                    | Ok pubDateElement ->
-                        let dateTimeString = pubDateElement.GetString().Trim()
+            element
+            |> tryGetProperty "channel"
+            |> Result.either
+                (
+                    fun channelElement ->
+                        channelElement
+                        |> tryGetProperty "pubDate"
+                        |> Result.either
+                            (
+                                fun pubDateElement ->
+                                    let dateTimeString = pubDateElement.GetString().Trim()
 
-                        match DateTime.TryParse dateTimeString with
-                        | false, _ -> resultError "dc:date"
-                        | true, dateTime -> Ok dateTime
-                | Ok pubDateElement ->
-                    let dateTimeString = pubDateElement.GetString().Trim()
+                                    match tryParseRfc822DateTime dateTimeString with
+                                    | Error _ -> resultError "pubDate"
+                                    | Ok rfc822DateTime -> Ok rfc822DateTime
+                            )
+                            (
+                                fun _ ->
+                                    channelElement
+                                    |> tryGetProperty "dc:date"
+                                    |> Result.either
+                                        (
+                                            fun pubDateElement ->
+                                                let dateTimeString = pubDateElement.GetString().Trim()
 
-                    match tryParseRfc822DateTime dateTimeString with
-                    | Error _ -> resultError "pubDate"
-                    | Ok rfc822DateTime -> Ok rfc822DateTime
+                                                match DateTime.TryParse dateTimeString with
+                                                | false, _ -> resultError "dc:date"
+                                                | true, dateTime -> Ok dateTime
+                                        )
+                                        Error
+                            )
+                )
+                Error
+
+    let tryGetSyndicationFeedItem (titleResult: Result<string,JsonException>, linkResult: Result<string,JsonException>) =
+        [
+            titleResult
+            linkResult
+        ]
+        |> List.sequenceResultM
+        |> Result.either
+            (
+                fun _ ->
+                    Ok {
+                        title = titleResult |> Result.valueOr raise
+                        link = linkResult |> Result.valueOr raise
+                        extract = None
+                        publicationDate = None
+                    }
+            )
+            Error
 
     let tryGetAtomSyndicationFeedItem (el: JsonElement) =
 
@@ -98,10 +144,7 @@ module SyndicationFeedUtility =
             |> Result.bind (tryGetProperty "@href")
             |> Result.map (fun hrefElement -> hrefElement.GetString())
 
-        match [ titleResult; linkResult ] |> List.sequenceResultM with
-        | Ok [ title; link ] -> Ok { title = title; link = link; extract = None; publicationDate = None }
-        | Ok _ -> Error(JsonException "The expected number of list items is not here.")
-        | Error err -> Error err
+        (titleResult, linkResult) |> tryGetSyndicationFeedItem
 
     let tryGetAtomEntries (element: JsonElement) =
         element
@@ -132,10 +175,7 @@ module SyndicationFeedUtility =
             |> tryGetProperty "link"
             |> Result.map (fun linkElement -> linkElement.GetString())
 
-        match [ titleResult; linkResult ] |> List.sequenceResultM with
-        | Ok [ title; link ] -> Ok { title = title; link = link; extract = None; publicationDate = None }
-        | Ok _ -> Error(JsonException "The expected number of list items is not here.")
-        | Error err -> Error err
+        (titleResult, linkResult) |> tryGetSyndicationFeedItem
 
     let tryGetRssChannelItems (element: JsonElement) =
         element
@@ -154,69 +194,59 @@ module SyndicationFeedUtility =
             | true -> element |> tryGetRssChannelItems
             | false -> element |> tryGetAtomEntries
 
-        let feedImage: string option =
-            let headElementResult = feedElementsResult |> Result.map (fun elements -> elements |> List.head)
+        let headElementResult = feedElementsResult |> Result.map (fun elements -> elements |> List.head)
 
-            match feedName with
-            | CodePen ->
-                match headElementResult |> Result.bind (tryGetProperty "link") with
-                | Ok linkProperty -> Some $"{linkProperty.GetString()}/image/large.png"
-                | _ -> None
-            | Flickr ->
-                match headElementResult |> Result.bind (tryGetProperty "enclosure") with
-                | Ok enclosureProperty ->
-                    match enclosureProperty |> tryGetProperty "@url" with
-                    | Ok urlProperty -> Some (urlProperty.GetString())
-                    | _ -> None
-                | _ -> None
-            | _ -> None
+        let feedImage = headElementResult |> toFeedImage feedName
 
-        let modificationDateResult =
-            element |> tryGetFeedModificationDate isRssFeed
+        let modificationDateResult = element |> tryGetFeedModificationDate isRssFeed
 
         let feedItemsResult =
             match isRssFeed with
             | true ->
-                match feedElementsResult with
-                | Error err -> Error err
-                | Ok elements -> elements |> List.map tryGetRssSyndicationFeedItem |> List.sequenceResultM
+                feedElementsResult
+                |> Result.either
+                    (fun elements -> elements |> List.map tryGetRssSyndicationFeedItem |> List.sequenceResultM)
+                    Error
             | false ->
-                match feedElementsResult with
-                | Error err -> Error err
-                | Ok elements -> elements |> List.map tryGetAtomSyndicationFeedItem |> List.sequenceResultM
+                feedElementsResult
+                |> Result.either
+                    (fun elements -> elements |> List.map tryGetAtomSyndicationFeedItem |> List.sequenceResultM)
+                    Error
 
         let feedTitleResult =
             match isRssFeed with
             | true -> tryGetRssChannelTitle element
             | _ -> tryGetAtomChannelTitle element
 
-        match modificationDateResult with
-        | Error err -> Error err
-        | Ok modificationDate ->
-            match feedItemsResult with
-            | Error err -> Error err
-            | Ok feedItems ->
-                feedTitleResult |> Result.map
-                    (
-                       fun feedTitle ->
-                           {
-                               feedImage = feedImage
-                               feedItems = feedItems
-                               feedTitle = feedTitle
-                               modificationDate = modificationDate
-                           }
-                    )
+        [
+            feedItemsResult |> Result.map (fun _ -> true)
+            feedTitleResult |> Result.map (fun _ -> true)
+            modificationDateResult |> Result.map (fun _ -> true)
+        ]
+        |> List.sequenceResultM
+        |> Result.map ( fun _ ->
+                {
+                   feedImage = feedImage
+                   feedItems = feedItemsResult |> Result.valueOr raise
+                   feedTitle = feedTitleResult |> Result.valueOr raise
+                   modificationDate = modificationDateResult |> Result.valueOr raise
+                }
+            )
 
     let fromInput element =
-        [ CodePen, nameof CodePen
-          Flickr, nameof Flickr
-          GitHub, nameof GitHub
-          StackOverflow, nameof StackOverflow
-          Studio, nameof Studio ]
+        [
+            CodePen, nameof CodePen
+            Flickr, nameof Flickr
+            GitHub, nameof GitHub
+            StackOverflow, nameof StackOverflow
+            Studio, nameof Studio
+        ]
         |> List.map
-            (fun (feedName, elementName) ->
-                element |> tryGetFeedElement elementName
-                |> Result.bind (tryGetSyndicationFeed feedName)
-                |> Result.map (fun feed -> feedName, feed)
+            (
+                fun (feedName, elementName) ->
+                    element
+                    |> tryGetFeedElement elementName
+                    |> Result.bind (tryGetSyndicationFeed feedName)
+                    |> Result.map (fun feed -> feedName, feed)
             )
         |> List.sequenceResultM
