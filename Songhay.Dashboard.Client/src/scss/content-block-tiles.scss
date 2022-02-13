@@ -16,3 +16,11 @@
         color: $akyinkyin-light-tint;
     }
 }
+
+.tile.is-child.has-text-centered {
+    & > .loader {
+        display: inline-block;
+        height: 128px;
+        width: 128px;
+    }
+}

@@ -88,7 +88,14 @@ let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
 let studioFeedsNodes (jsRuntime: IJSRuntime) (model: Model) : Node list =
     // jsRuntime.InvokeVoidAsync("console.log", "yup", model) |> ignore
     match model.feeds with
-    | None -> [ div [] [ text "loading…" ] ]
+    | None ->
+        [
+            div
+                [ attr.classes [ "tile"; "is-child"; "has-text-centered"; "p-6"] ]
+                [
+                    div [ attr.classes [ "loader"; "m-6" ]; attr.title "Loading…" ] []
+                ]
+        ]
     | Some feeds ->
         feeds
         |> List.ofArray
