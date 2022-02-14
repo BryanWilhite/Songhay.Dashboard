@@ -18,7 +18,9 @@
         <Compile Include="Models/Identifier.fs" />
         <Compile Include="Models/Colorable.fs" />
         <Compile Include="Models/DisplayItemModel.fs" />
+        <Compile Include="Models/Groupable.fs" />
         <Compile Include="Models/ProgramAssemblyInfo.fs" />
+        <Compile Include="Models/Selectable.fs" />
         <Compile Include="Models/Sortable.fs" />
         <Compile Include="Models/SyndicationFeed.fs" />
         <Compile Include="Models/Temporal.fs" />
