@@ -15,8 +15,13 @@
         <Compile Include="ProgramFileUtility.fs" />
         <Compile Include="ProgramTypeUtility.fs" />
         <Compile Include="StringUtility.fs" />
-        <Compile Include="Models/SyndicationFeed.fs" />
+        <Compile Include="Models/Identifier.fs" />
+        <Compile Include="Models/Colorable.fs" />
+        <Compile Include="Models/DisplayItemModel.fs" />
         <Compile Include="Models/ProgramAssemblyInfo.fs" />
+        <Compile Include="Models/Sortable.fs" />
+        <Compile Include="Models/SyndicationFeed.fs" />
+        <Compile Include="Models/Temporal.fs" />
     </ItemGroup>
 
 </Project>
