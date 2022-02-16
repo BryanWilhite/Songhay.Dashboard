@@ -1,11 +1,11 @@
 module Songhay.Dashboard.Client.Visuals.Block.StudioTools
 
+open Bolero
 open Bolero.Html
-
-open Songhay.Modules.Models
 
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
+open Songhay.Dashboard.Client.Visuals.Svg
 
 let studioToolsData = [
     (".NET API Catalog", "https://apisof.net/", "mdi_dotnet_24px")
@@ -27,15 +27,49 @@ let studioToolsData = [
     ("Visual Studio Code: Variables Reference", "https://code.visualstudio.com/docs/editor/variables-reference/", "mdi_library_24px")
 ]
 
-let studioToolsNode (model: Model) =
-    div
-        [ attr.classes ( [ "card" ] @ App.appBlockChildCssClasses) ]
+let rec studioToolIcon (svgKey: string) =
+    if not (svgData.ContainsKey svgKey) then
+        RawHtml $"<!-- {nameof studioToolIcon}: {nameof svgKey} `{svgKey}` was not found. -->"
+    else
+        let svgPathData = svgData[svgKey]
+
+        figure
+            [ attr.classes [ "media-left" ] ]
+            [
+                p
+                    [ attr.classes [ "image"; "is-48x48" ]; "aria-hidden" => "true" ]
+                    [
+                        svgNode (svgViewBoxSquare 24) svgPathData
+                    ]
+            ]
+
+let toBulmaArticleNode (title: string, location: string, svgKey: string) =
+    article
+        [ attr.classes [ "tile"; "is-child" ] ]
         [
+            studioToolIcon svgKey
             div
-                [ attr.classes [ "card-content" ] ]
+                [ attr.classes [ "media-content" ] ]
                 [
                     div
-                        [ attr.classes [ "content"; "has-text-centered" ] ]
-                        [ text "[StudioTools]" ]
+                        [ attr.classes [ "content" ] ]
+                        [
+                            a
+                                [
+                                    attr.classes [ "title"; "is-5" ]
+                                    attr.href location
+                                ]
+                                [ text title ]
+                        ]
                 ]
         ]
+
+let studioToolsNode () =
+    let getGroup g =
+        div
+            [ attr.classes [ "tile"; "is-parent"; "has-background-greys-dark-tone" ] ]
+            (g |> List.map toBulmaArticleNode)
+
+    div
+        [ attr.classes App.appBlockChildCssClasses ]
+        (studioToolsData |> List.chunkBySize 2 |> List.map getGroup)

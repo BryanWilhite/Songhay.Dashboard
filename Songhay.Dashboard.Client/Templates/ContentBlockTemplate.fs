@@ -15,7 +15,7 @@ let viewContentBlockTemplate jsRuntime model dispatch =
         .Content(
             cond model.page <| function
             | StudioFeedsPage -> Tile.studioPageNode (Block.StudioFeeds.studioFeedsNodes jsRuntime model)
-            | StudioToolsPage -> Tile.studioPageNode [ Block.StudioTools.studioToolsNode model]
+            | StudioToolsPage -> Tile.studioPageNode [ Block.StudioTools.studioToolsNode() ]
         )
         .Error(
             cond model.error <| function
