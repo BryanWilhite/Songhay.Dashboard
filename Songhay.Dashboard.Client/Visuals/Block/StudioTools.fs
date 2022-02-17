@@ -4,7 +4,6 @@ open Bolero
 open Bolero.Html
 
 open Songhay.Dashboard.Client
-open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Visuals.Svg
 
 let studioToolsData = [
@@ -45,7 +44,7 @@ let rec studioToolIcon (svgKey: string) =
 
 let toBulmaArticleNode (title: string, location: string, svgKey: string) =
     article
-        [ attr.classes [ "tile"; "is-child" ] ]
+        [ attr.classes [ "tile" ] ]
         [
             studioToolIcon svgKey
             div
