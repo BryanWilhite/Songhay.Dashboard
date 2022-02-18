@@ -1,26 +1,46 @@
 .logo {
-    white-space: nowrap;
+  white-space: nowrap;
 
-    & > span:nth-child(1),
-    & > span:nth-child(3) {
-        color: $akyinkyin-light-tint;
-    }
+  & > span:nth-child(1),
+  & > span:nth-child(3) {
+    color: $akyinkyin-light-tint;
+  }
 
-    & > span:nth-child(2) {
-        color: $akyinkyin-light-tone;
-    }
+  & > span:nth-child(2) {
+    color: $akyinkyin-light-tone;
+  }
 }
 
 .card > .card-content > .media > .media-content {
-    & > .title, & > .subtitle {
-        color: $akyinkyin-light-tint;
-    }
+  & > .title,
+  & > .subtitle {
+    color: $akyinkyin-light-tint;
+  }
 }
 
 .tile.is-child.has-text-centered {
-    & > .loader {
-        display: inline-block;
-        height: 128px;
-        width: 128px;
+  & > .loader {
+    display: inline-block;
+    height: 128px;
+    width: 128px;
+  }
+}
+
+article.tile {
+  min-width: 12em;
+
+  & > .media-content > .content > a {
+    &:link,
+    &:visited {
+      color: $akyinkyin-light-tone;
+      text-decoration-line: none;
     }
+    &:hover {
+      background-color: $akyinkyin-light-tone;
+      color: $akyinkyin-dark-tone;
+    }
+  }
+  & > figure {
+    color: $akyinkyin-light-tone;
+  }
 }

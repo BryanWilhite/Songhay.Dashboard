@@ -44,7 +44,7 @@ let rec studioToolIcon (svgKey: string) =
 
 let toBulmaArticleNode (title: string, location: string, svgKey: string) =
     article
-        [ attr.classes [ "tile" ] ]
+        [ attr.classes [ "tile"; "m-3" ] ]
         [
             studioToolIcon svgKey
             div
