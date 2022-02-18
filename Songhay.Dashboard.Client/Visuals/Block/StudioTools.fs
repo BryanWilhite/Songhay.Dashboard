@@ -70,5 +70,5 @@ let studioToolsNode () =
             (g |> List.map toBulmaArticleNode)
 
     div
-        [ attr.classes App.appBlockChildCssClasses ]
+        [ attr.classes (App.appBlockChildCssClasses @ [ "notification" ]) ]
         (studioToolsData |> List.chunkBySize 2 |> List.map getGroup)

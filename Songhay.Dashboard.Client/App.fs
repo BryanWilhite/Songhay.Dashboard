@@ -10,7 +10,7 @@ let appTitle = "SonghaySystem(::)"
 [<Literal>]
 let appDataLocation = "https://songhaystorage.blob.core.windows.net/studio-dash/app.json"
 
-let appBlockChildCssClasses = [ "has-background-greys-dark-tone"; "is-child"; "tile" ]
+let appBlockChildCssClasses = [ "tile"; "is-child"; "has-background-greys-dark-tone" ]
 
 let appVersions =
     let boleroVersion = $"{Bolero.Node.Empty.GetType().Assembly.GetName().Version}"
