@@ -28,7 +28,7 @@ let update remote message model =
     | ClearError -> { model with error = None }, Cmd.none
     | Error exn -> { model with error = Some exn.Message }, Cmd.none
     | GetFeeds ->
-        let uri = App.appDataLocation |> Uri
+        let uri = App.AppDataLocation |> Uri
         let cmd = Cmd.OfAsync.either remote.getAppData uri GotFeeds Error
         { model with feeds = None }, cmd
     | GotFeeds feeds -> { model with feeds = feeds }, Cmd.none

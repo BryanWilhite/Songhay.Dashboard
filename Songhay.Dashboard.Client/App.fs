@@ -6,10 +6,10 @@ open Songhay.Modules.Models
 open Songhay.Dashboard.Client.Models
 
 [<Literal>]
-let appTitle = "SonghaySystem(::)"
+let AppTitle = "SonghaySystem(::)"
 
 [<Literal>]
-let appDataLocation = "https://songhaystorage.blob.core.windows.net/studio-dash/app.json"
+let AppDataLocation = "https://songhaystorage.blob.core.windows.net/studio-dash/app.json"
 
 let appBlockChildCssClasses = [ "tile"; "is-child"; "has-background-greys-dark-tone" ]
 

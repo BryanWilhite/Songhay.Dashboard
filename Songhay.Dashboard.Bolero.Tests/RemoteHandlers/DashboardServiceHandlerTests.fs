@@ -28,7 +28,7 @@ module DashboardServiceHandlerTests =
     let client = new HttpClient()
 
     [<Theory>]
-    [<InlineData(App.appDataLocation)>]
+    [<InlineData(App.AppDataLocation)>]
     let ``runRequest test (async)`` location =
         async {
             let uri = Uri(location, UriKind.Absolute)
@@ -39,7 +39,7 @@ module DashboardServiceHandlerTests =
         }
 
     [<Theory>]
-    [<InlineData(App.appDataLocation)>]
+    [<InlineData(App.AppDataLocation)>]
     let ``runRequest test (task)`` location =
         task {
             let uri = Uri(location, UriKind.Absolute)

@@ -10,7 +10,7 @@ open Songhay.Dashboard.Client.Visuals.Svg
 let studioLogo =
     let spanClasses = [ "title"; "is-2"; "is-hidden-tablet-only" ]
 
-    div [ attr.classes [ "logo" ]; attr.title [ App.appTitle ] ] [
+    div [ attr.classes [ "logo" ]; attr.title [ App.AppTitle ] ] [
         span [ attr.classes ([ "has-text-weight-normal"] @ spanClasses) ] [ text "Songhay" ]
         span [ attr.classes spanClasses ] [ text "System" ]
         span [ attr.classes [ "title"; "is-1" ] ] [ text "(::)" ]
