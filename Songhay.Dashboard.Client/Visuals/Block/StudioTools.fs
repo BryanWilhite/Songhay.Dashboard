@@ -98,12 +98,10 @@ let studioToolsData = [
 ]
 
 let rec studioToolIcon (svgKey: Identifier) =
-    let key = svgKey |> Identifier.toIdentifierString
-
-    if not (svgData.ContainsKey key) then
-        RawHtml $"<!-- {nameof studioToolIcon}: {nameof svgKey} `{key}` was not found. -->"
+    if not (svgData.ContainsKey svgKey) then
+        RawHtml $"<!-- {nameof studioToolIcon}: {nameof svgKey} `{svgKey}` was not found. -->"
     else
-        let svgPathData = svgData[key]
+        let svgPathData = svgData[svgKey]
 
         figure
             [ attr.classes [ "media-left" ] ]

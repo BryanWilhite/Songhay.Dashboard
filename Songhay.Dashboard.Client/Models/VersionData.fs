@@ -1,8 +1,10 @@
 namespace Songhay.Dashboard.Client.Models
 
+open Songhay.Modules.Models
+
 type VersionData =
     {
-        title: string
-        id: string
+        id: Identifier
+        title: DisplayText
         version: string
     }

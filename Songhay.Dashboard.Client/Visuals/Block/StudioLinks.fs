@@ -1,25 +1,26 @@
 module Songhay.Dashboard.Client.Visuals.Block.StudioLinks
 
+open System
 open Microsoft.AspNetCore.Components.Routing
 open Bolero.Html
 
+open Songhay.Modules.Models
 open Songhay.Dashboard.Client
-open Songhay.Dashboard.Client.Models
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Visuals.Svg
 
-let bulmaPanelIcon (id: string) =
+let bulmaPanelIcon (id: Identifier) =
     span [
         attr.classes [ "panel-icon" ]
     ] [ svgNode (svgViewBoxSquare 24) svgData[id] ]
 
 let linkNodes =
-    let linkNode (data: SvgSpriteData) =
+    let linkNode (title: DisplayText, href: Uri, id: Identifier) =
         a [
             attr.classes [ "panel-block" ]
-            attr.href data.href
+            attr.href href.OriginalString
             attr.target "_blank"
-        ] [ bulmaPanelIcon data.id; text data.title ]
+        ] [ bulmaPanelIcon id; text (title |> DisplayText.toDisplayString) ]
 
     appStudioLinks |> List.map linkNode
 
@@ -34,7 +35,7 @@ let routeNodes =
             "ActiveClass" => "is-active"
             attr.classes [ "panel-block" ]
             attr.href (ElmishRoutes.router.Link page)
-        ] [ bulmaPanelIcon "mdi_link_variant_24px"; text caption ]
+        ] [ bulmaPanelIcon (Alphanumeric "mdi_link_variant_24px"); text caption ]
 
     routeData |> List.map routeNode
 

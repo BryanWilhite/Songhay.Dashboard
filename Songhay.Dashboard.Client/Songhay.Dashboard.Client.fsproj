@@ -5,7 +5,6 @@
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="Models/FeedName.fs" />
-        <Compile Include="Models/SvgSpriteData.fs" />
         <Compile Include="Models/VersionData.fs" />
         <Compile Include="BoleroUtility.fs" />
         <Compile Include="SyndicationFeedUtility.fs" />

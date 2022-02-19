@@ -2,6 +2,7 @@ module Songhay.Dashboard.Client.App
 
 open System
 
+open Songhay.Modules.Models
 open Songhay.Dashboard.Client.Models
 
 [<Literal>]
@@ -18,13 +19,13 @@ let appVersions =
 
     [
         {
-            id = "mdi_bolero_dance_24px"
-            title = $"Bolero {boleroVersion}"
+            id = Alphanumeric "mdi_bolero_dance_24px"
+            title = DisplayText $"Bolero {boleroVersion}"
             version = boleroVersion
         }
         {
-            id = "mdi_dotnet_24px"
-            title = $".NET Runtime {dotnetRuntimeVersion}"
+            id = Alphanumeric "mdi_dotnet_24px"
+            title = DisplayText $".NET Runtime {dotnetRuntimeVersion}"
             version = dotnetRuntimeVersion
         }
     ]
