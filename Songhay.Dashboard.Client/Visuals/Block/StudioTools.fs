@@ -1,36 +1,109 @@
 module Songhay.Dashboard.Client.Visuals.Block.StudioTools
 
+open System
+
 open Bolero
 open Bolero.Html
 
+open Songhay.Modules.Models
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.Visuals.Svg
 
 let studioToolsData = [
-    (".NET API Catalog", "https://apisof.net/", "mdi_dotnet_24px")
-    (".NET Reference Source", "https://referencesource.microsoft.com/", "mdi_dotnet_24px")
-    ("CamelCase Converter", "https://en.toolpage.org/tool/camelcase", "mdi_wrench_24px")
-    ("draw.io", "https://www.draw.io/", "mdi_vector_curve_24px")
-    ("feedly OPML API", "https://developer.feedly.com/v3/opml/", "mdi_rss_24px")
-    ("fuget.org: pro nuget package browsing", "https://www.fuget.org/", "mdi_package_24px")
-    ("Google Search Central", "https://developers.google.com/search/", "mdi_google_24px")
-    ("JS Bin", "http://jsbin.com/", "mdi_vector_curve_24px")
-    ("JSON Viewer", "https://codebeautify.org/jsonviewer", "mdi_json_24px")
-    ("quicktype", "https://app.quicktype.io/", "mdi_wrench_24px")
-    ("RegExr", "https://regexr.com/", "mdi_regex_24px")
-    ("StackBlitz", "https://stackblitz.com/@BryanWilhite", "mdi_code_tags_24px")
-    ("StackEdit", "https://stackedit.io/", "mdi_cloud_tags_24px")
-    ("Twitter Publish", "https://publish.twitter.com/", "mdi_twitter_24px")
-    ("UNPKG", "https://unpkg.com/", "mdi_package_24px")
-    ("vim cheatsheet", "http://michael.peopleofhonoronly.com/vim/", "mdi_library_24px")
-    ("Visual Studio Code: Variables Reference", "https://code.visualstudio.com/docs/editor/variables-reference/", "mdi_library_24px")
+    (
+        DisplayText ".NET API Catalog",
+        Uri "https://apisof.net/",
+        Alphanumeric "mdi_dotnet_24px"
+    )
+    (
+        DisplayText ".NET Reference Source",
+        Uri "https://referencesource.microsoft.com/",
+        Alphanumeric "mdi_dotnet_24px"
+    )
+    (
+        DisplayText "CamelCase Converter",
+        Uri "https://en.toolpage.org/tool/camelcase",
+        Alphanumeric "mdi_wrench_24px"
+    )
+    (
+        DisplayText "draw.io",
+        Uri "https://www.draw.io/",
+        Alphanumeric "mdi_vector_curve_24px"
+    )
+    (
+        DisplayText "feedly OPML API",
+        Uri "https://developer.feedly.com/v3/opml/",
+        Alphanumeric "mdi_rss_24px"
+    )
+    (
+        DisplayText "fuget.org: pro nuget package browsing",
+        Uri "https://www.fuget.org/",
+        Alphanumeric "mdi_package_24px"
+    )
+    (
+        DisplayText "Google Search Central",
+        Uri "https://developers.google.com/search/",
+        Alphanumeric "mdi_google_24px"
+    )
+    (
+        DisplayText "JS Bin",
+        Uri "http://jsbin.com/",
+        Alphanumeric "mdi_vector_curve_24px"
+    )
+    (
+        DisplayText "JSON Viewer",
+        Uri "https://codebeautify.org/jsonviewer",
+        Alphanumeric "mdi_json_24px"
+    )
+    (
+        DisplayText "quicktype",
+        Uri "https://app.quicktype.io/",
+        Alphanumeric "mdi_wrench_24px"
+    )
+    (
+        DisplayText "RegExr",
+        Uri "https://regexr.com/",
+        Alphanumeric "mdi_regex_24px"
+    )
+    (
+        DisplayText "StackBlitz",
+        Uri "https://stackblitz.com/@BryanWilhite",
+        Alphanumeric "mdi_code_tags_24px"
+    )
+    (
+        DisplayText "StackEdit",
+        Uri "https://stackedit.io/",
+        Alphanumeric "mdi_cloud_tags_24px"
+    )
+    (
+        DisplayText "Twitter Publish",
+        Uri "https://publish.twitter.com/",
+        Alphanumeric "mdi_twitter_24px"
+    )
+    (
+        DisplayText "UNPKG",
+        Uri "https://unpkg.com/",
+        Alphanumeric "mdi_package_24px"
+    )
+    (
+        DisplayText "vim cheatsheet",
+        Uri "http://michael.peopleofhonoronly.com/vim/",
+        Alphanumeric "mdi_library_24px"
+    )
+    (
+        DisplayText "Visual Studio Code: Variables Reference",
+        Uri "https://code.visualstudio.com/docs/editor/variables-reference/",
+        Alphanumeric "mdi_library_24px"
+    )
 ]
 
-let rec studioToolIcon (svgKey: string) =
-    if not (svgData.ContainsKey svgKey) then
-        RawHtml $"<!-- {nameof studioToolIcon}: {nameof svgKey} `{svgKey}` was not found. -->"
+let rec studioToolIcon (svgKey: Identifier) =
+    let key = svgKey |> Identifier.toIdentifierString
+
+    if not (svgData.ContainsKey key) then
+        RawHtml $"<!-- {nameof studioToolIcon}: {nameof svgKey} `{key}` was not found. -->"
     else
-        let svgPathData = svgData[svgKey]
+        let svgPathData = svgData[key]
 
         figure
             [ attr.classes [ "media-left" ] ]
@@ -42,7 +115,7 @@ let rec studioToolIcon (svgKey: string) =
                     ]
             ]
 
-let toBulmaArticleNode (title: string, location: string, svgKey: string) =
+let toBulmaArticleNode (title: DisplayText, location: Uri, svgKey: Identifier) =
     article
         [ attr.classes [ "tile"; "m-3" ] ]
         [
@@ -56,9 +129,9 @@ let toBulmaArticleNode (title: string, location: string, svgKey: string) =
                             a
                                 [
                                     attr.classes [ "title"; "is-5" ]
-                                    attr.href location
+                                    attr.href location.OriginalString
                                 ]
-                                [ text title ]
+                                [ text (title |> DisplayText.toDisplayString) ]
                         ]
                 ]
         ]

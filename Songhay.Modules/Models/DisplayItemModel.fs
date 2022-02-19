@@ -6,7 +6,13 @@ open Songhay.Modules.Models
 
 type DisplayText = DisplayText of string
 
+module DisplayText =
+    let toDisplayString (DisplayText s) = s
+
 type ItemName = ItemName of string
+
+module ItemName =
+    let toItemNameString (ItemName s) = s
 
 /// <summary>
 /// Conventional Model for a UI display item
