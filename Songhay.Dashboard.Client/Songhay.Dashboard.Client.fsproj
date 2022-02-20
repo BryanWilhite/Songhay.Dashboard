@@ -18,6 +18,13 @@
         <Compile Include="Visuals/Block/StudioLinks.fs" />
         <Compile Include="Visuals/Block/StudioTools.fs" />
         <Compile Include="Visuals/Tile.fs" />
+        <Compile Include="Visuals/Player/Models/YouTubeResourceId.fs" />
+        <Compile Include="Visuals/Player/Models/YouTubeContentDetails.fs" />
+        <Compile Include="Visuals/Player/Models/YouTubeThumbnails.fs" />
+        <Compile Include="Visuals/Player/Models/YouTubeSnippet.fs" />
+        <Compile Include="Visuals/Player/Models/YouTubeItem.fs" />
+        <Compile Include="Visuals/Player/ElmishTypes.fs" />
+        <Compile Include="Visuals/Player/PlayerThumbs.fs" />
         <Compile Include="Templates/ContentBlockTemplate.fs" />
         <Compile Include="ContentBlockComponent.fs" />
         <Compile Include="Startup.fs" />
