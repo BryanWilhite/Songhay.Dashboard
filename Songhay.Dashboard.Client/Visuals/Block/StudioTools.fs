@@ -129,7 +129,7 @@ let toBulmaArticleNode (title: DisplayText, location: Uri, svgKey: Identifier) =
                                     attr.classes [ "title"; "is-5" ]
                                     attr.href location.OriginalString
                                 ]
-                                [ text (title |> DisplayText.toDisplayString) ]
+                                [ text title.Value ]
                         ]
                 ]
         ]

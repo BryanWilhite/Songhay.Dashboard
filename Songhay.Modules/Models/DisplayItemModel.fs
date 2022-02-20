@@ -4,15 +4,13 @@ open System
 
 open Songhay.Modules.Models
 
-type DisplayText = DisplayText of string
+type DisplayText =
+    | DisplayText of string
+    member this.Value = let (DisplayText v) = this in v
 
-module DisplayText =
-    let toDisplayString (DisplayText s) = s
-
-type ItemName = ItemName of string
-
-module ItemName =
-    let toItemNameString (ItemName s) = s
+type ItemName =
+    | ItemName of string
+    member this.Value = let (ItemName v) = this in v
 
 /// <summary>
 /// Conventional Model for a UI display item

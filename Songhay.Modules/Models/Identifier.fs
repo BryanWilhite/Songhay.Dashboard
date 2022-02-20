@@ -5,18 +5,20 @@ open System
 /// <summary>
 ///  Defines the conventional identifier or sort ordinal.
 /// </summary>
-type Identifier = Numeric of int | Alphanumeric of string
+type Identifier =
+    | Alphanumeric of string
+    | Numeric of int
 
-module Identifier =
-    let toIdentifierInt32 (input: Identifier) =
-        match input with
+    member this.Int32Value =
+        match this with
         | Alphanumeric a ->
             match Int32.TryParse(a) with
-            | true, n -> n
-            | false, _ -> 0
-        | Numeric n -> n
+            | true, n -> Some n
+            | false, _ -> None
+        | Numeric n -> Some n
 
-    let toIdentifierString (input: Identifier) =
-        match input with
+    member this.StringValue =
+        match this with
         | Alphanumeric a -> a
         | Numeric n -> $"{n}"
+

@@ -20,7 +20,7 @@ let linkNodes =
             attr.classes [ "panel-block" ]
             attr.href href.OriginalString
             attr.target "_blank"
-        ] [ bulmaPanelIcon id; text (title |> DisplayText.toDisplayString) ]
+        ] [ bulmaPanelIcon id; text title.Value ]
 
     appStudioLinks |> List.map linkNode
 

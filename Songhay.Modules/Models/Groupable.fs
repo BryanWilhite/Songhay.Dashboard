@@ -11,7 +11,7 @@ type Groupable =
         /// <summary>
         /// Display text of the Group
         /// </summary>
-        groupDisplayText: string
+        groupDisplayText: DisplayText
 
         /// <summary>
         /// Identifier of the Group
