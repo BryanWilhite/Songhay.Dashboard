@@ -2,7 +2,7 @@ module Songhay.Dashboard.Client.Visuals.Block.Studio
 
 open Bolero.Html
 
-open Songhay.Modules.Player.Visuals.Svg
+open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.Models

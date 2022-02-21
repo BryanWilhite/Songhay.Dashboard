@@ -7,7 +7,7 @@ open Bolero.Html
 
 open Songhay.Modules.Models
 open Songhay.Dashboard.Client
-open Songhay.Modules.Player.Visuals.Svg
+open Songhay.Modules.Bolero.Visuals.Svg
 
 let studioToolsData = [
     (

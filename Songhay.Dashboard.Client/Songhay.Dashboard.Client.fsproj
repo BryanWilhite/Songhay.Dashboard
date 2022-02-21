@@ -29,7 +29,7 @@
         <PackageReference Include="System.Net.Http.Json" Version="5.0.*" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Songhay.Modules.Player\Songhay.Modules.Player.fsproj" />
+      <ProjectReference Include="..\Songhay.Modules.Bolero\Songhay.Modules.Bolero.fsproj" />
       <ProjectReference Include="..\Songhay.Modules\Songhay.Modules.fsproj" />
       <ProjectReference Include="..\Songhay.Player.YouTube\Songhay.Player.YouTube.fsproj" />
     </ItemGroup>

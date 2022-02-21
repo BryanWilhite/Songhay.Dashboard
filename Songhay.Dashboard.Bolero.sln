@@ -15,7 +15,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Modules.Tests", "So
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Player.YouTube", "Songhay.Player.YouTube\Songhay.Player.YouTube.fsproj", "{4A5426BA-F8C4-4883-8D05-05772FE0F653}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Modules.Player", "Songhay.Modules.Player\Songhay.Modules.Player.fsproj", "{2D68D281-C6ED-4C4A-A44A-3B0DF4505058}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Modules.Bolero", "Songhay.Modules.Bolero\Songhay.Modules.Bolero.fsproj", "{2D68D281-C6ED-4C4A-A44A-3B0DF4505058}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

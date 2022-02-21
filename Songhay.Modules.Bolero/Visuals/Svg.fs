@@ -1,4 +1,4 @@
-namespace Songhay.Modules.Player.Visuals
+namespace Songhay.Modules.Bolero.Visuals
 
 type StreamGeometry =
     | StreamGeometry of string

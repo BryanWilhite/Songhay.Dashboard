@@ -1,4 +1,4 @@
-namespace Songhay.Modules.Player
+namespace Songhay.Modules.Bolero
 
 module BoleroUtility =
 
