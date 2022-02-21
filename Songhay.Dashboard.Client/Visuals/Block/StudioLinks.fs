@@ -7,7 +7,7 @@ open Bolero.Html
 open Songhay.Modules.Models
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
-open Songhay.Dashboard.Client.Visuals.Svg
+open Songhay.Modules.Player.Visuals.Svg
 
 let bulmaPanelIcon (id: Identifier) =
     span [

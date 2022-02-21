@@ -10,7 +10,7 @@ open Songhay.Modules.StringUtility
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Models
-open Songhay.Dashboard.Client.Visuals.Svg
+open Songhay.Modules.Player.Visuals.Svg
 
 let studioFeedImage (feedName: FeedName, feed: SyndicationFeed) =
     match feedName with

@@ -6,7 +6,6 @@
     <ItemGroup>
         <Compile Include="Models/FeedName.fs" />
         <Compile Include="Models/VersionData.fs" />
-        <Compile Include="BoleroUtility.fs" />
         <Compile Include="SyndicationFeedUtility.fs" />
         <Compile Include="App.fs" />
         <Compile Include="ElmishTypes.fs" />
@@ -31,6 +30,7 @@
         <PackageReference Include="System.Net.Http.Json" Version="5.0.*" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Songhay.Modules.Player\Songhay.Modules.Player.fsproj" />
       <ProjectReference Include="..\Songhay.Modules\Songhay.Modules.fsproj" />
       <ProjectReference Include="..\Songhay.Player.YouTube\Songhay.Player.YouTube.fsproj" />
     </ItemGroup>

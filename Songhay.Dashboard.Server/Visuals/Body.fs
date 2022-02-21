@@ -4,7 +4,7 @@ open System
 open Bolero
 open Bolero.Html
 open Bolero.Server.Html
-open Songhay.Blazor.BoleroUtility
+open Songhay.Modules.Player.BoleroUtility
 open Songhay.Dashboard.Client.Components.ContentBlock
 
 let footerElement =

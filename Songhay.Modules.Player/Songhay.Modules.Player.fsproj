@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Include="BoleroUtility.fs" />
+      <Compile Include="Visuals\Svg.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Bolero" Version="0.*" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Songhay.Modules\Songhay.Modules.fsproj" />
+    </ItemGroup>
+
+</Project>

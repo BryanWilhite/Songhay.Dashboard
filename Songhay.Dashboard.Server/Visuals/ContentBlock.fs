@@ -2,7 +2,7 @@ module Songhay.Dashboard.Server.Visuals.ContentBlock
 
 open Bolero.Html
 open Bolero.Server.Html
-open Songhay.Blazor.BoleroUtility
+open Songhay.Modules.Player.BoleroUtility
 open Songhay.Dashboard.Server.Visuals.Head
 open Songhay.Dashboard.Server.Visuals.Body
 

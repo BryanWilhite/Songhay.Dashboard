@@ -3,7 +3,7 @@ module Songhay.Dashboard.Client.Visuals.Button
 open System
 open Bolero.Html
 
-open Songhay.Dashboard.Client.Visuals.Svg
+open Songhay.Modules.Player.Visuals.Svg
 open Songhay.Modules.Models
 
 let bulmaAnchorIconButton (title: DisplayText, href: Uri, id: Identifier) =

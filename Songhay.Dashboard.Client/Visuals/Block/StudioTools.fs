@@ -7,7 +7,7 @@ open Bolero.Html
 
 open Songhay.Modules.Models
 open Songhay.Dashboard.Client
-open Songhay.Dashboard.Client.Visuals.Svg
+open Songhay.Modules.Player.Visuals.Svg
 
 let studioToolsData = [
     (
@@ -128,6 +128,7 @@ let toBulmaArticleNode (title: DisplayText, location: Uri, svgKey: Identifier) =
                                 [
                                     attr.classes [ "title"; "is-5" ]
                                     attr.href location.OriginalString
+                                    attr.target "_blank"
                                 ]
                                 [ text title.Value ]
                         ]
