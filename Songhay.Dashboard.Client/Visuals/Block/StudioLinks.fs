@@ -5,9 +5,10 @@ open Microsoft.AspNetCore.Components.Routing
 open Bolero.Html
 
 open Songhay.Modules.Models
+open Songhay.Modules.Player.Visuals.Svg
+
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
-open Songhay.Modules.Player.Visuals.Svg
 
 let bulmaPanelIcon (id: Identifier) =
     span [
@@ -22,7 +23,7 @@ let linkNodes =
             attr.target "_blank"
         ] [ bulmaPanelIcon id; text title.Value ]
 
-    appStudioLinks |> List.map linkNode
+    App.appStudioLinks |> List.map linkNode
 
 let routeNodes =
     let routeData = [
