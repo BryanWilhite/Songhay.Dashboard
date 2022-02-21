@@ -1,4 +1,4 @@
-namespace Songhay.Player.Models
+namespace Songhay.Player.YouTube.Models
 
 /// <summary>
 /// defines YouTube API item

@@ -1,6 +1,6 @@
-namespace Songhay.Player
+namespace Songhay.Player.YouTube
 
-open Songhay.Player.Models
+open Songhay.Player.YouTube.Models
 
 type Model =
     {

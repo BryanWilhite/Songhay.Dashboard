@@ -1,4 +1,4 @@
-namespace Songhay.Player
+namespace Songhay.Player.YouTube
 
 open Bolero
 open Bolero.Html
