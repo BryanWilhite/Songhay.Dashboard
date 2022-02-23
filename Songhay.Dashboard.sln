@@ -19,6 +19,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Modules.Bolero", "S
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Dashboard", "Songhay.Dashboard\Songhay.Dashboard.fsproj", "{2FB65540-00EC-4E77-ACAB-3725F72E005C}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Dashboard.Tests", "Songhay.Dashboard.Tests\Songhay.Dashboard.Tests.fsproj", "{3551278A-E2BF-44F3-9A96-39417D5EB6AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +127,18 @@ Global
 		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Release|x64.Build.0 = Release|Any CPU
 		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Release|x86.ActiveCfg = Release|Any CPU
 		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Release|x86.Build.0 = Release|Any CPU
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA}.Debug|x64.Build.0 = Debug|Any CPU
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA}.Debug|x86.Build.0 = Debug|Any CPU
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA}.Release|x64.ActiveCfg = Release|Any CPU
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA}.Release|x64.Build.0 = Release|Any CPU
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA}.Release|x86.ActiveCfg = Release|Any CPU
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

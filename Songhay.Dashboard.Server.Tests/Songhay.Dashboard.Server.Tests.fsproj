@@ -9,7 +9,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="SyndicationFeedTests.fs" />
         <Compile Include="RemoteHandlers\DashboardServiceHandlerTests.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>

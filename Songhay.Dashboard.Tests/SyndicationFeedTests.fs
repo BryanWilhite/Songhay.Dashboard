@@ -1,4 +1,4 @@
-namespace Songhay.Dashboard.Server.Tests
+namespace Songhay.Dashboard.Tests
 
 module SyndicationFeedTests =
 
