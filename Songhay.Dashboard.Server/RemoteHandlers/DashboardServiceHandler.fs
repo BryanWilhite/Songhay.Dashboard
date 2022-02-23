@@ -10,7 +10,7 @@ open Microsoft.FSharp.Core
 open Bolero.Remoting.Server
 
 open Songhay.Dashboard.Client.ElmishTypes
-open Songhay.Dashboard.Client.Models
+open Songhay.Dashboard.Models
 open Songhay.Dashboard.Client.SyndicationFeedUtility
 open Songhay.Modules.HttpClientUtility
 open Songhay.Modules.HttpRequestMessageUtility

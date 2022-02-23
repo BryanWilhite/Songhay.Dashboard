@@ -5,7 +5,7 @@ open Bolero
 open Bolero.Remoting
 
 open Songhay.Modules.Models
-open Songhay.Dashboard.Client.Models
+open Songhay.Dashboard.Models
 
 type Page =
     | [<EndPoint "/">] StudioToolsPage

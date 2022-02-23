@@ -14,7 +14,7 @@ module SyndicationFeedTests =
     open Songhay.Modules.Models
     open Songhay.Modules.ProgramFileUtility
 
-    open Songhay.Dashboard.Client.Models
+    open Songhay.Dashboard.Models
     open Songhay.Dashboard.Client.SyndicationFeedUtility
 
     let projectDirectoryInfo =

@@ -17,6 +17,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Player.YouTube", "S
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Modules.Bolero", "Songhay.Modules.Bolero\Songhay.Modules.Bolero.fsproj", "{2D68D281-C6ED-4C4A-A44A-3B0DF4505058}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Dashboard", "Songhay.Dashboard\Songhay.Dashboard.fsproj", "{2FB65540-00EC-4E77-ACAB-3725F72E005C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,18 @@ Global
 		{2D68D281-C6ED-4C4A-A44A-3B0DF4505058}.Release|x64.Build.0 = Release|Any CPU
 		{2D68D281-C6ED-4C4A-A44A-3B0DF4505058}.Release|x86.ActiveCfg = Release|Any CPU
 		{2D68D281-C6ED-4C4A-A44A-3B0DF4505058}.Release|x86.Build.0 = Release|Any CPU
+		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Debug|x64.Build.0 = Debug|Any CPU
+		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Debug|x86.Build.0 = Debug|Any CPU
+		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Release|x64.ActiveCfg = Release|Any CPU
+		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Release|x64.Build.0 = Release|Any CPU
+		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Release|x86.ActiveCfg = Release|Any CPU
+		{2FB65540-00EC-4E77-ACAB-3725F72E005C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@ open System
 
 open FsToolkit.ErrorHandling
 
-open Songhay.Dashboard.Client.Models
+open Songhay.Dashboard.Models
 
 module SyndicationFeedUtility =
 

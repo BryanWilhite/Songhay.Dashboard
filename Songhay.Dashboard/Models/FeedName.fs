@@ -1,4 +1,4 @@
-namespace Songhay.Dashboard.Client.Models
+namespace Songhay.Dashboard.Models
 
 type FeedName =
     | CodePen

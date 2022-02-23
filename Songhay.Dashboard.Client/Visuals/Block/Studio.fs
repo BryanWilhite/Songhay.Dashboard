@@ -5,7 +5,7 @@ open Bolero.Html
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Client
-open Songhay.Dashboard.Client.Models
+open Songhay.Dashboard.Models
 open Songhay.Dashboard.Client.Visuals.Button
 
 let studioLogo =

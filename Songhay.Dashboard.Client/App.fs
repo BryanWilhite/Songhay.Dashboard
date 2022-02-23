@@ -3,7 +3,7 @@ module Songhay.Dashboard.Client.App
 open System
 
 open Songhay.Modules.Models
-open Songhay.Dashboard.Client.Models
+open Songhay.Dashboard.Models
 
 [<Literal>]
 let AppTitle = "SonghaySystem(::)"

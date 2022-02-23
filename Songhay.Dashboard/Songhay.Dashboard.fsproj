@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Include="Models\FeedName.fs" />
+      <Compile Include="Models\VersionData.fs" />
+      <Compile Include="SyndicationFeedUtility.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Songhay.Modules\Songhay.Modules.fsproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
+    </ItemGroup>
+
+</Project>
