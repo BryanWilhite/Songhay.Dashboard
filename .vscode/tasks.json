@@ -12,12 +12,12 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "test [Songhay.Dashboard.Bolero.Tests, filtered by selected text]",
+            "label": "test [Songhay.Dashboard.Server.Tests, filtered by selected text]",
             "command": "dotnet",
             "type": "shell",
             "args": [
                 "test",
-                "${workspaceFolder}/Songhay.Dashboard.Bolero.Tests/Songhay.Dashboard.Bolero.Tests.fsproj",
+                "${workspaceFolder}/Songhay.Dashboard.Server.Tests/Songhay.Dashboard.Server.Tests.fsproj",
                 "--filter:${selectedText}",
                 "--logger:trx",
                 "--results-directory:${workspaceFolder}/TestResults",
