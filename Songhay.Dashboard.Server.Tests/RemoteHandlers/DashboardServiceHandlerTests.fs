@@ -1,4 +1,4 @@
-namespace Songhay.Dashboard.Bolero.Tests.RemoteHandlers
+namespace Songhay.Dashboard.Server.Tests.RemoteHandlers
 
 module DashboardServiceHandlerTests =
 

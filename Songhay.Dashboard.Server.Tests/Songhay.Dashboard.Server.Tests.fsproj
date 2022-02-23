@@ -5,6 +5,7 @@
 
         <IsPackable>false</IsPackable>
         <GenerateProgramFile>false</GenerateProgramFile>
+        <RootNamespace>Songhay.Dashboard.Server.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

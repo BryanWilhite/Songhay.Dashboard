@@ -1,4 +1,4 @@
-namespace Songhay.Dashboard.Bolero.Tests
+namespace Songhay.Dashboard.Server.Tests
 
 module SyndicationFeedTests =
 

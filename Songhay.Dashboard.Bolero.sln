@@ -7,7 +7,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Dashboard.Client", 
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Dashboard.Server", "Songhay.Dashboard.Server\Songhay.Dashboard.Server.fsproj", "{F33CA3ED-6D8C-499F-8C7E-5CB8388E3748}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Dashboard.Bolero.Tests", "Songhay.Dashboard.Bolero.Tests\Songhay.Dashboard.Bolero.Tests.fsproj", "{4C88F9E9-EB63-4AD4-B497-292272B2377E}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Dashboard.Server.Tests", "Songhay.Dashboard.Server.Tests\Songhay.Dashboard.Server.Tests.fsproj", "{4C88F9E9-EB63-4AD4-B497-292272B2377E}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Modules", "Songhay.Modules\Songhay.Modules.fsproj", "{5728940C-98B8-49AE-A2D7-7164D2FDFE57}"
 EndProject
