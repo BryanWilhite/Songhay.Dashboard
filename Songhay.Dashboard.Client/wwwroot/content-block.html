@@ -14,16 +14,16 @@
                     <div>${Error}</div>
                 </div>
 
-                <template id="ErrorNotification">
-                    <div class="notification is-warning">
-                        <button class="delete ${HideClass}" onclick="${Hide}"></button>
-                        ${Text}
-                    </div>
-                </template>
-
             </div>
         </div>
         <div class="column">
+            <template id="ErrorNotification">
+                <div class="notification is-warning">
+                    <button class="delete ${HideClass}" onclick="${Hide}"></button>
+                    ${Text}
+                </div>
+            </template>
+
             <div class="tile is-ancestor">
 
                 ${Content}
@@ -31,4 +31,5 @@
             </div>
         </div>
     </div>
+    ${YouTubeThumbs}
 </div>

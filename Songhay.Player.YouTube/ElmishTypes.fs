@@ -2,13 +2,13 @@ namespace Songhay.Player.YouTube
 
 open Songhay.Player.YouTube.Models
 
-type Model =
+type YouTubeModel =
     {
         Error: string option
         YouTubeItems: YouTubeItem[] option
     }
 
-type Message =
+type YouTubeMessage =
     | ClearError
     | Error of exn
     | CallDataStore | CalledDataStore of YouTubeItem[] option

@@ -3,6 +3,8 @@ module Songhay.Dashboard.Client.Templates.ContentBlock
 open Bolero
 open Bolero.Html
 
+open Songhay.Player.YouTube
+
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Visuals
 
@@ -12,11 +14,6 @@ let viewContentBlockTemplate jsRuntime model dispatch =
     ContentBlockTemplate()
         .StudioComponentNode(Tile.studioComponentNode)
         .StudioLinksNode(Tile.studioLinksNode)
-        .Content(
-            cond model.page <| function
-            | StudioFeedsPage -> Tile.studioPageNode (Block.StudioFeeds.studioFeedsNodes jsRuntime model)
-            | StudioToolsPage -> Tile.studioPageNode [ Block.StudioTools.studioToolsNode() ]
-        )
         .Error(
             cond model.error <| function
             | None -> empty
@@ -26,4 +23,10 @@ let viewContentBlockTemplate jsRuntime model dispatch =
                     .Hide(fun _ -> dispatch ClearError)
                     .Elt()
         )
+        .Content(
+            cond model.page <| function
+            | StudioFeedsPage -> Tile.studioPageNode (Block.StudioFeeds.studioFeedsNodes jsRuntime model)
+            | StudioToolsPage -> Tile.studioPageNode [ Block.StudioTools.studioToolsNode() ]
+        )
+        .YouTubeThumbs(empty)
         .Elt()

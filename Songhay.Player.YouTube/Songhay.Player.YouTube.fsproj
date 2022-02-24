@@ -6,13 +6,17 @@
         <PackageReference Include="Bolero" Version="0.*" />
     </ItemGroup>
     <ItemGroup>
-      <Compile Include="Models/YouTubeResourceId.fs" />
-      <Compile Include="Models/YouTubeThumbnails.fs" />
-      <Compile Include="Models/YouTubeSnippet.fs" />
-      <Compile Include="Models/YouTubeContentDetails.fs" />
-      <Compile Include="Models/YouTubeItem.fs" />
-      <Compile Include="ElmishTypes.fs" />
-      <Compile Include="PlayerThumbs.fs" />
+        <Compile Include="Models\YouTubeResourceId.fs" />
+        <Compile Include="Models\YouTubeThumbnails.fs" />
+        <Compile Include="Models\YouTubeSnippet.fs" />
+        <Compile Include="Models\YouTubeContentDetails.fs" />
+        <Compile Include="Models\YouTubeItem.fs" />
+        <Compile Include="ElmishTypes.fs" />
+        <Compile Include="Visuals\Block\YtPresentation.fs" />
+        <Compile Include="Visuals\Block\YtThumbs.fs" />
+        <Compile Include="Visuals\Block\YtThumbsNavigation.fs" />
+        <Content Include="Templates\yt-thumbs-set.html" />
+        <Compile Include="YtThumbsSetComponent.fs" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Songhay.Modules\Songhay.Modules.fsproj" />
