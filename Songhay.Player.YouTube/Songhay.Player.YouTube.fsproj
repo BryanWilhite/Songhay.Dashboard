@@ -15,7 +15,10 @@
         <Compile Include="Visuals\Block\YtPresentation.fs" />
         <Compile Include="Visuals\Block\YtThumbs.fs" />
         <Compile Include="Visuals\Block\YtThumbsNavigation.fs" />
+        <Content Include="Templates\yt-thumbs.html" />
+        <Compile Include="Templates\YtThumbsTemplate.fs" />
         <Content Include="Templates\yt-thumbs-set.html" />
+        <Compile Include="Templates\YtThumbsSetTemplate.fs" />
         <Compile Include="YtThumbsSetComponent.fs" />
     </ItemGroup>
     <ItemGroup>
