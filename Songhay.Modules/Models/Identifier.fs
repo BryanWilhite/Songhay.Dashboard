@@ -9,6 +9,10 @@ type Identifier =
     | Alphanumeric of string
     | Numeric of int
 
+    static member fromInt32 i = Numeric i
+
+    static member fromString s = Alphanumeric s
+
     member this.Int32Value =
         match this with
         | Alphanumeric a ->

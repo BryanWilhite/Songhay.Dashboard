@@ -8,8 +8,6 @@ open Elmish
 open Bolero
 open Bolero.Remoting.Client
 
-open Songhay.Player.YouTube.Templates.YtThumbsSet
-
 let initModel =
     {
         Error = None
@@ -24,8 +22,7 @@ let update message model =
     | CalledDataStore _ -> { model with Error = None }, Cmd.none
 
 let view (jsRuntime: IJSRuntime) model dispatch =
-    viewYtThumbsSetTemplate jsRuntime model dispatch
-
+    Empty
 
 type YtThumbsSetComponent() =
     inherit ProgramComponent<YouTubeModel, YouTubeMessage>()
