@@ -6,6 +6,7 @@ open Microsoft.JSInterop
 open Elmish
 
 open Bolero
+open Bolero.Html
 open Bolero.Remoting.Client
 
 let initModel =
@@ -21,19 +22,15 @@ let update message model =
     | CallDataStore -> { model with Error = None }, Cmd.none
     | CalledDataStore _ -> { model with Error = None }, Cmd.none
 
-let view (jsRuntime: IJSRuntime) model dispatch =
-    Empty
-
 type YtThumbsSetComponent() =
-    inherit ProgramComponent<YouTubeModel, YouTubeMessage>()
+    inherit ElmishComponent<YouTubeModel, YouTubeMessage>()
 
     static member val Id = "yt-thumbs-set-block" with get
 
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
-    override this.Program =
-        let init = (fun _ -> initModel, Cmd.none)
-        let view = view this.JSRuntime
+    override _.View model dispatch = Empty
 
-        Program.mkProgram init update view
+let view (model: YouTubeModel) dispatch =
+    ecomp<YtThumbsSetComponent, _, _> [] model dispatch
