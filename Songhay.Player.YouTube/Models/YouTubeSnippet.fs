@@ -20,7 +20,7 @@ type YouTubeSnippet = {
 
     playlistId: string
 
-    position: int
+    position: int option
 
     publishedAt: DateTime
 

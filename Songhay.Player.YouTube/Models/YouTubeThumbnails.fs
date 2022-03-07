@@ -10,6 +10,6 @@ type YouTubeThumbnails = {
     ``default``: YouTubeThumbnail
     medium: YouTubeThumbnail
     high: YouTubeThumbnail
-    standard: YouTubeThumbnail
-    maxres: YouTubeThumbnail
+    standard: YouTubeThumbnail option
+    maxres: YouTubeThumbnail option
 }
