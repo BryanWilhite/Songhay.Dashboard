@@ -1,0 +1,111 @@
+{
+    "kind": "youtube#videoListResponse",
+    "etag": "\"sZ5p5Mo8dPpfIzLYQBF8QIQJym0/kDXgJ3q2F5SeUt4aTKbViPYux94\"",
+    "pageInfo": { "totalResults": 2, "resultsPerPage": 2 },
+    "items": [
+        {
+            "kind": "youtube#video",
+            "etag": "\"sZ5p5Mo8dPpfIzLYQBF8QIQJym0/PhhGZV9Qq8c9R63q97sBValv55A\"",
+            "id": "4Z-o5r47dDI",
+            "snippet": {
+                "publishedAt": "2008-03-29T01:58:48Z",
+                "channelId": "UCgUHHtnVSBYpgQr8X-2TzCA",
+                "title": "David Bowie - Dick Cavett, PART 2",
+                "description": "THE DICK CAVETT SHOW\r\nEpisode No.1539, Season No.7.\r\nFilmed at the ABC Studios, New York, on 2nd December 1974.\r\nFirst Aired: Thursday 5th December 1974.\r\n\r\nDuring the late 60s' and early 70s', The Dick Cavett Show was beloved by critics and hailed as an intelligent alternative to the other more frothy interview shows. In addition to the standard-fare celebrities, he often booked controversial and opinionated guests like Gore Vidal, Timothy Leary and Georgia's segregationist governor Lester Maddox. This occasionally led to fireworks between the host and guests: Maddox stormed off when he was asked to defend his views; Cavett once said to a condescending Norman Mailer, \"Why don't you fold it five ways and put it where the moon don't shine?\"!\r\n\r\nHis late-night series also booked musical guests that shows like Tonight and Merv tended to ignore, namely rock acts. Now-legendary performers like Ravi Shankar, Paul Simon and Sly Stone appeared to sing and chat.\r\n\r\nCavett was occasionally able to devote a whole show, or more, to one guest. This yielded memorable interviews with the likes of Groucho Marx, Katharine Hepburn, Lawrence Olivier and Orson Welles. \r\n\r\nCavett also held the distinction of being the only show to have a guest die during it. Organic farming advocate J.I. Rodale had moved \"down the couch\" after his interview. Cavett, assuming he had dozed off during the chat with the next guest, asked, \"Are we boring you, Mr. Rodale?\". Rodale had passed away from a heart attack; the show did not air. \r\n\r\nDespite the acclaim, his series were chronically plagued with low ratings, coming in a distant third place to Carson and CBS.\r\n\r\nSeveral series aired under the general title of The Dick Cavett Show. First was a 90-minute weekday program on ABC daytime, airing March 1968-January 1969. This was followed by a Monday/Tuesday/Friday ABC prime-time series from May-September 1969. Next came his best remembered program, the late-night ABC series airing weeknights from December 1969-December 1972. Beginning in January 1973, that series aired as an occasional part of the network's ABC's Wide World of Entertainment, an umbrella title for various series, concerts, and specials running in late-night. His show remained in this rotation through to January 1, 1975. Next came a half-hour PBS interview program running from 1977-1982. He returned to his old home ABC one more time from September-December of 1986.\r\n\r\nCavett's theme song which was used regularly throughout the years, was called 'Glitter And Be Gay' and is from part of the Candide overture by Leonard Bernstein.\r\n\r\nDick's guests in this particular episode were British actor Roy Dotrice (not shown in this video) and David Bowie. David performed '1984' and 'Young Americans'. Dick then interviewed David, then David finished his appearance by performing 'Footstompin'. Another song 'Can You Hear Me?' was not televised, due to broadcast time limitations.\r\n\r\nIn Roy Dotrice's appearance, he presented portions of his one-man show 'Brief Lives' in which he portrayed 17th century diarist John Aubrey.\r\n\r\nFOR A COMPLETE DICK CAVETT SHOW EPISODE SUMMARY:\r\nhttp://www.tv.com/the-dick-cavett-show/show/11188/episode...\r\n\r\nFOR FURTHER INFORMATION ON DICK CAVETT'S TV SHOWS: http://en.wikipedia.org/wiki/Dick_cavett_show",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/4Z-o5r47dDI/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/4Z-o5r47dDI/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/4Z-o5r47dDI/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "davidcantello",
+                "tags": ["David", "Bowie", "Dick", "Cavett", "1974"],
+                "categoryId": "10",
+                "liveBroadcastContent": "none",
+                "localized": {
+                    "title": "David Bowie - Dick Cavett, PART 2",
+                    "description": "THE DICK CAVETT SHOW\r\nEpisode No.1539, Season No.7.\r\nFilmed at the ABC Studios, New York, on 2nd December 1974.\r\nFirst Aired: Thursday 5th December 1974.\r\n\r\nDuring the late 60s' and early 70s', The Dick Cavett Show was beloved by critics and hailed as an intelligent alternative to the other more frothy interview shows. In addition to the standard-fare celebrities, he often booked controversial and opinionated guests like Gore Vidal, Timothy Leary and Georgia's segregationist governor Lester Maddox. This occasionally led to fireworks between the host and guests: Maddox stormed off when he was asked to defend his views; Cavett once said to a condescending Norman Mailer, \"Why don't you fold it five ways and put it where the moon don't shine?\"!\r\n\r\nHis late-night series also booked musical guests that shows like Tonight and Merv tended to ignore, namely rock acts. Now-legendary performers like Ravi Shankar, Paul Simon and Sly Stone appeared to sing and chat.\r\n\r\nCavett was occasionally able to devote a whole show, or more, to one guest. This yielded memorable interviews with the likes of Groucho Marx, Katharine Hepburn, Lawrence Olivier and Orson Welles. \r\n\r\nCavett also held the distinction of being the only show to have a guest die during it. Organic farming advocate J.I. Rodale had moved \"down the couch\" after his interview. Cavett, assuming he had dozed off during the chat with the next guest, asked, \"Are we boring you, Mr. Rodale?\". Rodale had passed away from a heart attack; the show did not air. \r\n\r\nDespite the acclaim, his series were chronically plagued with low ratings, coming in a distant third place to Carson and CBS.\r\n\r\nSeveral series aired under the general title of The Dick Cavett Show. First was a 90-minute weekday program on ABC daytime, airing March 1968-January 1969. This was followed by a Monday/Tuesday/Friday ABC prime-time series from May-September 1969. Next came his best remembered program, the late-night ABC series airing weeknights from December 1969-December 1972. Beginning in January 1973, that series aired as an occasional part of the network's ABC's Wide World of Entertainment, an umbrella title for various series, concerts, and specials running in late-night. His show remained in this rotation through to January 1, 1975. Next came a half-hour PBS interview program running from 1977-1982. He returned to his old home ABC one more time from September-December of 1986.\r\n\r\nCavett's theme song which was used regularly throughout the years, was called 'Glitter And Be Gay' and is from part of the Candide overture by Leonard Bernstein.\r\n\r\nDick's guests in this particular episode were British actor Roy Dotrice (not shown in this video) and David Bowie. David performed '1984' and 'Young Americans'. Dick then interviewed David, then David finished his appearance by performing 'Footstompin'. Another song 'Can You Hear Me?' was not televised, due to broadcast time limitations.\r\n\r\nIn Roy Dotrice's appearance, he presented portions of his one-man show 'Brief Lives' in which he portrayed 17th century diarist John Aubrey.\r\n\r\nFOR A COMPLETE DICK CAVETT SHOW EPISODE SUMMARY:\r\nhttp://www.tv.com/the-dick-cavett-show/show/11188/episode...\r\n\r\nFOR FURTHER INFORMATION ON DICK CAVETT'S TV SHOWS: http://en.wikipedia.org/wiki/Dick_cavett_show"
+                }
+            },
+            "contentDetails": {
+                "duration": "PT5M32S",
+                "dimension": "2d",
+                "definition": "sd",
+                "caption": "false",
+                "licensedContent": false,
+                "projection": "rectangular"
+            },
+            "status": {
+                "uploadStatus": "rejected",
+                "rejectionReason": "uploaderAccountSuspended",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true
+            }
+        },
+        {
+            "kind": "youtube#video",
+            "etag": "\"sZ5p5Mo8dPpfIzLYQBF8QIQJym0/eRi6GEGxj8DQII2g6nWARBRxcYs\"",
+            "id": "w6l8zrsf4LY",
+            "snippet": {
+                "publishedAt": "2006-12-07T12:43:12Z",
+                "channelId": "UCno7Tv7mEtvhH_uY9XbIStQ",
+                "title": "Life On Mars",
+                "description": "Seu Jorge",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/w6l8zrsf4LY/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/w6l8zrsf4LY/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/w6l8zrsf4LY/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "bloggocentricidades",
+                "tags": ["Seu", "Jorge", "Mars"],
+                "categoryId": "10",
+                "liveBroadcastContent": "none",
+                "localized": {
+                    "title": "Life On Mars",
+                    "description": "Seu Jorge"
+                }
+            },
+            "contentDetails": {
+                "duration": "PT4M17S",
+                "dimension": "2d",
+                "definition": "sd",
+                "caption": "false",
+                "licensedContent": false,
+                "regionRestriction": { "blocked": ["DE"] },
+                "projection": "rectangular"
+            },
+            "status": {
+                "uploadStatus": "processed",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true
+            }
+        }
+    ]
+}

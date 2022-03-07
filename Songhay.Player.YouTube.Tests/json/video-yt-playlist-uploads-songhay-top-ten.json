@@ -1,0 +1,489 @@
+{
+    "items": [
+        {
+            "kind": "youtube#video",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/12oqqQQkohhhepXVyxcgqyovjp4\"",
+            "id": "b_poYa7insk",
+            "snippet": {
+                "publishedAt": "2019-03-23T22:53:52Z",
+                "channelId": "UCzOKcMln-okHDLE6BgXw3Hg",
+                "title": "First Look at Microsoft's Upcoming Edge Browser Based on Chromium",
+                "description": "In a few weeks, Microsoft will release a new web browser based on Chromium but I got my hands on it a bit early.\nFull Writeup: https://www.thurrott.com/microsoft/203601/hands-on-with-microsofts-new-edge-browser-built-on-chromium",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/b_poYa7insk/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/b_poYa7insk/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/b_poYa7insk/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/b_poYa7insk/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/b_poYa7insk/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Brad Sams",
+                "playlistId": "UUzOKcMln-okHDLE6BgXw3Hg",
+                "position": 0,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "b_poYa7insk"
+                }
+            },
+            "contentDetails": {
+                "videoId": "b_poYa7insk",
+                "videoPublishedAt": "2019-03-23T22:53:52Z",
+                "duration": "PT5M27S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": true,
+                "projection": "rectangular"
+            }
+        },
+        {
+            "kind": "youtube#video",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/wx_6TyAFf-Id4Wj5SKTHZcU4Cfc\"",
+            "id": "pLp51TtWFX8",
+            "snippet": {
+                "publishedAt": "2019-03-23T19:00:47Z",
+                "channelId": "UCXuqSBlHAE6Xw-yeJA0Tunw",
+                "title": "We kicked Luke out!",
+                "description": "Get an unrestricted 30-day free trial of FreshBooks at https://www.freshbooks.com/techtips\n\nCheck out the Thermaltake A500 case on Amazon at https://lmg.gg/tta500\n\nBuy shelves on Amazon: https://geni.us/AAh7SZ\n\nDiscuss on the forum: https://linustechtips.com/main/topic/1047473-we-kicked-out-luke/\n\nOur Affiliates, Referral Programs, and Sponsors: https://linustechtips.com/main/topic/75969-linus-tech-tips-affiliates-referral-programs-and-sponsors\nGet Private Internet Access today at http://geni.us/7lLuafK\n\nLinus Tech Tips merchandise at http://www.LTTStore.com/ \nLinus Tech Tips posters at http://crowdmade.com/linustechtips\nOur Test Benches on Amazon: https://www.amazon.com/shop/linustechtips \nOur production gear: http://geni.us/cvOS\n\nTwitter - https://twitter.com/linustech\nFacebook - http://www.facebook.com/LinusTech\nInstagram - https://www.instagram.com/linustech\nTwitch - https://www.twitch.tv/linustech \n\nIntro Screen Music Credit:\nTitle: Laszlo - Supernova\nVideo Link: https://www.youtube.com/watch?v=PKfxmFU3lWY\niTunes Download Link: https://itunes.apple.com/us/album/supernova/id936805712\nArtist Link: https://soundcloud.com/laszlomusic\n\nOutro Screen Music Credit: Approaching Nirvana - Sugar High http://www.youtube.com/approachingnirvana",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/pLp51TtWFX8/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/pLp51TtWFX8/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/pLp51TtWFX8/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/pLp51TtWFX8/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/pLp51TtWFX8/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Linus Tech Tips",
+                "playlistId": "UUXuqSBlHAE6Xw-yeJA0Tunw",
+                "position": 0,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "pLp51TtWFX8"
+                }
+            },
+            "contentDetails": {
+                "videoId": "pLp51TtWFX8",
+                "videoPublishedAt": "2019-03-23T19:00:47Z",
+                "duration": "PT18M9S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": true,
+                "projection": "rectangular"
+            }
+        },
+        {
+            "kind": "youtube#video",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/qS1ltPGGbDQYUzyRaDLoZmLsQTs\"",
+            "id": "MiEzir_lVfU",
+            "snippet": {
+                "publishedAt": "2019-03-23T12:15:01Z",
+                "channelId": "UC-oYkx9wyeGc6Sh8tkVlaTw",
+                "title": "5 Things That Every NEW Tesla Owner Should Know - Part Two",
+                "description": "Tech guy and Tesla Fan Terry White shares 5 things that he wishes he had known about his Tesla from day one. This is part two of a multiple part series to expose NEW Tesla owners to features about their car that can be easily overlooked.\n\nGet FREE Supercharging on your new Tesla by ordering it here: http://ts.la/terry6676",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/MiEzir_lVfU/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/MiEzir_lVfU/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/MiEzir_lVfU/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/MiEzir_lVfU/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/MiEzir_lVfU/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Terry White",
+                "playlistId": "UU-oYkx9wyeGc6Sh8tkVlaTw",
+                "position": 0,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "MiEzir_lVfU"
+                }
+            },
+            "contentDetails": {
+                "videoId": "MiEzir_lVfU",
+                "videoPublishedAt": "2019-03-23T12:15:01Z",
+                "duration": "PT3M55S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": true,
+                "projection": "rectangular"
+            }
+        },
+        {
+            "kind": "youtube#video",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/OUj6Pl7_bg563yUJlrlAvNpaqR4\"",
+            "id": "aH2wer-NPVs",
+            "snippet": {
+                "publishedAt": "2019-03-22T21:36:10Z",
+                "channelId": "UCCd3-JX7e8uGZx00i5646jg",
+                "title": "Will Google’s Stream Come True? – DTNS 3494",
+                "description": "Game streaming as a service was major topic at this years GDC. What does it mean for the videogaming landscape and will gamers benefit?\n\nStarring Tom Merritt, Sarah Lane, Roger Chang, Len Peralta, and Trisha Hershberger\n\nSupport Daily Tech News Show! https://www.dailytechnewsshow.com/support\n\nQuick Hits:\nhttps://www.tomshardware.com/news/intel-compute-cards-development-stops,38891.html/\nhttp://www.bloomberg.com/news/articles/2019-03-21/apple-is-said-to-sign-up-vox-site-for-news-subscription-service\nhttps://www.theguardian.com/uk-news/2019/mar/21/facebook-knew-of-cambridge-analytica-data-misuse-earlier-than-reported-court-filing\nhttps://entrackr.com/2019/03/exclusive-tencent-wechat-pay-india/\n\nTop Stories:\nhttps://arstechnica.com/information-technology/2019/03/critical-flaw-lets-hackers-control-lifesaving-devices-implanted-inside-patients/\nhttps://www.geekwire.com/2019/microsoft-university-washington-demonstrate-automated-dna-data-storage/\nhttps://www.polygon.com/2019/3/22/18277229/sony-state-of-play-livestream-time-date-ps4-psvr\nhttps://arstechnica.com/information-technology/2019/03/atts-5g-e-is-actually-slower-than-verizon-and-t-mobile-4g-study-finds/\nhttps://www.theverge.com/2019/3/21/18276181/epic-games-store-exclusives-pc-gaming-fortnite-steve-allison-gdc-2019\n\nhttp://dailytechheadlines.com\n\nDiscussion Story:\nhttps://gizmodo.com/all-the-game-streaming-services-google-stadia-is-up-aga-1833457411\nhttp://www.gamasutra.com/view/news/339138/Report_Walmart_is_looking_to_enter_the_game_streaming_business.php\n\nNews from you: http://dailytechnewsshow.reddit.com\n\nToday’s guest:\nTrisha Hershberger\nhttps://www.twitch.tv/trishahershberger\nhttps://www.youtube.com/trishahershberger\n@thatgrltrish\nLen Peralta\nhttp://patreon.com/len\nhttp://lenperaltastore.com\nhttps://lenperaltastore.com/products/future-of-gaming-dtns-3-22-19-8-5-x-11-artprov-print\n@LenPeralta\n\nhttp://dtns.bigcartel.com\nhttp://www.dailytechnewsshow.com/support\nhttp://www.technology.fm/dtns\nhttp://dtns.tv/wiki\n\nhttp://sarahlane.com\nhttps://twitter.com/sarahlane\nhttps://medium.com/@sarahlane\n\nhttp://tommerrittbooks.com/blog/2018/6/22/gallium\nhttp://swordandlaser.com/store\nhttp://frogpants.com/currentgeek\nhttp://www.cordkillers.com\nhttp://www.damnfinepodcast.com",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/aH2wer-NPVs/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/aH2wer-NPVs/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/aH2wer-NPVs/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "Daily Tech News Show",
+                "playlistId": "UUCd3-JX7e8uGZx00i5646jg",
+                "position": 0,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "aH2wer-NPVs"
+                }
+            },
+            "contentDetails": {
+                "videoId": "aH2wer-NPVs",
+                "videoPublishedAt": "2019-03-22T21:36:10Z",
+                "duration": "PT48M35S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": true,
+                "projection": "rectangular"
+            }
+        },
+        {
+            "kind": "youtube#video",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/iBRCCpbwVaprZr0kCc5C-Vr_o_o\"",
+            "id": "zhwLfv3uqSI",
+            "snippet": {
+                "publishedAt": "2019-03-21T15:29:40Z",
+                "channelId": "UCtKh7t3br1obEQL6EyiAq0w",
+                "title": "PC Perspective Podcast #537 - Division 2 GPU Testing, Google Stadia, and the End of [H]ardOCP",
+                "description": "*Show Topics*\n00:00:22 - Intro\n00:02:10 - Review: Razer Basilisk Essential Gaming Mouse\n00:05:49 - Review: The Division 2 Performance Preview\n00:18:34 - News: Real-Time Ray Tracing for Pascal\n00:29:19 - News: Google Stadia\n00:46:19 - News: GameWorks RTX & Unreal/Unity DXR Support\n00:48:54 - News: Crytek Neon Noir Ray Tracing Demo\n00:50:48 - News: Variable Rate Shading for DirectX 12\n00:54:06 - News: NVIDIA T4 GPUs for the Server Room\n01:00:10 - News: NVIDIA Creator Ready Drivers\n01:04:29 - News: Oculus Rift S\n01:08:39 - News: AMD Immune to SPOILER\n01:18:13 - News: Windows 7 DX12 Support in Adrenalin Drivers\n01:22:32 - News: Kyle Bennett Joins Intel\n01:34:28 - Picks of the Week\n01:44:58 - Outro\n\nToday's sponsor is KiwiCo. Change the way your kids learn and play. Get your first KiwiCo Crate free: https://www.kiwico.com/pcper\n\n*Picks of the Week*\nJim - Cheap Threadripper: https://amzn.to/2CwgWbA\nJeremy - RogueTech Mod for BattleTech: https://www.pcper.com/news/General-Tech/your-fathers-BattleTech\nJosh - Intel 660p SSD: https://amzn.to/2TmLwd9\nSebastian - OCAT 1.4: https://gpuopen.com/ocat-1-4/\n\n*Today's Podcast Hosts*\nSebastian Peak: https://twitter.com/sebastianpeak\nJosh Walrath: https://twitter.com/JoshDWalrath\nJeremy Hellstrom: https://twitter.com/jeremyhellstrom\nJim Tanous: https://twitter.com/JimTanous\n\n#Division2 #Stadia #HardOCP\n\nEditor's Note: I realize I misspelled Kyle's last name in the rundown and said the wrong episode number in the outro. I'm an emotional wreck, OK?",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/zhwLfv3uqSI/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/zhwLfv3uqSI/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/zhwLfv3uqSI/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/zhwLfv3uqSI/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/zhwLfv3uqSI/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "PC Perspective",
+                "playlistId": "UUtKh7t3br1obEQL6EyiAq0w",
+                "position": 0,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "zhwLfv3uqSI"
+                }
+            },
+            "contentDetails": {
+                "videoId": "zhwLfv3uqSI",
+                "videoPublishedAt": "2019-03-21T15:29:40Z",
+                "duration": "PT1H50M11S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": true,
+                "projection": "rectangular"
+            }
+        },
+        {
+            "kind": "youtube#video",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/xLdkcXE8o73dffm8gog1yP-S4h4\"",
+            "id": "NIrOs7x2fac",
+            "snippet": {
+                "publishedAt": "2019-03-21T05:00:05Z",
+                "channelId": "UC1WHdBv9P5tYEGfy-btvYfA",
+                "title": "I Hate Funny - Windows Weekly 613",
+                "description": "HoloLens, Google Stadia, Xbox Live\nToday's special guest: Microsoft engineering GM for mixed reality apps, Lorraine Bardeen.• Let's talk more about what MS is doing with HoloLens, iOS, Android in mixed reality.News of the WeekGoogle• Google announces Stadia, a cloud-based streaming game service that will compete with Microsoft's Project xCloud.• Microsoft will respond at E3.• Google has now been charged with three antitrust violations in the EU - Will it be hobbled like Microsoft was?• Google agrees to let Android users in EU choose their browser, shades of Microsoft's Browser Ballot.Windows 10• 19H1 builds continue to be boring, the end is near. Plus this one. And then these two!• Microsoft kills OneDrive music streaming to the Groove app. Now what?• Huawei says it has made Windows and Android replacements just in case.• Related: Windows 7 users – it wasn't you, it was Microsoft – if your security scans were going crazy this week.• Also: We're all on Edgium/Chredge watch. More leaks (this time, the installer). This thing has to be close to public preview.Office• New logos! Paul has seen them in Windows (Office Insider). Outlook on iOS. And Your Phone on Android.• Microsoft Teams turns 2 (sort of). More new Teams features coming later this year: fake backgrounds, secure private channels, new camera tricks.Xbox• Microsoft should have spun off Xbox a long time ago. Good thing it didn't.• Microsoft brings Xbox Live to Android and iOS. Game Stack is the key.• Cuphead is coming to Nintendo Switch … with Xbox Live.Windows Weekly Tips and picks• Tip of the Week: Join the Halo Insider Program • App pick of the Week: Castbox • Also: Firefox 66 Blocks ALL Auto-Play Content by Default• Enterprise Pick of the week: Windows Defender Application Guard Extensions for Chrome, Firefox• Also: A Little More Info on Windows 10 Removing Faulty Updates• Codename Pick of the Week: Zipline• Beer Pick of the Week: BFM 225th Anniversary BA Saison\n\nHosts: Leo Laporte, Mary Jo Foley, Paul Thurrott\nGuest: Lorraine Bardeen\n\nDownload or subscribe to this show at https://twit.tv/shows/windows-weekly\nCheck out Paul's blog at thurrott.com\nCheck out Mary Jo's blog at AllAboutMicrosoft.com\nThe Windows Weekly theme music is courtesy of Carl Franklin.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/NIrOs7x2fac/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/NIrOs7x2fac/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/NIrOs7x2fac/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/NIrOs7x2fac/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/NIrOs7x2fac/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Windows Weekly",
+                "playlistId": "UU1WHdBv9P5tYEGfy-btvYfA",
+                "position": 0,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "NIrOs7x2fac"
+                }
+            },
+            "contentDetails": {
+                "videoId": "NIrOs7x2fac",
+                "videoPublishedAt": "2019-03-21T05:00:05Z",
+                "duration": "PT2H16M31S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": true,
+                "projection": "rectangular"
+            }
+        },
+        {
+            "kind": "youtube#video",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/Ld8VYUhf2yBooJeDXjVadwoFf-0\"",
+            "id": "KzdLNlCXQSo",
+            "snippet": {
+                "publishedAt": "2019-03-18T22:53:56Z",
+                "channelId": "UCBJycsmduvYEL83R_U4JriQ",
+                "title": "Top 5 Android Q Features!",
+                "description": "Android Q beta is here! Hands-on with the best new features.\n\nTo install Android Q beta: http://android.com/beta\n\nAndroidPolice running list of features: https://goo.gl/x5vjGJ\n\nMKBHD Merch: http://shop.MKBHD.com\n\nVideo Gear I use: http://kit.com/MKBHD/video-gear#recom...\nTech I'm using right now: https://www.amazon.com/shop/MKBHD\n\nIntro Track: Paradise City - Pop Up\nPlaylist of MKBHD Intro music: https://goo.gl/B3AWV5\n\n~\nhttp://twitter.com/MKBHD\nhttp://instagram.com/MKBHD\nhttp://facebook.com/MKBHD",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/KzdLNlCXQSo/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/KzdLNlCXQSo/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/KzdLNlCXQSo/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/KzdLNlCXQSo/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/KzdLNlCXQSo/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Marques Brownlee",
+                "playlistId": "UUBJycsmduvYEL83R_U4JriQ",
+                "position": 0,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "KzdLNlCXQSo"
+                }
+            },
+            "contentDetails": {
+                "videoId": "KzdLNlCXQSo",
+                "videoPublishedAt": "2019-03-18T22:53:56Z",
+                "duration": "PT8M34S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": true,
+                "projection": "rectangular"
+            }
+        },
+        {
+            "kind": "youtube#video",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/mdmnkxBxYKejAZncAxXBFPhqhrM\"",
+            "id": "ZfS27sPsQeM",
+            "snippet": {
+                "publishedAt": "2019-03-18T05:54:56Z",
+                "channelId": "UCagoIYmo_gO1iVaCeeSikEg",
+                "title": "Mollie the Crab - This Week in Tech 710",
+                "description": "Facebook Outage, Tesla Model Y, 5G: do we need it?, and more!\nNews of the Week\n\n--  Tesla Announces Model Y SUV Crossover\n--  Tesla's Many Problems are Due to Musk\n--  Huge Facebook Outage: Why?\n--  Beto O'Rourke, L33T Hacker\n--  Mass Murder on Facebook Live\n--  Warren vs Big Tech: Why She's Wrong\n--  Hey Techies: Uncle Sam Needs You!\n--  Bruce Schneier: The Internet has Split in Three\n--  Google to Launch Game Streaming Service\n--  Google to Stop Making Laptops and Tablets\n--  Apple News/TV Event Coming March 25th\n--  5G Coming this Year, but Why Do We Need It?\n\nHost: Leo Laporte\nGuests: Iain Thomson, Sam Abuelsamid, Matt Cutts\n\nDownload or subscribe to this show at https://twit.tv/shows/this-week-in-tech",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/ZfS27sPsQeM/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/ZfS27sPsQeM/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/ZfS27sPsQeM/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/ZfS27sPsQeM/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/ZfS27sPsQeM/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "This Week in Tech",
+                "playlistId": "UUagoIYmo_gO1iVaCeeSikEg",
+                "position": 0,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "ZfS27sPsQeM"
+                }
+            },
+            "contentDetails": {
+                "videoId": "ZfS27sPsQeM",
+                "videoPublishedAt": "2019-03-18T05:54:56Z",
+                "duration": "PT2H17M38S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": true,
+                "projection": "rectangular"
+            }
+        },
+        {
+            "kind": "youtube#video",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/0KVIx9s--UG1qUgLDfoBVtOmHmg\"",
+            "id": "hA3nyb4fFMQ",
+            "snippet": {
+                "publishedAt": "2019-03-04T16:27:03Z",
+                "channelId": "UCsvdAmvbn2k_1WtUR6hc2Eg",
+                "title": "PDFelement: Ultimate PDF editing tool for Mac",
+                "description": "**Edit PDF with PDFelement Standard at up to 50% off: https://pdf.wondershare.com/promotion/pdfelement-promo-deals.html?utm_source=youtube&utm_medium=cultofmac-XFT&utm_campaign=wspe\n**Download a free trial on Windows/macOS: https://pdf.wondershare.com/?utm_source=youtube&utm_medium=cultofmac-XFT&utm_campaign=wspe\n**PDFelement mobile app (completely free): https://pdf.wondershare.com/pdfelement-app-landing.html?utm_source=youtube&utm_medium=cultofmac-XFT&utm_campaign=wspe\n\nLeander's back, and this week he's sharing his latest secret weapon for Mac: the super-powerful all-in-one PDF editor, PDFelement 6 Pro.\n\nIt's the most powerful and simple PDF solution that changes the way you work with important documents FOREVER.\n#pdfelement #productivity #acrobatalternative\n\nFollow us!\nTwitter: https://twitter.com/cultofmac\nFacebook: https://www.facebook.com/cultofmac\nInstagram: https://instagram.com/cultofmac/",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/hA3nyb4fFMQ/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/hA3nyb4fFMQ/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/hA3nyb4fFMQ/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/hA3nyb4fFMQ/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/hA3nyb4fFMQ/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Cult of Mac",
+                "playlistId": "UUsvdAmvbn2k_1WtUR6hc2Eg",
+                "position": 0,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "hA3nyb4fFMQ"
+                }
+            },
+            "contentDetails": {
+                "videoId": "hA3nyb4fFMQ",
+                "videoPublishedAt": "2019-03-04T16:27:03Z",
+                "duration": "PT3M15S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": true,
+                "projection": "rectangular"
+            }
+        }
+    ]
+}
