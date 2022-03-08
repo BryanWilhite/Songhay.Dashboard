@@ -24,9 +24,9 @@ type YouTubeSnippet = {
 
     publishedAt: DateTime
 
-    resourceId: YouTubeResourceId
+    resourceId: YouTubeResourceId option
 
-    tags: string[]
+    tags: string[] option
 
     thumbnails: YouTubeThumbnails
 

@@ -23,7 +23,7 @@ module YtItemUtilityTests =
         |> DirectoryInfo
 
     let videoJsonDocumentPath =
-        "./json/video-yt-bowie0-videos.json"
+        "./json/60-minutes.json"
         |> tryGetCombinedPath projectDirectoryInfo.FullName
         |> Result.valueOr raiseProgramFileError
 
