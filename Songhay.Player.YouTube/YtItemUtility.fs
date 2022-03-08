@@ -245,10 +245,11 @@ module YtItemUtility =
     let tryGetYtItems (element: JsonElement) =
         element
         |> tryGetProperty YtItemsPropertyName
-        |> Result.either
+        |> Result.bind
             (
                 fun el ->
-                    let items = el.EnumerateArray() |> Array.ofSeq |> Array.map (fun i -> i |> tryGetYouTubeItem)
-                    Ok items
+                    el.EnumerateArray()
+                    |> List.ofSeq
+                    |> List.map (fun i -> i |> tryGetYouTubeItem)
+                    |> List.sequenceResultM
             )
-            Result.Error
