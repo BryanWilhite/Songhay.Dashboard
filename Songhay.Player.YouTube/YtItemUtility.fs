@@ -16,21 +16,21 @@ module YtItemUtility =
     [<Literal>]
     let YtItemsPropertyName = "items"
 
+    [<Literal>]
+    let YtItemSnippetPropertyName = "snippet"
+
+    [<Literal>]
+    let YtItemContentDetailsPropertyName = "contentDetails"
+
+    [<Literal>]
+    let YtItemThumbnailsPropertyName = "thumbnails"
+
     let tryGetYtContentDetails (element: JsonElement) : Result<YouTubeContentDetails, JsonException> =
         let videoIdResult = element |> tryGetProperty "videoId" |> Result.map (fun el -> el.GetString())
         let videoPublishedAtResult =
             element
             |> tryGetProperty "videoPublishedAt"
-            |> Result.either
-                (
-                    fun el ->
-                        let dateTimeString = el.GetString().Trim()
-
-                        match tryParseRfc822DateTime dateTimeString with
-                        | Result.Error _ -> resultError "pubDate"
-                        | Ok rfc822DateTime -> Ok rfc822DateTime
-                )
-                Result.Error
+            |> Result.map ( fun el -> el.GetDateTime() )
         let durationResult = element |> tryGetProperty "duration" |> Result.map (fun el -> el.GetString())
         let dimensionResult = element |> tryGetProperty "dimension" |> Result.map (fun el -> el.GetString())
         let definitionResult = element |> tryGetProperty "definition" |> Result.map (fun el -> el.GetString())
@@ -50,6 +50,7 @@ module YtItemUtility =
         let regionRestrictionResult =
             element
             |> tryGetProperty "regionRestriction"
+            |> Result.bind (tryGetProperty "blocked")
             |> Result.either
                 (
                     fun el ->
@@ -111,7 +112,7 @@ module YtItemUtility =
             Result.Error
 
     let tryGetYtThumbnails (element: JsonElement) =
-        let thumbnailsResult = element |> tryGetProperty "thumbnails" |> Result.map id
+        let thumbnailsResult = element |> tryGetProperty YtItemThumbnailsPropertyName |> Result.map id
 
         let defaultResult = thumbnailsResult |> Result.bind (tryGetProperty "default") |> Result.map id
         let mediumResult = thumbnailsResult |> Result.bind (tryGetProperty "medium") |> Result.map id
@@ -139,6 +140,7 @@ module YtItemUtility =
     let tryGetYtResourceId (element: JsonElement) : Result<YouTubeResourceId, JsonException> =
         element
         |> tryGetProperty "resourceId"
+        |> Result.bind (tryGetProperty "videoId")
         |> Result.map (fun el -> { videoId = el.GetString() })
 
     let tryGetYtSnippet (element: JsonElement)  : Result<YouTubeSnippet, JsonException> =
@@ -146,16 +148,7 @@ module YtItemUtility =
         let publishedAtResult =
             element
             |> tryGetProperty "publishedAt"
-            |> Result.either
-                (
-                    fun pubDateElement ->
-                        let dateTimeString = pubDateElement.GetString().Trim()
-
-                        match tryParseRfc822DateTime dateTimeString with
-                        | Result.Error _ -> resultError "pubDate"
-                        | Ok rfc822DateTime -> Ok rfc822DateTime
-                )
-                Result.Error
+            |> Result.map ( fun el -> el.GetDateTime() )
         let channelIdResult = element |> tryGetProperty "channelId" |> Result.map (fun el -> el.GetString())
         let titleResult = element |> tryGetProperty "title" |> Result.map (fun el -> el.GetString())
         let descriptionResult = element |> tryGetProperty "description" |> Result.map (fun el -> el.GetString())
@@ -218,8 +211,8 @@ module YtItemUtility =
         let etagResult = element |> tryGetProperty "etag" |> Result.map (fun el -> el.GetString())
         let idResult = element |> tryGetProperty "id" |> Result.map (fun el -> el.GetString())
         let kindResult = element |> tryGetProperty "kind" |> Result.map (fun el -> el.GetString())
-        let snippetResult = element |> tryGetProperty "snippet" |> Result.bind tryGetYtSnippet
-        let contentDetailsResult = element |> tryGetProperty "contentDetails" |> Result.bind tryGetYtContentDetails
+        let snippetResult = element |> tryGetProperty YtItemSnippetPropertyName |> Result.bind tryGetYtSnippet
+        let contentDetailsResult = element |> tryGetProperty YtItemContentDetailsPropertyName |> Result.bind tryGetYtContentDetails
 
         [
             etagResult |> Result.map (fun _ -> true)
