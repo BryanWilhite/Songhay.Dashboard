@@ -16,7 +16,7 @@ module YtItemUtility =
     [<Literal>]
     let YtItemsPropertyName = "items"
 
-    let tryGetYouTubeContentDetails (element: JsonElement) : Result<YouTubeContentDetails, JsonException> =
+    let tryGetYtContentDetails (element: JsonElement) : Result<YouTubeContentDetails, JsonException> =
         let videoIdResult = element |> tryGetProperty "videoId" |> Result.map (fun el -> el.GetString())
         let videoPublishedAtResult =
             element
@@ -88,7 +88,7 @@ module YtItemUtility =
             )
             Result.Error
 
-    let tryGetYouTubeThumbnail (element: JsonElement) : Result<YouTubeThumbnail, JsonException> =
+    let tryGetYtThumbnail (element: JsonElement) : Result<YouTubeThumbnail, JsonException> =
         let urlResult = element |> tryGetProperty "url" |> Result.map (fun el -> el.GetString())
         let widthResult = element |> tryGetProperty "width" |> Result.map (fun el -> el.GetInt32())
         let heightResult = element |> tryGetProperty "height" |> Result.map (fun el -> el.GetInt32())
@@ -110,7 +110,7 @@ module YtItemUtility =
             )
             Result.Error
 
-    let tryGetYouTubeThumbnails (element: JsonElement) =
+    let tryGetYtThumbnails (element: JsonElement) =
         let thumbnailsResult = element |> tryGetProperty "thumbnails" |> Result.map id
 
         let defaultResult = thumbnailsResult |> Result.bind (tryGetProperty "default") |> Result.map id
@@ -127,21 +127,21 @@ module YtItemUtility =
             (
                 fun _ ->
                     Ok {
-                        ``default`` = defaultResult |> Result.bind tryGetYouTubeThumbnail |> Result.valueOr raise
-                        medium = mediumResult |> Result.bind tryGetYouTubeThumbnail |> Result.valueOr raise
-                        high = highResult |> Result.bind tryGetYouTubeThumbnail |> Result.valueOr raise
+                        ``default`` = defaultResult |> Result.bind tryGetYtThumbnail |> Result.valueOr raise
+                        medium = mediumResult |> Result.bind tryGetYtThumbnail |> Result.valueOr raise
+                        high = highResult |> Result.bind tryGetYtThumbnail |> Result.valueOr raise
                         standard = None
                         maxres = None
                     }
             )
             Result.Error
 
-    let tryGetYouTubeResourceId (element: JsonElement) : Result<YouTubeResourceId, JsonException> =
+    let tryGetYtResourceId (element: JsonElement) : Result<YouTubeResourceId, JsonException> =
         element
         |> tryGetProperty "resourceId"
         |> Result.map (fun el -> { videoId = el.GetString() })
 
-    let tryGetYouTubeSnippet (element: JsonElement)  : Result<YouTubeSnippet, JsonException> =
+    let tryGetYtSnippet (element: JsonElement)  : Result<YouTubeSnippet, JsonException> =
 
         let publishedAtResult =
             element
@@ -159,11 +159,11 @@ module YtItemUtility =
         let channelIdResult = element |> tryGetProperty "channelId" |> Result.map (fun el -> el.GetString())
         let titleResult = element |> tryGetProperty "title" |> Result.map (fun el -> el.GetString())
         let descriptionResult = element |> tryGetProperty "description" |> Result.map (fun el -> el.GetString())
-        let thumbnailsResult = element |> tryGetYouTubeThumbnails
+        let thumbnailsResult = element |> tryGetYtThumbnails
         let channelTitleResult = element |> tryGetProperty "channelTitle" |> Result.map (fun el -> el.GetString())
         let playlistIdResult = element |> tryGetProperty "playlistId" |> Result.map (fun el -> el.GetString())
         let positionResult = element |> tryGetProperty "position" |> Result.map (fun el -> el.GetInt32())
-        let resourceIdResult = element |> tryGetYouTubeResourceId
+        let resourceIdResult = element |> tryGetYtResourceId
         let tagsResult =
             element
             |> tryGetProperty "tags"
@@ -214,12 +214,12 @@ module YtItemUtility =
             )
             Result.Error
 
-    let tryGetYouTubeItem (element: JsonElement) : Result<YouTubeItem, JsonException> =
+    let tryGetYtItem (element: JsonElement) : Result<YouTubeItem, JsonException> =
         let etagResult = element |> tryGetProperty "etag" |> Result.map (fun el -> el.GetString())
         let idResult = element |> tryGetProperty "id" |> Result.map (fun el -> el.GetString())
         let kindResult = element |> tryGetProperty "kind" |> Result.map (fun el -> el.GetString())
-        let snippetResult = element |> tryGetProperty "snippet" |> Result.bind tryGetYouTubeSnippet
-        let contentDetailsResult = element |> tryGetProperty "contentDetails" |> Result.bind tryGetYouTubeContentDetails
+        let snippetResult = element |> tryGetProperty "snippet" |> Result.bind tryGetYtSnippet
+        let contentDetailsResult = element |> tryGetProperty "contentDetails" |> Result.bind tryGetYtContentDetails
 
         [
             etagResult |> Result.map (fun _ -> true)
@@ -250,6 +250,6 @@ module YtItemUtility =
                 fun el ->
                     el.EnumerateArray()
                     |> List.ofSeq
-                    |> List.map (fun i -> i |> tryGetYouTubeItem)
+                    |> List.map (fun i -> i |> tryGetYtItem)
                     |> List.sequenceResultM
             )
