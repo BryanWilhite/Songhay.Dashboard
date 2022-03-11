@@ -21,24 +21,26 @@ let initModel =
         error = None
         feeds = None
         page = StudioToolsPage
+        playerYt = None
     }
 
-let update remote message model =
+let update remote (message: Message) (model: Model) =
     match message with
-    | ClearError -> { model with error = None }, Cmd.none
-    | Error exn -> { model with error = Some exn.Message }, Cmd.none
-    | GetFeeds ->
+    | Message.ClearError -> { model with error = None }, Cmd.none
+    | Message.Error exn -> { model with error = Some exn.Message }, Cmd.none
+    | Message.GetFeeds ->
         let uri = App.AppDataLocation |> Uri
-        let cmd = Cmd.OfAsync.either remote.getAppData uri GotFeeds Error
+        let cmd = Cmd.OfAsync.either remote.getAppData uri GotFeeds Message.Error
         { model with feeds = None }, cmd
-    | GotFeeds feeds -> { model with feeds = feeds }, Cmd.none
-    | SetPage page ->
+    | Message.GotFeeds feeds -> { model with feeds = feeds }, Cmd.none
+    | Message.SetPage page ->
         let m = { model with page = page }
         match page with
         | StudioFeedsPage -> m , Cmd.ofMsg GetFeeds
         | _ -> m, Cmd.none
+    | YouTubeMessage -> { model with playerYt = model.playerYt }, Cmd.none
 
-let view (jsRuntime: IJSRuntime) model dispatch =
+let view (jsRuntime: IJSRuntime) (model: Model) dispatch =
     viewContentBlockTemplate jsRuntime model dispatch
 
 type ContentBlockComponent() =

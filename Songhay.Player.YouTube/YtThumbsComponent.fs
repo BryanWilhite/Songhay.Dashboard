@@ -18,5 +18,8 @@ type YtThumbsComponent() =
 
     override _.View model dispatch = ytThumbsNode
 
-let view (model: YouTubeModel) dispatch =
-    ecomp<YtThumbsComponent, _, _> [] model dispatch
+let view (model: YouTubeModel option) dispatch =
+    if model.IsSome then
+        ecomp<YtThumbsComponent, _, _> [] model.Value dispatch
+    else
+        empty

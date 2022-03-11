@@ -5,11 +5,11 @@ open Bolero.Html
 
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Visuals
-open Songhay.Player.YouTube.YtThumbs
+open Songhay.Player.YouTube
 
 type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
-let viewContentBlockTemplate jsRuntime model dispatch =
+let viewContentBlockTemplate jsRuntime (model: Model) dispatch =
     ContentBlockTemplate()
         .StudioComponentNode(Tile.studioComponentNode)
         .StudioLinksNode(Tile.studioLinksNode)
@@ -19,7 +19,7 @@ let viewContentBlockTemplate jsRuntime model dispatch =
             | Some err ->
                 ContentBlockTemplate.ErrorNotification()
                     .Text(err)
-                    .Hide(fun _ -> dispatch ClearError)
+                    .Hide(fun _ -> dispatch Message.ClearError)
                     .Elt()
         )
         .Content(
@@ -27,5 +27,5 @@ let viewContentBlockTemplate jsRuntime model dispatch =
             | StudioFeedsPage -> Tile.studioPageNode (Block.StudioFeeds.studioFeedsNodes jsRuntime model)
             | StudioToolsPage -> Tile.studioPageNode [ Block.StudioTools.studioToolsNode() ]
         )
-        .YouTubeThumbs(YtThumbsComponent().Render())
+        .YouTubeThumbs(YtThumbs.view model.playerYt (fun _ -> ()))
         .Elt()
