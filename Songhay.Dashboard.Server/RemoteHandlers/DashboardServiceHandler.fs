@@ -27,19 +27,27 @@ type DashboardServiceHandler(client: HttpClient,
                              cache: IMemoryCache) =
     inherit RemoteHandler<DashboardService>()
 
-    static member getOutputResult (logger: ILogger) response =
+    static member getOutputResultAsync (logger: ILogger) (responseResult: Result<HttpResponseMessage,exn>) =
         task {
-            let! jsonResult = response |> tryDownloadToStringAsync
+            match responseResult with
+            | Result.Error err ->
+                logger.LogError(err.Message, err.GetType().FullName, err.Source, err.StackTrace)
+                return None
 
-            return // TODO: use `logger` in `mapError`
-                jsonResult
-                |> Result.mapError (fun code -> exn (code.ToString()))
-                |> Result.bind (fun json -> json |> tryGetRootElement)
-                |> Result.mapError (fun err -> JsonException err.Message)
-                |> Result.bind (fun el -> el |> fromInput)
-                |> Result.map (fun input -> input |> List.toArray)
-                |> Option.ofResult
+            | Result.Ok response ->
+
+                let! jsonResult = response |> tryDownloadToStringAsync
+
+                return // TODO: use `logger` in `mapError`
+                    jsonResult
+                    |> Result.mapError (fun code -> exn (code.ToString()))
+                    |> Result.bind (fun json -> json |> tryGetRootElement)
+                    |> Result.mapError (fun err -> JsonException err.Message)
+                    |> Result.bind (fun el -> el |> fromInput)
+                    |> Result.map (fun input -> input |> List.toArray)
+                    |> Option.ofResult
         }
+
     override this.Handler =
         {
             getAppData = fun uri -> async {
@@ -49,18 +57,9 @@ type DashboardServiceHandler(client: HttpClient,
                 | false, _ ->
                     logger.LogInformation($"calling {uri.OriginalString}...")
 
-                    let! responseResult =
-                        client
-                        |> trySendAsync (get uri)
-                        |> Async.AwaitTask
+                    let! responseResult = client |> trySendAsync (get uri) |> Async.AwaitTask
 
-                    let! output =
-                        match responseResult with
-                        | Result.Error err ->
-                            logger.LogError(err.Message, err.GetType().FullName, err.Source, err.StackTrace)
-                            Task.FromResult(None) |> Async.AwaitTask
-                        | Result.Ok response ->
-                            response |> (DashboardServiceHandler.getOutputResult logger) |> Async.AwaitTask
+                    let! output = responseResult |> (DashboardServiceHandler.getOutputResultAsync logger) |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(5));
                     cache.Set(StudioFeedsPage, output, cacheEntryOptions) |> ignore
