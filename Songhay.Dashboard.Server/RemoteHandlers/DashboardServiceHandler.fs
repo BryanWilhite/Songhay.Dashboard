@@ -2,10 +2,14 @@ namespace Songhay.Dashboard.Server.RemoteHandlers
 
 open System
 open System.Net.Http
+open System.Text.Json
 open System.Threading.Tasks
 open Microsoft.Extensions.Caching.Memory
 open Microsoft.Extensions.Logging
+open Microsoft.FSharp.Collections
 open Microsoft.FSharp.Core
+
+open FsToolkit.ErrorHandling
 
 open Bolero.Remoting.Server
 
@@ -23,19 +27,18 @@ type DashboardServiceHandler(client: HttpClient,
                              cache: IMemoryCache) =
     inherit RemoteHandler<DashboardService>()
 
-    static member getOutputResult response =
+    static member getOutputResult (logger: ILogger) response =
         task {
             let! jsonResult = response |> tryDownloadToStringAsync
-            return
-                match jsonResult with
-                | Result.Error _ -> None
-                | Result.Ok json ->
-                    match json |> tryGetRootElement with
-                    | Result.Error _ -> None
-                    | Result.Ok jsonElement ->
-                        match jsonElement |> fromInput with
-                        | Result.Error _ -> None
-                        | Result.Ok input -> input |> List.toArray |> Option.ofObj
+
+            return // TODO: use `logger` in `mapError`
+                jsonResult
+                |> Result.mapError (fun code -> exn (code.ToString()))
+                |> Result.bind (fun json -> json |> tryGetRootElement)
+                |> Result.mapError (fun err -> JsonException err.Message)
+                |> Result.bind (fun el -> el |> fromInput)
+                |> Result.map (fun input -> input |> List.toArray)
+                |> Option.ofResult
         }
     override this.Handler =
         {
@@ -56,7 +59,8 @@ type DashboardServiceHandler(client: HttpClient,
                         | Result.Error err ->
                             logger.LogError(err.Message, err.GetType().FullName, err.Source, err.StackTrace)
                             Task.FromResult(None) |> Async.AwaitTask
-                        | Result.Ok response -> (DashboardServiceHandler.getOutputResult response) |> Async.AwaitTask
+                        | Result.Ok response ->
+                            response |> (DashboardServiceHandler.getOutputResult logger) |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(5));
                     cache.Set(StudioFeedsPage, output, cacheEntryOptions) |> ignore
