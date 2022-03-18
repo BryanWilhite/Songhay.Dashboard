@@ -1,0 +1,29 @@
+h1 {
+    background-color: var(--thumbs-set-background-color);
+    font-size: 2.4rem;
+    padding: 1rem;
+    position: var(--thumbs-set-header-position);
+    width: 100%;
+    z-index: 3;
+
+    & > span {
+        color: var(--thumbs-set-header-color);
+        display: inline-block;
+        vertical-align: bottom;
+    }
+
+    & > button {
+        display: inline-block;
+        opacity: 0.5;
+
+        & .icon {
+            & svg {
+                transform: scale(2);
+            }
+        }
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}
