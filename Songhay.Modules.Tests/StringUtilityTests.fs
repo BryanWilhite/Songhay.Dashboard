@@ -27,6 +27,17 @@ module StringUtilityTests =
         | None ->
             nameof None |> should equal expectedResult
 
+    [<Theory>]
+    [<InlineData("OneTwoThree", "one-two-three")>]
+    [<InlineData("one-two-three", "one-two-three")>]
+    [<InlineData("", "None")>]
+    let ``toSnakeCase test`` (input: string) (expectedResult: string) =
+        match input |> toSnakeCase with
+        | Some actual ->
+            actual |> should equal expectedResult
+        | None ->
+            nameof None |> should equal expectedResult
+
     [<Fact>]
     let ``tryRegexReplace ArgumentNullException test`` () =
         let test (pattern: string) (replace: string) (input: string) =
