@@ -2,6 +2,9 @@ namespace Songhay.Player.YouTube.Models
 
 open Songhay.Modules.StringUtility
 
+/// <summary>
+/// styling variables for this App
+/// </summary>
 type YouTubeCssVariable =
     | ThumbsHeaderLinkColor of string
     | ThumbsHeaderLinkTextDecoration of string
