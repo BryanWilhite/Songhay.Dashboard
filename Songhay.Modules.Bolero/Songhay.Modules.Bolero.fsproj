@@ -7,6 +7,7 @@
 
     <ItemGroup>
       <Compile Include="BoleroUtility.fs" />
+      <Compile Include="RemoteHandlerUtility.fs" />
       <Compile Include="Visuals\Svg.fs" />
     </ItemGroup>
 
