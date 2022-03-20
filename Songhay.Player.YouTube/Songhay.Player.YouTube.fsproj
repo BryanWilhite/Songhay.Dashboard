@@ -7,6 +7,7 @@
         <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Models\YouTubeCssVariable.fs" />
         <Compile Include="Models\YouTubeResourceId.fs" />
         <Compile Include="Models\YouTubeThumbnails.fs" />
         <Compile Include="Models\YouTubeSnippet.fs" />
