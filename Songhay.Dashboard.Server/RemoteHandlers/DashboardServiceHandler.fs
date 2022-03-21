@@ -34,7 +34,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let! output =
                         responseResult
-                        |> (toHandlerOutputAsync logger tryGetData)
+                        |> (toHandlerOutputAsync logger toDomainData)
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(5));

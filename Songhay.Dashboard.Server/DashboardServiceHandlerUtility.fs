@@ -10,7 +10,7 @@ open Songhay.Modules.JsonDocumentUtility
 open Songhay.Dashboard.Client.SyndicationFeedUtility
 
 module DashboardServiceHandlerUtility =
-    let tryGetData (logger: ILogger) (jsonResult: Result<string, HttpStatusCode>) =
+    let toDomainData (logger: ILogger) (jsonResult: Result<string, HttpStatusCode>) =
         jsonResult
         |> Result.mapError
                (
