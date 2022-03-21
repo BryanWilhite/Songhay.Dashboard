@@ -1,0 +1,730 @@
+{
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "ZofocKEtnvdSlx744G0U4hAODQU",
+      "id": "iuL1NTNGMA8",
+      "snippet": {
+        "publishedAt": "2022-03-19T16:57:18Z",
+        "channelId": "UCXuqSBlHAE6Xw-yeJA0Tunw",
+        "title": "I have SO many questions - Intel $5,000 Extreme Tech Upgrade",
+        "description": "Thanks to Intel for continuing to sponsor this series! Buy an Intel Core i9-10850K: https://geni.us/0Ci11ic\n\nBuy an EVGA RTX 3080 XC3: https://geni.us/QSo0\n\nBuy an EK-AIO 360 D-RGB : https://lmg.gg/nE8ey\n\nBuy a Noctua NH-D15: https://geni.us/AMfIf\n\nBuy an MSI PRO Z490-A: https://geni.us/VJ3BAd\n\nBuy a Ballistix 32GB 3600Mhz Kit: https://geni.us/1ewYm\n\nBuy a Samsung 970 Evo 500GB NVME: https://geni.us/jaE39zm\n\nBuy a 4000D Airflow White: https://geni.us/Ir8M\n\nBuy a Corsair RMx 850W PSU: https://geni.us/pYNld\n\nBuy an LG CX 55\": https://geni.us/rlWv4\n\nBuy an IronWolf NAS 8TB: https://geni.us/6HYhOpC\n\nBuy a Yamaha HS8 Monitors: https://geni.us/slYGP\n\nCheck out Unraid: https://lmg.gg/fRPSd\n\nPurchases made through some store links may provide some compensation to Linus Media Group.\n\nDiscuss on our community forum: https://linustechtips.com/topic/1419161-i-have-so-many-questions-intel-5000-extreme-tech-upgrade/\n\n► GET MERCH: https://lttstore.com\n► AFFILIATES, SPONSORS & REFERRALS: https://lmg.gg/sponsors\n► PODCAST GEAR: https://lmg.gg/podcastgear\n► SUPPORT US ON FLOATPLANE: https://www.floatplane.com/\n\nFOLLOW US ELSEWHERE\n---------------------------------------------------  \nTwitter: https://twitter.com/linustech\nFacebook: http://www.facebook.com/LinusTech\nInstagram: https://www.instagram.com/linustech\nTikTok: https://www.tiktok.com/@linustech\nTwitch: https://www.twitch.tv/linustech\n\nMUSIC CREDIT\n---------------------------------------------------\nIntro: Laszlo - Supernova\nVideo Link: https://www.youtube.com/watch?v=PKfxmFU3lWY\niTunes Download Link: https://itunes.apple.com/us/album/supernova/id936805712\nArtist Link: https://soundcloud.com/laszlomusic\n\nOutro: Approaching Nirvana - Sugar High\nVideo Link: https://www.youtube.com/watch?v=ngsGBSCDwcI\nListen on Spotify: http://spoti.fi/UxWkUw\nArtist Link: http://www.youtube.com/approachingnirvana\n\nIntro animation by MBarek Abdelwassaa https://www.instagram.com/mbarek_abdel/\nMonitor And Keyboard by vadimmihalkevich / CC BY 4.0  https://geni.us/PgGWp\nMechanical RGB Keyboard by BigBrotherECE / CC BY 4.0 https://geni.us/mj6pHk4\nMouse Gamer free Model By Oscar Creativo / CC BY 4.0 https://geni.us/Ps3XfE\n\nSpecial Intro by MBarek Abdelwassaa\nhttps://www.instagram.com/mbarek_abdel/\n\nCHAPTERS\n---------------------------------------------------\n0:00 Intro\n1:56 Tour\n7:00 PC Build\n15:42 Room Setup\n19:39 Audio\n24:12 TV",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/iuL1NTNGMA8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/iuL1NTNGMA8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/iuL1NTNGMA8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Linus Tech Tips",
+        "playlistId": "UUXuqSBlHAE6Xw-yeJA0Tunw",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "iuL1NTNGMA8"
+        },
+        "videoOwnerChannelTitle": "Linus Tech Tips",
+        "videoOwnerChannelId": "UCXuqSBlHAE6Xw-yeJA0Tunw",
+        "tags": [
+          "intel",
+          "extreme",
+          "tech",
+          "upgade",
+          "competition",
+          "giveaway",
+          "free",
+          "showcase",
+          "cpu",
+          "gpu",
+          "best",
+          "$5000"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "I have SO many questions - Intel $5,000 Extreme Tech Upgrade",
+          "description": "Thanks to Intel for continuing to sponsor this series! Buy an Intel Core i9-10850K: https://geni.us/0Ci11ic\n\nBuy an EVGA RTX 3080 XC3: https://geni.us/QSo0\n\nBuy an EK-AIO 360 D-RGB : https://lmg.gg/nE8ey\n\nBuy a Noctua NH-D15: https://geni.us/AMfIf\n\nBuy an MSI PRO Z490-A: https://geni.us/VJ3BAd\n\nBuy a Ballistix 32GB 3600Mhz Kit: https://geni.us/1ewYm\n\nBuy a Samsung 970 Evo 500GB NVME: https://geni.us/jaE39zm\n\nBuy a 4000D Airflow White: https://geni.us/Ir8M\n\nBuy a Corsair RMx 850W PSU: https://geni.us/pYNld\n\nBuy an LG CX 55\": https://geni.us/rlWv4\n\nBuy an IronWolf NAS 8TB: https://geni.us/6HYhOpC\n\nBuy a Yamaha HS8 Monitors: https://geni.us/slYGP\n\nCheck out Unraid: https://lmg.gg/fRPSd\n\nPurchases made through some store links may provide some compensation to Linus Media Group.\n\nDiscuss on our community forum: https://linustechtips.com/topic/1419161-i-have-so-many-questions-intel-5000-extreme-tech-upgrade/\n\n► GET MERCH: https://lttstore.com\n► AFFILIATES, SPONSORS & REFERRALS: https://lmg.gg/sponsors\n► PODCAST GEAR: https://lmg.gg/podcastgear\n► SUPPORT US ON FLOATPLANE: https://www.floatplane.com/\n\nFOLLOW US ELSEWHERE\n---------------------------------------------------  \nTwitter: https://twitter.com/linustech\nFacebook: http://www.facebook.com/LinusTech\nInstagram: https://www.instagram.com/linustech\nTikTok: https://www.tiktok.com/@linustech\nTwitch: https://www.twitch.tv/linustech\n\nMUSIC CREDIT\n---------------------------------------------------\nIntro: Laszlo - Supernova\nVideo Link: https://www.youtube.com/watch?v=PKfxmFU3lWY\niTunes Download Link: https://itunes.apple.com/us/album/supernova/id936805712\nArtist Link: https://soundcloud.com/laszlomusic\n\nOutro: Approaching Nirvana - Sugar High\nVideo Link: https://www.youtube.com/watch?v=ngsGBSCDwcI\nListen on Spotify: http://spoti.fi/UxWkUw\nArtist Link: http://www.youtube.com/approachingnirvana\n\nIntro animation by MBarek Abdelwassaa https://www.instagram.com/mbarek_abdel/\nMonitor And Keyboard by vadimmihalkevich / CC BY 4.0  https://geni.us/PgGWp\nMechanical RGB Keyboard by BigBrotherECE / CC BY 4.0 https://geni.us/mj6pHk4\nMouse Gamer free Model By Oscar Creativo / CC BY 4.0 https://geni.us/Ps3XfE\n\nSpecial Intro by MBarek Abdelwassaa\nhttps://www.instagram.com/mbarek_abdel/\n\nCHAPTERS\n---------------------------------------------------\n0:00 Intro\n1:56 Tour\n7:00 PC Build\n15:42 Room Setup\n19:39 Audio\n24:12 TV"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "videoId": "iuL1NTNGMA8",
+        "videoPublishedAt": "2022-03-19T16:57:18Z",
+        "duration": "PT26M11S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "gJZYB53ZnjHbWlXnP_LMvxTQ67g",
+      "id": "08XCMheR-TM",
+      "snippet": {
+        "publishedAt": "2022-03-18T23:10:59Z",
+        "channelId": "UCsMica-v34Irf9KVTh6xx-g",
+        "title": "The Download: NPM PSA, Visual Studio Updates, and the Greatest Linux Distro Ever",
+        "description": "On this episode The Download, Christina is about to take a few weeks off, but first she's covering the latest tech news:\n\n00:00 - Introduction\n\n00:45 - Programming Note\n\n01:14 - Pin Your JavaScript Dependencies and more details about the attack and guidelines for pinning\nhttps://www.bleepingcomputer.com/news/security/big-sabotage-famous-npm-package-deletes-files-to-protest-ukraine-war/\n*details about the attack \nhttps://snyk.io/blog/peacenotwar-malicious-npm-node-ipc-package-vulnerability/\n*guidelines for pinning \nhttps://docs.renovatebot.com/dependency-pinning\n\n02:45 - Visual Studio 25th Anniversary\nhttps://visualstudio.microsoft.com/vs-25th-anniversary?WT.mc_id=twc9-c9-chwarren/\n\n03:00 - Visual Studio for Mac Preview 7 and C++ Remote Development\nhttps://devblogs.microsoft.com/cppblog/visual-studio-for-remote-macos-c-development?WT.mc_id=twc9-c9-chwarren/\n\n03:46 - .NET MAUI Preview 14\nhttps://devblogs.microsoft.com/dotnet/dotnet-maui-preview-14/?WT.mc_id=twc9-c9-chwarren\n\n04:41 - .NET 7 Preview 2\nhttps://devblogs.microsoft.com/dotnet/announcing-dotnet-7-preview-2/?WT.mc_id=twc9-c9-chwarren\n\n05:02 - Go 1.18\nhttps://go.dev/blog/go1.18\n\n06:10 - Christina's Pick of the Week: Hot Dog Linux\nhttps://hotdoglinux.com/\n\nCreate a Free Account (Azure)\nhttps://aka.ms/c9-azurefree/?WT.mc_id=twc9-c9-chwarren\n\nFollow @film_girl   \nhttp://www.twitter.com/film_girl",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/08XCMheR-TM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/08XCMheR-TM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/08XCMheR-TM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/08XCMheR-TM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/08XCMheR-TM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Microsoft Developer",
+        "playlistId": "UUsMica-v34Irf9KVTh6xx-g",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "08XCMheR-TM"
+        },
+        "videoOwnerChannelTitle": "Microsoft Developer",
+        "videoOwnerChannelId": "UCsMica-v34Irf9KVTh6xx-g",
+        "tags": [
+          "Azure",
+          "Microsoft",
+          "Tech",
+          "Technology",
+          "Dev",
+          "Development",
+          "Cloud Computing"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "localized": {
+          "title": "The Download: NPM PSA, Visual Studio Updates, and the Greatest Linux Distro Ever",
+          "description": "On this episode The Download, Christina is about to take a few weeks off, but first she's covering the latest tech news:\n\n00:00 - Introduction\n\n00:45 - Programming Note\n\n01:14 - Pin Your JavaScript Dependencies and more details about the attack and guidelines for pinning\nhttps://www.bleepingcomputer.com/news/security/big-sabotage-famous-npm-package-deletes-files-to-protest-ukraine-war/\n*details about the attack \nhttps://snyk.io/blog/peacenotwar-malicious-npm-node-ipc-package-vulnerability/\n*guidelines for pinning \nhttps://docs.renovatebot.com/dependency-pinning\n\n02:45 - Visual Studio 25th Anniversary\nhttps://visualstudio.microsoft.com/vs-25th-anniversary?WT.mc_id=twc9-c9-chwarren/\n\n03:00 - Visual Studio for Mac Preview 7 and C++ Remote Development\nhttps://devblogs.microsoft.com/cppblog/visual-studio-for-remote-macos-c-development?WT.mc_id=twc9-c9-chwarren/\n\n03:46 - .NET MAUI Preview 14\nhttps://devblogs.microsoft.com/dotnet/dotnet-maui-preview-14/?WT.mc_id=twc9-c9-chwarren\n\n04:41 - .NET 7 Preview 2\nhttps://devblogs.microsoft.com/dotnet/announcing-dotnet-7-preview-2/?WT.mc_id=twc9-c9-chwarren\n\n05:02 - Go 1.18\nhttps://go.dev/blog/go1.18\n\n06:10 - Christina's Pick of the Week: Hot Dog Linux\nhttps://hotdoglinux.com/\n\nCreate a Free Account (Azure)\nhttps://aka.ms/c9-azurefree/?WT.mc_id=twc9-c9-chwarren\n\nFollow @film_girl   \nhttp://www.twitter.com/film_girl"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "videoId": "08XCMheR-TM",
+        "videoPublishedAt": "2022-03-18T23:10:59Z",
+        "duration": "PT7M44S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "m_DAUlKULgxma9PpPPTtLMe-7Qs",
+      "id": "CNUSQChMt3I",
+      "snippet": {
+        "publishedAt": "2022-03-18T21:45:26Z",
+        "channelId": "UCCd3-JX7e8uGZx00i5646jg",
+        "title": "Parenting Social Media - DTNS 4235",
+        "description": "Do social media companies have a responsibility to their for social ills that might come about from the use of their services? If so, what's the threshold of responsibility? FIDO the authentication alliance dedicated to replacing passwords believes it has found the way to break through user hesitation on ditching passwords. And gadget blogs and tech news sites are gushing over Apple’s Universal Control feature.\n\nStarring Tom Merritt, Sarah Lane, Stephanie Humphrey, Roger Chang, Joe.\n\nQuick Hits:\nhttps://www.wsj.com/articles/facebook-parent-sued-over-scam-ads-by-australian-regulator-11647585391?mod=djemalertNEWS\nhttps://www.reuters.com/article/russia-cenbank-sberbank-crypto-currency-idUSL5N2VK540\nhttps://www.reuters.com/world/asia-pacific/japans-murata-sees-partial-restart-quake-hit-factories-2022-03-18/\nhttps://www.techinasia.com/grab-partner-sharia-loan-malaysia\nhttps://www.theverge.com/2022/3/18/22984479/samsung-galaxy-a73-5g-release-date-news-features-specs-108-megapixel-camera\n\nTop Stories:\nhttps://www.cnet.com/tech/computing/universal-control-from-apple-builds-a-deeper-ios-macos-relationship/\nhttps://9to5mac.com/2022/03/17/universal-contorl-ipad-and-mac-feature/\nhttps://www.theverge.com/2022/3/16/22980566/universal-control-ios-macos-mac-ipad-hands-on\nhttps://www.wired.com/story/fido-alliance-ios-android-password-replacement/\nhttps://9to5mac.com/2022/03/18/passkeys-in-icloud-keychain-fido/\nhttps://media.fidoalliance.org/wp-content/uploads/2022/03/How-FIDO-Addresses-a-Full-Range-of-Use-Cases.pdf\nhttps://play.acast.com/s/know-a-little-more/aboutthefidoalliance\nhttps://www.theverge.com/2022/3/18/22984636/dyson-airwrap-2022-beauty-tech-hair-curler\nhttps://www.engadget.com/dyson-airwrap-2022-multi-styler-hair-curler-price-availability-020044717.html\nhttps://www.tiktok.com/@bondenavant/video/7076126028976098606\nhttps://www.tiktok.com/@jewelswithjules/video/7076153613092998443\nhttps://en.wikipedia.org/wiki/Coand%C4%83_effect\n\nDiscussion Story:\nhttps://www.latimes.com/business/technology/story/2022-03-16/california-bill-would-let-parents-sue-social-media-companies-for-addicting-kids\nhttps://embed.documentcloud.org/documents/21418370-assembly-bill-2408/?embed=1&responsive=0&sidebar=0&title=1\nhttps://www.wsj.com/articles/california-bill-aims-to-make-tech-firms-liable-for-social-media-addiction-in-children-11647382786\nhttps://www.techdirt.com/2022/03/17/california-legislators-introduce-bill-to-blame-internet-companies-for-kids-liking-their-products/\nhttps://www.cnn.com/2022/02/16/tech/senators-kids-social-media/index.html\nhttps://www.ncbi.nlm.nih.gov/pmc/articles/PMC6034942/\nhttps://www.pnas.org/doi/10.1073/pnas.1902058116\n\nKicker:\nhttps://amateurtraveler.com\nhttps://www.cashbackmonitor.com\n\nToday’s guest:\nStephanie Humphrey\nhttp://thetechjawn.com\nhttps://www.tildeathdoyoutweet.com\n@TechLifeSteph\n\nShow Links:\nhttp://dailytechnewsshow.com/ntx\nhttp://knowalittlemore.com\nhttp://dtns.bigcartel.com\nhttp://www.dailytechnewsshow.com/support\nhttp://dtns.tv/wiki\n\nhttp://sarahlane.com\nhttps://twitter.com/sarahlane\nhttps://medium.com/@sarahlane\nhttps://havesuchagoodday.com\n\nhttp://tomsnewbook.com\nhttp://swordandlaser.com/store\nhttp://frogpants.com/currentgeek\nhttp://www.cordkillers.com",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/CNUSQChMt3I/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/CNUSQChMt3I/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/CNUSQChMt3I/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Daily Tech News Show",
+        "playlistId": "UUCd3-JX7e8uGZx00i5646jg",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "CNUSQChMt3I"
+        },
+        "videoOwnerChannelTitle": "Daily Tech News Show",
+        "videoOwnerChannelId": "UCCd3-JX7e8uGZx00i5646jg",
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "localized": {
+          "title": "Parenting Social Media - DTNS 4235",
+          "description": "Do social media companies have a responsibility to their for social ills that might come about from the use of their services? If so, what's the threshold of responsibility? FIDO the authentication alliance dedicated to replacing passwords believes it has found the way to break through user hesitation on ditching passwords. And gadget blogs and tech news sites are gushing over Apple’s Universal Control feature.\n\nStarring Tom Merritt, Sarah Lane, Stephanie Humphrey, Roger Chang, Joe.\n\nQuick Hits:\nhttps://www.wsj.com/articles/facebook-parent-sued-over-scam-ads-by-australian-regulator-11647585391?mod=djemalertNEWS\nhttps://www.reuters.com/article/russia-cenbank-sberbank-crypto-currency-idUSL5N2VK540\nhttps://www.reuters.com/world/asia-pacific/japans-murata-sees-partial-restart-quake-hit-factories-2022-03-18/\nhttps://www.techinasia.com/grab-partner-sharia-loan-malaysia\nhttps://www.theverge.com/2022/3/18/22984479/samsung-galaxy-a73-5g-release-date-news-features-specs-108-megapixel-camera\n\nTop Stories:\nhttps://www.cnet.com/tech/computing/universal-control-from-apple-builds-a-deeper-ios-macos-relationship/\nhttps://9to5mac.com/2022/03/17/universal-contorl-ipad-and-mac-feature/\nhttps://www.theverge.com/2022/3/16/22980566/universal-control-ios-macos-mac-ipad-hands-on\nhttps://www.wired.com/story/fido-alliance-ios-android-password-replacement/\nhttps://9to5mac.com/2022/03/18/passkeys-in-icloud-keychain-fido/\nhttps://media.fidoalliance.org/wp-content/uploads/2022/03/How-FIDO-Addresses-a-Full-Range-of-Use-Cases.pdf\nhttps://play.acast.com/s/know-a-little-more/aboutthefidoalliance\nhttps://www.theverge.com/2022/3/18/22984636/dyson-airwrap-2022-beauty-tech-hair-curler\nhttps://www.engadget.com/dyson-airwrap-2022-multi-styler-hair-curler-price-availability-020044717.html\nhttps://www.tiktok.com/@bondenavant/video/7076126028976098606\nhttps://www.tiktok.com/@jewelswithjules/video/7076153613092998443\nhttps://en.wikipedia.org/wiki/Coand%C4%83_effect\n\nDiscussion Story:\nhttps://www.latimes.com/business/technology/story/2022-03-16/california-bill-would-let-parents-sue-social-media-companies-for-addicting-kids\nhttps://embed.documentcloud.org/documents/21418370-assembly-bill-2408/?embed=1&responsive=0&sidebar=0&title=1\nhttps://www.wsj.com/articles/california-bill-aims-to-make-tech-firms-liable-for-social-media-addiction-in-children-11647382786\nhttps://www.techdirt.com/2022/03/17/california-legislators-introduce-bill-to-blame-internet-companies-for-kids-liking-their-products/\nhttps://www.cnn.com/2022/02/16/tech/senators-kids-social-media/index.html\nhttps://www.ncbi.nlm.nih.gov/pmc/articles/PMC6034942/\nhttps://www.pnas.org/doi/10.1073/pnas.1902058116\n\nKicker:\nhttps://amateurtraveler.com\nhttps://www.cashbackmonitor.com\n\nToday’s guest:\nStephanie Humphrey\nhttp://thetechjawn.com\nhttps://www.tildeathdoyoutweet.com\n@TechLifeSteph\n\nShow Links:\nhttp://dailytechnewsshow.com/ntx\nhttp://knowalittlemore.com\nhttp://dtns.bigcartel.com\nhttp://www.dailytechnewsshow.com/support\nhttp://dtns.tv/wiki\n\nhttp://sarahlane.com\nhttps://twitter.com/sarahlane\nhttps://medium.com/@sarahlane\nhttps://havesuchagoodday.com\n\nhttp://tomsnewbook.com\nhttp://swordandlaser.com/store\nhttp://frogpants.com/currentgeek\nhttp://www.cordkillers.com"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "videoId": "CNUSQChMt3I",
+        "videoPublishedAt": "2022-03-18T21:45:26Z",
+        "duration": "PT31M17S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "license": "creativeCommon",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "372CqO2vYNAGS7ZKlYVH3h3JnCM",
+      "id": "wvhP1al3Ur4",
+      "snippet": {
+        "publishedAt": "2022-03-18T21:35:13Z",
+        "channelId": "UCBJycsmduvYEL83R_U4JriQ",
+        "title": "Mac Studio Review: Double Trouble!",
+        "description": "This M1 Ultra machine is incredible, but I'm not switching YET\n\nM1 Max MacBook Pro review: https://youtu.be/rr2XfL_df3o\nBluDot Desk: https://www.bludot.com/cant-desk.html\nScott Simmons: https://www.provideocoalition.com/review-mac-studio-and-the-m1-ultra-for-video-editors-part-1/\n\nMKBHD Merch: http://shop.MKBHD.com\n\nReview spec: M1 Ultra, 128GB, 2TB, 64-core\n\n0:00 Intro\n1:52 The Design/Ports\n4:00 Modular?\n6:00 Benchmarks\n8:06 Real World Performance\n11:45 Incredible Packaging\n12:35 You Probably Don't Need One\n\nTech I'm using right now: https://www.amazon.com/shop/MKBHD\n\nIntro Track: Jordyn Edmonds http://smarturl.it/jordynedmonds\nPlaylist of MKBHD Intro music: https://goo.gl/B3AWV5\n\nComputer provided by Apple for review.\n\n~\nhttp://twitter.com/MKBHD\nhttp://instagram.com/MKBHD\nhttp://facebook.com/MKBHD",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/wvhP1al3Ur4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/wvhP1al3Ur4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/wvhP1al3Ur4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/wvhP1al3Ur4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/wvhP1al3Ur4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Marques Brownlee",
+        "playlistId": "UUBJycsmduvYEL83R_U4JriQ",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "wvhP1al3Ur4"
+        },
+        "videoOwnerChannelTitle": "Marques Brownlee",
+        "videoOwnerChannelId": "UCBJycsmduvYEL83R_U4JriQ",
+        "tags": [
+          "Mac Studio",
+          "Mac Studio review",
+          "M1 Ultra",
+          "M1 Ultra vs",
+          "M1 Ultra vs M1 Max",
+          "MKBHD"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "localized": {
+          "title": "Mac Studio Review: Double Trouble!",
+          "description": "This M1 Ultra machine is incredible, but I'm not switching YET\n\nM1 Max MacBook Pro review: https://youtu.be/rr2XfL_df3o\nBluDot Desk: https://www.bludot.com/cant-desk.html\nScott Simmons: https://www.provideocoalition.com/review-mac-studio-and-the-m1-ultra-for-video-editors-part-1/\n\nMKBHD Merch: http://shop.MKBHD.com\n\nReview spec: M1 Ultra, 128GB, 2TB, 64-core\n\n0:00 Intro\n1:52 The Design/Ports\n4:00 Modular?\n6:00 Benchmarks\n8:06 Real World Performance\n11:45 Incredible Packaging\n12:35 You Probably Don't Need One\n\nTech I'm using right now: https://www.amazon.com/shop/MKBHD\n\nIntro Track: Jordyn Edmonds http://smarturl.it/jordynedmonds\nPlaylist of MKBHD Intro music: https://goo.gl/B3AWV5\n\nComputer provided by Apple for review.\n\n~\nhttp://twitter.com/MKBHD\nhttp://instagram.com/MKBHD\nhttp://facebook.com/MKBHD"
+        },
+        "defaultAudioLanguage": "en-US"
+      },
+      "contentDetails": {
+        "videoId": "wvhP1al3Ur4",
+        "videoPublishedAt": "2022-03-18T21:35:13Z",
+        "duration": "PT14M46S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "WGG3P8fOYSxqoSBpPdM-Pztd4x0",
+      "id": "UNv8V7qo0qk",
+      "snippet": {
+        "publishedAt": "2022-03-18T16:02:15Z",
+        "channelId": "UC-oYkx9wyeGc6Sh8tkVlaTw",
+        "title": "Photography Masterclass - Take Lightroom on Your Summer Vacation",
+        "description": "Welcome to Terry White's Photography Masterclass! In this episode, we'll cover the best ways to take Lightroom with you on vacation so that you can import and work on the shots you take on your trip. When you get home we’ll bring it all together to one catalog.\nFollow me on social: https://linktr.ee/terrylwhite",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/UNv8V7qo0qk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/UNv8V7qo0qk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/UNv8V7qo0qk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Terry Lee White",
+        "playlistId": "UU-oYkx9wyeGc6Sh8tkVlaTw",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "UNv8V7qo0qk"
+        },
+        "videoOwnerChannelTitle": "Terry Lee White",
+        "videoOwnerChannelId": "UC-oYkx9wyeGc6Sh8tkVlaTw",
+        "categoryId": "24",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Photography Masterclass - Take Lightroom on Your Summer Vacation",
+          "description": "Welcome to Terry White's Photography Masterclass! In this episode, we'll cover the best ways to take Lightroom with you on vacation so that you can import and work on the shots you take on your trip. When you get home we’ll bring it all together to one catalog.\nFollow me on social: https://linktr.ee/terrylwhite"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "videoId": "UNv8V7qo0qk",
+        "videoPublishedAt": "2022-03-18T16:02:15Z",
+        "duration": "PT57M26S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fu4JwiFHx9U3xCksd0GSukyG_YU",
+      "id": "80LbSyTCKas",
+      "snippet": {
+        "publishedAt": "2022-03-17T13:00:04Z",
+        "channelId": "UCs_tLP3AiwYKwdUHpltJPuA",
+        "title": "Modern Software Engineering • Dave Farley & Steve Smith • GOTO 2022",
+        "description": "This interview was recorded for the GOTO Book Club. #GOTOcon #GOTObookclub\nhttp://gotopia.tech/bookclub\n\nDave Farley - Author of \"Modern Software Engineering\", \rContinuous Delivery & DevOps Pioneer\nSteve Smith - Author of \"Measuring Continuous Delivery\",\r Principal Consultant at Equal Experts\n\nFind plenty more from Dave on his Continuous Delivery YouTube channel: https://www.youtube.com/channel/UCCfqyGl3nq_V0bo64CjZh8g\n\nDESCRIPTION\nWhat should the modern software engineer know in order to be the best at their job? Dave Farley and Steve Smith explore the books that can help engineers succeed and why iteration and experiments are crucial. The discussion is centered around Dave’s latest book “Modern Software Engineering.”\nThe interview is based on Dave's book \"Modern Software Engineering\": https://amzn.to/3GI468M\n\nTIMECODES\n00:00 Intro\n01:45 Software engineering books that shook our foundation\n06:36 Modern software engineering in practice\n09:52 Working iteratively\n18:33 The experimental software engineer\n29:09 Managing complexity in the cloud age\n40:16 How to apply the separation of concerns in a team\n46:28 Rolling the wheel of time\n53:15 What’s next after Modern Software Engineering?\n01:03:52 Outro\n\nRead the full transcription of the interview here:\nhttps://gotopia.tech/bookclub/episodes/modern-software-engineering\n\nRECOMMENDED BOOKS\nDavid Farley • Modern Software Engineering • https://amzn.to/3GI468M\nDave Farley & Jez Humble • Continuous Delivery • https://amzn.to/3ocIHwd\nSteve Smith • Measuring Continuous Delivery • https://amzn.to/3MEAJbe\nEric Evans • Domain-Driven Design • https://amzn.to/3tnGhwm\nKent Beck • Extreme Programming Explained • https://amzn.to/34OVMH6\nMichael Feathers • Working Effectively with Legacy Code • https://amzn.to/37suHdy\nAlistair Cockburn • Agile Software Development • https://amzn.to/3u0zNVX\nMary & Tom Poppendieck • Implementing Lean Software Development • https://amzn.to/3CQwC7t\nFred Brooks Jr. • The Mythical Man-Month • https://amzn.to/31NJc5C\nSimon Brown • Software Architecture for Developers Vol. 2 • https://leanpub.com/visualising-software-architecture\nWoods, Erder & Pureur • Continuous Architecture in Practice • https://amzn.to/2QWAmkl\nGeorge Fairbanks • Just Enough Software Architecture • https://amzn.to/3uZzVo0\n\nhttps://twitter.com/GOTOcon\nhttps://www.linkedin.com/company/goto-\nhttps://www.facebook.com/GOTOConferences\n#SoftwareEngineering #DaveFarley #SteveSmith #Programming #Harness #ContinuousDelivery #ModernSoftwareEngineering #SoftwareArchitecture #DevOps #WorkingIteratively\n\nSUPPORTER\nHarness is the only end-to-end platform for complete software delivery. It provides a simple, safe and secure way for engineering and DevOps teams to release applications into production. Try Harness for free! https://app.harness.io/auth/#/signup/?utm_source=External&utm_medium=social&utm_content=virtual-event&utm_campaign=goto-bookclub-sponsor\n\nLooking for a unique learning experience?\nAttend the next GOTO conference near you! Get your ticket at https://gotopia.tech\n\nSUBSCRIBE TO OUR CHANNEL - new videos posted almost daily.\nhttps://www.youtube.com/user/GotoConferences/?sub_confirmation=1",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/80LbSyTCKas/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/80LbSyTCKas/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/80LbSyTCKas/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/80LbSyTCKas/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/80LbSyTCKas/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "GOTO Conferences",
+        "playlistId": "UUs_tLP3AiwYKwdUHpltJPuA",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "80LbSyTCKas"
+        },
+        "videoOwnerChannelTitle": "GOTO Conferences",
+        "videoOwnerChannelId": "UCs_tLP3AiwYKwdUHpltJPuA",
+        "tags": [
+          "GOTO",
+          "GOTOcon",
+          "GOTO Conference",
+          "GOTO (Software Conference)",
+          "Videos for Developers",
+          "Computer Science",
+          "Programming",
+          "Software Engineering",
+          "GOTOpia",
+          "GOTO Book Club",
+          "GOTObookclub",
+          "Dave Farley",
+          "Steve Smith",
+          "Modern Software Engineering",
+          "Software Architecture",
+          "DevOps",
+          "Continuous Delivery",
+          "Working iteratively",
+          "Agile Development",
+          "Agile"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "localized": {
+          "title": "Modern Software Engineering • Dave Farley & Steve Smith • GOTO 2022",
+          "description": "This interview was recorded for the GOTO Book Club. #GOTOcon #GOTObookclub\nhttp://gotopia.tech/bookclub\n\nDave Farley - Author of \"Modern Software Engineering\", \rContinuous Delivery & DevOps Pioneer\nSteve Smith - Author of \"Measuring Continuous Delivery\",\r Principal Consultant at Equal Experts\n\nFind plenty more from Dave on his Continuous Delivery YouTube channel: https://www.youtube.com/channel/UCCfqyGl3nq_V0bo64CjZh8g\n\nDESCRIPTION\nWhat should the modern software engineer know in order to be the best at their job? Dave Farley and Steve Smith explore the books that can help engineers succeed and why iteration and experiments are crucial. The discussion is centered around Dave’s latest book “Modern Software Engineering.”\nThe interview is based on Dave's book \"Modern Software Engineering\": https://amzn.to/3GI468M\n\nTIMECODES\n00:00 Intro\n01:45 Software engineering books that shook our foundation\n06:36 Modern software engineering in practice\n09:52 Working iteratively\n18:33 The experimental software engineer\n29:09 Managing complexity in the cloud age\n40:16 How to apply the separation of concerns in a team\n46:28 Rolling the wheel of time\n53:15 What’s next after Modern Software Engineering?\n01:03:52 Outro\n\nRead the full transcription of the interview here:\nhttps://gotopia.tech/bookclub/episodes/modern-software-engineering\n\nRECOMMENDED BOOKS\nDavid Farley • Modern Software Engineering • https://amzn.to/3GI468M\nDave Farley & Jez Humble • Continuous Delivery • https://amzn.to/3ocIHwd\nSteve Smith • Measuring Continuous Delivery • https://amzn.to/3MEAJbe\nEric Evans • Domain-Driven Design • https://amzn.to/3tnGhwm\nKent Beck • Extreme Programming Explained • https://amzn.to/34OVMH6\nMichael Feathers • Working Effectively with Legacy Code • https://amzn.to/37suHdy\nAlistair Cockburn • Agile Software Development • https://amzn.to/3u0zNVX\nMary & Tom Poppendieck • Implementing Lean Software Development • https://amzn.to/3CQwC7t\nFred Brooks Jr. • The Mythical Man-Month • https://amzn.to/31NJc5C\nSimon Brown • Software Architecture for Developers Vol. 2 • https://leanpub.com/visualising-software-architecture\nWoods, Erder & Pureur • Continuous Architecture in Practice • https://amzn.to/2QWAmkl\nGeorge Fairbanks • Just Enough Software Architecture • https://amzn.to/3uZzVo0\n\nhttps://twitter.com/GOTOcon\nhttps://www.linkedin.com/company/goto-\nhttps://www.facebook.com/GOTOConferences\n#SoftwareEngineering #DaveFarley #SteveSmith #Programming #Harness #ContinuousDelivery #ModernSoftwareEngineering #SoftwareArchitecture #DevOps #WorkingIteratively\n\nSUPPORTER\nHarness is the only end-to-end platform for complete software delivery. It provides a simple, safe and secure way for engineering and DevOps teams to release applications into production. Try Harness for free! https://app.harness.io/auth/#/signup/?utm_source=External&utm_medium=social&utm_content=virtual-event&utm_campaign=goto-bookclub-sponsor\n\nLooking for a unique learning experience?\nAttend the next GOTO conference near you! Get your ticket at https://gotopia.tech\n\nSUBSCRIBE TO OUR CHANNEL - new videos posted almost daily.\nhttps://www.youtube.com/user/GotoConferences/?sub_confirmation=1"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "videoId": "80LbSyTCKas",
+        "videoPublishedAt": "2022-03-17T13:00:04Z",
+        "duration": "PT1H4M45S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "TtCJYGKO3gidfGVxSH2vTfSd1X0",
+      "id": "TsAihn2Uwls",
+      "snippet": {
+        "publishedAt": "2022-03-17T00:46:42Z",
+        "channelId": "UC1WHdBv9P5tYEGfy-btvYfA",
+        "title": "UI Bouillabaisse - Windows 11 ads, Search Highlights, hybrid work, Halo TV series",
+        "description": "Windows 11 ads, Search Highlights, hybrid work, Halo TV series\n•  Microsoft is Experimenting With Ads in the Windows 11 File Explorer\n• Microsoft on File Explorer Ads: Just Kidding!\n•  Microsoft Brings Search Highlights to Windows 10 Insiders\n•  DirectStorage is Now Available on PC\n•  Windows 10 Can Now Be Installed on Valve's Steam Deck\n\nMicrosoft 365\n• Microsoft to show how Windows 'powers the future of hybrid work'\n•  Microsoft study finds 50 percent of leaders have plans for a full return to the office\n•  Microsoft Teams turns five. What's next?\n•  Office 365 Login | Microsoft Office\n•  Microsoft Brings Redesigned Office.com to All Business and Education customers\n\nHardware\n•  Intel to Invest Over $36 Billion in Europe\n• Lenovo Refreshes ThinkPad X13, X13 Yoga, and ThinkPad L\n• Empowering collaboration in the hybrid workplace with Surface Hub 2S and Surface Hub 2 Smart Camera | Microsoft Devices Blog\n\nXbox\n- Here’s the Halo TV Series Story Trailer\n- Microsoft Announces More Xbox Game Pass Games for March\n- Report: Microsoft’s Perfect Dark Reboot is Being Hit by High Turnover\n- Google Details New Tools to Make Google Play Games Multiplatform\n- Call of Duty: Warzone is Coming to Mobile\n\nTips and Picks\n• Tip of the week: Enable tabs in Windows 11 (Dev) File Explorer\n• App pick of the week: Notion\n• Enterprise picks of the week: Surprise! There’s a Win Server release (or 2) coming this year. Changes are on the way for Microsoft’s Partner Program.\n• Beer pick of the week: Other Half Bang On\n\nHosts: Leo Laporte, Mary Jo Foley, and Paul Thurrott\nWindows Weekly episode 768\nMore Info: https://twit.tv/shows/windows-weekly/episodes/768\n\nDownload or subscribe to this show at https://twit.tv/shows/windows-weekly\n\nGet episodes ad-free with Club TWiT at https://twit.tv/clubtwit\n\nCheck out Paul's blog at thurrott.com\n\nCheck out Mary Jo's blog at AllAboutMicrosoft.com\n\nThe Windows Weekly theme music is courtesy of Carl Franklin.\n\nProducts we recommend: https://www.amazon.com/shop/twitnetcastnetwork\nTWiT may earn commissions on certain products.\n\nJoin our TWiT Community on Discourse: https://www.twit.community/\n\nFollow us:\nhttps://twit.tv/\nhttps://twitter.com/TWiT\nhttps://www.facebook.com/TWiTNetwork\nhttps://www.instagram.com/twit.tv/\n\nAbout us:\nTWiT.tv is a technology podcasting network located in the San Francisco Bay Area with the #1 ranked technology podcast This Week in Tech hosted by Leo Laporte. Every week we produce over 30 hours of content on a variety of programs including Tech News Weekly, MacBreak Weekly, This Week in Google, Windows Weekly, Security Now, All About Android, and more.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/TsAihn2Uwls/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/TsAihn2Uwls/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/TsAihn2Uwls/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Windows Weekly",
+        "playlistId": "UU1WHdBv9P5tYEGfy-btvYfA",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "TsAihn2Uwls"
+        },
+        "videoOwnerChannelTitle": "Windows Weekly",
+        "videoOwnerChannelId": "UC1WHdBv9P5tYEGfy-btvYfA",
+        "tags": [
+          "windows 11 ads",
+          "file explorer ads",
+          "windows ads",
+          "search highlights",
+          "windows 10 search highlights",
+          "directstorage",
+          "windows 10 steam deck",
+          "steam deck runs windows",
+          "instal windows steam deck",
+          "microsoft hybrid work",
+          "windows hybrid work",
+          "leo laporte",
+          "paul thurrott",
+          "mary jo foley",
+          "microsoft teams",
+          "teams 5",
+          "office 365 update",
+          "office.com redesign",
+          "lenovo thinkpad",
+          "thinkpad x13",
+          "surface hub camera",
+          "halo tv show",
+          "perfect dark reboot",
+          "call of duty warzone",
+          "notion app"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "UI Bouillabaisse - Windows 11 ads, Search Highlights, hybrid work, Halo TV series",
+          "description": "Windows 11 ads, Search Highlights, hybrid work, Halo TV series\n•  Microsoft is Experimenting With Ads in the Windows 11 File Explorer\n• Microsoft on File Explorer Ads: Just Kidding!\n•  Microsoft Brings Search Highlights to Windows 10 Insiders\n•  DirectStorage is Now Available on PC\n•  Windows 10 Can Now Be Installed on Valve's Steam Deck\n\nMicrosoft 365\n• Microsoft to show how Windows 'powers the future of hybrid work'\n•  Microsoft study finds 50 percent of leaders have plans for a full return to the office\n•  Microsoft Teams turns five. What's next?\n•  Office 365 Login | Microsoft Office\n•  Microsoft Brings Redesigned Office.com to All Business and Education customers\n\nHardware\n•  Intel to Invest Over $36 Billion in Europe\n• Lenovo Refreshes ThinkPad X13, X13 Yoga, and ThinkPad L\n• Empowering collaboration in the hybrid workplace with Surface Hub 2S and Surface Hub 2 Smart Camera | Microsoft Devices Blog\n\nXbox\n- Here’s the Halo TV Series Story Trailer\n- Microsoft Announces More Xbox Game Pass Games for March\n- Report: Microsoft’s Perfect Dark Reboot is Being Hit by High Turnover\n- Google Details New Tools to Make Google Play Games Multiplatform\n- Call of Duty: Warzone is Coming to Mobile\n\nTips and Picks\n• Tip of the week: Enable tabs in Windows 11 (Dev) File Explorer\n• App pick of the week: Notion\n• Enterprise picks of the week: Surprise! There’s a Win Server release (or 2) coming this year. Changes are on the way for Microsoft’s Partner Program.\n• Beer pick of the week: Other Half Bang On\n\nHosts: Leo Laporte, Mary Jo Foley, and Paul Thurrott\nWindows Weekly episode 768\nMore Info: https://twit.tv/shows/windows-weekly/episodes/768\n\nDownload or subscribe to this show at https://twit.tv/shows/windows-weekly\n\nGet episodes ad-free with Club TWiT at https://twit.tv/clubtwit\n\nCheck out Paul's blog at thurrott.com\n\nCheck out Mary Jo's blog at AllAboutMicrosoft.com\n\nThe Windows Weekly theme music is courtesy of Carl Franklin.\n\nProducts we recommend: https://www.amazon.com/shop/twitnetcastnetwork\nTWiT may earn commissions on certain products.\n\nJoin our TWiT Community on Discourse: https://www.twit.community/\n\nFollow us:\nhttps://twit.tv/\nhttps://twitter.com/TWiT\nhttps://www.facebook.com/TWiTNetwork\nhttps://www.instagram.com/twit.tv/\n\nAbout us:\nTWiT.tv is a technology podcasting network located in the San Francisco Bay Area with the #1 ranked technology podcast This Week in Tech hosted by Leo Laporte. Every week we produce over 30 hours of content on a variety of programs including Tech News Weekly, MacBreak Weekly, This Week in Google, Windows Weekly, Security Now, All About Android, and more."
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "videoId": "TsAihn2Uwls",
+        "videoPublishedAt": "2022-03-17T00:46:42Z",
+        "duration": "PT1H51M35S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "0tq6yBxKXjvumijr0XXPlysPsb0",
+      "id": "gCN6F2TM1SA",
+      "snippet": {
+        "publishedAt": "2022-03-14T06:08:03Z",
+        "channelId": "UCagoIYmo_gO1iVaCeeSikEg",
+        "title": "Can't Talk, Doing Laundry - M1 Ultra, Mac Studio, DuckDuckGo's neutrality, TikTok's Oracle deal",
+        "description": "M1 Ultra, Mac Studio, DuckDuckGo's neutrality, TikTok's Oracle deal\n• Apple unveils the M1 Ultra, its most powerful chip yet.\n•  Apple announces new $1599 27-inch 5K Apple Studio Display, featuring Center Stage webcam.\n•  Apple’s Peek Performance Event Delivers to the Pros and the Mainstream.\n•  Apple’s Mac Studio is a new desktop for creative professionals.\n•  Apple releasing iOS 15.4, macOS 12.3, and other updates next week.\n•  Russian Cyberattacks are Possible. Be Prepared But Not Panicked.\n• Responding to reports that the Russian government is considering designating Meta as an extremist organization for its policies in support of speech...\n•  Facebook allows war posts urging violence against Russian invaders.\n•  DuckDuckGo ends neutrality, will down-rank sites “associated with Russian disinformation”\n•  TikTok nears Oracle deal in bid to allay U.S. data concerns-sources.\n•  The White House is briefing TikTok stars about the war in Ukraine.\\\n•  The Power Of Knowing You Belong: A Conversation With YouTube Stars Justine And Jenna Ezarik.\n•  CNN+ will start streaming on March 29th.\n•  Acclaimed filmmaker Brent Renaud shot, killed in Ukraine.\n•  Amazon’s Clubhouse competitor is here, turning hosts into DJs.\n• Salt_Hank on TikTok.\n• Will Magid, musician.\n•  Biden Signs Executive Order Bullish on Crypto, Digital U.S. Dollar.\n•  Moderna Will Develop mRNA Vaccines for 15 of the World's Worst Diseases.\n• Ford to ship and sell incomplete vehicles with missing chips.\n•  Facebook’s Parent Company Will Make Employees Do Their Own Laundry.\n•  Twitter is looking for younger users. It’s turning to the tech world’s teen savant to help find them.\n•  Twitter makes it harder to choose the old reverse-chronological feed.\n•  Linux has been bitten by its most high-severity vulnerability in years.\n• LimeWire Is Making a Comeback, But Not As You Know It.\n•  Coronal Mass Ejection Reaches Earth On Sunday Night.\n\nHost: Leo Laporte\nGuests: Larry Magid, Carolina Milanesi, and Evan Brown\nThis Week in Tech episode 866\nMore Info: https://twit.tv/shows/this-week-in-tech/episodes/866\n\nDownload or subscribe to this show at https://twit.tv/shows/this-week-in-tech\n\nGet episodes ad-free with Club TWiT at https://twit.tv/clubtwit\n\nProducts we recommend: https://www.amazon.com/shop/twitnetcastnetwork\nTWiT may earn commissions on certain products.\n\nJoin our TWiT Community on Discourse: https://www.twit.community/\n\nFollow us:\nhttps://twit.tv/\nhttps://twitter.com/TWiT\nhttps://www.facebook.com/TWiTNetwork\nhttps://www.instagram.com/twit.tv/\n\nAbout us:\nTWiT.tv is a technology podcasting network located in the San Francisco Bay Area with the #1 ranked technology podcast This Week in Tech hosted by Leo Laporte. Every week we produce over 30 hours of content on a variety of programs including Tech News Weekly, MacBreak Weekly, This Week in Google, Windows Weekly, Security Now, All About Android, and more.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/gCN6F2TM1SA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/gCN6F2TM1SA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/gCN6F2TM1SA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "This Week in Tech",
+        "playlistId": "UUagoIYmo_gO1iVaCeeSikEg",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "gCN6F2TM1SA"
+        },
+        "videoOwnerChannelTitle": "This Week in Tech",
+        "videoOwnerChannelId": "UCagoIYmo_gO1iVaCeeSikEg",
+        "tags": [
+          "TWiT",
+          "This Week in Tech",
+          "Leo Laporte",
+          "Carolina Milanesi",
+          "evan brown",
+          "Larry Magid",
+          "apple peek performance",
+          "m1 ultra specs",
+          "mac studio specs",
+          "apple studio display",
+          "iOS 15.4",
+          "cyberattacks russia",
+          "meta extremist russia",
+          "tiktok oracle deal",
+          "duckduckgo neutrality",
+          "duckduckgo rip",
+          "cnn+",
+          "duckduckgo propaganda",
+          "brent renaud dead",
+          "amazon amp",
+          "amazon clubhouse",
+          "will magid",
+          "salt_hank",
+          "moderna mrna development"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Can't Talk, Doing Laundry - M1 Ultra, Mac Studio, DuckDuckGo's neutrality, TikTok's Oracle deal",
+          "description": "M1 Ultra, Mac Studio, DuckDuckGo's neutrality, TikTok's Oracle deal\n• Apple unveils the M1 Ultra, its most powerful chip yet.\n•  Apple announces new $1599 27-inch 5K Apple Studio Display, featuring Center Stage webcam.\n•  Apple’s Peek Performance Event Delivers to the Pros and the Mainstream.\n•  Apple’s Mac Studio is a new desktop for creative professionals.\n•  Apple releasing iOS 15.4, macOS 12.3, and other updates next week.\n•  Russian Cyberattacks are Possible. Be Prepared But Not Panicked.\n• Responding to reports that the Russian government is considering designating Meta as an extremist organization for its policies in support of speech...\n•  Facebook allows war posts urging violence against Russian invaders.\n•  DuckDuckGo ends neutrality, will down-rank sites “associated with Russian disinformation”\n•  TikTok nears Oracle deal in bid to allay U.S. data concerns-sources.\n•  The White House is briefing TikTok stars about the war in Ukraine.\\\n•  The Power Of Knowing You Belong: A Conversation With YouTube Stars Justine And Jenna Ezarik.\n•  CNN+ will start streaming on March 29th.\n•  Acclaimed filmmaker Brent Renaud shot, killed in Ukraine.\n•  Amazon’s Clubhouse competitor is here, turning hosts into DJs.\n• Salt_Hank on TikTok.\n• Will Magid, musician.\n•  Biden Signs Executive Order Bullish on Crypto, Digital U.S. Dollar.\n•  Moderna Will Develop mRNA Vaccines for 15 of the World's Worst Diseases.\n• Ford to ship and sell incomplete vehicles with missing chips.\n•  Facebook’s Parent Company Will Make Employees Do Their Own Laundry.\n•  Twitter is looking for younger users. It’s turning to the tech world’s teen savant to help find them.\n•  Twitter makes it harder to choose the old reverse-chronological feed.\n•  Linux has been bitten by its most high-severity vulnerability in years.\n• LimeWire Is Making a Comeback, But Not As You Know It.\n•  Coronal Mass Ejection Reaches Earth On Sunday Night.\n\nHost: Leo Laporte\nGuests: Larry Magid, Carolina Milanesi, and Evan Brown\nThis Week in Tech episode 866\nMore Info: https://twit.tv/shows/this-week-in-tech/episodes/866\n\nDownload or subscribe to this show at https://twit.tv/shows/this-week-in-tech\n\nGet episodes ad-free with Club TWiT at https://twit.tv/clubtwit\n\nProducts we recommend: https://www.amazon.com/shop/twitnetcastnetwork\nTWiT may earn commissions on certain products.\n\nJoin our TWiT Community on Discourse: https://www.twit.community/\n\nFollow us:\nhttps://twit.tv/\nhttps://twitter.com/TWiT\nhttps://www.facebook.com/TWiTNetwork\nhttps://www.instagram.com/twit.tv/\n\nAbout us:\nTWiT.tv is a technology podcasting network located in the San Francisco Bay Area with the #1 ranked technology podcast This Week in Tech hosted by Leo Laporte. Every week we produce over 30 hours of content on a variety of programs including Tech News Weekly, MacBreak Weekly, This Week in Google, Windows Weekly, Security Now, All About Android, and more."
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "videoId": "gCN6F2TM1SA",
+        "videoPublishedAt": "2022-03-14T06:08:03Z",
+        "duration": "PT2H36M52S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "1DMlyV5O0xc3eic8fpUhaU0w78o",
+      "id": "nHS3MBNwsyY",
+      "snippet": {
+        "publishedAt": "2022-02-19T00:58:07Z",
+        "channelId": "UC2JNTaq_crzfZOu9Aq96LsA",
+        "title": "Winning A Dev.Post Hackathon - Tiles@MapHub, OpenStreetMap with Dustin Wilson | HackBuddy",
+        "description": "Presented by HackBuddy, a meetup group from Southern California that learns web programming together now ONLINE.  Join us from around the world, simply get on the mailing list via: https://javascriptla.net.    \n\nTiles@Maphub allows users to query through hundreds of GB of OpenStreetMap (OSM) data and dynamically construct custom vector layers from this data. Tiles relies on a PostGIS DB tuned for fast geospatial queries on the newest generation of AWS Graviton processors. Tiles was built using AWS ECS as a container orchestrator, PostGIS as the DB, Redis as an API cache, Go for APIs, and vanilla Javascript for the frontend.\n\nDustin Wilson is a backend engineer at Numina, a start-up that deploys remote sensors to measure how people and objects move in streets and public spaces. Wilson also contributes content to Codecademy, where he focuses on building content for Databases and Computer Science courses (e.g. DB Design with PostgreSQL, CS103: Databases). Before Numina, Wilson was a Data Engineer at Geophy, a Dutch real-estate tech company. Dustin has a B.A in Economics from Columbia University.\n\nEnjoy the video! Thumbs up if you liked, leave comments below and SUBSCRIBE if you're new!  See you at the next meetup. Visit our website at:  https://javascriptla.net for more meetup and event announcements!\n\nWant to learn other programming languages too?\nVisit https://hackbuddy.com  \n\nChat via:\nDiscord via invite link: https://discord.gg/KWFymAh\nSlack Link: https://javascriptla.herokuapp.com\n\nYou can also follow us on all relevant social media:\nFacebook: https://facebook.com/javascriptla\nInstagram: https://instagram.com/javascriptninja\nTwitter: https://twitter.com/javascriptla\nLinkedIn: https://linkedin.com/company/javascriptla\nThanks for watching! - Vijay, Organizer\nhttps://javascriptla.net",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/nHS3MBNwsyY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/nHS3MBNwsyY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/nHS3MBNwsyY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/nHS3MBNwsyY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/nHS3MBNwsyY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "hackbuddy",
+        "playlistId": "UU2JNTaq_crzfZOu9Aq96LsA",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "nHS3MBNwsyY"
+        },
+        "videoOwnerChannelTitle": "hackbuddy",
+        "videoOwnerChannelId": "UC2JNTaq_crzfZOu9Aq96LsA",
+        "tags": [
+          "javascriptla",
+          "hackbuddy",
+          "hackbuddyorg",
+          "opnstreetm",
+          "openstreetmap",
+          "openstreetmap tutorial",
+          "openstreetmap api"
+        ],
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "localized": {
+          "title": "Winning A Dev.Post Hackathon - Tiles@MapHub, OpenStreetMap with Dustin Wilson | HackBuddy",
+          "description": "Presented by HackBuddy, a meetup group from Southern California that learns web programming together now ONLINE.  Join us from around the world, simply get on the mailing list via: https://javascriptla.net.    \n\nTiles@Maphub allows users to query through hundreds of GB of OpenStreetMap (OSM) data and dynamically construct custom vector layers from this data. Tiles relies on a PostGIS DB tuned for fast geospatial queries on the newest generation of AWS Graviton processors. Tiles was built using AWS ECS as a container orchestrator, PostGIS as the DB, Redis as an API cache, Go for APIs, and vanilla Javascript for the frontend.\n\nDustin Wilson is a backend engineer at Numina, a start-up that deploys remote sensors to measure how people and objects move in streets and public spaces. Wilson also contributes content to Codecademy, where he focuses on building content for Databases and Computer Science courses (e.g. DB Design with PostgreSQL, CS103: Databases). Before Numina, Wilson was a Data Engineer at Geophy, a Dutch real-estate tech company. Dustin has a B.A in Economics from Columbia University.\n\nEnjoy the video! Thumbs up if you liked, leave comments below and SUBSCRIBE if you're new!  See you at the next meetup. Visit our website at:  https://javascriptla.net for more meetup and event announcements!\n\nWant to learn other programming languages too?\nVisit https://hackbuddy.com  \n\nChat via:\nDiscord via invite link: https://discord.gg/KWFymAh\nSlack Link: https://javascriptla.herokuapp.com\n\nYou can also follow us on all relevant social media:\nFacebook: https://facebook.com/javascriptla\nInstagram: https://instagram.com/javascriptninja\nTwitter: https://twitter.com/javascriptla\nLinkedIn: https://linkedin.com/company/javascriptla\nThanks for watching! - Vijay, Organizer\nhttps://javascriptla.net"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "videoId": "nHS3MBNwsyY",
+        "videoPublishedAt": "2022-02-19T00:58:07Z",
+        "duration": "PT1H17M51S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false
+      }
+    }
+  ]
+}

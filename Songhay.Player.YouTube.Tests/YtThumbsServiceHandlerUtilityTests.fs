@@ -36,13 +36,21 @@ module YtThumbsServiceHandlerUtilityTests =
             let id = Identifier.fromString(idString)
             let uri = id |> getPlaylistUri
             let! responseResult = client |> trySendAsync (get uri)
-
             responseResult |> should be (ofCase<@ Result<HttpResponseMessage,exn>.Ok @>)
-
             let response = responseResult |> Result.valueOr raise
 
             let! jsonResult = response |> tryDownloadToStringAsync
             jsonResult |> should be (ofCase<@ Result<string,HttpStatusCode>.Ok @>)
+            let json =
+                jsonResult
+                |> Result.mapError ( fun code -> exn $"{nameof HttpStatusCode}: {code.ToString()}" )
+                |> Result.valueOr raise
 
+            let path =
+                $"./json/{idString}.json"
+                |> tryGetCombinedPath projectDirectoryInfo.FullName
+                |> Result.valueOr raiseProgramFileError
+
+            File.WriteAllText(path, json)
         }
 
