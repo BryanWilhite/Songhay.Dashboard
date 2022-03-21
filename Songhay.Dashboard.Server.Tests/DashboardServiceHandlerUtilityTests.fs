@@ -1,6 +1,6 @@
-namespace Songhay.Dashboard.Server.Tests.RemoteHandlers
+namespace Songhay.Dashboard.Server.Tests
 
-module DashboardServiceHandlerTests =
+module DashboardServiceHandlerUtilityTests =
 
     open System
     open System.IO

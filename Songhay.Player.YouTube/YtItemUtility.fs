@@ -235,7 +235,7 @@ module YtItemUtility =
             )
             Result.Error
 
-    let tryGetYtItems (element: JsonElement) =
+    let fromInput (element: JsonElement) =
         element
         |> tryGetProperty YtItemsPropertyName
         |> Result.bind

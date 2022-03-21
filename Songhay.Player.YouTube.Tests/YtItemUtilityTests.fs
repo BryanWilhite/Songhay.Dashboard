@@ -138,10 +138,10 @@ module YtItemUtilityTests =
         actualResult |> should be (ofCase <@ Result<YouTubeItem, JsonException>.Ok @>)
 
     [<Fact>]
-    let ``tryGetYtItems test`` () =
+    let ``fromInput test`` () =
 
         let actualResult =
             videoJsonDocument.RootElement
-            |> tryGetYtItems
+            |> fromInput
 
         actualResult |> should be (ofCase <@ Result<YouTubeItem list, JsonException>.Ok @>)
