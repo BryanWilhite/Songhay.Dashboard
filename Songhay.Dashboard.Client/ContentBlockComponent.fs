@@ -38,7 +38,6 @@ let update remote (message: Message) (model: Model) =
         match page with
         | StudioFeedsPage -> m , Cmd.ofMsg GetFeeds
         | _ -> m, Cmd.none
-    | YouTubeMessage -> { model with playerYt = model.playerYt }, Cmd.none
 
 let view (jsRuntime: IJSRuntime) (model: Model) dispatch =
     viewContentBlockTemplate jsRuntime model dispatch

@@ -18,7 +18,6 @@ type Message =
     | Error of exn
     | GetFeeds | GotFeeds of (FeedName * SyndicationFeed)[] option
     | SetPage of Page
-    | YouTubeMessage
 
 type Model =
     {

@@ -17,7 +17,7 @@ module YtThumbsServiceHandlerUtility =
                (
                     fun code ->
                         logger.LogError($"The expected {nameof HttpStatusCode}, `{code},` is not here.")
-                        exn (code.ToString())
+                        exn $"{nameof HttpStatusCode}: {code.ToString()}"
                )
         |> Result.bind (fun json -> json |> tryGetRootElement)
         |> Result.mapError
