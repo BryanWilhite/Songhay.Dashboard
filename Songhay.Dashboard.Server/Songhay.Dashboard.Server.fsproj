@@ -5,8 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DashboardServiceHandlerUtility.fs" />
-    <Compile Include="RemoteHandlers/DashboardServiceHandler.fs" />
-    <Compile Include="RemoteHandlers\YtThumbsServiceHandler.fs" />
+    <Compile Include="DashboardServiceHandler.fs" />
     <Compile Include="Visuals/Head.fs" />
     <Compile Include="Visuals/Body.fs" />
     <Compile Include="Visuals/ContentBlock.fs" />

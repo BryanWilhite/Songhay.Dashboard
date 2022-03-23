@@ -6,6 +6,7 @@ open Microsoft.JSInterop
 open Bolero
 open Bolero.Html
 
+open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Visuals.Block.YtThumbs
 
 type YtThumbsComponent() =
@@ -17,6 +18,9 @@ type YtThumbsComponent() =
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
     override _.View model dispatch = ytThumbsNode
+
+let update (message: YouTubeMessage) (model: YouTubeModel option) =
+    ()
 
 let view (model: YouTubeModel option) dispatch =
     if model.IsSome then

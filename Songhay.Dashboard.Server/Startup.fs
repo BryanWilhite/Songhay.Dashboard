@@ -9,7 +9,7 @@ open Bolero.Remoting.Server
 open Bolero.Server
 open Bolero.Templating.Server
 
-open Songhay.Dashboard.Server.RemoteHandlers
+open Songhay.Dashboard.Server
 
 type Startup() =
 

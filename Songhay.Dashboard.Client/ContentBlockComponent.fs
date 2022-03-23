@@ -15,13 +15,14 @@ open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.ElmishRoutes
 open Songhay.Dashboard.Client.Templates.ContentBlock
+open Songhay.Player.YouTube
 
 let initModel =
     {
         error = None
         feeds = None
         page = StudioToolsPage
-        playerYt = None
+        ytModel = None
     }
 
 let update remote (message: Message) (model: Model) =
@@ -38,6 +39,9 @@ let update remote (message: Message) (model: Model) =
         match page with
         | StudioFeedsPage -> m , Cmd.ofMsg GetFeeds
         | _ -> m, Cmd.none
+    | Message.YouTubeMessage ytMsg ->
+        YtThumbs.update ytMsg model.ytModel
+        { model with error = None }, Cmd.none
 
 let view (jsRuntime: IJSRuntime) (model: Model) dispatch =
     viewContentBlockTemplate jsRuntime model dispatch

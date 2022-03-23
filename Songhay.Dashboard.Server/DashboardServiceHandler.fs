@@ -1,4 +1,4 @@
-namespace Songhay.Dashboard.Server.RemoteHandlers
+namespace Songhay.Dashboard.Server
 
 open System
 open System.Net.Http
@@ -15,9 +15,12 @@ open Songhay.Modules.HttpRequestMessageUtility
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.RemoteHandlerUtility
 
+open Songhay.Player.YouTube
+open Songhay.Player.YouTube.Models
+
 open Songhay.Dashboard.Models
 open Songhay.Dashboard.Client.ElmishTypes
-open Songhay.Dashboard.Server.DashboardServiceHandlerUtility
+open Songhay.Dashboard.Server
 
 type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServiceHandler>, cache: IMemoryCache) =
     inherit RemoteHandler<DashboardService>()
@@ -34,11 +37,30 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let! output =
                         responseResult
-                        |> (toHandlerOutputAsync logger toDomainData)
+                        |> (toHandlerOutputAsync logger DashboardServiceHandlerUtility.toDomainData)
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(5));
                     cache.Set(StudioFeedsPage, output, cacheEntryOptions) |> ignore
+
+                    return output
+            }
+
+            getYtItems = fun uri -> async {
+                match cache.TryGetValue CalledYtItems with
+                | true, o -> return o :?> YouTubeItem[] option
+                | false, _ ->
+                    logger.LogInformation($"calling {uri.OriginalString}...")
+
+                    let! responseResult = client |> trySendAsync (get uri) |> Async.AwaitTask
+
+                    let! output =
+                        responseResult
+                        |> (toHandlerOutputAsync logger YtThumbsServiceHandlerUtility.toDomainData)
+                        |> Async.AwaitTask
+
+                    let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
+                    cache.Set(CalledYtItems, output, cacheEntryOptions) |> ignore
 
                     return output
             }

@@ -3,9 +3,10 @@ module Songhay.Dashboard.Client.Templates.ContentBlock
 open Bolero
 open Bolero.Html
 
+open Songhay.Player.YouTube
+
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Visuals
-open Songhay.Player.YouTube
 
 type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
@@ -27,5 +28,5 @@ let viewContentBlockTemplate jsRuntime (model: Model) dispatch =
             | StudioFeedsPage -> Tile.studioPageNode (Block.StudioFeeds.studioFeedsNodes jsRuntime model)
             | StudioToolsPage -> Tile.studioPageNode [ Block.StudioTools.studioToolsNode() ]
         )
-        .YouTubeThumbs(YtThumbs.view model.playerYt (fun _ -> ()))
+        .YouTubeThumbs(YtThumbs.view model.ytModel (Message.YouTubeMessage >> dispatch))
         .Elt()
