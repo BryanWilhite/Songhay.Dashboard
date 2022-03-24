@@ -21,17 +21,12 @@ type Message =
     | SetPage of Page
     | YouTubeMessage of YouTubeMessage
 
-    member this.ToYouTubeMessage =
-        match this with
-        | YouTubeMessage m -> Some m
-        | _ -> None
-
 type Model =
     {
         error: string option
         feeds: (FeedName * SyndicationFeed)[] option
         page: Page
-        ytModel: YouTubeModel option
+        ytModel: YouTubeModel
     }
 
 type DashboardService =

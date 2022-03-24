@@ -1,6 +1,7 @@
 namespace Songhay.Player.YouTube.Tests
 
 open System.Net
+open Songhay.Player.YouTube
 
 module YtThumbsServiceHandlerUtilityTests =
 
@@ -30,7 +31,7 @@ module YtThumbsServiceHandlerUtilityTests =
     let client = new HttpClient()
 
     [<Theory>]
-    [<InlineData("youtube-index-songhay-top-ten")>]
+    [<InlineData(YtIndexSonghayTopTen)>]
     let ``getPlaylistUri test`` (idString: string) =
         task {
             let id = Identifier.fromString(idString)

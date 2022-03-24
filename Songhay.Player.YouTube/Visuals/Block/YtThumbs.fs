@@ -2,10 +2,13 @@ module Songhay.Player.YouTube.Visuals.Block.YtThumbs
 
 open Bolero.Html
 
+open Microsoft.JSInterop
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Visuals.Svg
 
-let ytThumbsNode =
+open Songhay.Player.YouTube.Models
+
+let ytThumbsNode (jsRuntime: IJSRuntime) (items: YouTubeItem[] option) =
     div
         [ attr.classes [ "rx"; "b-roll" ] ]
         [
