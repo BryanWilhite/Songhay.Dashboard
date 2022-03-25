@@ -4,6 +4,7 @@ open System.Net
 open Microsoft.Extensions.Logging
 
 open NSubstitute
+open Songhay.Player.YouTube.Models
 open Songhay.Player.YouTube.YtThumbsServiceHandlerUtility
 
 module YtThumbsServiceHandlerUtilityTests =
@@ -70,4 +71,6 @@ module YtThumbsServiceHandlerUtilityTests =
     let ``toDomainData test`` (fileName: string) =
         let json = fileName |> getJson
         let mockLogger = Substitute.For<ILogger>()
-        Ok json |> toDomainData mockLogger
+
+        let actual = Ok json |> toDomainData mockLogger
+        actual |> should be (ofCase<@ Option<YouTubeItem[]>.Some @>)
