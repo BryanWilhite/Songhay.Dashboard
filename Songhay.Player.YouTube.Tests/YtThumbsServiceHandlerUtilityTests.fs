@@ -1,7 +1,10 @@
 namespace Songhay.Player.YouTube.Tests
 
 open System.Net
-open Songhay.Player.YouTube
+open Microsoft.Extensions.Logging
+
+open NSubstitute
+open Songhay.Player.YouTube.YtThumbsServiceHandlerUtility
 
 module YtThumbsServiceHandlerUtilityTests =
 
@@ -27,6 +30,13 @@ module YtThumbsServiceHandlerUtilityTests =
         |> ProgramAssemblyInfo.getPathFromAssembly "../../../"
         |> Result.valueOr raiseProgramFileError
         |> DirectoryInfo
+
+    let getJson (fileName: string) =
+        let path =
+            $"./json/{fileName}"
+            |> tryGetCombinedPath projectDirectoryInfo.FullName
+            |> Result.valueOr raiseProgramFileError
+        File.ReadAllText(path)
 
     let client = new HttpClient()
 
@@ -55,3 +65,9 @@ module YtThumbsServiceHandlerUtilityTests =
             File.WriteAllText(path, json)
         }
 
+    [<Theory>]
+    [<InlineData("youtube-index-songhay-top-ten.json")>]
+    let ``toDomainData test`` (fileName: string) =
+        let json = fileName |> getJson
+        let mockLogger = Substitute.For<ILogger>()
+        Ok json |> toDomainData mockLogger

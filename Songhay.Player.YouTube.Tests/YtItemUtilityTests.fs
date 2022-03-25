@@ -23,16 +23,18 @@ module YtItemUtilityTests =
         |> Result.valueOr raiseProgramFileError
         |> DirectoryInfo
 
-    let videoJsonDocumentPath =
-        "./json/60-minutes.json"
-        |> tryGetCombinedPath projectDirectoryInfo.FullName
-        |> Result.valueOr raiseProgramFileError
+    let getJsonDocument (fileName: string) =
+        let path =
+            $"./json/{fileName}"
+            |> tryGetCombinedPath projectDirectoryInfo.FullName
+            |> Result.valueOr raiseProgramFileError
+        JsonDocument.Parse(File.ReadAllText(path))
 
-    let videoJsonDocument =
-        JsonDocument.Parse(File.ReadAllText(videoJsonDocumentPath))
-
-    [<Fact>]
-    let ``video-yt-bowie0-videos.json should have `items` property`` () =
+    [<Theory>]
+    [<InlineData("60-minutes.json")>]
+    [<InlineData("youtube-index-songhay-top-ten.json")>]
+    let ``should have `items` property`` (fileName: string) =
+        let videoJsonDocument = fileName |> getJsonDocument
         let actual =
             match videoJsonDocument.RootElement.TryGetProperty YtItemsPropertyName with
             | true, _ -> true
@@ -40,8 +42,11 @@ module YtItemUtilityTests =
 
         actual |> should be True
 
-    [<Fact>]
-    let ``tryGetYtContentDetails test`` () =
+    [<Theory>]
+    [<InlineData("60-minutes.json")>]
+    [<InlineData("youtube-index-songhay-top-ten.json")>]
+    let ``tryGetYtContentDetails test`` (fileName: string) =
+        let videoJsonDocument = fileName |> getJsonDocument
         let itemElementResult =
             videoJsonDocument.RootElement
             |> tryGetProperty YtItemsPropertyName
@@ -61,8 +66,11 @@ module YtItemUtilityTests =
 
         actualResult |> should be (ofCase <@ Result<YouTubeContentDetails, JsonException>.Ok @>)
 
-    [<Fact>]
-    let ``tryGetYtResourceId test`` () =
+    [<Theory>]
+    [<InlineData("60-minutes.json")>]
+    [<InlineData("youtube-index-songhay-top-ten.json")>]
+    let ``tryGetYtResourceId test`` (fileName: string) =
+        let videoJsonDocument = fileName |> getJsonDocument
         let itemElementResult =
             videoJsonDocument.RootElement
             |> tryGetProperty YtItemsPropertyName
@@ -81,8 +89,11 @@ module YtItemUtilityTests =
 
         actualResult |> should be (ofCase <@ Result<YouTubeResourceId, JsonException>.Ok @>)
 
-    [<Fact>]
-    let ``tryGetYtThumbnails test`` () =
+    [<Theory>]
+    [<InlineData("60-minutes.json")>]
+    [<InlineData("youtube-index-songhay-top-ten.json")>]
+    let ``tryGetYtThumbnails test`` (fileName: string) =
+        let videoJsonDocument = fileName |> getJsonDocument
         let itemElementResult =
             videoJsonDocument.RootElement
             |> tryGetProperty YtItemsPropertyName
@@ -101,8 +112,11 @@ module YtItemUtilityTests =
 
         actualResult |> should be (ofCase <@ Result<YouTubeThumbnails, JsonException>.Ok @>)
 
-    [<Fact>]
-    let ``tryGetYtSnippet test`` () =
+    [<Theory>]
+    [<InlineData("60-minutes.json")>]
+    [<InlineData("youtube-index-songhay-top-ten.json")>]
+    let ``tryGetYtSnippet test`` (fileName: string) =
+        let videoJsonDocument = fileName |> getJsonDocument
         let itemElementResult =
             videoJsonDocument.RootElement
             |> tryGetProperty YtItemsPropertyName
@@ -121,8 +135,11 @@ module YtItemUtilityTests =
 
         actualResult |> should be (ofCase <@ Result<YouTubeSnippet, JsonException>.Ok @>)
 
-    [<Fact>]
-    let ``tryGetYtItem test`` () =
+    [<Theory>]
+    [<InlineData("60-minutes.json")>]
+    [<InlineData("youtube-index-songhay-top-ten.json")>]
+    let ``tryGetYtItem test`` (fileName: string) =
+        let videoJsonDocument = fileName |> getJsonDocument
         let itemElementResult =
             videoJsonDocument.RootElement
             |> tryGetProperty YtItemsPropertyName
@@ -137,9 +154,12 @@ module YtItemUtilityTests =
 
         actualResult |> should be (ofCase <@ Result<YouTubeItem, JsonException>.Ok @>)
 
-    [<Fact>]
-    let ``fromInput test`` () =
+    [<Theory>]
+    [<InlineData("60-minutes.json")>]
+    [<InlineData("youtube-index-songhay-top-ten.json")>]
+    let ``fromInput test`` (fileName: string) =
 
+        let videoJsonDocument = fileName |> getJsonDocument
         let actualResult =
             videoJsonDocument.RootElement
             |> fromInput

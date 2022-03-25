@@ -7,7 +7,6 @@ open FsToolkit.ErrorHandling
 
 open Microsoft.FSharp.Core
 open Songhay.Modules.JsonDocumentUtility
-open Songhay.Modules.ProgramTypeUtility
 
 open Songhay.Player.YouTube.Models
 
@@ -61,14 +60,11 @@ module YtItemUtility =
         let projectionResult = element |> tryGetProperty "projection" |> Result.map (fun el -> el.GetString())
 
         [
-            videoIdResult |> Result.map (fun _ -> true)
-            videoPublishedAtResult |> Result.map (fun _ -> true)
             durationResult |> Result.map (fun _ -> true)
             dimensionResult |> Result.map (fun _ -> true)
             definitionResult |> Result.map (fun _ -> true)
             captionResult |> Result.map (fun _ -> true)
             licensedContentResult |> Result.map (fun _ -> true)
-            regionRestrictionResult |> Result.map (fun _ -> true)
             projectionResult |> Result.map (fun _ -> true)
         ]
         |> List.sequenceResultM

@@ -48,10 +48,8 @@ let rec update (jsRuntime: IJSRuntime) remote (message: Message) (model: Model) 
     | Message.YouTubeMessage ytMsg ->
         match ytMsg with
         | YouTubeMessage.CallYtItems ->
-            let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
-
             let success = fun items ->
-                jsRuntime.InvokeVoidAsync("console.log", "success", items) |> ignore
+                jsRuntime.InvokeVoidAsync("console.log", "YouTubeMessage.CallYtItems success", items) |> ignore
                 let compSuccessMsg = YouTubeMessage.CalledYtItems items
                 YtThumbs.update jsRuntime compSuccessMsg model.ytModel |> ignore
                 Message.YouTubeMessage compSuccessMsg
@@ -61,6 +59,7 @@ let rec update (jsRuntime: IJSRuntime) remote (message: Message) (model: Model) 
                 YtThumbs.update jsRuntime compFailureMsg model.ytModel |> ignore
                 Message.YouTubeMessage compFailureMsg
 
+            let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
             let cmd = Cmd.OfAsync.either remote.getYtItems uri success failure
 
             YtThumbs.update jsRuntime ytMsg model.ytModel |> ignore
