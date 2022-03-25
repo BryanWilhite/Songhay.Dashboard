@@ -9,6 +9,7 @@ open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Player.YouTube.Models
 
 let ytThumbsNode (jsRuntime: IJSRuntime) (items: YouTubeItem[] option) =
+    jsRuntime.InvokeVoidAsync("console.log", "ytThumbsNode", items) |> ignore
     div
         [ attr.classes [ "rx"; "b-roll" ] ]
         [

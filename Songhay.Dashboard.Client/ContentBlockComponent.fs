@@ -11,7 +11,9 @@ open Bolero.Remoting
 open Bolero.Remoting.Client
 open Bolero.Templating.Client
 
+open Songhay.Modules.Models
 open Songhay.Player.YouTube
+open Songhay.Player.YouTube.YtUriUtility
 
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
@@ -23,10 +25,10 @@ let initModel =
         error = None
         feeds = None
         page = StudioToolsPage
-        ytModel = { Error = None; YouTubeItems = None }
+        ytModel = YouTubeModel.initialize
     }
 
-let update remote (message: Message) (model: Model) =
+let rec update (jsRuntime: IJSRuntime) remote (message: Message) (model: Model) =
 
     let clearPair = { model with error = None }, Cmd.none
 
@@ -44,8 +46,30 @@ let update remote (message: Message) (model: Model) =
         | StudioFeedsPage -> m , Cmd.ofMsg GetFeeds
         | _ -> m, Cmd.none
     | Message.YouTubeMessage ytMsg ->
-        YtThumbs.update remote.getYtItems ytMsg model.ytModel |> ignore
-        clearPair
+        match ytMsg with
+        | YouTubeMessage.CallYtItems ->
+            let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
+
+            let success = fun items ->
+                jsRuntime.InvokeVoidAsync("console.log", "success", items) |> ignore
+                let compSuccessMsg = YouTubeMessage.CalledYtItems items
+                YtThumbs.update jsRuntime compSuccessMsg model.ytModel |> ignore
+                Message.YouTubeMessage compSuccessMsg
+
+            let failure = fun ex ->
+                let compFailureMsg = YouTubeMessage.Error ex
+                YtThumbs.update jsRuntime compFailureMsg model.ytModel |> ignore
+                Message.YouTubeMessage compFailureMsg
+
+            let cmd = Cmd.OfAsync.either remote.getYtItems uri success failure
+
+            YtThumbs.update jsRuntime ytMsg model.ytModel |> ignore
+
+            model, cmd
+        | _ ->
+            YtThumbs.update jsRuntime ytMsg model.ytModel |> ignore
+
+            clearPair
 
 let view (jsRuntime: IJSRuntime) (model: Model) dispatch =
     viewContentBlockTemplate jsRuntime model dispatch
@@ -60,7 +84,7 @@ type ContentBlockComponent() =
 
     override this.Program =
         let init = (fun _ -> initModel, Cmd.ofMsg (Message.YouTubeMessage YouTubeMessage.CallYtItems))
-        let update = update (this.Remote<DashboardService>())
+        let update = update this.JSRuntime (this.Remote<DashboardService>())
         let view = view this.JSRuntime
 
         Program.mkProgram init update view

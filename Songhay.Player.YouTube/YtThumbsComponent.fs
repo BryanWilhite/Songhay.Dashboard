@@ -1,6 +1,5 @@
 module Songhay.Player.YouTube.YtThumbs
 
-open System
 open Elmish
 open Microsoft.AspNetCore.Components
 open Microsoft.JSInterop
@@ -8,11 +7,8 @@ open Microsoft.JSInterop
 open Bolero
 open Bolero.Html
 
-open Songhay.Modules.Models
-
 open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Models
-open Songhay.Player.YouTube.YtUriUtility
 open Songhay.Player.YouTube.Visuals.Block.YtThumbs
 
 type YtThumbsComponent() =
@@ -26,13 +22,13 @@ type YtThumbsComponent() =
     override this.View model _ =
         ytThumbsNode this.JSRuntime model
 
-let update (getterAsync: Uri -> Async<YouTubeItem[] option>) (message: YouTubeMessage) (model: YouTubeModel) =
+let update (jsRuntime: IJSRuntime) (message: YouTubeMessage) (model: YouTubeModel) =
+
+    jsRuntime.InvokeVoidAsync("console.log", nameof message, message) |> ignore
+
     match message with
     | Error exn -> { model with Error = Some exn.Message }, Cmd.none
-    | CallYtItems ->
-        let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
-        let cmd = Cmd.OfAsync.either getterAsync uri CalledYtItems YouTubeMessage.Error
-        { model with YouTubeItems = None }, cmd
+    | CallYtItems -> { model with YouTubeItems = None }, Cmd.none
     | CalledYtItems items -> { model with YouTubeItems = items }, Cmd.none
 
 let view (model: YouTubeItem[] option) dispatch =
