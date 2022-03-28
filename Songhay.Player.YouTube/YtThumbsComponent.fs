@@ -17,12 +17,9 @@ type YtThumbsComponent() =
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
-    override this.ShouldRender(oldModel, newModel) =
-        this.JSRuntime.InvokeVoidAsync("console.log", $"ShouldRender", oldModel, newModel) |> ignore
-        oldModel <> newModel
+    override this.ShouldRender(oldModel, newModel) = oldModel <> newModel
 
-    override this.View model _ =
-        ytThumbsNode this.JSRuntime model.YouTubeItems
+    override this.View model _ = ytThumbsNode this.JSRuntime model.YouTubeItems
 
 let updateModel (message: YouTubeMessage) (model: YouTubeModel) =
     match message with
