@@ -12,7 +12,7 @@ open Songhay.Dashboard.Client.ElmishTypes
 
 let bulmaPanelIcon (id: Identifier) =
     span [
-        attr.classes [ "panel-icon" ]
+        attr.classes [ "panel-icon"; "image"; "is-24x24" ]
     ] [ svgNode (svgViewBoxSquare 24) svgData[id] ]
 
 let linkNodes =
