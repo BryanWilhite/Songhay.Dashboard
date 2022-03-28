@@ -10,25 +10,33 @@ open Songhay.Player.YouTube.Models
 
 let ytThumbsNode (jsRuntime: IJSRuntime) (items: YouTubeItem[] option) =
     jsRuntime.InvokeVoidAsync("console.log", "ytThumbsNode", items) |> ignore
+
     div
         [ attr.classes [ "rx"; "b-roll" ] ]
         [
             div
                 [ attr.classes [ "video"; "thumbs"; "header" ] ]
                 [
-                    svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_youtube_24px"]
+                    h2 [] [
+                        span
+                            [ attr.classes [ "image"; "is-24x24" ] ]
+                            [
+                                svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_youtube_24px"]
+                            ]
+                        text $"number of items: { ([||], items) ||> Option.defaultValue |> Array.length }"
+                    ]
                 ]
             div
                 [ attr.classes [ "video"; "thumbs"; "thumbs-container" ] ]
                 [
                     button
-                        [ attr.``type`` "button" ]
+                        [ attr.``type`` "button"; attr.classes [ "image"; "is-24x24" ] ]
                         [
                             svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_arrow_left_drop_circle_24px"]
                         ]
 
                     button
-                        [ attr.``type`` "button" ]
+                        [ attr.``type`` "button"; attr.classes [ "image"; "is-24x24" ] ]
                         [
                             svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_arrow_right_drop_circle_24px"]
                         ]

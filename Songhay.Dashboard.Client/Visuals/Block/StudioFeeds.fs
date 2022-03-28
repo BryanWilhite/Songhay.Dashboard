@@ -94,8 +94,7 @@ let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
                 ]
         ]
 
-let studioFeedsNodes (jsRuntime: IJSRuntime) (model: Model) : Node list =
-    // jsRuntime.InvokeVoidAsync("console.log", "yup", model) |> ignore
+let studioFeedsNodes (_: IJSRuntime) (model: Model) : Node list =
     match model.feeds with
     | None ->
         [

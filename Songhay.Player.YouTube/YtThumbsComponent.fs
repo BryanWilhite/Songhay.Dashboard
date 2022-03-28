@@ -1,6 +1,5 @@
 module Songhay.Player.YouTube.YtThumbs
 
-open Elmish
 open Microsoft.AspNetCore.Components
 open Microsoft.JSInterop
 
@@ -8,28 +7,28 @@ open Bolero
 open Bolero.Html
 
 open Songhay.Player.YouTube
-open Songhay.Player.YouTube.Models
 open Songhay.Player.YouTube.Visuals.Block.YtThumbs
 
 type YtThumbsComponent() =
-    inherit ElmishComponent<YouTubeItem[] option, YouTubeMessage>()
+    inherit ElmishComponent<YouTubeModel, YouTubeMessage>()
 
     static member val Id = "yt-thumbs-block" with get
 
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
+    override this.ShouldRender(oldModel, newModel) =
+        this.JSRuntime.InvokeVoidAsync("console.log", $"ShouldRender", oldModel, newModel) |> ignore
+        oldModel <> newModel
+
     override this.View model _ =
-        ytThumbsNode this.JSRuntime model
+        ytThumbsNode this.JSRuntime model.YouTubeItems
 
-let update (jsRuntime: IJSRuntime) (message: YouTubeMessage) (model: YouTubeModel) =
-
-    jsRuntime.InvokeVoidAsync("console.log", nameof message, message) |> ignore
-
+let updateModel (message: YouTubeMessage) (model: YouTubeModel) =
     match message with
-    | Error exn -> { model with Error = Some exn.Message }, Cmd.none
-    | CallYtItems -> { model with YouTubeItems = None }, Cmd.none
-    | CalledYtItems items -> { model with YouTubeItems = items }, Cmd.none
+    | Error exn -> { model with Error = Some exn.Message }
+    | CallYtItems -> { model with YouTubeItems = None }
+    | CalledYtItems items -> { model with YouTubeItems = items }
 
-let view (model: YouTubeItem[] option) dispatch =
+let view (model: YouTubeModel) dispatch =
     ecomp<YtThumbsComponent, _, _> [] model dispatch

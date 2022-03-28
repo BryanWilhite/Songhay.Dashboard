@@ -20,20 +20,10 @@ open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.ElmishRoutes
 open Songhay.Dashboard.Client.Templates.ContentBlock
 
-let initModel =
-    {
-        error = None
-        feeds = None
-        page = StudioToolsPage
-        ytModel = YouTubeModel.initialize
-    }
-
-let rec update (jsRuntime: IJSRuntime) remote (message: Message) (model: Model) =
-
-    let clearPair = { model with error = None }, Cmd.none
+let rec update remote (message: Message) (model: Model) =
 
     match message with
-    | Message.ClearError -> clearPair
+    | Message.ClearError -> { model with error = None }, Cmd.none
     | Message.Error exn -> { model with error = Some exn.Message }, Cmd.none
     | Message.GetFeeds ->
         let uri = App.AppDataLocation |> Uri
@@ -46,29 +36,25 @@ let rec update (jsRuntime: IJSRuntime) remote (message: Message) (model: Model) 
         | StudioFeedsPage -> m , Cmd.ofMsg GetFeeds
         | _ -> m, Cmd.none
     | Message.YouTubeMessage ytMsg ->
+
+        let ytModel = {
+            model with ytModel = YtThumbs.updateModel ytMsg model.ytModel
+        }
+
         match ytMsg with
         | YouTubeMessage.CallYtItems ->
             let success = fun items ->
-                jsRuntime.InvokeVoidAsync("console.log", "YouTubeMessage.CallYtItems success", items) |> ignore
-                let compSuccessMsg = YouTubeMessage.CalledYtItems items
-                YtThumbs.update jsRuntime compSuccessMsg model.ytModel |> ignore
-                Message.YouTubeMessage compSuccessMsg
+                let ytItemsSuccessMsg = YouTubeMessage.CalledYtItems items
+                Message.YouTubeMessage ytItemsSuccessMsg
 
             let failure = fun ex ->
-                let compFailureMsg = YouTubeMessage.Error ex
-                YtThumbs.update jsRuntime compFailureMsg model.ytModel |> ignore
-                Message.YouTubeMessage compFailureMsg
+                let ytFailureMsg = YouTubeMessage.Error ex
+                Message.YouTubeMessage ytFailureMsg
 
             let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
             let cmd = Cmd.OfAsync.either remote.getYtItems uri success failure
-
-            YtThumbs.update jsRuntime ytMsg model.ytModel |> ignore
-
-            model, cmd
-        | _ ->
-            YtThumbs.update jsRuntime ytMsg model.ytModel |> ignore
-
-            clearPair
+            ytModel, cmd
+        | _ -> ytModel, Cmd.none
 
 let view (jsRuntime: IJSRuntime) (model: Model) dispatch =
     viewContentBlockTemplate jsRuntime model dispatch
@@ -82,8 +68,15 @@ type ContentBlockComponent() =
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
     override this.Program =
+        let initModel =
+            {
+                error = None
+                feeds = None
+                page = StudioToolsPage
+                ytModel = YouTubeModel.initialize
+            }
         let init = (fun _ -> initModel, Cmd.ofMsg (Message.YouTubeMessage YouTubeMessage.CallYtItems))
-        let update = update this.JSRuntime (this.Remote<DashboardService>())
+        let update = update (this.Remote<DashboardService>())
         let view = view this.JSRuntime
 
         Program.mkProgram init update view
