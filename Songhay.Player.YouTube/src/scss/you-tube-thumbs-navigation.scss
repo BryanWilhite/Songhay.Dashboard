@@ -1,13 +1,13 @@
 h1 {
-    background-color: var(--thumbs-set-background-color);
+    background-color: $var-thumbs-set-background-color;
     font-size: 2.4rem;
     padding: 1rem;
-    position: var(--thumbs-set-header-position);
+    position: $var-thumbs-set-header-position;
     width: 100%;
     z-index: 3;
 
     & > span {
-        color: var(--thumbs-set-header-color);
+        color: $var-thumbs-set-header-color;
         display: inline-block;
         vertical-align: bottom;
     }

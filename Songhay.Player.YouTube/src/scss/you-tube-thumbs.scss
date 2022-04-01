@@ -120,8 +120,8 @@ $key: 8-thumbs;
 
             &:link,
             &:visited {
-                color: var(--thumbs-header-link-color);
-                text-decoration: var(--thumbs-header-link-text-decoration);
+                color: $var-thumbs-header-link-color;
+                text-decoration: $var-thumbs-header-link-text-decoration;
             }
             & > span {
                 display: inline-block;
@@ -137,7 +137,7 @@ $key: 8-thumbs;
                 & > a {
                     &:link,
                     &:visited {
-                        color: var(--thumbs-header-link-color);
+                        color: $var-thumbs-header-link-color;
                         text-decoration: none;
                     }
                 }
