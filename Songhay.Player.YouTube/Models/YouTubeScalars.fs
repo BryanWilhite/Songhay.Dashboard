@@ -37,6 +37,12 @@ let YouTubeApiPlaylistsIndexPath = "playlist/index/"
 let YouTubeApiVideosPath = "videos/"
 
 /// <summary>
+/// base URI representing YouTube channel browsing
+/// </summary>
+[<Literal>]
+let YouTubeChannelRootUri = "https://www.youtube.com/channel/"
+
+/// <summary>
 /// base URI representing YouTube item watching
 /// </summary>
 [<Literal>]

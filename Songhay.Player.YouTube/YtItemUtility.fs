@@ -9,6 +9,7 @@ open Microsoft.FSharp.Core
 open Songhay.Modules.JsonDocumentUtility
 
 open Songhay.Player.YouTube.Models
+open Songhay.Player.YouTube.Models.YouTubeScalars
 
 module YtItemUtility =
 
@@ -23,6 +24,11 @@ module YtItemUtility =
 
     [<Literal>]
     let YtItemThumbnailsPropertyName = "thumbnails"
+
+    let getYtItemsPair (item: YouTubeItem) =
+        let uri = $"{YouTubeChannelRootUri}{item.snippet.channelId}"
+        let title = item.snippet.channelTitle
+        uri, title
 
     let tryGetYtContentDetails (element: JsonElement) : Result<YouTubeContentDetails, JsonException> =
         let videoIdResult = element |> tryGetProperty "videoId" |> Result.map (fun el -> el.GetString())
@@ -185,7 +191,7 @@ module YtItemUtility =
                 fun _ ->
                     Ok {
                         channelId = channelIdResult |> Result.valueOr raise
-                        channelTitle = titleResult |> Result.valueOr raise
+                        channelTitle = channelTitleResult |> Result.valueOr raise
                         description = descriptionResult |> Result.valueOr raise
                         localized =
                             {|

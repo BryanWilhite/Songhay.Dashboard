@@ -7,9 +7,17 @@ open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Player.YouTube.Models
+open Songhay.Player.YouTube.YtItemUtility
 
-let ytThumbsNode (jsRuntime: IJSRuntime) (items: YouTubeItem[] option) =
-    jsRuntime.InvokeVoidAsync("console.log", "ytThumbsNode", items) |> ignore
+let getYtThumbsTitle (items: YouTubeItem[] option) =
+    if items.IsNone then
+        empty
+    else
+        let pair = items.Value |> Array.head |> getYtItemsPair
+        a [ attr.href (fst pair) ] [ text (snd pair) ]
+
+let ytThumbsNode (_: IJSRuntime) (items: YouTubeItem[] option) =
+    //jsRuntime.InvokeVoidAsync("console.log", "ytThumbsNode", items) |> ignore
 
     div
         [ attr.classes [ "rx"; "b-roll" ] ]
@@ -22,14 +30,10 @@ let ytThumbsNode (jsRuntime: IJSRuntime) (items: YouTubeItem[] option) =
                         [
                             span
                                 [ attr.classes [ "level-item"; "image"; "is-48x48" ] ]
-                                [
-                                    svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_youtube_24px"]
-                                ]
+                                [ svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_youtube_24px"] ]
                             span
                                 [ attr.classes [ "level-item"; "is-size-2" ] ]
-                                [
-                                    text $"number of items: { ([||], items) ||> Option.defaultValue |> Array.length }"
-                                ]
+                                [ items |> getYtThumbsTitle ]
                         ]
                 ]
             div
