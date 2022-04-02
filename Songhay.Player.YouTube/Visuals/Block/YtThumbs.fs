@@ -14,29 +14,35 @@ let ytThumbsNode (jsRuntime: IJSRuntime) (items: YouTubeItem[] option) =
     div
         [ attr.classes [ "rx"; "b-roll" ] ]
         [
-            div
-                [ attr.classes [ "video"; "thumbs"; "header" ] ]
+            nav
+                [ attr.classes [ "level"; "video"; "thumbs"; "header" ] ]
                 [
-                    h2 [] [
-                        span
-                            [ attr.classes [ "image"; "is-24x24" ] ]
-                            [
-                                svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_youtube_24px"]
-                            ]
-                        text $"number of items: { ([||], items) ||> Option.defaultValue |> Array.length }"
-                    ]
+                    div
+                        [ attr.classes [ "level-left" ] ]
+                        [
+                            span
+                                [ attr.classes [ "level-item"; "image"; "is-48x48" ] ]
+                                [
+                                    svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_youtube_24px"]
+                                ]
+                            span
+                                [ attr.classes [ "level-item"; "is-size-2" ] ]
+                                [
+                                    text $"number of items: { ([||], items) ||> Option.defaultValue |> Array.length }"
+                                ]
+                        ]
                 ]
             div
                 [ attr.classes [ "video"; "thumbs"; "thumbs-container" ] ]
                 [
-                    button
-                        [ attr.``type`` "button"; attr.classes [ "image"; "is-24x24" ] ]
+                    a
+                        [ attr.href "#"; attr.classes [ "command"; "left"; "image"; "is-48x48" ] ]
                         [
                             svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_arrow_left_drop_circle_24px"]
                         ]
 
-                    button
-                        [ attr.``type`` "button"; attr.classes [ "image"; "is-24x24" ] ]
+                    a
+                        [ attr.href "#"; attr.classes [ "command"; "right"; "image"; "is-48x48" ] ]
                         [
                             svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_arrow_right_drop_circle_24px"]
                         ]

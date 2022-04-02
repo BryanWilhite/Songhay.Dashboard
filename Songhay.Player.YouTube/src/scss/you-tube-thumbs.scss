@@ -48,10 +48,7 @@ $thumbs-media-max-width: map-get($thumbs-responsive-widths, media-max-width);
             & > .video.thumbs-container {
                 width: map-get($thumbs-responsive-widths, $key);
 
-                & > button {
-                    &.left {
-                        left: $button-right-fudge !important;
-                    }
+                & > .command {
                     &.right {
                         left: map-get($thumbs-responsive-widths, $key) - $button-left-fudge !important;
                     }
@@ -68,10 +65,7 @@ $key: 8-thumbs;
         .video.thumbs-container {
             width: map-get($thumbs-responsive-widths, $key);
 
-            & > button {
-                &.left {
-                    left: $button-right-fudge !important;
-                }
+            & > .command {
                 &.right {
                     left: map-get($thumbs-responsive-widths, $key) - $button-left-fudge !important;
                 }
@@ -82,18 +76,13 @@ $key: 8-thumbs;
 
 .rx.b-roll {
     .video.thumbs {
-        & > button {
+        & > .command {
             display: inline-block;
+            margin: 0;
             opacity: 0.5;
+            padding: 0;
             position: relative;
-            top: $button-top-fudge;
             z-index: 2;
-
-            & .mat-icon {
-                & svg {
-                    transform: scale(2);
-                }
-            }
 
             &:hover {
                 opacity: 0.9;
@@ -101,17 +90,10 @@ $key: 8-thumbs;
         }
 
         &.header {
-            font-size: 1.8rem;
-            padding-left: 2rem;
-
-            & > .mat-icon {
-                margin-right: 0.5rem;
-            }
+            margin-bottom: 0;
 
             & > a {
                 display: inline-block;
-                line-height: 1.8rem;
-                margin-bottom: 0.5rem;
 
                 &:link,
                 &:visited {
@@ -124,17 +106,11 @@ $key: 8-thumbs;
             }
 
             & > span {
-                display: inline-block;
-                line-height: 1.8rem;
-                margin-bottom: 0.5rem;
-
-                & span {
-                    & > a {
-                        &:link,
-                        &:visited {
-                            color: $var-thumbs-header-link-color;
-                            text-decoration: none;
-                        }
+                & > a {
+                    &:link,
+                    &:visited {
+                        color: $var-thumbs-header-link-color;
+                        text-decoration: none;
                     }
                 }
             }
@@ -185,9 +161,6 @@ $key: 8-thumbs;
                     & > .published-at {
                         color: #0f0;
                         display: block;
-                        font-size: 1em;
-                        height: $published-at-height;
-                        padding-left: 0.25em;
                     }
 
                     & > .duration {
@@ -202,7 +175,6 @@ $key: 8-thumbs;
                             background-color: #000;
                             color: #fff;
                             display: inline-block;
-                            font-size: 0.9em;
                             margin-right: 0.5em;
                             padding: 0.25em;
                         }
