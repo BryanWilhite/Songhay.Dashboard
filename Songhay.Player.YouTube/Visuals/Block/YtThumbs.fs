@@ -3,11 +3,25 @@ module Songhay.Player.YouTube.Visuals.Block.YtThumbs
 open Bolero.Html
 
 open Microsoft.JSInterop
+open FsToolkit.ErrorHandling
+
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Player.YouTube.Models
 open Songhay.Player.YouTube.YtItemUtility
+
+let getYtThumbsCaption (item: YouTubeItem) =
+    let limit = 60
+    let caption =
+        if item.snippet.title.Length > limit then
+            $"{item.snippet.title.Substring(0, limit)}…"
+        else
+            item.snippet.title
+
+    a
+        [ attr.href (item.tryGetUrl |> Result.valueOr raise) ]
+        [ text caption ]
 
 let getYtThumbsTitle (itemsTitle: string option) (items: YouTubeItem[] option) =
     if items.IsNone then
