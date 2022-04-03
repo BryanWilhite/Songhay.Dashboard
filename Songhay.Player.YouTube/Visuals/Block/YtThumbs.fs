@@ -19,9 +19,21 @@ let getYtThumbsTitle (itemsTitle: string option) (items: YouTubeItem[] option) =
         else
             text itemsTitle.Value
 
-let ytThumbsNode (_: IJSRuntime) (itemsTitle: string option) (items: YouTubeItem[] option) =
+let ytThumbnailsNode (_: IJSRuntime) (items: YouTubeItem[] option) =
     //jsRuntime.InvokeVoidAsync("console.log", "ytThumbsNode", items) |> ignore
+    if items.IsNone then
+        div
+            [ attr.classes [ "has-text-centered"; "loader-container"; "p-6"] ]
+            [
+                div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-3" ]; attr.title "Loading…" ] []
+            ]
+    else
+        div
+            []
+            [
+            ]
 
+let ytThumbsNode (jsRuntime: IJSRuntime) (itemsTitle: string option) (items: YouTubeItem[] option) =
     div
         [ attr.classes [ "rx"; "b-roll" ] ]
         [
@@ -42,6 +54,7 @@ let ytThumbsNode (_: IJSRuntime) (itemsTitle: string option) (items: YouTubeItem
             div
                 [ attr.classes [ "video"; "thumbs"; "thumbs-container" ] ]
                 [
+                    items |> ytThumbnailsNode jsRuntime
                     a
                         [ attr.href "#"; attr.classes [ "command"; "left"; "image"; "is-48x48" ] ]
                         [
