@@ -12,14 +12,16 @@ open Songhay.Player.YouTube.Visuals.Block.YtThumbs
 type YtThumbsComponent() =
     inherit ElmishComponent<YouTubeModel, YouTubeMessage>()
 
-    static member val Id = "yt-thumbs-block" with get
+    [<Parameter>]
+    member val YtThumbsTitle = Unchecked.defaultof<string> with get, set
 
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
     override this.ShouldRender(oldModel, newModel) = oldModel <> newModel
 
-    override this.View model _ = ytThumbsNode this.JSRuntime model.YouTubeItems
+    override this.View model _ =
+        ytThumbsNode this.JSRuntime (this.YtThumbsTitle |> Option.ofObj) model.YouTubeItems
 
 let updateModel (message: YouTubeMessage) (model: YouTubeModel) =
     match message with
@@ -27,5 +29,5 @@ let updateModel (message: YouTubeMessage) (model: YouTubeModel) =
     | CallYtItems -> { model with YouTubeItems = None }
     | CalledYtItems items -> { model with YouTubeItems = items }
 
-let view (model: YouTubeModel) dispatch =
-    ecomp<YtThumbsComponent, _, _> [] model dispatch
+let view (attrs: list<Attr>) (model: YouTubeModel) dispatch =
+    ecomp<YtThumbsComponent, _, _> attrs model dispatch
