@@ -5,6 +5,8 @@ open Bolero.Html
 open Microsoft.JSInterop
 open FsToolkit.ErrorHandling
 
+open Humanizer
+
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Visuals.Svg
 
@@ -20,7 +22,7 @@ let getYtThumbsCaption (item: YouTubeItem) =
             item.snippet.title
 
     a
-        [ attr.href (item.tryGetUrl |> Result.valueOr raise) ]
+        [ attr.href (item.tryGetUri |> Result.valueOr raise) ]
         [ text caption ]
 
 let getYtThumbsTitle (itemsTitle: string option) (items: YouTubeItem[] option) =
@@ -35,6 +37,33 @@ let getYtThumbsTitle (itemsTitle: string option) (items: YouTubeItem[] option) =
 
 let ytThumbnailsNode (_: IJSRuntime) (items: YouTubeItem[] option) =
     //jsRuntime.InvokeVoidAsync("console.log", "ytThumbsNode", items) |> ignore
+
+    let toSpan (item: YouTubeItem) =
+        let duration =
+            match item.tryGetDuration with
+            | Ok ts -> ts.ToString() |> text
+            | _ -> text ":00"
+
+        span [] [
+            a
+                [
+                    attr.href (item.tryGetUri |> Result.valueOr raise).OriginalString
+                    attr.target "_blank"
+                    attr.title item.snippet.title
+                ]
+                [
+                    img
+                        [
+                            attr.src item.snippet.thumbnails.medium.url
+                            attr.width item.snippet.thumbnails.medium.width
+                            attr.height item.snippet.thumbnails.medium.height
+                        ]
+                ]
+            span [ attr.classes [ "published-at" ] ] [ (item.getPublishedAt.Humanize() |> text) ]
+            span [ attr.classes [ "caption" ] ] [ (item |> getYtThumbsCaption) ]
+            span [ attr.classes [ "duration" ] ] [ span [] [ duration ] ]
+        ]
+
     if items.IsNone then
         div
             [ attr.classes [ "has-text-centered"; "loader-container"; "p-6"] ]
@@ -42,10 +71,7 @@ let ytThumbnailsNode (_: IJSRuntime) (items: YouTubeItem[] option) =
                 div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-3" ]; attr.title "Loading…" ] []
             ]
     else
-        div
-            []
-            [
-            ]
+        div [] (items.Value |> Array.map(toSpan) |> List.ofArray)
 
 let ytThumbsNode (jsRuntime: IJSRuntime) (itemsTitle: string option) (items: YouTubeItem[] option) =
     div

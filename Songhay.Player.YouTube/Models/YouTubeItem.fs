@@ -1,5 +1,6 @@
 namespace Songhay.Player.YouTube.Models
 
+open System
 open Songhay.Modules.ProgramTypeUtility
 
 /// <summary>
@@ -43,12 +44,12 @@ type YouTubeItem =
         contentDetails: YouTubeContentDetails
     }
 
+    member this.getPublishedAt = this.snippet.publishedAt
+
     member this.tryGetDuration =
         this.contentDetails.duration |> tryParseIso8601Duration
 
-    member this.tryGetPublishedAt = this.snippet.publishedAt
-
-    member this.tryGetUrl : Result<string, exn> =
+    member this.tryGetUri : Result<Uri, exn> =
         let videoIdResult =
             match this.kind with
             | "youtube#video" -> Ok this.id
@@ -57,4 +58,4 @@ type YouTubeItem =
                 | Some id -> Ok id.videoId
                 | _ -> Error (exn "The expected Snippet Resource ID is not here.")
 
-        videoIdResult |> Result.map (fun videoId -> $"{YouTubeScalars.YouTubeWatchRootUri}{videoId}")
+        videoIdResult |> Result.map (fun videoId -> $"{YouTubeScalars.YouTubeWatchRootUri}{videoId}" |> Uri)

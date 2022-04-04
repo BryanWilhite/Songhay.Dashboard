@@ -5,6 +5,7 @@
     <ItemGroup>
         <PackageReference Include="Bolero" Version="0.*" />
         <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
+        <PackageReference Include="Humanizer.Core" Version="2.14.1" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Models\YouTubeScalars.fs" />
