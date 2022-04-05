@@ -4,7 +4,8 @@
   "description": "Bolero Client",
   "main": "index.js",
   "scripts": {
-    "index:sass": "npx sass ./src/scss/content-block.scss ./wwwroot/css/content-block.min.css --load-path=./node_modules --no-source-map --style=compressed"
+    "index:sass": "npx sass ./src/scss/content-block.scss ./wwwroot/css/content-block.min.css --load-path=./node_modules --no-source-map --style=compressed",
+    "songhay:dist": "cp ./node_modules/songhay/dist/songhay.min.js ./wwwroot/js/songhay.min.js"
   },
   "keywords": [],
   "author": "Bryan Wilhite",
@@ -14,6 +15,7 @@
     "sass": "^1.43.4"
   },
   "dependencies": {
-    "bulma": "^0.9.3"
+    "bulma": "^0.9.3",
+    "songhay": "^0.3.1"
   }
 }

@@ -23,4 +23,6 @@ let headElements =
     @
     linkElements
     @
+    [ script [ attr.src "js/songhay.min.js" ] [] ]
+    @
     [ title [] [ text App.AppTitle ] ]
