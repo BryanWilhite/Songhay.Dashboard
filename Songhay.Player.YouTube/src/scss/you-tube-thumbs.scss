@@ -143,12 +143,10 @@ $key: 8-thumbs;
 
                     & .caption {
                         display: block;
-                        font-size: 1.2em;
-                        font-weight: bold;
                         height: $caption-height;
                         opacity: 1;
                         overflow: hidden;
-                        padding-left: 0.5em;
+                        padding-left: 0.5rem;
                         white-space: normal;
 
                         & a {
@@ -167,6 +165,7 @@ $key: 8-thumbs;
                     & > .published-at {
                         color: #0f0;
                         display: block;
+                        padding-left: 0.5rem;
                     }
 
                     & > .duration {
@@ -181,8 +180,7 @@ $key: 8-thumbs;
                             background-color: #000;
                             color: #fff;
                             display: inline-block;
-                            margin-right: 0.5em;
-                            padding: 0.25em;
+                            padding-left: 0.5rem;
                         }
                     }
                 }

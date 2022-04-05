@@ -1,5 +1,6 @@
 module Songhay.Player.YouTube.Visuals.Block.YtThumbs
 
+open Bolero
 open Bolero.Html
 
 open Microsoft.JSInterop
@@ -27,7 +28,7 @@ let getYtThumbsCaption (item: YouTubeItem) =
 
 let getYtThumbsTitle (itemsTitle: string option) (items: YouTubeItem[] option) =
     if items.IsNone then
-        empty
+        RawHtml "&#160;"
     else
         if itemsTitle.IsNone then
             let pair = items.Value |> Array.head |> getYtItemsPair
@@ -59,9 +60,9 @@ let ytThumbnailsNode (_: IJSRuntime) (items: YouTubeItem[] option) =
                             attr.height item.snippet.thumbnails.medium.height
                         ]
                 ]
-            span [ attr.classes [ "published-at" ] ] [ (item.getPublishedAt.Humanize() |> text) ]
-            span [ attr.classes [ "caption" ] ] [ (item |> getYtThumbsCaption) ]
-            span [ attr.classes [ "duration" ] ] [ span [] [ duration ] ]
+            span [ attr.classes [ "published-at"; "is-size-6" ] ] [ (item.getPublishedAt.Humanize() |> text) ]
+            span [ attr.classes [ "caption"; "has-text-weight-semibold"; "is-size-5" ] ] [ (item |> getYtThumbsCaption) ]
+            span [ attr.classes [ "duration"; "is-size-6" ] ] [ span [] [ duration ] ]
         ]
 
     if items.IsNone then
