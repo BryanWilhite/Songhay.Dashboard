@@ -1,18 +1,23 @@
 module Songhay.Player.YouTube.Visuals.Block.YtThumbs
 
+open System.Threading.Tasks
 open Bolero
 open Bolero.Html
 
+open Microsoft.AspNetCore.Components.Web
 open Microsoft.JSInterop
 open FsToolkit.ErrorHandling
-
 open Humanizer
 
 open Songhay.Modules.Models
+open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.JsRuntimeUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Player.YouTube.Models
 open Songhay.Player.YouTube.YtItemUtility
+
+type SlideDirection = | Left | Right
 
 let getYtThumbsCaption (item: YouTubeItem) =
     let limit = 60
@@ -36,8 +41,7 @@ let getYtThumbsTitle (itemsTitle: string option) (items: YouTubeItem[] option) =
         else
             text itemsTitle.Value
 
-let ytThumbnailsNode (_: IJSRuntime) (items: YouTubeItem[] option) =
-    //jsRuntime.InvokeVoidAsync("console.log", "ytThumbsNode", items) |> ignore
+let ytThumbnailsNode (_: IJSRuntime) (blockWrapperRef: HtmlRef) (items: YouTubeItem[] option) =
 
     let toSpan (item: YouTubeItem) =
         let duration =
@@ -65,16 +69,25 @@ let ytThumbnailsNode (_: IJSRuntime) (items: YouTubeItem[] option) =
             span [ attr.classes [ "duration"; "is-size-6" ] ] [ span [] [ duration ] ]
         ]
 
-    if items.IsNone then
-        div
-            [ attr.classes [ "has-text-centered"; "loader-container"; "p-6"] ]
-            [
-                div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-3" ]; attr.title "Loading…" ] []
-            ]
-    else
-        div [] (items.Value |> Array.map(toSpan) |> List.ofArray)
+    cond items.IsSome <| function
+        | true -> div [ attr.ref blockWrapperRef ] [ forEach items.Value <| toSpan ]
+        | false ->
+            div
+                [ attr.classes [ "has-text-centered"; "loader-container"; "p-6"] ]
+                [
+                    div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-3" ]; attr.title "Loading…" ] []
+                ]
 
-let ytThumbsNode (jsRuntime: IJSRuntime) (itemsTitle: string option) (items: YouTubeItem[] option) =
+let ytThumbsNode (jsRuntime: IJSRuntime) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef) (itemsTitle: string option) (items: YouTubeItem[] option) =
+
+    let click = GlobalEventHandlers.OnClick
+
+    let slideAsync (direction: SlideDirection) (_: MouseEventArgs) =
+        task {
+            let! x = jsRuntime |> getComputedStylePropertyValueAsync thumbsContainerRef "width"
+            consoleLogAsync jsRuntime [| "yup!"; thumbsContainerRef; x; blockWrapperRef |] |> ignore
+        }
+
     div
         [ attr.classes [ "rx"; "b-roll" ] ]
         [
@@ -93,17 +106,27 @@ let ytThumbsNode (jsRuntime: IJSRuntime) (itemsTitle: string option) (items: You
                         ]
                 ]
             div
-                [ attr.classes [ "video"; "thumbs"; "thumbs-container" ] ]
                 [
-                    items |> ytThumbnailsNode jsRuntime
+                    attr.ref thumbsContainerRef
+                    attr.classes [ "video"; "thumbs"; "thumbs-container" ]
+                ]
+                [
+                    items |> ytThumbnailsNode jsRuntime blockWrapperRef
                     a
-                        [ attr.href "#"; attr.classes [ "command"; "left"; "image"; "is-48x48" ] ]
+                        [
+                            attr.href "#"; attr.classes [ "command"; "left"; "image"; "is-48x48" ]
+                            click.PreventDefault
+                            on.task.click (fun e -> e |> slideAsync Left :> Task)
+                        ]
                         [
                             svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_arrow_left_drop_circle_24px"]
                         ]
-
                     a
-                        [ attr.href "#"; attr.classes [ "command"; "right"; "image"; "is-48x48" ] ]
+                        [
+                            attr.href "#"; attr.classes [ "command"; "right"; "image"; "is-48x48" ]
+                            click.PreventDefault
+                            on.task.click (fun e -> e |> slideAsync Right :> Task)
+                        ]
                         [
                             svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_arrow_right_drop_circle_24px"]
                         ]

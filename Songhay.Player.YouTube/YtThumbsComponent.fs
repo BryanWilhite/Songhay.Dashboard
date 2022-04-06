@@ -12,6 +12,9 @@ open Songhay.Player.YouTube.Visuals.Block.YtThumbs
 type YtThumbsComponent() =
     inherit ElmishComponent<YouTubeModel, YouTubeMessage>()
 
+    let thumbsContainerRef = HtmlRef()
+    let blockWrapperRef = HtmlRef()
+
     [<Parameter>]
     member val YtThumbsTitle = Unchecked.defaultof<string> with get, set
 
@@ -21,7 +24,8 @@ type YtThumbsComponent() =
     override this.ShouldRender(oldModel, newModel) = oldModel <> newModel
 
     override this.View model _ =
-        ytThumbsNode this.JSRuntime (this.YtThumbsTitle |> Option.ofObj) model.YouTubeItems
+        let title = (this.YtThumbsTitle |> Option.ofObj)
+        model.YouTubeItems |> ytThumbsNode this.JSRuntime thumbsContainerRef blockWrapperRef title
 
 let updateModel (message: YouTubeMessage) (model: YouTubeModel) =
     match message with
