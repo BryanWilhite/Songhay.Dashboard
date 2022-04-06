@@ -10,12 +10,16 @@ open FsToolkit.ErrorHandling
 open Humanizer
 
 open Songhay.Modules.Models
+open Songhay.Modules.StringUtility
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.JsRuntimeUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Player.YouTube.Models
 open Songhay.Player.YouTube.YtItemUtility
+
+[<Literal>]
+let FixedBlockWidth = 124
 
 type SlideDirection = | Left | Right
 
@@ -84,8 +88,16 @@ let ytThumbsNode (jsRuntime: IJSRuntime) (thumbsContainerRef: HtmlRef) (blockWra
 
     let slideAsync (direction: SlideDirection) (_: MouseEventArgs) =
         task {
-            let! x = jsRuntime |> getComputedStylePropertyValueAsync thumbsContainerRef "width"
-            consoleLogAsync jsRuntime [| "yup!"; thumbsContainerRef; x; blockWrapperRef |] |> ignore
+            if items.IsNone then ()
+            else
+                let! wrapperContainerWidthStr = jsRuntime |> getComputedStylePropertyValueAsync thumbsContainerRef "width"
+                let! wrapperLeftStr = jsRuntime |> getComputedStylePropertyValueAsync blockWrapperRef "left"
+
+                let wrapperContainerWidth = wrapperContainerWidthStr |> toNumericString |> Option.defaultValue "0" |> int
+                let wrapperLeft = wrapperLeftStr |> toNumericString |> Option.defaultValue "0" |> int
+                let totalWidth = FixedBlockWidth * (items.Value |> Array.length)
+
+                consoleLogAsync jsRuntime [| "yup!"; wrapperContainerWidth; wrapperLeft; totalWidth |] |> ignore
         }
 
     div

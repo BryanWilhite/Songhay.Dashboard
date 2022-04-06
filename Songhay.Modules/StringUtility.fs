@@ -53,6 +53,14 @@ module StringUtility =
                 |> removeTrailingAndLeadingHyphens
                 |> toLowerInvariant
 
+    let toNumericString (input: string) =
+        if String.IsNullOrWhiteSpace input then None
+        else
+            let chars =
+                input.Trim().ToCharArray()
+                |> Array.filter (fun c -> Char.IsDigit(c) || c.Equals('.'))
+            Some (chars |> String)
+
     let toSnakeCase (input: string) =
         if String.IsNullOrWhiteSpace input then None
         else
