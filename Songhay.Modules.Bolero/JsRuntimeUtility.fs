@@ -22,7 +22,7 @@ let tryGetElementReference (htmlRef: HtmlRef) =
     | Some elementRef -> Ok elementRef
     | _ -> Error (FormatException "The expected HTML element reference is not here.")
 
-let consoleLogAsync (jsRuntime: IJSRuntime) ([<ParamArray>] args: obj[]) =
+let consoleLogAsync (args: obj[]) (jsRuntime: IJSRuntime) =
     jsRuntime.InvokeVoidAsync("console.log", args).AsTask()
 
 let getComputedStylePropertyValueAsync (htmlRef: HtmlRef) (propertyName: string) (jsRuntime: IJSRuntime) =

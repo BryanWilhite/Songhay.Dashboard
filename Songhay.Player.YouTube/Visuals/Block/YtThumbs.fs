@@ -18,8 +18,11 @@ open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Player.YouTube.Models
 open Songhay.Player.YouTube.YtItemUtility
 
-[<Literal>]
-let FixedBlockWidth = 124
+[<Literal>] // see `$var-thumbs-container-wrapper-left` in `Songhay.Player.YouTube/src/scss/you-tube-css-variables.scss`
+let CssVarThumbsContainerWrapperLeft = "--thumbs-container-wrapper-left"
+
+[<Literal>] // see `$thumbnail-margin-right` in `Songhay.Player.YouTube/src/scss/you-tube-thumbs.scss`
+let ThumbnailMarginRight = 4
 
 type SlideDirection = | Left | Right
 
@@ -95,9 +98,32 @@ let ytThumbsNode (jsRuntime: IJSRuntime) (thumbsContainerRef: HtmlRef) (blockWra
 
                 let wrapperContainerWidth = wrapperContainerWidthStr |> toNumericString |> Option.defaultValue "0" |> int
                 let wrapperLeft = wrapperLeftStr |> toNumericString |> Option.defaultValue "0" |> int
-                let totalWidth = FixedBlockWidth * (items.Value |> Array.length)
 
-                consoleLogAsync jsRuntime [| "yup!"; wrapperContainerWidth; wrapperLeft; totalWidth |] |> ignore
+                let cannotSlideLeft =
+                    let itemsHead = items.Value |> Array.head
+                    let fixedBlockWidth = itemsHead.snippet.thumbnails.medium.width + ThumbnailMarginRight
+                    let totalWidth = fixedBlockWidth * (items.Value |> Array.length)
+                    let slideLeftLength = abs(wrapperLeft) + wrapperContainerWidth
+
+                    slideLeftLength >= totalWidth
+
+                let getSlideRightLength =
+                    let l = abs wrapperLeft
+                    if l > wrapperContainerWidth then wrapperContainerWidth
+                    else l
+
+                let nextLeft =
+                    match direction with
+                    | Left ->
+                        if cannotSlideLeft then wrapperLeft
+                        else wrapperLeft - wrapperContainerWidth
+                    | Right ->
+                        if wrapperLeft >= 0 then wrapperLeft
+                        else wrapperLeft + getSlideRightLength
+
+                jsRuntime
+                |> setComputedStylePropertyValueAsync blockWrapperRef CssVarThumbsContainerWrapperLeft $"{nextLeft}px"
+                |> ignore
         }
 
     div
@@ -128,7 +154,7 @@ let ytThumbsNode (jsRuntime: IJSRuntime) (thumbsContainerRef: HtmlRef) (blockWra
                         [
                             attr.href "#"; attr.classes [ "command"; "left"; "image"; "is-48x48" ]
                             click.PreventDefault
-                            on.task.click (fun e -> e |> slideAsync Left :> Task)
+                            on.task.click (fun e -> e |> slideAsync Right :> Task)
                         ]
                         [
                             svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_arrow_left_drop_circle_24px"]
@@ -137,7 +163,7 @@ let ytThumbsNode (jsRuntime: IJSRuntime) (thumbsContainerRef: HtmlRef) (blockWra
                         [
                             attr.href "#"; attr.classes [ "command"; "right"; "image"; "is-48x48" ]
                             click.PreventDefault
-                            on.task.click (fun e -> e |> slideAsync Right :> Task)
+                            on.task.click (fun e -> e |> slideAsync Left :> Task)
                         ]
                         [
                             svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_arrow_right_drop_circle_24px"]

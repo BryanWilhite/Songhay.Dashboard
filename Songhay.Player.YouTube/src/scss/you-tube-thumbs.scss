@@ -134,6 +134,10 @@ $key: 8-thumbs;
                 position: absolute;
                 z-index: 1;
 
+                transition-property: left;
+                left: $var-thumbs-container-wrapper-left;
+                transition-duration: 1s;
+
                 & > span {
                     display: inline-block;
                     margin: 0;

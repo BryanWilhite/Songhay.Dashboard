@@ -58,7 +58,7 @@ module StringUtility =
         else
             let chars =
                 input.Trim().ToCharArray()
-                |> Array.filter (fun c -> Char.IsDigit(c) || c.Equals('.'))
+                |> Array.filter (fun c -> Char.IsDigit(c) || c.Equals('.') || c.Equals('-'))
             Some (chars |> String)
 
     let toSnakeCase (input: string) =
