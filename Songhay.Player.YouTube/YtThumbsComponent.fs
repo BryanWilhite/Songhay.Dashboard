@@ -13,6 +13,7 @@ type YtThumbsComponent() =
     inherit ElmishComponent<YouTubeModel, YouTubeMessage>()
 
     let thumbsContainerRef = HtmlRef()
+
     let blockWrapperRef = HtmlRef()
 
     [<Parameter>]

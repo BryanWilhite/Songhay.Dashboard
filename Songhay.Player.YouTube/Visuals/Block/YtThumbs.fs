@@ -1,5 +1,6 @@
 module Songhay.Player.YouTube.Visuals.Block.YtThumbs
 
+open System.Collections.Generic
 open System.Threading.Tasks
 open Bolero
 open Bolero.Html
@@ -48,6 +49,25 @@ let getYtThumbsTitle (itemsTitle: string option) (items: YouTubeItem[] option) =
         else
             text itemsTitle.Value
 
+let initCache = Dictionary<GlobalEventHandlers, bool>()
+initCache.Add(OnLoad, false)
+
+///<remarks>
+/// this member is needed to ‘jumpstart’ CSS animations
+/// without this member, the first interop with CSS will not function as expected
+///</remarks>
+let initAsync (blockWrapperRef: HtmlRef) (jsRuntime: IJSRuntime) =
+    task {
+        if not initCache[OnLoad] then
+            let! wrapperLeftStr = jsRuntime |> getComputedStylePropertyValueAsync blockWrapperRef "left"
+
+            jsRuntime
+            |> setComputedStylePropertyValueAsync blockWrapperRef CssVarThumbsContainerWrapperLeft wrapperLeftStr
+            |> ignore
+
+            initCache[OnLoad] <- true
+    }
+
 let ytThumbnailsNode (_: IJSRuntime) (blockWrapperRef: HtmlRef) (items: YouTubeItem[] option) =
 
     let toSpan (item: YouTubeItem) =
@@ -93,6 +113,7 @@ let ytThumbsNode (jsRuntime: IJSRuntime) (thumbsContainerRef: HtmlRef) (blockWra
         task {
             if items.IsNone then ()
             else
+                jsRuntime |> initAsync blockWrapperRef |> ignore
                 let! wrapperContainerWidthStr = jsRuntime |> getComputedStylePropertyValueAsync thumbsContainerRef "width"
                 let! wrapperLeftStr = jsRuntime |> getComputedStylePropertyValueAsync blockWrapperRef "left"
 

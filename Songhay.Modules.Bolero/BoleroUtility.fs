@@ -20,6 +20,8 @@ module BoleroUtility =
         | OnFocus
         | OnKeyDown
         | OnKeyUp
+        | OnLoad
+        | OnLoadEnd
 
         member this.toLower =
             match this with
@@ -30,6 +32,8 @@ module BoleroUtility =
             | OnFocus -> (nameof OnFocus).ToLowerInvariant()
             | OnKeyDown -> (nameof OnKeyDown).ToLowerInvariant()
             | OnKeyUp -> (nameof OnKeyUp).ToLowerInvariant()
+            | OnLoad -> (nameof OnLoad).ToLowerInvariant()
+            | OnLoadEnd -> (nameof OnLoadEnd).ToLowerInvariant()
 
         member this.PreventDefault =
             on.preventDefault this.toLower true

@@ -1,7 +1,6 @@
 module Songhay.Modules.Bolero.JsRuntimeUtility
 
 open System
-open Microsoft.AspNetCore.Components
 open Microsoft.JSInterop
 
 open FsToolkit.ErrorHandling
