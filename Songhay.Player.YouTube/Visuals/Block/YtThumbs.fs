@@ -36,7 +36,7 @@ let getYtThumbsCaption (item: YouTubeItem) =
             item.snippet.title
 
     a
-        [ attr.href (item.tryGetUri |> Result.valueOr raise) ]
+        [ attr.href (item.tryGetUri |> Result.valueOr raise); attr.target "_blank" ]
         [ text caption ]
 
 let getYtThumbsTitle (itemsTitle: string option) (items: YouTubeItem[] option) =
