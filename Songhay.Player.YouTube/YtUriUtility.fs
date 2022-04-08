@@ -8,7 +8,13 @@ open Songhay.Player.YouTube.Models.YouTubeScalars
 module YtUriUtility =
 
     [<Literal>]
+    let YtIndexSonghay = "songhay"
+
+    [<Literal>]
     let YtIndexSonghayTopTen = "youtube-index-songhay-top-ten"
+
+    let getPlaylistIndexUri (id: Identifier) =
+        Uri($"{YouTubeApiRootUri}{YouTubeApiPlaylistsIndexPath}{id.StringValue}", UriKind.Absolute)
 
     let getPlaylistUri (id: Identifier) =
         Uri($"{YouTubeApiRootUri}{YouTubeApiPlaylistPath}{id.StringValue}", UriKind.Absolute)

@@ -1,0 +1,100 @@
+module Songhay.Modules.Publications.Models
+
+open System
+open System.Text.Json
+
+open Songhay.Modules.Models
+open Songhay.Modules.JsonDocumentUtility
+
+type PublicationItem =
+    | Segment
+    | Document
+    | Fragment
+
+type Id =
+    | Id of Identifier
+
+    static member fromInput (itemType: PublicationItem) (element: JsonElement) =
+        let getId idString =
+            Id(Identifier.fromString(idString))
+        match itemType with
+        | Segment -> element |> tryGetProperty $"{nameof Segment}{nameof Id}" |> Result.map (fun el -> el.GetString() |> getId)
+        | Document -> element |> tryGetProperty $"{nameof Document}{nameof Id}" |> Result.map (fun el -> el.GetString() |> getId)
+        | Fragment -> element |> tryGetProperty $"{nameof Fragment}{nameof Id}" |> Result.map (fun el -> el.GetString() |> getId)
+
+type ClientId =
+    | ClientId of Identifier
+
+    static member fromInput (element: JsonElement) =
+        element
+        |> tryGetProperty (nameof ClientId)
+        |> Result.map (fun el -> ClientId (Identifier.fromString(el.GetString())))
+
+    member this.toIdentifier = let (ClientId v) = this in v
+
+type Name =
+    | Name of string
+
+    static member fromInput (itemType: PublicationItem) (element: JsonElement) =
+        match itemType with
+        | Segment -> element |> tryGetProperty $"{nameof Segment}{nameof Name}" |> Result.map (fun el -> Name (el.GetString()))
+        | Document -> element |> tryGetProperty $"{nameof Document}{nameof Name}" |> Result.map (fun el -> Name (el.GetString()))
+        | Fragment -> element |> tryGetProperty $"{nameof Fragment}{nameof Name}" |> Result.map (fun el -> Name (el.GetString()))
+
+    member this.Value = let (Name v) = this in v
+
+type EndDate =
+    | EndDate of DateTime
+
+    static member fromInput (element: JsonElement) =
+        element
+        |> tryGetProperty (nameof EndDate)
+        |> Result.map ( fun el -> EndDate (el.GetDateTime()) )
+
+type InceptDate =
+    | InceptDate of DateTime
+
+    static member fromInput (element: JsonElement) =
+        element
+        |> tryGetProperty (nameof InceptDate)
+        |> Result.map ( fun el -> InceptDate (el.GetDateTime()) )
+
+type ModificationDate =
+    | ModificationDate of DateTime
+
+    static member fromInput (element: JsonElement) =
+        element
+        |> tryGetProperty (nameof ModificationDate)
+        |> Result.map (fun el -> el.GetDateTime())
+
+type Title =
+    | Title of string
+
+    static member fromInput (element: JsonElement) =
+        element
+        |> tryGetProperty (nameof Title)
+        |> Result.map (fun el -> Title (el.GetString()))
+
+type Path =
+    | Path of string
+
+    static member fromInput (element: JsonElement) =
+        element
+        |> tryGetProperty (nameof Path)
+        |> Result.map (fun el -> Path (el.GetString()))
+
+type FileName =
+    | FileName of string
+
+    static member fromInput (element: JsonElement) =
+        element
+        |> tryGetProperty (nameof FileName)
+        |> Result.map (fun el -> FileName (el.GetString()))
+
+type IsActive =
+    | IsActive of bool
+
+    static member fromInput (element: JsonElement) =
+        element
+        |> tryGetProperty (nameof IsActive)
+        |> Result.map (fun el -> IsActive (el.GetBoolean()))

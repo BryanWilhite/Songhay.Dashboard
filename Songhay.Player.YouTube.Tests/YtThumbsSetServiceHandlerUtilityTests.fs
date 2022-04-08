@@ -1,6 +1,6 @@
 namespace Songhay.Player.YouTube.Tests
 
-module YtThumbsServiceHandlerUtilityTests =
+module YtThumbsSetServiceHandlerUtility =
 
     open System.Net
     open System.IO
@@ -22,7 +22,6 @@ module YtThumbsServiceHandlerUtilityTests =
     open Songhay.Modules.ProgramFileUtility
 
     open Songhay.Player.YouTube.Models
-    open Songhay.Player.YouTube.YtThumbsServiceHandlerUtility
     open Songhay.Player.YouTube.YtUriUtility
 
     let projectDirectoryInfo =
@@ -41,35 +40,27 @@ module YtThumbsServiceHandlerUtilityTests =
     let client = new HttpClient()
 
     [<Theory>]
-    [<InlineData(YtIndexSonghayTopTen)>]
-    let ``getPlaylistUri test`` (idString: string) =
+    [<InlineData(YtIndexSonghay)>]
+    let ``getPlaylistIndexUri test`` (idString: string) =
         task {
             let id = Identifier.fromString(idString)
-            let uri = id |> getPlaylistUri
+            let uri = id |> getPlaylistIndexUri
             let! responseResult = client |> trySendAsync (get uri)
             responseResult |> should be (ofCase<@ Result<HttpResponseMessage,exn>.Ok @>)
             let response = responseResult |> Result.valueOr raise
 
             let! jsonResult = response |> tryDownloadToStringAsync
             jsonResult |> should be (ofCase<@ Result<string,HttpStatusCode>.Ok @>)
+
             let json =
                 jsonResult
                 |> Result.mapError ( fun code -> exn $"{nameof HttpStatusCode}: {code.ToString()}" )
                 |> Result.valueOr raise
 
             let path =
-                $"./json/{idString}.json"
+                $"./json/{idString}-index.json"
                 |> tryGetCombinedPath projectDirectoryInfo.FullName
                 |> Result.valueOr raiseProgramFileError
 
             File.WriteAllText(path, json)
         }
-
-    [<Theory>]
-    [<InlineData("youtube-index-songhay-top-ten.json")>]
-    let ``toDomainData test`` (fileName: string) =
-        let json = fileName |> getJson
-        let mockLogger = Substitute.For<ILogger>()
-
-        let actual = Ok json |> toDomainData mockLogger
-        actual |> should be (ofCase<@ Option<YouTubeItem[]>.Some @>)
