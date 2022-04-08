@@ -22,5 +22,4 @@ type Groupable =
         /// Returns `true` when group is visually collapsed
         /// </summary>
         isCollapsed: bool
-
     }

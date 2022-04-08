@@ -1,7 +1,5 @@
 namespace Songhay.Modules.Models
 
-open Songhay.Modules.Models
-
 type HexValue =
     | HexValue of string
     member this.Value = let (HexValue v) = this in v
@@ -21,18 +19,17 @@ type ForegroundColorHexValue =
 /// <summary>
 /// Defines a colorable visual.
 /// </summary>
-type Colorable = {
+type Colorable =
+    {
+        /// <summary>
+        /// Gets or sets the background hexadecimal value.
+        /// </summary>
+        /// <value>The background hexadecimal value.</value>
+        backgroundHex: BackgroundColorHexValue
 
-    /// <summary>
-    /// Gets or sets the background hexadecimal value.
-    /// </summary>
-    /// <value>The background hexadecimal value.</value>
-    backgroundHex: BackgroundColorHexValue
-
-    /// <summary>
-    /// Gets or sets the foreground hexadecimal value.
-    /// </summary>
-    /// <value>The foreground hexadecimal value.</value>
-    foregroundHex: ForegroundColorHexValue
-
-}
+        /// <summary>
+        /// Gets or sets the foreground hexadecimal value.
+        /// </summary>
+        /// <value>The foreground hexadecimal value.</value>
+        foregroundHex: ForegroundColorHexValue
+    }

@@ -22,16 +22,6 @@ type Id =
         | Document -> element |> tryGetProperty $"{nameof Document}{nameof Id}" |> Result.map (fun el -> el.GetString() |> getId)
         | Fragment -> element |> tryGetProperty $"{nameof Fragment}{nameof Id}" |> Result.map (fun el -> el.GetString() |> getId)
 
-type ClientId =
-    | ClientId of Identifier
-
-    static member fromInput (element: JsonElement) =
-        element
-        |> tryGetProperty (nameof ClientId)
-        |> Result.map (fun el -> ClientId (Identifier.fromString(el.GetString())))
-
-    member this.toIdentifier = let (ClientId v) = this in v
-
 type Name =
     | Name of string
 
@@ -42,30 +32,6 @@ type Name =
         | Fragment -> element |> tryGetProperty $"{nameof Fragment}{nameof Name}" |> Result.map (fun el -> Name (el.GetString()))
 
     member this.Value = let (Name v) = this in v
-
-type EndDate =
-    | EndDate of DateTime
-
-    static member fromInput (element: JsonElement) =
-        element
-        |> tryGetProperty (nameof EndDate)
-        |> Result.map ( fun el -> EndDate (el.GetDateTime()) )
-
-type InceptDate =
-    | InceptDate of DateTime
-
-    static member fromInput (element: JsonElement) =
-        element
-        |> tryGetProperty (nameof InceptDate)
-        |> Result.map ( fun el -> InceptDate (el.GetDateTime()) )
-
-type ModificationDate =
-    | ModificationDate of DateTime
-
-    static member fromInput (element: JsonElement) =
-        element
-        |> tryGetProperty (nameof ModificationDate)
-        |> Result.map (fun el -> el.GetDateTime())
 
 type Title =
     | Title of string
