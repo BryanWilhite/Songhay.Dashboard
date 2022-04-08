@@ -9,7 +9,7 @@ open Songhay.Modules.Publications.Models
 
 module DisplayItemModelUtility =
 
-    let tryGetDisplayItemFromFragment (element: JsonElement) =
+    let tryGetClientIdFromFragment (element: JsonElement) =
         let fragmentClientIdResult = element |> ClientId.fromInput
         let modDateResult = element |> ModificationDate.fromInput
 
@@ -18,17 +18,7 @@ module DisplayItemModelUtility =
             modDateResult |> Result.map (fun _ -> true)
         ]
         |> List.sequenceResultM
-        |> Result.either
-            (
-                fun _ ->
-                    Ok {
-                        id = fragmentClientIdResult |> Result.map(fun i -> i.toIdentifier) |> Result.valueOr raise
-                        itemName = None
-                        displayText = None
-                        resourceIndicator = None
-                    }
-            )
-            Result.Error
+        |> Result.either ( fun _ -> Ok fragmentClientIdResult |> Result.valueOr raise ) Result.Error
 
     let tryGetDisplayTupleFromDocument (element: JsonElement) =
         let documentClientIdResult = element |> ClientId.fromInput
@@ -41,7 +31,7 @@ module DisplayItemModelUtility =
                     fun el ->
                         el.EnumerateArray()
                         |> List.ofSeq
-                        |> List.map (fun i -> i |> tryGetDisplayItemFromFragment)
+                        |> List.map (fun i -> i |> tryGetClientIdFromFragment)
                         |> List.sequenceResultM
                 )
 
