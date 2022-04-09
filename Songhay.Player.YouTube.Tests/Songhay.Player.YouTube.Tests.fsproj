@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="DisplayItemModelUtilityTests.fs" />
         <Compile Include="YtItemUtilityTests.fs" />
         <Compile Include="YtThumbsServiceHandlerUtilityTests.fs" />
         <Compile Include="YtThumbsSetServiceHandlerUtilityTests.fs" />

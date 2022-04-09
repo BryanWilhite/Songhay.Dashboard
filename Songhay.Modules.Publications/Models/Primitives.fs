@@ -21,17 +21,6 @@ type Id =
         | Document -> element |> tryGetProperty $"{nameof Document}{nameof Id}" |> Result.map (fun el -> el.GetString() |> getId)
         | Fragment -> element |> tryGetProperty $"{nameof Fragment}{nameof Id}" |> Result.map (fun el -> el.GetString() |> getId)
 
-type Name =
-    | Name of string
-
-    static member fromInput (itemType: PublicationItem) (element: JsonElement) =
-        match itemType with
-        | Segment -> element |> tryGetProperty $"{nameof Segment}{nameof Name}" |> Result.map (fun el -> Name (el.GetString()))
-        | Document -> element |> tryGetProperty $"{nameof Document}{nameof Name}" |> Result.map (fun el -> Name (el.GetString()))
-        | Fragment -> element |> tryGetProperty $"{nameof Fragment}{nameof Name}" |> Result.map (fun el -> Name (el.GetString()))
-
-    member this.Value = let (Name v) = this in v
-
 type Title =
     | Title of string
 
@@ -39,6 +28,17 @@ type Title =
         element
         |> tryGetProperty (nameof Title)
         |> Result.map (fun el -> Title (el.GetString()))
+
+type Name =
+    | Name of string
+
+    static member fromInput (itemType: PublicationItem) (element: JsonElement) =
+        match itemType with
+        | Segment -> element |> tryGetProperty $"{nameof Segment}{nameof Name}" |> Result.map (fun el -> Name (el.GetString()))
+        | Document -> element |> tryGetProperty $"{nameof Title}" |> Result.map (fun el -> Name (el.GetString()))
+        | Fragment -> element |> tryGetProperty $"{nameof Fragment}{nameof Name}" |> Result.map (fun el -> Name (el.GetString()))
+
+    member this.Value = let (Name v) = this in v
 
 type Path =
     | Path of string

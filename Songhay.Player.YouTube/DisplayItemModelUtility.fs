@@ -7,6 +7,7 @@ open Songhay.Modules.Models
 open Songhay.Modules.JsonDocumentUtility
 open Songhay.Modules.Publications.Models
 
+open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Models
 open Songhay.Player.YouTube.YtItemUtility
 
@@ -97,10 +98,9 @@ module DisplayItemModelUtility =
                     fun el ->
                         el.EnumerateArray()
                         |> List.ofSeq
-                        |> List.map (
-                                fun el ->
-                                    el |> tryGetYtItem
-                                    |> Result.map (fun i -> DisplayText i.snippet.channelTitle, i)
+                        |> List.map ( fun el ->
+                                    el |> YtItemUtility.fromInput
+                                    |> Result.map (fun l -> DisplayText (l |> List.head).snippet.channelTitle, l)
                             )
                         |> List.sequenceResultM
                 )
