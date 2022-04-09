@@ -9,7 +9,6 @@ open Songhay.Modules.Publications.Models
 
 open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Models
-open Songhay.Player.YouTube.YtItemUtility
 
 module DisplayItemModelUtility =
 
