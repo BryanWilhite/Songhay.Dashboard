@@ -18,6 +18,7 @@
         <Compile Include="ElmishTypes.fs" />
         <Compile Include="YtItemUtility.fs" />
         <Compile Include="YtUriUtility.fs" />
+        <Compile Include="DisplayItemModelUtility.fs" />
         <Compile Include="YtThumbsServiceHandlerUtility.fs" />
         <Compile Include="Visuals\Block\YtPresentation.fs" />
         <Compile Include="Visuals\Block\YtThumbs.fs" />
@@ -27,6 +28,7 @@
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Songhay.Modules.Bolero\Songhay.Modules.Bolero.fsproj" />
+        <ProjectReference Include="..\Songhay.Modules.Publications\Songhay.Modules.Publications.fsproj" />
         <ProjectReference Include="..\Songhay.Modules\Songhay.Modules.fsproj" />
     </ItemGroup>
 </Project>

@@ -1,6 +1,5 @@
 module Songhay.Modules.Publications.Models
 
-open System
 open System.Text.Json
 
 open Songhay.Modules.Models

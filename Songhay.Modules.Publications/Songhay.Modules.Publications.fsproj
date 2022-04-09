@@ -7,7 +7,6 @@
 
     <ItemGroup>
         <Compile Include="Models\Primitives.fs" />
-        <Compile Include="DisplayItemModelUtility.fs" />
     </ItemGroup>
 
     <ItemGroup>
