@@ -105,7 +105,9 @@ let ytThumbnailsNode (_: IJSRuntime) (blockWrapperRef: HtmlRef) (items: YouTubeI
                     div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-3" ]; attr.title "Loading…" ] []
                 ]
 
-let ytThumbsNode (jsRuntime: IJSRuntime) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef) (itemsTitle: string option) (items: YouTubeItem[] option) =
+let ytThumbsNode
+    (jsRuntime: IJSRuntime) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef)
+    (itemsTitle: string option) (items: YouTubeItem[] option) =
 
     let click = GlobalEventHandlers.OnClick
 
