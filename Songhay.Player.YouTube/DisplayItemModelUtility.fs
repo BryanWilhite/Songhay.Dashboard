@@ -55,7 +55,7 @@ module DisplayItemModelUtility =
                                 displayText = titleResult |> Result.map(fun i -> Some (DisplayText i.Value)) |> Result.valueOr raise
                                 resourceIndicator = None
                             },
-                            displayItemModelsResult |> Result.valueOr raise
+                            displayItemModelsResult |> Result.map( fun l -> l |> Array.ofList ) |> Result.valueOr raise
                         )
                 )
                 Result.Error
@@ -84,7 +84,7 @@ module DisplayItemModelUtility =
                         Ok (
                             segmentClientIdResult |> Result.valueOr raise,
                             segmentNameResult |> Result.valueOr raise,
-                            displayItemModelsResult |> Result.valueOr raise
+                            displayItemModelsResult |> Result.map (fun input -> input |> Array.ofList) |> Result.valueOr raise
                         )
                 )
                 Result.Error
@@ -99,7 +99,10 @@ module DisplayItemModelUtility =
                         |> List.ofSeq
                         |> List.map ( fun el ->
                                     el |> YtItemUtility.fromInput
-                                    |> Result.map (fun l -> DisplayText (l |> List.head).snippet.channelTitle, l)
+                                    |> Result.map (
+                                        fun l ->
+                                            DisplayText (l |> List.head).snippet.channelTitle, l |> Array.ofList
+                                        )
                             )
                         |> List.sequenceResultM
                 )

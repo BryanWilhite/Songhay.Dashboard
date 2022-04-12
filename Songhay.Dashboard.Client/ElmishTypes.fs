@@ -4,6 +4,7 @@ open System
 open Bolero
 open Bolero.Remoting
 
+open Songhay.Modules.Publications.Models
 open Songhay.Player.YouTube
 
 open Songhay.Modules.Models
@@ -33,6 +34,8 @@ type DashboardService =
     {
         getAppData: Uri -> Async<(FeedName * SyndicationFeed)[] option>
         getYtItems: Uri -> Async<YouTubeItem[] option>
+        getYtSetIndex: Uri -> Async<(ClientId * Name * (DisplayItemModel * ClientId []) []) option>
+        getYtSet: Uri -> Async<(DisplayText * YouTubeItem []) [] option>
     }
 
     interface IRemoteService with

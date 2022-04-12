@@ -16,8 +16,12 @@ module YtUriUtility =
     let getPlaylistIndexUri (id: Identifier) =
         Uri($"{YouTubeApiRootUri}{YouTubeApiPlaylistsIndexPath}{id.StringValue}", UriKind.Absolute)
 
-    let getPlaylistSetUri (indexId: Identifier) (clientId: Identifier) =
-        Uri($"{YouTubeApiRootUri}{YouTubeApiPlaylistsPath}{indexId.StringValue}/{clientId.StringValue}", UriKind.Absolute)
+    let getPlaylistSetUri (indexId: Identifier) (clientId: ClientId option) =
+        if clientId.IsNone then
+            raise (ArgumentNullException (nameof clientId))
+        else
+            let suffix = clientId.Value.toIdentifier.StringValue
+            Uri($"{YouTubeApiRootUri}{YouTubeApiPlaylistsPath}{indexId.StringValue}/{suffix}", UriKind.Absolute)
 
     let getPlaylistUri (id: Identifier) =
         Uri($"{YouTubeApiRootUri}{YouTubeApiPlaylistPath}{id.StringValue}", UriKind.Absolute)

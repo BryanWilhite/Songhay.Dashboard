@@ -54,6 +54,34 @@ let rec update remote (message: Message) (model: Model) =
             let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
             let cmd = Cmd.OfAsync.either remote.getYtItems uri success failure
             ytModel, cmd
+        | YouTubeMessage.CallYtSetIndex ->
+            let success = fun index ->
+                let ytItemsSuccessMsg = YouTubeMessage.CalledYtSetIndex index
+                Message.YouTubeMessage ytItemsSuccessMsg
+
+            let failure = fun ex ->
+                let ytFailureMsg = YouTubeMessage.Error ex
+                Message.YouTubeMessage ytFailureMsg
+
+            let uri = YtIndexSonghay |> Identifier.Alphanumeric |> getPlaylistIndexUri
+            let cmd = Cmd.OfAsync.either remote.getYtSetIndex uri success failure
+            ytModel, cmd
+        | YouTubeMessage.CallYtSet ->
+            let success = fun set ->
+                let ytItemsSuccessMsg = YouTubeMessage.CalledYtSet set
+                Message.YouTubeMessage ytItemsSuccessMsg
+
+            let failure = fun ex ->
+                let ytFailureMsg = YouTubeMessage.Error ex
+                Message.YouTubeMessage ytFailureMsg
+
+            let uri =
+                (
+                    YtIndexSonghay |> Identifier.Alphanumeric,
+                    ytModel.ytModel.YtSetIndexSelectedDocument
+                ) ||> getPlaylistSetUri
+            let cmd = Cmd.OfAsync.either remote.getYtSet uri success failure
+            ytModel, cmd
         | _ -> ytModel, Cmd.none
 
 let view (jsRuntime: IJSRuntime) (model: Model) dispatch =

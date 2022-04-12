@@ -41,7 +41,7 @@ module DisplayItemModelUtilityTests =
             |> Index.fromInput
 
         actualResult
-        |> should be (ofCase <@ Result<ClientId * Name * (DisplayItemModel * ClientId list) list,JsonException>.Ok @>)
+        |> should be (ofCase <@ Result<ClientId * Name * (DisplayItemModel * ClientId []) [],JsonException>.Ok @>)
 
     [<Theory>]
     [<InlineData("songhay-news-playlist.json")>]
@@ -53,4 +53,4 @@ module DisplayItemModelUtilityTests =
             |> ThumbsSet.fromInput
 
         actualResult
-        |> should be (ofCase <@ Result<(DisplayText * YouTubeItem list) list,JsonException>.Ok @>)
+        |> should be (ofCase <@ Result<(DisplayText * YouTubeItem []) list,JsonException>.Ok @>)

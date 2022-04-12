@@ -6,12 +6,6 @@ open Microsoft.JSInterop
 open Bolero
 open Bolero.Html
 
-let initModel =
-    {
-        Error = None
-        YouTubeItems = None
-    }
-
 type YtThumbsSetComponent() =
     inherit ElmishComponent<YouTubeModel, YouTubeMessage>()
 

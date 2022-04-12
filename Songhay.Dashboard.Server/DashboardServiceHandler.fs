@@ -15,6 +15,7 @@ open Songhay.Modules.HttpRequestMessageUtility
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.RemoteHandlerUtility
 
+open Songhay.Modules.Publications.Models
 open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Models
 
@@ -61,6 +62,44 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
                     cache.Set(CalledYtItems, output, cacheEntryOptions) |> ignore
+
+                    return output
+            }
+
+            getYtSetIndex = fun uri -> async {
+                match cache.TryGetValue CalledYtSetIndex with
+                | true, o -> return o :?> (ClientId * Name * (DisplayItemModel * ClientId []) []) option
+                | false, _ ->
+                    logger.LogInformation($"calling {uri.OriginalString}...")
+
+                    let! responseResult = client |> trySendAsync (get uri) |> Async.AwaitTask
+
+                    let! output =
+                        responseResult
+                        |> (toHandlerOutputAsync logger DisplayItemModelServiceHandlerUtility.toPublicationIndexData)
+                        |> Async.AwaitTask
+
+                    let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
+                    cache.Set(CalledYtSetIndex, output, cacheEntryOptions) |> ignore
+
+                    return output
+            }
+
+            getYtSet = fun uri -> async {
+                match cache.TryGetValue CalledYtSet with
+                | true, o -> return o :?> (DisplayText * YouTubeItem []) [] option
+                | false, _ ->
+                    logger.LogInformation($"calling {uri.OriginalString}...")
+
+                    let! responseResult = client |> trySendAsync (get uri) |> Async.AwaitTask
+
+                    let! output =
+                        responseResult
+                        |> (toHandlerOutputAsync logger YtThumbsSetServiceHandlerUtility.toDomainData)
+                        |> Async.AwaitTask
+
+                    let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
+                    cache.Set(CalledYtSet, output, cacheEntryOptions) |> ignore
 
                     return output
             }
