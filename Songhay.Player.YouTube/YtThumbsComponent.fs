@@ -28,15 +28,5 @@ type YtThumbsComponent() =
         let title = (this.YtThumbsTitle |> Option.ofObj)
         model.YtItems |> ytThumbsNode this.JSRuntime thumbsContainerRef blockWrapperRef title
 
-let updateModel (message: YouTubeMessage) (model: YouTubeModel) =
-    match message with
-    | Error exn -> { model with Error = Some exn.Message }
-    | CallYtItems -> { model with YtItems = None }
-    | CalledYtItems items -> { model with YtItems = items }
-    | CallYtSetIndex -> { model with YtSetIndex = None }
-    | CalledYtSetIndex index -> { model with YtSetIndex = index }
-    | CallYtSet -> { model with YtSet = None }
-    | CalledYtSet set -> { model with YtSet = set }
-
 let view (attrs: list<Attr>) (model: YouTubeModel) dispatch =
     ecomp<YtThumbsComponent, _, _> attrs model dispatch

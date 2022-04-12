@@ -38,7 +38,7 @@ let rec update remote (message: Message) (model: Model) =
     | Message.YouTubeMessage ytMsg ->
 
         let ytModel = {
-            model with ytModel = YtThumbs.updateModel ytMsg model.ytModel
+            model with ytModel = YouTubeModel.updateModel ytMsg model.ytModel
         }
 
         match ytMsg with
