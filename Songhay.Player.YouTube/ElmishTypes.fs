@@ -7,24 +7,26 @@ open Songhay.Player.YouTube.Models
 type YouTubeMessage =
     | Error of exn
     | CallYtItems | CalledYtItems of YouTubeItem[] option
-    | CallYtSetIndex | CalledYtSetIndex of (ClientId * Name * (DisplayItemModel * ClientId []) []) option
-    | CallYtSet | CalledYtSet of (DisplayText * YouTubeItem []) [] option
+    | CallYtSet
+    | CalledYtSet of (DisplayText * YouTubeItem []) [] option
+    | CalledYtSetIndex of (ClientId * Name * (DisplayItemModel * ClientId []) []) option
 
 type YouTubeModel =
     {
         Error: string option
         YtItems: YouTubeItem[] option
+        YtSet: (DisplayText * YouTubeItem []) [] option
         YtSetIndex: (ClientId * Name * (DisplayItemModel * ClientId []) []) option
         YtSetIndexSelectedDocument: ClientId option
-        YtSet: (DisplayText * YouTubeItem []) [] option
     }
+
     static member initialize =
         {
             Error = None
             YtItems = None
+            YtSet = None
             YtSetIndex = None
             YtSetIndexSelectedDocument = None
-            YtSet = None
         }
 
     static member updateModel (message: YouTubeMessage) (model: YouTubeModel) =
@@ -32,7 +34,6 @@ type YouTubeModel =
         | Error exn -> { model with Error = Some exn.Message }
         | CallYtItems -> { model with YtItems = None }
         | CalledYtItems items -> { model with YtItems = items }
-        | CallYtSetIndex -> { model with YtSetIndex = None }
         | CalledYtSetIndex index -> { model with YtSetIndex = index }
-        | CallYtSet -> { model with YtSet = None }
+        | CallYtSet -> { model with YtSet = None; YtSetIndex = None }
         | CalledYtSet set -> { model with YtSet = set }

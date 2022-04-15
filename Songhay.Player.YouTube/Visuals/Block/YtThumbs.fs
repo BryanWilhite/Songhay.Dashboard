@@ -4,6 +4,7 @@ open System.Collections.Generic
 open System.Threading.Tasks
 open Bolero
 open Bolero.Html
+open Elmish
 
 open Microsoft.AspNetCore.Components.Web
 open Microsoft.JSInterop
@@ -16,6 +17,7 @@ open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.JsRuntimeUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 
+open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Models
 open Songhay.Player.YouTube.YtItemUtility
 
@@ -26,6 +28,8 @@ let CssVarThumbsContainerWrapperLeft = "--thumbs-container-wrapper-left"
 let ThumbnailMarginRight = 4
 
 type SlideDirection = | Left | Right
+
+let click = GlobalEventHandlers.OnClick
 
 let getYtThumbsCaption (item: YouTubeItem) =
     let limit = 60
@@ -39,7 +43,8 @@ let getYtThumbsCaption (item: YouTubeItem) =
         [ attr.href (item.tryGetUri |> Result.valueOr raise); attr.target "_blank" ]
         [ text caption ]
 
-let getYtThumbsTitle (itemsTitle: string option) (items: YouTubeItem[] option) =
+let getYtThumbsTitle (dispatch: Dispatch<YouTubeMessage>)
+    (_: IJSRuntime) (itemsTitle: string option) (items: YouTubeItem[] option) =
     if items.IsNone then
         RawHtml "&#160;"
     else
@@ -47,7 +52,15 @@ let getYtThumbsTitle (itemsTitle: string option) (items: YouTubeItem[] option) =
             let pair = items.Value |> Array.head |> getYtItemsPair
             a [ attr.href (fst pair); attr.target "_blank" ] [ text (snd pair) ]
         else
-            text itemsTitle.Value
+            a
+                [
+                    attr.href "#"
+                    click.PreventDefault
+                    on.click (fun _ -> YouTubeMessage.CallYtSet |> dispatch)
+                ]
+                [
+                    text itemsTitle.Value
+                ]
 
 let initCache = Dictionary<GlobalEventHandlers, bool>()
 initCache.Add(OnLoad, false)
@@ -105,11 +118,9 @@ let ytThumbnailsNode (_: IJSRuntime) (blockWrapperRef: HtmlRef) (items: YouTubeI
                     div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-3" ]; attr.title "Loading…" ] []
                 ]
 
-let ytThumbsNode
+let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>)
     (jsRuntime: IJSRuntime) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef)
     (itemsTitle: string option) (items: YouTubeItem[] option) =
-
-    let click = GlobalEventHandlers.OnClick
 
     let slideAsync (direction: SlideDirection) (_: MouseEventArgs) =
         task {
@@ -163,7 +174,7 @@ let ytThumbsNode
                                 [ svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_youtube_24px"] ]
                             span
                                 [ attr.classes [ "level-item"; "is-size-2" ] ]
-                                [ (itemsTitle, items) ||> getYtThumbsTitle ]
+                                [ (jsRuntime, itemsTitle, items) |||> getYtThumbsTitle dispatch ]
                         ]
                 ]
             div

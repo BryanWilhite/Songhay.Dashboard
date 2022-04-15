@@ -31,4 +31,7 @@ let viewContentBlockTemplate jsRuntime (model: Model) dispatch =
         .YouTubeThumbs(
             YtThumbs.view [ "YtThumbsTitle" => "songhay tube" ] model.ytModel (Message.YouTubeMessage >> dispatch)
         )
+        .YouTubeThumbsSet(
+            YtThumbsSet.view model.ytModel (Message.YouTubeMessage >> dispatch)
+        )
         .Elt()
