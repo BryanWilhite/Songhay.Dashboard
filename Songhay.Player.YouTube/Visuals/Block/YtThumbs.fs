@@ -54,7 +54,7 @@ let getYtThumbsTitle (dispatch: Dispatch<YouTubeMessage>)
         else
             a
                 [
-                    attr.href "#"
+                    attr.href "#" ; attr.title $"{itemsTitle.Value}: show curated YouTube™ channels"
                     click.PreventDefault
                     on.click (fun _ -> YouTubeMessage.CallYtSet |> dispatch)
                 ]
