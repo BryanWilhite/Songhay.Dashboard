@@ -58,7 +58,13 @@ type ClientId =
     static member fromInput (element: JsonElement) =
         element
         |> tryGetProperty (nameof ClientId)
-        |> Result.map (fun el -> ClientId (Identifier.fromString(el.GetString())))
+        |> Result.map (fun el -> ClientId.fromString(el.GetString()))
+
+    /// <summary>
+    /// Generates an instance of this type
+    /// from a <see cref="string" />.
+    /// </summary>
+    static member fromString s = ClientId (Identifier.fromString(s))
 
     /// <summary>
     /// Converts this instance

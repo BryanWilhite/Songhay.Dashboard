@@ -17,7 +17,7 @@ type YouTubeModel =
         YtItems: YouTubeItem[] option
         YtSet: (DisplayText * YouTubeItem []) [] option
         YtSetIndex: (ClientId * Name * (DisplayItemModel * ClientId []) []) option
-        YtSetIndexSelectedDocument: ClientId option
+        YtSetIndexSelectedDocument: ClientId
         YtSetIsRequested: bool
     }
 
@@ -27,7 +27,7 @@ type YouTubeModel =
             YtItems = None
             YtSet = None
             YtSetIndex = None
-            YtSetIndexSelectedDocument = None
+            YtSetIndexSelectedDocument = "news" |> ClientId.fromString
             YtSetIsRequested = false
         }
 
