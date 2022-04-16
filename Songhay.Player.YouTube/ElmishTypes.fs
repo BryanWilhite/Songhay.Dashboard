@@ -18,6 +18,7 @@ type YouTubeModel =
         YtSet: (DisplayText * YouTubeItem []) [] option
         YtSetIndex: (ClientId * Name * (DisplayItemModel * ClientId []) []) option
         YtSetIndexSelectedDocument: ClientId option
+        YtSetIsRequested: bool
     }
 
     static member initialize =
@@ -27,6 +28,7 @@ type YouTubeModel =
             YtSet = None
             YtSetIndex = None
             YtSetIndexSelectedDocument = None
+            YtSetIsRequested = false
         }
 
     static member updateModel (message: YouTubeMessage) (model: YouTubeModel) =
@@ -34,6 +36,6 @@ type YouTubeModel =
         | Error exn -> { model with Error = Some exn.Message }
         | CallYtItems -> { model with YtItems = None }
         | CalledYtItems items -> { model with YtItems = items }
-        | CalledYtSetIndex index -> { model with YtSetIndex = index }
-        | CallYtSet -> { model with YtSet = None; YtSetIndex = None }
-        | CalledYtSet set -> { model with YtSet = set }
+        | CalledYtSetIndex index -> { model with YtSetIndex = index; YtSetIsRequested = false }
+        | CallYtSet -> { model with YtSet = None; YtSetIndex = None; YtSetIsRequested = true }
+        | CalledYtSet set -> { model with YtSet = set; YtSetIsRequested = false }
