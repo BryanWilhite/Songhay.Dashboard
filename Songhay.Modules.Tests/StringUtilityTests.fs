@@ -32,7 +32,7 @@ module StringUtilityTests =
     [<InlineData("one-two-three", "one-two-three")>]
     [<InlineData("", "None")>]
     let ``toSnakeCase test`` (input: string) (expectedResult: string) =
-        match input |> toSnakeCase with
+        match input |> toKabobCase with
         | Some actual ->
             actual |> should equal expectedResult
         | None ->

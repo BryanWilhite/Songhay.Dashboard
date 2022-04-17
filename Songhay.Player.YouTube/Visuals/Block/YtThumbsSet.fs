@@ -40,7 +40,7 @@ let ytThumbsSetNode (jsRuntime: IJSRuntime) (thumbsSetContainerRef: HtmlRef) (mo
             | true -> bulmaDropdown jsRuntime model
             | false ->
                 div
-                    [ attr.classes [ "has-text-centered"; "p-6"] ]
+                    [ attr.classes [ "has-text-centered"; "loader-container"; "p-6"] ]
                     [
                         div [ attr.classes [ "loader"; "m-6" ]; attr.title "Loading…" ] []
                     ]

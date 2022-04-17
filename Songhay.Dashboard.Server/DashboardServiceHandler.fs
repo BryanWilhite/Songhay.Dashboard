@@ -12,6 +12,7 @@ open Bolero.Remoting.Server
 
 open Songhay.Modules.HttpClientUtility
 open Songhay.Modules.HttpRequestMessageUtility
+open Songhay.Modules.StringUtility
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.RemoteHandlerUtility
 
@@ -86,7 +87,8 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
             }
 
             getYtSet = fun uri -> async {
-                match cache.TryGetValue CalledYtSet with
+                let cacheKey = $"{(nameof CalledYtSet) |> toKabobCase}-{uri.Segments |> Array.last}"
+                match cache.TryGetValue cacheKey with
                 | true, o -> return o :?> (DisplayText * YouTubeItem []) [] option
                 | false, _ ->
                     logger.LogInformation($"calling {uri.OriginalString}...")
@@ -99,7 +101,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
-                    cache.Set(CalledYtSet, output, cacheEntryOptions) |> ignore
+                    cache.Set(cacheKey, output, cacheEntryOptions) |> ignore
 
                     return output
             }

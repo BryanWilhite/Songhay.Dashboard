@@ -70,7 +70,7 @@ module YtThumbsSetServiceHandlerUtility =
     let ``getPlaylistSetUri test`` (indexIdString: string, clientIdString: string) =
         task {
             let indexId = Identifier.fromString(indexIdString)
-            let clientId = Identifier.fromString(clientIdString) |> ClientId |> Some
+            let clientId = ClientId.fromString(clientIdString)
             let uri = (indexId, clientId) ||> getPlaylistSetUri
             let! responseResult = client |> trySendAsync (get uri)
             responseResult |> should be (ofCase<@ Result<HttpResponseMessage,exn>.Ok @>)

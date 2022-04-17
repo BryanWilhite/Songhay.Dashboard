@@ -53,6 +53,15 @@ module StringUtility =
                 |> removeTrailingAndLeadingHyphens
                 |> toLowerInvariant
 
+    let demarcate (demarcation: char) (input: string) =
+        if String.IsNullOrWhiteSpace input then None
+        else
+            let processChar i c =
+                if (i > 0) && Char.IsUpper(c) then $"{demarcation}{Char.ToLower(c)}"
+                else $"{Char.ToLower(c)}"
+            let stringArray = input.ToCharArray() |> Array.mapi processChar
+            Some (String.Join(String.Empty, stringArray))
+
     let toNumericString (input: string) =
         if String.IsNullOrWhiteSpace input then None
         else
@@ -61,11 +70,6 @@ module StringUtility =
                 |> Array.filter (fun c -> Char.IsDigit(c) || c.Equals('.') || c.Equals('-'))
             Some (chars |> String)
 
-    let toSnakeCase (input: string) =
-        if String.IsNullOrWhiteSpace input then None
-        else
-            let processChar i c =
-                if (i > 0) && Char.IsUpper(c) then $"-{Char.ToLower(c)}"
-                else $"{Char.ToLower(c)}"
-            let stringArray = input.ToCharArray() |> Array.mapi processChar
-            Some (String.Join(String.Empty, stringArray))
+    let toKabobCase (input: string) = input |> demarcate '-'
+
+    let toSnakeCase (input: string) = input |> demarcate '_'

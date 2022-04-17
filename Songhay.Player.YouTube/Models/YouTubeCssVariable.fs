@@ -16,12 +16,12 @@ type YouTubeCssVariable =
     member this.Name =
         let name =
             match this with
-            | ThumbsHeaderLinkColor _ -> nameof ThumbsHeaderLinkColor |> toSnakeCase
-            | ThumbsHeaderLinkTextDecoration _ -> nameof ThumbsHeaderLinkTextDecoration |> toSnakeCase
-            | ThumbsSetHeaderColor _ -> nameof ThumbsSetHeaderColor |> toSnakeCase
-            | ThumbsSetBackgroundColor _ -> nameof ThumbsSetBackgroundColor |> toSnakeCase
-            | ThumbsSetHeaderPosition _ -> nameof ThumbsSetHeaderPosition |> toSnakeCase
-            | ThumbsSetPaddingTop _ -> nameof ThumbsSetPaddingTop |> toSnakeCase
+            | ThumbsHeaderLinkColor _ -> nameof ThumbsHeaderLinkColor |> toKabobCase
+            | ThumbsHeaderLinkTextDecoration _ -> nameof ThumbsHeaderLinkTextDecoration |> toKabobCase
+            | ThumbsSetHeaderColor _ -> nameof ThumbsSetHeaderColor |> toKabobCase
+            | ThumbsSetBackgroundColor _ -> nameof ThumbsSetBackgroundColor |> toKabobCase
+            | ThumbsSetHeaderPosition _ -> nameof ThumbsSetHeaderPosition |> toKabobCase
+            | ThumbsSetPaddingTop _ -> nameof ThumbsSetPaddingTop |> toKabobCase
         $"--{name}"
 
     member this.Value =
