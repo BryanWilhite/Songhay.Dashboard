@@ -22,24 +22,26 @@ let ytThumbsSetNode (jsRuntime: IJSRuntime) (thumbsSetContainerRef: HtmlRef) (mo
     task {
         if model.YtSetIsRequested then
             let! playState = jsRuntime |> getComputedStylePropertyValueAsync thumbsSetContainerRef "animation-play-state"
-            jsRuntime |> consoleLogAsync [| {| playState = playState |} |] |> ignore
+            jsRuntime |> consoleLogAsync [| "ytThumbsSetNode:"; {| playState = playState |} |] |> ignore
+
+            jsRuntime
+            |> setComputedStylePropertyValueAsync
+                thumbsSetContainerRef
+                CssVarThumbsOverlayAnimationName
+                CssAnimationNameBRollOverlayFadeIn
+            |> ignore
     }
     |> ignore
 
-    cond (model.YtSet.IsSome && model.YtSetIndex.IsSome) <| function
-    | true ->
-        div
-            [ attr.classes [ "rx"; "b-roll"; "overlay" ] ; attr.ref thumbsSetContainerRef ]
-            [
-                bulmaDropdown jsRuntime model
-            ]
-    | false ->
-        div
-            [ attr.classes [ "rx"; "b-roll"; "overlay" ] ; attr.ref thumbsSetContainerRef ]
-            [
+    div
+        [ attr.classes [ "rx"; "b-roll"; "overlay" ] ; attr.ref thumbsSetContainerRef ]
+        [
+            cond (model.YtSet.IsSome && model.YtSetIndex.IsSome) <| function
+            | true -> bulmaDropdown jsRuntime model
+            | false ->
                 div
                     [ attr.classes [ "has-text-centered"; "p-6"] ]
                     [
                         div [ attr.classes [ "loader"; "m-6" ]; attr.title "Loading…" ] []
                     ]
-            ]
+        ]
