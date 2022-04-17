@@ -42,6 +42,6 @@ let ytThumbsSetNode (jsRuntime: IJSRuntime) (thumbsSetContainerRef: HtmlRef) (mo
                 div
                     [ attr.classes [ "has-text-centered"; "loader-container"; "p-6"] ]
                     [
-                        div [ attr.classes [ "loader"; "m-6" ]; attr.title "Loading…" ] []
+                        div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-6" ]; attr.title "Loading…" ] []
                     ]
         ]
