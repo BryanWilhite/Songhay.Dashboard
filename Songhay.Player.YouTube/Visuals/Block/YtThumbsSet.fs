@@ -37,7 +37,21 @@ let ytThumbsSetNode (jsRuntime: IJSRuntime) (thumbsSetContainerRef: HtmlRef) (mo
         [ attr.classes [ "rx"; "b-roll"; "overlay" ] ; attr.ref thumbsSetContainerRef ]
         [
             cond (model.YtSet.IsSome && model.YtSetIndex.IsSome) <| function
-            | true -> bulmaDropdown jsRuntime model
+            | true ->
+                nav
+                    [ attr.classes [ "level" ] ]
+                    [
+                        div
+                            [ attr.classes [ "level-left" ] ]
+                            [
+                                div [ attr.classes [ "level-item" ] ] [ model |> bulmaDropdown jsRuntime ]
+                            ]
+                        div
+                            [ attr.classes [ "level-right" ] ]
+                            [
+                                div [ attr.classes [ "level-item" ] ] [ ytSetOverlayCloseCommand jsRuntime ]
+                            ]
+                    ]
             | false ->
                 div
                     [ attr.classes [ "has-text-centered"; "loader-container"; "p-6"] ]
