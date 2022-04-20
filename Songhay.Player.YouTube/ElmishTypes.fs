@@ -1,5 +1,6 @@
 namespace Songhay.Player.YouTube
 
+open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Models
 open Songhay.Modules.Publications.Models
 open Songhay.Player.YouTube.Models
@@ -10,10 +11,12 @@ type YouTubeMessage =
     | CallYtSet
     | CalledYtSet of (DisplayText * YouTubeItem []) [] option
     | CalledYtSetIndex of (ClientId * Name * (DisplayItemModel * ClientId []) []) option
+    | CssClass of (EditCommand * Identifier)
 
 type YouTubeModel =
     {
         Error: string option
+        YtCssClass: (EditCommand * Identifier) option
         YtItems: YouTubeItem[] option
         YtSet: (DisplayText * YouTubeItem []) [] option
         YtSetIndex: (ClientId * Name * (DisplayItemModel * ClientId []) []) option
@@ -24,6 +27,7 @@ type YouTubeModel =
     static member initialize =
         {
             Error = None
+            YtCssClass = None
             YtItems = None
             YtSet = None
             YtSetIndex = None
@@ -39,3 +43,4 @@ type YouTubeModel =
         | CalledYtSetIndex index -> { model with YtSetIndex = index; YtSetIsRequested = false }
         | CallYtSet -> { model with YtSet = None; YtSetIndex = None; YtSetIsRequested = true }
         | CalledYtSet set -> { model with YtSet = set; YtSetIsRequested = false }
+        | CssClass t -> { model with YtCssClass = Some t }
