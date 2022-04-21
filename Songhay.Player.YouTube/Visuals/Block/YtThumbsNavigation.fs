@@ -1,18 +1,30 @@
 module Songhay.Player.YouTube.Visuals.Block.YtThumbsNavigation
 
-open System
 open Microsoft.JSInterop
 
 open Bolero.Html
+open Elmish
 
+open Songhay.Modules.Models
+open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.Models
 open Songhay.Player.YouTube
-open Songhay.Modules.Bolero.JsRuntimeUtility
 
-let bulmaDropdown (jsRuntime: IJSRuntime) (model: YouTubeModel) =
+let click = GlobalEventHandlers.OnClick
+
+let bulmaDropdown (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime) (model: YouTubeModel) =
     let _, segmentName, documents = model.YtSetIndex.Value
+    let dropdownClassesDefault = [ "dropdown" ]
+    let dropdownClasses =
+        match model.YtCssClass with
+        | None -> dropdownClassesDefault
+        | Some (cmd, id) ->
+            match cmd with
+            | Remove -> dropdownClassesDefault
+            | _ -> dropdownClassesDefault @ [ id.StringValue ]
 
     div
-        [ attr.classes [ "dropdown" ] ]
+        [ attr.classes dropdownClasses ]
         [
             div
                 [ attr.classes [ "dropdown-trigger" ] ]
@@ -20,9 +32,7 @@ let bulmaDropdown (jsRuntime: IJSRuntime) (model: YouTubeModel) =
                     button
                         [
                             attr.classes [ "button" ]; "aria-haspopup" => "true"; "aria-controls" => "dropdown-menu"
-                            on.task.click (fun _ ->
-                                jsRuntime |> consoleLogAsync [| "click!" |]
-                            )
+                            on.click (fun _ -> CssClass (Add, Identifier.fromString "is-active") |> dispatch)
                         ]
                         [
                             span [] [ text $"{segmentName.Value}" ]
@@ -37,8 +47,13 @@ let bulmaDropdown (jsRuntime: IJSRuntime) (model: YouTubeModel) =
                             forEach documents <| fun (display, _) ->
                                 if display.displayText.IsSome then
                                     a
-                                        [ attr.classes [ "dropdown-item" ]; "data-id" => display.id.StringValue ]
-                                        [ text display.displayText.Value.Value ]
+                                        [
+                                            attr.href "#"; attr.classes [ "dropdown-item" ]
+                                            click.PreventDefault
+                                            "data-id" => display.id.StringValue
+                                            on.click (fun _ -> CssClass (Remove, Identifier.fromString "is-active") |> dispatch)
+                                        ]
+                                        [ text (display.displayText |> Option.get).Value ]
                                 else empty
                         ]
                 ]

@@ -18,8 +18,8 @@ type YtThumbsSetComponent() =
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
-    override this.View model _ =
-        model |> ytThumbsSetNode this.JSRuntime thumbsSetContainerRef
+    override this.View model dispatch =
+        model |> ytThumbsSetNode dispatch this.JSRuntime thumbsSetContainerRef
 
 let view (model: YouTubeModel) dispatch =
     ecomp<YtThumbsSetComponent, _, _> [] model dispatch

@@ -4,6 +4,7 @@ open Microsoft.JSInterop
 
 open Bolero
 open Bolero.Html
+open Elmish
 
 open Songhay.Modules.Bolero.JsRuntimeUtility
 open Songhay.Player.YouTube
@@ -18,7 +19,7 @@ let CssAnimationNameBRollOverlayFadeOut = "b-roll-overlay-fade-out"
 [<Literal>] // see `$var-thumbs-overlay-animation-name` in `Songhay.Player.YouTube/src/scss/you-tube-thumbs-set.scss`
 let CssVarThumbsOverlayAnimationName = "--thumbs-overlay-animation-name"
 
-let ytThumbsSetNode (jsRuntime: IJSRuntime) (thumbsSetContainerRef: HtmlRef) (model: YouTubeModel) =
+let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime) (thumbsSetContainerRef: HtmlRef) (model: YouTubeModel) =
     task {
         if model.YtSetIsRequested then
             let! playState = jsRuntime |> getComputedStylePropertyValueAsync thumbsSetContainerRef "animation-play-state"
@@ -44,7 +45,7 @@ let ytThumbsSetNode (jsRuntime: IJSRuntime) (thumbsSetContainerRef: HtmlRef) (mo
                         div
                             [ attr.classes [ "level-left" ] ]
                             [
-                                div [ attr.classes [ "level-item" ] ] [ model |> bulmaDropdown jsRuntime ]
+                                div [ attr.classes [ "level-item" ] ] [ model |> bulmaDropdown dispatch jsRuntime ]
                             ]
                         div
                             [ attr.classes [ "level-right" ] ]
