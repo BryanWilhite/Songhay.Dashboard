@@ -64,6 +64,12 @@ type ClientId =
     /// Generates an instance of this type
     /// from a <see cref="string" />.
     /// </summary>
+    static member fromIdentifier i = ClientId i
+
+    /// <summary>
+    /// Generates an instance of this type
+    /// from a <see cref="string" />.
+    /// </summary>
     static member fromString s = ClientId (Identifier.fromString(s))
 
     /// <summary>

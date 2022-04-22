@@ -16,12 +16,8 @@ let bulmaDropdown (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime) (model: Y
     let _, segmentName, documents = model.YtSetIndex.Value
     let dropdownClassesDefault = [ "dropdown" ]
     let dropdownClasses =
-        match model.YtCssClass with
-        | None -> dropdownClassesDefault
-        | Some (cmd, id) ->
-            match cmd with
-            | Remove -> dropdownClassesDefault
-            | _ -> dropdownClassesDefault @ [ id.StringValue ]
+        if model.YtSetRequestSelection then dropdownClassesDefault @ [ "is-active" ]
+        else dropdownClassesDefault
 
     div
         [ attr.classes dropdownClasses ]
@@ -32,7 +28,7 @@ let bulmaDropdown (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime) (model: Y
                     button
                         [
                             attr.classes [ "button" ]; "aria-haspopup" => "true"; "aria-controls" => "dropdown-menu"
-                            on.click (fun _ -> CssClass (Add, Identifier.fromString "is-active") |> dispatch)
+                            on.click (fun _ -> SelectYtSet |> dispatch)
                         ]
                         [
                             span [] [ text $"{segmentName.Value}" ]
@@ -50,8 +46,7 @@ let bulmaDropdown (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime) (model: Y
                                         [
                                             attr.href "#"; attr.classes [ "dropdown-item" ]
                                             click.PreventDefault
-                                            "data-id" => display.id.StringValue
-                                            on.click (fun _ -> CssClass (Remove, Identifier.fromString "is-active") |> dispatch)
+                                            on.click (fun _ -> CallYtSet (ClientId.fromIdentifier display.id) |> dispatch)
                                         ]
                                         [ text (display.displayText |> Option.get).Value ]
                                 else empty
