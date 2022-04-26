@@ -123,12 +123,18 @@ let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>)
     (itemsTitle: string option) (items: YouTubeItem[] option) =
 
     let slideAsync (direction: SlideDirection) (_: MouseEventArgs) =
-        task {
+        async {
             if items.IsNone then ()
             else
                 jsRuntime |> initAsync blockWrapperRef |> ignore
-                let! wrapperContainerWidthStr = jsRuntime |> getComputedStylePropertyValueAsync thumbsContainerRef "width"
-                let! wrapperLeftStr = jsRuntime |> getComputedStylePropertyValueAsync blockWrapperRef "left"
+                let! wrapperContainerWidthStr =
+                    jsRuntime
+                    |> getComputedStylePropertyValueAsync thumbsContainerRef "width"
+                    |> Async.AwaitTask
+                let! wrapperLeftStr =
+                    jsRuntime
+                    |> getComputedStylePropertyValueAsync blockWrapperRef "left"
+                    |> Async.AwaitTask
 
                 let wrapperContainerWidth = wrapperContainerWidthStr |> toNumericString |> Option.defaultValue "0" |> int
                 let wrapperLeft = wrapperLeftStr |> toNumericString |> Option.defaultValue "0" |> int
@@ -188,7 +194,7 @@ let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>)
                         [
                             attr.href "#"; attr.classes [ "command"; "left"; "image"; "is-48x48" ]
                             click.PreventDefault
-                            on.task.click (fun e -> e |> slideAsync Right :> Task)
+                            on.async.click (slideAsync Right)
                         ]
                         [
                             svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_arrow_left_drop_circle_24px"]
@@ -197,7 +203,7 @@ let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>)
                         [
                             attr.href "#"; attr.classes [ "command"; "right"; "image"; "is-48x48" ]
                             click.PreventDefault
-                            on.task.click (fun e -> e |> slideAsync Left :> Task)
+                            on.async.click (slideAsync Left)
                         ]
                         [
                             svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_arrow_right_drop_circle_24px"]

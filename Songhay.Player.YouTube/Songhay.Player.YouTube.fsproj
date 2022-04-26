@@ -24,7 +24,6 @@
         <Compile Include="YtThumbsSetServiceHandlerUtility.fs" />
         <Compile Include="Visuals\Block\YtPresentation.fs" />
         <Compile Include="Visuals\Block\YtThumbs.fs" />
-        <Compile Include="Visuals\Block\YtThumbsNavigation.fs" />
         <Compile Include="Visuals\Block\YtThumbsSet.fs" />
         <Compile Include="YtThumbsComponent.fs" />
         <Compile Include="YtThumbsSetComponent.fs" />
