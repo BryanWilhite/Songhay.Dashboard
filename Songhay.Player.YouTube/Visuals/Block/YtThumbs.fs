@@ -44,7 +44,10 @@ let getYtThumbsCaption (item: YouTubeItem) =
         [ text caption ]
 
 let getYtThumbsTitle (dispatch: Dispatch<YouTubeMessage>)
-    (_: IJSRuntime) (itemsTitle: string option) (items: YouTubeItem[] option) =
+    (_: IJSRuntime) (itemsTitle: string option) (model: YouTubeModel) =
+
+    let items = model.YtItems
+
     if items.IsNone then
         RawHtml "&#160;"
     else
@@ -56,7 +59,11 @@ let getYtThumbsTitle (dispatch: Dispatch<YouTubeMessage>)
                 [
                     attr.href "#" ; attr.title $"{itemsTitle.Value}: show curated YouTube™ channels"
                     click.PreventDefault
-                    on.click (fun _ -> YouTubeMessage.CallYtIndexAndSet |> dispatch)
+                    on.click (fun _ ->
+                        if model.YtSetIndex.IsNone && model.YtSet.IsNone then
+                            YouTubeMessage.CallYtIndexAndSet |> dispatch
+                        else
+                            YouTubeMessage.OpenYtSetOverlay |> dispatch)
                 ]
                 [
                     text itemsTitle.Value
@@ -120,8 +127,9 @@ let ytThumbnailsNode (_: IJSRuntime) (blockWrapperRef: HtmlRef) (items: YouTubeI
 
 let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>)
     (jsRuntime: IJSRuntime) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef)
-    (itemsTitle: string option) (items: YouTubeItem[] option) =
+    (itemsTitle: string option) (model: YouTubeModel) =
 
+    let items = model.YtItems
     let slideAsync (direction: SlideDirection) (_: MouseEventArgs) =
         async {
             if items.IsNone then ()
@@ -180,7 +188,7 @@ let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>)
                                 [ svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_youtube_24px"] ]
                             span
                                 [ attr.classes [ "level-item"; "is-size-2" ] ]
-                                [ (jsRuntime, itemsTitle, items) |||> getYtThumbsTitle dispatch ]
+                                [ (jsRuntime, itemsTitle, model) |||> getYtThumbsTitle dispatch ]
                         ]
                 ]
             div

@@ -11,15 +11,13 @@ open Songhay.Player.YouTube.Visuals.Block.YtThumbsSet
 type YtThumbsSetComponent() =
     inherit ElmishComponent<YouTubeModel, YouTubeMessage>()
 
-    let thumbsSetContainerRef = HtmlRef()
-
     static member val Id = "yt-thumbs-set-block" with get
 
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
     override this.View model dispatch =
-        model |> ytThumbsSetNode dispatch this.JSRuntime thumbsSetContainerRef
+        model |> ytThumbsSetNode dispatch this.JSRuntime
 
 let view (model: YouTubeModel) dispatch =
     ecomp<YtThumbsSetComponent, _, _> [] model dispatch

@@ -7,10 +7,19 @@
         height: 0;
         z-index: 2;
 
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
-        animation-iteration-count: 1;
-        animation-name: $var-thumbs-overlay-animation-name;
+        &.animate {
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+
+            &.fade-in {
+                animation-name: b-roll-overlay-fade-in;
+            }
+
+            &.fade-out {
+                animation-name: b-roll-overlay-fade-out;
+            }
+        }
     }
 }
 

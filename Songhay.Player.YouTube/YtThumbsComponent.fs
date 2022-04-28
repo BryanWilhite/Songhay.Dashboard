@@ -26,7 +26,7 @@ type YtThumbsComponent() =
 
     override this.View model dispatch =
         let title = (this.YtThumbsTitle |> Option.ofObj)
-        (title, model.YtItems) ||> ytThumbsNode dispatch this.JSRuntime thumbsContainerRef blockWrapperRef
+        (title, model) ||> ytThumbsNode dispatch this.JSRuntime thumbsContainerRef blockWrapperRef
 
 let view (attrs: list<Attr>) (model: YouTubeModel) dispatch =
     ecomp<YtThumbsComponent, _, _> attrs model dispatch

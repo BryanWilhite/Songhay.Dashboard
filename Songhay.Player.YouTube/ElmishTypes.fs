@@ -11,6 +11,8 @@ type YouTubeMessage =
     | CallYtSet of ClientId
     | CalledYtSet of (DisplayText * YouTubeItem []) [] option
     | CalledYtSetIndex of (ClientId * Name * (DisplayItemModel * ClientId []) []) option
+    | CloseYtSetOverlay
+    | OpenYtSetOverlay
     | SelectYtSet
 
 type YouTubeModel =
@@ -20,6 +22,7 @@ type YouTubeModel =
         YtSet: (DisplayText * YouTubeItem []) [] option
         YtSetIndex: (ClientId * Name * (DisplayItemModel * ClientId []) []) option
         YtSetIndexSelectedDocument: ClientId
+        YtSetOverlayIsVisible: bool option
         YtSetIsRequested: bool
         YtSetRequestSelection: bool
     }
@@ -31,6 +34,7 @@ type YouTubeModel =
             YtSet = None
             YtSetIndex = None
             YtSetIndexSelectedDocument = "news" |> ClientId.fromString
+            YtSetOverlayIsVisible = None
             YtSetIsRequested = false
             YtSetRequestSelection = false
         }
@@ -41,7 +45,9 @@ type YouTubeModel =
         | CalledYtItems items -> { model with YtItems = items }
         | CalledYtSet set -> { model with YtSet = set; YtSetIsRequested = false }
         | CalledYtSetIndex index -> { model with YtSetIndex = index; YtSetIsRequested = false }
-        | CallYtIndexAndSet -> { model with YtSet = None; YtSetIndex = None; YtSetIsRequested = true }
+        | CallYtIndexAndSet -> { model with YtSet = None; YtSetIndex = None; YtSetOverlayIsVisible = Some true; YtSetIsRequested = true }
         | CallYtItems -> { model with YtItems = None }
         | CallYtSet id -> { model with YtSetIndexSelectedDocument = id; YtSetRequestSelection = false }
+        | CloseYtSetOverlay -> { model with YtSetOverlayIsVisible = Some false }
+        | OpenYtSetOverlay -> { model with YtSetOverlayIsVisible = Some true }
         | SelectYtSet -> { model with YtSetRequestSelection = true }
