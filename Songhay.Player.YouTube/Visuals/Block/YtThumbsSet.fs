@@ -7,6 +7,7 @@ open Elmish
 
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.JsRuntimeUtility
+open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Modules.Models
 open Songhay.Player.YouTube
 
@@ -58,11 +59,13 @@ let bulmaDropdown (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime) (model: Y
 let ytSetOverlayCloseCommand (dispatch: Dispatch<YouTubeMessage>) =
     a
         [
+            attr.classes [ "image"; "is-48x48" ]
             attr.href "#"
+            attr.title "close b-roll overlay"
             click.PreventDefault
             on.click (fun _ -> YouTubeMessage.CloseYtSetOverlay |> dispatch)
         ]
-        [ text "×" ]
+        [ svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_close_box_24px"] ]
 
 let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime) (model: YouTubeModel) =
     let overlayClasses =
@@ -88,7 +91,7 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
             cond (model.YtSet.IsSome && model.YtSetIndex.IsSome) <| function
             | true ->
                 nav
-                    [ attr.classes [ "level" ] ]
+                    [ attr.classes [ "level"; "m-2" ] ]
                     [
                         div
                             [ attr.classes [ "level-left" ] ]
