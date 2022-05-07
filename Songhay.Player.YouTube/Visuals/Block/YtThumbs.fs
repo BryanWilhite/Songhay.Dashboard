@@ -1,7 +1,6 @@
 module Songhay.Player.YouTube.Visuals.Block.YtThumbs
 
 open System.Collections.Generic
-open System.Threading.Tasks
 open Bolero
 open Bolero.Html
 open Elmish

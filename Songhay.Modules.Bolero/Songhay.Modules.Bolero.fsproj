@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Bolero" Version="0.*" />
+        <PackageReference Include="Bolero" Version="0.18.*" />
         <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
     </ItemGroup>
 

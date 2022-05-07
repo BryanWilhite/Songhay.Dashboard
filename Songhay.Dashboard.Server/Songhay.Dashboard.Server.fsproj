@@ -14,8 +14,8 @@
   <ItemGroup>
     <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
     <ProjectReference Include="..\Songhay.Dashboard.Client\Songhay.Dashboard.Client.fsproj" />
-    <PackageReference Include="Bolero.Server" Version="0.*" />
-    <PackageReference Include="Bolero.HotReload.Server" Version="0.*" />
+    <PackageReference Include="Bolero.Server" Version="0.18.*" />
+    <PackageReference Include="Bolero.HotReload.Server" Version="0.18.*" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.*" />
   </ItemGroup>
 </Project>
