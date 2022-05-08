@@ -79,6 +79,7 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
         [
             "rx"
             "b-roll"
+            "has-navbar-fixed-top"
             "overlay"
             match model.YtSetOverlayIsVisible with
             | None -> ()
@@ -96,7 +97,7 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
             [ attr.classes overlayClasses ]
             [
                 nav
-                    [ attr.classes [ "level"; "m-2" ] ]
+                    [ attr.classes [ "level"; "is-fixed-top"; "m-2" ] ]
                     [
                         div
                             [ attr.classes [ "level-left" ] ]
