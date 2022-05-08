@@ -43,12 +43,19 @@ let bulmaDropdown (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime) (model: Y
                         [ attr.classes [ "dropdown-content" ] ]
                         [
                             forEach documents <| fun (display, _) ->
+                                let clientId = ClientId.fromIdentifier display.id
                                 if display.displayText.IsSome then
                                     a
                                         [
-                                            attr.href "#"; attr.classes [ "dropdown-item" ]
+                                            attr.href "#"
+                                            attr.classes [
+                                                "dropdown-item"
+                                                if clientId = snd model.YtSetIndexSelectedDocument then
+                                                    "is-active"
+                                            ]
                                             click.PreventDefault
-                                            on.click (fun _ -> CallYtSet (ClientId.fromIdentifier display.id) |> dispatch)
+                                            on.click (fun _ ->
+                                                CallYtSet (display.displayText.Value, clientId) |> dispatch)
                                         ]
                                         [ text (display.displayText |> Option.get).Value ]
                                 else empty
@@ -83,7 +90,7 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                     "fade-out"
         ]
 
-    cond (model.YtSet.IsSome && model.YtSetIndex.IsSome) <| function
+    cond model.YtSetIndex.IsSome <| function
     | true ->
         div
             [ attr.classes overlayClasses ]
@@ -94,7 +101,12 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                         div
                             [ attr.classes [ "level-left" ] ]
                             [
-                                div [ attr.classes [ "level-item" ] ] [ model |> bulmaDropdown dispatch jsRuntime ]
+                                div
+                                    [ attr.classes [ "level-item"; "is-size-2" ] ]
+                                    [ text (fst model.YtSetIndexSelectedDocument).Value ]
+                                div
+                                    [ attr.classes [ "level-item" ] ]
+                                    [ model |> bulmaDropdown dispatch jsRuntime ]
                             ]
                         div
                             [ attr.classes [ "level-right" ] ]
@@ -104,9 +116,16 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                                     [ ytSetOverlayCloseCommand dispatch ]
                             ]
                     ]
-
-                forEach model.YtSet.Value <| fun (_, items) ->
-                    YtThumbsComponent.view [] { model with YtItems = Some items } dispatch
+                cond model.YtSet.IsSome <| function
+                | true ->
+                    forEach model.YtSet.Value <| fun (_, items) ->
+                        YtThumbsComponent.view [] { model with YtItems = Some items } dispatch
+                | false ->
+                    div
+                        [ attr.classes [ "has-text-centered"; "loader-container"; "p-6"] ]
+                        [
+                            div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-6" ]; attr.title "Loading…" ] []
+                        ]
             ]
     | false ->
         div

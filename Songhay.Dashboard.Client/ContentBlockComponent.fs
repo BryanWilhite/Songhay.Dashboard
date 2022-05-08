@@ -72,7 +72,7 @@ let rec update remote (message: Message) (model: Model) =
             let uri =
                 (
                     YtIndexSonghay |> Identifier.Alphanumeric,
-                    ytModel.ytModel.YtSetIndexSelectedDocument
+                    snd ytModel.ytModel.YtSetIndexSelectedDocument
                 ) ||> getPlaylistSetUri
 
             let cmdBatch = Cmd.batch [
@@ -93,7 +93,7 @@ let rec update remote (message: Message) (model: Model) =
             let uri =
                 (
                     YtIndexSonghay |> Identifier.Alphanumeric,
-                    ytModel.ytModel.YtSetIndexSelectedDocument
+                    snd ytModel.ytModel.YtSetIndexSelectedDocument
                 ) ||> getPlaylistSetUri
             let cmd = Cmd.OfAsync.either remote.getYtSet uri success failure
             ytModel, cmd
