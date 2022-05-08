@@ -3,7 +3,7 @@ module Songhay.Dashboard.Client.Templates.ContentBlock
 open Bolero
 open Bolero.Html
 
-open Songhay.Player.YouTube
+open Songhay.Player.YouTube.Components
 
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Visuals
@@ -29,9 +29,9 @@ let viewContentBlockTemplate jsRuntime (model: Model) dispatch =
             | StudioToolsPage -> Tile.studioPageNode [ Block.StudioTools.studioToolsNode() ]
         )
         .YouTubeThumbs(
-            YtThumbs.view [ "YtThumbsTitle" => "songhay tube" ] model.ytModel (Message.YouTubeMessage >> dispatch)
+            YtThumbsComponent.view [ "YtThumbsTitle" => "songhay tube" ] model.ytModel (Message.YouTubeMessage >> dispatch)
         )
         .YouTubeThumbsSet(
-            YtThumbsSet.view model.ytModel (Message.YouTubeMessage >> dispatch)
+            YtThumbsSetComponent.view model.ytModel (Message.YouTubeMessage >> dispatch)
         )
         .Elt()

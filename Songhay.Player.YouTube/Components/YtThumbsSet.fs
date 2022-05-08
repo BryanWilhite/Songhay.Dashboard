@@ -1,4 +1,4 @@
-module Songhay.Player.YouTube.Visuals.Block.YtThumbsSet
+module Songhay.Player.YouTube.YtThumbsSet
 
 open Microsoft.JSInterop
 
@@ -6,10 +6,10 @@ open Bolero.Html
 open Elmish
 
 open Songhay.Modules.Bolero.BoleroUtility
-open Songhay.Modules.Bolero.JsRuntimeUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Modules.Models
 open Songhay.Player.YouTube
+open Songhay.Player.YouTube.Components
 
 let click = GlobalEventHandlers.OnClick
 
@@ -83,13 +83,11 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                     "fade-out"
         ]
 
-    task { jsRuntime |> consoleLogAsync [| {| overlayClasses = overlayClasses |} |] |> ignore } |> ignore
-
-    div
-        [ attr.classes overlayClasses ]
-        [
-            cond (model.YtSet.IsSome && model.YtSetIndex.IsSome) <| function
-            | true ->
+    cond (model.YtSet.IsSome && model.YtSetIndex.IsSome) <| function
+    | true ->
+        div
+            [ attr.classes overlayClasses ]
+            [
                 nav
                     [ attr.classes [ "level"; "m-2" ] ]
                     [
@@ -106,10 +104,17 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                                     [ ytSetOverlayCloseCommand dispatch ]
                             ]
                     ]
-            | false ->
+
+                forEach model.YtSet.Value <| fun (_, items) ->
+                    YtThumbsComponent.view [] { model with YtItems = Some items } dispatch
+            ]
+    | false ->
+        div
+            [ attr.classes overlayClasses ]
+            [
                 div
                     [ attr.classes [ "has-text-centered"; "loader-container"; "p-6"] ]
                     [
                         div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-6" ]; attr.title "Loading…" ] []
                     ]
-        ]
+            ]

@@ -22,11 +22,10 @@
         <Compile Include="DisplayItemModelServiceHandlerUtility.fs" />
         <Compile Include="YtThumbsServiceHandlerUtility.fs" />
         <Compile Include="YtThumbsSetServiceHandlerUtility.fs" />
-        <Compile Include="Visuals\Block\YtPresentation.fs" />
-        <Compile Include="Visuals\Block\YtThumbs.fs" />
-        <Compile Include="Visuals\Block\YtThumbsSet.fs" />
-        <Compile Include="YtThumbsComponent.fs" />
-        <Compile Include="YtThumbsSetComponent.fs" />
+        <Compile Include="Components\YtThumbs.fs" />
+        <Compile Include="Components\YtThumbsComponent.fs" />
+        <Compile Include="Components\YtThumbsSet.fs" />
+        <Compile Include="Components\YtThumbsSetComponent.fs" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Songhay.Modules.Bolero\Songhay.Modules.Bolero.fsproj" />
