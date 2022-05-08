@@ -84,7 +84,7 @@ let initAsync (blockWrapperRef: HtmlRef) (jsRuntime: IJSRuntime) =
             |> setComputedStylePropertyValueAsync blockWrapperRef CssVarThumbsContainerWrapperLeft wrapperLeftStr
             |> ignore
 
-            initCache[OnLoad] <- true
+        initCache[OnLoad] <- true
     }
 
 let ytThumbnailsNode (_: IJSRuntime) (blockWrapperRef: HtmlRef) (items: YouTubeItem[] option) =
