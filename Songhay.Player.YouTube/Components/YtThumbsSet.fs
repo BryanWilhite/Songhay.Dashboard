@@ -90,11 +90,11 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                     "fade-out"
         ]
 
-    cond model.YtSetIndex.IsSome <| function
-    | true ->
-        div
-            [ attr.classes overlayClasses ]
-            [
+    div
+        [ attr.classes overlayClasses ]
+        [
+            cond model.YtSetIndex.IsSome <| function
+            | true ->
                 nav
                     [ attr.classes [ "level"; "m-2" ] ]
                     [
@@ -116,24 +116,31 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                                     [ ytSetOverlayCloseCommand dispatch ]
                             ]
                     ]
-                cond model.YtSet.IsSome <| function
-                | true ->
-                    forEach model.YtSet.Value <| fun (_, items) ->
-                        YtThumbsComponent.view [] { model with YtItems = Some items } dispatch
-                | false ->
-                    div
-                        [ attr.classes [ "has-text-centered"; "loader-container"; "p-6"] ]
-                        [
-                            div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-6" ]; attr.title "Loading…" ] []
-                        ]
-            ]
-    | false ->
-        div
-            [ attr.classes overlayClasses ]
-            [
+            | false ->
+                nav
+                    [ attr.classes [ "level"; "m-2" ] ]
+                    [
+                        div
+                            [ attr.classes [ "level-right" ] ]
+                            [
+                                div
+                                    [ attr.classes [ "level-item" ] ]
+                                    [ ytSetOverlayCloseCommand dispatch ]
+                            ]
+                    ]
+
+            cond model.YtSet.IsSome <| function
+            | true ->
+                div
+                    [ attr.classes [ "set" ] ]
+                    [
+                        forEach model.YtSet.Value <| fun (_, items) ->
+                            YtThumbsComponent.view [] { model with YtItems = Some items } dispatch
+                    ]
+            | false ->
                 div
                     [ attr.classes [ "has-text-centered"; "loader-container"; "p-6"] ]
                     [
                         div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-6" ]; attr.title "Loading…" ] []
                     ]
-            ]
+        ]
