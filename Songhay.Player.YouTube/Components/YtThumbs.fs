@@ -42,8 +42,8 @@ let getYtThumbsCaption (item: YouTubeItem) =
         [ attr.href (item.tryGetUri |> Result.valueOr raise); attr.target "_blank" ]
         [ text caption ]
 
-let getYtThumbsTitle (dispatch: Dispatch<YouTubeMessage>)
-    (_: IJSRuntime) (itemsTitle: string option) (model: YouTubeModel) =
+let getYtThumbsTitle (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime)
+    (itemsTitle: string option) (model: YouTubeModel) =
 
     let items = model.YtItems
 
@@ -121,8 +121,7 @@ let ytThumbnailsNode (_: IJSRuntime) (blockWrapperRef: HtmlRef) (items: YouTubeI
                     div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-3" ]; attr.title "Loading…" ] []
                 ]
 
-let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>)
-    (jsRuntime: IJSRuntime)
+let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
     (initCache: Dictionary<GlobalEventHandlers, bool>) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef)
     (itemsTitle: string option) (model: YouTubeModel) =
 
