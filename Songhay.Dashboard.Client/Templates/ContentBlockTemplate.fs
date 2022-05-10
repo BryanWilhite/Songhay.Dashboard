@@ -29,9 +29,9 @@ let viewContentBlockTemplate jsRuntime (model: Model) dispatch =
             | StudioToolsPage -> Tile.studioPageNode [ Block.StudioTools.studioToolsNode() ]
         )
         .YouTubeThumbs(
-            YtThumbsComponent.view [ "YtThumbsTitle" => "songhay tube" ] model.ytModel (Message.YouTubeMessage >> dispatch)
+            YtThumbsComponent.EComp [ "YtThumbsTitle" => "songhay tube" ] model.ytModel (Message.YouTubeMessage >> dispatch)
         )
         .YouTubeThumbsSet(
-            YtThumbsSetComponent.view model.ytModel (Message.YouTubeMessage >> dispatch)
+            YtThumbsSetComponent.EComp model.ytModel (Message.YouTubeMessage >> dispatch)
         )
         .Elt()

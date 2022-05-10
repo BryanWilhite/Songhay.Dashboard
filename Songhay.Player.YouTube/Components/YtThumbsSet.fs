@@ -135,7 +135,7 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                     [ attr.classes [ "set" ] ]
                     [
                         forEach model.YtSet.Value <| fun (_, items) ->
-                            YtThumbsComponent.view [] { model with YtItems = Some items } dispatch
+                            YtThumbsComponent.EComp [] { model with YtItems = Some items } dispatch
                     ]
             | false ->
                 div

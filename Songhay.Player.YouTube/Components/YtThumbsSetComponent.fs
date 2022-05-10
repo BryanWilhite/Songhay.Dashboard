@@ -14,7 +14,7 @@ type YtThumbsSetComponent() =
 
     static member val Id = "yt-thumbs-set-block" with get
 
-    static member view (model: YouTubeModel) dispatch =
+    static member EComp (model: YouTubeModel) dispatch =
         ecomp<YtThumbsSetComponent, _, _> [] model dispatch
 
     [<Inject>]

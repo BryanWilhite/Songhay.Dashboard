@@ -68,14 +68,11 @@ let getYtThumbsTitle (dispatch: Dispatch<YouTubeMessage>)
                     text itemsTitle.Value
                 ]
 
-let initCache = Dictionary<GlobalEventHandlers, bool>()
-initCache.Add(OnLoad, false)
-
 ///<remarks>
 /// this member is needed to ‘jumpstart’ CSS animations
 /// without this member, the first interop with CSS will not function as expected
 ///</remarks>
-let initAsync (blockWrapperRef: HtmlRef) (jsRuntime: IJSRuntime) =
+let initAsync (initCache: Dictionary<GlobalEventHandlers, bool>) (blockWrapperRef: HtmlRef) (jsRuntime: IJSRuntime) =
     task {
         if not initCache[OnLoad] then
             let! wrapperLeftStr = jsRuntime |> getComputedStylePropertyValueAsync blockWrapperRef "left"
@@ -125,7 +122,8 @@ let ytThumbnailsNode (_: IJSRuntime) (blockWrapperRef: HtmlRef) (items: YouTubeI
                 ]
 
 let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>)
-    (jsRuntime: IJSRuntime) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef)
+    (jsRuntime: IJSRuntime)
+    (initCache: Dictionary<GlobalEventHandlers, bool>) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef)
     (itemsTitle: string option) (model: YouTubeModel) =
 
     let items = model.YtItems
@@ -133,7 +131,7 @@ let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>)
         async {
             if items.IsNone then ()
             else
-                jsRuntime |> initAsync blockWrapperRef |> ignore
+                jsRuntime |> initAsync initCache blockWrapperRef |> ignore
                 let! wrapperContainerWidthStr =
                     jsRuntime
                     |> getComputedStylePropertyValueAsync thumbsContainerRef "width"
