@@ -20,49 +20,25 @@ resources:
 
 steps:
 
-- task: UseDotNet@2
-  displayName: 'Use .NET Core SDK 2.x'
-  inputs:
-    packageType: sdk
-    version: 2.x
-
-- task: PowerShell@2
-  displayName: 'npm: install `clean-css-cli` globally'
-  inputs:
-    targetType: 'inline'
-    script: '& npm i -g clean-css-cli'
-
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet restore'
   inputs:
-    command: restore
-    projects: '**/*.csproj'
-
-- task: Npm@1
-  displayName: 'npm install'
-  inputs:
-    workingDir: $(RepoName)/Client
-    verbose: true
+    command: 'restore'
+    projects: '**/*.fsproj'
+    feedsToUse: 'select'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
   inputs:
     projects: |
-     **/$(RepoName).csproj
-     **/$(RepoName).Tests.csproj
+     **/$(RepoName).fsproj
+     **/$(RepoName).Tests.fsproj
     arguments: '--configuration $(BuildConfiguration)'
-
-- task: downloadsSecureFile@0
-  inputs:
-    fileInput: '0bbd144a-8c21-4a46-bc4d-8faff4fdecec'
-    targetPath: $(RepoName)
-    targetName: 'app-settings.songhay-system.json'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   inputs:
     command: test
-    projects: '**/$(RepoName).Tests/*.csproj'
+    projects: '**/$(RepoName).Tests/*.fsproj'
     arguments: '--configuration $(BuildConfiguration)'
 
 - task: DotNetCoreCLI@2
