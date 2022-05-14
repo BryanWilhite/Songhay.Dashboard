@@ -52,10 +52,8 @@ steps:
   displayName: 'dotnet publish (Blazor Server)'
   inputs:
     command: publish
-    arguments: |
-     './$(RepoName).Server/$(RepoName).Server.fsproj '
-     '--configuration $(BuildConfiguration) '
-     '--output $(Build.ArtifactStagingDirectory)'
+    projects: './$(RepoName).Server/$(RepoName).Server.fsproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
