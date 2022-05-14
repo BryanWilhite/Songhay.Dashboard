@@ -58,11 +58,7 @@ let getYtThumbsTitle (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime)
                 [
                     attr.href "#" ; attr.title $"{itemsTitle.Value}: show curated YouTube™ channels"
                     click.PreventDefault
-                    on.click (fun _ ->
-                        if model.YtSetIndex.IsNone && model.YtSet.IsNone then
-                            YouTubeMessage.CallYtIndexAndSet |> dispatch
-                        else
-                            YouTubeMessage.OpenYtSetOverlay |> dispatch)
+                    on.click (fun _ -> YouTubeMessage.OpenYtSetOverlay |> dispatch)
                 ]
                 [
                     text itemsTitle.Value
