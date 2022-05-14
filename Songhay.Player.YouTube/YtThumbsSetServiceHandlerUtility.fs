@@ -1,15 +1,22 @@
 namespace Songhay.Player.YouTube
 
+open System
 open System.Net
 open System.Text.Json
 open Microsoft.Extensions.Logging
 
 open FsToolkit.ErrorHandling
 
+open Songhay.Modules
 open Songhay.Modules.JsonDocumentUtility
+open Songhay.Modules.StringUtility
 open Songhay.Player.YouTube.DisplayItemModelUtility
 
 module YtThumbsSetServiceHandlerUtility =
+
+    let getYtSetKey seed (uri: Uri) =
+        let prefix = seed |> toKabobCase |> Option.defaultValue String.Empty
+        $"{prefix}-{uri.Segments |> Array.last}"
 
     let toDomainData (logger: ILogger) (jsonResult: Result<string, HttpStatusCode>) =
         jsonResult

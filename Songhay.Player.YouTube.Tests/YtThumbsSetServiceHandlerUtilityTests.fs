@@ -1,28 +1,27 @@
 namespace Songhay.Player.YouTube.Tests
 
-module YtThumbsSetServiceHandlerUtility =
+open System
 
-    open System.Net
-    open System.IO
-    open System.Net.Http
-    open System.Reflection
-    open Microsoft.Extensions.Logging
+open System.Net
+open System.IO
+open System.Net.Http
+open System.Reflection
 
-    open NSubstitute
+open Xunit
+open FsUnit.Xunit
+open FsUnit.CustomMatchers
+open FsToolkit.ErrorHandling
 
-    open Xunit
-    open FsUnit.Xunit
-    open FsUnit.CustomMatchers
-    open FsToolkit.ErrorHandling
+open Songhay.Modules.Models
+open Songhay.Modules.HttpClientUtility
+open Songhay.Modules.HttpRequestMessageUtility
+open Songhay.Modules.HttpResponseMessageUtility
+open Songhay.Modules.ProgramFileUtility
 
-    open Songhay.Modules.Models
-    open Songhay.Modules.HttpClientUtility
-    open Songhay.Modules.HttpRequestMessageUtility
-    open Songhay.Modules.HttpResponseMessageUtility
-    open Songhay.Modules.ProgramFileUtility
+open Songhay.Player.YouTube
+open Songhay.Player.YouTube.YtUriUtility
 
-    open Songhay.Player.YouTube.Models
-    open Songhay.Player.YouTube.YtUriUtility
+module YtThumbsSetServiceHandlerUtilityTests =
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()
@@ -38,6 +37,16 @@ module YtThumbsSetServiceHandlerUtility =
         File.ReadAllText(path)
 
     let client = new HttpClient()
+
+    [<Theory>]
+    [<InlineData(
+        "https://songhay-system-player.azurewebsites.net/api/Player/v1/video/youtube/playlists/songhay/news",
+        "called-yt-set-news")>]
+    let ``getYtSetKey test`` (location: string, expected: string) =
+        let uri = location |> Uri
+        let seed = nameof YouTubeMessage.CalledYtSet
+        let cacheKey = uri |> YtThumbsSetServiceHandlerUtility.getYtSetKey seed
+        cacheKey |> should equal expected
 
     [<Theory>]
     [<InlineData(YtIndexSonghay)>]

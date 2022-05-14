@@ -12,7 +12,6 @@ open Bolero.Remoting.Server
 
 open Songhay.Modules.HttpClientUtility
 open Songhay.Modules.HttpRequestMessageUtility
-open Songhay.Modules.StringUtility
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.RemoteHandlerUtility
 
@@ -87,7 +86,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
             }
 
             getYtSet = fun uri -> async {
-                let cacheKey = $"{(nameof CalledYtSet) |> toKabobCase}-{uri.Segments |> Array.last}"
+                let cacheKey = uri |> YtThumbsSetServiceHandlerUtility.getYtSetKey (nameof CalledYtSet)
                 match cache.TryGetValue cacheKey with
                 | true, o -> return o :?> (DisplayText * YouTubeItem []) [] option
                 | false, _ ->

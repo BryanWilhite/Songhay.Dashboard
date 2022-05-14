@@ -102,11 +102,11 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                             [ attr.classes [ "level-left" ] ]
                             [
                                 div
-                                    [ attr.classes [ "level-item"; "is-size-2" ] ]
-                                    [ text (fst model.YtSetIndexSelectedDocument).Value ]
-                                div
                                     [ attr.classes [ "level-item" ] ]
                                     [ model |> bulmaDropdown dispatch jsRuntime ]
+                                div
+                                    [ attr.classes [ "level-item"; "is-size-2" ] ]
+                                    [ text (fst model.YtSetIndexSelectedDocument).Value ]
                             ]
                         div
                             [ attr.classes [ "level-right" ] ]
