@@ -53,7 +53,7 @@ steps:
   inputs:
     command: publish
     arguments: |
-     '**/$(RepoName).Server/*.fsproj'
+     './$(RepoName).Server/$(RepoName).Server.fsproj'
      '--configuration $(BuildConfiguration)'
      '--output $(Build.ArtifactStagingDirectory)'
 
