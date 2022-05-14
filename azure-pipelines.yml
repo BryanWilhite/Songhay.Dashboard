@@ -51,7 +51,8 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: 'dotnet publish (Blazor Server)'
   inputs:
-    command: publish
+    command: 'publish'
+    publishWebProjects: false
     projects: './$(RepoName).Server/$(RepoName).Server.fsproj'
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
