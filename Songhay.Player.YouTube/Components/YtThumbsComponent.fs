@@ -27,7 +27,7 @@ type YtThumbsComponent() =
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
-    override this.ShouldRender(oldModel, newModel) = oldModel <> newModel
+    override this.ShouldRender(oldModel, newModel) = oldModel.YtItems <> newModel.YtItems
 
     override this.View model dispatch =
         if not(initCache.ContainsKey(OnLoad)) then initCache.Add(OnLoad, false)
