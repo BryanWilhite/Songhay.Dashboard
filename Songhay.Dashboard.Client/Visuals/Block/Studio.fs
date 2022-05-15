@@ -30,7 +30,7 @@ let svgVersionNode (data: VersionData) =
     ]
 
     div
-        [ attr.classes classes; attr.title data.title ]
+        [ attr.classes classes; attr.title data.title.Value ]
         [
             span
                 [
