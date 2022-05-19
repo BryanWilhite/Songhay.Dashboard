@@ -19,9 +19,8 @@ let footerElement =
 
 let bodyElements =
     [
-        section [
-            attr.id ContentBlockComponent.Id
-            attr.classes [ nameof section ] ] 
+        div
+            [ attr.id ContentBlockComponent.Id ]
             ([ rootComp<ContentBlockComponent> ] |> wrapn 3)
         boleroScript
         footerElement

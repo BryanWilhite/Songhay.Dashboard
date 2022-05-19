@@ -1,36 +1,38 @@
-<div class="container">
-    <div class="columns">
-        <div class="column is-one-third-fullhd">
-            <div class="tile is-ancestor">
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-third-fullhd">
+                <div class="tile is-ancestor">
 
-                ${StudioComponentNode}
+                    ${StudioComponentNode}
 
-            </div>
-            <div class="tile is-ancestor">
-
-                ${StudioLinksNode}
-
-                <div id="notification-area">
-                    <div>${Error}</div>
                 </div>
+                <div class="tile is-ancestor">
 
-            </div>
-        </div>
-        <div class="column">
-            <template id="ErrorNotification">
-                <div class="notification is-warning">
-                    <button class="delete ${HideClass}" onclick="${Hide}"></button>
-                    ${Text}
+                    ${StudioLinksNode}
+
+                    <div id="notification-area">
+                        <div>${Error}</div>
+                    </div>
+
                 </div>
-            </template>
+            </div>
+            <div class="column">
+                <template id="ErrorNotification">
+                    <div class="notification is-warning">
+                        <button class="delete ${HideClass}" onclick="${Hide}"></button>
+                        ${Text}
+                    </div>
+                </template>
 
-            <div class="tile is-ancestor">
+                <div class="tile is-ancestor">
 
-                ${Content}
+                    ${Content}
 
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 ${YouTubeThumbs}
 ${YouTubeThumbsSet}

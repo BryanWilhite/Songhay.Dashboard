@@ -60,6 +60,18 @@ let studioFeedIcon (feedName: FeedName) =
         ]
 
 let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
+    let listItem (i: SyndicationFeedItem) =
+        li
+            []
+            [
+                a
+                    [
+                        attr.href i.link
+                        attr.target "_blank"
+                    ]
+                    [ text i.title ]
+            ]
+
     div
         [ attr.classes ([ "card" ] @ App.appBlockChildCssClasses) ]
         [
@@ -88,7 +100,7 @@ let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
                                 (
                                     feed.feedItems
                                     |> List.take 10
-                                    |> List.map (fun i -> li [] [ a [ attr.href i.link ] [ text i.title ] ])
+                                    |> List.map listItem
                                 )
                         ]
                 ]
