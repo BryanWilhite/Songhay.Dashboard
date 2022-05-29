@@ -46,6 +46,8 @@ steps:
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
+  displayName: 'Publish Artifact: bolero-drop'
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'bolero-drop'
+    publishLocation: 'Container'
