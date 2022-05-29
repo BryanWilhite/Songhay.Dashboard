@@ -4,16 +4,6 @@ variables:
   BuildConfiguration: 'Release'
   RepoName: 'Songhay.Dashboard'
 
-trigger:
-  batch: 'false'
-  branches:
-    include:
-    - releases/*
-  paths:
-    exclude:
-    - Songhay.Dashboard.Shell.Tests/*
-    - Songhay.Dashboard.Tests/*
-
 resources:
 - repo: self
 
