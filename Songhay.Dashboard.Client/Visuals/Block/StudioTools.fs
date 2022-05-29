@@ -16,6 +16,11 @@ let studioToolsData = [
         Alphanumeric "mdi_dotnet_24px"
     )
     (
+        DisplayText ".NET Fiddle",
+        Uri "https://dotnetfiddle.net/",
+        Alphanumeric "mdi_dotnet_24px"
+    )
+    (
         DisplayText ".NET Reference Source",
         Uri "https://referencesource.microsoft.com/",
         Alphanumeric "mdi_dotnet_24px"
