@@ -2,6 +2,7 @@ module Songhay.Dashboard.Client.App
 
 open System
 
+open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Modules.Models
 open Songhay.Dashboard.Models
 
@@ -19,12 +20,12 @@ let appVersions =
 
     [
         {
-            id = Alphanumeric "mdi_bolero_dance_24px"
+            id = Keys.MDI_BOLERO_DANCE_24PX.ToAlphanumeric
             title = DisplayText $"Bolero {boleroVersion}"
             version = boleroVersion
         }
         {
-            id = Alphanumeric "mdi_dotnet_24px"
+            id = Keys.MDI_DOTNET_24PX.ToAlphanumeric
             title = DisplayText $".NET Runtime {dotnetRuntimeVersion}"
             version = dotnetRuntimeVersion
         }
@@ -35,22 +36,22 @@ let appSocialLinks =
         (
             DisplayText "@BryanWilhite on Twitter",
             Uri "https://twitter.com/BryanWilhite",
-            Alphanumeric "mdi_twitter_24px"
+            Keys.MDI_TWITTER_24PX.ToAlphanumeric
         )
         (
             DisplayText "Bryan Wilhite on LinkedIn",
             Uri "http://www.linkedin.com/in/wilhite",
-            Alphanumeric "mdi_linkedin_24px"
+            Keys.MDI_LINKEDIN_24PX.ToAlphanumeric
         )
         (
             DisplayText "rasx on StackOverflow",
             Uri "http://stackoverflow.com/users/22944/rasx",
-            Alphanumeric "mdi_stack_overflow_24px"
+            Keys.MDI_STACK_OVERFLOW_24PX.ToAlphanumeric
         )
         (
             DisplayText "BryanWilhite on GitGub",
             Uri "https://github.com/BryanWilhite",
-            Alphanumeric "mdi_github_circle_24px"
+            Keys.MDI_GITHUB_CIRCLE_24PX.ToAlphanumeric
         )
     ]
 
@@ -58,26 +59,26 @@ let appStudioLinks = [
     (
         DisplayText "Azure DevOps",
         Uri "https://songhay.visualstudio.com/",
-        Alphanumeric "mdi_visual_studio_24px"
+        Keys.MDI_VISUAL_STUDIO_24PX.ToAlphanumeric
     )
     (
         DisplayText ">Day Path_",
         Uri "http://songhayblog.azurewebsites.net/",
-        Alphanumeric "mdi_rss_24px"
+        Keys.MDI_RSS_24PX.ToAlphanumeric
     )
     (
         DisplayText "Microsoft Azure",
         Uri "https://portal.azure.com/",
-        Alphanumeric "mdi_azure_24px"
+        Keys.MDI_AZURE_24PX.ToAlphanumeric
     )
     (
         DisplayText "Microsoft Developer",
         Uri "https://developer.microsoft.com/",
-        Alphanumeric "mdi_microsoft_24px"
+        Keys.MDI_MICROSOFT_24PX.ToAlphanumeric
     )
     (
         DisplayText "OneDrive",
         Uri "https://onedrive.live.com/",
-        Alphanumeric "mdi_office_24px"
+        Keys.MDI_OFFICE_24PX.ToAlphanumeric
     )
 ]

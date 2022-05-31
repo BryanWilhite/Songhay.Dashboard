@@ -32,19 +32,19 @@ let studioFeedImage (feedName: FeedName, feed: SyndicationFeed) =
 let studioFeedIcon (feedName: FeedName) =
     let feedNameMap = Map [
         CodePen,
-        Alphanumeric "mdi_codepen_24px"
+        Keys.MDI_CODEPEN_24PX.ToAlphanumeric
 
         Flickr,
-        Alphanumeric "mdi_rss_24px"
+        Keys.MDI_RSS_24PX.ToAlphanumeric
 
         GitHub,
-        Alphanumeric "mdi_github_circle_24px"
+        Keys.MDI_GITHUB_CIRCLE_24PX.ToAlphanumeric
 
         StackOverflow,
-        Alphanumeric "mdi_stack_overflow_24px"
+        Keys.MDI_STACK_OVERFLOW_24PX.ToAlphanumeric
 
         Studio,
-        Alphanumeric "mdi_rss_24px"
+        Keys.MDI_RSS_24PX.ToAlphanumeric
     ]
 
     let svgPathData = svgData[ feedNameMap[ feedName ] ]

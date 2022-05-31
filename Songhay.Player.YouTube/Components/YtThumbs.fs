@@ -10,7 +10,6 @@ open Microsoft.JSInterop
 open FsToolkit.ErrorHandling
 open Humanizer
 
-open Songhay.Modules.Models
 open Songhay.Modules.StringUtility
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.JsRuntimeUtility
@@ -177,7 +176,7 @@ let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                         [
                             span
                                 [ attr.classes [ "level-item"; "image"; "is-48x48" ] ]
-                                [ svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_youtube_24px"] ]
+                                [ svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_YOUTUBE_24PX.ToAlphanumeric] ]
                             span
                                 [ attr.classes [ "level-item"; "is-size-2" ] ]
                                 [ (jsRuntime, itemsTitle, model) |||> getYtThumbsTitle dispatch ]
@@ -197,7 +196,7 @@ let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                             on.async.click (slideAsync Right)
                         ]
                         [
-                            svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_arrow_left_drop_circle_24px"]
+                            svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_ARROW_LEFT_DROP_CIRCLE_24PX.ToAlphanumeric]
                         ]
                     a
                         [
@@ -206,7 +205,7 @@ let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                             on.async.click (slideAsync Left)
                         ]
                         [
-                            svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_arrow_right_drop_circle_24px"]
+                            svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_ARROW_RIGHT_DROP_CIRCLE_24PX.ToAlphanumeric]
                         ]
                 ]
         ]

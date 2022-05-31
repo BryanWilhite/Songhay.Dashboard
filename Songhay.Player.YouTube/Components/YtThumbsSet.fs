@@ -72,7 +72,7 @@ let ytSetOverlayCloseCommand (dispatch: Dispatch<YouTubeMessage>) =
             click.PreventDefault
             on.click (fun _ -> YouTubeMessage.CloseYtSetOverlay |> dispatch)
         ]
-        [ svgNode (svgViewBoxSquare 24) svgData[Identifier.fromString "mdi_close_box_24px"] ]
+        [ svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_CLOSE_BOX_24PX.ToAlphanumeric] ]
 
 let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime) (model: YouTubeModel) =
     let overlayClasses =

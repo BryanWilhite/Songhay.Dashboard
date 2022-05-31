@@ -36,7 +36,7 @@ let routeNodes =
             "ActiveClass" => "is-active"
             attr.classes [ "panel-block" ]
             attr.href (ElmishRoutes.router.Link page)
-        ] [ bulmaPanelIcon (Alphanumeric "mdi_link_variant_24px"); text caption ]
+        ] [ bulmaPanelIcon Keys.MDI_LINK_VARIANT_24PX.ToAlphanumeric; text caption ]
 
     routeData |> List.map routeNode
 

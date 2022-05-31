@@ -13,92 +13,97 @@ let studioToolsData = [
     (
         DisplayText ".NET API Catalog",
         Uri "https://apisof.net/",
-        Alphanumeric "mdi_dotnet_24px"
+        Keys.MDI_DOTNET_24PX.ToAlphanumeric
     )
     (
         DisplayText ".NET Fiddle",
         Uri "https://dotnetfiddle.net/",
-        Alphanumeric "mdi_dotnet_24px"
+        Keys.MDI_DOTNET_24PX.ToAlphanumeric
     )
     (
         DisplayText ".NET Reference Source",
         Uri "https://referencesource.microsoft.com/",
-        Alphanumeric "mdi_dotnet_24px"
+        Keys.MDI_DOTNET_24PX.ToAlphanumeric
     )
     (
         DisplayText "CamelCase Converter",
         Uri "https://en.toolpage.org/tool/camelcase",
-        Alphanumeric "mdi_wrench_24px"
+        Keys.MDI_WRENCH_24PX.ToAlphanumeric
     )
     (
         DisplayText "draw.io",
         Uri "https://www.draw.io/",
-        Alphanumeric "mdi_vector_curve_24px"
+        Keys.MDI_VECTOR_CURVE_24PX.ToAlphanumeric
     )
     (
         DisplayText "feedly OPML API",
         Uri "https://developer.feedly.com/v3/opml/",
-        Alphanumeric "mdi_rss_24px"
+        Keys.MDI_RSS_24PX.ToAlphanumeric
     )
     (
         DisplayText "fuget.org: pro nuget package browsing",
         Uri "https://www.fuget.org/",
-        Alphanumeric "mdi_package_24px"
+        Keys.MDI_PACKAGE_24PX.ToAlphanumeric
     )
     (
         DisplayText "Google Search Central",
         Uri "https://developers.google.com/search/",
-        Alphanumeric "mdi_google_24px"
+        Keys.MDI_GOOGLE_24PX.ToAlphanumeric
     )
     (
         DisplayText "JS Bin",
         Uri "http://jsbin.com/",
-        Alphanumeric "mdi_vector_curve_24px"
+        Keys.MDI_LANGUAGE_JAVASCRIPT_24PX.ToAlphanumeric
     )
     (
         DisplayText "JSON Viewer",
         Uri "https://codebeautify.org/jsonviewer",
-        Alphanumeric "mdi_json_24px"
+        Keys.MDI_JSON_24PX.ToAlphanumeric
+    )
+    (
+        DisplayText "omatsuri: base64 encoding",
+        Uri "https://omatsuri.app/b64-encoding/",
+        Keys.MDI_IMAGE_MULTIPLE_24PX.ToAlphanumeric
     )
     (
         DisplayText "quicktype",
         Uri "https://app.quicktype.io/",
-        Alphanumeric "mdi_wrench_24px"
+        Keys.MDI_WRENCH_24PX.ToAlphanumeric
     )
     (
         DisplayText "RegExr",
         Uri "https://regexr.com/",
-        Alphanumeric "mdi_regex_24px"
+        Keys.MDI_REGEX_24PX.ToAlphanumeric
     )
     (
         DisplayText "StackBlitz",
         Uri "https://stackblitz.com/@BryanWilhite",
-        Alphanumeric "mdi_code_tags_24px"
+        Keys.MDI_CODE_TAGS_24PX.ToAlphanumeric
     )
     (
         DisplayText "StackEdit",
         Uri "https://stackedit.io/",
-        Alphanumeric "mdi_cloud_tags_24px"
+        Keys.MDI_CLOUD_TAGS_24PX.ToAlphanumeric
     )
     (
         DisplayText "Twitter Publish",
         Uri "https://publish.twitter.com/",
-        Alphanumeric "mdi_twitter_24px"
+        Keys.MDI_TWITTER_24PX.ToAlphanumeric
     )
     (
         DisplayText "UNPKG",
         Uri "https://unpkg.com/",
-        Alphanumeric "mdi_package_24px"
+        Keys.MDI_PACKAGE_24PX.ToAlphanumeric
     )
     (
         DisplayText "vim cheatsheet",
         Uri "http://michael.peopleofhonoronly.com/vim/",
-        Alphanumeric "mdi_library_24px"
+        Keys.MDI_LIBRARY_24PX.ToAlphanumeric
     )
     (
         DisplayText "Visual Studio Code: Variables Reference",
         Uri "https://code.visualstudio.com/docs/editor/variables-reference/",
-        Alphanumeric "mdi_library_24px"
+        Keys.MDI_LIBRARY_24PX.ToAlphanumeric
     )
 ]
 
