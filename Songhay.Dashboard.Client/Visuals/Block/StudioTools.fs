@@ -76,6 +76,11 @@ let studioToolsData = [
         Keys.MDI_REGEX_24PX.ToAlphanumeric
     )
     (
+        DisplayText "sharplab.io",
+        Uri "https://sharplab.io/",
+        Keys.MDI_DOTNET_24PX.ToAlphanumeric
+    )
+    (
         DisplayText "StackBlitz",
         Uri "https://stackblitz.com/@BryanWilhite",
         Keys.MDI_CODE_TAGS_24PX.ToAlphanumeric
