@@ -6,6 +6,23 @@ module BoleroUtility =
     open Bolero
     open Bolero.Html
 
+    type CssClasses =
+        | CssClasses of string list
+
+        member this.Value = let (CssClasses l) = this in l
+
+        member this.Append s = CssClasses (this.Value |> List.append([s]))
+
+        member this.AppendList (l: string list) = CssClasses (this.Value |> List.append(l))
+
+        member this.Prepend s = CssClasses ([s] |> List.append(this.Value))
+
+        member this.PrependList (l: string list) = CssClasses (l |> List.append(this.Value))
+
+        member this.ToAttributeValue = this.Value |> List.reduce(fun a b -> $"{a} {b}")
+
+        member this.ToHtmlClassAttribute = attr.``class`` this.ToAttributeValue
+
     ///<summary>
     /// Defines selected event names of the <c>GlobalEventHandlers</c> mixin.
     ///</summary>
@@ -38,7 +55,13 @@ module BoleroUtility =
         member this.PreventDefault =
             on.preventDefault this.toLower true
 
-    let newLine = RawHtml $"{Environment.NewLine}"
+    let newLine = rawHtml $"{Environment.NewLine}"
+
+    let toHtmlClass (s: string) = (CssClasses [s]).ToHtmlClassAttribute
+
+    let toHtmlClassFromData (data: CssClasses) = data.ToHtmlClassAttribute
+
+    let toHtmlClassFromList (list: string list) = (CssClasses list).ToHtmlClassAttribute
 
     let wrapn indentLevel (nodes : Node list) =
         let numberOfSpaces = 4

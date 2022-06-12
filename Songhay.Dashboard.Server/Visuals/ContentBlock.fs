@@ -8,9 +8,9 @@ open Songhay.Dashboard.Server.Visuals.Body
 
 let pageElements =
     [
-        head [] (headElements |> wrapn 2)
-        body [] (bodyElements |> wrapn 2)
+        head { forEach (headElements |> wrapn 2) <| id }
+        body { forEach (bodyElements |> wrapn 2) <| id }
         newLine
     ]
 
-let page = doctypeHtml [] (pageElements |> wrapn 1)
+let page = doctypeHtml { forEach (pageElements |> wrapn 1) <| id }

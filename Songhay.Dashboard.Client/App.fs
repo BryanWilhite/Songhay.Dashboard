@@ -2,6 +2,7 @@ module Songhay.Dashboard.Client.App
 
 open System
 
+open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Modules.Models
 open Songhay.Dashboard.Models
@@ -12,7 +13,7 @@ let AppTitle = "SonghaySystem(::)"
 [<Literal>]
 let AppDataLocation = "https://songhaystorage.blob.core.windows.net/studio-dash/app.json"
 
-let appBlockChildCssClasses = [ "tile"; "is-child"; "has-background-greys-dark-tone" ]
+let appBlockChildCssClasses = CssClasses [ "tile"; "is-child"; "has-background-greys-dark-tone" ]
 
 let appVersions =
     let boleroVersion = $"{Bolero.Node.Empty.GetType().Assembly.GetName().Version}"

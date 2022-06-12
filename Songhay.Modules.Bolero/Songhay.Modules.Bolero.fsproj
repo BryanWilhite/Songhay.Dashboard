@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Bolero" Version="0.18.*" />
+        <PackageReference Include="Bolero" Version="0.20.17" />
         <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
     </ItemGroup>
 

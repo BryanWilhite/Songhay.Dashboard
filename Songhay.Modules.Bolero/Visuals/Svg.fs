@@ -6,7 +6,6 @@ type StreamGeometry =
 
 module Svg =
 
-    open Bolero
     open Bolero.Html
 
     open Songhay.Modules.Models
@@ -168,25 +167,25 @@ module Svg =
     ]
 
     let svgNode (viewBox: string) (pathData: StreamGeometry) =
-        svg
-            [
-                "fill" => "currentColor"
-                "fit" => ""
-                "focusable" => "false"
-                nameof viewBox => viewBox
-                "preserveAspectRatio" => "xMidYMid meet"
-                "xmlns" => "http://www.w3.org/2000/svg"
-            ]
-            [ RawHtml $@"<path d=""{pathData.Value}""></path>" ]
+        svg {
+            "fill" => "currentColor"
+            "fit" => ""
+            "focusable" => "false"
+            nameof viewBox => viewBox
+            "preserveAspectRatio" => "xMidYMid meet"
+            "xmlns" => "http://www.w3.org/2000/svg"
+
+            elt "path" { "d" => pathData.Value }
+        }
 
     let svgSpriteNode (href: string) (viewBox: string) =
-        svg
-            [
-                "fill" => "currentColor"
-                nameof viewBox => viewBox
-                "xmlns" => "http://www.w3.org/2000/svg"
-            ]
-            [ RawHtml $@"<use href=""{href}""></use>" ]
+        svg {
+            "fill" => "currentColor"
+            nameof viewBox => viewBox
+            "xmlns" => "http://www.w3.org/2000/svg"
+
+            elt "use" { nameof href => href }
+        }
 
     let svgViewBox (minX: int, minY: int) (width: int, height: int) =
         $"{minX} {minY} {width} {height}"

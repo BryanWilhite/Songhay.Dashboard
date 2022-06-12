@@ -7,14 +7,16 @@ open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Modules.Models
 
 let bulmaAnchorIconButton (title: DisplayText, href: Uri, id: Identifier) =
-    a
-        [
-            attr.classes [ "level-item"; "has-text-centered" ]
-            attr.href href.OriginalString
-            attr.target "_blank"
-            attr.title title.Value
-        ]
-        [ span [
-            attr.classes [ "icon" ]
+    a {
+        attr.``class`` "level-item has-text-centered"
+        attr.href href.OriginalString
+        attr.target "_blank"
+        attr.title title.Value
+
+        span {
+            attr.``class`` "icon"
             "aria-hidden" => "true"
-        ] [ svgNode (svgViewBoxSquare 24) svgData[id] ] ]
+
+            svgNode (svgViewBoxSquare 24) svgData[id]
+        }
+    }

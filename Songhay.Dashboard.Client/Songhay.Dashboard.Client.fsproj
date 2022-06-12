@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="App.fs" />
@@ -18,12 +18,12 @@
         <Compile Include="Startup.fs" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Bolero" Version="0.18.*" />
-        <PackageReference Include="Bolero.Build" Version="0.18.*" />
-        <PackageReference Include="Bolero.HotReload" Version="0.18.*" />
+        <PackageReference Include="Bolero" Version="0.20.17" />
+        <PackageReference Include="Bolero.Build" Version="0.20.17" />
+        <PackageReference Include="Bolero.HotReload" Version="0.20.4" />
         <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.*" />
-        <PackageReference Include="System.Net.Http.Json" Version="5.0.*" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.5" />
+        <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Songhay.Dashboard\Songhay.Dashboard.fsproj" />

@@ -1,25 +1,32 @@
 module Songhay.Dashboard.Client.Visuals.Tile
 
 open Bolero.Html
+open Songhay.Modules.Bolero.BoleroUtility
 
 open Songhay.Dashboard.Client.Visuals.Block
 
 let bulmaColumnTile width nodes =
-    let cssClasses = [
+    let cssClasses = CssClasses [
         "tile"
         if width > 0 then $"is-{width}"
     ]
 
-    div [ attr.classes cssClasses ] nodes
+    div {
+        cssClasses.ToHtmlClassAttribute
+        forEach nodes <| id
+    }
 
 let bulmaContentParentTile isVertical nodes =
-    let cssClasses = [
+    let cssClasses = CssClasses [
         "tile"
         "is-parent"
         if isVertical then "is-vertical"
     ]
 
-    div [ attr.classes cssClasses ] nodes
+    div {
+        cssClasses.ToHtmlClassAttribute
+        forEach nodes <| id
+    }
 
 let studioComponentNode =
     bulmaColumnTile 0 [ bulmaContentParentTile false [ Studio.studioNode ] ]

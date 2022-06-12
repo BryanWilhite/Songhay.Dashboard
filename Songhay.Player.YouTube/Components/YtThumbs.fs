@@ -37,9 +37,10 @@ let getYtThumbsCaption (item: YouTubeItem) =
         else
             item.snippet.title
 
-    a
-        [ attr.href (item.tryGetUri |> Result.valueOr raise); attr.target "_blank" ]
-        [ text caption ]
+    a {
+        attr.href (item.tryGetUri |> Result.valueOr raise); attr.target "_blank"
+        text caption
+    }
 
 let getYtThumbsTitle (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime)
     (itemsTitle: string option) (model: YouTubeModel) =
@@ -47,21 +48,18 @@ let getYtThumbsTitle (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime)
     let items = model.YtItems
 
     if items.IsNone then
-        RawHtml "&#160;"
+        rawHtml "&#160;"
     else
         if itemsTitle.IsNone then
             let pair = items.Value |> Array.head |> getYtItemsPair
-            a [ attr.href (fst pair); attr.target "_blank" ] [ text (snd pair) ]
+            a { attr.href (fst pair); attr.target "_blank"; text (snd pair) }
         else
-            a
-                [
-                    attr.href "#" ; attr.title $"{itemsTitle.Value}: show curated YouTube™ channels"
-                    click.PreventDefault
-                    on.click (fun _ -> YouTubeMessage.OpenYtSetOverlay |> dispatch)
-                ]
-                [
-                    text itemsTitle.Value
-                ]
+            a {
+                attr.href "#" ; attr.title $"{itemsTitle.Value}: show curated YouTube™ channels"
+                click.PreventDefault
+                on.click (fun _ -> YouTubeMessage.OpenYtSetOverlay |> dispatch)
+                text itemsTitle.Value
+            }
 
 ///<remarks>
 /// this member is needed to ‘jumpstart’ CSS animations
@@ -87,34 +85,32 @@ let ytThumbnailsNode (_: IJSRuntime) (blockWrapperRef: HtmlRef) (items: YouTubeI
             | Ok ts -> ts.ToString() |> text
             | _ -> text ":00"
 
-        span [] [
+        span {
             a
-                [
+                {
                     attr.href (item.tryGetUri |> Result.valueOr raise).OriginalString
                     attr.target "_blank"
                     attr.title item.snippet.title
-                ]
-                [
+
                     img
-                        [
+                        {
                             attr.src item.snippet.thumbnails.medium.url
                             attr.width item.snippet.thumbnails.medium.width
                             attr.height item.snippet.thumbnails.medium.height
-                        ]
-                ]
-            span [ attr.classes [ "published-at"; "is-size-6" ] ] [ (item.getPublishedAt.Humanize() |> text) ]
-            span [ attr.classes [ "caption"; "has-text-weight-semibold"; "is-size-5" ] ] [ (item |> getYtThumbsCaption) ]
-            span [ attr.classes [ "duration"; "is-size-6" ] ] [ span [] [ duration ] ]
-        ]
+                        }
+                }
+            span { [ "published-at"; "is-size-6" ] |> toHtmlClassFromList; item.getPublishedAt.Humanize() |> text }
+            span { [ "caption"; "has-text-weight-semibold"; "is-size-5" ] |> toHtmlClassFromList; item |> getYtThumbsCaption }
+            span { [ "duration"; "is-size-6" ] |> toHtmlClassFromList ; span { duration } }
+        }
 
     cond items.IsSome <| function
-        | true -> div [ attr.ref blockWrapperRef ] [ forEach items.Value <| toSpan ]
+        | true -> div { attr.ref blockWrapperRef; forEach items.Value <| toSpan }
         | false ->
-            div
-                [ attr.classes [ "has-text-centered"; "loader-container"; "p-6"] ]
-                [
-                    div [ attr.classes [ "image"; "is-128x128"; "loader"; "m-3" ]; attr.title "Loading…" ] []
-                ]
+            div {
+                [ "has-text-centered"; "loader-container"; "p-6" ] |> toHtmlClassFromList
+                div { [ "image"; "is-128x128"; "loader"; "m-3" ] |> toHtmlClassFromList; attr.title "Loading…" }
+            }
 
 let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
     (initCache: Dictionary<GlobalEventHandlers, bool>) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef)
@@ -165,47 +161,40 @@ let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                 |> ignore
         }
 
-    div
-        [ attr.classes [ "rx"; "b-roll" ] ]
-        [
-            nav
-                [ attr.classes [ "level"; "video"; "thumbs"; "header" ] ]
-                [
-                    div
-                        [ attr.classes [ "level-left" ] ]
-                        [
-                            span
-                                [ attr.classes [ "level-item"; "image"; "is-48x48" ] ]
-                                [ svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_YOUTUBE_24PX.ToAlphanumeric] ]
-                            span
-                                [ attr.classes [ "level-item"; "is-size-2" ] ]
-                                [ (jsRuntime, itemsTitle, model) |||> getYtThumbsTitle dispatch ]
-                        ]
-                ]
-            div
-                [
-                    attr.ref thumbsContainerRef
-                    attr.classes [ "video"; "thumbs"; "thumbs-container" ]
-                ]
-                [
-                    items |> ytThumbnailsNode jsRuntime blockWrapperRef
-                    a
-                        [
-                            attr.href "#"; attr.classes [ "command"; "left"; "image"; "is-48x48" ]
-                            click.PreventDefault
-                            on.async.click (slideAsync Right)
-                        ]
-                        [
-                            svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_ARROW_LEFT_DROP_CIRCLE_24PX.ToAlphanumeric]
-                        ]
-                    a
-                        [
-                            attr.href "#"; attr.classes [ "command"; "right"; "image"; "is-48x48" ]
-                            click.PreventDefault
-                            on.async.click (slideAsync Left)
-                        ]
-                        [
-                            svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_ARROW_RIGHT_DROP_CIRCLE_24PX.ToAlphanumeric]
-                        ]
-                ]
-        ]
+    div {
+        [ "rx"; "b-roll" ] |> toHtmlClassFromList
+
+        nav {
+            [ "level"; "video"; "thumbs"; "header" ] |> toHtmlClassFromList
+            div {
+                "level-left" |> toHtmlClass
+
+                span {
+                    [ "level-item"; "image"; "is-48x48" ] |> toHtmlClassFromList
+                    svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_YOUTUBE_24PX.ToAlphanumeric]
+                }
+                span {
+                    [ "level-item"; "is-size-2" ] |> toHtmlClassFromList
+                    (jsRuntime, itemsTitle, model) |||> getYtThumbsTitle dispatch
+                }
+            }
+        }
+        div {
+            //attr.ref thumbsContainerRef
+            [ "video"; "thumbs"; "thumbs-container" ] |> toHtmlClassFromList
+            items |> ytThumbnailsNode jsRuntime blockWrapperRef
+
+            a {
+                attr.href "#"; [ "command"; "left"; "image"; "is-48x48" ] |> toHtmlClassFromList
+                click.PreventDefault
+                on.async.click (slideAsync Right)
+                svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_ARROW_LEFT_DROP_CIRCLE_24PX.ToAlphanumeric]
+            }
+            a {
+                attr.href "#"; [ "command"; "right"; "image"; "is-48x48" ] |> toHtmlClassFromList
+                click.PreventDefault
+                on.async.click (slideAsync Left)
+                svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_ARROW_RIGHT_DROP_CIRCLE_24PX.ToAlphanumeric]
+            }
+        }
+    }

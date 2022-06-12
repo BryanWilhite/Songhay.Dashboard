@@ -5,25 +5,29 @@ open Microsoft.AspNetCore.Components.Routing
 open Bolero.Html
 
 open Songhay.Modules.Models
+open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
 
 let bulmaPanelIcon (id: Identifier) =
-    span [
-        attr.classes [ "panel-icon"; "image"; "is-24x24" ]
-    ] [ svgNode (svgViewBoxSquare 24) svgData[id] ]
+    span {
+        [ "panel-icon"; "image"; "is-24x24" ] |> toHtmlClassFromList
+        svgNode (svgViewBoxSquare 24) svgData[id]
+    }
 
 let linkNodes =
     let linkNode (title: DisplayText, href: Uri, id: Identifier) =
-        a [
-            attr.classes [ "panel-block" ]
+        a {
+            "panel-block" |> toHtmlClass
             attr.href href.OriginalString
             attr.target "_blank"
-        ] [ bulmaPanelIcon id; text title.Value ]
 
-    App.appStudioLinks |> List.map linkNode
+            bulmaPanelIcon id; text title.Value
+        }
+
+    [ forEach App.appStudioLinks <| linkNode ]
 
 let routeNodes =
     let routeData = [
@@ -32,18 +36,21 @@ let routeNodes =
     ]
 
     let routeNode (page, caption) =
-        navLink NavLinkMatch.All [
+        navLink NavLinkMatch.All {
             "ActiveClass" => "is-active"
-            attr.classes [ "panel-block" ]
+            "panel-block" |> toHtmlClass
             attr.href (ElmishRoutes.router.Link page)
-        ] [ bulmaPanelIcon Keys.MDI_LINK_VARIANT_24PX.ToAlphanumeric; text caption ]
+            bulmaPanelIcon Keys.MDI_LINK_VARIANT_24PX.ToAlphanumeric; text caption
+        }
 
-    routeData |> List.map routeNode
+    [ forEach routeData <| routeNode]
 
 let studioLinksNode =
 
     let navNodes = routeNodes @ linkNodes
 
-    nav
-        [ attr.classes ([ "panel" ] @ App.appBlockChildCssClasses) ]
-        ([ p [ attr.classes [ "panel-heading" ] ] [ text "studio links" ] ] @ navNodes)
+    nav {
+        "panel" |> App.appBlockChildCssClasses.Prepend |> toHtmlClassFromData
+
+        p { "panel-heading" |> toHtmlClass; text "studio links"; forEach navNodes <| id }
+    }

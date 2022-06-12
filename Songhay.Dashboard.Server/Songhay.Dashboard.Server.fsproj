@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DashboardServiceHandlerUtility.fs" />
@@ -14,8 +14,8 @@
   <ItemGroup>
     <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
     <ProjectReference Include="..\Songhay.Dashboard.Client\Songhay.Dashboard.Client.fsproj" />
-    <PackageReference Include="Bolero.Server" Version="0.18.*" />
-    <PackageReference Include="Bolero.HotReload.Server" Version="0.18.*" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.*" />
+    <PackageReference Include="Bolero.Server" Version="0.20.17" />
+    <PackageReference Include="Bolero.HotReload.Server" Version="0.20.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.5" />
   </ItemGroup>
 </Project>

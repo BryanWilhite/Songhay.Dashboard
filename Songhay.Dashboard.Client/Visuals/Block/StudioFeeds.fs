@@ -7,6 +7,8 @@ open Bolero.Html
 open Songhay.Modules.Models
 open Songhay.Modules.StringUtility
 
+open Songhay.Modules.Bolero.BoleroUtility
+
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Models
@@ -15,19 +17,17 @@ open Songhay.Modules.Bolero.Visuals.Svg
 let studioFeedImage (feedName: FeedName, feed: SyndicationFeed) =
     match feedName with
     | CodePen | Flickr ->
-        div
-            [ attr.classes [ "card-image" ] ]
-            [
-                figure
-                    [ attr.classes [ "image"; "is-3by2" ] ]
-                    [
-                        img [
-                            attr.alt $"{feed.feedTitle} feed image"
-                            attr.src (feed.feedImage |> Option.get)
-                        ]
-                    ]
-            ]
-    | _ -> empty
+        div {
+            "card-image" |> toHtmlClass
+            figure {
+                [ "image"; "is-3by2" ] |> toHtmlClassFromList
+                img {
+                    attr.alt $"{feed.feedTitle} feed image"
+                    attr.src (feed.feedImage |> Option.get)
+                }
+            }
+        }
+    | _ -> null
 
 let studioFeedIcon (feedName: FeedName) =
     let feedNameMap = Map [
@@ -49,77 +49,71 @@ let studioFeedIcon (feedName: FeedName) =
 
     let svgPathData = svgData[ feedNameMap[ feedName ] ]
 
-    div
-        [ attr.classes [ "media-left" ] ]
-        [
-            figure
-                [ attr.classes [ "image"; "is-48x48" ]; "aria-hidden" => "true" ]
-                [
-                    svgNode (svgViewBoxSquare 24) svgPathData
-                ]
-        ]
+    div {
+        "media-left" |> toHtmlClass
+        figure {
+            [ "image"; "is-48x48" ] |> toHtmlClassFromList; "aria-hidden" => "true"
+            svgNode (svgViewBoxSquare 24) svgPathData
+        }
+    }
 
 let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
     let listItem (i: SyndicationFeedItem) =
-        li
-            []
-            [
-                a
-                    [
-                        attr.href i.link
-                        attr.target "_blank"
-                    ]
-                    [ text i.title ]
-            ]
+        li {
+            a {
+                attr.href i.link; attr.target "_blank"
+                text i.title
+            }
+        }
 
-    div
-        [ attr.classes ([ "card" ] @ App.appBlockChildCssClasses) ]
-        [
-            (feedName, feed) |> studioFeedImage
-            div
-                [ attr.classes [ "card-content" ] ]
-                [
-                    div
-                        [ attr.classes [ "media" ] ]
-                        [
-                            studioFeedIcon feedName
-                            div
-                                [ attr.classes [ "media-content" ] ]
-                                [
-                                    p [ attr.classes [ "title"; "is-4"] ] [ text feed.feedTitle ]
-                                    p
-                                        [ attr.classes [ "subtitle"; "is-6"] ]
-                                        [ text (feed.modificationDate.ToString("yyyy-MM-dd")) ]
-                                ]
-                        ]
-                    div
-                        [ attr.classes [ "content" ] ]
-                        [
-                            ul
-                                []
-                                (
-                                    feed.feedItems
-                                    |> List.take 10
-                                    |> List.map listItem
-                                )
-                        ]
-                ]
-        ]
+    div {
+        "card" |> App.appBlockChildCssClasses.Prepend |> toHtmlClassFromData
+        (feedName, feed) |> studioFeedImage
+
+        div {
+            "card-content" |> toHtmlClass
+
+            div {
+                "media" |> toHtmlClass
+
+                studioFeedIcon feedName
+
+                div {
+                    "media-content" |> toHtmlClass
+
+                    p { [ "title"; "is-4"] |> toHtmlClassFromList; text feed.feedTitle }
+                    p { [ "subtitle"; "is-6"] |> toHtmlClassFromList; text (feed.modificationDate.ToString("yyyy-MM-dd")) }
+                }
+                div {
+                    "content" |> toHtmlClass
+
+                    ul {
+                        forEach (feed.feedItems |> List.take 10) <| listItem
+                    }
+                }
+            }
+        }
+    }
 
 let studioFeedsNodes (_: IJSRuntime) (model: Model) : Node list =
     match model.feeds with
     | None ->
         [
-            div
-                [ attr.classes [ "tile"; "is-child"; "has-text-centered"; "p-6"] ]
-                [
-                    div [ attr.classes [ "loader"; "m-6" ]; attr.title "Loading…" ] []
-                ]
+            div {
+                [ "tile"; "is-child"; "has-text-centered"; "p-6"] |> toHtmlClassFromList
+
+                div {
+                    [ "loader"; "m-6" ] |> toHtmlClassFromList
+                    attr.title "Loading…"
+                }
+            }
         ]
     | Some feeds ->
-        feeds
-        |> List.ofArray
-        |> List.groupBy (fun (_, feed) -> feed.modificationDate.ToString("yyyy-MM-dd"))
-        |> List.sortByDescending fst
-        |> List.collect (fun (_, g) -> g |> List.sortBy (fun (_, feed) -> feed.feedTitle |> toBlogSlug))
-        |> List.map studioFeedsNode
+        let l =
+            feeds
+            |> List.ofArray
+            |> List.groupBy (fun (_, feed) -> feed.modificationDate.ToString("yyyy-MM-dd"))
+            |> List.sortByDescending fst
+            |> List.collect (fun (_, g) -> g |> List.sortBy (fun (_, feed) -> feed.feedTitle |> toBlogSlug))
+
+        [forEach l <| studioFeedsNode]

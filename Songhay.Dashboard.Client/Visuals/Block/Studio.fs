@@ -2,6 +2,7 @@ module Songhay.Dashboard.Client.Visuals.Block.Studio
 
 open Bolero.Html
 
+open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Client
@@ -9,59 +10,61 @@ open Songhay.Dashboard.Models
 open Songhay.Dashboard.Client.Visuals.Button
 
 let studioLogo =
-    let spanClasses = [ "title"; "is-2"; "is-hidden-tablet-only" ]
+    let spanClasses = CssClasses [ "title"; "is-2"; "is-hidden-tablet-only" ]
 
-    div [ attr.classes [ "logo" ]; attr.title [ App.AppTitle ] ] [
-        span [ attr.classes ([ "has-text-weight-normal"] @ spanClasses) ] [ text "Songhay" ]
-        span [ attr.classes spanClasses ] [ text "System" ]
-        span [ attr.classes [ "title"; "is-1" ] ] [ text "(::)" ]
-    ]
+    div {
+        "logo" |> toHtmlClass
+        attr.title App.AppTitle
 
-let svgLinkNodes =
-    App.appSocialLinks
-    |> List.map bulmaAnchorIconButton
+        span { "has-text-weight-normal" |> spanClasses.Prepend |> toHtmlClassFromData; text "Songhay" }
+        span { spanClasses.ToHtmlClassAttribute; text "System" }
+        span { "title is-1" |> toHtmlClass; text "(::)" }
+    }
 
 let svgVersionNode (data: VersionData) =
-    let classes = [
+    let classes = CssClasses [
         "level-item"
         "is-akyinkyin-base"
         "is-unselectable"
         "has-text-centered"
     ]
 
-    div
-        [ attr.classes classes; attr.title data.title.Value ]
-        [
-            span
-                [
-                    attr.classes [ "icon" ]
-                    "aria-hidden" => "true"
-                ]
-                [ svgNode (svgViewBoxSquare 24) svgData[data.id] ]
-            span [ attr.classes [ "is-size-7" ] ] [ text data.version ]
-        ]
+    div {
+        classes.ToHtmlClassAttribute
+        attr.title data.title.Value
 
-let svgVersionNodes = App.appVersions |> List.map svgVersionNode
+        span {
+            "icon" |> toHtmlClass
+            "aria-hidden" => "true"
+
+            svgNode (svgViewBoxSquare 24) svgData[data.id]
+        }
+        span { "is-size-7" |> toHtmlClass; text data.version }
+    }
 
 let studioNode =
-    let cssClassesParentLevel = [ "level"; "is-mobile" ]
+    let cssClassesParentLevel = CssClasses [ "level"; "is-mobile" ]
 
-    let cssClassesSvgLinkNodes =
-        cssClassesParentLevel @ [ "ml-6"; "mr-6" ]
+    let cssClassesSvgLinkNodes = [ "ml-6"; "mr-6" ] |> cssClassesParentLevel.AppendList
 
     let cssClassesSvgVersionNodes =
-        cssClassesParentLevel @ [ "has-text-greys-light-tone"; "mt-6"; "pt-6" ]
+        [ "has-text-greys-light-tone"; "mt-6"; "pt-6" ] |> cssClassesParentLevel.AppendList
 
-    div
-        [ attr.classes ([ "card" ] @ App.appBlockChildCssClasses) ]
-        [
-            div
-                [ attr.classes [ "card-content" ] ]
-                [
-                    div
-                        [ attr.classes [ "content"; "has-text-centered" ] ]
-                        [ studioLogo ]
-                    div [ attr.classes cssClassesSvgLinkNodes ] svgLinkNodes
-                    div [ attr.classes cssClassesSvgVersionNodes ] svgVersionNodes
-                ]
-        ]
+    div {
+        "card" |> App.appBlockChildCssClasses.Prepend |> toHtmlClassFromData
+        div {
+            "card-content" |> toHtmlClass
+            div {
+                [ "content"; "has-text-centered" ] |> toHtmlClassFromList
+                studioLogo
+            }
+            div {
+                cssClassesSvgLinkNodes.ToHtmlClassAttribute
+                forEach App.appVersions <| svgVersionNode
+            }
+            div {
+                cssClassesSvgVersionNodes.ToHtmlClassAttribute
+                forEach App.appSocialLinks <| bulmaAnchorIconButton
+            }
+        }
+    }

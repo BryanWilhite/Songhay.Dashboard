@@ -19,7 +19,9 @@ type YtThumbsComponent() =
     let thumbsContainerRef = HtmlRef()
 
     static member EComp (attrs: list<Attr>) (model: YouTubeModel) dispatch =
-        ecomp<YtThumbsComponent, _, _> attrs model dispatch
+        let builder = ecomp<YtThumbsComponent, _, _> model dispatch
+
+        builder
 
     [<Parameter>]
     member val YtThumbsTitle = Unchecked.defaultof<string> with get, set

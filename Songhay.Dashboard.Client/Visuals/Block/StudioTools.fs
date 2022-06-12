@@ -2,11 +2,11 @@ module Songhay.Dashboard.Client.Visuals.Block.StudioTools
 
 open System
 
-open Bolero
 open Bolero.Html
 
 open Songhay.Modules.Models
 open Songhay.Dashboard.Client
+open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 
 let studioToolsData = [
@@ -114,48 +114,50 @@ let studioToolsData = [
 
 let rec studioToolIcon (svgKey: Identifier) =
     if not (svgData.ContainsKey svgKey) then
-        RawHtml $"<!-- {nameof studioToolIcon}: {nameof svgKey} `{svgKey}` was not found. -->"
+        rawHtml $"<!-- {nameof studioToolIcon}: {nameof svgKey} `{svgKey}` was not found. -->"
     else
         let svgPathData = svgData[svgKey]
 
-        figure
-            [ attr.classes [ "media-left" ] ]
-            [
-                p
-                    [ attr.classes [ "image"; "is-48x48" ]; "aria-hidden" => "true" ]
-                    [
-                        svgNode (svgViewBoxSquare 24) svgPathData
-                    ]
-            ]
+        figure {
+            "media-left" |> toHtmlClass
+
+            p {
+                [ "image"; "is-48x48" ] |> toHtmlClassFromList; "aria-hidden" => "true"
+
+                svgNode (svgViewBoxSquare 24) svgPathData
+            }
+        }
 
 let toBulmaArticleNode (title: DisplayText, location: Uri, svgKey: Identifier) =
-    article
-        [ attr.classes [ "tile"; "m-3" ] ]
-        [
-            studioToolIcon svgKey
-            div
-                [ attr.classes [ "media-content" ] ]
-                [
-                    div
-                        [ attr.classes [ "content" ] ]
-                        [
-                            a
-                                [
-                                    attr.classes [ "title"; "is-5" ]
-                                    attr.href location.OriginalString
-                                    attr.target "_blank"
-                                ]
-                                [ text title.Value ]
-                        ]
-                ]
-        ]
+    article {
+        [ "tile"; "m-3" ] |> toHtmlClassFromList
+
+        studioToolIcon svgKey
+        div {
+            "media-content" |> toHtmlClass
+
+            div {
+                "content" |> toHtmlClass
+
+                a {
+                    [ "title"; "is-5" ] |> toHtmlClassFromList
+                    attr.href location.OriginalString
+                    attr.target "_blank"
+
+                    text title.Value
+                }
+            }
+        }
+    }
 
 let studioToolsNode () =
     let getGroup g =
-        div
-            [ attr.classes [ "tile"; "is-parent"; "has-background-greys-dark-tone" ] ]
-            (g |> List.map toBulmaArticleNode)
+        div {
+            [ "tile"; "is-parent"; "has-background-greys-dark-tone" ] |> toHtmlClassFromList
+            forEach g <| toBulmaArticleNode
+        }
 
-    div
-        [ attr.classes (App.appBlockChildCssClasses @ [ "notification" ]) ]
-        (studioToolsData |> List.chunkBySize 2 |> List.map getGroup)
+    div {
+        "notification" |> App.appBlockChildCssClasses.Prepend |> toHtmlClassFromData
+        forEach (studioToolsData |> List.chunkBySize 2) <| getGroup
+    }

@@ -16,7 +16,7 @@ let viewContentBlockTemplate jsRuntime (model: Model) dispatch =
         .StudioLinksNode(Tile.studioLinksNode)
         .Error(
             cond model.error <| function
-            | None -> empty
+            | None -> null
             | Some err ->
                 ContentBlockTemplate.ErrorNotification()
                     .Text(err)
@@ -28,10 +28,10 @@ let viewContentBlockTemplate jsRuntime (model: Model) dispatch =
             | StudioFeedsPage -> Tile.studioPageNode (Block.StudioFeeds.studioFeedsNodes jsRuntime model)
             | StudioToolsPage -> Tile.studioPageNode [ Block.StudioTools.studioToolsNode() ]
         )
-        .YouTubeThumbs(
-            YtThumbsComponent.EComp [ "YtThumbsTitle" => "songhay tube" ] model.ytModel (Message.YouTubeMessage >> dispatch)
-        )
-        .YouTubeThumbsSet(
-            YtThumbsSetComponent.EComp model.ytModel (Message.YouTubeMessage >> dispatch)
-        )
+//        .YouTubeThumbs(
+//            YtThumbsComponent.EComp [ "YtThumbsTitle" => "songhay tube" ] model.ytModel (Message.YouTubeMessage >> dispatch)
+//        )
+//        .YouTubeThumbsSet(
+//            YtThumbsSetComponent.EComp model.ytModel (Message.YouTubeMessage >> dispatch)
+//        )
         .Elt()
