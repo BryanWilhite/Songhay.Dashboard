@@ -23,7 +23,7 @@ type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 let viewContentBlockTemplate jsRuntime (model: Model) dispatch =
     ContentBlockTemplate()
         .Studio(StudioComponent.EComp model dispatch)
-        .StudioLinksNode(Tile.studioLinksNode)
+        .StudioLinks(StudioLinksComponent.EComp model dispatch)
         .Error(
             cond model.error <| function
             | None -> empty()
