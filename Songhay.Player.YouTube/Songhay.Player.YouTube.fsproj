@@ -23,7 +23,6 @@
         <Compile Include="YtThumbsServiceHandlerUtility.fs" />
         <Compile Include="YtThumbsSetServiceHandlerUtility.fs" />
         <Compile Include="Components\YtThumbsComponent.fs" />
-        <Compile Include="Components\YtThumbsSet.fs" />
         <Compile Include="Components\YtThumbsSetComponent.fs" />
     </ItemGroup>
     <ItemGroup>
