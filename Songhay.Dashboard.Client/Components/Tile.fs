@@ -3,8 +3,6 @@ module Songhay.Dashboard.Client.Components.Tile
 open Bolero.Html
 open Songhay.Modules.Bolero.BoleroUtility
 
-open Songhay.Dashboard.Client.Components.Block
-
 let bulmaColumnTile width nodes =
     let cssClasses = CssClasses [
         "tile"
@@ -27,9 +25,6 @@ let bulmaContentParentTile isVertical nodes =
         cssClasses.ToHtmlClassAttribute
         forEach nodes <| id
     }
-
-let studioLinksNode =
-    bulmaColumnTile 0 [ bulmaContentParentTile false [ StudioLinks.studioLinksNode ] ]
 
 let studioPageNode nodes =
     bulmaColumnTile 0 [ bulmaContentParentTile true nodes ]

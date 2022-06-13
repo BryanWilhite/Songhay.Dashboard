@@ -77,7 +77,6 @@ type StudioComponent() =
                 }
             }
         }
-        
 
     static member EComp model dispatch =
         ecomp<StudioComponent, _, _> model dispatch { attr.empty() }
