@@ -180,8 +180,9 @@ let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
             }
         }
         div {
-            //attr.ref thumbsContainerRef
             [ "video"; "thumbs"; "thumbs-container" ] |> toHtmlClassFromList
+            attr.ref thumbsContainerRef
+
             items |> ytThumbnailsNode jsRuntime blockWrapperRef
 
             a {

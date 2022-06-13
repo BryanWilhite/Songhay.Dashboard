@@ -43,7 +43,7 @@ let routeNodes =
             bulmaPanelIcon Keys.MDI_LINK_VARIANT_24PX.ToAlphanumeric; text caption
         }
 
-    [ forEach routeData <| routeNode]
+    [ forEach routeData <| routeNode ]
 
 let studioLinksNode =
 
@@ -52,5 +52,7 @@ let studioLinksNode =
     nav {
         "panel" |> App.appBlockChildCssClasses.Prepend |> toHtmlClassFromData
 
-        p { "panel-heading" |> toHtmlClass; text "studio links"; forEach navNodes <| id }
+        p { "panel-heading" |> toHtmlClass; text "studio links" }
+
+        forEach navNodes <| id
     }

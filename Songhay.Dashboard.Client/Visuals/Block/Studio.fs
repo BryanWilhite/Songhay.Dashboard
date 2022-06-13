@@ -60,11 +60,11 @@ let studioNode =
             }
             div {
                 cssClassesSvgLinkNodes.ToHtmlClassAttribute
-                forEach App.appVersions <| svgVersionNode
+                forEach App.appSocialLinks <| bulmaAnchorIconButton
             }
             div {
                 cssClassesSvgVersionNodes.ToHtmlClassAttribute
-                forEach App.appSocialLinks <| bulmaAnchorIconButton
+                forEach App.appVersions <| svgVersionNode
             }
         }
     }
