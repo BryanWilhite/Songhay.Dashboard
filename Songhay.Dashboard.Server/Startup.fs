@@ -21,7 +21,7 @@ type Startup() =
         services.AddHttpClient<DashboardServiceHandler>() |> ignore
         services
             .AddRemoting<DashboardServiceHandler>()
-            .AddBoleroHost(prerendered = true)
+            .AddBoleroHost(server = true, prerendered = true)
 #if DEBUG
             .AddHotReload(templateDir = __SOURCE_DIRECTORY__ + "/../Songhay.Dashboard.Client")
 #endif

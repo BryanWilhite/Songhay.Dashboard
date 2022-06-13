@@ -18,10 +18,13 @@ type YtThumbsComponent() =
     let initCache = Dictionary<GlobalEventHandlers, bool>()
     let thumbsContainerRef = HtmlRef()
 
-    static member EComp (attrs: list<Attr>) (model: YouTubeModel) dispatch =
-        let builder = ecomp<YtThumbsComponent, _, _> model dispatch
-
-        builder
+    static member EComp (title: string option) (model: YouTubeModel) dispatch =
+        ecomp<YtThumbsComponent, _, _> model dispatch {
+            if title.IsSome then
+                "YtThumbsTitle" => title.Value
+            else
+                attr.empty()
+        }
 
     [<Parameter>]
     member val YtThumbsTitle = Unchecked.defaultof<string> with get, set

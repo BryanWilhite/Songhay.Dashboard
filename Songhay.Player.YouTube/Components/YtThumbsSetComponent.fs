@@ -15,7 +15,7 @@ type YtThumbsSetComponent() =
     static member val Id = "yt-thumbs-set-block" with get
 
     static member EComp (model: YouTubeModel) dispatch =
-        ecomp<YtThumbsSetComponent, _, _> model dispatch
+        ecomp<YtThumbsSetComponent, _, _> model dispatch { attr.empty() }
 
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
