@@ -1,4 +1,4 @@
-module Songhay.Dashboard.Client.Visuals.Block.StudioTools
+module Songhay.Dashboard.Client.Components.Block.StudioTools
 
 open System
 

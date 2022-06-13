@@ -1,9 +1,9 @@
-module Songhay.Dashboard.Client.Visuals.Tile
+module Songhay.Dashboard.Client.Components.Tile
 
 open Bolero.Html
 open Songhay.Modules.Bolero.BoleroUtility
 
-open Songhay.Dashboard.Client.Visuals.Block
+open Songhay.Dashboard.Client.Components.Block
 
 let bulmaColumnTile width nodes =
     let cssClasses = CssClasses [

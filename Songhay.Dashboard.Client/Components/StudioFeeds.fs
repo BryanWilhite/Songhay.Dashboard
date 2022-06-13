@@ -1,4 +1,4 @@
-module Songhay.Dashboard.Client.Visuals.Block.StudioFeeds
+module Songhay.Dashboard.Client.Components.Block.StudioFeeds
 
 open Microsoft.JSInterop
 open Bolero

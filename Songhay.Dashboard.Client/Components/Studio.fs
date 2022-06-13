@@ -1,4 +1,4 @@
-module Songhay.Dashboard.Client.Visuals.Block.Studio
+module Songhay.Dashboard.Client.Components.Block.Studio
 
 open Bolero.Html
 
@@ -7,7 +7,7 @@ open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Models
-open Songhay.Dashboard.Client.Visuals.Button
+open Songhay.Dashboard.Client.Components.Button
 
 let studioLogo =
     let spanClasses = CssClasses [ "title"; "is-2"; "is-hidden-tablet-only" ]

@@ -1,4 +1,4 @@
-module Songhay.Dashboard.Client.Visuals.Block.StudioLinks
+module Songhay.Dashboard.Client.Components.Block.StudioLinks
 
 open System
 open Microsoft.AspNetCore.Components.Routing

@@ -1,4 +1,4 @@
-module Songhay.Dashboard.Client.Visuals.Button
+module Songhay.Dashboard.Client.Components.Button
 
 open System
 open Bolero.Html
