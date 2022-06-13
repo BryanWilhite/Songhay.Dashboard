@@ -27,7 +27,7 @@ let studioFeedImage (feedName: FeedName, feed: SyndicationFeed) =
                 }
             }
         }
-    | _ -> null
+    | _ -> empty()
 
 let studioFeedIcon (feedName: FeedName) =
     let feedNameMap = Map [

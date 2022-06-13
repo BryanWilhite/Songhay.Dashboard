@@ -57,7 +57,7 @@ let bulmaDropdown (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime) (model: Y
 
                             text (display.displayText |> Option.get).Value
                         }
-                    else null
+                    else empty()
             }
         }
     }
@@ -140,7 +140,7 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                 "set" |> toHtmlClass
 
                 forEach model.YtSet.Value <| fun (_, items) ->
-                    null
+                    empty()
                     //YtThumbsComponent.EComp [] { model with YtItems = Some items } dispatch
             }
         | false ->

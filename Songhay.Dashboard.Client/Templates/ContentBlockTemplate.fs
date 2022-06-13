@@ -16,7 +16,7 @@ let viewContentBlockTemplate jsRuntime (model: Model) dispatch =
         .StudioLinksNode(Tile.studioLinksNode)
         .Error(
             cond model.error <| function
-            | None -> null
+            | None -> empty()
             | Some err ->
                 ContentBlockTemplate.ErrorNotification()
                     .Text(err)
