@@ -84,12 +84,12 @@ let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
                     p { [ "title"; "is-4"] |> toHtmlClassFromList; text feed.feedTitle }
                     p { [ "subtitle"; "is-6"] |> toHtmlClassFromList; text (feed.modificationDate.ToString("yyyy-MM-dd")) }
                 }
-                div {
-                    "content" |> toHtmlClass
+            }
+            div {
+                "content" |> toHtmlClass
 
-                    ul {
-                        forEach (feed.feedItems |> List.take 10) <| listItem
-                    }
+                ul {
+                    forEach (feed.feedItems |> List.take 10) <| listItem
                 }
             }
         }
