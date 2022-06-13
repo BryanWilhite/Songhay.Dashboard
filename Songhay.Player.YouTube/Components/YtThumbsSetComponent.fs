@@ -7,7 +7,7 @@ open Bolero
 open Bolero.Html
 
 open Songhay.Player.YouTube
-open Songhay.Player.YouTube.YtThumbsSet
+open Songhay.Player.YouTube.Components.YtThumbsSet
 
 type YtThumbsSetComponent() =
     inherit ElmishComponent<YouTubeModel, YouTubeMessage>()

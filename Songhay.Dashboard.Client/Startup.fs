@@ -4,7 +4,7 @@ open Microsoft.AspNetCore.Components.WebAssembly.Hosting
 
 open Bolero.Remoting.Client
 
-open Songhay.Dashboard.Client.Components.ContentBlock
+open Songhay.Dashboard.Client.Components
 
 module Program =
 

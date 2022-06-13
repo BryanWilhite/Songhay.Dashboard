@@ -1,4 +1,4 @@
-module Songhay.Player.YouTube.YtThumbsSet
+module Songhay.Player.YouTube.Components.YtThumbsSet
 
 open Microsoft.JSInterop
 
@@ -9,7 +9,6 @@ open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Modules.Models
 open Songhay.Player.YouTube
-open Songhay.Player.YouTube.Components
 
 let click = GlobalEventHandlers.OnClick
 
@@ -140,8 +139,7 @@ let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
                 "set" |> toHtmlClass
 
                 forEach model.YtSet.Value <| fun (_, items) ->
-                    empty()
-                    //YtThumbsComponent.EComp [] { model with YtItems = Some items } dispatch
+                    YtThumbsComponent.EComp None { model with YtItems = Some items } dispatch
             }
         | false ->
             div {

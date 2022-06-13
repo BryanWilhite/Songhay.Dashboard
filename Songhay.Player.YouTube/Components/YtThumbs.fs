@@ -1,4 +1,4 @@
-module Songhay.Player.YouTube.YtThumbs
+module Songhay.Player.YouTube.Components.YtThumbs
 
 open System.Collections.Generic
 open Bolero
