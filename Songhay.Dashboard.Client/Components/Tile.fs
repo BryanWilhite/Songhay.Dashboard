@@ -28,9 +28,6 @@ let bulmaContentParentTile isVertical nodes =
         forEach nodes <| id
     }
 
-let studioComponentNode =
-    bulmaColumnTile 0 [ bulmaContentParentTile false [ Studio.studioNode ] ]
-
 let studioLinksNode =
     bulmaColumnTile 0 [ bulmaContentParentTile false [ StudioLinks.studioLinksNode ] ]
 

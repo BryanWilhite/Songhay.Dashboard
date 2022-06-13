@@ -8,7 +8,6 @@
         <Compile Include="ElmishTypes.fs" />
         <Compile Include="ElmishRoutes.fs" />
         <Compile Include="Components\Button.fs" />
-        <Compile Include="Components\Studio.fs" />
         <Compile Include="Components\StudioFeeds.fs" />
         <Compile Include="Components\StudioLinks.fs" />
         <Compile Include="Components\StudioTools.fs" />
