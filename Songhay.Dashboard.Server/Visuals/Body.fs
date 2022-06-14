@@ -26,7 +26,7 @@ let bodyElements =
         div {
             attr.id ContentBlockComponent.Id
 
-            rootComp<ContentBlockComponent> { attr.empty() }
+            rootComp<ContentBlockComponent>
         }
         boleroScript
         footerElement
