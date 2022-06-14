@@ -34,7 +34,7 @@ type YtThumbsComponent() =
 
     static let click = GlobalEventHandlers.OnClick
 
-    static let getYtThumbsCaption (item: YouTubeItem) =
+    static let getYtThumbsAnchor (item: YouTubeItem) =
         let limit = 60
         let caption =
             if item.snippet.title.Length > limit then
@@ -43,7 +43,10 @@ type YtThumbsComponent() =
                 item.snippet.title
 
         a {
-            attr.href (item.tryGetUri |> Result.valueOr raise); attr.target "_blank"
+            attr.href (item.tryGetUri |> Result.valueOr raise)
+            attr.target "_blank"
+            attr.title item.snippet.title
+
             text caption
         }
 
@@ -105,7 +108,7 @@ type YtThumbsComponent() =
                             }
                     }
                 span { [ "published-at"; "is-size-6" ] |> toHtmlClassFromList; item.getPublishedAt.Humanize() |> text }
-                span { [ "caption"; "has-text-weight-semibold"; "is-size-5" ] |> toHtmlClassFromList; item |> getYtThumbsCaption }
+                span { [ "caption"; "has-text-weight-semibold"; "is-size-5" ] |> toHtmlClassFromList; item |> getYtThumbsAnchor }
                 span { [ "duration"; "is-size-6" ] |> toHtmlClassFromList ; span { duration } }
             }
 
