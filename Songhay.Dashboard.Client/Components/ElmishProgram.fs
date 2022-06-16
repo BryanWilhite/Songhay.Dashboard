@@ -17,6 +17,7 @@ open Songhay.Player.YouTube.YtUriUtility
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Components
+open Songhay.Dashboard.Client.Visuals
 
 type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 

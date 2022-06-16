@@ -42,7 +42,7 @@ type Startup() =
                 endpoints.UseHotReload()
 #endif
                 endpoints.MapBlazorHub() |> ignore
-                endpoints.MapFallbackToBolero(Visuals.ContentBlock.page) |> ignore)
+                endpoints.MapFallbackToBolero(Visuals.Document.document) |> ignore)
         |> ignore
 
 module Program =

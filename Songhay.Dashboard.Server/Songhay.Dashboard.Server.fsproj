@@ -6,9 +6,7 @@
   <ItemGroup>
     <Compile Include="DashboardServiceHandlerUtility.fs" />
     <Compile Include="DashboardServiceHandler.fs" />
-    <Compile Include="Visuals/Head.fs" />
-    <Compile Include="Visuals/Body.fs" />
-    <Compile Include="Visuals/ContentBlock.fs" />
+    <Compile Include="Visuals\Document.fs" />
     <Compile Include="Startup.fs" />
   </ItemGroup>
   <ItemGroup>

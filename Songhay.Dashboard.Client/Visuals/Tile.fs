@@ -1,4 +1,4 @@
-module Songhay.Dashboard.Client.Components.Tile
+module Songhay.Dashboard.Client.Visuals.Tile
 
 open Bolero.Html
 open Songhay.Modules.Bolero.BoleroUtility

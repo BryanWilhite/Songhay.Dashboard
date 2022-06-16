@@ -14,7 +14,7 @@ open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Client
-open Songhay.Dashboard.Client.Components.Tile
+open Songhay.Dashboard.Client.Visuals.Tile
 open Songhay.Dashboard.Client.ElmishTypes
 
 type StudioLinksComponent() =

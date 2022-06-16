@@ -12,8 +12,8 @@ open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Dashboard.Models
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
-open Songhay.Dashboard.Client.Components.Button
-open Songhay.Dashboard.Client.Components.Tile
+open Songhay.Dashboard.Client.Visuals.Button
+open Songhay.Dashboard.Client.Visuals.Tile
 
 type StudioComponent() =
     inherit ElmishComponent<Model, Message>()
