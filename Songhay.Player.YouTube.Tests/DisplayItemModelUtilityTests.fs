@@ -54,3 +54,6 @@ module DisplayItemModelUtilityTests =
 
         actualResult
         |> should be (ofCase <@ Result<(DisplayText * YouTubeItem []) list,JsonException>.Ok @>)
+
+        let actual = actualResult |> Result.valueOr raise
+        actual |> should not' (be Empty)
