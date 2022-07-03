@@ -11,9 +11,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
+    <PackageReference Include="Songhay.Modules" Version="6.0.1" />
     <ProjectReference Include="..\Songhay.Dashboard.Client\Songhay.Dashboard.Client.fsproj" />
-    <PackageReference Include="Bolero.Server" Version="0.20.17" />
+    <PackageReference Include="Bolero.Server" Version="0.20.18" />
     <PackageReference Include="Bolero.HotReload.Server" Version="0.20.4" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.6" />
   </ItemGroup>
 </Project>

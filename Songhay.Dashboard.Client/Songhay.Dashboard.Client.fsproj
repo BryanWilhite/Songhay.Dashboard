@@ -19,17 +19,17 @@
         <Compile Include="Startup.fs" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Bolero" Version="0.20.17" />
-        <PackageReference Include="Bolero.Build" Version="0.20.17" />
+        <PackageReference Include="Bolero" Version="0.20.18" />
+        <PackageReference Include="Bolero.Build" Version="0.20.18" />
         <PackageReference Include="Bolero.HotReload" Version="0.20.4" />
         <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.6" />
+        <PackageReference Include="Songhay.Modules" Version="6.0.1" />
         <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Songhay.Dashboard\Songhay.Dashboard.fsproj" />
       <ProjectReference Include="..\Songhay.Modules.Bolero\Songhay.Modules.Bolero.fsproj" />
-      <ProjectReference Include="..\Songhay.Modules\Songhay.Modules.fsproj" />
       <ProjectReference Include="..\Songhay.Player.YouTube\Songhay.Player.YouTube.fsproj" />
     </ItemGroup>
 </Project>

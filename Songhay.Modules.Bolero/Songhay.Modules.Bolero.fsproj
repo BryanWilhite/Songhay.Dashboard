@@ -14,12 +14,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Bolero" Version="0.20.17" />
+        <PackageReference Include="Bolero" Version="0.20.18" />
         <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\Songhay.Modules\Songhay.Modules.fsproj" />
+        <PackageReference Include="Songhay.Modules" Version="6.0.1" />
     </ItemGroup>
 
 </Project>
