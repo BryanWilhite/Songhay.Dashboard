@@ -16,7 +16,7 @@ let AppDataLocation = "https://songhaystorage.blob.core.windows.net/studio-dash/
 let appBlockChildCssClasses = CssClasses [ "tile"; "is-child"; "has-background-greys-dark-tone" ]
 
 let appVersions =
-    let boleroVersion = $"{Bolero.Node.Empty.GetType().Assembly.GetName().Version}"
+    let boleroVersion = $"{typeof<Bolero.Node>.Assembly.GetName().Version}"
     let dotnetRuntimeVersion = $"{Environment.Version.Major:D}.{Environment.Version.Minor:D2}"
 
     [
