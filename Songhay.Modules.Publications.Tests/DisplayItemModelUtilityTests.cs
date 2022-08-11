@@ -1,6 +1,6 @@
 namespace Songhay.Modules.Publications.Tests;
 
-public class UnitTest1
+public class DisplayItemModelUtilityTests
 {
     [Fact]
     public void Test1()
