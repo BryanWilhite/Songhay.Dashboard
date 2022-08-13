@@ -34,7 +34,8 @@ module DisplayItemModelUtilityTests =
         JsonDocument.Parse(File.ReadAllText(path))
 
     [<Theory>]
-    [<InlineData("Segment", true, "ClientId","segment-without-documents.json")>]
+    [<InlineData("Segment", true, null,"segment-without-documents.json")>]
+    [<InlineData("Document", true, null,"publication-document-frontmatter.json")>]
     let ``tryGetDisplayItemModel test``
         ( itemTypeString: string, shouldUseCamelCase: bool, fragmentElementName: string, fileName: string ) =
         let jsonDocument = fileName |> getJsonDocument

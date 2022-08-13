@@ -15,6 +15,7 @@ type PublicationItem =
     | Segment
     | Document
     | Fragment
+
     static member fromString (s: string) =
         match s.ToLower() with
         | "segment" -> Ok Segment
