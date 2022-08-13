@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="Songhay.Cloud.BlobStorage" Version="5.0.0" />
-    <PackageReference Include="SonghayCore" Version="5.2.1" />
+    <PackageReference Include="SonghayCore" Version="5.2.2" />
   </ItemGroup>
 
 </Project>

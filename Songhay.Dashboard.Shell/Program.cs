@@ -91,7 +91,7 @@ EXCEPTION:
 
                 if (getter.Args.IsHelpRequest())
                 {
-                    Console.WriteLine(activity.DisplayHelp(getter.Args));
+                    Console.WriteLine(activity?.DisplayHelp(getter.Args));
                     Environment.Exit(0);
                 }
 

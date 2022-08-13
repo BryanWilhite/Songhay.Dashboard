@@ -23,7 +23,8 @@ namespace Songhay.Dashboard.Shell.Tests
         {
             var projectDirectoryInfo = new DirectoryInfo(this._basePath);
 
-            var shellDirectoryInfo = projectDirectoryInfo.Parent.GetDirectories("*.Shell").Single();
+            var shellDirectoryInfo = projectDirectoryInfo
+                .Parent.ToReferenceTypeValueOrThrow().GetDirectories("*.Shell").Single();
 
             var configuration = Program.LoadConfiguration(shellDirectoryInfo.FullName);
 
@@ -33,7 +34,7 @@ namespace Songhay.Dashboard.Shell.Tests
                 Program.InitializeTraceSource(listener, configuration);
 
                 var metaSection = configuration.GetSection("meta")?.GetChildren();
-                Assert.True(metaSection.Any(), "The expected section is not here.");
+                Assert.True(metaSection?.Any(), "The expected section is not here.");
 
                 var args = new[]
                 {

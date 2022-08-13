@@ -1,47 +1,49 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <DefineConstants>TRACE</DefineConstants>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-  </PropertyGroup>
+    <PropertyGroup>
+        <DefineConstants>TRACE</DefineConstants>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="app-settings.songhay-system.json" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Remove="app-settings.songhay-system.json" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="app-settings.songhay-system.json">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
+    <ItemGroup>
+        <Content Include="app-settings.songhay-system.json">
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        </Content>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="5.0.0" />
-    <PackageReference Include="Songhay.Cloud.BlobStorage" Version="5.0.0" />
-    <PackageReference Include="SonghayCore" Version="5.2.1" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="6.0.0" />
+        <PackageReference Include="Songhay.Cloud.BlobStorage" Version="5.0.0" />
+        <PackageReference Include="SonghayCore" Version="6.0.1" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Songhay.Dashboard.Activities\Songhay.Dashboard.Activities.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Songhay.Dashboard.Activities\Songhay.Dashboard.Activities.csproj" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Update="app-settings.songhay-system.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="appsettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="run.ps1">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+        <None Update="app-settings.songhay-system.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="run.ps1">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
 
 </Project>
