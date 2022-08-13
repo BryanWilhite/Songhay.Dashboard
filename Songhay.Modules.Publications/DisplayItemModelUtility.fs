@@ -11,15 +11,18 @@ open Songhay.Modules.Publications.Models
 module DisplayItemModelUtility =
     let tryGetDisplayItemModel
         displayTextGetter
-        (resourceIndicatorGetter: (PublicationItem -> JsonElement -> Result<Uri option, JsonException>) option)
-        (itemType: PublicationItem) (element: JsonElement): Result<DisplayItemModel, JsonException> =
+        (resourceIndicatorGetter: (PublicationItem -> bool -> JsonElement -> Result<Uri option, JsonException>) option)
+        (itemType: PublicationItem)
+        (useCamelCase: bool)
+        (element: JsonElement)
+        : Result<DisplayItemModel, JsonException> =
 
-        let idResult = (itemType, element) ||> Id.fromInput
-        let nameResult = (itemType, element) ||> Name.fromInput
-        let displayTextResult =  (itemType, element) ||> displayTextGetter
+        let idResult = (useCamelCase, element) ||> Id.fromInput itemType
+        let nameResult = (useCamelCase, element) ||> Name.fromInput itemType
+        let displayTextResult =  (useCamelCase, element) ||> displayTextGetter itemType
         let resourceIndicatorResult =
             match resourceIndicatorGetter with
-            | Some getter -> ((itemType, element) ||> getter)
+            | Some getter -> ((useCamelCase, element) ||> getter itemType)
             | _ -> Ok None
 
         [

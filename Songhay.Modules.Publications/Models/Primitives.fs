@@ -1,67 +1,93 @@
 module Songhay.Modules.Publications.Models
 
+open System
 open System.Text.Json
 
 open Songhay.Modules.Models
 open Songhay.Modules.JsonDocumentUtility
 
+let getElementName (useCamelCase: bool) (input: string) =
+    let toCamelCase (input: string) = //TODO: move to `Songhay.Modules`
+        $"{input[0].ToString().ToLowerInvariant()}{input[1..]}"
+    if useCamelCase then input |> toCamelCase else input
+
 type PublicationItem =
     | Segment
     | Document
     | Fragment
+    static member fromString (s: string) =
+        match s.ToLower() with
+        | "segment" -> Ok Segment
+        | "document" -> Ok Document
+        | "fragment" -> Ok Fragment
+        | _ -> Error (FormatException("The expected conventional string is not here."))
 
 type Id =
     | Id of Identifier
 
-    static member fromInput (itemType: PublicationItem) (element: JsonElement) =
-        let getId idString =
-            Id(Identifier.fromString(idString))
-        match itemType with
-        | Segment -> element |> tryGetProperty $"{nameof Segment}{nameof Id}" |> Result.map (fun el -> el.GetString() |> getId)
-        | Document -> element |> tryGetProperty $"{nameof Document}{nameof Id}" |> Result.map (fun el -> el.GetString() |> getId)
-        | Fragment -> element |> tryGetProperty $"{nameof Fragment}{nameof Id}" |> Result.map (fun el -> el.GetString() |> getId)
+    static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (element: JsonElement) =
+        let elementName =
+            match itemType with
+            | Segment -> $"{nameof Segment}{nameof Id}" |> getElementName useCamelCase
+            | Document -> $"{nameof Document}{nameof Id}" |> getElementName useCamelCase
+            | Fragment -> $"{nameof Fragment}{nameof Id}" |> getElementName useCamelCase
+        let getId id = Id(Identifier.fromInt32(id))
+        let getIdString idString = Id(Identifier.fromString(idString))
+
+        element
+        |> tryGetProperty elementName
+        |> Result.map
+               (
+                   fun el ->
+                        match el.TryGetInt32() with
+                        | false, _ -> el.GetString() |> getIdString
+                        | true, id -> id |> getId
+               )
 
     member this.Value = let (Id v) = this in v
 
 type Title =
     | Title of string
 
-    static member fromInput (element: JsonElement) =
+    static member fromInput (useCamelCase: bool) (element: JsonElement) =
         element
-        |> tryGetProperty (nameof Title)
+        |> tryGetProperty ((nameof Title) |> getElementName useCamelCase)
         |> Result.map (fun el -> Title (el.GetString()))
 
 type Name =
     | Name of string
 
-    static member fromInput (itemType: PublicationItem) (element: JsonElement) =
-        match itemType with
-        | Segment -> element |> tryGetProperty $"{nameof Segment}{nameof Name}" |> Result.map (fun el -> Name (el.GetString()))
-        | Document -> element |> tryGetProperty $"File{nameof Name}" |> Result.map (fun el -> Name (el.GetString()))
-        | Fragment -> element |> tryGetProperty $"{nameof Fragment}{nameof Name}" |> Result.map (fun el -> Name (el.GetString()))
+    static member fromInput (itemType: PublicationItem) (useCamelCase: bool)  (element: JsonElement) =
+        let elementName =
+            match itemType with
+            | Segment -> $"{nameof Segment}{nameof Name}" |> getElementName useCamelCase
+            | Document -> $"File{nameof Name}" |> getElementName useCamelCase
+            | Fragment -> $"{nameof Fragment}{nameof Name}" |> getElementName useCamelCase
+
+        element |> tryGetProperty elementName |> Result.map (fun el -> Name (el.GetString()))
 
     member this.Value = let (Name v) = this in v
 
 type Path =
     | Path of string
 
-    static member fromInput (element: JsonElement) =
+    static member fromInput (useCamelCase: bool) (element: JsonElement) =
         element
-        |> tryGetProperty (nameof Path)
+        |> tryGetProperty ((nameof Path) |> getElementName useCamelCase)
         |> Result.map (fun el -> Path (el.GetString()))
 
 type FileName =
     | FileName of string
 
-    static member fromInput (element: JsonElement) =
+    static member fromInput (useCamelCase: bool) (element: JsonElement) =
         element
-        |> tryGetProperty (nameof FileName)
+        |> tryGetProperty ((nameof FileName) |> getElementName useCamelCase)
         |> Result.map (fun el -> FileName (el.GetString()))
 
 type IsActive =
     | IsActive of bool
 
-    static member fromInput (element: JsonElement) =
+    static member fromInput (useCamelCase: bool) (element: JsonElement) =
         element
-        |> tryGetProperty (nameof IsActive)
+        |> tryGetProperty ((nameof IsActive) |> getElementName useCamelCase)
         |> Result.map (fun el -> IsActive (el.GetBoolean()))

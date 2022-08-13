@@ -6,7 +6,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Assembly.fs" />
         <Compile Include="Models\Primitives.fs" />
         <Compile Include="DisplayItemModelUtility.fs" />
     </ItemGroup>
