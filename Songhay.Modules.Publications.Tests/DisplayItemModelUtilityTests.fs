@@ -34,24 +34,15 @@ module DisplayItemModelUtilityTests =
         JsonDocument.Parse(File.ReadAllText(path))
 
     [<Theory>]
-    [<InlineData("Segment", true,"segment-without-documents.json")>]
-    let ``tryGetDisplayItemModel test`` (itemTypeString: string, shouldUseCamelCase: bool, fileName: string) =
+    [<InlineData("Segment", true, "ClientId","segment-without-documents.json")>]
+    let ``tryGetDisplayItemModel test``
+        ( itemTypeString: string, shouldUseCamelCase: bool, fragmentElementName: string, fileName: string ) =
         let jsonDocument = fileName |> getJsonDocument
-        let displayTextGetter =
-            fun itemType useCamelCase (jsonElement: JsonElement) ->
-                let elementName =
-                    match itemType with
-                    | Segment -> $"{nameof Segment}{nameof Name}" |> getElementName useCamelCase
-                    | Document -> "Title" |> getElementName useCamelCase
-                    | Fragment -> "ClientId" |> getElementName useCamelCase
-
-                jsonElement |> tryGetProperty elementName |> Result.map (fun el -> el.GetString() |> DisplayText)
-
+        let itemType = (itemTypeString |> PublicationItem.fromString |> Result.valueOr raise)
+        let fragmentElementNameOption = Option.ofObj(fragmentElementName)
+        let displayTextGetter = defaultDisplayTextGetter fragmentElementNameOption
         let result =
             (shouldUseCamelCase, jsonDocument.RootElement)
-            ||> tryGetDisplayItemModel
-                displayTextGetter
-                None
-                (itemTypeString |> PublicationItem.fromString |> Result.valueOr raise)
+            ||> tryGetDisplayItemModel displayTextGetter None itemType
 
         result |> should be (ofCase <@ Result<DisplayItemModel, JsonException>.Ok @>)

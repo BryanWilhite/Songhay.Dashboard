@@ -55,18 +55,21 @@ type Title =
         |> Result.map (fun el -> Title (el.GetString()))
 
 type Name =
-    | Name of string
+    | Name of string option
 
     static member fromInput (itemType: PublicationItem) (useCamelCase: bool)  (element: JsonElement) =
         let elementName =
             match itemType with
-            | Segment -> $"{nameof Segment}{nameof Name}" |> getElementName useCamelCase
-            | Document -> $"File{nameof Name}" |> getElementName useCamelCase
-            | Fragment -> $"{nameof Fragment}{nameof Name}" |> getElementName useCamelCase
-
-        element |> tryGetProperty elementName |> Result.map (fun el -> Name (el.GetString()))
+            | Segment -> None
+            | Document -> $"File{nameof Name}" |> getElementName useCamelCase |> Some
+            | Fragment -> $"{nameof Fragment}{nameof Name}" |> getElementName useCamelCase |> Some
+        match elementName with
+        | Some name -> element |> tryGetProperty name |> Result.map (fun el -> Name (el.GetString() |> Some))
+        | _ -> (Name None) |> Ok
 
     member this.Value = let (Name v) = this in v
+
+    member this.toItemName = this.Value |> Option.map ItemName
 
 type Path =
     | Path of string

@@ -6,11 +6,31 @@ open System.Text.Json
 open FsToolkit.ErrorHandling
 
 open Songhay.Modules.Models
+open Songhay.Modules.JsonDocumentUtility
 open Songhay.Modules.Publications.Models
 
 module DisplayItemModelUtility =
+    let defaultDisplayTextGetter
+        (fragmentElementName: string option)
+        (itemType: PublicationItem)
+        (useCamelCase: bool)
+        (jsonElement: JsonElement) =
+        let displayTextResult elementName =
+            jsonElement |> tryGetProperty elementName |> Result.map (fun el -> Some (el.GetString() |> DisplayText))
+        match itemType with
+        | Segment ->
+            let elementName = $"{nameof Segment}{nameof Name}" |> getElementName useCamelCase
+            elementName |> displayTextResult
+        | Document ->
+            let elementName = $"{nameof Title}" |> getElementName useCamelCase
+            elementName |> displayTextResult
+        | Fragment ->
+            match fragmentElementName with
+            | Some name -> name |> getElementName useCamelCase |> displayTextResult
+            | _ -> Ok None
+
     let tryGetDisplayItemModel
-        displayTextGetter
+        (displayTextGetter: PublicationItem -> bool -> JsonElement -> Result<DisplayText option, JsonException>)
         (resourceIndicatorGetter: (PublicationItem -> bool -> JsonElement -> Result<Uri option, JsonException>) option)
         (itemType: PublicationItem)
         (useCamelCase: bool)
@@ -37,8 +57,8 @@ module DisplayItemModelUtility =
                    fun _ ->
                         Ok {
                             id = (idResult |> Result.valueOr raise).Value
-                            itemName = Some (ItemName (nameResult |> Result.valueOr raise).Value)
-                            displayText = Some (displayTextResult |> Result.valueOr raise)
+                            itemName = (nameResult |> Result.valueOr raise).toItemName
+                            displayText = (displayTextResult |> Result.valueOr raise)
                             resourceIndicator = (resourceIndicatorResult |> Result.valueOr raise)
                         }
                )
