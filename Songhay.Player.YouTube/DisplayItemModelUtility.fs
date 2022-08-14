@@ -6,6 +6,7 @@ open FsToolkit.ErrorHandling
 open Songhay.Modules.Models
 open Songhay.Modules.JsonDocumentUtility
 open Songhay.Modules.Publications.Models
+open Songhay.Modules.Publications.DisplayItemModelUtility
 
 open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Models
@@ -14,20 +15,11 @@ module DisplayItemModelUtility =
 
     module Index =
 
-        let tryGetClientIdFromFragment (element: JsonElement) =
-            let fragmentClientIdResult = element |> ClientId.fromInput
-            let modDateResult = element |> ModificationDate.fromInput
-
-            [
-                fragmentClientIdResult |> Result.map (fun _ -> true)
-                modDateResult |> Result.map (fun _ -> true)
-            ]
-            |> List.sequenceResultM
-            |> Result.either ( fun _ -> Ok fragmentClientIdResult |> Result.valueOr raise ) Result.Error
+        let tryGetClientIdFromFragment (element: JsonElement) = element |> ClientId.fromInput
 
         let tryGetDisplayTupleFromDocument (element: JsonElement) =
             let documentClientIdResult = element |> ClientId.fromInput
-            let titleResult = element |> Name.fromInput PublicationItem.Document
+            let titleResult = element |> defaultDisplayTextGetter None Document false
             let displayItemModelsResult =
                 element
                 |> tryGetProperty $"{nameof Fragment}s"
@@ -52,7 +44,7 @@ module DisplayItemModelUtility =
                             {
                                 id = documentClientIdResult |> Result.map(fun i -> i.toIdentifier) |> Result.valueOr raise
                                 itemName = None
-                                displayText = titleResult |> Result.map(fun i -> Some (DisplayText i.Value)) |> Result.valueOr raise
+                                displayText = titleResult |> Result.map id |> Result.valueOr raise
                                 resourceIndicator = None
                             },
                             displayItemModelsResult |> Result.map( fun l -> l |> Array.ofList ) |> Result.valueOr raise
@@ -62,7 +54,7 @@ module DisplayItemModelUtility =
 
         let fromInput (element: JsonElement) =
             let segmentClientIdResult = element |> ClientId.fromInput
-            let segmentNameResult = element |> Name.fromInput PublicationItem.Segment
+            let segmentNameResult = element |> Name.fromInput PublicationItem.Segment false
             let displayItemModelsResult =
                 element |> tryGetProperty $"{nameof Document}s"
                 |> Result.bind
