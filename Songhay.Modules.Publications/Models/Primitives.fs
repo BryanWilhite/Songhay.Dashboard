@@ -5,11 +5,7 @@ open System.Text.Json
 
 open Songhay.Modules.Models
 open Songhay.Modules.JsonDocumentUtility
-
-let getElementName (useCamelCase: bool) (input: string) =
-    let toCamelCase (input: string) = //TODO: move to `Songhay.Modules`
-        $"{input[0].ToString().ToLowerInvariant()}{input[1..]}"
-    if useCamelCase then input |> toCamelCase else input
+open Songhay.Modules.StringUtility
 
 type PublicationItem =
     | Segment
@@ -29,21 +25,22 @@ type Id =
     static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (element: JsonElement) =
         let elementName =
             match itemType with
-            | Segment -> $"{nameof Segment}{nameof Id}" |> getElementName useCamelCase
-            | Document -> $"{nameof Document}{nameof Id}" |> getElementName useCamelCase
-            | Fragment -> $"{nameof Fragment}{nameof Id}" |> getElementName useCamelCase
-        let getId id = Id(Identifier.fromInt32(id))
-        let getIdString idString = Id(Identifier.fromString(idString))
+            | Segment -> $"{nameof Segment}{nameof Id}" |> toCamelCaseOrDefault useCamelCase
+            | Document -> $"{nameof Document}{nameof Id}" |> toCamelCaseOrDefault useCamelCase
+            | Fragment -> $"{nameof Fragment}{nameof Id}" |> toCamelCaseOrDefault useCamelCase
 
-        element
-        |> tryGetProperty elementName
-        |> Result.map
-               (
-                   fun el ->
-                        match el.TryGetInt32() with
-                        | false, _ -> el.GetString() |> getIdString
-                        | true, id -> id |> getId
-               )
+        match elementName with
+        | None -> JsonException("The expected element-name input is not here") |> Error
+        | Some name ->
+            element
+            |> tryGetProperty name
+            |> Result.map
+                   (
+                       fun el ->
+                            match el.TryGetInt32() with
+                            | false, _ -> el.GetString() |> fun idString -> Identifier.fromString(idString) |> Id
+                            | true, id -> id |> fun id -> Identifier.fromInt32(id) |> Id
+                   )
 
     member this.Value = let (Id v) = this in v
 
@@ -51,9 +48,13 @@ type Title =
     | Title of string
 
     static member fromInput (useCamelCase: bool) (element: JsonElement) =
-        element
-        |> tryGetProperty ((nameof Title) |> getElementName useCamelCase)
-        |> Result.map (fun el -> Title (el.GetString()))
+        let elementName = (nameof Title) |> toCamelCaseOrDefault useCamelCase
+        match elementName with
+        | None -> JsonException("The expected element-name input is not here") |> Error
+        | Some name ->
+            element
+            |> tryGetProperty name
+            |> Result.map (fun el -> Title (el.GetString()))
 
 type Name =
     | Name of string option
@@ -62,11 +63,12 @@ type Name =
         let elementName =
             match itemType with
             | Segment -> None
-            | Document -> $"File{nameof Name}" |> getElementName useCamelCase |> Some
-            | Fragment -> $"{nameof Fragment}{nameof Name}" |> getElementName useCamelCase |> Some
+            | Document -> $"File{nameof Name}" |> toCamelCaseOrDefault useCamelCase
+            | Fragment -> $"{nameof Fragment}{nameof Name}" |> toCamelCaseOrDefault useCamelCase
         match elementName with
+        | None when itemType = Segment -> (Name None) |> Ok
+        | None -> JsonException("The expected element-name input is not here") |> Error
         | Some name -> element |> tryGetProperty name |> Result.map (fun el -> Name (el.GetString() |> Some))
-        | _ -> (Name None) |> Ok
 
     member this.Value = let (Name v) = this in v
 
@@ -76,22 +78,34 @@ type Path =
     | Path of string
 
     static member fromInput (useCamelCase: bool) (element: JsonElement) =
-        element
-        |> tryGetProperty ((nameof Path) |> getElementName useCamelCase)
-        |> Result.map (fun el -> Path (el.GetString()))
+        let elementName = (nameof Path) |> toCamelCaseOrDefault useCamelCase
+        match elementName with
+        | None -> JsonException("The expected element-name input is not here") |> Error
+        | Some name ->
+            element
+            |> tryGetProperty name
+            |> Result.map (fun el -> Path (el.GetString()))
 
 type FileName =
     | FileName of string
 
     static member fromInput (useCamelCase: bool) (element: JsonElement) =
-        element
-        |> tryGetProperty ((nameof FileName) |> getElementName useCamelCase)
-        |> Result.map (fun el -> FileName (el.GetString()))
+        let elementName = (nameof FileName) |> toCamelCaseOrDefault useCamelCase
+        match elementName with
+        | None -> JsonException("The expected element-name input is not here") |> Error
+        | Some name ->
+            element
+            |> tryGetProperty name
+            |> Result.map (fun el -> FileName (el.GetString()))
 
 type IsActive =
     | IsActive of bool
 
     static member fromInput (useCamelCase: bool) (element: JsonElement) =
-        element
-        |> tryGetProperty ((nameof IsActive) |> getElementName useCamelCase)
-        |> Result.map (fun el -> IsActive (el.GetBoolean()))
+        let elementName = (nameof IsActive) |> toCamelCaseOrDefault useCamelCase
+        match elementName with
+        | None -> JsonException("The expected element-name input is not here") |> Error
+        | Some name ->
+            element
+            |> tryGetProperty name
+            |> Result.map (fun el -> IsActive (el.GetBoolean()))

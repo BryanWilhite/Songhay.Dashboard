@@ -15,10 +15,10 @@ module DisplayItemModelUtility =
 
     module Index =
 
-        let tryGetClientIdFromFragment (element: JsonElement) = element |> ClientId.fromInput
+        let tryGetClientIdFromFragment (element: JsonElement) = element |> ClientId.fromInput false
 
         let tryGetDisplayTupleFromDocument (element: JsonElement) =
-            let documentClientIdResult = element |> ClientId.fromInput
+            let documentClientIdResult = element |> ClientId.fromInput false
             let titleResult = element |> defaultDisplayTextGetter None Document false
             let displayItemModelsResult =
                 element
@@ -53,7 +53,7 @@ module DisplayItemModelUtility =
                 Result.Error
 
         let fromInput (element: JsonElement) =
-            let segmentClientIdResult = element |> ClientId.fromInput
+            let segmentClientIdResult = element |> ClientId.fromInput false
             let segmentNameResult = element |> Name.fromInput PublicationItem.Segment false
             let displayItemModelsResult =
                 element |> tryGetProperty $"{nameof Document}s"

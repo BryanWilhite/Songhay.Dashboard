@@ -7,6 +7,8 @@ open FsToolkit.ErrorHandling
 
 open Songhay.Modules.Models
 open Songhay.Modules.JsonDocumentUtility
+open Songhay.Modules.StringUtility
+
 open Songhay.Modules.Publications.Models
 
 module DisplayItemModelUtility =
@@ -16,17 +18,20 @@ module DisplayItemModelUtility =
         (useCamelCase: bool)
         (jsonElement: JsonElement) =
         let displayTextResult elementName =
-            jsonElement |> tryGetProperty elementName |> Result.map (fun el -> Some (el.GetString() |> DisplayText))
+            match elementName with
+            | None -> JsonException("The expected element-name input is not here") |> Error
+            | Some name ->
+                jsonElement |> tryGetProperty name |> Result.map (fun el -> Some (el.GetString() |> DisplayText))
         match itemType with
         | Segment ->
-            let elementName = $"{nameof Segment}{nameof Name}" |> getElementName useCamelCase
+            let elementName = $"{nameof Segment}{nameof Name}" |> toCamelCaseOrDefault useCamelCase
             elementName |> displayTextResult
         | Document ->
-            let elementName = $"{nameof Title}" |> getElementName useCamelCase
+            let elementName = $"{nameof Title}" |> toCamelCaseOrDefault useCamelCase
             elementName |> displayTextResult
         | Fragment ->
             match fragmentElementName with
-            | Some name -> name |> getElementName useCamelCase |> displayTextResult
+            | Some name -> name |> toCamelCaseOrDefault useCamelCase |> displayTextResult
             | _ -> Ok None
 
     let tryGetDisplayItemModel
