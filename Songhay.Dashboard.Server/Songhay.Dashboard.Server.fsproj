@@ -15,6 +15,6 @@
     <ProjectReference Include="..\Songhay.Dashboard.Client\Songhay.Dashboard.Client.fsproj" />
     <PackageReference Include="Bolero.Server" Version="0.20.18" />
     <PackageReference Include="Bolero.HotReload.Server" Version="0.20.4" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.8" />
   </ItemGroup>
 </Project>
