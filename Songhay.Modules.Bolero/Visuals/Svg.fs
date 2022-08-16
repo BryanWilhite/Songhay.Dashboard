@@ -10,6 +10,8 @@ module Svg =
 
     open Songhay.Modules.Models
 
+    [<Literal>]
+    let SvgUri = "http://www.w3.org/2000/svg"
     type Keys =
         | MDI_AMAZON_24PX
         | MDI_ARROW_LEFT_DROP_CIRCLE_24PX
@@ -173,18 +175,41 @@ module Svg =
             "focusable" => "false"
             nameof viewBox => viewBox
             "preserveAspectRatio" => "xMidYMid meet"
-            "xmlns" => "http://www.w3.org/2000/svg"
+            "xmlns" => SvgUri
 
             elt "path" { "d" => pathData.Value }
         }
 
-    let svgSpriteNode (href: string) (viewBox: string) =
+    let svgSpriteNode (viewBox: string) (href: string) =
         svg {
             "fill" => "currentColor"
             nameof viewBox => viewBox
-            "xmlns" => "http://www.w3.org/2000/svg"
+            "xmlns" => SvgUri
 
             elt "use" { nameof href => href }
+        }
+
+    let svgSpriteXLinkNode (viewBox: string) (symbolId: Identifier) =
+        svg {
+            "fill" => "currentColor"
+            nameof viewBox => viewBox
+            "xmlns" => SvgUri
+
+            elt "use" { "xlink:href" => $"#{symbolId.StringValue}" }
+        }
+
+    let svgSymbolsBlock (symbolData: (Identifier * StreamGeometry * string)[]) =
+        svg {
+            "xmlns" => SvgUri
+            attr.style "display: none;"
+            forEach symbolData <| fun (id, d, viewBox) ->
+                elt "symbol" {
+                    attr.id id.StringValue
+                    nameof viewBox => viewBox
+                    elt "path" {
+                        "d" => d.Value
+                    }
+                }
         }
 
     let svgViewBox (minX: int, minY: int) (width: int, height: int) =
