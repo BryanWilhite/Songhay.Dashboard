@@ -15,12 +15,10 @@ module DisplayItemModelUtility =
 
     module Index =
 
-        let tryGetClientIdFromFragment (element: JsonElement) = element |> ClientId.fromInput false
-
         let tryGetDisplayTupleFromDocument (element: JsonElement) =
-            let documentClientIdResult = element |> ClientId.fromInput false
-            let titleResult = element |> defaultDisplayTextGetter None Document false
-            let displayItemModelsResult =
+            let idResult = ((nameof ClientId), element) ||> Id.fromInputElementName
+            let titleResult = (false, element) ||> defaultDocumentDisplayTextGetter
+            let fragmentClientIdsResult =
                 element
                 |> tryGetProperty $"{nameof Fragment}s"
                 |> Result.bind
@@ -28,12 +26,12 @@ module DisplayItemModelUtility =
                         fun el ->
                             el.EnumerateArray()
                             |> List.ofSeq
-                            |> List.map (fun i -> i |> tryGetClientIdFromFragment)
+                            |> List.map (fun i -> (false, i) ||> ClientId.fromInput)
                             |> List.sequenceResultM
                     )
 
             [
-                documentClientIdResult |> Result.map (fun _ -> true)
+                idResult |> Result.map (fun _ -> true)
                 titleResult |> Result.map (fun _ -> true)
             ]
             |> List.sequenceResultM
@@ -42,18 +40,18 @@ module DisplayItemModelUtility =
                     fun _ ->
                         Ok (
                             {
-                                id = documentClientIdResult |> Result.map(fun i -> i.toIdentifier) |> Result.valueOr raise
+                                id = idResult |> Result.map(fun i -> i.Value) |> Result.valueOr raise
                                 itemName = None
                                 displayText = titleResult |> Result.map id |> Result.valueOr raise
                                 resourceIndicator = None
                             },
-                            displayItemModelsResult |> Result.map( fun l -> l |> Array.ofList ) |> Result.valueOr raise
+                            fragmentClientIdsResult |> Result.map( fun l -> l |> Array.ofList ) |> Result.valueOr raise
                         )
                 )
                 Result.Error
 
         let fromInput (element: JsonElement) =
-            let segmentClientIdResult = element |> ClientId.fromInput false
+            let segmentClientIdResult = (false, element) ||> ClientId.fromInput
             let segmentNameResult = element |> Name.fromInput PublicationItem.Segment false
             let displayItemModelsResult =
                 element |> tryGetProperty $"{nameof Document}s"
@@ -90,11 +88,11 @@ module DisplayItemModelUtility =
                         el.EnumerateArray()
                         |> List.ofSeq
                         |> List.map ( fun el ->
-                                    el |> YtItemUtility.fromInput
-                                    |> Result.map (
-                                        fun l ->
-                                            DisplayText (l |> List.head).snippet.channelTitle, l |> Array.ofList
-                                        )
+                                el |> YtItemUtility.fromInput
+                                |> Result.map (
+                                    fun l ->
+                                        DisplayText (l |> List.head).snippet.channelTitle, l |> Array.ofList
+                                    )
                             )
                         |> List.sequenceResultM
                 )

@@ -12,27 +12,35 @@ open Songhay.Modules.StringUtility
 open Songhay.Modules.Publications.Models
 
 module DisplayItemModelUtility =
+
+    let displayTextResult elementName (jsonElement: JsonElement) =
+        match elementName with
+        | None -> JsonException("The expected element-name input is not here") |> Error
+        | Some name ->
+            jsonElement |> tryGetProperty name |> Result.map (fun el -> Some (el.GetString() |> DisplayText))
+
+    let defaultSegmentDisplayTextGetter (useCamelCase: bool) (jsonElement: JsonElement) =
+        let elementName = $"{nameof Segment}{nameof Name}" |> toCamelCaseOrDefault useCamelCase
+        (elementName, jsonElement) ||> displayTextResult
+
+    let defaultDocumentDisplayTextGetter (useCamelCase: bool) (jsonElement: JsonElement) =
+        let elementName = $"{nameof Title}" |> toCamelCaseOrDefault useCamelCase
+        (elementName, jsonElement) ||> displayTextResult
+
+    let defaultFragmentDisplayTextGetter fragmentElementName (useCamelCase: bool) (jsonElement: JsonElement) =
+            match fragmentElementName with
+            | Some name -> ((name |> toCamelCaseOrDefault useCamelCase), jsonElement) ||> displayTextResult
+            | _ -> Ok None
+
     let defaultDisplayTextGetter
         (fragmentElementName: string option)
         (itemType: PublicationItem)
         (useCamelCase: bool)
         (jsonElement: JsonElement) =
-        let displayTextResult elementName =
-            match elementName with
-            | None -> JsonException("The expected element-name input is not here") |> Error
-            | Some name ->
-                jsonElement |> tryGetProperty name |> Result.map (fun el -> Some (el.GetString() |> DisplayText))
         match itemType with
-        | Segment ->
-            let elementName = $"{nameof Segment}{nameof Name}" |> toCamelCaseOrDefault useCamelCase
-            elementName |> displayTextResult
-        | Document ->
-            let elementName = $"{nameof Title}" |> toCamelCaseOrDefault useCamelCase
-            elementName |> displayTextResult
-        | Fragment ->
-            match fragmentElementName with
-            | Some name -> name |> toCamelCaseOrDefault useCamelCase |> displayTextResult
-            | _ -> Ok None
+        | Segment -> (useCamelCase, jsonElement) ||> defaultSegmentDisplayTextGetter
+        | Document -> (useCamelCase, jsonElement) ||> defaultDocumentDisplayTextGetter
+        | Fragment -> (fragmentElementName, useCamelCase, jsonElement) |||> defaultFragmentDisplayTextGetter
 
     let tryGetDisplayItemModel
         (displayTextGetter: PublicationItem -> bool -> JsonElement -> Result<DisplayText option, JsonException>)

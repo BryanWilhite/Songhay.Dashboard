@@ -31,16 +31,19 @@ type Id =
 
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
-        | Some name ->
-            element
-            |> tryGetProperty name
-            |> Result.map
-                   (
-                       fun el ->
-                            match el.TryGetInt32() with
-                            | false, _ -> el.GetString() |> fun idString -> Identifier.fromString(idString) |> Id
-                            | true, id -> id |> fun id -> Identifier.fromInt32(id) |> Id
-                   )
+        | Some name -> element |> Id.fromInputElementName name
+
+    static member fromInputElementName elementName (element: JsonElement) =
+        element
+        |> tryGetProperty elementName
+        |> Result.bind
+            (
+                fun el ->
+                    match el.ValueKind with
+                    | JsonValueKind.String -> el.GetString() |> fun idString -> Identifier.fromString(idString) |> Id |> Ok
+                    | JsonValueKind.Number -> el.GetInt32() |> fun id -> Identifier.fromInt32(id) |> Id |> Ok
+                    | _ -> JsonException("Only alphanumeric or integer identifiers are supported.") |> Error
+            )
 
     member this.Value = let (Id v) = this in v
 
@@ -59,16 +62,20 @@ type Title =
 type Name =
     | Name of string option
 
-    static member fromInput (itemType: PublicationItem) (useCamelCase: bool)  (element: JsonElement) =
+    static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (element: JsonElement) =
         let elementName =
             match itemType with
             | Segment -> None
             | Document -> $"File{nameof Name}" |> toCamelCaseOrDefault useCamelCase
             | Fragment -> $"{nameof Fragment}{nameof Name}" |> toCamelCaseOrDefault useCamelCase
+
         match elementName with
         | None when itemType = Segment -> (Name None) |> Ok
         | None -> JsonException("The expected element-name input is not here") |> Error
-        | Some name -> element |> tryGetProperty name |> Result.map (fun el -> Name (el.GetString() |> Some))
+        | Some name -> element |> Name.fromInputElementName name
+
+    static member fromInputElementName elementName (element: JsonElement) =
+        element |> tryGetProperty elementName |> Result.map (fun el -> Name (el.GetString() |> Some))
 
     member this.Value = let (Name v) = this in v
 
