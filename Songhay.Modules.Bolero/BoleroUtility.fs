@@ -63,12 +63,14 @@ module BoleroUtility =
 
     let toHtmlClassFromList (list: string list) = (CssClasses list).ToHtmlClassAttribute
 
-    let wrapn indentLevel (nodes : Node list) =
+    let indent level =
         let numberOfSpaces = 4
         let spaceChar = ' '
         let charArray =
             spaceChar
-            |> Array.replicate (numberOfSpaces * indentLevel)
-        let indent = String(charArray)
+            |> Array.replicate (numberOfSpaces * level)
 
-        nodes |> List.collect (fun node -> [newLine; text indent; node])
+        String(charArray) |> text
+
+    let wrapn indentLevel (nodes : Node list) =
+        nodes |> List.collect (fun node -> [newLine; (indentLevel |> indent); node])

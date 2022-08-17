@@ -9,9 +9,17 @@ module Svg =
     open Bolero.Html
 
     open Songhay.Modules.Models
+    open Songhay.Modules.Bolero.BoleroUtility
 
     [<Literal>]
     let SvgUri = "http://www.w3.org/2000/svg"
+
+    let svgViewBox (minX: int, minY: int) (width: int, height: int) =
+        $"{minX} {minY} {width} {height}"
+
+    let svgViewBoxSquare widthAndHeight =
+        svgViewBox (0,0) (widthAndHeight, widthAndHeight)
+
     type Keys =
         | MDI_AMAZON_24PX
         | MDI_ARROW_LEFT_DROP_CIRCLE_24PX
@@ -168,6 +176,12 @@ module Svg =
         )
     ]
 
+    let svgDataArray =
+        svgData
+        |> Map.toSeq
+        |> Array.ofSeq
+        |> Array.map (fun (identifier, d) -> (identifier, d, (svgViewBoxSquare 24)))
+
     let svgNode (viewBox: string) (pathData: StreamGeometry) =
         svg {
             "fill" => "currentColor"
@@ -203,17 +217,17 @@ module Svg =
             "xmlns" => SvgUri
             attr.style "display: none;"
             forEach symbolData <| fun (id, d, viewBox) ->
-                elt "symbol" {
-                    attr.id id.StringValue
-                    nameof viewBox => viewBox
-                    elt "path" {
-                        "d" => d.Value
+                concat {
+                    newLine
+                    indent 3
+                    elt "symbol" {
+                        attr.id id.StringValue
+                        nameof viewBox => viewBox
+                        elt "path" {
+                            "d" => d.Value
+                        }
                     }
                 }
+            newLine
+            indent 2
         }
-
-    let svgViewBox (minX: int, minY: int) (width: int, height: int) =
-        $"{minX} {minY} {width} {height}"
-
-    let svgViewBoxSquare widthAndHeight =
-        svgViewBox (0,0) (widthAndHeight, widthAndHeight)
