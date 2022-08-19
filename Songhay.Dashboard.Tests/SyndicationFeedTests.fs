@@ -13,6 +13,7 @@ module SyndicationFeedTests =
 
     open Songhay.Modules.Models
     open Songhay.Modules.ProgramFileUtility
+    open Songhay.Modules.Publications.SyndicationFeedUtility
 
     open Songhay.Dashboard.Models
     open Songhay.Dashboard.Client.SyndicationFeedUtility

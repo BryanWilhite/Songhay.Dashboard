@@ -8,6 +8,7 @@
     <ItemGroup>
         <Compile Include="Models\Primitives.fs" />
         <Compile Include="DisplayItemModelUtility.fs" />
+        <Compile Include="SyndicationFeedUtility.fs" />
     </ItemGroup>
 
     <ItemGroup>

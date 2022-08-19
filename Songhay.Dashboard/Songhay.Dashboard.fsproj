@@ -16,4 +16,8 @@
         <PackageReference Include="Songhay.Modules" Version="6.1.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Songhay.Modules.Publications\Songhay.Modules.Publications.fsproj" />
+    </ItemGroup>
+
 </Project>
