@@ -82,9 +82,20 @@ type Id =
     /// </summary>
     member this.Value = let (Id v) = this in v
 
+///<summary>
+/// Defines a primitive value,
+/// representing a <see cref="PublicationItem" /> Document Title.
+/// </summary>
+/// <remarks>
+/// See the C# Abstractions defining these Publication types.
+/// [ https://github.com/BryanWilhite/Songhay.Publications/tree/master/Songhay.Publications/Abstractions ]
+/// </remarks>
 type Title =
     | Title of string
 
+    ///<summary>
+    /// Converts the specified <see cref="JsonElement" /> into <see cref="Title" />.
+    /// </summary>
     static member fromInput (useCamelCase: bool) (element: JsonElement) =
         let elementName = (nameof Title) |> toCamelCaseOrDefault useCamelCase
         match elementName with
@@ -94,9 +105,22 @@ type Title =
             |> tryGetProperty name
             |> Result.map (fun el -> Title (el.GetString()))
 
+///<summary>
+/// Defines a primitive naming concept
+/// shared among <see cref="PublicationItem" /> types.
+/// </summary>
+/// <remarks>
+/// This primitive identifier could represent either
+/// <c>SegmentName</c>, <c>Document.FileName</c> or <c>FragmentName</c>
+/// to be composed in, say, some ad-hoc tuple.
+/// </remarks>
 type Name =
     | Name of string option
 
+    ///<summary>
+    /// Converts the specified <see cref="JsonElement" />
+    /// into <see cref="Name" /> based on the type of <see cref="PublicationItem" />.
+    /// </summary>
     static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (element: JsonElement) =
         let elementName =
             match itemType with
@@ -109,16 +133,37 @@ type Name =
         | None -> JsonException("The expected element-name input is not here") |> Error
         | Some name -> element |> Name.fromInputElementName name
 
+    ///<summary>
+    /// Converts the specified <see cref="JsonElement" />
+    /// into <see cref="Name" /> based on the expected JSON element name.
+    /// </summary>
     static member fromInputElementName elementName (element: JsonElement) =
         element |> tryGetProperty elementName |> Result.map (fun el -> Name (el.GetString() |> Some))
 
+    ///<summary>
+    /// Unwraps the underlying <see cref="string" /> value.
+    /// </summary>
     member this.Value = let (Name v) = this in v
 
+    ///<summary>
+    /// Unwraps the underlying <see cref="ItemName" /> value.
+    /// </summary>
     member this.toItemName = this.Value |> Option.map ItemName
 
+///<summary>
+/// Defines a primitive value,
+/// representing a <see cref="PublicationItem" /> Document Path.
+/// </summary>
+/// <remarks>
+/// See the C# Abstractions defining these Publication types.
+/// [ https://github.com/BryanWilhite/Songhay.Publications/tree/master/Songhay.Publications/Abstractions ]
+/// </remarks>
 type Path =
     | Path of string
 
+    ///<summary>
+    /// Converts the specified <see cref="JsonElement" /> into <see cref="Path" />.
+    /// </summary>
     static member fromInput (useCamelCase: bool) (element: JsonElement) =
         let elementName = (nameof Path) |> toCamelCaseOrDefault useCamelCase
         match elementName with
@@ -128,9 +173,20 @@ type Path =
             |> tryGetProperty name
             |> Result.map (fun el -> Path (el.GetString()))
 
+///<summary>
+/// Defines a primitive value,
+/// representing a <see cref="PublicationItem" /> Document File Name.
+/// </summary>
+/// <remarks>
+/// See the C# Abstractions defining these Publication types.
+/// [ https://github.com/BryanWilhite/Songhay.Publications/tree/master/Songhay.Publications/Abstractions ]
+/// </remarks>
 type FileName =
     | FileName of string
 
+    ///<summary>
+    /// Converts the specified <see cref="JsonElement" /> into <see cref="FileName" />.
+    /// </summary>
     static member fromInput (useCamelCase: bool) (element: JsonElement) =
         let elementName = (nameof FileName) |> toCamelCaseOrDefault useCamelCase
         match elementName with
@@ -140,9 +196,20 @@ type FileName =
             |> tryGetProperty name
             |> Result.map (fun el -> FileName (el.GetString()))
 
+///<summary>
+/// Defines a primitive value,
+/// representing a <see cref="PublicationItem" /> Active status.
+/// </summary>
+/// <remarks>
+/// See the C# Abstractions defining these Publication types.
+/// [ https://github.com/BryanWilhite/Songhay.Publications/tree/master/Songhay.Publications/Abstractions ]
+/// </remarks>
 type IsActive =
     | IsActive of bool
 
+    ///<summary>
+    /// Converts the specified <see cref="JsonElement" /> into <see cref="IsActive" />.
+    /// </summary>
     static member fromInput (useCamelCase: bool) (element: JsonElement) =
         let elementName = (nameof IsActive) |> toCamelCaseOrDefault useCamelCase
         match elementName with
