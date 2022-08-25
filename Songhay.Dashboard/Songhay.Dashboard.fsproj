@@ -14,10 +14,7 @@
     <ItemGroup>
         <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
         <PackageReference Include="Songhay.Modules" Version="6.1.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Songhay.Modules.Publications\Songhay.Modules.Publications.fsproj" />
+        <PackageReference Include="Songhay.Modules.Publications" Version="6.0.0" />
     </ItemGroup>
 
 </Project>

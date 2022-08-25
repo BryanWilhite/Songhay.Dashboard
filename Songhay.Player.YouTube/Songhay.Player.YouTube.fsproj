@@ -4,9 +4,8 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Bolero" Version="0.20.18" />
-        <PackageReference Include="FsToolkit.ErrorHandling" Version="2.13.0" />
         <PackageReference Include="Humanizer.Core" Version="2.14.1" />
-        <PackageReference Include="Songhay.Modules" Version="6.1.0" />
+        <PackageReference Include="Songhay.Modules.Publications" Version="6.0.0" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Models\YouTubeScalars.fs" />
@@ -28,6 +27,5 @@
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Songhay.Modules.Bolero\Songhay.Modules.Bolero.fsproj" />
-        <ProjectReference Include="..\Songhay.Modules.Publications\Songhay.Modules.Publications.fsproj" />
     </ItemGroup>
 </Project>
