@@ -21,7 +21,7 @@ open Songhay.Dashboard.Client.Visuals
 
 type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
-let viewContentBlockTemplate jsRuntime (model: Model) dispatch =
+let viewContentBlockTemplate (jsRuntime: IJSRuntime) (model: Model) dispatch =
     ContentBlockTemplate()
         .Studio(StudioComponent.EComp model dispatch)
         .StudioLinks(StudioLinksComponent.EComp model dispatch)
@@ -47,7 +47,12 @@ let viewContentBlockTemplate jsRuntime (model: Model) dispatch =
         )
         .Elt()
 
-let update remote (message: Message) (model: Model) =
+let update remote (jsRuntime: IJSRuntime) (message: Message) (model: Model) =
+    jsRuntime |> Songhay.Modules.Bolero.JsRuntimeUtility.consoleWarnAsync [|
+        "model.ytModel.YtSetIsRequested:", model.ytModel.YtSetIsRequested,
+        "model.ytModel.YtSetIndex:", model.ytModel.YtSetIndex,
+        "message:", message
+    |] |> ignore
 
     match message with
     | Message.ClearError -> { model with error = None }, Cmd.none
@@ -126,6 +131,7 @@ let update remote (message: Message) (model: Model) =
                     snd ytModel.ytModel.YtSetIndexSelectedDocument
                 ) ||> getPlaylistSetUri
             let cmd = Cmd.OfAsync.either remote.getYtSet uri success failure
+
             ytModel, cmd
 
         | YouTubeMessage.OpenYtSetOverlay ->

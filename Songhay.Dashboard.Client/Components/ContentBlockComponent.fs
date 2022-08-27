@@ -32,7 +32,7 @@ type ContentBlockComponent() =
                 ytModel = YouTubeModel.initialize
             }
         let init = (fun _ -> initModel, Cmd.ofMsg (Message.YouTubeMessage YouTubeMessage.CallYtItems))
-        let update = update (this.Remote<DashboardService>())
+        let update = update (this.Remote<DashboardService>()) this.JSRuntime
         let view = view this.JSRuntime
 
         Program.mkProgram init update view
