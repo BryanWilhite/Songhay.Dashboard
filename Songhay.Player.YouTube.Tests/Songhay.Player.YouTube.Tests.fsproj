@@ -9,8 +9,8 @@
 
     <ItemGroup>
         <Compile Include="DisplayItemModelUtilityTests.fs" />
-        <Compile Include="YtItemUtilityTests.fs" />
         <Compile Include="ServiceHandlerUtilityTests.fs" />
+        <Compile Include="YtItemUtilityTests.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 

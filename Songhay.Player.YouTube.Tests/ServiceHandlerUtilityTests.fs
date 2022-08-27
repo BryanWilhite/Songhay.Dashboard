@@ -21,6 +21,7 @@ module ServiceHandlerUtilityTests =
     open Songhay.Modules.HttpRequestMessageUtility
     open Songhay.Modules.HttpResponseMessageUtility
     open Songhay.Modules.ProgramFileUtility
+    open Songhay.Modules.Bolero.JsonDocumentUtility
 
     open Songhay.Player.YouTube
     open Songhay.Player.YouTube.Models
@@ -132,9 +133,9 @@ module ServiceHandlerUtilityTests =
 
     [<Theory>]
     [<InlineData("youtube-index-songhay-top-ten.json")>]
-    let ``toDomainData test`` (fileName: string) =
+    let ``toYtItems test`` (fileName: string) =
         let json = fileName |> getJson
         let mockLogger = Substitute.For<ILogger>()
 
-        let actual = Ok json |> toYtItems mockLogger
+        let actual = Ok json |> tryGetJsonElement mockLogger |> toYtItems
         actual |> should be (ofCase<@ Option<YouTubeItem[]>.Some @>)

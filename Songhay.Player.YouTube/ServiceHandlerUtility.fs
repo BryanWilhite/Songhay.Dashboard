@@ -3,13 +3,11 @@ namespace Songhay.Player.YouTube
 module ServiceHandlerUtility =
 
     open System
-    open System.Net
-    open Microsoft.Extensions.Logging
+    open System.Text.Json
 
     open FsToolkit.ErrorHandling
 
     open Songhay.Modules.StringUtility
-    open Songhay.Modules.Bolero.JsonDocumentUtility
     open Songhay.Player.YouTube
     open Songhay.Player.YouTube.DisplayItemModelUtility
 
@@ -17,19 +15,19 @@ module ServiceHandlerUtility =
         let prefix = seed |> toKabobCase |> Option.defaultValue String.Empty
         $"{prefix}-{uri.Segments |> Array.last}"
 
-    let toPublicationIndexData (logger: ILogger) (jsonResult: Result<string, HttpStatusCode>) =
-        jsonResult |> tryGetJsonElement logger
+    let toPublicationIndexData (jsonElementResult: Result<JsonElement, JsonException>) =
+        jsonElementResult
         |> Result.bind (fun el -> el |> Index.fromInput)
         |> Option.ofResult
 
-    let toYtItems (logger: ILogger) (jsonResult: Result<string, HttpStatusCode>) =
-        jsonResult |> tryGetJsonElement logger
+    let toYtItems (jsonElementResult: Result<JsonElement, JsonException>) =
+        jsonElementResult
         |> Result.bind (fun el -> el |> YtItemUtility.fromInput)
         |> Result.map (fun input -> input |> List.toArray)
         |> Option.ofResult
 
-    let toYtSet (logger: ILogger) (jsonResult: Result<string, HttpStatusCode>) =
-        jsonResult |> tryGetJsonElement logger
+    let toYtSet (jsonElementResult: Result<JsonElement, JsonException>) =
+        jsonElementResult
         |> Result.bind (fun el -> el |> ThumbsSet.fromInput)
         |> Result.map (fun input -> input |> List.toArray)
         |> Option.ofResult
