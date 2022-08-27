@@ -71,5 +71,5 @@ module YtThumbsServiceHandlerUtilityTests =
         let json = fileName |> getJson
         let mockLogger = Substitute.For<ILogger>()
 
-        let actual = Ok json |> toDomainData mockLogger
+        let actual = Ok json |> toYtItems mockLogger
         actual |> should be (ofCase<@ Option<YouTubeItem[]>.Some @>)

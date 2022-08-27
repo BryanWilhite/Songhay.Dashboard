@@ -1,30 +1,16 @@
 namespace Songhay.Player.YouTube
 
 open System.Net
-open System.Text.Json
 open Microsoft.Extensions.Logging
 
 open FsToolkit.ErrorHandling
 
-open Songhay.Modules.JsonDocumentUtility
+open Songhay.Modules.Bolero.JsonDocumentUtility
 open Songhay.Player.YouTube.DisplayItemModelUtility
 
 module DisplayItemModelServiceHandlerUtility =
 
     let toPublicationIndexData (logger: ILogger) (jsonResult: Result<string, HttpStatusCode>) =
-        jsonResult
-        |> Result.mapError
-               (
-                    fun code ->
-                        logger.LogError($"The expected {nameof HttpStatusCode}, `{code},` is not here.")
-                        exn $"{nameof HttpStatusCode}: {code.ToString()}"
-               )
-        |> Result.bind (fun json -> json |> tryGetRootElement)
-        |> Result.mapError
-               (
-                   fun err ->
-                       logger.LogError(err.Message, err.GetType().FullName, err.Source, err.StackTrace)
-                       JsonException err.Message
-                )
+        jsonResult |> tryGetJsonElement logger
         |> Result.bind (fun el -> el |> Index.fromInput)
         |> Option.ofResult

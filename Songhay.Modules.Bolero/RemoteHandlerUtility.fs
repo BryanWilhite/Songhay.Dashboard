@@ -8,6 +8,7 @@ open Microsoft.Extensions.Logging
 open Songhay.Modules.HttpResponseMessageUtility
 
 module RemoteHandlerUtility =
+
     let toHandlerOutputAsync<'TOutput>
         (logger: ILogger)
         (dataGetter: ILogger -> Result<string, HttpStatusCode> -> 'TOutput option)

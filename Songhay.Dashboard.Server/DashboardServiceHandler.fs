@@ -57,7 +57,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let! output =
                         responseResult
-                        |> (toHandlerOutputAsync logger YtThumbsServiceHandlerUtility.toDomainData)
+                        |> (toHandlerOutputAsync logger YtThumbsServiceHandlerUtility.toYtItems)
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
@@ -96,7 +96,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let! output =
                         responseResult
-                        |> (toHandlerOutputAsync logger YtThumbsSetServiceHandlerUtility.toDomainData)
+                        |> (toHandlerOutputAsync logger YtThumbsSetServiceHandlerUtility.toYtSet)
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
