@@ -10,8 +10,7 @@
     <ItemGroup>
         <Compile Include="DisplayItemModelUtilityTests.fs" />
         <Compile Include="YtItemUtilityTests.fs" />
-        <Compile Include="YtThumbsServiceHandlerUtilityTests.fs" />
-        <Compile Include="YtThumbsSetServiceHandlerUtilityTests.fs" />
+        <Compile Include="ServiceHandlerUtilityTests.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 

@@ -1,27 +1,31 @@
 namespace Songhay.Player.YouTube.Tests
 
-open System
+module ServiceHandlerUtilityTests =
 
-open System.Net
-open System.IO
-open System.Net.Http
-open System.Reflection
+    open System
+    open System.Net
+    open System.IO
+    open System.Net.Http
+    open System.Reflection
+    open Microsoft.Extensions.Logging
 
-open Xunit
-open FsUnit.Xunit
-open FsUnit.CustomMatchers
-open FsToolkit.ErrorHandling
+    open NSubstitute
 
-open Songhay.Modules.Models
-open Songhay.Modules.HttpClientUtility
-open Songhay.Modules.HttpRequestMessageUtility
-open Songhay.Modules.HttpResponseMessageUtility
-open Songhay.Modules.ProgramFileUtility
+    open Xunit
+    open FsUnit.Xunit
+    open FsUnit.CustomMatchers
+    open FsToolkit.ErrorHandling
 
-open Songhay.Player.YouTube
-open Songhay.Player.YouTube.YtUriUtility
+    open Songhay.Modules.Models
+    open Songhay.Modules.HttpClientUtility
+    open Songhay.Modules.HttpRequestMessageUtility
+    open Songhay.Modules.HttpResponseMessageUtility
+    open Songhay.Modules.ProgramFileUtility
 
-module YtThumbsSetServiceHandlerUtilityTests =
+    open Songhay.Player.YouTube
+    open Songhay.Player.YouTube.Models
+    open Songhay.Player.YouTube.ServiceHandlerUtility
+    open Songhay.Player.YouTube.YtUriUtility
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()
@@ -37,16 +41,6 @@ module YtThumbsSetServiceHandlerUtilityTests =
         File.ReadAllText(path)
 
     let client = new HttpClient()
-
-    [<Theory>]
-    [<InlineData(
-        "https://songhay-system-player.azurewebsites.net/api/Player/v1/video/youtube/playlists/songhay/news",
-        "called-yt-set-news")>]
-    let ``getYtSetKey test`` (location: string, expected: string) =
-        let uri = location |> Uri
-        let seed = nameof YouTubeMessage.CalledYtSet
-        let cacheKey = uri |> YtThumbsSetServiceHandlerUtility.getYtSetKey seed
-        cacheKey |> should equal expected
 
     [<Theory>]
     [<InlineData(YtIndexSonghay)>]
@@ -100,3 +94,47 @@ module YtThumbsSetServiceHandlerUtilityTests =
 
             File.WriteAllText(path, json)
         }
+
+    [<Theory>]
+    [<InlineData(YtIndexSonghayTopTen)>]
+    let ``getPlaylistUri test`` (idString: string) =
+        task {
+            let id = Identifier.fromString(idString)
+            let uri = id |> getPlaylistUri
+            let! responseResult = client |> trySendAsync (get uri)
+            responseResult |> should be (ofCase<@ Result<HttpResponseMessage,exn>.Ok @>)
+            let response = responseResult |> Result.valueOr raise
+
+            let! jsonResult = response |> tryDownloadToStringAsync
+            jsonResult |> should be (ofCase<@ Result<string,HttpStatusCode>.Ok @>)
+            let json =
+                jsonResult
+                |> Result.mapError ( fun code -> exn $"{nameof HttpStatusCode}: {code.ToString()}" )
+                |> Result.valueOr raise
+
+            let path =
+                $"./json/{idString}.json"
+                |> tryGetCombinedPath projectDirectoryInfo.FullName
+                |> Result.valueOr raiseProgramFileError
+
+            File.WriteAllText(path, json)
+        }
+
+    [<Theory>]
+    [<InlineData(
+        "https://songhay-system-player.azurewebsites.net/api/Player/v1/video/youtube/playlists/songhay/news",
+        "called-yt-set-news")>]
+    let ``getYtSetKey test`` (location: string, expected: string) =
+        let uri = location |> Uri
+        let seed = nameof YouTubeMessage.CalledYtSet
+        let cacheKey = uri |> getYtSetKey seed
+        cacheKey |> should equal expected
+
+    [<Theory>]
+    [<InlineData("youtube-index-songhay-top-ten.json")>]
+    let ``toDomainData test`` (fileName: string) =
+        let json = fileName |> getJson
+        let mockLogger = Substitute.For<ILogger>()
+
+        let actual = Ok json |> toYtItems mockLogger
+        actual |> should be (ofCase<@ Option<YouTubeItem[]>.Some @>)

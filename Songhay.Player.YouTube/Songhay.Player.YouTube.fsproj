@@ -19,9 +19,7 @@
         <Compile Include="YtItemUtility.fs" />
         <Compile Include="YtUriUtility.fs" />
         <Compile Include="DisplayItemModelUtility.fs" />
-        <Compile Include="DisplayItemModelServiceHandlerUtility.fs" />
-        <Compile Include="YtThumbsServiceHandlerUtility.fs" />
-        <Compile Include="YtThumbsSetServiceHandlerUtility.fs" />
+        <Compile Include="ServiceHandlerUtility.fs" />
         <Compile Include="Components\YtThumbsComponent.fs" />
         <Compile Include="Components\YtThumbsSetComponent.fs" />
     </ItemGroup>

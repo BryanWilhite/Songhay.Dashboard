@@ -38,7 +38,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let! output =
                         responseResult
-                        |> (toHandlerOutputAsync logger DashboardServiceHandlerUtility.toDomainData)
+                        |> (toHandlerOutputAsync logger DashboardServiceHandlerUtility.toAppData)
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(5));
@@ -57,7 +57,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let! output =
                         responseResult
-                        |> (toHandlerOutputAsync logger YtThumbsServiceHandlerUtility.toYtItems)
+                        |> (toHandlerOutputAsync logger ServiceHandlerUtility.toYtItems)
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
@@ -76,7 +76,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let! output =
                         responseResult
-                        |> (toHandlerOutputAsync logger DisplayItemModelServiceHandlerUtility.toPublicationIndexData)
+                        |> (toHandlerOutputAsync logger ServiceHandlerUtility.toPublicationIndexData)
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
@@ -86,7 +86,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
             }
 
             getYtSet = fun uri -> async {
-                let cacheKey = uri |> YtThumbsSetServiceHandlerUtility.getYtSetKey (nameof CalledYtSet)
+                let cacheKey = uri |> ServiceHandlerUtility.getYtSetKey (nameof CalledYtSet)
                 match cache.TryGetValue cacheKey with
                 | true, o -> return o :?> (DisplayText * YouTubeItem []) [] option
                 | false, _ ->
@@ -96,7 +96,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let! output =
                         responseResult
-                        |> (toHandlerOutputAsync logger YtThumbsSetServiceHandlerUtility.toYtSet)
+                        |> (toHandlerOutputAsync logger ServiceHandlerUtility.toYtSet)
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
