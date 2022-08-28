@@ -13,7 +13,7 @@ module RemoteHandlerUtility =
     let toHandlerOutputAsync<'TOutput>
         (logger: ILogger)
         (dataGetter: Result<JsonElement, JsonException> -> 'TOutput option)
-        (responseResult: Result<HttpResponseMessage,exn>) : Task<'TOutput option> =
+        (responseResult: Result<HttpResponseMessage, exn>) : Task<'TOutput option> =
         task {
             logger.LogInformation("processing result...")
 
