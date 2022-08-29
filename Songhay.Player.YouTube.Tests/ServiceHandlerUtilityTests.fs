@@ -2,7 +2,6 @@ namespace Songhay.Player.YouTube.Tests
 
 module ServiceHandlerUtilityTests =
 
-    open System
     open System.Net
     open System.IO
     open System.Net.Http
@@ -122,11 +121,13 @@ module ServiceHandlerUtilityTests =
         }
 
     [<Theory>]
-    [<InlineData(
-        "https://songhay-system-player.azurewebsites.net/api/Player/v1/video/youtube/playlists/songhay/news",
-        "called-yt-set-news")>]
-    let ``getYtSetKey test`` (location: string, expected: string) =
-        let uri = location |> Uri
+    [<InlineData("songhay/news", "called-yt-set-news")>]
+    let ``getYtSetKey test`` (pathSegments: string, expected: string) =
+        let pathSegmentsArray = pathSegments.Split('/')
+        pathSegmentsArray.Length |> should equal 2
+
+        let tuple = ((Identifier.fromString pathSegmentsArray[0]), (ClientId.fromString pathSegmentsArray[1]))
+        let uri = tuple ||> getPlaylistSetUri
         let seed = nameof YouTubeMessage.CalledYtSet
         let cacheKey = uri |> getYtSetKey seed
         cacheKey |> should equal expected

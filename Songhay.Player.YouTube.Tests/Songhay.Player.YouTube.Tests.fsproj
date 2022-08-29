@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <Compile Include="DisplayItemModelUtilityTests.fs" />
+        <Compile Include="RemoteHandlerUtilityTests.fs" />
         <Compile Include="ServiceHandlerUtilityTests.fs" />
         <Compile Include="YtItemUtilityTests.fs" />
         <Compile Include="Program.fs" />
