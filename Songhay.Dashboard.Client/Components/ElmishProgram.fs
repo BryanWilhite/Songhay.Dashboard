@@ -48,11 +48,6 @@ let viewContentBlockTemplate (jsRuntime: IJSRuntime) (model: Model) dispatch =
         .Elt()
 
 let update remote (jsRuntime: IJSRuntime) (message: Message) (model: Model) =
-    jsRuntime |> Songhay.Modules.Bolero.JsRuntimeUtility.consoleWarnAsync [|
-        "model.ytModel.YtSetIsRequested:", model.ytModel.YtSetIsRequested,
-        "model.ytModel.YtSetIndex:", model.ytModel.YtSetIndex,
-        "message:", message
-    |] |> ignore
 
     match message with
     | Message.ClearError -> { model with error = None }, Cmd.none
@@ -81,6 +76,11 @@ let update remote (jsRuntime: IJSRuntime) (message: Message) (model: Model) =
 
             let failure = fun ex ->
                 let ytFailureMsg = YouTubeMessage.Error ex
+
+                jsRuntime |> Songhay.Modules.Bolero.JsRuntimeUtility.consoleErrorAsync [|
+                    $"{nameof YouTubeMessage}.{nameof CallYtItems} failure:", ex
+                |] |> ignore
+
                 Message.YouTubeMessage ytFailureMsg
 
             let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
@@ -99,6 +99,11 @@ let update remote (jsRuntime: IJSRuntime) (message: Message) (model: Model) =
 
             let failure = fun ex ->
                 let ytFailureMsg = YouTubeMessage.Error ex
+
+                jsRuntime |> Songhay.Modules.Bolero.JsRuntimeUtility.consoleErrorAsync [|
+                    $"{nameof YouTubeMessage}.{nameof CallYtIndexAndSet} failure:", ex
+                |] |> ignore
+
                 Message.YouTubeMessage ytFailureMsg
 
             let uriIdx = YtIndexSonghay |> Identifier.Alphanumeric |> getPlaylistIndexUri
@@ -123,6 +128,11 @@ let update remote (jsRuntime: IJSRuntime) (message: Message) (model: Model) =
 
             let failure = fun ex ->
                 let ytFailureMsg = YouTubeMessage.Error ex
+
+                jsRuntime |> Songhay.Modules.Bolero.JsRuntimeUtility.consoleErrorAsync [|
+                    $"{nameof YouTubeMessage}.{nameof CallYtSet} failure:", ex
+                |] |> ignore
+
                 Message.YouTubeMessage ytFailureMsg
 
             let uri =
