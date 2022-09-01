@@ -31,7 +31,7 @@ module RemoteHandlerUtilityTests =
 
     let client = new HttpClient()
 
-    let writeJson (fileName: string, json:string) =
+    let writeJson (fileName: string) (json:string) =
         let path =
             $"./json/{fileName}"
             |> tryGetCombinedPath projectDirectoryInfo.FullName
@@ -39,14 +39,16 @@ module RemoteHandlerUtilityTests =
         File.WriteAllText(path, json)
 
     [<Theory>]
-    [<InlineData(YtIndexSonghay)>]
-    let ``request test (async)`` indexName =
+    [<InlineData(YtIndexSonghay, "songhay-index.json")>]
+    let ``request test (async)`` (indexName: string, jsonFileName: string) =
         async {
             let uri = indexName |> Identifier.Alphanumeric |> getPlaylistIndexUri
             let mockLogger = Substitute.For<ILogger>()
             let dataGetter (result: Result<JsonElement, JsonException>) =
                 result |> should be (ofCase<@ Result<JsonElement, JsonException>.Ok @>)
-                Some ()
+                let opt = result |> Option.ofResult
+                (jsonFileName, opt.Value.ToString()) ||> writeJson
+                opt
 
             let! responseResult = client |> trySendAsync (get uri) |> Async.AwaitTask
 
