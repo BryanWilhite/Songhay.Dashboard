@@ -40,7 +40,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let! output =
                         responseResult
-                        |> ((logger, dataGetter) ||> toHandlerOutputAsync)
+                        |> ((Some (logger :> ILogger), dataGetter) ||> toHandlerOutputAsync)
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(5));
@@ -61,7 +61,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let! output =
                         responseResult
-                        |> ((logger, dataGetter) ||> toHandlerOutputAsync)
+                        |> ((Some (logger :> ILogger), dataGetter) ||> toHandlerOutputAsync)
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
@@ -82,7 +82,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let! output =
                         responseResult
-                        |> ((logger, dataGetter) ||> toHandlerOutputAsync)
+                        |> ((Some (logger :> ILogger), dataGetter) ||> toHandlerOutputAsync)
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
@@ -104,7 +104,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
                     let! output =
                         responseResult
-                        |> ((logger, dataGetter) ||> toHandlerOutputAsync)
+                        |> ((Some (logger :> ILogger), dataGetter) ||> toHandlerOutputAsync)
                         |> Async.AwaitTask
 
                     let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
