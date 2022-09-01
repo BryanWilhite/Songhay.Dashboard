@@ -1,1 +1,1980 @@
-{"ClientId":"youtube-index-songhay","SegmentId":0,"SegmentName":"YouTube Index for songhaysystem.com","Documents":[{"ClientId":"code","DocumentId":0,"Title":"Code","Fragments":[{"ClientId":"11ty-rocks","FragmentId":0,"ModificationDate":"2022-03-25T22:30:51Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ai-and-games","FragmentId":0,"ModificationDate":"2022-08-12T15:38:55Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"amazon-web-services","FragmentId":0,"ModificationDate":"2022-08-26T21:27:34Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"amazon-web-services-webinar-channel","FragmentId":0,"ModificationDate":"2022-08-26T17:00:36Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"angular-firebase","FragmentId":0,"ModificationDate":"2022-08-24T17:05:46Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"angularair","FragmentId":0,"ModificationDate":"2022-08-26T17:14:35Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"apollo-graphql","FragmentId":0,"ModificationDate":"2022-08-05T11:45:55Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"asp-net-monsters","FragmentId":0,"ModificationDate":"2022-07-21T15:07:02Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"awesome-open-source","FragmentId":0,"ModificationDate":"2022-08-23T15:18:48Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"code-sync","FragmentId":0,"ModificationDate":"2022-08-26T13:00:24Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"codepen","FragmentId":0,"ModificationDate":"2021-10-13T23:07:22Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"computerphile","FragmentId":0,"ModificationDate":"2022-08-16T16:08:29Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"corey-schafer","FragmentId":0,"ModificationDate":"2020-09-10T14:15:03Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"cs50","FragmentId":0,"ModificationDate":"2022-08-23T21:07:28Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"gdc","FragmentId":0,"ModificationDate":"2022-08-26T13:34:37Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"github","FragmentId":0,"ModificationDate":"2022-08-26T22:00:54Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"google-chrome-developers","FragmentId":0,"ModificationDate":"2022-08-25T23:00:13Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"google-cloud","FragmentId":0,"ModificationDate":"2022-08-27T16:00:16Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"google-developers","FragmentId":0,"ModificationDate":"2022-08-26T21:00:05Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"google-webmasters","FragmentId":0,"ModificationDate":"2022-08-25T12:10:26Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"goto-conferences","FragmentId":0,"ModificationDate":"2022-08-24T12:00:27Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"jamstack-conf","FragmentId":0,"ModificationDate":"2021-10-07T15:48:28Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"jetbrainstv","FragmentId":0,"ModificationDate":"2022-08-26T15:00:57Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"lambda-world","FragmentId":0,"ModificationDate":"2019-11-08T09:44:20Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"layout-land","FragmentId":0,"ModificationDate":"2018-07-31T08:00:04Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"let-s-code-physics","FragmentId":0,"ModificationDate":"2022-07-01T16:00:37Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"lit-simple-fast-web-components","FragmentId":0,"ModificationDate":"2022-05-05T16:00:13Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"material-design","FragmentId":0,"ModificationDate":"2022-05-26T17:00:31Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"mathematicalmonk","FragmentId":0,"ModificationDate":"2013-06-06T16:13:00Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"microsoft-azure","FragmentId":0,"ModificationDate":"2022-08-26T18:45:01Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"microsoft-developer","FragmentId":0,"ModificationDate":"2022-08-27T07:06:55Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"microsoft-research","FragmentId":0,"ModificationDate":"2022-08-09T15:12:45Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"microsoft-visual-studio","FragmentId":0,"ModificationDate":"2022-08-24T16:34:42Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"mongodb","FragmentId":0,"ModificationDate":"2022-08-26T18:41:58Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"mozilla-developer","FragmentId":0,"ModificationDate":"2019-12-18T11:00:18Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ndc-conferences","FragmentId":0,"ModificationDate":"2022-08-19T10:00:06Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ng-conf","FragmentId":0,"ModificationDate":"2022-08-22T15:00:00Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"net-foundation","FragmentId":0,"ModificationDate":"2022-08-23T19:30:43Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"netflix-ui-engineering","FragmentId":0,"ModificationDate":"2022-08-16T18:46:41Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"open-data-science","FragmentId":0,"ModificationDate":"2022-08-26T12:15:50Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"powershell-org","FragmentId":0,"ModificationDate":"2022-06-05T11:57:28Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"pycon-2018","FragmentId":0,"ModificationDate":"2018-05-16T19:06:09Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"pycon-2019","FragmentId":0,"ModificationDate":"2019-05-07T06:52:34Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"pycon-2020","FragmentId":0,"ModificationDate":"2022-07-21T13:54:49Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"pycon-us","FragmentId":0,"ModificationDate":"2022-07-21T13:54:49Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"pydata","FragmentId":0,"ModificationDate":"2022-08-26T09:45:42Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"scaled-agile","FragmentId":0,"ModificationDate":"2021-11-05T15:59:23Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"serverless-on-azure","FragmentId":0,"ModificationDate":"2022-05-02T10:49:44Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"specflow","FragmentId":0,"ModificationDate":"2022-04-04T07:16:49Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"scrum-alliance","FragmentId":0,"ModificationDate":"2022-08-11T17:11:17Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"steven-skiena","FragmentId":0,"ModificationDate":"2021-12-04T04:01:53Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"strange-loop-conference","FragmentId":0,"ModificationDate":"2022-05-29T11:21:25Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"the-data-science-show","FragmentId":0,"ModificationDate":"2022-06-14T20:01:08Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"the-magic-of-sql","FragmentId":0,"ModificationDate":"2022-04-19T10:27:46Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"valerio-velardo-the-sound-of-ai","FragmentId":0,"ModificationDate":"2022-08-08T08:35:29Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"victor-lavrenko","FragmentId":0,"ModificationDate":"2016-12-02T21:33:13Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"wolfram","FragmentId":0,"ModificationDate":"2022-08-25T15:49:47Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"xamarin","FragmentId":0,"ModificationDate":"2022-07-07T17:59:31Z","NextFragments":[],"PrevFragments":[]}],"IndexKeywords":[],"ResponsiveImages":[]},{"ClientId":"hardware","DocumentId":0,"Title":"Hardware","Fragments":[{"ClientId":"9to5mac","FragmentId":0,"ModificationDate":"2022-08-26T14:00:13Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"amd","FragmentId":0,"ModificationDate":"2022-08-26T15:00:06Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"animagraffs","FragmentId":0,"ModificationDate":"2022-08-07T00:05:32Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"apple","FragmentId":0,"ModificationDate":"2022-08-24T17:12:08Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"asus","FragmentId":0,"ModificationDate":"2022-08-26T13:00:12Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"autogef-hl","FragmentId":0,"ModificationDate":"2022-08-21T13:30:16Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"autotrader","FragmentId":0,"ModificationDate":"2022-08-26T13:14:44Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"beechcraft","FragmentId":0,"ModificationDate":"2022-06-17T16:30:24Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"california-fuel-cell-partnership","FragmentId":0,"ModificationDate":"2022-04-11T21:55:24Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"canadian-solar-inc","FragmentId":0,"ModificationDate":"2022-06-27T08:32:49Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"canoo","FragmentId":0,"ModificationDate":"2022-07-18T19:57:36Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"canonusa","FragmentId":0,"ModificationDate":"2022-08-26T14:43:01Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"celebrateubuntu","FragmentId":0,"ModificationDate":"2022-08-26T19:39:28Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"dave-lee","FragmentId":0,"ModificationDate":"2022-08-18T17:58:59Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"destination-linux","FragmentId":0,"ModificationDate":"2022-08-27T16:58:42Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"diy-solar-power-with-will-prowse","FragmentId":0,"ModificationDate":"2022-08-19T03:49:35Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"driven-car-reviews","FragmentId":0,"ModificationDate":"2022-08-23T13:00:28Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"the-engineering-mindset","FragmentId":0,"ModificationDate":"2022-08-25T12:00:07Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ehx","FragmentId":0,"ModificationDate":"2022-06-14T18:46:10Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"enphaseenergy","FragmentId":0,"ModificationDate":"2022-08-24T22:36:06Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ev-pulse","FragmentId":0,"ModificationDate":"2022-08-27T16:00:35Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ezgrogarden","FragmentId":0,"ModificationDate":"2019-05-19T15:52:07Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ford-motor-company","FragmentId":0,"ModificationDate":"2022-08-26T22:24:55Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"formlabs","FragmentId":0,"ModificationDate":"2022-08-25T15:36:02Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"fullychargedshow","FragmentId":0,"ModificationDate":"2022-08-26T16:00:06Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"garmin-aviation","FragmentId":0,"ModificationDate":"2022-08-25T18:02:21Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"gentexcorporation","FragmentId":0,"ModificationDate":"2022-06-06T21:27:20Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"goodereader","FragmentId":0,"ModificationDate":"2022-08-26T13:15:14Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"google-design","FragmentId":0,"ModificationDate":"2021-07-15T11:37:09Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"hardwarecanucks","FragmentId":0,"ModificationDate":"2022-08-27T16:13:12Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"hobotech","FragmentId":0,"ModificationDate":"2022-08-16T12:00:28Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"hyundaiusa","FragmentId":0,"ModificationDate":"2022-08-26T18:08:49Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ifixit-video","FragmentId":0,"ModificationDate":"2022-08-09T17:12:12Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ieee-spectrum","FragmentId":0,"ModificationDate":"2022-01-05T16:41:04Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"jehugarcia","FragmentId":0,"ModificationDate":"2022-08-20T16:00:22Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"jenni-elle","FragmentId":0,"ModificationDate":"2022-08-27T14:00:18Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"kitgurutech","FragmentId":0,"ModificationDate":"2022-08-27T11:00:25Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"level1linux","FragmentId":0,"ModificationDate":"2022-07-27T19:00:32Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"the-limiting-factor","FragmentId":0,"ModificationDate":"2022-08-27T14:01:30Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"logitech","FragmentId":0,"ModificationDate":"2022-08-26T06:57:18Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"lucid-motors","FragmentId":0,"ModificationDate":"2022-08-24T17:05:08Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"magnainternationaltv","FragmentId":0,"ModificationDate":"2022-07-28T13:57:54Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"matthews-studio-equipment","FragmentId":0,"ModificationDate":"2022-07-27T22:40:39Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"mjlorton","FragmentId":0,"ModificationDate":"2022-05-05T19:17:02Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"mobiletechreview","FragmentId":0,"ModificationDate":"2022-08-26T23:42:55Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"munro-live","FragmentId":0,"ModificationDate":"2022-08-26T14:00:36Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"nikola-motor-company","FragmentId":0,"ModificationDate":"2022-07-29T17:05:18Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"nokia-mobile","FragmentId":0,"ModificationDate":"2022-08-26T14:21:45Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"novationtv","FragmentId":0,"ModificationDate":"2022-08-04T15:01:47Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"optimum-tech","FragmentId":0,"ModificationDate":"2022-08-25T13:59:06Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"osv","FragmentId":0,"ModificationDate":"2022-08-27T16:00:34Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"out-of-spec-reviews","FragmentId":0,"ModificationDate":"2022-08-26T15:00:21Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"pcper","FragmentId":0,"ModificationDate":"2022-08-27T01:13:28Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"pine64","FragmentId":0,"ModificationDate":"2022-08-14T07:05:03Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"playstation","FragmentId":0,"ModificationDate":"2022-08-27T16:30:00Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"raspberry-pi","FragmentId":0,"ModificationDate":"2022-07-11T13:41:21Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"redline-reviews","FragmentId":0,"ModificationDate":"2022-08-27T14:32:57Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"rewa-technology","FragmentId":0,"ModificationDate":"2022-08-27T13:00:08Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"rivian","FragmentId":0,"ModificationDate":"2022-06-06T23:13:24Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"rocket-lab","FragmentId":0,"ModificationDate":"2022-08-19T02:18:00Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"shortcircuit","FragmentId":0,"ModificationDate":"2022-08-26T23:55:07Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"sling-aircraft","FragmentId":0,"ModificationDate":"2022-07-14T09:19:48Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"spacex","FragmentId":0,"ModificationDate":"2022-08-26T00:48:04Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"sparkfun-electronics","FragmentId":0,"ModificationDate":"2022-08-18T22:06:11Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"strange-parts","FragmentId":0,"ModificationDate":"2022-08-20T14:54:08Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"surface","FragmentId":0,"ModificationDate":"2022-07-15T16:01:58Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"synology","FragmentId":0,"ModificationDate":"2022-08-26T11:00:38Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"tritium","FragmentId":0,"ModificationDate":"2022-01-27T21:32:01Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"the-tuesday-night-machines","FragmentId":0,"ModificationDate":"2022-08-10T13:04:56Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"theraspberrypiguy","FragmentId":0,"ModificationDate":"2021-01-24T14:37:14Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"toyota-usa","FragmentId":0,"ModificationDate":"2022-08-23T20:59:48Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"transport-evolved","FragmentId":0,"ModificationDate":"2022-08-26T13:33:55Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"troikatronix","FragmentId":0,"ModificationDate":"2022-08-05T19:58:39Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"twittwich","FragmentId":0,"ModificationDate":"2020-03-19T23:02:28Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"vortex-bladeless-wind-power","FragmentId":0,"ModificationDate":"2021-03-16T11:52:37Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"uravgconsumer","FragmentId":0,"ModificationDate":"2022-08-19T17:15:39Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"wacom","FragmentId":0,"ModificationDate":"2022-07-20T06:39:38Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"xbox","FragmentId":0,"ModificationDate":"2022-08-27T18:00:15Z","NextFragments":[],"PrevFragments":[]}],"IndexKeywords":[],"ResponsiveImages":[]},{"ClientId":"media-building","DocumentId":0,"Title":"Media Building","Fragments":[{"ClientId":"adobe-creative-cloud","FragmentId":0,"ModificationDate":"2022-08-26T22:30:57Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"adobetcs","FragmentId":0,"ModificationDate":"2022-08-26T06:37:39Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"amazon-kdp","FragmentId":0,"ModificationDate":"2022-03-10T19:51:40Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ben-mauro","FragmentId":0,"ModificationDate":"2020-09-15T08:43:19Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"blackmagic-design","FragmentId":0,"ModificationDate":"2022-08-23T00:54:31Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"blender-foundation","FragmentId":0,"ModificationDate":"2022-08-25T15:35:27Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"blender-guru","FragmentId":0,"ModificationDate":"2022-08-26T06:03:57Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"branden-arc","FragmentId":0,"ModificationDate":"2022-05-19T17:00:04Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"cg-cookie-blender","FragmentId":0,"ModificationDate":"2022-08-19T11:24:02Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"cg-geek","FragmentId":0,"ModificationDate":"2022-07-15T18:34:07Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"cg-masters","FragmentId":0,"ModificationDate":"2022-05-25T16:44:58Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"christina-mckay","FragmentId":0,"ModificationDate":"2022-03-22T00:37:42Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"celemony","FragmentId":0,"ModificationDate":"2022-08-02T17:34:17Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"core77","FragmentId":0,"ModificationDate":"2022-06-28T20:00:09Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"davies-media-design","FragmentId":0,"ModificationDate":"2022-08-22T13:30:10Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"daz-3d","FragmentId":0,"ModificationDate":"2022-08-19T17:54:22Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"digitalfoundry","FragmentId":0,"ModificationDate":"2022-08-27T13:57:52Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"digpublib","FragmentId":0,"ModificationDate":"2022-08-03T19:36:31Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"emonee-larussa","FragmentId":0,"ModificationDate":"2022-08-22T23:32:42Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"e-r-g-o-j-o-s-h","FragmentId":0,"ModificationDate":"2022-08-13T16:01:05Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"esha","FragmentId":0,"ModificationDate":"2019-02-07T20:43:26Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"evermotion","FragmentId":0,"ModificationDate":"2022-08-16T14:30:52Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"flippednormals","FragmentId":0,"ModificationDate":"2022-05-06T16:57:57Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"gerald-undone","FragmentId":0,"ModificationDate":"2022-08-26T20:32:52Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ianhubert","FragmentId":0,"ModificationDate":"2021-05-26T06:10:29Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ilmvfx","FragmentId":0,"ModificationDate":"2022-08-19T21:36:59Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"iridesium","FragmentId":0,"ModificationDate":"2021-06-02T16:20:13Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"izotope-inc","FragmentId":0,"ModificationDate":"2022-08-25T14:03:35Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"just-a-printer","FragmentId":0,"ModificationDate":"2022-07-30T12:40:02Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"kelbyone","FragmentId":0,"ModificationDate":"2022-08-24T18:44:53Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"magix","FragmentId":0,"ModificationDate":"2022-04-29T05:23:25Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"native-instruments","FragmentId":0,"ModificationDate":"2022-08-25T13:02:15Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"noir-et-blanc-vie","FragmentId":0,"ModificationDate":"2022-07-05T13:00:05Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"oclcvideo","FragmentId":0,"ModificationDate":"2022-08-24T19:23:37Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"office-hours-global","FragmentId":0,"ModificationDate":"2022-08-27T16:42:14Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"omnifreaker","FragmentId":0,"ModificationDate":"2018-02-07T04:46:45Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"paul-o-caggegi","FragmentId":0,"ModificationDate":"2022-02-08T00:00:19Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"pixologic-zbrush","FragmentId":0,"ModificationDate":"2022-08-27T04:13:29Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"reallusion","FragmentId":0,"ModificationDate":"2022-08-25T07:16:32Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"recordingrevolution","FragmentId":0,"ModificationDate":"2022-08-05T12:00:38Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"red-means-recording","FragmentId":0,"ModificationDate":"2022-08-25T15:09:42Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"remington-graphics","FragmentId":0,"ModificationDate":"2020-04-26T11:20:01Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"solomon-jagwe","FragmentId":0,"ModificationDate":"2022-08-22T19:10:18Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"sound-devices","FragmentId":0,"ModificationDate":"2022-08-25T14:41:26Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"the-cgbros","FragmentId":0,"ModificationDate":"2022-08-22T17:30:02Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"this-week-in-photo-twip","FragmentId":0,"ModificationDate":"2022-08-26T04:43:22Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"type-directors-club","FragmentId":0,"ModificationDate":"2022-02-25T18:11:28Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"typographics","FragmentId":0,"ModificationDate":"2022-07-13T16:00:20Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"unity","FragmentId":0,"ModificationDate":"2022-08-25T17:21:56Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"unreal-engine","FragmentId":0,"ModificationDate":"2022-08-26T16:00:08Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ux-lx","FragmentId":0,"ModificationDate":"2022-05-31T13:22:15Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ux-salon","FragmentId":0,"ModificationDate":"2022-03-18T16:10:28Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"visual-effects-society","FragmentId":0,"ModificationDate":"2021-08-05T15:00:30Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"weta-digital","FragmentId":0,"ModificationDate":"2022-03-08T03:45:00Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"yansculpts","FragmentId":0,"ModificationDate":"2022-07-13T17:00:31Z","NextFragments":[],"PrevFragments":[]}],"IndexKeywords":[],"ResponsiveImages":[]},{"ClientId":"news","DocumentId":0,"Title":"News","Fragments":[{"ClientId":"bloomberg-technology","FragmentId":0,"ModificationDate":"2022-08-27T04:10:06Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"cnet","FragmentId":0,"ModificationDate":"2022-08-27T16:00:11Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"daily-tech-news-show","FragmentId":0,"ModificationDate":"2022-08-26T21:30:11Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"e-for-electric","FragmentId":0,"ModificationDate":"2022-08-25T18:45:00Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"engadget","FragmentId":0,"ModificationDate":"2022-08-26T14:00:36Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"geekwire","FragmentId":0,"ModificationDate":"2022-08-03T07:31:09Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"level1techs","FragmentId":0,"ModificationDate":"2022-08-26T04:30:04Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"macworld","FragmentId":0,"ModificationDate":"2022-08-05T13:00:29Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"microsoft","FragmentId":0,"ModificationDate":"2022-08-10T14:00:14Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"pcworldvideos","FragmentId":0,"ModificationDate":"2022-08-25T19:54:42Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"security-now","FragmentId":0,"ModificationDate":"2022-08-24T02:14:16Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"security-weekly","FragmentId":0,"ModificationDate":"2022-08-26T16:56:17Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"tested","FragmentId":0,"ModificationDate":"2022-08-27T14:00:08Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"the-linux-foundation","FragmentId":0,"ModificationDate":"2022-08-26T17:32:57Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"the-verge","FragmentId":0,"ModificationDate":"2022-08-25T17:13:05Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"thisweekintech","FragmentId":0,"ModificationDate":"2022-08-22T05:15:46Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"thurrott","FragmentId":0,"ModificationDate":"2022-08-25T13:48:44Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"twitmacbreak","FragmentId":0,"ModificationDate":"2022-08-24T01:01:46Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"windows-central","FragmentId":0,"ModificationDate":"2022-08-26T19:27:31Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"windows-weekly","FragmentId":0,"ModificationDate":"2022-08-25T01:44:57Z","NextFragments":[],"PrevFragments":[]}],"IndexKeywords":[],"ResponsiveImages":[]},{"ClientId":"personalities","DocumentId":0,"Title":"Personalities","Fragments":[{"ClientId":"adrian-s-digital-basement","FragmentId":0,"ModificationDate":"2022-08-27T16:15:06Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"amon-tobin","FragmentId":0,"ModificationDate":"2022-08-23T11:58:42Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"barnacules-nerdgasm","FragmentId":0,"ModificationDate":"2022-08-24T00:07:56Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"blacks-in-technology","FragmentId":0,"ModificationDate":"2022-03-31T16:57:04Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"brad-sams","FragmentId":0,"ModificationDate":"2022-08-19T14:18:22Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"brian-lagunas","FragmentId":0,"ModificationDate":"2022-01-28T22:33:41Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"computerhistory","FragmentId":0,"ModificationDate":"2022-08-25T21:18:27Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"curiousmarc","FragmentId":0,"ModificationDate":"2022-08-21T05:06:43Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"derek-banas","FragmentId":0,"ModificationDate":"2022-08-12T14:03:27Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"erik-dubois","FragmentId":0,"ModificationDate":"2022-08-26T10:30:38Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"hak5","FragmentId":0,"ModificationDate":"2022-08-27T08:05:04Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"hussein-nasser","FragmentId":0,"ModificationDate":"2022-08-16T13:00:30Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"infinitelygalactic","FragmentId":0,"ModificationDate":"2022-08-18T12:30:13Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"jay-foreman","FragmentId":0,"ModificationDate":"2022-05-23T15:51:35Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"jayztwocents","FragmentId":0,"ModificationDate":"2022-08-26T20:58:07Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"jeremy-howard","FragmentId":0,"ModificationDate":"2022-08-11T02:15:54Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"jerry-neutron","FragmentId":0,"ModificationDate":"2022-06-27T15:02:29Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"jordan-harrod","FragmentId":0,"ModificationDate":"2022-08-24T19:48:05Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"just-have-a-think","FragmentId":0,"ModificationDate":"2022-08-21T17:00:34Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"lamarr-wilson","FragmentId":0,"ModificationDate":"2022-08-26T18:53:51Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"linustechtips","FragmentId":0,"ModificationDate":"2022-08-27T17:01:32Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"marques-brownlee","FragmentId":0,"ModificationDate":"2022-08-25T21:49:16Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"mathologer","FragmentId":0,"ModificationDate":"2022-08-27T14:39:08Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"mrmobile-michael-fisher","FragmentId":0,"ModificationDate":"2022-08-19T14:08:40Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"nick-chapsas","FragmentId":0,"ModificationDate":"2022-08-26T11:00:12Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ody-mbegbu","FragmentId":0,"ModificationDate":"2020-03-19T11:54:38Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"oldtechbloke","FragmentId":0,"ModificationDate":"2022-05-28T14:24:59Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"physics-girl","FragmentId":0,"ModificationDate":"2022-07-01T03:59:25Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"profstevekeen","FragmentId":0,"ModificationDate":"2022-08-14T21:09:53Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"sargur-srihari","FragmentId":0,"ModificationDate":"2021-04-10T14:43:02Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"scott-manley","FragmentId":0,"ModificationDate":"2022-08-25T16:05:09Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"scott-nimrod","FragmentId":0,"ModificationDate":"2022-08-27T00:41:51Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"socratica","FragmentId":0,"ModificationDate":"2022-07-19T10:00:35Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"startalk","FragmentId":0,"ModificationDate":"2022-08-26T19:57:45Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"steve-mould","FragmentId":0,"ModificationDate":"2022-08-19T15:00:46Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"techaltar","FragmentId":0,"ModificationDate":"2022-08-02T08:50:54Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"tekthing","FragmentId":0,"ModificationDate":"2019-05-31T02:00:02Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"tecmath","FragmentId":0,"ModificationDate":"2022-08-23T02:05:33Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"terry-white","FragmentId":0,"ModificationDate":"2022-08-26T16:04:44Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"tedx-talks","FragmentId":0,"ModificationDate":"2022-08-27T17:00:17Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"the-science-elf","FragmentId":0,"ModificationDate":"2022-04-29T16:28:31Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"unzicker-s-real-physics","FragmentId":0,"ModificationDate":"2022-08-26T16:02:51Z","NextFragments":[],"PrevFragments":[]}],"IndexKeywords":[],"ResponsiveImages":[]},{"ClientId":"previous-clients","DocumentId":0,"Title":"Previous Clients and Affiliations","Fragments":[{"ClientId":"20th-century-fox","FragmentId":0,"ModificationDate":"2022-08-25T17:00:30Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"advanced-systems-concepts-inc","FragmentId":0,"ModificationDate":"2020-06-05T19:07:13Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"amazon","FragmentId":0,"ModificationDate":"2022-08-22T16:05:05Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"amgen","FragmentId":0,"ModificationDate":"2022-08-15T17:11:33Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"businesstravelshoweurope","FragmentId":0,"ModificationDate":"2022-08-11T14:11:27Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"cetera-financial-group","FragmentId":0,"ModificationDate":"2015-11-18T18:46:42Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"corporate-travel-management","FragmentId":0,"ModificationDate":"2021-04-09T03:58:15Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"emmett-ochs-management-department","FragmentId":0,"ModificationDate":"2022-08-12T21:41:05Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"fujitsutenlimited","FragmentId":0,"ModificationDate":"2022-05-27T04:40:42Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"gbtatv","FragmentId":0,"ModificationDate":"2022-08-26T15:10:14Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"house-of-blues","FragmentId":0,"ModificationDate":"2020-06-25T16:36:31Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"nuix","FragmentId":0,"ModificationDate":"2022-04-15T08:22:40Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"onfido","FragmentId":0,"ModificationDate":"2022-08-23T18:00:12Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"pimco","FragmentId":0,"ModificationDate":"2022-08-22T22:00:36Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"relativity","FragmentId":0,"ModificationDate":"2022-05-23T20:25:31Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"rev-io","FragmentId":0,"ModificationDate":"2022-08-12T14:55:29Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"symitar","FragmentId":0,"ModificationDate":"2019-12-13T22:13:26Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"temenos","FragmentId":0,"ModificationDate":"2022-07-01T15:23:08Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"vectra-ai-inc","FragmentId":0,"ModificationDate":"2022-08-25T10:38:38Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"ucla","FragmentId":0,"ModificationDate":"2022-08-22T19:32:32Z","NextFragments":[],"PrevFragments":[]},{"ClientId":"universal-studios-hollywood","FragmentId":0,"ModificationDate":"2022-07-02T00:01:58Z","NextFragments":[],"PrevFragments":[]}],"IndexKeywords":[],"ResponsiveImages":[]}],"Segments":[]}
+{
+    "ClientId": "youtube-index-songhay",
+    "SegmentId": 0,
+    "SegmentName": "YouTube Index for songhaysystem.com",
+    "Documents": [
+        {
+            "ClientId": "code",
+            "DocumentId": 0,
+            "Title": "Code",
+            "Fragments": [
+                {
+                    "ClientId": "11ty-rocks",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-03-25T22:30:51Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ai-and-games",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-12T15:38:55Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "amazon-web-services",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T21:27:34Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "amazon-web-services-webinar-channel",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T17:00:36Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "angular-firebase",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-24T17:05:46Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "angularair",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T17:14:35Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "apollo-graphql",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-05T11:45:55Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "asp-net-monsters",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-21T15:07:02Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "awesome-open-source",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-23T15:18:48Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "code-sync",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T13:00:24Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "codepen",
+                    "FragmentId": 0,
+                    "ModificationDate": "2021-10-13T23:07:22Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "computerphile",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-16T16:08:29Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "corey-schafer",
+                    "FragmentId": 0,
+                    "ModificationDate": "2020-09-10T14:15:03Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "cs50",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-23T21:07:28Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "gdc",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T13:34:37Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "github",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T22:00:54Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "google-chrome-developers",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T23:00:13Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "google-cloud",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T16:00:16Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "google-developers",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T21:00:05Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "google-webmasters",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T12:10:26Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "goto-conferences",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-24T12:00:27Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "jamstack-conf",
+                    "FragmentId": 0,
+                    "ModificationDate": "2021-10-07T15:48:28Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "jetbrainstv",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T15:00:57Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "lambda-world",
+                    "FragmentId": 0,
+                    "ModificationDate": "2019-11-08T09:44:20Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "layout-land",
+                    "FragmentId": 0,
+                    "ModificationDate": "2018-07-31T08:00:04Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "let-s-code-physics",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-01T16:00:37Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "lit-simple-fast-web-components",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-05T16:00:13Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "material-design",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-26T17:00:31Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "mathematicalmonk",
+                    "FragmentId": 0,
+                    "ModificationDate": "2013-06-06T16:13:00Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "microsoft-azure",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T18:45:01Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "microsoft-developer",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T07:06:55Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "microsoft-research",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-09T15:12:45Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "microsoft-visual-studio",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-24T16:34:42Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "mongodb",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T18:41:58Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "mozilla-developer",
+                    "FragmentId": 0,
+                    "ModificationDate": "2019-12-18T11:00:18Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ndc-conferences",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-19T10:00:06Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ng-conf",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-22T15:00:00Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "net-foundation",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-23T19:30:43Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "netflix-ui-engineering",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-16T18:46:41Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "open-data-science",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T12:15:50Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "powershell-org",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-06-05T11:57:28Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "pycon-2018",
+                    "FragmentId": 0,
+                    "ModificationDate": "2018-05-16T19:06:09Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "pycon-2019",
+                    "FragmentId": 0,
+                    "ModificationDate": "2019-05-07T06:52:34Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "pycon-2020",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-21T13:54:49Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "pycon-us",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-21T13:54:49Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "pydata",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T09:45:42Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "scaled-agile",
+                    "FragmentId": 0,
+                    "ModificationDate": "2021-11-05T15:59:23Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "serverless-on-azure",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-02T10:49:44Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "specflow",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-04-04T07:16:49Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "scrum-alliance",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-11T17:11:17Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "steven-skiena",
+                    "FragmentId": 0,
+                    "ModificationDate": "2021-12-04T04:01:53Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "strange-loop-conference",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-29T11:21:25Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "the-data-science-show",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-06-14T20:01:08Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "the-magic-of-sql",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-04-19T10:27:46Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "valerio-velardo-the-sound-of-ai",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-08T08:35:29Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "victor-lavrenko",
+                    "FragmentId": 0,
+                    "ModificationDate": "2016-12-02T21:33:13Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "wolfram",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T15:49:47Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "xamarin",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-07T17:59:31Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                }
+            ],
+            "IndexKeywords": [],
+            "ResponsiveImages": []
+        },
+        {
+            "ClientId": "hardware",
+            "DocumentId": 0,
+            "Title": "Hardware",
+            "Fragments": [
+                {
+                    "ClientId": "9to5mac",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T14:00:13Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "amd",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T15:00:06Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "animagraffs",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-07T00:05:32Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "apple",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-24T17:12:08Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "asus",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T13:00:12Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "autogef-hl",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-21T13:30:16Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "autotrader",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T13:14:44Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "beechcraft",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-06-17T16:30:24Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "california-fuel-cell-partnership",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-04-11T21:55:24Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "canadian-solar-inc",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-06-27T08:32:49Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "canoo",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-18T19:57:36Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "canonusa",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T14:43:01Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "celebrateubuntu",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T19:39:28Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "dave-lee",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-18T17:58:59Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "destination-linux",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T16:58:42Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "diy-solar-power-with-will-prowse",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-19T03:49:35Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "driven-car-reviews",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-23T13:00:28Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "the-engineering-mindset",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T12:00:07Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ehx",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-06-14T18:46:10Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "enphaseenergy",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-24T22:36:06Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ev-pulse",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T16:00:35Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ezgrogarden",
+                    "FragmentId": 0,
+                    "ModificationDate": "2019-05-19T15:52:07Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ford-motor-company",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T22:24:55Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "formlabs",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T15:36:02Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "fullychargedshow",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T16:00:06Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "garmin-aviation",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T18:02:21Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "gentexcorporation",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-06-06T21:27:20Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "goodereader",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T13:15:14Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "google-design",
+                    "FragmentId": 0,
+                    "ModificationDate": "2021-07-15T11:37:09Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "hardwarecanucks",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T16:13:12Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "hobotech",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-16T12:00:28Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "hyundaiusa",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T18:08:49Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ifixit-video",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-09T17:12:12Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ieee-spectrum",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-01-05T16:41:04Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "jehugarcia",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-20T16:00:22Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "jenni-elle",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T14:00:18Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "kitgurutech",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T11:00:25Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "level1linux",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-27T19:00:32Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "the-limiting-factor",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T14:01:30Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "logitech",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T06:57:18Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "lucid-motors",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-24T17:05:08Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "magnainternationaltv",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-28T13:57:54Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "matthews-studio-equipment",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-27T22:40:39Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "mjlorton",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-05T19:17:02Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "mobiletechreview",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T23:42:55Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "munro-live",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T14:00:36Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "nikola-motor-company",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-29T17:05:18Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "nokia-mobile",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T14:21:45Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "novationtv",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-04T15:01:47Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "optimum-tech",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T13:59:06Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "osv",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T16:00:34Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "out-of-spec-reviews",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T15:00:21Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "pcper",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T01:13:28Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "pine64",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-14T07:05:03Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "playstation",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T16:30:00Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "raspberry-pi",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-11T13:41:21Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "redline-reviews",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T14:32:57Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "rewa-technology",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T13:00:08Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "rivian",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-06-06T23:13:24Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "rocket-lab",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-19T02:18:00Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "shortcircuit",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T23:55:07Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "sling-aircraft",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-14T09:19:48Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "spacex",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T00:48:04Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "sparkfun-electronics",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-18T22:06:11Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "strange-parts",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-20T14:54:08Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "surface",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-15T16:01:58Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "synology",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T11:00:38Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "tritium",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-01-27T21:32:01Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "the-tuesday-night-machines",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-10T13:04:56Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "theraspberrypiguy",
+                    "FragmentId": 0,
+                    "ModificationDate": "2021-01-24T14:37:14Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "toyota-usa",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-23T20:59:48Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "transport-evolved",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T13:33:55Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "troikatronix",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-05T19:58:39Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "twittwich",
+                    "FragmentId": 0,
+                    "ModificationDate": "2020-03-19T23:02:28Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "vortex-bladeless-wind-power",
+                    "FragmentId": 0,
+                    "ModificationDate": "2021-03-16T11:52:37Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "uravgconsumer",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-19T17:15:39Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "wacom",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-20T06:39:38Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "xbox",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T18:00:15Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                }
+            ],
+            "IndexKeywords": [],
+            "ResponsiveImages": []
+        },
+        {
+            "ClientId": "media-building",
+            "DocumentId": 0,
+            "Title": "Media Building",
+            "Fragments": [
+                {
+                    "ClientId": "adobe-creative-cloud",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T22:30:57Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "adobetcs",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T06:37:39Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "amazon-kdp",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-03-10T19:51:40Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ben-mauro",
+                    "FragmentId": 0,
+                    "ModificationDate": "2020-09-15T08:43:19Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "blackmagic-design",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-23T00:54:31Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "blender-foundation",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T15:35:27Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "blender-guru",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T06:03:57Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "branden-arc",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-19T17:00:04Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "cg-cookie-blender",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-19T11:24:02Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "cg-geek",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-15T18:34:07Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "cg-masters",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-25T16:44:58Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "christina-mckay",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-03-22T00:37:42Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "celemony",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-02T17:34:17Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "core77",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-06-28T20:00:09Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "davies-media-design",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-22T13:30:10Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "daz-3d",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-19T17:54:22Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "digitalfoundry",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T13:57:52Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "digpublib",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-03T19:36:31Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "emonee-larussa",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-22T23:32:42Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "e-r-g-o-j-o-s-h",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-13T16:01:05Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "esha",
+                    "FragmentId": 0,
+                    "ModificationDate": "2019-02-07T20:43:26Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "evermotion",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-16T14:30:52Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "flippednormals",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-06T16:57:57Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "gerald-undone",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T20:32:52Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ianhubert",
+                    "FragmentId": 0,
+                    "ModificationDate": "2021-05-26T06:10:29Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ilmvfx",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-19T21:36:59Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "iridesium",
+                    "FragmentId": 0,
+                    "ModificationDate": "2021-06-02T16:20:13Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "izotope-inc",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T14:03:35Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "just-a-printer",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-30T12:40:02Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "kelbyone",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-24T18:44:53Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "magix",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-04-29T05:23:25Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "native-instruments",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T13:02:15Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "noir-et-blanc-vie",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-05T13:00:05Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "oclcvideo",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-24T19:23:37Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "office-hours-global",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T16:42:14Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "omnifreaker",
+                    "FragmentId": 0,
+                    "ModificationDate": "2018-02-07T04:46:45Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "paul-o-caggegi",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-02-08T00:00:19Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "pixologic-zbrush",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T04:13:29Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "reallusion",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T07:16:32Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "recordingrevolution",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-05T12:00:38Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "red-means-recording",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T15:09:42Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "remington-graphics",
+                    "FragmentId": 0,
+                    "ModificationDate": "2020-04-26T11:20:01Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "solomon-jagwe",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-22T19:10:18Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "sound-devices",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T14:41:26Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "the-cgbros",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-22T17:30:02Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "this-week-in-photo-twip",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T04:43:22Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "type-directors-club",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-02-25T18:11:28Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "typographics",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-13T16:00:20Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "unity",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T17:21:56Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "unreal-engine",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T16:00:08Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ux-lx",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-31T13:22:15Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ux-salon",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-03-18T16:10:28Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "visual-effects-society",
+                    "FragmentId": 0,
+                    "ModificationDate": "2021-08-05T15:00:30Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "weta-digital",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-03-08T03:45:00Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "yansculpts",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-13T17:00:31Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                }
+            ],
+            "IndexKeywords": [],
+            "ResponsiveImages": []
+        },
+        {
+            "ClientId": "news",
+            "DocumentId": 0,
+            "Title": "News",
+            "Fragments": [
+                {
+                    "ClientId": "bloomberg-technology",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T04:10:06Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "cnet",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T16:00:11Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "daily-tech-news-show",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T21:30:11Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "e-for-electric",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T18:45:00Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "engadget",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T14:00:36Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "geekwire",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-03T07:31:09Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "level1techs",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T04:30:04Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "macworld",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-05T13:00:29Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "microsoft",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-10T14:00:14Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "pcworldvideos",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T19:54:42Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "security-now",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-24T02:14:16Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "security-weekly",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T16:56:17Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "tested",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T14:00:08Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "the-linux-foundation",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T17:32:57Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "the-verge",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T17:13:05Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "thisweekintech",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-22T05:15:46Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "thurrott",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T13:48:44Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "twitmacbreak",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-24T01:01:46Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "windows-central",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T19:27:31Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "windows-weekly",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T01:44:57Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                }
+            ],
+            "IndexKeywords": [],
+            "ResponsiveImages": []
+        },
+        {
+            "ClientId": "personalities",
+            "DocumentId": 0,
+            "Title": "Personalities",
+            "Fragments": [
+                {
+                    "ClientId": "adrian-s-digital-basement",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T16:15:06Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "amon-tobin",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-23T11:58:42Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "barnacules-nerdgasm",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-24T00:07:56Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "blacks-in-technology",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-03-31T16:57:04Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "brad-sams",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-19T14:18:22Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "brian-lagunas",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-01-28T22:33:41Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "computerhistory",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T21:18:27Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "curiousmarc",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-21T05:06:43Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "derek-banas",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-12T14:03:27Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "erik-dubois",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T10:30:38Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "hak5",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T08:05:04Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "hussein-nasser",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-16T13:00:30Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "infinitelygalactic",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-18T12:30:13Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "jay-foreman",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-23T15:51:35Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "jayztwocents",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T20:58:07Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "jeremy-howard",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-11T02:15:54Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "jerry-neutron",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-06-27T15:02:29Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "jordan-harrod",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-24T19:48:05Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "just-have-a-think",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-21T17:00:34Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "lamarr-wilson",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T18:53:51Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "linustechtips",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T17:01:32Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "marques-brownlee",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T21:49:16Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "mathologer",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T14:39:08Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "mrmobile-michael-fisher",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-19T14:08:40Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "nick-chapsas",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T11:00:12Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ody-mbegbu",
+                    "FragmentId": 0,
+                    "ModificationDate": "2020-03-19T11:54:38Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "oldtechbloke",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-28T14:24:59Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "physics-girl",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-01T03:59:25Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "profstevekeen",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-14T21:09:53Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "sargur-srihari",
+                    "FragmentId": 0,
+                    "ModificationDate": "2021-04-10T14:43:02Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "scott-manley",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T16:05:09Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "scott-nimrod",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T00:41:51Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "socratica",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-19T10:00:35Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "startalk",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T19:57:45Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "steve-mould",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-19T15:00:46Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "techaltar",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-02T08:50:54Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "tekthing",
+                    "FragmentId": 0,
+                    "ModificationDate": "2019-05-31T02:00:02Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "tecmath",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-23T02:05:33Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "terry-white",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T16:04:44Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "tedx-talks",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-27T17:00:17Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "the-science-elf",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-04-29T16:28:31Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "unzicker-s-real-physics",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T16:02:51Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                }
+            ],
+            "IndexKeywords": [],
+            "ResponsiveImages": []
+        },
+        {
+            "ClientId": "previous-clients",
+            "DocumentId": 0,
+            "Title": "Previous Clients and Affiliations",
+            "Fragments": [
+                {
+                    "ClientId": "20th-century-fox",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T17:00:30Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "advanced-systems-concepts-inc",
+                    "FragmentId": 0,
+                    "ModificationDate": "2020-06-05T19:07:13Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "amazon",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-22T16:05:05Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "amgen",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-15T17:11:33Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "businesstravelshoweurope",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-11T14:11:27Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "cetera-financial-group",
+                    "FragmentId": 0,
+                    "ModificationDate": "2015-11-18T18:46:42Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "corporate-travel-management",
+                    "FragmentId": 0,
+                    "ModificationDate": "2021-04-09T03:58:15Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "emmett-ochs-management-department",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-12T21:41:05Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "fujitsutenlimited",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-27T04:40:42Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "gbtatv",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-26T15:10:14Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "house-of-blues",
+                    "FragmentId": 0,
+                    "ModificationDate": "2020-06-25T16:36:31Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "nuix",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-04-15T08:22:40Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "onfido",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-23T18:00:12Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "pimco",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-22T22:00:36Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "relativity",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-05-23T20:25:31Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "rev-io",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-12T14:55:29Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "symitar",
+                    "FragmentId": 0,
+                    "ModificationDate": "2019-12-13T22:13:26Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "temenos",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-01T15:23:08Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "vectra-ai-inc",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-25T10:38:38Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "ucla",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-08-22T19:32:32Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                },
+                {
+                    "ClientId": "universal-studios-hollywood",
+                    "FragmentId": 0,
+                    "ModificationDate": "2022-07-02T00:01:58Z",
+                    "NextFragments": [],
+                    "PrevFragments": []
+                }
+            ],
+            "IndexKeywords": [],
+            "ResponsiveImages": []
+        }
+    ],
+    "Segments": []
+}
