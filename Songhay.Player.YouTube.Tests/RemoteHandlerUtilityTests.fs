@@ -1,6 +1,7 @@
 namespace Songhay.Player.YouTube.Tests
 
 open System.Text.Json
+open Xunit
 
 module RemoteHandlerUtilityTests =
 
@@ -31,12 +32,12 @@ module RemoteHandlerUtilityTests =
 
     let client = new HttpClient()
 
-    let writeJson (fileName: string) (json:string) =
+    let writeJsonAsync (fileName: string) (json:string) =
         let path =
             $"./json/{fileName}"
             |> tryGetCombinedPath projectDirectoryInfo.FullName
             |> Result.valueOr raiseProgramFileError
-        File.WriteAllText(path, json)
+        File.WriteAllTextAsync(path, json)
 
     [<Theory>]
     [<InlineData(YtIndexSonghay, "songhay-index.json")>]
@@ -46,14 +47,14 @@ module RemoteHandlerUtilityTests =
             let mockLogger = Substitute.For<ILogger>()
             let dataGetter (result: Result<JsonElement, JsonException>) =
                 result |> should be (ofCase<@ Result<JsonElement, JsonException>.Ok @>)
-                let opt = result |> Option.ofResult
-                (jsonFileName, opt.Value.ToString()) ||> writeJson
-                opt
+                result |> Option.ofResult
 
             let! responseResult = client |> trySendAsync (get uri) |> Async.AwaitTask
 
             responseResult |> should be (ofCase<@ Result<HttpResponseMessage,exn>.Ok @>)
 
             let! handlerResult = responseResult |> toHandlerOutputAsync mockLogger dataGetter |> Async.AwaitTask
-            handlerResult |> should be (ofCase<@ Option<unit>.Some @>)
+            handlerResult |> should be (ofCase<@ Option<JsonElement>.Some @>)
+
+            (jsonFileName, handlerResult.Value.ToString()) ||> writeJsonAsync |> Async.AwaitTask |> ignore
         }
