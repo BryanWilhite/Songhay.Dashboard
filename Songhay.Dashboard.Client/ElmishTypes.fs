@@ -1,6 +1,7 @@
 namespace Songhay.Dashboard.Client.ElmishTypes
 
 open System
+open System.Net
 open Bolero
 open Bolero.Remoting
 
@@ -34,7 +35,7 @@ type DashboardService =
     {
         getAppData: Uri -> Async<(FeedName * SyndicationFeed)[] option>
         getYtItems: Uri -> Async<YouTubeItem[] option>
-        getYtSetIndex: Uri -> Async<(ClientId * Name * (DisplayItemModel * ClientId []) []) option>
+        getYtSetIndex: Uri -> Async<Result<string, HttpStatusCode>>
         getYtSet: Uri -> Async<(DisplayText * YouTubeItem []) [] option>
     }
 

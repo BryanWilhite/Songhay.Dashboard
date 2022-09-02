@@ -2,6 +2,7 @@ module Songhay.Dashboard.Client.Components.ElmishProgram
 
 open System
 
+open System.Net
 open Microsoft.JSInterop
 open Elmish
 
@@ -10,6 +11,7 @@ open Bolero.Html
 open Bolero.Remoting.Client
 
 open Songhay.Modules.Models
+open Songhay.Modules.Bolero.RemoteHandlerUtility
 open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Components
 open Songhay.Player.YouTube.YtUriUtility
@@ -89,7 +91,9 @@ let update remote (jsRuntime: IJSRuntime) (message: Message) (model: Model) =
             ytModel, cmd
 
         | YouTubeMessage.CallYtIndexAndSet ->
-            let successIdx = fun index ->
+            let successIdx = fun (result: Result<string, HttpStatusCode>) ->
+                let dataGetter = ServiceHandlerUtility.toPublicationIndexData
+                let index = (dataGetter, result) ||> toHandlerOutput None
                 let ytItemsSuccessMsg = YouTubeMessage.CalledYtSetIndex index
                 Message.YouTubeMessage ytItemsSuccessMsg
 
