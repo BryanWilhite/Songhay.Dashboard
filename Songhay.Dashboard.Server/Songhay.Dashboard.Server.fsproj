@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ServiceHandlerUtility.fs" />
     <Compile Include="DashboardServiceHandler.fs" />
     <Compile Include="Visuals\Document.fs" />
     <Compile Include="Startup.fs" />

@@ -9,6 +9,7 @@
       <Compile Include="Models\FeedName.fs" />
       <Compile Include="Models\VersionData.fs" />
       <Compile Include="SyndicationFeedUtility.fs" />
+      <Compile Include="ServiceHandlerUtility.fs" />
     </ItemGroup>
 
     <ItemGroup>

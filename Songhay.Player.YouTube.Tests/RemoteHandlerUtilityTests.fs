@@ -1,28 +1,26 @@
 namespace Songhay.Player.YouTube.Tests
 
+open System.IO
+open System.Net.Http
+open System.Reflection
 open System.Text.Json
+open Microsoft.Extensions.Logging
 open Xunit
 
+open FsUnit.Xunit
+open FsUnit.CustomMatchers
+open FsToolkit.ErrorHandling
+
+open NSubstitute
+
+open Songhay.Modules.Models
+open Songhay.Modules.HttpClientUtility
+open Songhay.Modules.HttpRequestMessageUtility
+open Songhay.Modules.ProgramFileUtility
+open Songhay.Modules.Bolero.RemoteHandlerUtility
+open Songhay.Player.YouTube.YtUriUtility
+
 module RemoteHandlerUtilityTests =
-
-    open System.IO
-    open System.Net.Http
-    open System.Reflection
-    open Microsoft.Extensions.Logging
-
-    open Xunit
-    open FsUnit.Xunit
-    open FsUnit.CustomMatchers
-    open FsToolkit.ErrorHandling
-
-    open NSubstitute
-
-    open Songhay.Modules.Models
-    open Songhay.Modules.HttpClientUtility
-    open Songhay.Modules.HttpRequestMessageUtility
-    open Songhay.Modules.ProgramFileUtility
-    open Songhay.Modules.Bolero.RemoteHandlerUtility
-    open Songhay.Player.YouTube.YtUriUtility
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()
@@ -44,7 +42,7 @@ module RemoteHandlerUtilityTests =
     let ``request test (async)`` (indexName: string, jsonFileName: string) =
         async {
             let uri = indexName |> Identifier.Alphanumeric |> getPlaylistIndexUri
-            let mockLogger = Substitute.For<ILogger>()
+            let mockLogger = Substitute.For<ILogger>() |> Some
             let dataGetter (result: Result<JsonElement, JsonException>) =
                 result |> should be (ofCase<@ Result<JsonElement, JsonException>.Ok @>)
                 result |> Option.ofResult

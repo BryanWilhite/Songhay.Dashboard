@@ -1,16 +1,16 @@
-namespace Songhay.Dashboard.Client
+namespace Songhay.Dashboard
+
+open System.Text.Json
+open Microsoft.FSharp.Core
+
+open FsToolkit.ErrorHandling
+
+open Songhay.Modules.Models
+open Songhay.Modules.JsonDocumentUtility
+open Songhay.Modules.Publications.SyndicationFeedUtility
+open Songhay.Dashboard.Models
 
 module SyndicationFeedUtility =
-
-    open System.Text.Json
-    open Microsoft.FSharp.Core
-
-    open FsToolkit.ErrorHandling
-
-    open Songhay.Modules.Models
-    open Songhay.Modules.JsonDocumentUtility
-    open Songhay.Modules.Publications.SyndicationFeedUtility
-    open Songhay.Dashboard.Models
 
     let getFeedName (name: string) =
         match name with

@@ -1,10 +1,10 @@
-namespace Songhay.Dashboard.Server
+namespace Songhay.Dashboard
 
 open System.Text.Json
 
 open FsToolkit.ErrorHandling
 
-open Songhay.Dashboard.Client.SyndicationFeedUtility
+open Songhay.Dashboard.SyndicationFeedUtility
 
 module ServiceHandlerUtility =
 

@@ -1,22 +1,22 @@
 namespace Songhay.Dashboard.Tests
 
+open System
+open System.IO
+open System.Reflection
+open System.Text.Json
+open Xunit
+open FsUnit.Xunit
+open FsUnit.CustomMatchers
+open FsToolkit.ErrorHandling
+
+open Songhay.Modules.Models
+open Songhay.Modules.ProgramFileUtility
+open Songhay.Modules.Publications.SyndicationFeedUtility
+
+open Songhay.Dashboard.Models
+open Songhay.Dashboard.SyndicationFeedUtility
+
 module SyndicationFeedTests =
-
-    open System
-    open System.IO
-    open System.Reflection
-    open System.Text.Json
-    open Xunit
-    open FsUnit.Xunit
-    open FsUnit.CustomMatchers
-    open FsToolkit.ErrorHandling
-
-    open Songhay.Modules.Models
-    open Songhay.Modules.ProgramFileUtility
-    open Songhay.Modules.Publications.SyndicationFeedUtility
-
-    open Songhay.Dashboard.Models
-    open Songhay.Dashboard.Client.SyndicationFeedUtility
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()

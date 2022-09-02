@@ -1,31 +1,31 @@
 namespace Songhay.Player.YouTube.Tests
 
+open System.Net
+open System.IO
+open System.Net.Http
+open System.Reflection
+open Microsoft.Extensions.Logging
+
+open NSubstitute
+
+open Xunit
+open FsUnit.Xunit
+open FsUnit.CustomMatchers
+open FsToolkit.ErrorHandling
+
+open Songhay.Modules.Models
+open Songhay.Modules.HttpClientUtility
+open Songhay.Modules.HttpRequestMessageUtility
+open Songhay.Modules.HttpResponseMessageUtility
+open Songhay.Modules.ProgramFileUtility
+open Songhay.Modules.Bolero.JsonDocumentUtility
+
+open Songhay.Player.YouTube
+open Songhay.Player.YouTube.Models
+open Songhay.Player.YouTube.ServiceHandlerUtility
+open Songhay.Player.YouTube.YtUriUtility
+
 module ServiceHandlerUtilityTests =
-
-    open System.Net
-    open System.IO
-    open System.Net.Http
-    open System.Reflection
-    open Microsoft.Extensions.Logging
-
-    open NSubstitute
-
-    open Xunit
-    open FsUnit.Xunit
-    open FsUnit.CustomMatchers
-    open FsToolkit.ErrorHandling
-
-    open Songhay.Modules.Models
-    open Songhay.Modules.HttpClientUtility
-    open Songhay.Modules.HttpRequestMessageUtility
-    open Songhay.Modules.HttpResponseMessageUtility
-    open Songhay.Modules.ProgramFileUtility
-    open Songhay.Modules.Bolero.JsonDocumentUtility
-
-    open Songhay.Player.YouTube
-    open Songhay.Player.YouTube.Models
-    open Songhay.Player.YouTube.ServiceHandlerUtility
-    open Songhay.Player.YouTube.YtUriUtility
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()
@@ -135,8 +135,8 @@ module ServiceHandlerUtilityTests =
     [<Theory>]
     [<InlineData("youtube-index-songhay-top-ten.json")>]
     let ``toYtItems test`` (fileName: string) =
-        let json = fileName |> getJson
-        let mockLogger = Substitute.For<ILogger>()
+        let jsonResult = fileName |> getJson |> Ok
+        let mockLogger = Substitute.For<ILogger>() |> Some
 
-        let actual = Ok json |> tryGetJsonElement mockLogger |> toYtItems
+        let actual = (mockLogger, jsonResult) ||> tryGetJsonElement |> toYtItems
         actual |> should be (ofCase<@ Option<YouTubeItem[]>.Some @>)
