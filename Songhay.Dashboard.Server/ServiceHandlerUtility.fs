@@ -1,12 +1,12 @@
 namespace Songhay.Dashboard.Server
 
+open System.Text.Json
+
+open FsToolkit.ErrorHandling
+
+open Songhay.Dashboard.Client.SyndicationFeedUtility
+
 module ServiceHandlerUtility =
-
-    open System.Text.Json
-
-    open FsToolkit.ErrorHandling
-
-    open Songhay.Dashboard.Client.SyndicationFeedUtility
 
     let toAppData (jsonElementResult: Result<JsonElement, JsonException>) =
         jsonElementResult
