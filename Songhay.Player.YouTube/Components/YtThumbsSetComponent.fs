@@ -21,7 +21,7 @@ type YtThumbsSetComponent() =
         if model.YtSetIndex.IsNone then empty()
         else
             let _, segmentName, documents = model.YtSetIndex.Value
-
+            let displayText = segmentName.Value |> Option.defaultWith (fun _ -> "[missing]")
             let dropdownClasses = CssClasses [
                 "dropdown"
                 if model.YtSetRequestSelection then "is-active"
@@ -38,7 +38,7 @@ type YtThumbsSetComponent() =
                         "aria-haspopup" => "true"; "aria-controls" => "dropdown-menu"
                         on.click (fun _ -> SelectYtSet |> dispatch)
 
-                        span { text $"{segmentName.Value}" }
+                        span { text displayText }
                     }
                 }
                 div {
