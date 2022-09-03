@@ -1,15 +1,15 @@
 namespace Songhay.Player.YouTube
 
+open System
+open System.Text.Json
+
+open FsToolkit.ErrorHandling
+
+open Songhay.Modules.StringUtility
+open Songhay.Player.YouTube
+open Songhay.Player.YouTube.DisplayItemModelUtility
+
 module ServiceHandlerUtility =
-
-    open System
-    open System.Text.Json
-
-    open FsToolkit.ErrorHandling
-
-    open Songhay.Modules.StringUtility
-    open Songhay.Player.YouTube
-    open Songhay.Player.YouTube.DisplayItemModelUtility
 
     let getYtSetKey seed (uri: Uri) =
         let prefix = seed |> toKabobCase |> Option.defaultValue String.Empty

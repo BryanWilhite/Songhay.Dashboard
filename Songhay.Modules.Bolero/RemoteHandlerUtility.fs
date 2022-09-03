@@ -1,15 +1,15 @@
 namespace Songhay.Modules.Bolero
 
+open System.Net
+open System.Net.Http
+open System.Text.Json
+open System.Threading.Tasks
+open Microsoft.Extensions.Logging
+
+open Songhay.Modules.HttpResponseMessageUtility
+open Songhay.Modules.Bolero.JsonDocumentUtility
+
 module RemoteHandlerUtility =
-
-    open System.Net
-    open System.Net.Http
-    open System.Text.Json
-    open System.Threading.Tasks
-    open Microsoft.Extensions.Logging
-
-    open Songhay.Modules.HttpResponseMessageUtility
-    open Songhay.Modules.Bolero.JsonDocumentUtility
 
     let tryDownloadToStringAsync (logger: ILogger option) (responseResult: Result<HttpResponseMessage, exn>) =
         task {

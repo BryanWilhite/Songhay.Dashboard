@@ -5,12 +5,9 @@ open System.Net
 open Bolero
 open Bolero.Remoting
 
-open Songhay.Modules.Publications.Models
-open Songhay.Player.YouTube
-
 open Songhay.Modules.Models
+open Songhay.Player.YouTube
 open Songhay.Dashboard.Models
-open Songhay.Player.YouTube.Models
 
 type Page =
     | [<EndPoint "/">] StudioToolsPage
@@ -33,10 +30,10 @@ type Model =
 
 type DashboardService =
     {
-        getAppData: Uri -> Async<(FeedName * SyndicationFeed)[] option>
-        getYtItems: Uri -> Async<YouTubeItem[] option>
+        getAppData: Uri -> Async<Result<string, HttpStatusCode>>
+        getYtItems: Uri -> Async<Result<string, HttpStatusCode>>
         getYtSetIndex: Uri -> Async<Result<string, HttpStatusCode>>
-        getYtSet: Uri -> Async<(DisplayText * YouTubeItem []) [] option>
+        getYtSet: Uri -> Async<Result<string, HttpStatusCode>>
     }
 
     interface IRemoteService with

@@ -50,45 +50,11 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
     override this.Handler =
         {
             getAppData = fun uri -> async {
-                match cache.TryGetValue StudioFeedsPage with
-                | true, o -> return o :?> (FeedName * SyndicationFeed)[] option
-                | false, _ ->
-                    logger.LogInformation($"calling {uri.OriginalString}...")
-
-                    let! responseResult = client |> trySendAsync (get uri) |> Async.AwaitTask
-
-                    let dataGetter = ServiceHandlerUtility.toAppData
-
-                    let! output =
-                        responseResult
-                        |> ((Some (logger :> ILogger), dataGetter) ||> toHandlerOutputAsync)
-                        |> Async.AwaitTask
-
-                    let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(5));
-                    cache.Set(StudioFeedsPage, output, cacheEntryOptions) |> ignore
-
-                    return output
+                return! (StudioFeedsPage, uri) ||> this.tryDownloadToStringAsync |> Async.AwaitTask
             }
 
             getYtItems = fun uri -> async {
-                match cache.TryGetValue CalledYtItems with
-                | true, o -> return o :?> YouTubeItem[] option
-                | false, _ ->
-                    logger.LogInformation($"calling {uri.OriginalString}...")
-
-                    let! responseResult = client |> trySendAsync (get uri) |> Async.AwaitTask
-
-                    let dataGetter = ServiceHandlerUtility.toYtItems
-
-                    let! output =
-                        responseResult
-                        |> ((Some (logger :> ILogger), dataGetter) ||> toHandlerOutputAsync)
-                        |> Async.AwaitTask
-
-                    let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
-                    cache.Set(CalledYtItems, output, cacheEntryOptions) |> ignore
-
-                    return output
+                return! (CalledYtItems, uri) ||> this.tryDownloadToStringAsync |> Async.AwaitTask
             }
 
             getYtSetIndex = fun uri -> async {
@@ -97,23 +63,6 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
             getYtSet = fun uri -> async {
                 let cacheKey = uri |> ServiceHandlerUtility.getYtSetKey (nameof CalledYtSet)
-                match cache.TryGetValue cacheKey with
-                | true, o -> return o :?> (DisplayText * YouTubeItem []) [] option
-                | false, _ ->
-                    logger.LogInformation($"calling {uri.OriginalString}...")
-
-                    let! responseResult = client |> trySendAsync (get uri) |> Async.AwaitTask
-
-                    let dataGetter = ServiceHandlerUtility.toYtSet
-
-                    let! output =
-                        responseResult
-                        |> ((Some (logger :> ILogger), dataGetter) ||> toHandlerOutputAsync)
-                        |> Async.AwaitTask
-
-                    let cacheEntryOptions = MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(10));
-                    cache.Set(cacheKey, output, cacheEntryOptions) |> ignore
-
-                    return output
+                return! (cacheKey, uri) ||> this.tryDownloadToStringAsync |> Async.AwaitTask
             }
         }

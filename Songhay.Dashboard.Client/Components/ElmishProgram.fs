@@ -57,8 +57,12 @@ module ElmishProgram =
         | Message.ClearError -> { model with error = None }, Cmd.none
         | Message.Error exn -> { model with error = Some exn.Message }, Cmd.none
         | Message.GetFeeds ->
+            let success (result: Result<string, HttpStatusCode>) =
+                let dataGetter = Songhay.Dashboard.ServiceHandlerUtility.toAppData
+                let feeds = (dataGetter, result) ||> toHandlerOutput None
+                GotFeeds feeds
             let uri = App.AppDataLocation |> Uri
-            let cmd = Cmd.OfAsync.either remote.getAppData uri GotFeeds Message.Error
+            let cmd = Cmd.OfAsync.either remote.getAppData uri success Message.Error
             { model with feeds = None }, cmd
         | Message.GotFeeds feeds -> { model with feeds = feeds }, Cmd.none
         | Message.SetPage page ->
@@ -67,87 +71,50 @@ module ElmishProgram =
             | StudioFeedsPage -> m , Cmd.ofMsg GetFeeds
             | _ -> m, Cmd.none
         | Message.YouTubeMessage ytMsg ->
-
             let ytModel = {
                 model with ytModel = YouTubeModel.updateModel ytMsg model.ytModel
             }
+            let uriYtSet =
+                (
+                    YtIndexSonghay |> Identifier.Alphanumeric,
+                    snd ytModel.ytModel.YtSetIndexSelectedDocument
+                )
+                ||> getPlaylistSetUri
+
+            let successYtItems (result: Result<string, HttpStatusCode>) =
+                let dataGetter = ServiceHandlerUtility.toYtSet
+                let set = (dataGetter, result) ||> toHandlerOutput None
+                let ytItemsSuccessMsg = YouTubeMessage.CalledYtSet set
+                Message.YouTubeMessage ytItemsSuccessMsg
+
+            let failure ex = ((jsRuntime |> Some), ex) ||> ytMsg.failureMessage |> Message.YouTubeMessage
 
             match ytMsg with
             | YouTubeMessage.CallYtItems ->
-                let success = fun items ->
+                let success (result: Result<string, HttpStatusCode>) =
+                    let dataGetter = ServiceHandlerUtility.toYtItems
+                    let items = (dataGetter, result) ||> toHandlerOutput None
                     let ytItemsSuccessMsg = YouTubeMessage.CalledYtItems items
                     Message.YouTubeMessage ytItemsSuccessMsg
-
-                let failure = fun ex ->
-                    let ytFailureMsg = YouTubeMessage.Error ex
-
-                    jsRuntime |> Songhay.Modules.Bolero.JsRuntimeUtility.consoleErrorAsync [|
-                        $"{nameof YouTubeMessage}.{nameof CallYtItems} failure:", ex
-                    |] |> ignore
-
-                    Message.YouTubeMessage ytFailureMsg
-
                 let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
                 let cmd = Cmd.OfAsync.either remote.getYtItems uri success failure
-
                 ytModel, cmd
 
             | YouTubeMessage.CallYtIndexAndSet ->
-                let successIdx = fun (result: Result<string, HttpStatusCode>) ->
+                let success (result: Result<string, HttpStatusCode>) =
                     let dataGetter = ServiceHandlerUtility.toPublicationIndexData
                     let index = (dataGetter, result) ||> toHandlerOutput None
                     let ytItemsSuccessMsg = YouTubeMessage.CalledYtSetIndex index
                     Message.YouTubeMessage ytItemsSuccessMsg
-
-                let success = fun set ->
-                    let ytItemsSuccessMsg = YouTubeMessage.CalledYtSet set
-                    Message.YouTubeMessage ytItemsSuccessMsg
-
-                let failure = fun ex ->
-                    let ytFailureMsg = YouTubeMessage.Error ex
-
-                    jsRuntime |> Songhay.Modules.Bolero.JsRuntimeUtility.consoleErrorAsync [|
-                        $"{nameof YouTubeMessage}.{nameof CallYtIndexAndSet} failure:", ex
-                    |] |> ignore
-
-                    Message.YouTubeMessage ytFailureMsg
-
                 let uriIdx = YtIndexSonghay |> Identifier.Alphanumeric |> getPlaylistIndexUri
-
-                let uri =
-                    (
-                        YtIndexSonghay |> Identifier.Alphanumeric,
-                        snd ytModel.ytModel.YtSetIndexSelectedDocument
-                    ) ||> getPlaylistSetUri
-
                 let cmdBatch = Cmd.batch [
-                    Cmd.OfAsync.either remote.getYtSetIndex uriIdx successIdx failure
-                    Cmd.OfAsync.either remote.getYtSet uri success failure
+                    Cmd.OfAsync.either remote.getYtSetIndex uriIdx success failure
+                    Cmd.OfAsync.either remote.getYtSet uriYtSet successYtItems failure
                 ]
-
                 ytModel, cmdBatch
 
             | YouTubeMessage.CallYtSet _ ->
-                let success = fun set ->
-                    let ytItemsSuccessMsg = YouTubeMessage.CalledYtSet set
-                    Message.YouTubeMessage ytItemsSuccessMsg
-
-                let failure = fun ex ->
-                    let ytFailureMsg = YouTubeMessage.Error ex
-
-                    jsRuntime |> Songhay.Modules.Bolero.JsRuntimeUtility.consoleErrorAsync [|
-                        $"{nameof YouTubeMessage}.{nameof CallYtSet} failure:", ex
-                    |] |> ignore
-
-                    Message.YouTubeMessage ytFailureMsg
-
-                let uri =
-                    (
-                        YtIndexSonghay |> Identifier.Alphanumeric,
-                        snd ytModel.ytModel.YtSetIndexSelectedDocument
-                    ) ||> getPlaylistSetUri
-                let cmd = Cmd.OfAsync.either remote.getYtSet uri success failure
-
+                let cmd = Cmd.OfAsync.either remote.getYtSet uriYtSet successYtItems failure
                 ytModel, cmd
 
             | YouTubeMessage.OpenYtSetOverlay ->

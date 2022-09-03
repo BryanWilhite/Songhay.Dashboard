@@ -5,9 +5,9 @@ open System
 open Bolero.Html
 
 open Songhay.Modules.Models
-open Songhay.Dashboard.Client
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Visuals.Svg
+open Songhay.Dashboard.Client
 
 module StudioTools =
 

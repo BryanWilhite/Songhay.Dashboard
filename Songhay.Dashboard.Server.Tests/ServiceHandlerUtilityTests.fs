@@ -1,23 +1,23 @@
 namespace Songhay.Dashboard.Server.Tests
 
+open System
+open System.IO
+open System.Net.Http
+open System.Reflection
+
+open Xunit
+open FsUnit.Xunit
+open FsUnit.CustomMatchers
+open FsToolkit.ErrorHandling
+
+open Songhay.Modules.Models
+open Songhay.Modules.HttpClientUtility
+open Songhay.Modules.HttpRequestMessageUtility
+open Songhay.Modules.ProgramFileUtility
+
+open Songhay.Dashboard.Client
+
 module ServiceHandlerUtilityTests =
-
-    open System
-    open System.IO
-    open System.Net.Http
-    open System.Reflection
-
-    open Xunit
-    open FsUnit.Xunit
-    open FsUnit.CustomMatchers
-    open FsToolkit.ErrorHandling
-
-    open Songhay.Modules.Models
-    open Songhay.Modules.HttpClientUtility
-    open Songhay.Modules.HttpRequestMessageUtility
-    open Songhay.Modules.ProgramFileUtility
-
-    open Songhay.Dashboard.Client
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()

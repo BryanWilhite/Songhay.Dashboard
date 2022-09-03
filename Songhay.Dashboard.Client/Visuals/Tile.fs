@@ -1,6 +1,7 @@
 namespace Songhay.Dashboard.Client.Visuals
 
 open Bolero.Html
+
 open Songhay.Modules.Bolero.BoleroUtility
 
 module Tile =

@@ -1,14 +1,14 @@
 namespace Songhay.Modules.Bolero
 
+open System.Net
+open System.Text.Json
+open Microsoft.Extensions.Logging
+
+open FsToolkit.ErrorHandling
+
+open Songhay.Modules.JsonDocumentUtility
+
 module JsonDocumentUtility =
-
-    open System.Net
-    open System.Text.Json
-    open Microsoft.Extensions.Logging
-
-    open FsToolkit.ErrorHandling
-
-    open Songhay.Modules.JsonDocumentUtility
 
     let tryGetJsonElement (logger: ILogger option) (jsonResult: Result<string, HttpStatusCode>) = 
         jsonResult

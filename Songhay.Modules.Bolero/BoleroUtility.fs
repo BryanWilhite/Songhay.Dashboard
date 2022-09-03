@@ -1,10 +1,10 @@
 namespace Songhay.Modules.Bolero
 
-module BoleroUtility =
+open System
+open Bolero
+open Bolero.Html
 
-    open System
-    open Bolero
-    open Bolero.Html
+module BoleroUtility =
 
     type CssClasses =
         | CssClasses of string list

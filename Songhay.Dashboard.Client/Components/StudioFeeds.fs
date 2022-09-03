@@ -8,11 +8,11 @@ open Songhay.Modules.Models
 open Songhay.Modules.StringUtility
 
 open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.Visuals.Svg
 
+open Songhay.Dashboard.Models
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.ElmishTypes
-open Songhay.Dashboard.Models
-open Songhay.Modules.Bolero.Visuals.Svg
 
 module StudioFeeds =
 

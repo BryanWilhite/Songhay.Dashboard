@@ -1,4 +1,4 @@
-module Songhay.Modules.Bolero.Models
+namespace Songhay.Modules.Bolero.Models
 
 type EditCommand =
     | Add

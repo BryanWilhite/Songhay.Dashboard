@@ -18,53 +18,55 @@ type YtThumbsSetComponent() =
     static let click = GlobalEventHandlers.OnClick
 
     static let bulmaDropdown (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime) (model: YouTubeModel) =
-        let _, segmentName, documents = model.YtSetIndex.Value
+        if model.YtSetIndex.IsNone then empty()
+        else
+            let _, segmentName, documents = model.YtSetIndex.Value
 
-        let dropdownClasses = CssClasses [
-            "dropdown"
-            if model.YtSetRequestSelection then "is-active"
-        ]
-
-        div {
-            dropdownClasses.ToHtmlClassAttribute
+            let dropdownClasses = CssClasses [
+                "dropdown"
+                if model.YtSetRequestSelection then "is-active"
+            ]
 
             div {
-                "dropdown-trigger" |> toHtmlClass
-
-                button {
-                    "button" |> toHtmlClass
-                    "aria-haspopup" => "true"; "aria-controls" => "dropdown-menu"
-                    on.click (fun _ -> SelectYtSet |> dispatch)
-
-                    span { text $"{segmentName.Value}" }
-                }
-            }
-            div {
-                "dropdown-menu" |> toHtmlClass; "role" => "menu"
+                dropdownClasses.ToHtmlClassAttribute
 
                 div {
-                    "dropdown-content" |> toHtmlClass
+                    "dropdown-trigger" |> toHtmlClass
 
-                    forEach documents <| fun (display, _) ->
-                        let clientId = ClientId.fromIdentifier display.id
-                        if display.displayText.IsSome then
-                            a {
-                                attr.href "#"
-                                [
-                                    "dropdown-item"
-                                    if clientId = snd model.YtSetIndexSelectedDocument then
-                                        "is-active"
-                                ] |> toHtmlClassFromList
-                                click.PreventDefault
-                                on.click (fun _ ->
-                                    CallYtSet (display.displayText.Value, clientId) |> dispatch)
+                    button {
+                        "button" |> toHtmlClass
+                        "aria-haspopup" => "true"; "aria-controls" => "dropdown-menu"
+                        on.click (fun _ -> SelectYtSet |> dispatch)
 
-                                text (display.displayText |> Option.get).Value
-                            }
-                        else empty()
+                        span { text $"{segmentName.Value}" }
+                    }
+                }
+                div {
+                    "dropdown-menu" |> toHtmlClass; "role" => "menu"
+
+                    div {
+                        "dropdown-content" |> toHtmlClass
+
+                        forEach documents <| fun (display, _) ->
+                            let clientId = ClientId.fromIdentifier display.id
+                            if display.displayText.IsSome then
+                                a {
+                                    attr.href "#"
+                                    [
+                                        "dropdown-item"
+                                        if clientId = snd model.YtSetIndexSelectedDocument then
+                                            "is-active"
+                                    ] |> toHtmlClassFromList
+                                    click.PreventDefault
+                                    on.click (fun _ ->
+                                        CallYtSet (display.displayText.Value, clientId) |> dispatch)
+
+                                    text (display.displayText |> Option.get).Value
+                                }
+                            else empty()
+                    }
                 }
             }
-        }
 
     static let ytSetOverlayCloseCommand (dispatch: Dispatch<YouTubeMessage>) =
         a {

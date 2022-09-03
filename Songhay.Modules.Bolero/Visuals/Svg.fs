@@ -1,16 +1,15 @@
 namespace Songhay.Modules.Bolero.Visuals
 
+open Bolero.Html
+
+open Songhay.Modules.Models
+open Songhay.Modules.Bolero.BoleroUtility
+
 type StreamGeometry =
     | StreamGeometry of string
     member this.Value = let (StreamGeometry s) = this in s
 
 module Svg =
-
-    open Bolero.Html
-
-    open Songhay.Modules.Models
-    open Songhay.Modules.Bolero.BoleroUtility
-
     [<Literal>]
     let SvgUri = "http://www.w3.org/2000/svg"
 

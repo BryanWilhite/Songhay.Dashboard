@@ -1,21 +1,21 @@
 namespace Songhay.Player.YouTube.Tests
 
+open System.IO
+open System.Reflection
+open System.Text.Json
+open Xunit
+open FsUnit.Xunit
+open FsUnit.CustomMatchers
+open FsToolkit.ErrorHandling
+
+open Songhay.Modules.Models
+open Songhay.Modules.JsonDocumentUtility
+open Songhay.Modules.ProgramFileUtility
+
+open Songhay.Player.YouTube.Models
+open Songhay.Player.YouTube.YtItemUtility
+
 module YtItemUtilityTests =
-
-    open System.IO
-    open System.Reflection
-    open System.Text.Json
-    open Xunit
-    open FsUnit.Xunit
-    open FsUnit.CustomMatchers
-    open FsToolkit.ErrorHandling
-
-    open Songhay.Modules.Models
-    open Songhay.Modules.JsonDocumentUtility
-    open Songhay.Modules.ProgramFileUtility
-
-    open Songhay.Player.YouTube.Models
-    open Songhay.Player.YouTube.YtItemUtility
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()
