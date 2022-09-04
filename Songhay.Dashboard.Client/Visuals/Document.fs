@@ -7,35 +7,23 @@ open Bolero.Html
 
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Visuals
+open Songhay.Modules.Bolero.Visuals.Document
+
 open Songhay.Dashboard.Client
 
 module Document =
-
-    let metaElements =
-        [
-            meta { attr.charset "UTF-8" }
-            meta { attr.name "viewport"; attr.content "width=device-width, initial-scale=1.0" }
-        ]
-
-    let linkElements (rootCompId: string) =
-        [
-            link { attr.rel "stylesheet"; attr.href $"css/{rootCompId}.min.css" }
-            link { attr.rel "icon"; attr.``type`` "image/x-icon"; attr.href "favicon.ico" }
-        ]
-
     let headElements (rootCompId: string) =
-        metaElements
+        Head.metaElements
         @
-        [ ``base`` { attr.href "/" } ]
+        [(None |> Head.baseElement)]
         @
-        (rootCompId |> linkElements)
+        (rootCompId |> Head.studioLinkElements)
         @
-        [ script { attr.src "js/songhay.min.js" } ]
+        [ Head.studioScriptElement ]
         @
-        [ title { text App.AppTitle } ]
+        [ App.AppTitle |> Head.titleElement ]
 
-    let headElement (rootCompId: string) =
-        head { forEach (rootCompId |> headElements |> wrapn 2) <| id }
+    let headElement (rootCompId: string) = rootCompId |> headElements |> Head.headElement
 
     let footerElement =
         footer {

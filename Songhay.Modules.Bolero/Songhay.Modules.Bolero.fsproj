@@ -11,6 +11,8 @@
       <Compile Include="JsRuntimeUtility.fs" />
       <Compile Include="RemoteHandlerUtility.fs" />
       <Compile Include="Visuals\Svg.fs" />
+      <Compile Include="Visuals\Bulma.fs" />
+      <Compile Include="Visuals\Document.fs" />
       <Compile Include="Models\Primitives.fs" />
     </ItemGroup>
 
