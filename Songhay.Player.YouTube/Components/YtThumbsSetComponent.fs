@@ -23,51 +23,22 @@ type YtThumbsSetComponent() =
         else
             let _, segmentName, documents = model.YtSetIndex.Value
             let displayText = segmentName.Value |> Option.defaultWith (fun _ -> "[missing]")
-            let dropdownClasses = CssClasses [
-                "dropdown"
-                if model.YtSetRequestSelection then "is-active"
-            ]
+            let isActive = model.YtSetRequestSelection
+            let callback = (fun _ -> SelectYtSet |> dispatch)
+            let dropDownContent =
+                forEach documents <| fun (display, _) ->
+                    if display.displayText.IsSome then
+                        let clientId = ClientId.fromIdentifier display.id
+                        let itemIsActive = (clientId = snd model.YtSetIndexSelectedDocument)
+                        let itemCallback = (fun _ -> CallYtSet (display.displayText.Value, clientId) |> dispatch)
+                        let itemDisplayText =
+                            (display.displayText |> Option.defaultWith (fun _ -> DisplayText "[missing]")).Value
 
-            div {
-                dropdownClasses.ToHtmlClassAttribute
+                        (itemIsActive, itemCallback, itemDisplayText) |||> bulmaDropdownItem
 
-                div {
-                    "dropdown-trigger" |> toHtmlClass
+                    else empty()
 
-                    button {
-                        "button" |> toHtmlClass
-                        "aria-haspopup" => "true"; "aria-controls" => "dropdown-menu"
-                        on.click (fun _ -> SelectYtSet |> dispatch)
-
-                        span { text displayText }
-                    }
-                }
-                div {
-                    "dropdown-menu" |> toHtmlClass; "role" => "menu"
-
-                    div {
-                        "dropdown-content" |> toHtmlClass
-
-                        forEach documents <| fun (display, _) ->
-                            let clientId = ClientId.fromIdentifier display.id
-                            if display.displayText.IsSome then
-                                a {
-                                    attr.href "#"
-                                    [
-                                        "dropdown-item"
-                                        if clientId = snd model.YtSetIndexSelectedDocument then
-                                            "is-active"
-                                    ] |> toHtmlClassFromList
-                                    click.PreventDefault
-                                    on.click (fun _ ->
-                                        CallYtSet (display.displayText.Value, clientId) |> dispatch)
-
-                                    text (display.displayText |> Option.get).Value
-                                }
-                            else empty()
-                    }
-                }
-            }
+            dropDownContent |> bulmaDropdown isActive displayText callback
 
     static let ytSetOverlayCloseCommand (dispatch: Dispatch<YouTubeMessage>) =
         a {
@@ -101,44 +72,28 @@ type YtThumbsSetComponent() =
             cond model.YtSetIndex.IsSome <| function
             | true ->
                 nav {
-                    [ "level"; "m-2" ] |> toHtmlClassFromList
+                    bulmaLevelCssClasses 2
 
                     div {
-                        "level-left" |> toHtmlClass
+                        bulmaLevelLeftCssClass
 
-                        div {
-                            "level-item" |> toHtmlClass
-
-                            model |> bulmaDropdown dispatch jsRuntime
-                        }
-                        div {
-                            [ "level-item"; "is-size-2" ] |> toHtmlClassFromList
-
-                            text (fst model.YtSetIndexSelectedDocument).Value
-                        }
+                        (dispatch, jsRuntime, model) |||> bulmaDropdown |> bulmaLevelItem None
+                        text (fst model.YtSetIndexSelectedDocument).Value |> bulmaLevelItem (CssClasses [ "is-size-2" ] |> Some)
                     }
                     div {
-                        "level-right" |> toHtmlClass
+                        bulmaLevelRightCssClass
 
-                        div {
-                            "level-item" |> toHtmlClass
-
-                            ytSetOverlayCloseCommand dispatch
-                        }
+                        ytSetOverlayCloseCommand dispatch |> bulmaLevelItem None
                     }
                 }
             | false ->
                 nav {
-                    [ "level"; "m-2" ] |> toHtmlClassFromList
+                    bulmaLevelCssClasses 2
 
                     div {
-                        "level-right" |> toHtmlClass
+                        bulmaLevelRightCssClass
 
-                        div {
-                            "level-item" |> toHtmlClass
-
-                            ytSetOverlayCloseCommand dispatch
-                        }
+                        ytSetOverlayCloseCommand dispatch |> bulmaLevelItem None
                     }
                 }
             cond model.YtSet.IsSome <| function
