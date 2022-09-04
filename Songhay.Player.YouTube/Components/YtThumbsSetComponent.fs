@@ -8,6 +8,7 @@ open Bolero.Html
 open Elmish
 
 open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.Visuals.Bulma.Block
 open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Modules.Models
 open Songhay.Player.YouTube
@@ -148,16 +149,7 @@ type YtThumbsSetComponent() =
                     forEach model.YtSet.Value <| fun (_, items) ->
                         YtThumbsComponent.EComp None { model with YtItems = Some items } dispatch
                 }
-            | false ->
-                div {
-                    [ "has-text-centered"; "loader-container"; "p-6"] |> toHtmlClassFromList
-
-                    div {
-                        [ "image"; "is-128x128"; "loader"; "m-6" ] |> toHtmlClassFromList
-
-                        attr.title "Loading…"
-                    }
-                }
+            | false -> (6, 6) ||> bulmaLoader
         }
 
     static member val Id = "yt-thumbs-set-block" with get

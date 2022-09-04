@@ -15,6 +15,7 @@ open Elmish
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.StringUtility
 open Songhay.Modules.Bolero.JsRuntimeUtility
+open Songhay.Modules.Bolero.Visuals.Bulma.Block
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Player.YouTube
@@ -114,11 +115,7 @@ type YtThumbsComponent() =
 
         cond items.IsSome <| function
             | true -> div { attr.ref blockWrapperRef; forEach items.Value <| toSpan }
-            | false ->
-                div {
-                    [ "has-text-centered"; "loader-container"; "p-6" ] |> toHtmlClassFromList
-                    div { [ "image"; "is-128x128"; "loader"; "m-3" ] |> toHtmlClassFromList; attr.title "Loading…" }
-                }
+            | false -> (6, 3) ||> bulmaLoader
 
     static let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
         (initCache: Dictionary<GlobalEventHandlers, bool>) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef)

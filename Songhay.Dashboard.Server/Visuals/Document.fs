@@ -17,5 +17,8 @@ module Document =
                 rootComp<ContentBlockComponent>
             }
 
-    let document =
-        doctypeHtml { forEach ((ContentBlockComponent.Id, boleroScript, rootCompContainer) |||> docElements |> wrapn 1) <| id }
+    let elements =
+        let indentationLevel = 1
+        (indentationLevel , (ContentBlockComponent.Id, boleroScript, rootCompContainer) |||> docElements) ||> wrapn
+
+    let document = doctypeHtml { forEach elements <| id }
