@@ -71,9 +71,9 @@ type YtThumbsSetComponent() =
 
         let levelRight =
             div {
-                level Right
+                level Right |> toHtmlClass
 
-                div { levelItem; ytSetOverlayCloseCommand dispatch }
+                div { levelItem |> toHtmlClass; ytSetOverlayCloseCommand dispatch }
             }
 
         div {
@@ -84,9 +84,9 @@ type YtThumbsSetComponent() =
                     [ levelContainer; m (All, L2)] |> toHtmlClassFromList
 
                     div {
-                        level Left
+                        level Left |> toHtmlClass
 
-                        div { levelItem ; (dispatch, jsRuntime, model) |||> bulmaDropdown }
+                        div { levelItem |> toHtmlClass ; (dispatch, jsRuntime, model) |||> bulmaDropdown }
                         div {
                             [ levelItem; fontSize Size2 ] |> toHtmlClassFromList
                             text (fst model.YtSetIndexSelectedDocument).Value

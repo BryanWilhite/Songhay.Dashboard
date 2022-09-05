@@ -58,7 +58,14 @@ module Bulma =
         [<Literal>]
         let elementIsRelative = "is-relative"
 
-        let elementTextAlign (alignment: CssAlignment) = $"has-text-{alignment.Value}"
+        let elementTextAlign (alignment: CssAlignment) =
+            let suffix =
+                match alignment with
+                | Center -> "centered"
+                | Justify -> "justified"
+                | _ -> alignment.Value
+
+            $"has-text-{suffix}"
 
         ///<remarks>
         /// Transforms the first character of each word to Uppercase
@@ -165,6 +172,15 @@ module Bulma =
         [<Literal>]
         let imageIsRounded = "is-rounded"
 
+        ///<remarks>
+        /// “By default, columns are only activated on tablet and desktop.
+        /// If you want to use columns on mobile too,
+        /// add the is-mobile modifier on the columns container.”
+        /// — https://github.com/jgthms/bulma/blob/master/docs/_posts/2016-02-09-blog-launched-new-responsive-columns-new-helpers.md
+        ///</remarks>
+        [<Literal>]
+        let isMobileModifier = "is-mobile"
+
         [<Literal>]
         let levelContainer = "level"
 
@@ -250,13 +266,13 @@ module Bulma =
     module Button =
         let bulmaAnchorIconButton (title: DisplayText, href: Uri, id: Identifier) =
             a {
-                (CssClasses [ "level-item"; CssClass.elementTextAlign Center ]).ToHtmlClassAttribute
+                (CssClasses [ CssClass.levelItem; CssClass.elementTextAlign Center ]).ToHtmlClassAttribute
                 attr.href href.OriginalString
                 attr.target "_blank"
                 attr.title title.Value
 
                 span {
-                    attr.``class`` "icon"
+                    "icon" |> toHtmlClass
                     "aria-hidden" => "true"
 
                     svgNode (svgViewBoxSquare 24) svgData[id]

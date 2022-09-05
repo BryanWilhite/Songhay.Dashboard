@@ -21,23 +21,23 @@ type StudioComponent() =
     inherit ElmishComponent<Model, Message>()
 
     static let studioLogo =
-        let spanClasses = CssClasses [ "title"; fontSize Size2; hidden Tablet ]
+        let spanClasses = CssClasses [ "title"; fontSize Size2; hidden Touch ]
 
         div {
             "logo" |> toHtmlClass
             attr.title App.AppTitle
 
-            span { "has-text-weight-normal" |> spanClasses.Prepend |> toHtmlClassFromData; text "Songhay" }
+            span { elementTextIsWeightNormal |> spanClasses.Prepend |> toHtmlClassFromData; text "Songhay" }
             span { spanClasses.ToHtmlClassAttribute; text "System" }
             span { [ "title"; fontSize Size1 ] |> toHtmlClassFromList; text "(::)" }
         }
 
     static let svgVersionNode (data: VersionData) =
         let classes = CssClasses [
-            "level-item"
+            levelItem
             "is-akyinkyin-base"
-            "is-unselectable"
-            "has-text-centered"
+            elementTextIsUnselectable
+            elementTextAlign Center
         ]
 
         div {
@@ -54,9 +54,9 @@ type StudioComponent() =
         }
 
     static let studioNode =
-        let cssClassesParentLevel = CssClasses [ levelContainer; "is-mobile" ]
+        let cssClassesParentLevel = CssClasses [ levelContainer; isMobileModifier ]
 
-        let cssClassesSvgLinkNodes = [ m (T, L6); m (R, L6) ] |> cssClassesParentLevel.AppendList
+        let cssClassesSvgLinkNodes = [ m (LR, L6) ] |> cssClassesParentLevel.AppendList
 
         let cssClassesSvgVersionNodes =
             [ "has-text-greys-light-tone"; m (T, L6); p (T, L6) ] |> cssClassesParentLevel.AppendList

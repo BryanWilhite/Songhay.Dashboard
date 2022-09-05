@@ -177,11 +177,11 @@ type YtThumbsComponent() =
                     level CssAlignment.Left |> toHtmlClass
 
                     span {
-                        [ "level-item" ] @ imageContainer (Square Square48) |> toHtmlClassFromList
+                        ([ levelItem ] @ imageContainer (Square Square48)) |> toHtmlClassFromList
                         svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_YOUTUBE_24PX.ToAlphanumeric]
                     }
                     span {
-                        [ "level-item"; fontSize Size2 ] |> toHtmlClassFromList
+                        [ levelItem; fontSize Size2 ] |> toHtmlClassFromList
                         (jsRuntime, itemsTitle, model) |||> getYtThumbsTitle dispatch
                     }
                 }
