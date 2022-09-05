@@ -27,7 +27,7 @@ type StudioComponent() =
             "logo" |> toHtmlClass
             attr.title App.AppTitle
 
-            span { elementTextIsWeightNormal |> spanClasses.Prepend |> toHtmlClassFromData; text "Songhay" }
+            span { (elementFontWeight Normal) |> spanClasses.Prepend |> toHtmlClassFromData; text "Songhay" }
             span { spanClasses.ToHtmlClassAttribute; text "System" }
             span { [ "title"; fontSize Size1 ] |> toHtmlClassFromList; text "(::)" }
         }

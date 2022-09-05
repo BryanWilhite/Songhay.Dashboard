@@ -113,6 +113,38 @@ type CssCommonImageAspectRatioNumber =
         | Nine -> "9"
         | Sixteen -> "16"
 
+type CssFontFamily =
+    | SansSerif
+    | Monospace
+    | Primary
+    | Secondary
+    | Emoji
+    | Math
+
+    member this.Value =
+        match this with
+        | SansSerif -> "sans-serif"
+        | Monospace -> "monospace"
+        | Primary -> "primary"
+        | Secondary -> "secondary"
+        | Emoji -> "emoji"
+        | Math -> "math"
+
+type CssFontWeight =
+    | Light
+    | Normal
+    | Medium
+    | Semibold
+    | Bold
+
+    member this.Value =
+        match this with
+        | Light -> "light"
+        | Normal -> "normal"
+        | Medium -> "medium"
+        | Semibold -> "semibold"
+        | Bold -> "bold"
+
 type CssMargin =
     | CssMargin of CssBoxModel
     member this.Value = match this with | CssMargin m -> m
@@ -120,3 +152,18 @@ type CssMargin =
 type CssPadding =
     | CssPadding of CssBoxModel
     member this.Value = match this with | CssPadding m -> m
+
+type CssTextTransformation =
+    | Lowercase
+    | TitleCase
+    | UpperCase
+    | Italic
+    | Underline
+
+    member this.Value =
+        match this with
+        | Lowercase -> "lowercase"
+        | TitleCase -> "title-case"
+        | UpperCase -> "uppercase"
+        | Italic -> "italic"
+        | Underline -> "underline"

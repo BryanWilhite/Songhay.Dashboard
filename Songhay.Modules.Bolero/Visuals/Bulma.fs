@@ -23,6 +23,29 @@ module Bulma =
     /// Bulma CSS class-name functions and literals.
     ///</summary>
     module CssClass =
+
+        ///<summary>
+        /// Bulma CSS class-name function for typography.
+        ///</summary>
+        ///<remarks>
+        /// — https://bulma.io/documentation/helpers/typography-helpers/#font-family
+        ///</remarks>
+        let elementFontFamily (family: CssFontFamily) =
+            let suffix =
+                match family with
+                | SansSerif | Monospace | Primary | Secondary -> family.Value
+                | _ -> "code"
+
+            $"is-family-{suffix}"
+
+        ///<summary>
+        /// Bulma CSS class-name function for typography.
+        ///</summary>
+        ///<remarks>
+        /// — https://bulma.io/documentation/helpers/typography-helpers/#text-weight
+        ///</remarks>
+        let elementFontWeight (weight: CssFontWeight) = $"has-text-weight-{weight.Value}"
+
         ///<summary>
         /// Bulma CSS class-name literal.
         ///</summary>
@@ -98,104 +121,36 @@ module Bulma =
         [<Literal>]
         let elementIsRelative = "is-relative"
 
+        ///<summary>
+        /// Bulma CSS class-name function for typography.
+        ///</summary>
+        ///<remarks>
+        /// — https://bulma.io/documentation/helpers/typography-helpers/#alignment
+        ///</remarks>
         let elementTextAlign (alignment: CssAlignment) =
             let suffix =
                 match alignment with
                 | Center -> "centered"
                 | Justify -> "justified"
-                | _ -> alignment.Value
+                | Left | Right -> alignment.Value
+                | _ -> "left"
 
             $"has-text-{suffix}"
 
         ///<summary>
-        /// Bulma CSS class-name literal.
+        /// Bulma CSS class-name function for typography.
         ///</summary>
         ///<remarks>
-        /// Transforms the first character of each word to Uppercase
+        /// — https://bulma.io/documentation/helpers/typography-helpers/#text-transformation
         ///</remarks>
-        [<Literal>]
-        let elementTextIsCapitalized = "is-capitalized"
+        let elementTextTransformation (transformation: CssTextTransformation) =
+            let suffix =
+                match transformation with
+                | TitleCase -> "capitalized"
+                | Underline -> "underlined"
+                | _ -> transformation.Value
 
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Sets font family to <c>$family-sans-serif</c>
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsFamilySansSerif = "is-family-sans-serif"
-
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Sets font family to <c>$family-monospace</c>
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsFamilyMonospace = "is-family-monospace"
-
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Sets font family to <c>$family-primary</c>
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsFamilyPrimary = "is-family-primary"
-
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Sets font family to <c>$family-secondary</c>
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsFamilySecondary = "is-family-secondary"
-
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Sets font family to <c>$family-code</c>
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsFamilyCode = "is-family-code"
-
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Transforms all characters to lowercase
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsLowercase = "is-lowercase"
-
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Transforms all characters to UPPERCASE
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsUppercase = "is-uppercase"
-
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Transforms all characters to italic
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsItalic = "is-italic"
-
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Transforms all characters to underlined
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsUnderlined = "is-underlined"
+            $"is-{suffix}"
 
         ///<summary>
         /// Bulma CSS class-name literal.
@@ -205,48 +160,6 @@ module Bulma =
         ///</remarks>
         [<Literal>]
         let elementTextIsUnselectable = "is-unselectable"
-
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Transforms text weight to light
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsWeightLight = "has-text-weight-light"
-
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Transforms text weight to normal
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsWeightNormal = "has-text-weight-normal"
-
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Transforms text weight to medium
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsWeightMedium = "has-text-weight-medium"
-
-        ///<summary>
-        /// Bulma CSS class-name literal.
-        ///</summary>
-        ///<remarks>
-        /// Transforms text weight to semibold
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsWeightSemibold = "has-text-weight-semibold"
-
-        ///<remarks>
-        /// Transforms text weight to bold
-        ///</remarks>
-        [<Literal>]
-        let elementTextIsWeightBold = "has-text-weight-bold"
 
         ///<summary>
         /// Bulma CSS class-name function.
@@ -282,19 +195,37 @@ module Bulma =
         let isMobileModifier = "is-mobile"
 
         ///<summary>
-        /// Bulma CSS class-name literal.
+        /// Bulma CSS class-name function for layout.
         ///</summary>
+        ///<remarks>
+        /// “A multi-purpose horizontal level, which can contain almost any other element…”
+        /// — https://bulma.io/documentation/layout/level/
+        ///</remarks>
         [<Literal>]
         let levelContainer = "level"
 
         ///<summary>
-        /// Bulma CSS class-name function.
+        /// Bulma CSS class-name function for layout.
         ///</summary>
-        let level (alignment: CssAlignment) = $"level-{alignment.Value}"
+        ///<remarks>
+        /// Either <c>level-left</c> or <c>level-right</c>.
+        /// — https://bulma.io/documentation/layout/level/
+        ///</remarks>
+        let level (alignment: CssAlignment) =
+            match alignment with
+            | Left | Right -> $"level-{alignment.Value}"
+            | _ -> "level-left"
 
         ///<summary>
-        /// Bulma CSS class-name literal.
+        /// Bulma CSS class-name function for layout.
         ///</summary>
+        ///<remarks>
+        /// “In a level-item, you can then insert almost anything you want:
+        /// a title, a button, a text input, or just simple text.
+        /// No matter what elements you put inside a Bulma level,
+        /// they will always be vertically centered.”
+        /// — https://bulma.io/documentation/layout/level/
+        ///</remarks>
         [<Literal>]
         let levelItem = "level-item"
 
@@ -311,6 +242,10 @@ module Bulma =
         ///<summary>
         /// Bulma CSS class-name literal.
         ///</summary>
+        ///<remarks>
+        /// “A composable panel, for compact controls…”
+        /// — https://bulma.io/documentation/components/panel/
+        ///</remarks>
         [<Literal>]
         let panel = "panel"
 
