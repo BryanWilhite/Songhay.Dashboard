@@ -1,0 +1,135 @@
+namespace Songhay.Modules.Bolero.Models
+
+///<summary>
+/// Defines Bulma responsive breakpoints
+///</summary>
+/// <remarks>
+/// see: https://bulma.io/documentation/helpers/visibility-helpers/
+/// </remarks>
+type BulmaBreakpoint =
+    ///<summary>up to 768px</summary>
+    | Mobile
+    ///<summary>between 769px and 1023px</summary>
+    | Tablet
+    ///<summary>up to 1023px</summary>
+    | Touch
+    ///<summary>between 1024px and 1215px</summary>
+    | Desktop
+    ///<summary>between 1216px and 1407px</summary>
+    | WideScreen
+    ///<summary>1408px and above</summary>
+    | FullHD
+
+    member this.Value =
+        match this with
+        | Mobile -> "mobile"
+        | Tablet -> "tablet"
+        | Touch -> "touch"
+        | Desktop -> "desktop"
+        | WideScreen -> "widescreen"
+        | FullHD -> "fullhd"
+
+///<summary>
+/// Defines the seven Bulma font sizes in <c>rem</c>.
+///</summary>
+/// <remarks>
+/// see: https://bulma.io/documentation/helpers/typography-helpers/
+/// </remarks>
+type BulmaFontSize =
+    ///<summary>3rem</summary>
+    | Size1
+    ///<summary>2.5rem</summary>
+    | Size2
+    ///<summary>2rem</summary>
+    | Size3
+    ///<summary>1.5rem</summary>
+    | Size4
+    ///<summary>1.25rem</summary>
+    | Size5
+    ///<summary>1rem</summary>
+    | Size6
+    ///<summary>0.75rem</summary>
+    | Size7
+
+    member this.Value =
+        match this with
+        | Size1 -> "1"
+        | Size2 -> "2"
+        | Size3 -> "3"
+        | Size4 -> "4"
+        | Size5 -> "5"
+        | Size6 -> "6"
+        | Size7 -> "7"
+
+type BulmaSquareDimension =
+    | Square16
+    | Square24
+    | Square32
+    | Square48
+    | Square64
+    | Square96
+    | Square128
+
+    member this.CssClass =
+        match this with
+        | Square16 -> "is-16x16"
+        | Square24 -> "is-24x24"
+        | Square32 -> "is-32x32"
+        | Square48 -> "is-48x48"
+        | Square64 -> "is-64x64"
+        | Square96 -> "is-96x96"
+        | Square128 -> "is-128x128"
+
+type BulmaRatioDimension =
+    | Square of BulmaSquareDimension
+    | FiveByFour
+    | FourByThree
+    | ThreeByTwo
+    | FiveByThree
+    | SixteenByNine
+    | TwoByOne
+    | ThreeByOne
+    | FourByFive
+    | ThreeByFour
+    | TwoByThree
+    | ThreeByFive
+    | NineBySixteen
+    | OneByTwo
+    | OneByThree
+
+    member this.CssClass =
+        match this with
+        | Square value -> value.CssClass
+        | FiveByFour -> $"is-{Five.Value}by{Four.Value}"
+        | FourByThree -> $"is-{Four.Value}by{Three.Value}"
+        | ThreeByTwo -> $"is-{Three.Value}by{Two.Value}"
+        | FiveByThree -> $"is-{Five.Value}by{Three.Value}"
+        | SixteenByNine -> $"is-{Sixteen.Value}by{Nine.Value}"
+        | TwoByOne -> $"is-{Two.Value}by{One.Value}"
+        | ThreeByOne -> $"is-{Three.Value}by{One.Value}"
+        | FourByFive -> $"is-{Four.Value}by{Five.Value}"
+        | ThreeByFour -> $"is-{Three.Value}by{Four.Value}"
+        | TwoByThree -> $"is-{Two.Value}by{Three.Value}"
+        | ThreeByFive -> $"is-{Three.Value}by{Five.Value}"
+        | NineBySixteen -> $"is-{Nine.Value}by{Sixteen.Value}"
+        | OneByTwo -> $"is-{One.Value}by{Two.Value}"
+        | OneByThree -> $"is-{One.Value}by{Three.Value}"
+
+type BulmaValueSuffix =
+    | L1
+    | L2
+    | L3
+    | L4
+    | L5
+    | L6
+    | Auto
+
+    member this.Value =
+        match this with
+        | L1 -> "1"
+        | L2 -> "2"
+        | L3 -> "3"
+        | L4 -> "4"
+        | L5 -> "5"
+        | L6 -> "6"
+        | Auto -> "auto"

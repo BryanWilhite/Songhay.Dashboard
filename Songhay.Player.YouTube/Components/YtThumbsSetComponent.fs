@@ -7,7 +7,9 @@ open Bolero
 open Bolero.Html
 open Elmish
 
+open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Block
 open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Modules.Models
@@ -42,7 +44,7 @@ type YtThumbsSetComponent() =
 
     static let ytSetOverlayCloseCommand (dispatch: Dispatch<YouTubeMessage>) =
         a {
-            [ "image"; "is-48x48" ] |> toHtmlClassFromList
+            imageContainer (Square Square48) |> toHtmlClassFromList
             attr.href "#"
             attr.title "close b-roll overlay"
             click.PreventDefault
@@ -67,34 +69,36 @@ type YtThumbsSetComponent() =
                         "fade-out"
             ]
 
+        let levelRight =
+            div {
+                level Right
+
+                div { levelItem; ytSetOverlayCloseCommand dispatch }
+            }
+
         div {
             overlayClasses.ToHtmlClassAttribute
             cond model.YtSetIndex.IsSome <| function
             | true ->
                 nav {
-                    bulmaLevelCssClasses 2
+                    [ levelContainer; m (All, L2)] |> toHtmlClassFromList
 
                     div {
-                        bulmaLevelLeftCssClass
+                        level Left
 
-                        (dispatch, jsRuntime, model) |||> bulmaDropdown |> bulmaLevelItem None
-                        text (fst model.YtSetIndexSelectedDocument).Value |> bulmaLevelItem (CssClasses [ "is-size-2" ] |> Some)
+                        div { levelItem ; (dispatch, jsRuntime, model) |||> bulmaDropdown }
+                        div {
+                            [ levelItem; fontSize Size2 ] |> toHtmlClassFromList
+                            text (fst model.YtSetIndexSelectedDocument).Value
+                        }
                     }
-                    div {
-                        bulmaLevelRightCssClass
-
-                        ytSetOverlayCloseCommand dispatch |> bulmaLevelItem None
-                    }
+                    levelRight
                 }
             | false ->
                 nav {
-                    bulmaLevelCssClasses 2
+                    [ levelContainer; m (All, L2)] |> toHtmlClassFromList
 
-                    div {
-                        bulmaLevelRightCssClass
-
-                        ytSetOverlayCloseCommand dispatch |> bulmaLevelItem None
-                    }
+                    levelRight
                 }
             cond model.YtSet.IsSome <| function
             | true ->

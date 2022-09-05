@@ -10,10 +10,11 @@
       <Compile Include="JsonDocumentUtility.fs" />
       <Compile Include="JsRuntimeUtility.fs" />
       <Compile Include="RemoteHandlerUtility.fs" />
+      <Compile Include="Models\Primitives.fs" />
+      <Compile Include="Models\BulmaPrimitives.fs" />
       <Compile Include="Visuals\Svg.fs" />
       <Compile Include="Visuals\Bulma.fs" />
       <Compile Include="Visuals\Document.fs" />
-      <Compile Include="Models\Primitives.fs" />
     </ItemGroup>
 
     <ItemGroup>

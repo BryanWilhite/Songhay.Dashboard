@@ -12,10 +12,12 @@ open Bolero
 open Bolero.Html
 open Elmish
 
-open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.StringUtility
+open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.JsRuntimeUtility
+open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Bulma.Block
+open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Player.YouTube
@@ -108,9 +110,9 @@ type YtThumbsComponent() =
                                 attr.height item.snippet.thumbnails.medium.height
                             }
                     }
-                span { [ "published-at"; "is-size-6" ] |> toHtmlClassFromList; item.getPublishedAt.Humanize() |> text }
-                span { [ "caption"; "has-text-weight-semibold"; "is-size-5" ] |> toHtmlClassFromList; item |> getYtThumbsAnchor }
-                span { [ "duration"; "is-size-6" ] |> toHtmlClassFromList ; span { duration } }
+                span { [ "published-at"; fontSize Size6 ] |> toHtmlClassFromList; item.getPublishedAt.Humanize() |> text }
+                span { [ "caption"; "has-text-weight-semibold"; fontSize Size5 ] |> toHtmlClassFromList; item |> getYtThumbsAnchor }
+                span { [ "duration"; fontSize Size6 ] |> toHtmlClassFromList ; span { duration } }
             }
 
         cond items.IsSome <| function
@@ -179,7 +181,7 @@ type YtThumbsComponent() =
                         svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_YOUTUBE_24PX.ToAlphanumeric]
                     }
                     span {
-                        [ "level-item"; "is-size-2" ] |> toHtmlClassFromList
+                        [ "level-item"; fontSize Size2 ] |> toHtmlClassFromList
                         (jsRuntime, itemsTitle, model) |||> getYtThumbsTitle dispatch
                     }
                 }

@@ -7,7 +7,9 @@ open Bolero
 open Bolero.Html
 
 open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Bulma.Button
+open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Tile
 open Songhay.Modules.Bolero.Visuals.Svg
 
@@ -19,7 +21,7 @@ type StudioComponent() =
     inherit ElmishComponent<Model, Message>()
 
     static let studioLogo =
-        let spanClasses = CssClasses [ "title"; "is-2"; "is-hidden-tablet-only" ]
+        let spanClasses = CssClasses [ "title"; "is-2"; hidden Tablet ]
 
         div {
             "logo" |> toHtmlClass
@@ -48,16 +50,16 @@ type StudioComponent() =
 
                 svgNode (svgViewBoxSquare 24) svgData[data.id]
             }
-            span { "is-size-7" |> toHtmlClass; text data.version }
+            span { fontSize Size7 |> toHtmlClass; text data.version }
         }
 
     static let studioNode =
-        let cssClassesParentLevel = CssClasses [ "level"; "is-mobile" ]
+        let cssClassesParentLevel = CssClasses [ levelContainer; "is-mobile" ]
 
-        let cssClassesSvgLinkNodes = [ "ml-6"; "mr-6" ] |> cssClassesParentLevel.AppendList
+        let cssClassesSvgLinkNodes = [ m (T, L6); m (R, L6) ] |> cssClassesParentLevel.AppendList
 
         let cssClassesSvgVersionNodes =
-            [ "has-text-greys-light-tone"; "mt-6"; "pt-6" ] |> cssClassesParentLevel.AppendList
+            [ "has-text-greys-light-tone"; m (T, L6); p (T, L6) ] |> cssClassesParentLevel.AppendList
 
         div {
             "card" |> App.appBlockChildCssClasses.Prepend |> toHtmlClassFromData

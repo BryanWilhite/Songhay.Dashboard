@@ -11,6 +11,9 @@ open Bolero.Html
 
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
+open Songhay.Modules.Bolero.Visuals.Bulma.Block
+open Songhay.Modules.Bolero.Visuals.Bulma.Svg
 open Songhay.Modules.Bolero.Visuals.Bulma.Tile
 open Songhay.Modules.Bolero.Visuals.Svg
 
@@ -19,12 +22,6 @@ open Songhay.Dashboard.Client.ElmishTypes
 
 type StudioLinksComponent() =
     inherit ElmishComponent<Model, Message>()
-
-    static let bulmaPanelIcon (id: Identifier) =
-        span {
-            [ "panel-icon"; "image"; "is-24x24" ] |> toHtmlClassFromList
-            svgNode (svgViewBoxSquare 24) svgData[id]
-        }
 
     static let linkNodes =
         let linkNode (title: DisplayText, href: Uri, id: Identifier) =
@@ -46,7 +43,7 @@ type StudioLinksComponent() =
 
         let routeNode (page, caption) =
             navLink NavLinkMatch.All {
-                "ActiveClass" => "is-active"
+                "ActiveClass" => elementIsActive
                 "panel-block" |> toHtmlClass
                 attr.href (ElmishRoutes.router.Link page)
                 bulmaPanelIcon Keys.MDI_LINK_VARIANT_24PX.ToAlphanumeric; text caption
@@ -59,9 +56,9 @@ type StudioLinksComponent() =
         let navNodes = routeNodes @ linkNodes
 
         nav {
-            "panel" |> App.appBlockChildCssClasses.Prepend |> toHtmlClassFromData
+            panel |> App.appBlockChildCssClasses.Prepend |> toHtmlClassFromData
 
-            p { "panel-heading" |> toHtmlClass; text "studio links" }
+            bulmaPanelHeading "studio links"
 
             forEach navNodes <| id
         }
