@@ -11,50 +11,90 @@ open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 
+///<summary>
+/// Bulma CSS modules.
+///</summary>
+///<remarks>
+/// https://bulma.io/documentation/overview/
+///</remarks>
 module Bulma =
+
+    ///<summary>
+    /// Bulma CSS class-name functions and literals.
+    ///</summary>
     module CssClass =
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         [<Literal>]
         let elementIsActive = "is-active"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Applies <c>cursor: pointer !important</c> to the element.
         ///</remarks>
         [<Literal>]
         let elementIsClickable = "is-clickable"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         [<Literal>]
         let elementIsBlock = "is-block"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Adds overflow hidden
         ///</remarks>
         [<Literal>]
         let elementIsClipped = "is-clipped"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         [<Literal>]
         let elementIsHidden = "is-hidden"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Hide elements visually but keep the element available to be announced by a screen reader
         ///</remarks>
         [<Literal>]
         let elementIsHiddenVisually = "is-sr-only"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         [<Literal>]
         let elementIsInlineBlock = "is-inline-block"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Adds visibility hidden
         ///</remarks>
         [<Literal>]
         let elementIsInvisible = "is-invisible"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Completely covers the first positioned parent
         ///</remarks>
         [<Literal>]
         let elementIsOverlay = "is-overlay"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         [<Literal>]
         let elementIsRelative = "is-relative"
 
@@ -67,90 +107,135 @@ module Bulma =
 
             $"has-text-{suffix}"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Transforms the first character of each word to Uppercase
         ///</remarks>
         [<Literal>]
         let elementTextIsCapitalized = "is-capitalized"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Sets font family to <c>$family-sans-serif</c>
         ///</remarks>
         [<Literal>]
         let elementTextIsFamilySansSerif = "is-family-sans-serif"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Sets font family to <c>$family-monospace</c>
         ///</remarks>
         [<Literal>]
         let elementTextIsFamilyMonospace = "is-family-monospace"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Sets font family to <c>$family-primary</c>
         ///</remarks>
         [<Literal>]
         let elementTextIsFamilyPrimary = "is-family-primary"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Sets font family to <c>$family-secondary</c>
         ///</remarks>
         [<Literal>]
         let elementTextIsFamilySecondary = "is-family-secondary"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Sets font family to <c>$family-code</c>
         ///</remarks>
         [<Literal>]
         let elementTextIsFamilyCode = "is-family-code"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Transforms all characters to lowercase
         ///</remarks>
         [<Literal>]
         let elementTextIsLowercase = "is-lowercase"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Transforms all characters to UPPERCASE
         ///</remarks>
         [<Literal>]
         let elementTextIsUppercase = "is-uppercase"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Transforms all characters to italic
         ///</remarks>
         [<Literal>]
         let elementTextIsItalic = "is-italic"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Transforms all characters to underlined
         ///</remarks>
         [<Literal>]
         let elementTextIsUnderlined = "is-underlined"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Prevents the text from being selectable
         ///</remarks>
         [<Literal>]
         let elementTextIsUnselectable = "is-unselectable"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Transforms text weight to light
         ///</remarks>
         [<Literal>]
         let elementTextIsWeightLight = "has-text-weight-light"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Transforms text weight to normal
         ///</remarks>
         [<Literal>]
         let elementTextIsWeightNormal = "has-text-weight-normal"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Transforms text weight to medium
         ///</remarks>
         [<Literal>]
         let elementTextIsWeightMedium = "has-text-weight-medium"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// Transforms text weight to semibold
         ///</remarks>
@@ -163,15 +248,30 @@ module Bulma =
         [<Literal>]
         let elementTextIsWeightBold = "has-text-weight-bold"
 
+        ///<summary>
+        /// Bulma CSS class-name function.
+        ///</summary>
         let fontSize (size: BulmaFontSize) = $"is-size-{size.Value}"
 
+        ///<summary>
+        /// Bulma CSS class-name function.
+        ///</summary>
         let hidden (breakpoint: BulmaBreakpoint) = $"is-hidden-{breakpoint.Value}"
  
+        ///<summary>
+        /// Bulma CSS class-name function.
+        ///</summary>
         let imageContainer (dimension: BulmaRatioDimension) = ["image"; dimension.CssClass]
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         [<Literal>]
         let imageIsRounded = "is-rounded"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         ///<remarks>
         /// “By default, columns are only activated on tablet and desktop.
         /// If you want to use columns on mobile too,
@@ -181,21 +281,42 @@ module Bulma =
         [<Literal>]
         let isMobileModifier = "is-mobile"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         [<Literal>]
         let levelContainer = "level"
 
+        ///<summary>
+        /// Bulma CSS class-name function.
+        ///</summary>
         let level (alignment: CssAlignment) = $"level-{alignment.Value}"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         [<Literal>]
         let levelItem = "level-item"
 
+        ///<summary>
+        /// Bulma CSS class-name function.
+        ///</summary>
         let m (box: CssBoxModel, suffix: BulmaValueSuffix) = $"m{box.Value}-{suffix.Value}"
 
+        ///<summary>
+        /// Bulma CSS class-name function.
+        ///</summary>
         let p (box: CssBoxModel, suffix: BulmaValueSuffix) = $"p{box.Value}-{suffix.Value}"
 
+        ///<summary>
+        /// Bulma CSS class-name literal.
+        ///</summary>
         [<Literal>]
         let panel = "panel"
 
+        ///<summary>
+        /// Bulma CSS class-name literal for Bulma tiles.
+        ///</summary>
         ///<remarks>
         /// “Start with an ancestor tile that will wrap all other tiles…”
         /// — https://bulma.io/documentation/layout/tiles/
@@ -203,6 +324,9 @@ module Bulma =
         [<Literal>]
         let tileIsAncestor = "is-ancestor"
 
+        ///<summary>
+        /// Bulma CSS class-name literal for Bulma tiles.
+        ///</summary>
         ///<remarks>
         /// “As soon as you want to add content to a tile, just:
         ///
@@ -214,6 +338,9 @@ module Bulma =
         [<Literal>]
         let tileIsChild = "is-child"
 
+        ///<summary>
+        /// Bulma CSS class-name literal for Bulma tiles.
+        ///</summary>
         ///<remarks>
         /// “As soon as you want to add content to a tile, just:
         ///
@@ -225,6 +352,9 @@ module Bulma =
         [<Literal>]
         let tileIsParent = "is-parent"
 
+        ///<summary>
+        /// Bulma CSS class-name literal for Bulma tiles.
+        ///</summary>
         ///<remarks>
         /// “If you want to stack tiles vertically, add is-vertical on the parent tile…”
         /// — https://bulma.io/documentation/layout/tiles/
