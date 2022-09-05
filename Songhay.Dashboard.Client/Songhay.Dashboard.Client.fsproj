@@ -7,7 +7,7 @@
         <Compile Include="App.fs" />
         <Compile Include="ElmishTypes.fs" />
         <Compile Include="ElmishRoutes.fs" />
-        <Compile Include="Visuals\Tile.fs" />
+        <Compile Include="Visuals\Block.fs" />
         <Compile Include="Visuals\Document.fs" />
         <Compile Include="Components\StudioFeeds.fs" />
         <Compile Include="Components\StudioTools.fs" />

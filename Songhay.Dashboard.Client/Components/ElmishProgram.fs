@@ -40,8 +40,8 @@ module ElmishProgram =
             )
             .Content(
                 cond model.page <| function
-                | StudioFeedsPage -> Tile.studioPageNode (Block.StudioFeeds.studioFeedsNodes jsRuntime model)
-                | StudioToolsPage -> Tile.studioPageNode [ Block.StudioTools.studioToolsNode() ]
+                | StudioFeedsPage -> Block.studioPageNode (Block.StudioFeeds.studioFeedsNodes jsRuntime model)
+                | StudioToolsPage -> Block.studioPageNode [ Block.StudioTools.studioToolsNode() ]
             )
             .YouTubeThumbs(
                 YtThumbsComponent.EComp (Some "songhay tube") model.ytModel (Message.YouTubeMessage >> dispatch)

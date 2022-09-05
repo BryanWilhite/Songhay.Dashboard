@@ -196,15 +196,39 @@ module Bulma =
         [<Literal>]
         let panel = "panel"
 
+        ///<remarks>
+        /// “Start with an ancestor tile that will wrap all other tiles…”
+        /// — https://bulma.io/documentation/layout/tiles/
+        ///</remarks>
         [<Literal>]
         let tileIsAncestor = "is-ancestor"
 
+        ///<remarks>
+        /// “As soon as you want to add content to a tile, just:
+        ///
+        /// - add any class you want, like <c>box</c>
+        /// - add the <c>is-child</c> modifier on the tile
+        /// - add the <c>is-parent</c> modifier on the parent tile”
+        /// — https://bulma.io/documentation/layout/tiles/
+        ///</remarks>
         [<Literal>]
         let tileIsChild = "is-child"
 
+        ///<remarks>
+        /// “As soon as you want to add content to a tile, just:
+        ///
+        /// - add any class you want, like <c>box</c>
+        /// - add the <c>is-child</c> modifier on the tile
+        /// - add the <c>is-parent</c> modifier on the parent tile”
+        /// — https://bulma.io/documentation/layout/tiles/
+        ///</remarks>
         [<Literal>]
         let tileIsParent = "is-parent"
 
+        ///<remarks>
+        /// “If you want to stack tiles vertically, add is-vertical on the parent tile…”
+        /// — https://bulma.io/documentation/layout/tiles/
+        ///</remarks>
         [<Literal>]
         let tileIsVertical = "is-vertical"
 
@@ -275,6 +299,20 @@ module Bulma =
         let bulmaPanelHeading displayText =
             p { "panel-heading" |> toHtmlClass; text displayText }
 
+        let bulmaTile (width: BulmaTileHorizontalSize) (tileClasses: string list option) nodes =
+            let cssClasses = CssClasses [
+                "tile"
+                match width with | TileSizeAuto -> () | _ -> width.CssClass
+            ]
+
+            div {
+                if tileClasses.IsSome then
+                    tileClasses.Value |> cssClasses.AppendList |> toHtmlClassFromData
+                else
+                    cssClasses.ToHtmlClassAttribute
+                forEach nodes <| id
+            }
+
     module Button =
         let bulmaAnchorIconButton (title: DisplayText, href: Uri, id: Identifier) =
             a {
@@ -296,19 +334,4 @@ module Bulma =
             span {
                 [ "panel-icon" ] @ CssClass.imageContainer (Square Square24) |> toHtmlClassFromList
                 svgNode (svgViewBoxSquare 24) svgData[id]
-            }
-
-    module Tile =
-        let bulmaColumnTile (width: BulmaTileHorizontalSize) (tileClasses: string list option) nodes =
-            let cssClasses = CssClasses [
-                "tile"
-                match width with | TileSizeAuto -> () | _ -> width.CssClass
-            ]
-
-            div {
-                if tileClasses.IsSome then
-                    tileClasses.Value |> cssClasses.AppendList |> toHtmlClassFromData
-                else
-                    cssClasses.ToHtmlClassAttribute
-                forEach nodes <| id
             }

@@ -15,7 +15,6 @@ open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Block
 open Songhay.Modules.Bolero.Visuals.Bulma.Svg
-open Songhay.Modules.Bolero.Visuals.Bulma.Tile
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Client
@@ -71,11 +70,11 @@ type StudioLinksComponent() =
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
     override this.View _ _ =
-        bulmaColumnTile
+        bulmaTile
             TileSizeAuto
             None
             [
-                bulmaColumnTile
+                bulmaTile
                     TileSizeAuto
                     ([tileIsParent] |> Some)
                     [ studioLinksNode ]
