@@ -2,10 +2,13 @@ namespace Songhay.Dashboard.Client.Components.Block
 
 open System
 
+open Bolero
 open Bolero.Html
 
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.Models
+open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Dashboard.Client
 
@@ -123,8 +126,8 @@ module StudioTools =
             figure {
                 "media-left" |> toHtmlClass
 
-                p {
-                    [ "image"; "is-48x48" ] |> toHtmlClassFromList; "aria-hidden" => "true"
+                Html.p {
+                    imageContainer (Square Square48) |> toHtmlClassFromList; "aria-hidden" => "true"
 
                     svgNode (svgViewBoxSquare 24) svgPathData
                 }
@@ -132,7 +135,7 @@ module StudioTools =
 
     let toBulmaArticleNode (title: DisplayText, location: Uri, svgKey: Identifier) =
         article {
-            [ "tile"; "m-3" ] |> toHtmlClassFromList
+            [ "tile"; m (All, L3) ] |> toHtmlClassFromList
 
             studioToolIcon svgKey
             div {
@@ -142,7 +145,7 @@ module StudioTools =
                     "content" |> toHtmlClass
 
                     a {
-                        [ "title"; "is-5" ] |> toHtmlClassFromList
+                        [ "title"; fontSize Size5 ] |> toHtmlClassFromList
                         attr.href location.OriginalString
                         attr.target "_blank"
 

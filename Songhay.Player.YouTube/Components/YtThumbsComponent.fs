@@ -174,7 +174,7 @@ type YtThumbsComponent() =
             nav {
                 [ "level"; "video"; "thumbs"; "header" ] |> toHtmlClassFromList
                 div {
-                    "level-left" |> toHtmlClass
+                    level CssAlignment.Left |> toHtmlClass
 
                     span {
                         [ "level-item" ] @ imageContainer (Square Square48) |> toHtmlClassFromList
@@ -195,13 +195,13 @@ type YtThumbsComponent() =
                 a {
                     attr.href "#"; [ "command"; "left" ] @ imageContainer (Square Square48) |> toHtmlClassFromList
                     click.PreventDefault
-                    on.async.click (slideAsync Right)
+                    on.async.click (slideAsync SlideDirection.Right)
                     svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_ARROW_LEFT_DROP_CIRCLE_24PX.ToAlphanumeric]
                 }
                 a {
                     attr.href "#"; [ "command"; "right"; ] @ imageContainer (Square Square48) |> toHtmlClassFromList
                     click.PreventDefault
-                    on.async.click (slideAsync Left)
+                    on.async.click (slideAsync SlideDirection.Left)
                     svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_ARROW_RIGHT_DROP_CIRCLE_24PX.ToAlphanumeric]
                 }
             }

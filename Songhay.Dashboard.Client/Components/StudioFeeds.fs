@@ -8,6 +8,8 @@ open Songhay.Modules.Models
 open Songhay.Modules.StringUtility
 
 open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.Models
+open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Models
@@ -22,7 +24,7 @@ module StudioFeeds =
             div {
                 "card-image" |> toHtmlClass
                 figure {
-                    [ "image"; "is-3by2" ] |> toHtmlClassFromList
+                    imageContainer ThreeByTwo |> toHtmlClassFromList
                     img {
                         attr.alt $"{feed.feedTitle} feed image"
                         attr.src (feed.feedImage |> Option.get)
@@ -54,7 +56,7 @@ module StudioFeeds =
         div {
             "media-left" |> toHtmlClass
             figure {
-                [ "image"; "is-48x48" ] |> toHtmlClassFromList; "aria-hidden" => "true"
+                imageContainer (Square Square48) |> toHtmlClassFromList; "aria-hidden" => "true"
                 svgNode (svgViewBoxSquare 24) svgPathData
             }
         }
@@ -83,8 +85,8 @@ module StudioFeeds =
                     div {
                         "media-content" |> toHtmlClass
 
-                        p { [ "title"; "is-4"] |> toHtmlClassFromList; text feed.feedTitle }
-                        p { [ "subtitle"; "is-6"] |> toHtmlClassFromList; text (feed.modificationDate.ToString("yyyy-MM-dd")) }
+                        Html.p { [ "title"; fontSize Size4 ] |> toHtmlClassFromList; text feed.feedTitle }
+                        Html.p { [ "subtitle"; fontSize Size6 ] |> toHtmlClassFromList; text (feed.modificationDate.ToString("yyyy-MM-dd")) }
                     }
                 }
                 div {
@@ -102,10 +104,10 @@ module StudioFeeds =
         | None ->
             [
                 div {
-                    [ "tile"; "is-child"; "has-text-centered"; "p-6"] |> toHtmlClassFromList
+                    [ "tile"; "is-child"; elementTextAlign Center; p (All, L6)] |> toHtmlClassFromList
 
                     div {
-                        [ "loader"; "m-6" ] |> toHtmlClassFromList
+                        [ "loader"; m (All, L6) ] |> toHtmlClassFromList
                         attr.title "Loading…"
                     }
                 }

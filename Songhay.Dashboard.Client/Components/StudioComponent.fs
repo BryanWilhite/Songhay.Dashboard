@@ -21,7 +21,7 @@ type StudioComponent() =
     inherit ElmishComponent<Model, Message>()
 
     static let studioLogo =
-        let spanClasses = CssClasses [ "title"; "is-2"; hidden Tablet ]
+        let spanClasses = CssClasses [ "title"; fontSize Size2; hidden Tablet ]
 
         div {
             "logo" |> toHtmlClass
@@ -29,7 +29,7 @@ type StudioComponent() =
 
             span { "has-text-weight-normal" |> spanClasses.Prepend |> toHtmlClassFromData; text "Songhay" }
             span { spanClasses.ToHtmlClassAttribute; text "System" }
-            span { "title is-1" |> toHtmlClass; text "(::)" }
+            span { [ "title"; fontSize Size1 ] |> toHtmlClassFromList; text "(::)" }
         }
 
     static let svgVersionNode (data: VersionData) =
@@ -66,7 +66,7 @@ type StudioComponent() =
             div {
                 "card-content" |> toHtmlClass
                 div {
-                    [ "content"; "has-text-centered" ] |> toHtmlClassFromList
+                    [ "content"; elementTextAlign Center ] |> toHtmlClassFromList
                     studioLogo
                 }
                 div {
