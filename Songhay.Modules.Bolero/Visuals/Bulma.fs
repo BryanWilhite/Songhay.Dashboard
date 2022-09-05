@@ -58,11 +58,103 @@ module Bulma =
         [<Literal>]
         let elementIsRelative = "is-relative"
 
+        let elementTextAlign (alignment: CssAlignment) = $"has-text-{alignment.Value}"
+
+        ///<remarks>
+        /// Transforms the first character of each word to Uppercase
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsCapitalized = "is-capitalized"
+
+        ///<remarks>
+        /// Sets font family to <c>$family-sans-serif</c>
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsFamilySansSerif = "is-family-sans-serif"
+
+        ///<remarks>
+        /// Sets font family to <c>$family-monospace</c>
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsFamilyMonospace = "is-family-monospace"
+
+        ///<remarks>
+        /// Sets font family to <c>$family-primary</c>
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsFamilyPrimary = "is-family-primary"
+
+        ///<remarks>
+        /// Sets font family to <c>$family-secondary</c>
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsFamilySecondary = "is-family-secondary"
+
+        ///<remarks>
+        /// Sets font family to <c>$family-code</c>
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsFamilyCode = "is-family-code"
+
+        ///<remarks>
+        /// Transforms all characters to lowercase
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsLowercase = "is-lowercase"
+
+        ///<remarks>
+        /// Transforms all characters to UPPERCASE
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsUppercase = "is-uppercase"
+
+        ///<remarks>
+        /// Transforms all characters to italic
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsItalic = "is-italic"
+
+        ///<remarks>
+        /// Transforms all characters to underlined
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsUnderlined = "is-underlined"
+
         ///<remarks>
         /// Prevents the text from being selectable
         ///</remarks>
         [<Literal>]
         let elementTextIsUnselectable = "is-unselectable"
+
+        ///<remarks>
+        /// Transforms text weight to light
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsWeightLight = "has-text-weight-light"
+
+        ///<remarks>
+        /// Transforms text weight to normal
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsWeightNormal = "has-text-weight-normal"
+
+        ///<remarks>
+        /// Transforms text weight to medium
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsWeightMedium = "has-text-weight-medium"
+
+        ///<remarks>
+        /// Transforms text weight to semibold
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsWeightSemibold = "has-text-weight-semibold"
+
+        ///<remarks>
+        /// Transforms text weight to bold
+        ///</remarks>
+        [<Literal>]
+        let elementTextIsWeightBold = "has-text-weight-bold"
 
         let fontSize (size: BulmaFontSize) = $"is-size-{size.Value}"
 
@@ -84,9 +176,9 @@ module Bulma =
         [<Literal>]
         let panel = "panel"
 
-        let m (box: CssBox, suffix: BulmaValueSuffix) = $"m{box.Value}-{suffix.Value}"
+        let m (box: CssBoxModel, suffix: BulmaValueSuffix) = $"m{box.Value}-{suffix.Value}"
 
-        let p (box: CssBox, suffix: BulmaValueSuffix) = $"p{box.Value}-{suffix.Value}"
+        let p (box: CssBoxModel, suffix: BulmaValueSuffix) = $"p{box.Value}-{suffix.Value}"
 
     module Block =
         let bulmaDropdownItem
@@ -137,12 +229,16 @@ module Bulma =
                 }
             }
  
-        let bulmaLoader (padding: int) (margin: int) =
+        let bulmaLoader (margin: CssMargin * BulmaValueSuffix) (padding: CssPadding * BulmaValueSuffix) =
+
+            let marginClass = match margin with | CssMargin b, s -> CssClass.m (b, s) 
+            let paddingClass = match padding with | CssPadding b, s -> CssClass.m (b, s) 
+
             div {
-                [ "has-text-centered"; "loader-container"; $"p-{padding}"] |> toHtmlClassFromList
+                [ "loader-container"; paddingClass; CssClass.elementTextAlign Center] |> toHtmlClassFromList
 
                 div {
-                    [ "image"; "is-128x128"; "loader"; $"m-{margin}" ] |> toHtmlClassFromList
+                    [ "loader"; marginClass ] @ CssClass.imageContainer (Square Square128) |> toHtmlClassFromList
 
                     attr.title "Loading…"
                 }
@@ -154,7 +250,7 @@ module Bulma =
     module Button =
         let bulmaAnchorIconButton (title: DisplayText, href: Uri, id: Identifier) =
             a {
-                (CssClasses [ "level-item"; "has-text-centered" ]).ToHtmlClassAttribute
+                (CssClasses [ "level-item"; CssClass.elementTextAlign Center ]).ToHtmlClassAttribute
                 attr.href href.OriginalString
                 attr.target "_blank"
                 attr.title title.Value
@@ -170,7 +266,7 @@ module Bulma =
     module Svg =
         let bulmaPanelIcon (id: Identifier) =
             span {
-                [ "panel-icon"; "image"; "is-24x24" ] |> toHtmlClassFromList
+                [ "panel-icon" ] @ CssClass.imageContainer (Square Square24) |> toHtmlClassFromList
                 svgNode (svgViewBoxSquare 24) svgData[id]
             }
 

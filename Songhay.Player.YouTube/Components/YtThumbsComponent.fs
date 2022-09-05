@@ -111,13 +111,13 @@ type YtThumbsComponent() =
                             }
                     }
                 span { [ "published-at"; fontSize Size6 ] |> toHtmlClassFromList; item.getPublishedAt.Humanize() |> text }
-                span { [ "caption"; "has-text-weight-semibold"; fontSize Size5 ] |> toHtmlClassFromList; item |> getYtThumbsAnchor }
+                span { [ "caption"; elementTextIsWeightSemibold; fontSize Size5 ] |> toHtmlClassFromList; item |> getYtThumbsAnchor }
                 span { [ "duration"; fontSize Size6 ] |> toHtmlClassFromList ; span { duration } }
             }
 
         cond items.IsSome <| function
             | true -> div { attr.ref blockWrapperRef; forEach items.Value <| toSpan }
-            | false -> (6, 3) ||> bulmaLoader
+            | false -> bulmaLoader (CssMargin All, L6) (CssPadding All, L3)
 
     static let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
         (initCache: Dictionary<GlobalEventHandlers, bool>) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef)
@@ -177,7 +177,7 @@ type YtThumbsComponent() =
                     "level-left" |> toHtmlClass
 
                     span {
-                        [ "level-item"; "image"; "is-48x48" ] |> toHtmlClassFromList
+                        [ "level-item" ] @ imageContainer (Square Square48) |> toHtmlClassFromList
                         svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_YOUTUBE_24PX.ToAlphanumeric]
                     }
                     span {
@@ -193,13 +193,13 @@ type YtThumbsComponent() =
                 items |> ytThumbnailsNode jsRuntime blockWrapperRef
 
                 a {
-                    attr.href "#"; [ "command"; "left"; "image"; "is-48x48" ] |> toHtmlClassFromList
+                    attr.href "#"; [ "command"; "left" ] @ imageContainer (Square Square48) |> toHtmlClassFromList
                     click.PreventDefault
                     on.async.click (slideAsync Right)
                     svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_ARROW_LEFT_DROP_CIRCLE_24PX.ToAlphanumeric]
                 }
                 a {
-                    attr.href "#"; [ "command"; "right"; "image"; "is-48x48" ] |> toHtmlClassFromList
+                    attr.href "#"; [ "command"; "right"; ] @ imageContainer (Square Square48) |> toHtmlClassFromList
                     click.PreventDefault
                     on.async.click (slideAsync Left)
                     svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_ARROW_RIGHT_DROP_CIRCLE_24PX.ToAlphanumeric]

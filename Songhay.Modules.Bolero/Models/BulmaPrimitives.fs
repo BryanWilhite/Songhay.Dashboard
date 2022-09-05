@@ -133,3 +133,8 @@ type BulmaValueSuffix =
         | L5 -> "5"
         | L6 -> "6"
         | Auto -> "auto"
+
+type BulmaSpacing =
+    | BulmaSpacing of CssBoxModel * BulmaValueSuffix
+
+    member this.Value = match this with | BulmaSpacing (b, s) -> b, s

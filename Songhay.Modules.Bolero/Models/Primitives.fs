@@ -62,13 +62,26 @@ type CssAlignment =
         | SelfStart -> "self-start"
         | SelfEnd -> "self-end"
 
-type CssBox =
+///<summary>
+/// Enumerates the CSS Box Model
+/// </summary>
+/// <remarks>
+/// see https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#parts_of_a_box
+/// </remarks>
+type CssBoxModel =
+    ///<summary>all margins, paddings or borders</summary>
     | All
+    ///<summary>left margin, padding or border</summary>
     | L
+    ///<summary>right margin, padding or border</summary>
     | R
+    ///<summary>left and right margin, padding or border</summary>
     | LR
+    ///<summary>top margin, padding or border</summary>
     | T
+    ///<summary>bottom margin, padding or border</summary>
     | B
+    ///<summary>top and bottom margin, padding or border</summary>
     | TB
 
     member this.Value =
@@ -99,3 +112,11 @@ type CssCommonImageAspectRatioNumber =
         | Five -> "5"
         | Nine -> "9"
         | Sixteen -> "16"
+
+type CssMargin =
+    | CssMargin of CssBoxModel
+    member this.Value = match this with | CssMargin m -> m
+
+type CssPadding =
+    | CssPadding of CssBoxModel
+    member this.Value = match this with | CssPadding m -> m
