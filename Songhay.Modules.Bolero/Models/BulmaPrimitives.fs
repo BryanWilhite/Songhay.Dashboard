@@ -1,5 +1,7 @@
 namespace Songhay.Modules.Bolero.Models
 
+open System
+
 ///<summary>
 /// Defines Bulma responsive breakpoints
 ///</summary>
@@ -138,3 +140,53 @@ type BulmaSpacing =
     | BulmaSpacing of CssBoxModel * BulmaValueSuffix
 
     member this.Value = match this with | BulmaSpacing (b, s) -> b, s
+
+///<summary>
+/// Defines the 12 Bulma horizontal-space sizes for tiles.
+///</summary>
+/// <remarks>
+/// see: https://bulma.io/documentation/layout/tiles/
+/// </remarks>
+type BulmaTileHorizontalSize =
+    ///<summary>the available horizontal space</summary>
+    | TileSizeAuto
+    ///<summary>1/12 of the horizontal space</summary>
+    | TileSize1
+    ///<summary>2/12 of the horizontal space</summary>
+    | TileSize2
+    ///<summary>3/12 of the horizontal space</summary>
+    | TileSize3
+    ///<summary>4/12 of the horizontal space</summary>
+    | TileSize4
+    ///<summary>5/12 of the horizontal space</summary>
+    | TileSize5
+    ///<summary>6/12 of the horizontal space</summary>
+    | TileSize6
+    ///<summary>7/12 of the horizontal space</summary>
+    | TileSize7
+    ///<summary>8/12 of the horizontal space</summary>
+    | TileSize8
+    ///<summary>9/12 of the horizontal space</summary>
+    | TileSize9
+    ///<summary>10/12 of the horizontal space</summary>
+    | TileSize10
+    ///<summary>11/12 of the horizontal space</summary>
+    | TileSize11
+    ///<summary>12/12 of the horizontal space</summary>
+    | TileSize12
+
+    member this.CssClass =
+        match this with
+        | TileSizeAuto -> String.Empty 
+        | TileSize1 -> "is-1"
+        | TileSize2 -> "is-2"
+        | TileSize3 -> "is-3"
+        | TileSize4 -> "is-4"
+        | TileSize5 -> "is-5"
+        | TileSize6 -> "is-6"
+        | TileSize7 -> "is-7"
+        | TileSize8 -> "is-8"
+        | TileSize9 -> "is-9"
+        | TileSize10 -> "is-10"
+        | TileSize11 -> "is-11"
+        | TileSize12 -> "is-12"

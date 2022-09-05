@@ -86,4 +86,13 @@ type StudioComponent() =
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
-    override this.View _ _ = bulmaColumnTile 0 [ bulmaContentParentTile false [ studioNode ] ]
+    override this.View _ _ =
+        bulmaColumnTile
+            TileSizeAuto
+            None
+            [
+                bulmaColumnTile
+                    TileSizeAuto
+                    ([tileIsParent] |> Some)
+                    [ studioNode ]
+            ]

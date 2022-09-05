@@ -11,6 +11,7 @@ open Bolero.Html
 
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Block
 open Songhay.Modules.Bolero.Visuals.Bulma.Svg
@@ -69,4 +70,13 @@ type StudioLinksComponent() =
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
-    override this.View _ _ = bulmaColumnTile 0 [ bulmaContentParentTile false [ studioLinksNode ] ]
+    override this.View _ _ =
+        bulmaColumnTile
+            TileSizeAuto
+            None
+            [
+                bulmaColumnTile
+                    TileSizeAuto
+                    ([tileIsParent] |> Some)
+                    [ studioLinksNode ]
+            ]

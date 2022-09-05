@@ -189,12 +189,24 @@ module Bulma =
         [<Literal>]
         let levelItem = "level-item"
 
-        [<Literal>]
-        let panel = "panel"
-
         let m (box: CssBoxModel, suffix: BulmaValueSuffix) = $"m{box.Value}-{suffix.Value}"
 
         let p (box: CssBoxModel, suffix: BulmaValueSuffix) = $"p{box.Value}-{suffix.Value}"
+
+        [<Literal>]
+        let panel = "panel"
+
+        [<Literal>]
+        let tileIsAncestor = "is-ancestor"
+
+        [<Literal>]
+        let tileIsChild = "is-child"
+
+        [<Literal>]
+        let tileIsParent = "is-parent"
+
+        [<Literal>]
+        let tileIsVertical = "is-vertical"
 
     module Block =
         let bulmaDropdownItem
@@ -287,25 +299,16 @@ module Bulma =
             }
 
     module Tile =
-        let bulmaColumnTile width nodes =
+        let bulmaColumnTile (width: BulmaTileHorizontalSize) (tileClasses: string list option) nodes =
             let cssClasses = CssClasses [
                 "tile"
-                if width > 0 then $"is-{width}"
+                match width with | TileSizeAuto -> () | _ -> width.CssClass
             ]
 
             div {
-                cssClasses.ToHtmlClassAttribute
-                forEach nodes <| id
-            }
-
-        let bulmaContentParentTile isVertical nodes =
-            let cssClasses = CssClasses [
-                "tile"
-                "is-parent"
-                if isVertical then "is-vertical"
-            ]
-
-            div {
-                cssClasses.ToHtmlClassAttribute
+                if tileClasses.IsSome then
+                    tileClasses.Value |> cssClasses.AppendList |> toHtmlClassFromData
+                else
+                    cssClasses.ToHtmlClassAttribute
                 forEach nodes <| id
             }
