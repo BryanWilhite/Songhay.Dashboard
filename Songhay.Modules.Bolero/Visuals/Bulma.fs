@@ -404,21 +404,34 @@ module Bulma =
         let bulmaPanelHeading displayText =
             p { "panel-heading" |> toHtmlClass; text displayText }
 
-        let bulmaTile (width: BulmaTileHorizontalSize) (tileClasses: CssClassesOrEmpty) nodes =
-            let cssClasses = CssClasses [
-                "tile"
+        let bulmaMedia (moreClasses: CssClassesOrEmpty) (mediaLeft: HtmlNodeOrEmpty) (mediaContentNodes: Node list) =
+            let mediaContainerClasses = CssClasses [ CssClass.media ]
+
+            div {
+                mediaContainerClasses |> moreClasses.ToHtmlClassAttribute
+
+                mediaLeft.Value
+
+                div {
+                    CssClass.mediaContent |> toHtmlClass
+
+                    forEach mediaContentNodes <| id
+                }
+            }
+
+        let bulmaTile (width: BulmaTileHorizontalSize) (moreClasses: CssClassesOrEmpty) (tileContentNodes: Node list) =
+            let tileContainerClasses = CssClasses [
+                CssClass.tile
                 match width with | TileSizeAuto -> () | _ -> width.CssClass
             ]
 
             div {
-                match tileClasses with
-                | Has more -> more.Value |> cssClasses.AppendList |> toHtmlClassFromData
-                | NoCssClasses ->  cssClasses.ToHtmlClassAttribute
+                tileContainerClasses |> moreClasses.ToHtmlClassAttribute
 
-                forEach nodes <| id
+                forEach tileContentNodes <| id
             }
 
-    module Button =
+    module Button = 
         let bulmaAnchorIconButton (title: DisplayText, href: Uri, id: Identifier) =
             a {
                 (CssClasses [ CssClass.levelItem; CssClass.elementTextAlign Center ]).ToHtmlClassAttribute

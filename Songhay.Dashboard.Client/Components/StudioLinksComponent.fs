@@ -76,6 +76,6 @@ type StudioLinksComponent() =
             [
                 bulmaTile
                     TileSizeAuto
-                    (Has (CssClasses [tileIsParent]))
+                    (HasClasses (CssClasses [tileIsParent]))
                     [ studioLinksNode ]
             ]

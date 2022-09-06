@@ -13,6 +13,6 @@ module Block =
             [
                 bulmaTile
                     TileSizeAuto
-                    (Has (CssClasses [tileIsParent; tileIsVertical]))
+                    (HasClasses (CssClasses [tileIsParent; tileIsVertical]))
                     nodes
             ]

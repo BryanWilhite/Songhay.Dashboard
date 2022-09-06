@@ -10,6 +10,7 @@ open Songhay.Modules.StringUtility
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
+open Songhay.Modules.Bolero.Visuals.Bulma.Block
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Models
@@ -77,18 +78,14 @@ module StudioFeeds =
             div {
                 "card-content" |> toHtmlClass
 
-                div {
-                    media |> toHtmlClass
-
-                    studioFeedIcon feedName
-
-                    div {
-                        mediaContent |> toHtmlClass
-
+                bulmaMedia
+                    NoCssClasses
+                    (HasNode (studioFeedIcon feedName))
+                    [
                         Html.p { [ "title"; fontSize Size4 ] |> toHtmlClassFromList; text feed.feedTitle }
                         Html.p { [ "subtitle"; fontSize Size6 ] |> toHtmlClassFromList; text (feed.modificationDate.ToString("yyyy-MM-dd")) }
-                    }
-                }
+                    ]
+
                 div {
                     "content" |> toHtmlClass
 

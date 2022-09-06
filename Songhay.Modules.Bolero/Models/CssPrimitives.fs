@@ -98,7 +98,12 @@ type CssBoxModel =
 
 type CssClassesOrEmpty =
     | NoCssClasses
-    | Has of CssClasses
+    | HasClasses of CssClasses
+
+        member this.ToHtmlClassAttribute (cssClasses: CssClasses) =
+            match this with
+            | HasClasses more -> more.Value |> cssClasses.AppendList |> toHtmlClassFromData
+            | NoCssClasses ->  cssClasses.ToHtmlClassAttribute
 
 type CssCommonImageAspectRatioNumber =
     | One

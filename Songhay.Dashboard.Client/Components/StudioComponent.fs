@@ -93,6 +93,6 @@ type StudioComponent() =
             [
                 bulmaTile
                     TileSizeAuto
-                    (Has (CssClasses [ tileIsParent ]))
+                    (HasClasses (CssClasses [ tileIsParent ]))
                     [ studioNode ]
             ]
