@@ -174,7 +174,7 @@ module Bulma =
         ///<summary>
         /// Bulma CSS class-name function.
         ///</summary>
-        let imageContainer (dimension: BulmaRatioDimension) = ["image"; dimension.CssClass]
+        let imageContainer (dimension: BulmaRatioDimension) = [ "image"; dimension.CssClass ]
 
         ///<summary>
         /// Bulma CSS class-name literal.
@@ -235,12 +235,42 @@ module Bulma =
         let m (box: CssBoxModel, suffix: BulmaValueSuffix) = $"m{box.Value}-{suffix.Value}"
 
         ///<summary>
+        /// Bulma CSS class-name literal for Bulma layout.
+        ///</summary>
+        ///<remarks>
+        /// “The famous media object prevalent in social media interfaces, but useful in any context…”
+        /// — https://bulma.io/documentation/layout/media-object/
+        ///</remarks>
+        [<Literal>]
+        let media = "media"
+
+        ///<summary>
+        /// Bulma CSS class-name literal for Bulma layout.
+        ///</summary>
+        ///<remarks>
+        /// Indicates the leftmost container aside the <c>media-content</c> block
+        /// usually containing an avatar, ‘branding’ the media content.
+        /// — https://bulma.io/documentation/layout/media-object/
+        ///</remarks>
+        [<Literal>]
+        let mediaLeft = "media-left"
+
+        ///<summary>
+        /// Bulma CSS class-name literal for Bulma layout.
+        ///</summary>
+        ///<remarks>
+        /// The container for “any other Bulma element, like inputs, textareas, icons, buttons…”
+        /// — https://bulma.io/documentation/layout/media-object/
+        ///</remarks>
+        let mediaContent ="media-content"
+
+        ///<summary>
         /// Bulma CSS class-name function.
         ///</summary>
         let p (box: CssBoxModel, suffix: BulmaValueSuffix) = $"p{box.Value}-{suffix.Value}"
 
         ///<summary>
-        /// Bulma CSS class-name literal.
+        /// Bulma CSS class-name literal for Bulma panels.
         ///</summary>
         ///<remarks>
         /// “A composable panel, for compact controls…”
@@ -248,6 +278,16 @@ module Bulma =
         ///</remarks>
         [<Literal>]
         let panel = "panel"
+
+        ///<summary>
+        /// Bulma CSS class-name literal for Bulma tiles.
+        ///</summary>
+        ///<remarks>
+        /// “To build intricate 2-dimensional layouts, you only need a single element: the tile…”
+        /// — https://bulma.io/documentation/layout/tiles/
+        ///</remarks>
+        [<Literal>]
+        let tile = "tile"
 
         ///<summary>
         /// Bulma CSS class-name literal for Bulma tiles.
@@ -364,17 +404,17 @@ module Bulma =
         let bulmaPanelHeading displayText =
             p { "panel-heading" |> toHtmlClass; text displayText }
 
-        let bulmaTile (width: BulmaTileHorizontalSize) (tileClasses: string list option) nodes =
+        let bulmaTile (width: BulmaTileHorizontalSize) (tileClasses: CssClassesOrEmpty) nodes =
             let cssClasses = CssClasses [
                 "tile"
                 match width with | TileSizeAuto -> () | _ -> width.CssClass
             ]
 
             div {
-                if tileClasses.IsSome then
-                    tileClasses.Value |> cssClasses.AppendList |> toHtmlClassFromData
-                else
-                    cssClasses.ToHtmlClassAttribute
+                match tileClasses with
+                | Has more -> more.Value |> cssClasses.AppendList |> toHtmlClassFromData
+                | NoCssClasses ->  cssClasses.ToHtmlClassAttribute
+
                 forEach nodes <| id
             }
 

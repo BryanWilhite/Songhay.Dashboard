@@ -72,10 +72,10 @@ type StudioLinksComponent() =
     override this.View _ _ =
         bulmaTile
             TileSizeAuto
-            None
+            NoCssClasses
             [
                 bulmaTile
                     TileSizeAuto
-                    ([tileIsParent] |> Some)
+                    (Has (CssClasses [tileIsParent]))
                     [ studioLinksNode ]
             ]

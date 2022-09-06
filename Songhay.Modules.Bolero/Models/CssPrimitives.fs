@@ -1,5 +1,7 @@
 namespace Songhay.Modules.Bolero.Models
 
+open Songhay.Modules.Bolero.BoleroUtility
+
 ///<remarks>
 /// https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Alignment
 ///</remarks>
@@ -93,6 +95,10 @@ type CssBoxModel =
         | T -> "t"
         | B -> "b"
         | TB -> "y"
+
+type CssClassesOrEmpty =
+    | NoCssClasses
+    | Has of CssClasses
 
 type CssCommonImageAspectRatioNumber =
     | One

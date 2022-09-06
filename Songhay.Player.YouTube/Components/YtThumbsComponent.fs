@@ -172,7 +172,7 @@ type YtThumbsComponent() =
             [ "rx"; "b-roll" ] |> toHtmlClassFromList
 
             nav {
-                [ "level"; "video"; "thumbs"; "header" ] |> toHtmlClassFromList
+                [ levelContainer; "video"; "thumbs"; "header" ] |> toHtmlClassFromList
                 div {
                     level CssAlignment.Left |> toHtmlClass
 

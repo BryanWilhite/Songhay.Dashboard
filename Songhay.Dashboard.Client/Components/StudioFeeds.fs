@@ -54,7 +54,7 @@ module StudioFeeds =
         let svgPathData = svgData[ feedNameMap[ feedName ] ]
 
         div {
-            "media-left" |> toHtmlClass
+            mediaLeft |> toHtmlClass
             figure {
                 imageContainer (Square Square48) |> toHtmlClassFromList; "aria-hidden" => "true"
                 svgNode (svgViewBoxSquare 24) svgPathData
@@ -78,12 +78,12 @@ module StudioFeeds =
                 "card-content" |> toHtmlClass
 
                 div {
-                    "media" |> toHtmlClass
+                    media |> toHtmlClass
 
                     studioFeedIcon feedName
 
                     div {
-                        "media-content" |> toHtmlClass
+                        mediaContent |> toHtmlClass
 
                         Html.p { [ "title"; fontSize Size4 ] |> toHtmlClassFromList; text feed.feedTitle }
                         Html.p { [ "subtitle"; fontSize Size6 ] |> toHtmlClassFromList; text (feed.modificationDate.ToString("yyyy-MM-dd")) }
