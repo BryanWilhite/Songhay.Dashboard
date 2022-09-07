@@ -549,9 +549,28 @@ module Bulma =
                 }
             }
 
+        let bulmaPanelBlock isActive (childNode: Node) =
+            div { [ "panel-block"; if isActive then CssClass.elementIsActive ] |> toHtmlClassFromList; childNode }
+
+        let bulmaPanelBlockAnchor isActive (childNode: Node) =
+            a { [ "panel-block"; if isActive then CssClass.elementIsActive ] |> toHtmlClassFromList; childNode }
+
+        let bulmaPanelBlockLabel isActive (childNode: Node) =
+            label { [ "panel-block"; if isActive then CssClass.elementIsActive ] |> toHtmlClassFromList; childNode }
+
         let bulmaPanelHeading displayText =
             p { "panel-heading" |> toHtmlClass; text displayText }
 
+        let bulmaPanel headingText (panelTabsNode: HtmlNodeOrEmpty) (panelBlockNodes: Node list) =
+            nav {
+                CssClass.panel |> toHtmlClass
+
+                p { "panel-heading" |> toHtmlClass; text headingText }
+
+                panelTabsNode.Value
+
+                forEach panelBlockNodes <| id
+            }
 
     ///<summary>
     /// Bulma Layout
