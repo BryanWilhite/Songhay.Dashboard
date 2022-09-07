@@ -3,6 +3,10 @@ namespace Songhay.Modules.Bolero.Models
 open Bolero
 open Bolero.Html
 
+type HtmlChildNodeOrReplaceDefault =
+    | ChildNode of Node
+    | ReplaceDefaultWith of Node
+
 type HtmlNodeOrEmpty =
     | NoNode
     | HasNode of Node

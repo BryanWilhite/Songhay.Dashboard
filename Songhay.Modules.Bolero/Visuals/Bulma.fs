@@ -25,6 +25,45 @@ module Bulma =
     module CssClass =
 
         ///<summary>
+        /// Bulma CSS class-name literal for Bulma cards.
+        ///</summary>
+        ///<remarks>
+        /// “The card component comprises several elements that you can mix and match…”
+        /// — https://bulma.io/documentation/components/card/
+        ///</remarks>
+        [<Literal>]
+        let card = "card"
+
+        ///<summary>
+        /// Bulma CSS class-name literal for Bulma cards.
+        ///</summary>
+        ///<remarks>
+        /// This is the container/wrapper for the <see cref="content" /> block.
+        /// — https://bulma.io/documentation/components/card/
+        ///</remarks>
+        [<Literal>]
+        let cardContent = "card-content"
+
+        ///<summary>
+        /// Bulma CSS class-name literal for Bulma cards.
+        ///</summary>
+        ///<remarks>
+        /// This is the container/wrapper for the Bulma <see cref="image" />.
+        /// — https://bulma.io/documentation/components/card/
+        ///</remarks>
+        [<Literal>]
+        let cardImage = "card-image"
+
+        ///<summary>
+        /// Bulma CSS class-name literal for Bulma content.
+        ///</summary>
+        ///<remarks>
+        /// Both the card component and the media layout use this class name.
+        ///</remarks>
+        [<Literal>]
+        let content = "content"
+
+        ///<summary>
         /// Bulma CSS class-name function for typography.
         ///</summary>
         ///<remarks>
@@ -170,11 +209,26 @@ module Bulma =
         /// Bulma CSS class-name function.
         ///</summary>
         let hidden (breakpoint: BulmaBreakpoint) = $"is-hidden-{breakpoint.Value}"
+
+        ///<summary>
+        /// Bulma CSS class-name for Bulma elements.
+        ///</summary>
+        ///<remarks>
+        /// “A container for responsive images…”
+        /// — https://bulma.io/documentation/elements/image/
+        ///</remarks>
+        [<Literal>]
+        let image = "image"
  
         ///<summary>
-        /// Bulma CSS class-name function.
+        /// Bulma CSS class-name function for Bulma elements.
         ///</summary>
-        let imageContainer (dimension: BulmaRatioDimension) = [ "image"; dimension.CssClass ]
+        ///<remarks>
+        /// Returns the <see cref="image" /> CSS class name
+        /// with <see cref="BulmaRatioDimension.CssClass" />.
+        /// — https://bulma.io/documentation/elements/image/
+        ///</remarks>
+        let imageContainer (dimension: BulmaRatioDimension) = [ image; dimension.CssClass ]
 
         ///<summary>
         /// Bulma CSS class-name literal.
@@ -338,6 +392,64 @@ module Bulma =
         let tileIsVertical = "is-vertical"
 
     module Block =
+        let bulmaCard
+            (moreContainerClasses: CssClassesOrEmpty)
+            (image: HtmlNodeOrEmpty)
+            (header: HtmlNodeOrEmpty)
+            (footer: HtmlNodeOrEmpty)
+            (moreContentClasses: CssClassesOrEmpty)
+            (cardContentNodes: Node list) =
+            let cardContainerClasses = CssClasses [ CssClass.card ]
+
+            div {
+                cardContainerClasses |> moreContainerClasses.ToHtmlClassAttribute
+
+                image.Value
+
+                header.Value
+
+                div {
+                    CssClasses [ CssClass.cardContent ] |> moreContentClasses.ToHtmlClassAttribute
+
+                    div {
+                        CssClass.content |> toHtmlClass
+
+                        forEach cardContentNodes <| id
+                    }
+                }
+
+                footer.Value
+            }
+
+        let bulmaCardImage (imageNode: Node) =
+            div {
+                CssClass.cardImage |> toHtmlClass
+
+                imageNode
+            }
+
+        let bulmaCardHeader (titleNode: Node) (imageNode: HtmlChildNodeOrReplaceDefault) =
+            header {
+                "card-header" |> toHtmlClass
+
+                p { "card-header-title" |> toHtmlClass; titleNode }
+                match imageNode with
+                | ReplaceDefaultWith node -> node
+                | ChildNode node ->
+                    button {
+                        "card-header-icon" |> toHtmlClass
+                        "aria-label" => "more options"
+                        node
+                    }
+            }
+
+        let bulmaCardFooter (footerNodes: Node list) =
+            footer {
+                "card-footer" |> toHtmlClass
+
+                forEach footerNodes <| id
+            }
+
         let bulmaDropdownItem
             (isActive: bool)
             (callback: MouseEventArgs -> unit)
