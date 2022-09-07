@@ -16,7 +16,7 @@ open Songhay.Modules.StringUtility
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.JsRuntimeUtility
 open Songhay.Modules.Bolero.Models
-open Songhay.Modules.Bolero.Visuals.Bulma.Block
+open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Svg
 

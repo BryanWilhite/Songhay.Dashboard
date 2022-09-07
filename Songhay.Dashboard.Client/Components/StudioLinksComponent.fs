@@ -13,8 +13,9 @@ open Songhay.Modules.Models
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
-open Songhay.Modules.Bolero.Visuals.Bulma.Block
-open Songhay.Modules.Bolero.Visuals.Bulma.Svg
+open Songhay.Modules.Bolero.Visuals.Bulma.Component
+open Songhay.Modules.Bolero.Visuals.Bulma.Element
+open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Client

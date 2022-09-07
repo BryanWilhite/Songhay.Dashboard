@@ -5,7 +5,7 @@ open Bolero.Html
 
 type HtmlChildNodeOrReplaceDefault =
     | ChildNode of Node
-    | ReplaceDefaultWith of Node
+    | ReplacementNode of Node
 
 type HtmlNodeOrEmpty =
     | NoNode

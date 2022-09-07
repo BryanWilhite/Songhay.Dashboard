@@ -64,6 +64,23 @@ module Bulma =
         let content = "content"
 
         ///<summary>
+        /// Bulma CSS class-name literal for Bulma layout.
+        ///</summary>
+        ///<remarks>
+        /// “…a simple utility element that allows you to center content on larger viewports.
+        /// It can be used in any context, but mostly as a direct child
+        /// of one of the following:
+        /// • <c>.navbar</c>
+        /// • <c>.hero</c>
+        /// • <c>.section</c>
+        /// • <c>.footer</c>
+        /// ”
+        /// — https://bulma.io/documentation/layout/container/
+        ///</remarks>
+        [<Literal>]
+        let container = "container"
+
+        ///<summary>
         /// Bulma CSS class-name function for typography.
         ///</summary>
         ///<remarks>
@@ -391,7 +408,39 @@ module Bulma =
         [<Literal>]
         let tileIsVertical = "is-vertical"
 
-    module Block =
+    ///<summary>
+    /// Bulma Elements
+    /// “Essential interface elements that only require a single CSS class…”
+    /// — https://bulma.io/documentation/elements/
+    ///</summary>
+    module Element = 
+        let bulmaAnchorIconButton (title: DisplayText, href: Uri, id: Identifier) =
+            a {
+                (CssClasses [ CssClass.levelItem; CssClass.elementTextAlign Center ]).ToHtmlClassAttribute
+                attr.href href.OriginalString
+                attr.target "_blank"
+                attr.title title.Value
+
+                span {
+                    "icon" |> toHtmlClass
+                    "aria-hidden" => "true"
+
+                    svgNode (svgViewBoxSquare 24) svgData[id]
+                }
+            }
+
+        let bulmaPanelIcon (id: Identifier) =
+            span {
+                [ "panel-icon" ] @ CssClass.imageContainer (Square Square24) |> toHtmlClassFromList
+                svgNode (svgViewBoxSquare 24) svgData[id]
+            }
+
+    ///<summary>
+    /// Bulma Components
+    /// “Advanced multi-part components with lots of possibilities…”
+    /// — https://bulma.io/documentation/components/
+    ///</summary>
+    module Component =
         let bulmaCard
             (moreContainerClasses: CssClassesOrEmpty)
             (image: HtmlNodeOrEmpty)
@@ -429,18 +478,20 @@ module Bulma =
             }
 
         let bulmaCardHeader (titleNode: Node) (imageNode: HtmlChildNodeOrReplaceDefault) =
+            let defaultNode (node: Node) =
+                button {
+                    "card-header-icon" |> toHtmlClass
+                    "aria-label" => "card header command"
+                    node
+                }
+
             header {
                 "card-header" |> toHtmlClass
 
                 p { "card-header-title" |> toHtmlClass; titleNode }
                 match imageNode with
-                | ReplaceDefaultWith node -> node
-                | ChildNode node ->
-                    button {
-                        "card-header-icon" |> toHtmlClass
-                        "aria-label" => "more options"
-                        node
-                    }
+                | ReplacementNode node -> node
+                | ChildNode node -> node |> defaultNode
             }
 
         let bulmaCardFooter (footerNodes: Node list) =
@@ -497,7 +548,17 @@ module Bulma =
                     }
                 }
             }
- 
+
+        let bulmaPanelHeading displayText =
+            p { "panel-heading" |> toHtmlClass; text displayText }
+
+
+    ///<summary>
+    /// Bulma Layout
+    /// “Design the structure of your webpage…”
+    /// — https://bulma.io/documentation/layout/
+    ///</summary>
+    module Layout =
         let bulmaLoader (margin: CssMargin * BulmaValueSuffix) (padding: CssPadding * BulmaValueSuffix) =
 
             let marginClass = match margin with | CssMargin b, s -> CssClass.m (b, s) 
@@ -512,9 +573,6 @@ module Bulma =
                     attr.title "Loading…"
                 }
             }
-
-        let bulmaPanelHeading displayText =
-            p { "panel-heading" |> toHtmlClass; text displayText }
 
         let bulmaMedia (moreClasses: CssClassesOrEmpty) (mediaLeft: HtmlNodeOrEmpty) (mediaContentNodes: Node list) =
             let mediaContainerClasses = CssClasses [ CssClass.media ]
@@ -541,27 +599,4 @@ module Bulma =
                 tileContainerClasses |> moreClasses.ToHtmlClassAttribute
 
                 forEach tileContentNodes <| id
-            }
-
-    module Button = 
-        let bulmaAnchorIconButton (title: DisplayText, href: Uri, id: Identifier) =
-            a {
-                (CssClasses [ CssClass.levelItem; CssClass.elementTextAlign Center ]).ToHtmlClassAttribute
-                attr.href href.OriginalString
-                attr.target "_blank"
-                attr.title title.Value
-
-                span {
-                    "icon" |> toHtmlClass
-                    "aria-hidden" => "true"
-
-                    svgNode (svgViewBoxSquare 24) svgData[id]
-                }
-            }
-
-    module Svg =
-        let bulmaPanelIcon (id: Identifier) =
-            span {
-                [ "panel-icon" ] @ CssClass.imageContainer (Square Square24) |> toHtmlClassFromList
-                svgNode (svgViewBoxSquare 24) svgData[id]
             }
