@@ -31,7 +31,14 @@ type StudioLinksComponent() =
                 DefaultState
                 (HasClasses (CssClasses [ bulmaBackgroundGreyDarkTone ]))
                 href TargetBlank
-                [ bulmaPanelIcon id; text title.Value ]
+                [
+                    bulmaPanelIcon
+                        (HasClasses(CssClasses [m (B, L3)]))
+                        (bulmaImage
+                            (Square Square24)
+                            (svgNode (bulmaIconSvgViewBox Square24) svgData[id]))
+                    text title.Value
+                ]
 
         [ forEach App.appStudioLinks <| linkNode ]
 
@@ -42,11 +49,20 @@ type StudioLinksComponent() =
         ]
 
         let routeNode (page, caption) =
+            let id = Keys.MDI_LINK_VARIANT_24PX.ToAlphanumeric
+
             bulmaPanelBlockNavLink
                 (HasClasses(CssClasses [ bulmaBackgroundGreyDarkTone ]))
                 (ElmishRoutes.router.Link page)
                 NavLinkMatch.All
-                [ bulmaPanelIcon Keys.MDI_LINK_VARIANT_24PX.ToAlphanumeric; text caption ]
+                [
+                    bulmaPanelIcon
+                        (HasClasses(CssClasses [m (B, L3)]))
+                        (bulmaImage
+                            (Square Square24)
+                            (svgNode (bulmaIconSvgViewBox Square24) svgData[id]))
+                    text caption
+                ]
 
         [ forEach routeData <| routeNode ]
 

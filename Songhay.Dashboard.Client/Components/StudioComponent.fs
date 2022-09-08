@@ -50,7 +50,7 @@ type StudioComponent() =
                 "icon" |> toHtmlClass
                 "aria-hidden" => "true"
 
-                svgNode (svgViewBoxSquare 24) svgData[data.id]
+                svgNode (bulmaIconSvgViewBox Square24) svgData[data.id]
             }
             span { fontSize Size7 |> toHtmlClass; text data.version }
         }

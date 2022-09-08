@@ -9,6 +9,7 @@ open Songhay.Modules.Models
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
+open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Client.Visuals.Colors
@@ -130,7 +131,7 @@ module StudioTools =
                 Html.p {
                     imageContainer (Square Square48) |> toHtmlClassFromList; "aria-hidden" => "true"
 
-                    svgNode (svgViewBoxSquare 24) svgPathData
+                    svgNode (bulmaIconSvgViewBox Square24) svgPathData
                 }
             }
 

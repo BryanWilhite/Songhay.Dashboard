@@ -10,6 +10,7 @@ open Songhay.Modules.StringUtility
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Bulma.Component
+open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 open Songhay.Modules.Bolero.Visuals.Svg
@@ -25,6 +26,7 @@ module StudioFeeds =
         | CodePen | Flickr ->
             div {
                 cardImage |> toHtmlClass
+
                 figure {
                     imageContainer ThreeByTwo |> toHtmlClassFromList
                     img {
@@ -63,7 +65,7 @@ module StudioFeeds =
         figure {
             mediaLeftClasses
             "aria-hidden" => "true"
-            svgNode (svgViewBoxSquare 24) svgPathData
+            svgNode (bulmaIconSvgViewBox Square24) svgPathData
         }
 
     let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
@@ -92,7 +94,7 @@ module StudioFeeds =
             }
         ]
 
-        let codeNode =
+        let cardNode =
             bulmaCard
                 (HasClasses (CssClasses [bulmaBackgroundGreyDarkTone]))
                 NoNode
@@ -104,7 +106,7 @@ module StudioFeeds =
         bulmaTile
             TileSizeAuto
             (HasClasses (CssClasses [ tileIsChild ]))
-            [ codeNode ]
+            [ cardNode ]
 
     let studioFeedsNodes (_: IJSRuntime) (model: Model) : Node list =
         match model.feeds with

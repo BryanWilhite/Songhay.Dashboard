@@ -82,6 +82,16 @@ type BulmaSquareDimension =
         | Square96 -> "is-96x96"
         | Square128 -> "is-128x128"
 
+    member this.ToWidthOrHeight =
+        match this with
+        | Square16 -> 16
+        | Square24 -> 24
+        | Square32 -> 32
+        | Square48 -> 48
+        | Square64 -> 64
+        | Square96 -> 96
+        | Square128 -> 128
+
 type BulmaRatioDimension =
     | Square of BulmaSquareDimension
     | FiveByFour

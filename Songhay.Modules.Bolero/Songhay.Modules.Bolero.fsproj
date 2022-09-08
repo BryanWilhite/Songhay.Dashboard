@@ -11,11 +11,14 @@
       <Compile Include="JsRuntimeUtility.fs" />
       <Compile Include="RemoteHandlerUtility.fs" />
       <Compile Include="Models\CssPrimitives.fs" />
-      <Compile Include="Models\BulmaPrimitives.fs" />
       <Compile Include="Models\HtmlPrimitives.fs" />
+      <Compile Include="Models\BulmaPrimitives.fs" />
       <Compile Include="Visuals\Svg.fs" />
-      <Compile Include="Visuals\Bulma.fs" />
       <Compile Include="Visuals\Document.fs" />
+      <Compile Include="Visuals\Bulma\CssClass.fs" />
+      <Compile Include="Visuals\Bulma\Element.fs" />
+      <Compile Include="Visuals\Bulma\Component.fs" />
+      <Compile Include="Visuals\Bulma\Layout.fs" />
     </ItemGroup>
 
     <ItemGroup>

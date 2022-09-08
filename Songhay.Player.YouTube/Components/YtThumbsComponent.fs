@@ -16,6 +16,7 @@ open Songhay.Modules.StringUtility
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.JsRuntimeUtility
 open Songhay.Modules.Bolero.Models
+open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Svg
@@ -178,7 +179,7 @@ type YtThumbsComponent() =
 
                     span {
                         ([ levelItem ] @ imageContainer (Square Square48)) |> toHtmlClassFromList
-                        svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_YOUTUBE_24PX.ToAlphanumeric]
+                        svgNode (bulmaIconSvgViewBox Square24) svgData[Keys.MDI_YOUTUBE_24PX.ToAlphanumeric]
                     }
                     span {
                         [ levelItem; fontSize Size2 ] |> toHtmlClassFromList
@@ -196,13 +197,13 @@ type YtThumbsComponent() =
                     attr.href "#"; [ "command"; "left" ] @ imageContainer (Square Square48) |> toHtmlClassFromList
                     click.PreventDefault
                     on.async.click (slideAsync SlideDirection.Right)
-                    svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_ARROW_LEFT_DROP_CIRCLE_24PX.ToAlphanumeric]
+                    svgNode (bulmaIconSvgViewBox Square24) svgData[Keys.MDI_ARROW_LEFT_DROP_CIRCLE_24PX.ToAlphanumeric]
                 }
                 a {
                     attr.href "#"; [ "command"; "right"; ] @ imageContainer (Square Square48) |> toHtmlClassFromList
                     click.PreventDefault
                     on.async.click (slideAsync SlideDirection.Left)
-                    svgNode (svgViewBoxSquare 24) svgData[Keys.MDI_ARROW_RIGHT_DROP_CIRCLE_24PX.ToAlphanumeric]
+                    svgNode (bulmaIconSvgViewBox Square24) svgData[Keys.MDI_ARROW_RIGHT_DROP_CIRCLE_24PX.ToAlphanumeric]
                 }
             }
         }

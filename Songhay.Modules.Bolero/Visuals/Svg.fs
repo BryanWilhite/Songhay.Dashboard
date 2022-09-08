@@ -13,8 +13,7 @@ module Svg =
     [<Literal>]
     let SvgUri = "http://www.w3.org/2000/svg"
 
-    let svgViewBox (minX: int, minY: int) (width: int, height: int) =
-        $"{minX} {minY} {width} {height}"
+    let svgViewBox (minX: int, minY: int) (width: int, height: int) = $"{minX} {minY} {width} {height}"
 
     let svgViewBoxSquare widthAndHeight =
         svgViewBox (0,0) (widthAndHeight, widthAndHeight)
