@@ -10,7 +10,8 @@ open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Svg
-open Songhay.Dashboard.Client
+
+open Songhay.Dashboard.Client.Visuals.Colors
 
 module StudioTools =
 
@@ -135,14 +136,15 @@ module StudioTools =
 
     let toBulmaArticleNode (title: DisplayText, location: Uri, svgKey: Identifier) =
         article {
-            [ "tile"; m (All, L3) ] |> toHtmlClassFromList
+            [ tile; m (All, L3) ] |> toHtmlClassFromList
 
             studioToolIcon svgKey
+
             div {
                 "media-content" |> toHtmlClass
 
                 div {
-                    "content" |> toHtmlClass
+                    content |> toHtmlClass
 
                     a {
                         [ "title"; fontSize Size5 ] |> toHtmlClassFromList
@@ -158,11 +160,11 @@ module StudioTools =
     let studioToolsNode () =
         let getGroup g =
             div {
-                [ "tile"; "is-parent"; "has-background-greys-dark-tone" ] |> toHtmlClassFromList
+                [ tile; tileIsParent; bulmaBackgroundGreyDarkTone ] |> toHtmlClassFromList
                 forEach g <| toBulmaArticleNode
             }
 
         div {
-            "notification" |> App.appBlockChildCssClasses.Prepend |> toHtmlClassFromData
+            CssClasses [ "notification"; tile; tileIsChild; bulmaBackgroundGreyDarkTone ] |> toHtmlClassFromData
             forEach (studioToolsData |> List.chunkBySize 2) <| getGroup
         }

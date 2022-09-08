@@ -2,7 +2,6 @@ namespace Songhay.Dashboard.Client
 
 open System
 
-open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 open Songhay.Modules.Models
 open Songhay.Dashboard.Models
@@ -14,8 +13,6 @@ module App =
 
     [<Literal>]
     let AppDataLocation = "https://songhaystorage.blob.core.windows.net/studio-dash/app.json"
-
-    let appBlockChildCssClasses = CssClasses [ "tile"; "is-child"; "has-background-greys-dark-tone" ]
 
     let appVersions =
         let boleroVersion = $"{typeof<Bolero.Node>.Assembly.GetName().Version}"

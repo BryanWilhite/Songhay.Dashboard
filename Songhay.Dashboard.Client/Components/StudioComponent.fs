@@ -8,6 +8,7 @@ open Bolero.Html
 
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
+open Songhay.Modules.Bolero.Visuals.Bulma.Component
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
@@ -15,6 +16,7 @@ open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Models
 open Songhay.Dashboard.Client
+open Songhay.Dashboard.Client.Visuals.Colors
 open Songhay.Dashboard.Client.ElmishTypes
 
 type StudioComponent() =
@@ -59,14 +61,12 @@ type StudioComponent() =
         let cssClassesSvgLinkNodes = [ m (LR, L6) ] |> cssClassesParentLevel.AppendList
 
         let cssClassesSvgVersionNodes =
-            [ "has-text-greys-light-tone"; m (T, L6); p (T, L6) ] |> cssClassesParentLevel.AppendList
+            [ bulmaTextGreyLightTone; m (T, L6); p (T, L6) ] |> cssClassesParentLevel.AppendList
 
-        div {
-            "card" |> App.appBlockChildCssClasses.Prepend |> toHtmlClassFromData
-            div {
-                "card-content" |> toHtmlClass
+        let cardContentNodes =
+            [
                 div {
-                    [ "content"; elementTextAlign Center ] |> toHtmlClassFromList
+                    [ content; elementTextAlign Center ] |> toHtmlClassFromList
                     studioLogo
                 }
                 div {
@@ -77,8 +77,21 @@ type StudioComponent() =
                     cssClassesSvgVersionNodes.ToHtmlClassAttribute
                     forEach App.appVersions <| svgVersionNode
                 }
-            }
-        }
+            ]
+
+        let cardNode =
+            bulmaCard
+                (HasClasses (CssClasses [ bulmaBackgroundGreyDarkTone ]))
+                NoNode
+                NoNode
+                NoNode
+                NoCssClasses
+                cardContentNodes
+
+        bulmaTile
+            TileSizeAuto
+            (HasClasses (CssClasses [ tileIsChild ]))
+            [ cardNode ]
 
     static member EComp model dispatch =
         ecomp<StudioComponent, _, _> model dispatch { attr.empty() }

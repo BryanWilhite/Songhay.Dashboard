@@ -19,6 +19,7 @@ open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Client
+open Songhay.Dashboard.Client.Visuals.Colors
 open Songhay.Dashboard.Client.ElmishTypes
 
 type StudioLinksComponent() =
@@ -26,13 +27,11 @@ type StudioLinksComponent() =
 
     static let linkNodes =
         let linkNode (title: DisplayText, href: Uri, id: Identifier) =
-            a {
-                "panel-block" |> toHtmlClass
-                attr.href href.OriginalString
-                attr.target "_blank"
-
-                bulmaPanelIcon id; text title.Value
-            }
+            bulmaPanelBlockAnchor
+                DefaultState
+                (HasClasses (CssClasses [ bulmaBackgroundGreyDarkTone ]))
+                href TargetBlank
+                [ bulmaPanelIcon id; text title.Value ]
 
         [ forEach App.appStudioLinks <| linkNode ]
 
@@ -43,26 +42,25 @@ type StudioLinksComponent() =
         ]
 
         let routeNode (page, caption) =
-            navLink NavLinkMatch.All {
-                "ActiveClass" => elementIsActive
-                "panel-block" |> toHtmlClass
-                attr.href (ElmishRoutes.router.Link page)
-                bulmaPanelIcon Keys.MDI_LINK_VARIANT_24PX.ToAlphanumeric; text caption
-            }
+            bulmaPanelBlockNavLink
+                (HasClasses(CssClasses [ bulmaBackgroundGreyDarkTone ]))
+                (ElmishRoutes.router.Link page)
+                NavLinkMatch.All
+                [ bulmaPanelIcon Keys.MDI_LINK_VARIANT_24PX.ToAlphanumeric; text caption ]
 
         [ forEach routeData <| routeNode ]
 
     static let studioLinksNode =
+        let panelNode =
+            bulmaPanel
+                "studio links"
+                NoNode
+                (routeNodes @ linkNodes)
 
-        let navNodes = routeNodes @ linkNodes
-
-        nav {
-            panel |> App.appBlockChildCssClasses.Prepend |> toHtmlClassFromData
-
-            bulmaPanelHeading "studio links"
-
-            forEach navNodes <| id
-        }
+        bulmaTile
+            TileSizeAuto
+            (HasClasses (CssClasses [ tileIsChild ]))
+            [ panelNode ]
 
     static member EComp model dispatch =
         ecomp<StudioLinksComponent, _, _> model dispatch { attr.empty() }

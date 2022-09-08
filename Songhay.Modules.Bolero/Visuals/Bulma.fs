@@ -1,6 +1,7 @@
 namespace Songhay.Modules.Bolero.Visuals
 
 open System
+open Microsoft.AspNetCore.Components.Routing
 open Microsoft.AspNetCore.Components.Web
 
 open Bolero
@@ -549,18 +550,6 @@ module Bulma =
                 }
             }
 
-        let bulmaPanelBlock isActive (childNode: Node) =
-            div { [ "panel-block"; if isActive then CssClass.elementIsActive ] |> toHtmlClassFromList; childNode }
-
-        let bulmaPanelBlockAnchor isActive (childNode: Node) =
-            a { [ "panel-block"; if isActive then CssClass.elementIsActive ] |> toHtmlClassFromList; childNode }
-
-        let bulmaPanelBlockLabel isActive (childNode: Node) =
-            label { [ "panel-block"; if isActive then CssClass.elementIsActive ] |> toHtmlClassFromList; childNode }
-
-        let bulmaPanelHeading displayText =
-            p { "panel-heading" |> toHtmlClass; text displayText }
-
         let bulmaPanel headingText (panelTabsNode: HtmlNodeOrEmpty) (panelBlockNodes: Node list) =
             nav {
                 CssClass.panel |> toHtmlClass
@@ -570,6 +559,55 @@ module Bulma =
                 panelTabsNode.Value
 
                 forEach panelBlockNodes <| id
+            }
+
+        let bulmaPanelBlock
+            (state: HtmlElementActiveOrDefault)
+            (moreClasses: CssClassesOrEmpty)
+            (childNode: Node) =
+            let panelBlockClasses = CssClasses [ "panel-block"; if state = ActiveState then CssClass.elementIsActive ]
+            div {
+                panelBlockClasses |> moreClasses.ToHtmlClassAttribute
+                childNode
+            }
+
+        let bulmaPanelBlockAnchor
+            (state: HtmlElementActiveOrDefault)
+            (moreClasses: CssClassesOrEmpty)
+            (href: Uri)
+            (target: HtmlTargetOrEmpty)
+            (childNodes: Node list) =
+            let panelBlockClasses = CssClasses [ "panel-block"; if state = ActiveState then CssClass.elementIsActive ]
+            a {
+                panelBlockClasses |> moreClasses.ToHtmlClassAttribute
+                attr.href href.OriginalString
+                target.Value
+
+                forEach childNodes <| id
+            }
+
+        let bulmaPanelBlockLabel
+            (state: HtmlElementActiveOrDefault)
+            (moreClasses: CssClassesOrEmpty)
+            (childNode: Node) =
+            let panelBlockClasses = CssClasses [ "panel-block"; if state = ActiveState then CssClass.elementIsActive ]
+            label {
+                panelBlockClasses |> moreClasses.ToHtmlClassAttribute
+                childNode
+            }
+
+        let bulmaPanelBlockNavLink
+            (moreClasses: CssClassesOrEmpty)
+            (location: string)
+            (navMatch: NavLinkMatch)
+            (childNodes: Node list) =
+            let panelBlockClasses = CssClasses [ "panel-block" ]
+            navLink navMatch {
+                panelBlockClasses |> moreClasses.ToHtmlClassAttribute
+                "ActiveClass" => CssClass.elementIsActive
+                attr.href location
+
+                forEach childNodes <| id
             }
 
     ///<summary>

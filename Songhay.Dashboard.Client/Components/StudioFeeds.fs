@@ -9,12 +9,13 @@ open Songhay.Modules.StringUtility
 
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
+open Songhay.Modules.Bolero.Visuals.Bulma.Component
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Models
-open Songhay.Dashboard.Client
+open Songhay.Dashboard.Client.Visuals.Colors
 open Songhay.Dashboard.Client.ElmishTypes
 
 module StudioFeeds =
@@ -71,30 +72,36 @@ module StudioFeeds =
                 }
             }
 
-        div {
-            "card" |> App.appBlockChildCssClasses.Prepend |> toHtmlClassFromData
-            (feedName, feed) |> studioFeedImage
-
+        let cardContentNodes = [
+            bulmaMedia
+                NoCssClasses
+                (HasNode (studioFeedIcon feedName))
+                [
+                    Html.p { [ "title"; fontSize Size4 ] |> toHtmlClassFromList; text feed.feedTitle }
+                    Html.p { [ "subtitle"; fontSize Size6 ] |> toHtmlClassFromList; text (feed.modificationDate.ToString("yyyy-MM-dd")) }
+                ]
             div {
-                "card-content" |> toHtmlClass
+                content |> toHtmlClass
 
-                bulmaMedia
-                    NoCssClasses
-                    (HasNode (studioFeedIcon feedName))
-                    [
-                        Html.p { [ "title"; fontSize Size4 ] |> toHtmlClassFromList; text feed.feedTitle }
-                        Html.p { [ "subtitle"; fontSize Size6 ] |> toHtmlClassFromList; text (feed.modificationDate.ToString("yyyy-MM-dd")) }
-                    ]
-
-                div {
-                    "content" |> toHtmlClass
-
-                    ul {
-                        forEach (feed.feedItems |> List.take 10) <| listItem
-                    }
+                ul {
+                    forEach (feed.feedItems |> List.take 10) <| listItem
                 }
             }
-        }
+        ]
+
+        let codeNode =
+            bulmaCard
+                (HasClasses (CssClasses [bulmaBackgroundGreyDarkTone]))
+                NoNode
+                NoNode
+                NoNode
+                NoCssClasses
+                cardContentNodes
+
+        bulmaTile
+            TileSizeAuto
+            (HasClasses (CssClasses [ tileIsChild ]))
+            [ codeNode ]
 
     let studioFeedsNodes (_: IJSRuntime) (model: Model) : Node list =
         match model.feeds with
