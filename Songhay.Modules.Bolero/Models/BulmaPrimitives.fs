@@ -118,6 +118,7 @@ type BulmaRatioDimension =
         | OneByThree -> $"is-{One.Value}by{Three.Value}"
 
 type BulmaValueSuffix =
+    | L0
     | L1
     | L2
     | L3
@@ -128,6 +129,7 @@ type BulmaValueSuffix =
 
     member this.Value =
         match this with
+        | L0 -> "0"
         | L1 -> "1"
         | L2 -> "2"
         | L3 -> "3"

@@ -37,7 +37,7 @@ type StudioComponent() =
     static let svgVersionNode (data: VersionData) =
         let classes = CssClasses [
             levelItem
-            "is-akyinkyin-base"
+            bulmaAkyinkyinBase
             elementTextIsUnselectable
             elementTextAlign Center
         ]

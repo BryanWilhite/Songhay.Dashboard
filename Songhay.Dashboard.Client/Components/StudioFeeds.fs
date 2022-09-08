@@ -24,7 +24,7 @@ module StudioFeeds =
         match feedName with
         | CodePen | Flickr ->
             div {
-                "card-image" |> toHtmlClass
+                cardImage |> toHtmlClass
                 figure {
                     imageContainer ThreeByTwo |> toHtmlClassFromList
                     img {
@@ -55,12 +55,15 @@ module StudioFeeds =
 
         let svgPathData = svgData[ feedNameMap[ feedName ] ]
 
-        div {
-            mediaLeft |> toHtmlClass
-            figure {
-                imageContainer (Square Square48) |> toHtmlClassFromList; "aria-hidden" => "true"
-                svgNode (svgViewBoxSquare 24) svgPathData
-            }
+        let mediaLeftClasses =
+            [ mediaLeft; m (All, L0); m (R, L1) ]
+            @ imageContainer (Square Square48)
+            |> toHtmlClassFromList
+
+        figure {
+            mediaLeftClasses
+            "aria-hidden" => "true"
+            svgNode (svgViewBoxSquare 24) svgPathData
         }
 
     let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
@@ -108,7 +111,7 @@ module StudioFeeds =
         | None ->
             [
                 div {
-                    [ "tile"; "is-child"; elementTextAlign Center; p (All, L6)] |> toHtmlClassFromList
+                    [ tile; tileIsChild; elementTextAlign Center; p (All, L6)] |> toHtmlClassFromList
 
                     div {
                         [ "loader"; m (All, L6) ] |> toHtmlClassFromList

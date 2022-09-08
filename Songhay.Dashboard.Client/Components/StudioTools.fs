@@ -125,7 +125,7 @@ module StudioTools =
             let svgPathData = svgData[svgKey]
 
             figure {
-                "media-left" |> toHtmlClass
+                mediaLeft |> toHtmlClass
 
                 Html.p {
                     imageContainer (Square Square48) |> toHtmlClassFromList; "aria-hidden" => "true"
@@ -141,7 +141,7 @@ module StudioTools =
             studioToolIcon svgKey
 
             div {
-                "media-content" |> toHtmlClass
+                mediaContent |> toHtmlClass
 
                 div {
                     content |> toHtmlClass
