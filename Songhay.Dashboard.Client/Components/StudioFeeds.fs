@@ -97,7 +97,7 @@ module StudioFeeds =
         let cardNode =
             bulmaCard
                 (HasClasses (CssClasses [bulmaBackgroundGreyDarkTone]))
-                NoNode
+                (HasNode (studioFeedImage (feedName, feed)))
                 NoNode
                 NoNode
                 NoCssClasses

@@ -183,3 +183,11 @@ module Component =
 
             forEach childNodes <| id
         }
+
+    let bulmaPanelIcon (moreClasses: CssClassesOrEmpty) (visualNode: Node) =
+        span {
+            CssClasses [ "panel-icon" ] |> moreClasses.ToHtmlClassAttribute
+            "aria-hidden" => "true"
+
+            visualNode
+        }

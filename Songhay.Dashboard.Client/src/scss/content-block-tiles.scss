@@ -26,10 +26,10 @@
   }
 }
 
-article.tile {
+.tile {
   min-width: 12em;
 
-  & > .media-content > .content > a {
+  & > .media > .media-content > .content > a {
     &:link,
     &:visited {
       color: $akyinkyin-light-tone;

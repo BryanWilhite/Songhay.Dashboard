@@ -34,7 +34,7 @@ type StudioLinksComponent() =
                 [
                     bulmaPanelIcon
                         (HasClasses(CssClasses [m (B, L3)]))
-                        (bulmaImage
+                        (bulmaImageContainer
                             (Square Square24)
                             (svgNode (bulmaIconSvgViewBox Square24) svgData[id]))
                     text title.Value
@@ -58,7 +58,7 @@ type StudioLinksComponent() =
                 [
                     bulmaPanelIcon
                         (HasClasses(CssClasses [m (B, L3)]))
-                        (bulmaImage
+                        (bulmaImageContainer
                             (Square Square24)
                             (svgNode (bulmaIconSvgViewBox Square24) svgData[id]))
                     text caption
