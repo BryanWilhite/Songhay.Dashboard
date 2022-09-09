@@ -9,8 +9,11 @@ type HtmlAttributesOrEmpty =
 
     member this.Value =
         match this with
-        | NoAttributes -> Attr.Attrs [ attr.empty() ]
-        | HasAttributes attributes -> Attr.Attrs attributes
+        | NoAttributes -> attr.empty()
+        | HasAttributes attributes ->
+            match attributes with
+            | [ a ] -> a
+            | _ -> attributes |> List.reduce(fun a b -> attrs.Combine(a, b))
 
 type HtmlChildNodeOrReplaceDefault =
     | ChildNode of Node

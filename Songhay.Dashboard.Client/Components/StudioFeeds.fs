@@ -1,5 +1,6 @@
 namespace Songhay.Dashboard.Client.Components.Block
 
+open System
 open Microsoft.JSInterop
 open Bolero
 open Bolero.Html
@@ -9,6 +10,7 @@ open Songhay.Modules.StringUtility
 
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
+open Songhay.Modules.Bolero.Visuals.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.Component
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
@@ -27,10 +29,11 @@ module StudioFeeds =
             bulmaCardImage
                 (figure {
                     imageContainer ThreeByTwo |> toHtmlClassFromList
-                    img {
-                        attr.alt $"{feed.feedTitle} feed image"
-                        attr.src (feed.feedImage |> Option.get)
-                    }
+                    imageElement
+                        (HasAttributes [(attr.width 320); (attr.height 240)])
+                        NoCssClasses
+                        $"{feed.feedTitle} feed image"
+                        (feed.feedImage |> Option.get |> Uri)
                 })
         | _ -> empty()
 
