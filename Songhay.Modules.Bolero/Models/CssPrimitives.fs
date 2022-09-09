@@ -1,5 +1,6 @@
 namespace Songhay.Modules.Bolero.Models
 
+open Bolero.Html
 open Songhay.Modules.Bolero.BoleroUtility
 
 ///<remarks>
@@ -100,10 +101,12 @@ type CssClassesOrEmpty =
     | NoCssClasses
     | HasClasses of CssClasses
 
-        member this.ToHtmlClassAttribute (cssClasses: CssClasses) =
-            match this with
-            | HasClasses more -> more.Value |> cssClasses.AppendList |> toHtmlClassFromData
-            | NoCssClasses ->  cssClasses.ToHtmlClassAttribute
+    member this.ToHtmlClassAttribute (cssClasses: CssClasses) =
+        match this with
+        | HasClasses moreCssClasses -> moreCssClasses.Value |> cssClasses.AppendList |> toHtmlClassFromData
+        | NoCssClasses -> cssClasses.ToHtmlClassAttribute
+
+    member this.Value = match this with | NoCssClasses -> attr.empty() | HasClasses classes -> classes.ToHtmlClassAttribute
 
 type CssCommonImageAspectRatioNumber =
     | One

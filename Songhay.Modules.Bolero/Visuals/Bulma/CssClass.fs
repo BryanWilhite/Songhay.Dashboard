@@ -8,7 +8,17 @@ open Songhay.Modules.Bolero.Models
 module CssClass =
 
     ///<summary>
-    /// Bulma CSS class-name literal for Bulma cards.
+    /// Bulma CSS class-name literal for Bulma elements.
+    ///</summary>
+    ///<remarks>
+    /// “The box element is a simple container with a white background, some padding, and a box shadow…”
+    /// — https://bulma.io/documentation/elements/box/
+    ///</remarks>
+    [<Literal>]
+    let box = "box"
+
+    ///<summary>
+    /// Bulma CSS class-name literal for the Bulma card element.
     ///</summary>
     ///<remarks>
     /// “The card component comprises several elements that you can mix and match…”
@@ -18,7 +28,7 @@ module CssClass =
     let card = "card"
 
     ///<summary>
-    /// Bulma CSS class-name literal for Bulma cards.
+    /// Bulma CSS class-name literal for the Bulma card element.
     ///</summary>
     ///<remarks>
     /// This is the container/wrapper for the <see cref="content" /> block.
@@ -28,7 +38,7 @@ module CssClass =
     let cardContent = "card-content"
 
     ///<summary>
-    /// Bulma CSS class-name literal for Bulma cards.
+    /// Bulma CSS class-name literal for the Bulma card element.
     ///</summary>
     ///<remarks>
     /// This is the container/wrapper for the Bulma <see cref="image" />.
@@ -326,6 +336,20 @@ module CssClass =
     /// — https://bulma.io/documentation/layout/media-object/
     ///</remarks>
     let mediaContent ="media-content"
+
+    ///<summary>
+    /// Bulma CSS class-name literal for Bulma elements.
+    ///</summary>
+    ///<remarks>
+    /// “The notification is a simple colored block meant
+    /// to draw the attention to the user about something.
+    /// As such, it can be used as a pinned notification
+    /// in the corner of the viewport.
+    /// That's why it supports the use of the delete element…”
+    /// — https://bulma.io/documentation/elements/notification/
+    ///</remarks>
+    [<Literal>]
+    let notification = "notification"
 
     ///<summary>
     /// Bulma CSS class-name function for Bulma spacing helpers.

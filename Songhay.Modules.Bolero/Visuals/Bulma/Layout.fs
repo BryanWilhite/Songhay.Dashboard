@@ -12,6 +12,7 @@ open Songhay.Modules.Bolero.Models
 /// — https://bulma.io/documentation/layout/
 ///</summary>
 module Layout =
+
     ///<summary>
     /// Bulma CSS layout function for <see cref="CssClass.levelContainer" />.
     ///</summary>
@@ -83,6 +84,13 @@ module Layout =
 
                 forEach mediaContentNodes <| id
             }
+        }
+
+    let bulmaMediaLeft (moreClasses: CssClassesOrEmpty) (childNode: Node) =
+        div {
+            CssClasses [ CssClass.mediaLeft ] |> moreClasses.ToHtmlClassAttribute
+
+            childNode
         }
 
     let bulmaTile (width: BulmaTileHorizontalSize) (moreClasses: CssClassesOrEmpty) (tileContentNodes: Node list) =

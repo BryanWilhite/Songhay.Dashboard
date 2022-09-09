@@ -31,22 +31,33 @@ module Element =
             }
         }
 
-    let bulmaIcon (childNode: Node) =
-        span { "icon" |> toHtmlClass; "aria-hidden" => "true"; childNode }
+    let bulmaContent (moreClasses: CssClassesOrEmpty) (childNodes: Node list) =
+        div {
+            CssClasses [ CssClass.content ] |> moreClasses.ToHtmlClassAttribute
+
+            forEach childNodes <| id
+        }
+
+    let bulmaIcon (visualNode: Node) =
+        span { "icon" |> toHtmlClass; "aria-hidden" => "true"; visualNode }
 
     let bulmaIconSvgViewBox (square: BulmaSquareDimension) =
         svgViewBox (0,0) (square.ToWidthOrHeight, square.ToWidthOrHeight)
 
-    let bulmaImage (size: BulmaRatioDimension) (childNode: Node) =
+    let bulmaImageContainer (size: BulmaRatioDimension) (visualNode: Node) =
         figure {
             size |> CssClass.imageContainer |> toHtmlClassFromList
             "aria-hidden" => "true"
-            childNode
+
+            visualNode
         }
 
-    let bulmaPanelIcon (moreClasses: CssClassesOrEmpty) (childNode: Node) =
-        span {
-            CssClasses [ "panel-icon" ] |> moreClasses.ToHtmlClassAttribute
-            "aria-hidden" => "true"
-            childNode
+    ///<summary>
+    /// Bulma CSS class-name function for <see cref="CssClass.notification" />.
+    ///</summary>
+    let bulmaNotification (moreClasses: CssClassesOrEmpty) (childNodes: Node list) =
+        div {
+             CssClasses [ CssClass.notification ] |> moreClasses.ToHtmlClassAttribute
+
+             forEach childNodes <| id
         }

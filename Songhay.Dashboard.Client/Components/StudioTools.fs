@@ -2,14 +2,15 @@ namespace Songhay.Dashboard.Client.Components.Block
 
 open System
 
-open Bolero
 open Bolero.Html
 
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
+open Songhay.Modules.Bolero.Visuals.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
+open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Client.Visuals.Colors
@@ -119,53 +120,50 @@ module StudioTools =
         )
     ]
 
-    let rec studioToolIcon (svgKey: Identifier) =
+    let bulmaMediaLeftNode (svgKey: Identifier) =
         if not (svgData.ContainsKey svgKey) then
-            rawHtml $"<!-- {nameof studioToolIcon}: {nameof svgKey} `{svgKey}` was not found. -->"
+            htmlComment
+                $"{nameof svgKey} `{svgKey}` was not found."
         else
             let svgPathData = svgData[svgKey]
 
-            figure {
-                mediaLeft |> toHtmlClass
+            bulmaMediaLeft
+                NoCssClasses
+                (bulmaImageContainer
+                    (Square Square48)
+                    (svgNode (bulmaIconSvgViewBox Square24) svgPathData))
 
-                Html.p {
-                    imageContainer (Square Square48) |> toHtmlClassFromList; "aria-hidden" => "true"
+    let toBulmaMediaNode (title: DisplayText, location: Uri, svgKey: Identifier) =
+        bulmaTile
+            TileSizeAuto
+            NoCssClasses
+            [
+                bulmaMedia
+                    (HasClasses (CssClasses [ m (All, L3) ]))
+                    (HasNode (bulmaMediaLeftNode svgKey))
+                    [
+                        bulmaContent
+                            (HasClasses (CssClasses [ m (T, L3) ]))
+                            [
+                                anchorElement
+                                    (HasClasses (CssClasses [ "title"; fontSize Size5 ]))
+                                    location
+                                    TargetBlank
+                                    [ text title.Value ]
+                            ]
+                    ]
+            ]
 
-                    svgNode (bulmaIconSvgViewBox Square24) svgPathData
-                }
-            }
-
-    let toBulmaArticleNode (title: DisplayText, location: Uri, svgKey: Identifier) =
-        article {
-            [ tile; m (All, L3) ] |> toHtmlClassFromList
-
-            studioToolIcon svgKey
-
-            div {
-                mediaContent |> toHtmlClass
-
-                div {
-                    content |> toHtmlClass
-
-                    a {
-                        [ "title"; fontSize Size5 ] |> toHtmlClassFromList
-                        attr.href location.OriginalString
-                        attr.target "_blank"
-
-                        text title.Value
-                    }
-                }
-            }
-        }
-
-    let studioToolsNode () =
+    let studioToolsNode =
         let getGroup g =
-            div {
-                [ tile; tileIsParent; bulmaBackgroundGreyDarkTone ] |> toHtmlClassFromList
-                forEach g <| toBulmaArticleNode
-            }
+            bulmaTile
+                TileSizeAuto
+                (HasClasses (CssClasses [ tileIsParent ]))
+                [ forEach g <| toBulmaMediaNode ]
 
-        div {
-            CssClasses [ "notification"; tile; tileIsChild; bulmaBackgroundGreyDarkTone ] |> toHtmlClassFromData
-            forEach (studioToolsData |> List.chunkBySize 2) <| getGroup
-        }
+        let forEachNode = forEach (studioToolsData |> List.chunkBySize 2) <| getGroup
+
+        bulmaTile
+            TileSizeAuto
+            (HasClasses (CssClasses [ tileIsChild; notification; bulmaBackgroundGreyDarkTone ]))
+            [ forEachNode ]
