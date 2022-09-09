@@ -3,6 +3,15 @@ namespace Songhay.Modules.Bolero.Models
 open Bolero
 open Bolero.Html
 
+type HtmlAttributesOrEmpty =
+    | NoAttributes
+    | HasAttributes of Attr list
+
+    member this.Value =
+        match this with
+        | NoAttributes -> Attr.Attrs [ attr.empty() ]
+        | HasAttributes attributes -> Attr.Attrs attributes
+
 type HtmlChildNodeOrReplaceDefault =
     | ChildNode of Node
     | ReplacementNode of Node

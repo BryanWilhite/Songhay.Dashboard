@@ -24,17 +24,14 @@ module StudioFeeds =
     let studioFeedImage (feedName: FeedName, feed: SyndicationFeed) =
         match feedName with
         | CodePen | Flickr ->
-            div {
-                cardImage |> toHtmlClass
-
-                figure {
+            bulmaCardImage
+                (figure {
                     imageContainer ThreeByTwo |> toHtmlClassFromList
                     img {
                         attr.alt $"{feed.feedTitle} feed image"
                         attr.src (feed.feedImage |> Option.get)
                     }
-                }
-            }
+                })
         | _ -> empty()
 
     let studioFeedIcon (feedName: FeedName) =

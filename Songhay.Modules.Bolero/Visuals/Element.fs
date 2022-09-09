@@ -28,3 +28,16 @@ module Element =
         }
 
     let htmlComment (comment: string) = rawHtml $"<!-- {comment} -->"
+
+    let imageElement
+        (moreAttrs: HtmlAttributesOrEmpty)
+        (cssClasses: CssClassesOrEmpty)
+        (alt: string)
+        (uri: Uri) =
+        img {
+            cssClasses.Value
+
+            attr.src uri.OriginalString
+            attr.alt alt
+            moreAttrs.Value
+        }

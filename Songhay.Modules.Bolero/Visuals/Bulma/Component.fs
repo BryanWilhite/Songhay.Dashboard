@@ -46,7 +46,7 @@ module Component =
         }
 
     let bulmaCardImage (imageNode: Node) =
-        div {
+        figure {
             CssClass.cardImage |> toHtmlClass
 
             imageNode
