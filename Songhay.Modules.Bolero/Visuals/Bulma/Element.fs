@@ -38,16 +38,15 @@ module Element =
             forEach childNodes <| id
         }
 
-    let bulmaIcon (visualNode: Node) =
-        span { "icon" |> toHtmlClass; "aria-hidden" => "true"; visualNode }
+    let bulmaIcon (visualNode: Node) = span { "icon" |> toHtmlClass; AriaHidden.ToAttr; visualNode }
 
     let bulmaIconSvgViewBox (square: BulmaSquareDimension) =
         svgViewBox (0,0) (square.ToWidthOrHeight, square.ToWidthOrHeight)
 
-    let bulmaImageContainer (size: BulmaRatioDimension) (visualNode: Node) =
+    let bulmaImageContainer (size: BulmaRatioDimension) (attribute: HtmlAttributeOrEmpty) (visualNode: Node) =
         figure {
             size |> CssClass.imageContainer |> toHtmlClassFromList
-            "aria-hidden" => "true"
+            attribute.Value
 
             visualNode
         }

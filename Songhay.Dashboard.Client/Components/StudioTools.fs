@@ -131,6 +131,7 @@ module StudioTools =
                 NoCssClasses
                 (bulmaImageContainer
                     (Square Square48)
+                    NoAttr
                     (svgNode (bulmaIconSvgViewBox Square24) svgPathData))
 
     let toBulmaMediaNode (title: DisplayText, location: Uri, svgKey: Identifier) =

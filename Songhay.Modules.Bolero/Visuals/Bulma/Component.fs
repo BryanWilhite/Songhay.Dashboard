@@ -187,7 +187,7 @@ module Component =
     let bulmaPanelIcon (moreClasses: CssClassesOrEmpty) (visualNode: Node) =
         span {
             CssClasses [ "panel-icon" ] |> moreClasses.ToHtmlClassAttribute
-            "aria-hidden" => "true"
+            AriaHidden.ToAttr
 
             visualNode
         }

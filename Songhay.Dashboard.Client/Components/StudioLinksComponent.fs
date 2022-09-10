@@ -36,6 +36,7 @@ type StudioLinksComponent() =
                         (HasClasses(CssClasses [m (B, L3)]))
                         (bulmaImageContainer
                             (Square Square24)
+                            NoAttr
                             (svgNode (bulmaIconSvgViewBox Square24) svgData[id]))
                     text title.Value
                 ]
@@ -60,6 +61,7 @@ type StudioLinksComponent() =
                         (HasClasses(CssClasses [m (B, L3)]))
                         (bulmaImageContainer
                             (Square Square24)
+                            NoAttr
                             (svgNode (bulmaIconSvgViewBox Square24) svgData[id]))
                     text caption
                 ]

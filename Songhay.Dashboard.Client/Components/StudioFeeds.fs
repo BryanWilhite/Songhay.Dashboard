@@ -30,7 +30,7 @@ module StudioFeeds =
                 (figure {
                     imageContainer ThreeByTwo |> toHtmlClassFromList
                     imageElement
-                        (HasAttributes [(attr.width 320); (attr.height 240)])
+                        NoAttrs
                         NoCssClasses
                         $"{feed.feedTitle} feed image"
                         (feed.feedImage |> Option.get |> Uri)
