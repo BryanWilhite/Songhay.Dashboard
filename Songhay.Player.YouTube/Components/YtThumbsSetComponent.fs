@@ -110,7 +110,11 @@ type YtThumbsSetComponent() =
                     forEach model.YtSet.Value <| fun (_, items) ->
                         YtThumbsComponent.EComp None { model with YtItems = Some items } dispatch
                 }
-            | false -> bulmaLoader (CssMargin All, L6) (CssPadding All, L6)
+            | false ->
+                bulmaLoaderContainer
+                    (HasClasses (CssClasses [m (All, L6)]))
+                        (bulmaLoader
+                            (HasClasses (CssClasses (imageContainer (Square Square128) @ [p (All, L6)]))))
         }
 
     static member val Id = "yt-thumbs-set-block" with get

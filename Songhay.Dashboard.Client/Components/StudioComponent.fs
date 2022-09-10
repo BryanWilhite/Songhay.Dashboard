@@ -46,8 +46,7 @@ type StudioComponent() =
             (HasClasses classes)
             (HasAttrs [ (attr.title data.title.Value) ])
             [
-                bulmaIcon
-                    (svgNode (bulmaIconSvgViewBox Square24) svgData[data.id])
+                bulmaIcon (svgNode (bulmaIconSvgViewBox Square24) svgData[data.id])
                 span { fontSize Size7 |> toHtmlClass; text data.version }
             ]
 

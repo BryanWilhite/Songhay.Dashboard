@@ -57,19 +57,18 @@ module Layout =
             forEach childNodes <| id
         }
 
-    let bulmaLoader (margin: CssMargin * BulmaValueSuffix) (padding: CssPadding * BulmaValueSuffix) =
-
-        let marginClass = match margin with | CssMargin b, s -> CssClass.m (b, s) 
-        let paddingClass = match padding with | CssPadding b, s -> CssClass.m (b, s) 
-
+    let bulmaLoaderContainer (moreClasses: CssClassesOrEmpty) (loaderNode: Node) =
         div {
-            [ "loader-container"; paddingClass; CssClass.elementTextAlign Center] |> toHtmlClassFromList
+            CssClasses [ "loader-container"; CssClass.elementTextAlign Center ] |> moreClasses.ToHtmlClassAttribute
 
-            div {
-                [ "loader"; marginClass ] @ CssClass.imageContainer (Square Square128) |> toHtmlClassFromList
+            loaderNode
+        }
 
-                attr.title "Loading…"
-            }
+    let bulmaLoader (moreClasses: CssClassesOrEmpty) =
+        div {
+            CssClasses [ "loader" ] |> moreClasses.ToHtmlClassAttribute
+
+            attr.title "Loading…"
         }
 
     let bulmaMedia (moreClasses: CssClassesOrEmpty) (mediaLeft: HtmlNodeOrEmpty) (mediaContentNodes: Node list) =

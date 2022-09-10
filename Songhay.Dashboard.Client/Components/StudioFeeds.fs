@@ -114,10 +114,7 @@ module StudioFeeds =
                 div {
                     [ tile; tileIsChild; elementTextAlign Center; p (All, L6)] |> toHtmlClassFromList
 
-                    div {
-                        [ "loader"; m (All, L6) ] |> toHtmlClassFromList
-                        attr.title "Loading…"
-                    }
+                    bulmaLoader (HasClasses (CssClasses [ m (All, L6) ]))
                 }
             ]
         | Some feeds ->

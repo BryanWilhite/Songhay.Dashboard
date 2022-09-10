@@ -118,7 +118,11 @@ type YtThumbsComponent() =
 
         cond items.IsSome <| function
             | true -> div { attr.ref blockWrapperRef; forEach items.Value <| toSpan }
-            | false -> bulmaLoader (CssMargin All, L6) (CssPadding All, L3)
+            | false ->
+                bulmaLoaderContainer
+                    (HasClasses (CssClasses [m (All, L6)]))
+                        (bulmaLoader
+                            (HasClasses (CssClasses (imageContainer (Square Square128) @ [p (All, L3)]))))
 
     static let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
         (initCache: Dictionary<GlobalEventHandlers, bool>) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef)
