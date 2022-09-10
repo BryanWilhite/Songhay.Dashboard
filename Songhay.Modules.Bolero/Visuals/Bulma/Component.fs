@@ -45,9 +45,9 @@ module Component =
             footer.Value
         }
 
-    let bulmaCardImage (imageNode: Node) =
+    let bulmaCardImageContainer (moreContainerClasses: CssClassesOrEmpty) (imageNode: Node) =
         figure {
-            CssClass.cardImage |> toHtmlClass
+            CssClasses [CssClass.cardImage ] |> moreContainerClasses.ToHtmlClassAttribute
 
             imageNode
         }

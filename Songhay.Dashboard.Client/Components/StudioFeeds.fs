@@ -26,15 +26,13 @@ module StudioFeeds =
     let studioFeedImage (feedName: FeedName, feed: SyndicationFeed) =
         match feedName with
         | CodePen | Flickr ->
-            bulmaCardImage
-                (figure {
-                    imageContainer ThreeByTwo |> toHtmlClassFromList
-                    imageElement
-                        NoAttrs
-                        NoCssClasses
-                        $"{feed.feedTitle} feed image"
-                        (feed.feedImage |> Option.get |> Uri)
-                })
+            bulmaCardImageContainer
+                (HasClasses (CssClasses (imageContainer ThreeByTwo)))
+                (imageElement
+                    NoAttrs
+                    NoCssClasses
+                    $"{feed.feedTitle} feed image"
+                    (feed.feedImage |> Option.get |> Uri))
         | _ -> empty()
 
     let studioFeedIcon (feedName: FeedName) =
@@ -57,17 +55,10 @@ module StudioFeeds =
 
         let svgPathData = svgData[ feedNameMap[ feedName ] ]
 
-        let mediaLeftClasses =
-            [ mediaLeft; m (All, L0); m (R, L1) ]
-            @ imageContainer (Square Square48)
-            |> toHtmlClassFromList
-
-        figure {
-            mediaLeftClasses
-            AriaHidden.ToAttr
-
-            svgNode (bulmaIconSvgViewBox Square24) svgPathData
-        }
+        bulmaMediaLeft
+            (HasClasses (CssClasses ([ mediaLeft; m (All, L0); m (R, L1) ] @ imageContainer (Square Square48))))
+            (HasAttr AriaHidden.ToAttr)
+            (svgNode (bulmaIconSvgViewBox Square24) svgPathData)
 
     let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
         let listItem (i: SyndicationFeedItem) =

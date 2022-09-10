@@ -129,6 +129,7 @@ module StudioTools =
 
             bulmaMediaLeft
                 NoCssClasses
+                NoAttr
                 (bulmaImageContainer
                     (Square Square48)
                     NoAttr

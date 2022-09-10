@@ -86,9 +86,10 @@ module Layout =
             }
         }
 
-    let bulmaMediaLeft (moreClasses: CssClassesOrEmpty) (childNode: Node) =
-        div {
+    let bulmaMediaLeft (moreClasses: CssClassesOrEmpty) (attribute: HtmlAttributeOrEmpty) (childNode: Node) =
+        figure {
             CssClasses [ CssClass.mediaLeft ] |> moreClasses.ToHtmlClassAttribute
+            attribute.Value
 
             childNode
         }
