@@ -23,7 +23,7 @@ type StudioComponent() =
     inherit ElmishComponent<Model, Message>()
 
     static let studioLogo =
-        let spanClasses = CssClasses [ "title"; fontSize Size2; hidden Touch ]
+        let spanClasses = (CssClasses (title (HasFontSize Size2))).Append (hidden Touch)
 
         div {
             "logo" |> toHtmlClass
@@ -31,7 +31,7 @@ type StudioComponent() =
 
             span { (elementFontWeight Normal) |> spanClasses.Prepend |> toHtmlClassFromData; text "Songhay" }
             span { spanClasses.ToHtmlClassAttribute; text "System" }
-            span { [ "title"; fontSize Size1 ] |> toHtmlClassFromList; text "(::)" }
+            span { (title (HasFontSize Size1)) |> toHtmlClassFromList; text "(::)" }
         }
 
     static let svgVersionNode (data: VersionData) =
@@ -42,18 +42,14 @@ type StudioComponent() =
             elementTextAlign Center
         ]
 
-        div {
-            classes.ToHtmlClassAttribute
-            attr.title data.title.Value
-
-            span {
-                "icon" |> toHtmlClass
-                AriaHidden.ToAttr
-
-                svgNode (bulmaIconSvgViewBox Square24) svgData[data.id]
-            }
-            span { fontSize Size7 |> toHtmlClass; text data.version }
-        }
+        bulmaLevelItem
+            (HasClasses classes)
+            (HasAttrs [ (attr.title data.title.Value) ])
+            [
+                bulmaIcon
+                    (svgNode (bulmaIconSvgViewBox Square24) svgData[data.id])
+                span { fontSize Size7 |> toHtmlClass; text data.version }
+            ]
 
     static let studioNode =
         let cssClassesParentLevel = CssClasses [ levelContainer; isMobileModifier ]

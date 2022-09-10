@@ -63,10 +63,11 @@ module StudioFeeds =
     let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
         let listItem (i: SyndicationFeedItem) =
             li {
-                a {
-                    attr.href i.link; attr.target "_blank"
-                    text i.title
-                }
+                anchorElement
+                    NoCssClasses
+                    (i.link |> Uri)
+                    TargetBlank
+                    [ text i.title ]
             }
 
         let cardContentNodes = [
@@ -83,13 +84,13 @@ module StudioFeeds =
                         NoAttrs
                         (text (feed.modificationDate.ToString("yyyy-MM-dd")))
                 ]
-            div {
-                content |> toHtmlClass
-
-                ul {
-                    forEach (feed.feedItems |> List.take 10) <| listItem
-                }
-            }
+            bulmaContent
+                NoCssClasses
+                [
+                    ul {
+                        forEach (feed.feedItems |> List.take 10) <| listItem
+                    }
+                ]
         ]
 
         let cardNode =

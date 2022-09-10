@@ -49,11 +49,12 @@ module Layout =
     /// No matter what elements you put inside a Bulma <c>level<c/>, they will always be vertically centered.”
     /// — https://bulma.io/documentation/layout/level/
     ///</remarks>
-    let bulmaLevelItem (moreClasses: CssClassesOrEmpty) (childNode: Node) =
+    let bulmaLevelItem (moreClasses: CssClassesOrEmpty) (attributes: HtmlAttributesOrEmpty) (childNodes: Node list) =
         div {
             CssClasses [ CssClass.levelItem ] |> moreClasses.ToHtmlClassAttribute
+            attributes.Value
 
-            childNode
+            forEach childNodes <| id
         }
 
     let bulmaLoader (margin: CssMargin * BulmaValueSuffix) (padding: CssPadding * BulmaValueSuffix) =
