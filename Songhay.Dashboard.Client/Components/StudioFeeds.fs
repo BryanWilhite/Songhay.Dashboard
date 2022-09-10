@@ -64,7 +64,8 @@ module StudioFeeds =
 
         figure {
             mediaLeftClasses
-            "aria-hidden" => "true"
+            AriaHidden.ToAttr
+
             svgNode (bulmaIconSvgViewBox Square24) svgPathData
         }
 

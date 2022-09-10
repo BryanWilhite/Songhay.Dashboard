@@ -56,7 +56,7 @@ module Component =
         let defaultNode (node: Node) =
             button {
                 "card-header-icon" |> toHtmlClass
-                "aria-label" => "card header command"
+                AriaLabel.AttrName => "card header command"
                 node
             }
 
@@ -108,7 +108,8 @@ module Component =
 
                 button {
                     "button" |> toHtmlClass
-                    "aria-haspopup" => "true"; "aria-controls" => "dropdown-menu"
+                    AriaHasPopup.ToAttr
+                    AriaControls.AttrName => "dropdown-menu"
                     on.click callback
 
                     span { text displayText }

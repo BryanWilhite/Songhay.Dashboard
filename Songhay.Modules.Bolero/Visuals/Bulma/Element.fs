@@ -25,7 +25,7 @@ module Element =
 
             span {
                 "icon" |> toHtmlClass
-                "aria-hidden" => "true"
+                AriaHidden.ToAttr
 
                 svgNode (svgViewBoxSquare 24) svgData[id]
             }

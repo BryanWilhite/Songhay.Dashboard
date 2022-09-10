@@ -48,7 +48,7 @@ type StudioComponent() =
 
             span {
                 "icon" |> toHtmlClass
-                "aria-hidden" => "true"
+                AriaHidden.ToAttr
 
                 svgNode (bulmaIconSvgViewBox Square24) svgData[data.id]
             }
