@@ -63,6 +63,15 @@ type BulmaFontSize =
         | Size6 -> "6"
         | Size7 -> "7"
 
+type BulmaFontSizeOrDefault =
+    | DefaultBulmaFontSize
+    | HasFontSize of BulmaFontSize
+
+    member this.Value =
+        match this with
+        | DefaultBulmaFontSize -> String.Empty
+        | HasFontSize size -> size.Value
+
 type BulmaSquareDimension =
     | Square16
     | Square24

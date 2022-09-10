@@ -29,8 +29,8 @@ module StudioFeeds =
             bulmaCardImageContainer
                 (HasClasses (CssClasses (imageContainer ThreeByTwo)))
                 (imageElement
-                    NoAttrs
                     NoCssClasses
+                    NoAttrs
                     $"{feed.feedTitle} feed image"
                     (feed.feedImage |> Option.get |> Uri))
         | _ -> empty()
@@ -74,8 +74,14 @@ module StudioFeeds =
                 NoCssClasses
                 (HasNode (studioFeedIcon feedName))
                 [
-                    Html.p { [ "title"; fontSize Size4 ] |> toHtmlClassFromList; text feed.feedTitle }
-                    Html.p { [ "subtitle"; fontSize Size6 ] |> toHtmlClassFromList; text (feed.modificationDate.ToString("yyyy-MM-dd")) }
+                    paragraphElement
+                        (HasClasses (CssClasses (title (HasFontSize Size4))))
+                        NoAttrs
+                        (text feed.feedTitle)
+                    paragraphElement
+                        (HasClasses (CssClasses (subtitle (HasFontSize Size6))))
+                        NoAttrs
+                        (text (feed.modificationDate.ToString("yyyy-MM-dd")))
                 ]
             div {
                 content |> toHtmlClass

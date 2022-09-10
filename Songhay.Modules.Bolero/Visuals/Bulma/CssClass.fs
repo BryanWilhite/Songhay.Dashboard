@@ -372,6 +372,19 @@ module CssClass =
     let panel = "panel"
 
     ///<summary>
+    /// Bulma CSS class-name function for Bulma elements.
+    ///</summary>
+    ///<remarks>
+    /// “Simple headings to add depth to your page… There are 6 sizes available…”
+    /// — https://bulma.io/documentation/elements/title/
+    ///</remarks>
+    let subtitle (size: BulmaFontSizeOrDefault) =
+        match size with
+        | DefaultBulmaFontSize -> [ "subtitle" ]
+        | HasFontSize Size7 -> [ "subtitle"; $"is-{Size6.Value}" ]
+        | _ -> ["subtitle"; $"is-{size.Value}"]
+
+    ///<summary>
     /// Bulma CSS class-name literal for Bulma tiles.
     ///</summary>
     ///<remarks>
@@ -428,3 +441,16 @@ module CssClass =
     ///</remarks>
     [<Literal>]
     let tileIsVertical = "is-vertical"
+
+    ///<summary>
+    /// Bulma CSS class-name function for Bulma elements.
+    ///</summary>
+    ///<remarks>
+    /// “Simple headings to add depth to your page… There are 6 sizes available…”
+    /// — https://bulma.io/documentation/elements/title/
+    ///</remarks>
+    let title (size: BulmaFontSizeOrDefault) =
+        match size with
+        | DefaultBulmaFontSize -> [ "title" ]
+        | HasFontSize Size7 -> [ "title"; $"is-{Size6.Value}" ]
+        | _ -> ["title"; $"is-{size.Value}"]

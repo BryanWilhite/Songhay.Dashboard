@@ -30,8 +30,8 @@ module Element =
     let htmlComment (comment: string) = rawHtml $"<!-- {comment} -->"
 
     let imageElement
-        (moreAttrs: HtmlAttributesOrEmpty)
         (cssClasses: CssClassesOrEmpty)
+        (moreAttrs: HtmlAttributesOrEmpty)
         (alt: string)
         (uri: Uri) =
         img {
@@ -40,4 +40,18 @@ module Element =
             attr.src uri.OriginalString
             attr.alt alt
             moreAttrs.Value
+        }
+
+    ///<remarks>
+    /// Remember that the specified child <see cref="Node" /> can be <see cref="rawHtml" />.
+    ///</remarks>
+    let paragraphElement
+        (cssClasses: CssClassesOrEmpty)
+        (moreAttrs: HtmlAttributesOrEmpty)
+        (childNode: Node) =
+        p {
+            cssClasses.Value
+            moreAttrs.Value
+
+            childNode
         }
