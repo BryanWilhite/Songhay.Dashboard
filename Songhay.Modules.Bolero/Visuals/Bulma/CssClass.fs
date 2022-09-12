@@ -176,7 +176,7 @@ module CssClass =
     ///<remarks>
     /// — https://bulma.io/documentation/helpers/typography-helpers/#alignment
     ///</remarks>
-    let elementTextAlign (alignment: CssAlignment) =
+    let elementTextAlign (alignment: CssBoxAlignment) =
         let suffix =
             match alignment with
             | Center -> "centered"
@@ -196,7 +196,6 @@ module CssClass =
         let suffix =
             match transformation with
             | TitleCase -> "capitalized"
-            | Underline -> "underlined"
             | _ -> transformation.Value
 
         $"is-{suffix}"
@@ -279,7 +278,7 @@ module CssClass =
     /// Either <c>level-left</c> or <c>level-right</c>.
     /// — https://bulma.io/documentation/layout/level/
     ///</remarks>
-    let level (alignment: CssAlignment) =
+    let level (alignment: CssBoxAlignment) =
         match alignment with
         | Left | Right -> $"level-{alignment.Value}"
         | _ -> "level-left"

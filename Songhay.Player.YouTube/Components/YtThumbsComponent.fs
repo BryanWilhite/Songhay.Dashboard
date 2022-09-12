@@ -179,7 +179,7 @@ type YtThumbsComponent() =
             nav {
                 [ levelContainer; "video"; "thumbs"; "header" ] |> toHtmlClassFromList
                 div {
-                    level CssAlignment.Left |> toHtmlClass
+                    level CssBoxAlignment.Left |> toHtmlClass
 
                     span {
                         ([ levelItem ] @ imageContainer (Square Square48)) |> toHtmlClassFromList
