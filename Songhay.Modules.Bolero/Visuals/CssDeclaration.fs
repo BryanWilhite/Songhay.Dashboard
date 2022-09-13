@@ -3,7 +3,7 @@ namespace Songhay.Modules.Bolero.Visuals
 open System
 open Songhay.Modules.Bolero.Models
 
-module CssDeclarations =
+module CssDeclaration =
     let fontVariantAlternates (variant: CssFontVariantAlternates) = $"font-variant-alternates: {variant.Value};"
     let fontVariantCaps (variant: CssFontVariantCaps) = $"font-variant-caps: {variant.Value};"
     let fontVariantLigatures (variant: CssFontVariantLigatures) = $"font-variant-ligatures: {variant.Value};"
@@ -13,5 +13,5 @@ module CssDeclarations =
         | [ v ] -> $"font-variant: {v.Value};"
         | _ ->
             let s = (String.Empty, variants)
-                    ||> List.fold (fun s v -> if String.IsNullOrWhiteSpace s then v.Value else $" {v.Value}")
+                    ||> List.fold (fun a i -> if String.IsNullOrWhiteSpace a then i.Value else $"{a} {i.Value}")
             $"font-variant: {s};"

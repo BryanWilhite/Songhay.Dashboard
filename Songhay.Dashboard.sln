@@ -19,6 +19,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Dashboard.Tests", "
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Player.YouTube.Tests", "Songhay.Player.YouTube.Tests\Songhay.Player.YouTube.Tests.fsproj", "{730DA9C2-851D-41D6-A679-8B871D7BB4A0}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Modules.Bolero.Tests", "Songhay.Modules.Bolero.Tests\Songhay.Modules.Bolero.Tests.fsproj", "{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +127,18 @@ Global
 		{730DA9C2-851D-41D6-A679-8B871D7BB4A0}.Release|x64.Build.0 = Release|Any CPU
 		{730DA9C2-851D-41D6-A679-8B871D7BB4A0}.Release|x86.ActiveCfg = Release|Any CPU
 		{730DA9C2-851D-41D6-A679-8B871D7BB4A0}.Release|x86.Build.0 = Release|Any CPU
+		{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}.Debug|x64.Build.0 = Debug|Any CPU
+		{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}.Debug|x86.Build.0 = Debug|Any CPU
+		{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}.Release|x64.ActiveCfg = Release|Any CPU
+		{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}.Release|x64.Build.0 = Release|Any CPU
+		{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}.Release|x86.ActiveCfg = Release|Any CPU
+		{C7EA3767-AB94-454D-BD7C-DE3D3EC33404}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

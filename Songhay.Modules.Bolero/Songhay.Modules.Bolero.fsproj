@@ -13,7 +13,7 @@
       <Compile Include="Models\CssPrimitives.fs" />
       <Compile Include="Models\HtmlPrimitives.fs" />
       <Compile Include="Models\BulmaPrimitives.fs" />
-      <Compile Include="Visuals\CssDeclarations.fs" />
+      <Compile Include="Visuals\CssDeclaration.fs" />
       <Compile Include="Visuals\Svg.fs" />
       <Compile Include="Visuals\Element.fs" />
       <Compile Include="Visuals\Document.fs" />

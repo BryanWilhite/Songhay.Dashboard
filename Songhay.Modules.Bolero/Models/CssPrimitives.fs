@@ -434,13 +434,13 @@ type CssFontVariant =
     ///<summary> <see cref="CssInheritance" /> </summary>
     | Inherit of CssInheritance
     ///<summary> a value of the <c>font-variant</c> property </summary>
-    | None
+    | VariantNone
     ///<summary> a value of the <c>font-variant</c> property </summary>
     | SmallCaps
     ///<summary> a value of the <c>font-variant</c> property </summary>
     | Ligatures of CssFontVariantLigatures
     ///<summary> a value of the <c>font-variant</c> property </summary>
-    | Alternate of CssFontVariantAlternates
+    | FontAlternate of CssFontVariantAlternates
     ///<summary> a value of the <c>font-variant</c> property </summary>
     | Caps of CssFontVariantCaps
     ///<summary> a value of the <c>font-variant</c> property </summary>
@@ -450,10 +450,10 @@ type CssFontVariant =
     member this.Value =
         match this with
         | Inherit i -> i.Value
-        | None -> "none"
+        | VariantNone -> "none"
         | SmallCaps -> "small-caps"
         | Ligatures l -> l.Value
-        | Alternate a -> a.Value
+        | FontAlternate a -> a.Value
         | Caps c -> c.Value
         | Numeric n -> n.Value
 
