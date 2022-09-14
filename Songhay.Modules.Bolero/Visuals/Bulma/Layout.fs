@@ -3,7 +3,6 @@ namespace Songhay.Modules.Bolero.Visuals.Bulma
 open Bolero
 open Bolero.Html
 
-open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
 
 ///<summary>
@@ -80,7 +79,7 @@ module Layout =
             mediaLeft.Value
 
             div {
-                CssClass.mediaContent |> toHtmlClass
+                CssClass.mediaContent |> CssClasses.toHtmlClass
 
                 forEach mediaContentNodes <| id
             }

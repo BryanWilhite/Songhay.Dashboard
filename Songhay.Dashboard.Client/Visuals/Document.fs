@@ -6,6 +6,7 @@ open Bolero
 open Bolero.Html
 
 open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals
 open Songhay.Modules.Bolero.Visuals.Document
 
@@ -27,13 +28,13 @@ module Document =
 
     let footerElement =
         footer {
-            nameof footer |> toHtmlClass
+            nameof footer |> CssClasses.toHtmlClass
 
             div {
-                [ "content"; "has-text-centered"; "is-small" ] |> toHtmlClassFromList
+                [ "content"; "has-text-centered"; "is-small" ] |> CssClasses.toHtmlClassFromList
                 p {
                     span {
-                        "copyright" |> toHtmlClass
+                        "copyright" |> CssClasses.toHtmlClass
                         rawHtml $"© Bryan D. Wilhite {DateTime.Now.Year}"
                     }
                 }

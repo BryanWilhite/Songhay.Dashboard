@@ -7,7 +7,6 @@ open Bolero.Html
 
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Models
-open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Visuals.Svg
 
 ///<summary>
@@ -24,7 +23,7 @@ module Element =
             attr.title title.Value
 
             span {
-                "icon" |> toHtmlClass
+                "icon" |> CssClasses.toHtmlClass
                 AriaHidden.ToAttr
 
                 svgNode (svgViewBoxSquare 24) svgData[id]
@@ -38,14 +37,14 @@ module Element =
             forEach childNodes <| id
         }
 
-    let bulmaIcon (visualNode: Node) = span { "icon" |> toHtmlClass; AriaHidden.ToAttr; visualNode }
+    let bulmaIcon (visualNode: Node) = span { "icon" |> CssClasses.toHtmlClass; AriaHidden.ToAttr; visualNode }
 
     let bulmaIconSvgViewBox (square: BulmaSquareDimension) =
         svgViewBox (0,0) (square.ToWidthOrHeight, square.ToWidthOrHeight)
 
     let bulmaImageContainer (size: BulmaRatioDimension) (attribute: HtmlAttributeOrEmpty) (visualNode: Node) =
         figure {
-            size |> CssClass.imageContainer |> toHtmlClassFromList
+            size |> CssClass.imageContainer |> CssClasses.toHtmlClassFromList
             attribute.Value
 
             visualNode

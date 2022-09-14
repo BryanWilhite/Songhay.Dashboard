@@ -111,9 +111,9 @@ type YtThumbsComponent() =
                                 attr.height item.snippet.thumbnails.medium.height
                             }
                     }
-                span { [ "published-at"; fontSize Size6 ] |> toHtmlClassFromList; item.getPublishedAt.Humanize() |> text }
-                span { [ "caption"; elementFontWeight Semibold; fontSize Size5 ] |> toHtmlClassFromList; item |> getYtThumbsAnchor }
-                span { [ "duration"; fontSize Size6 ] |> toHtmlClassFromList ; span { duration } }
+                span { [ "published-at"; fontSize Size6 ] |> CssClasses.toHtmlClassFromList; item.getPublishedAt.Humanize() |> text }
+                span { [ "caption"; elementFontWeight Semibold; fontSize Size5 ] |> CssClasses.toHtmlClassFromList; item |> getYtThumbsAnchor }
+                span { [ "duration"; fontSize Size6 ] |> CssClasses.toHtmlClassFromList ; span { duration } }
             }
 
         cond items.IsSome <| function
@@ -174,37 +174,37 @@ type YtThumbsComponent() =
             }
 
         div {
-            [ "rx"; "b-roll" ] |> toHtmlClassFromList
+            [ "rx"; "b-roll" ] |> CssClasses.toHtmlClassFromList
 
             nav {
-                [ levelContainer; "video"; "thumbs"; "header" ] |> toHtmlClassFromList
+                [ levelContainer; "video"; "thumbs"; "header" ] |> CssClasses.toHtmlClassFromList
                 div {
-                    level CssBoxAlignment.Left |> toHtmlClass
+                    level CssBoxAlignment.Left |> CssClasses.toHtmlClass
 
                     span {
-                        ([ levelItem ] @ imageContainer (Square Square48)) |> toHtmlClassFromList
+                        ([ levelItem ] @ imageContainer (Square Square48)) |> CssClasses.toHtmlClassFromList
                         svgNode (bulmaIconSvgViewBox Square24) svgData[Keys.MDI_YOUTUBE_24PX.ToAlphanumeric]
                     }
                     span {
-                        [ levelItem; fontSize Size2 ] |> toHtmlClassFromList
+                        [ levelItem; fontSize Size2 ] |> CssClasses.toHtmlClassFromList
                         (jsRuntime, itemsTitle, model) |||> getYtThumbsTitle dispatch
                     }
                 }
             }
             div {
-                [ "video"; "thumbs"; "thumbs-container" ] |> toHtmlClassFromList
+                [ "video"; "thumbs"; "thumbs-container" ] |> CssClasses.toHtmlClassFromList
                 attr.ref thumbsContainerRef
 
                 items |> ytThumbnailsNode jsRuntime blockWrapperRef
 
                 a {
-                    attr.href "#"; [ "command"; "left" ] @ imageContainer (Square Square48) |> toHtmlClassFromList
+                    attr.href "#"; [ "command"; "left" ] @ imageContainer (Square Square48) |> CssClasses.toHtmlClassFromList
                     click.PreventDefault
                     on.async.click (slideAsync SlideDirection.Right)
                     svgNode (bulmaIconSvgViewBox Square24) svgData[Keys.MDI_ARROW_LEFT_DROP_CIRCLE_24PX.ToAlphanumeric]
                 }
                 a {
-                    attr.href "#"; [ "command"; "right"; ] @ imageContainer (Square Square48) |> toHtmlClassFromList
+                    attr.href "#"; [ "command"; "right"; ] @ imageContainer (Square Square48) |> CssClasses.toHtmlClassFromList
                     click.PreventDefault
                     on.async.click (slideAsync SlideDirection.Left)
                     svgNode (bulmaIconSvgViewBox Square24) svgData[Keys.MDI_ARROW_RIGHT_DROP_CIRCLE_24PX.ToAlphanumeric]

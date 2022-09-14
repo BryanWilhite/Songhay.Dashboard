@@ -2,7 +2,26 @@ namespace Songhay.Modules.Bolero.Models
 
 open Bolero.Html
 
-open Songhay.Modules.Bolero.BoleroUtility
+type CssClasses =
+    | CssClasses of string list
+
+    static member toHtmlClass (s: string) = (CssClasses [s]).ToHtmlClassAttribute
+
+    static member toHtmlClassFromList (list: string list) = (CssClasses list).ToHtmlClassAttribute
+
+    member this.Value = let (CssClasses l) = this in l
+
+    member this.Append s = CssClasses (this.Value |> List.append([s]))
+
+    member this.AppendList (l: string list) = CssClasses (this.Value |> List.append(l))
+
+    member this.Prepend s = CssClasses ([s] |> List.append(this.Value))
+
+    member this.PrependList (l: string list) = CssClasses (l |> List.append(this.Value))
+
+    member this.ToAttributeValue = this.Value |> List.reduce(fun a b -> $"{a} {b}")
+
+    member this.ToHtmlClassAttribute = attr.``class`` this.ToAttributeValue
 
 ///<summary>
 /// Enumerates a subset of the CSS inheritance values.
@@ -193,7 +212,7 @@ type CssClassesOrEmpty =
     /// </summary>
     member this.ToHtmlClassAttribute (cssClasses: CssClasses) =
         match this with
-        | HasClasses moreCssClasses -> moreCssClasses.Value |> cssClasses.AppendList |> toHtmlClassFromData
+        | HasClasses moreCssClasses -> (moreCssClasses.Value |> cssClasses.AppendList).ToHtmlClassAttribute
         | NoCssClasses -> cssClasses.ToHtmlClassAttribute
 
     ///<summary>

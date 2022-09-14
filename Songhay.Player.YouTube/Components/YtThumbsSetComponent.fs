@@ -46,7 +46,7 @@ type YtThumbsSetComponent() =
 
     static let ytSetOverlayCloseCommand (dispatch: Dispatch<YouTubeMessage>) =
         a {
-            imageContainer (Square Square48) |> toHtmlClassFromList
+            imageContainer (Square Square48) |> CssClasses.toHtmlClassFromList
             attr.href "#"
             attr.title "close b-roll overlay"
             click.PreventDefault
@@ -73,9 +73,9 @@ type YtThumbsSetComponent() =
 
         let levelRight =
             div {
-                level Right |> toHtmlClass
+                level Right |> CssClasses.toHtmlClass
 
-                div { levelItem |> toHtmlClass; ytSetOverlayCloseCommand dispatch }
+                div { levelItem |> CssClasses.toHtmlClass; ytSetOverlayCloseCommand dispatch }
             }
 
         div {
@@ -83,14 +83,14 @@ type YtThumbsSetComponent() =
             cond model.YtSetIndex.IsSome <| function
             | true ->
                 nav {
-                    [ levelContainer; m (All, L2)] |> toHtmlClassFromList
+                    [ levelContainer; m (All, L2)] |> CssClasses.toHtmlClassFromList
 
                     div {
-                        level Left |> toHtmlClass
+                        level Left |> CssClasses.toHtmlClass
 
-                        div { levelItem |> toHtmlClass ; (dispatch, jsRuntime, model) |||> bulmaDropdown }
+                        div { levelItem |> CssClasses.toHtmlClass ; (dispatch, jsRuntime, model) |||> bulmaDropdown }
                         div {
-                            [ levelItem; fontSize Size2 ] |> toHtmlClassFromList
+                            [ levelItem; fontSize Size2 ] |> CssClasses.toHtmlClassFromList
                             text (fst model.YtSetIndexSelectedDocument).Value
                         }
                     }
@@ -98,14 +98,14 @@ type YtThumbsSetComponent() =
                 }
             | false ->
                 nav {
-                    [ levelContainer; m (All, L2)] |> toHtmlClassFromList
+                    [ levelContainer; m (All, L2)] |> CssClasses.toHtmlClassFromList
 
                     levelRight
                 }
             cond model.YtSet.IsSome <| function
             | true ->
                 div {
-                    "set" |> toHtmlClass
+                    "set" |> CssClasses.toHtmlClass
 
                     forEach model.YtSet.Value <| fun (_, items) ->
                         YtThumbsComponent.EComp None { model with YtItems = Some items } dispatch

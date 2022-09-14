@@ -112,7 +112,7 @@ module StudioFeeds =
         | None ->
             [
                 div {
-                    [ tile; tileIsChild; elementTextAlign Center; p (All, L6)] |> toHtmlClassFromList
+                    [ tile; tileIsChild; elementTextAlign Center; p (All, L6)] |> CssClasses.toHtmlClassFromList
 
                     bulmaLoader (HasClasses (CssClasses [ m (All, L6) ]))
                 }

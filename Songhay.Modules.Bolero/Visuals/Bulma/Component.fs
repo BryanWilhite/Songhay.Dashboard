@@ -36,7 +36,7 @@ module Component =
                 CssClasses [ CssClass.cardContent ] |> moreContentClasses.ToHtmlClassAttribute
 
                 div {
-                    CssClass.content |> toHtmlClass
+                    CssClass.content |> CssClasses.toHtmlClass
 
                     forEach cardContentNodes <| id
                 }
@@ -55,15 +55,15 @@ module Component =
     let bulmaCardHeader (titleNode: Node) (imageNode: HtmlChildNodeOrReplaceDefault) =
         let defaultNode (node: Node) =
             button {
-                "card-header-icon" |> toHtmlClass
+                "card-header-icon" |> CssClasses.toHtmlClass
                 AriaLabel.AttrName => "card header command"
                 node
             }
 
         header {
-            "card-header" |> toHtmlClass
+            "card-header" |> CssClasses.toHtmlClass
 
-            p { "card-header-title" |> toHtmlClass; titleNode }
+            p { "card-header-title" |> CssClasses.toHtmlClass; titleNode }
             match imageNode with
             | ReplacementNode node -> node
             | ChildNode node -> node |> defaultNode
@@ -71,7 +71,7 @@ module Component =
 
     let bulmaCardFooter (footerNodes: Node list) =
         footer {
-            "card-footer" |> toHtmlClass
+            "card-footer" |> CssClasses.toHtmlClass
 
             forEach footerNodes <| id
         }
@@ -85,7 +85,7 @@ module Component =
             [
                 "dropdown-item"
                 if isActive then CssClass.elementIsActive
-            ] |> toHtmlClassFromList
+            ] |> CssClasses.toHtmlClassFromList
             GlobalEventHandlers.OnClick.PreventDefault
             on.click callback
             text displayText
@@ -104,10 +104,10 @@ module Component =
             dropdownClasses.ToHtmlClassAttribute
 
             div {
-                "dropdown-trigger" |> toHtmlClass
+                "dropdown-trigger" |> CssClasses.toHtmlClass
 
                 button {
-                    "button" |> toHtmlClass
+                    "button" |> CssClasses.toHtmlClass
                     AriaHasPopup.ToAttr
                     AriaControls.AttrName => "dropdown-menu"
                     on.click callback
@@ -116,10 +116,10 @@ module Component =
                 }
             }
             div {
-                "dropdown-menu" |> toHtmlClass; "role" => "menu"
+                "dropdown-menu" |> CssClasses.toHtmlClass; "role" => "menu"
 
                 div {
-                    "dropdown-content" |> toHtmlClass
+                    "dropdown-content" |> CssClasses.toHtmlClass
                     dropDownContent
                 }
             }
@@ -127,9 +127,9 @@ module Component =
 
     let bulmaPanel headingText (panelTabsNode: HtmlNodeOrEmpty) (panelBlockNodes: Node list) =
         nav {
-            CssClass.panel |> toHtmlClass
+            CssClass.panel |> CssClasses.toHtmlClass
 
-            p { "panel-heading" |> toHtmlClass; text headingText }
+            p { "panel-heading" |> CssClasses.toHtmlClass; text headingText }
 
             panelTabsNode.Value
 

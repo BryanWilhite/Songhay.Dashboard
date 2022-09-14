@@ -26,12 +26,12 @@ type StudioComponent() =
         let spanClasses = (CssClasses (title (HasFontSize Size2))).Append (hidden Touch)
 
         div {
-            "logo" |> toHtmlClass
+            "logo" |> CssClasses.toHtmlClass
             attr.title App.AppTitle
 
-            span { (elementFontWeight Normal) |> spanClasses.Prepend |> toHtmlClassFromData; text "Songhay" }
+            span { ((elementFontWeight Normal) |> spanClasses.Prepend).ToHtmlClassAttribute; text "Songhay" }
             span { spanClasses.ToHtmlClassAttribute; text "System" }
-            span { (title (HasFontSize Size1)) |> toHtmlClassFromList; text "(::)" }
+            span { (title (HasFontSize Size1)) |> CssClasses.toHtmlClassFromList; text "(::)" }
         }
 
     static let svgVersionNode (data: VersionData) =
@@ -47,7 +47,7 @@ type StudioComponent() =
             (HasAttrs [ (attr.title data.title.Value) ])
             [
                 bulmaIcon (svgNode (bulmaIconSvgViewBox Square24) svgData[data.id])
-                span { fontSize Size7 |> toHtmlClass; text data.version }
+                span { fontSize Size7 |> CssClasses.toHtmlClass; text data.version }
             ]
 
     static let studioNode =
@@ -61,7 +61,7 @@ type StudioComponent() =
         let cardContentNodes =
             [
                 div {
-                    [ content; elementTextAlign Center ] |> toHtmlClassFromList
+                    [ content; elementTextAlign Center ] |> CssClasses.toHtmlClassFromList
                     studioLogo
                 }
                 div {
