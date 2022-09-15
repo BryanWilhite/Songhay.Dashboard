@@ -8,6 +8,7 @@ open Bolero.Html
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals
+open Songhay.Modules.Bolero.Visuals.Element
 open Songhay.Modules.Bolero.Visuals.Document
 
 open Songhay.Dashboard.Client
@@ -26,17 +27,13 @@ module Document =
 
     let headElement (rootCompId: string) = rootCompId |> headElements |> Head.headElement
 
-    let footerElement =
-        footer {
-            nameof footer |> CssClasses.toHtmlClass
-
-            div {
-                [ "content"; "has-text-centered"; "is-small" ] |> CssClasses.toHtmlClassFromList
-                p {
-                    span {
-                        "copyright" |> CssClasses.toHtmlClass
-                        rawHtml $"© Bryan D. Wilhite {DateTime.Now.Year}"
-                    }
+    let footerNode =
+        div {
+            [ "content"; "has-text-centered"; "is-small" ] |> CssClasses.toHtmlClassFromList
+            p {
+                span {
+                    "copyright" |> CssClasses.toHtmlClass
+                    rawHtml $"© Bryan D. Wilhite {DateTime.Now.Year}"
                 }
             }
         }
@@ -48,6 +45,8 @@ module Document =
             rootCompContainer
             boleroScript
             footerElement
+                (HasClasses (CssClasses [ nameof footer ]))
+                [ footerNode ]
             newLine
         ]
 

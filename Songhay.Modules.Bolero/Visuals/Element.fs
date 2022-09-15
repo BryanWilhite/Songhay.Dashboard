@@ -27,6 +27,13 @@ module Element =
             on.click callback
         }
 
+    let footerElement (moreClasses: CssClassesOrEmpty) (childNodes: Node list) =
+        footer {
+            moreClasses.Value
+
+            forEach childNodes <| id
+        }
+
     let htmlComment (comment: string) = rawHtml $"<!-- {comment} -->"
 
     let imageElement

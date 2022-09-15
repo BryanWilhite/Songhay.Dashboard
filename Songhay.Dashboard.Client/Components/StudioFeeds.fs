@@ -8,7 +8,6 @@ open Bolero.Html
 open Songhay.Modules.Models
 open Songhay.Modules.StringUtility
 
-open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.Component

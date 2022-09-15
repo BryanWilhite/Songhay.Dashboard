@@ -8,7 +8,7 @@ open Bolero
 open Bolero.Html
 
 open Songhay.Modules.Bolero.Models
-open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.Visuals.Element
 
 ///<summary>
 /// Bulma Components
@@ -70,11 +70,9 @@ module Component =
         }
 
     let bulmaCardFooter (footerNodes: Node list) =
-        footer {
-            "card-footer" |> CssClasses.toHtmlClass
-
-            forEach footerNodes <| id
-        }
+        footerElement
+            (HasClasses (CssClasses [ "card-footer" ]))
+            footerNodes
 
     let bulmaDropdownItem
         (isActive: bool)

@@ -6,7 +6,6 @@ open Microsoft.JSInterop
 open Bolero
 open Bolero.Html
 
-open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Bulma.Component
 open Songhay.Modules.Bolero.Visuals.Bulma.Element

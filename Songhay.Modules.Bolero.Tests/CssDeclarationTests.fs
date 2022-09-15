@@ -2,9 +2,6 @@ module CssDeclarationTests
 
 open Xunit
 
-open FsUnit.Xunit
-open FsUnit.CustomMatchers
-open FsToolkit.ErrorHandling
 
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.CssDeclaration
