@@ -20,7 +20,7 @@ open Songhay.Player.YouTube
 type YtThumbsSetComponent() =
     inherit ElmishComponent<YouTubeModel, YouTubeMessage>()
 
-    static let click = GlobalEventHandlers.OnClick
+    static let click = DomElementEvent.Click
 
     static let bulmaDropdown (dispatch: Dispatch<YouTubeMessage>) (_: IJSRuntime) (model: YouTubeModel) =
         if model.YtSetIndex.IsNone then empty()

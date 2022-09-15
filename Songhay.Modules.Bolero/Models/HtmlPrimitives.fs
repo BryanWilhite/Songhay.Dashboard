@@ -56,6 +56,53 @@ type AriaGlobal =
     member this.ToAttr = (this.AttrName, "true") ||> Attr.Make
 
 ///<summary>
+/// Defines selected DOM <c>Element</c> events.
+///</summary>
+/// <remarks>
+/// 📖 https://developer.mozilla.org/en-US/docs/Web/API/Element#events
+/// </remarks>
+type DomElementEvent =
+    /// <summary> a DOM <c>Element</c> event </summary>
+    | Blur
+    /// <summary> a DOM <c>Element</c> event </summary>
+    | Change
+    /// <summary> a DOM <c>Element</c> event </summary>
+    | Click
+    /// <summary> a DOM <c>Element</c> event </summary>
+    | DblClick
+    /// <summary> a DOM <c>Element</c> event </summary>
+    | Focus
+    /// <summary> a DOM <c>Element</c> event </summary>
+    | KeyDown
+    /// <summary> a DOM <c>Element</c> event </summary>
+    | KeyUp
+    /// <summary> a DOM <c>Element</c> event </summary>
+    | Load
+    /// <summary> a DOM <c>Element</c> event </summary>
+    | LoadEnd
+
+    /// <summary>Returns the event name of the DOM <c>Element</c> event.</summary>
+    member this.Name =
+        match this with
+        | Blur -> (nameof Blur).ToLowerInvariant()
+        | Change -> (nameof Change).ToLowerInvariant()
+        | Click -> (nameof Click).ToLowerInvariant()
+        | DblClick -> (nameof DblClick).ToLowerInvariant()
+        | Focus -> (nameof Focus).ToLowerInvariant()
+        | KeyDown -> (nameof KeyDown).ToLowerInvariant()
+        | KeyUp -> (nameof KeyUp).ToLowerInvariant()
+        | Load -> (nameof Load).ToLowerInvariant()
+        | LoadEnd -> (nameof LoadEnd).ToLowerInvariant()
+
+    /// <summary>Prevent the default event behavior for a given HTML event.</summary>
+    /// <remarks>
+    /// This <see cref="on.preventDefault" /> attribute is surely based
+    /// on the <c>@on{DOM EVENT}:preventDefault<c> directive attribute of Blazor.
+    /// 📖 https://docs.microsoft.com/en-us/aspnet/core/blazor/components/event-handling?view=aspnetcore-6.0#prevent-default-actions
+    /// </remarks>
+    member this.PreventDefault = on.preventDefault $"on{this.Name}" true
+
+///<summary>
 /// Defines a type representing an <see cref="Attr" />
 /// or a type representing the non-presence of <see cref="Attr" />.
 /// </summary>

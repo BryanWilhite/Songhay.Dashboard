@@ -36,7 +36,7 @@ type YtThumbsComponent() =
     [<Literal>] // see `$thumbnail-margin-right` in `Songhay.Player.YouTube/src/scss/you-tube-thumbs.scss`
     static let ThumbnailMarginRight = 4
 
-    static let click = GlobalEventHandlers.OnClick
+    static let click = DomElementEvent.Click
 
     static let getYtThumbsAnchor (item: YouTubeItem) =
         let limit = 60
@@ -77,16 +77,16 @@ type YtThumbsComponent() =
     /// this member is needed to ‘jumpstart’ CSS animations
     /// without this member, the first interop with CSS will not function as expected
     ///</remarks>
-    static let initAsync (initCache: Dictionary<GlobalEventHandlers, bool>) (blockWrapperRef: HtmlRef) (jsRuntime: IJSRuntime) =
+    static let initAsync (initCache: Dictionary<DomElementEvent, bool>) (blockWrapperRef: HtmlRef) (jsRuntime: IJSRuntime) =
         task {
-            if not initCache[OnLoad] then
+            if not initCache[Load] then
                 let! wrapperLeftStr = jsRuntime |> getComputedStylePropertyValueAsync blockWrapperRef "left"
 
                 jsRuntime
                 |> setComputedStylePropertyValueAsync blockWrapperRef CssVarThumbsContainerWrapperLeft wrapperLeftStr
                 |> ignore
 
-            initCache[OnLoad] <- true
+            initCache[Load] <- true
         }
 
     static let ytThumbnailsNode (_: IJSRuntime) (blockWrapperRef: HtmlRef) (items: YouTubeItem[] option) =
@@ -125,7 +125,7 @@ type YtThumbsComponent() =
                             (HasClasses (CssClasses (imageContainer (Square Square128) @ [p (All, L3)]))))
 
     static let ytThumbsNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime)
-        (initCache: Dictionary<GlobalEventHandlers, bool>) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef)
+        (initCache: Dictionary<DomElementEvent, bool>) (thumbsContainerRef: HtmlRef) (blockWrapperRef: HtmlRef)
         (itemsTitle: string option) (model: YouTubeModel) =
 
         let items = model.YtItems
@@ -213,7 +213,7 @@ type YtThumbsComponent() =
         }
 
     let blockWrapperRef = HtmlRef()
-    let initCache = Dictionary<GlobalEventHandlers, bool>()
+    let initCache = Dictionary<DomElementEvent, bool>()
     let thumbsContainerRef = HtmlRef()
 
     static member EComp (title: string option) (model: YouTubeModel) dispatch =
@@ -233,7 +233,7 @@ type YtThumbsComponent() =
     override this.ShouldRender(oldModel, newModel) = oldModel.YtItems <> newModel.YtItems
 
     override this.View model dispatch =
-        if not(initCache.ContainsKey(OnLoad)) then initCache.Add(OnLoad, false)
+        if not(initCache.ContainsKey(Load)) then initCache.Add(Load, false)
         let title = (this.YtThumbsTitle |> Option.ofObj)
         (title, model)
         ||> ytThumbsNode dispatch this.JSRuntime initCache thumbsContainerRef blockWrapperRef

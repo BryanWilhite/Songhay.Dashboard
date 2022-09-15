@@ -86,7 +86,7 @@ module Component =
                 "dropdown-item"
                 if isActive then CssClass.elementIsActive
             ] |> CssClasses.toHtmlClassFromList
-            GlobalEventHandlers.OnClick.PreventDefault
+            DomElementEvent.Click.PreventDefault
             on.click callback
             text displayText
         }
