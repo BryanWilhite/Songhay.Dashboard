@@ -8,8 +8,15 @@ open FsToolkit.ErrorHandling
 
 open Songhay.Modules.JsonDocumentUtility
 
+/// <summary>
+/// Bolero/Blazor-specific functions, wrapping <see cref="Songhay.Modules.JsonDocumentUtility" />.
+/// </summary>
 module JsonDocumentUtility =
 
+    /// <summary>
+    /// Wraps <see cref="tryGetRootElement" /> with the specified <see cref="ILogger" />,
+    /// binding to the specified JSON Result.
+    /// </summary>
     let tryGetJsonElement (logger: ILogger option) (jsonResult: Result<string, HttpStatusCode>) = 
         jsonResult
         |> Result.mapError
