@@ -82,17 +82,7 @@ type DomElementEvent =
     | LoadEnd
 
     /// <summary>Returns the event name of the DOM <c>Element</c> event.</summary>
-    member this.Name =
-        match this with
-        | Blur -> (nameof Blur).ToLowerInvariant()
-        | Change -> (nameof Change).ToLowerInvariant()
-        | Click -> (nameof Click).ToLowerInvariant()
-        | DblClick -> (nameof DblClick).ToLowerInvariant()
-        | Focus -> (nameof Focus).ToLowerInvariant()
-        | KeyDown -> (nameof KeyDown).ToLowerInvariant()
-        | KeyUp -> (nameof KeyUp).ToLowerInvariant()
-        | Load -> (nameof Load).ToLowerInvariant()
-        | LoadEnd -> (nameof LoadEnd).ToLowerInvariant()
+    member this.Name = this.ToString().ToLowerInvariant()
 
     /// <summary>Prevent the default event behavior for a given HTML event.</summary>
     /// <remarks>
