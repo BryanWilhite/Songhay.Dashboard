@@ -11,7 +11,7 @@ open Songhay.Modules.Bolero.Visuals.Bulma.Component
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
-open Songhay.Modules.Bolero.Visuals.Svg
+open Songhay.Modules.Bolero.Visuals.Element
 
 open Songhay.Dashboard.Models
 open Songhay.Dashboard.Client
@@ -45,7 +45,7 @@ type StudioComponent() =
             (HasClasses classes)
             (HasAttrs [ (attr.title data.title.Value) ])
             [
-                bulmaIcon (svgNode (bulmaIconSvgViewBox Square24) svgData[data.id])
+                bulmaIcon (svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[data.id])
                 span { fontSize Size7 |> CssClasses.toHtmlClass; text data.version }
             ]
 

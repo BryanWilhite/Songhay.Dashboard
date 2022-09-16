@@ -18,7 +18,7 @@ open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
-open Songhay.Modules.Bolero.Visuals.Svg
+open Songhay.Modules.Bolero.Visuals.Element
 
 open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Models
@@ -182,7 +182,7 @@ type YtThumbsComponent() =
 
                     span {
                         ([ levelItem ] @ imageContainer (Square Square48)) |> CssClasses.toHtmlClassFromList
-                        svgNode (bulmaIconSvgViewBox Square24) svgData[Keys.MDI_YOUTUBE_24PX.ToAlphanumeric]
+                        svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[SonghaySvgKeys.MDI_YOUTUBE_24PX.ToAlphanumeric]
                     }
                     span {
                         [ levelItem; fontSize Size2 ] |> CssClasses.toHtmlClassFromList
@@ -200,13 +200,13 @@ type YtThumbsComponent() =
                     attr.href "#"; [ "command"; "left" ] @ imageContainer (Square Square48) |> CssClasses.toHtmlClassFromList
                     click.PreventDefault
                     on.async.click (slideAsync SlideDirection.Right)
-                    svgNode (bulmaIconSvgViewBox Square24) svgData[Keys.MDI_ARROW_LEFT_DROP_CIRCLE_24PX.ToAlphanumeric]
+                    svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[SonghaySvgKeys.MDI_ARROW_LEFT_DROP_CIRCLE_24PX.ToAlphanumeric]
                 }
                 a {
                     attr.href "#"; [ "command"; "right"; ] @ imageContainer (Square Square48) |> CssClasses.toHtmlClassFromList
                     click.PreventDefault
                     on.async.click (slideAsync SlideDirection.Left)
-                    svgNode (bulmaIconSvgViewBox Square24) svgData[Keys.MDI_ARROW_RIGHT_DROP_CIRCLE_24PX.ToAlphanumeric]
+                    svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[SonghaySvgKeys.MDI_ARROW_RIGHT_DROP_CIRCLE_24PX.ToAlphanumeric]
                 }
             }
         }

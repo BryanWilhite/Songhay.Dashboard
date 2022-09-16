@@ -12,7 +12,7 @@ open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Component
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
-open Songhay.Modules.Bolero.Visuals.Svg
+open Songhay.Modules.Bolero.Visuals.Element
 open Songhay.Modules.Models
 open Songhay.Player.YouTube
 
@@ -51,7 +51,7 @@ type YtThumbsSetComponent() =
             click.PreventDefault
             on.click (fun _ -> YouTubeMessage.CloseYtSetOverlay |> dispatch)
 
-            svgNode (bulmaIconSvgViewBox Square24) svgData[Keys.MDI_CLOSE_BOX_24PX.ToAlphanumeric]
+            svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[SonghaySvgKeys.MDI_CLOSE_BOX_24PX.ToAlphanumeric]
         }
 
     static let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime) (model: YouTubeModel) =

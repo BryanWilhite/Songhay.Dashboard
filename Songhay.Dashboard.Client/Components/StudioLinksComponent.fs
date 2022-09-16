@@ -15,7 +15,7 @@ open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Component
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
-open Songhay.Modules.Bolero.Visuals.Svg
+open Songhay.Modules.Bolero.Visuals.Element
 
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.Visuals.Colors
@@ -36,7 +36,7 @@ type StudioLinksComponent() =
                         (bulmaImageContainer
                             (Square Square24)
                             NoAttr
-                            (svgNode (bulmaIconSvgViewBox Square24) svgData[id]))
+                            (svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[id]))
                     text title.Value
                 ]
 
@@ -49,7 +49,7 @@ type StudioLinksComponent() =
         ]
 
         let routeNode (page, caption) =
-            let id = Keys.MDI_LINK_VARIANT_24PX.ToAlphanumeric
+            let id = SonghaySvgKeys.MDI_LINK_VARIANT_24PX.ToAlphanumeric
 
             bulmaPanelBlockNavLink
                 (HasClasses(CssClasses [ bulmaBackgroundGreyDarkTone ]))
@@ -61,7 +61,7 @@ type StudioLinksComponent() =
                         (bulmaImageContainer
                             (Square Square24)
                             NoAttr
-                            (svgNode (bulmaIconSvgViewBox Square24) svgData[id]))
+                            (svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[id]))
                     text caption
                 ]
 

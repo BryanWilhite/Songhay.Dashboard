@@ -1,59 +1,97 @@
-namespace Songhay.Modules.Bolero.Visuals
-
-open Bolero.Html
+namespace Songhay.Modules.Bolero.Models
 
 open Songhay.Modules.Models
-open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.SvgUtility
 
+/// <summary>
+/// labels a <see cref="string" /> as <c>StreamGeometry</c>
+/// </summary>
+/// <remarks>
+/// This name is coming from the XAML-based world of visuals.
+/// 📖 https://docs.microsoft.com/en-us/dotnet/api/system.windows.media.streamgeometry?view=windowsdesktop-6.0
+/// </remarks>
 type StreamGeometry =
+    /// <summary> <c>StreamGeometry</c> label </summary>
     | StreamGeometry of string
+
+    ///<summary>Returns the underlying <see cref="string" /> value.</summary>
     member this.Value = let (StreamGeometry s) = this in s
 
-module Svg =
-    [<Literal>]
-    let SvgUri = "http://www.w3.org/2000/svg"
+/// <summary>
+/// Defines all of the keys of the conventional SVG visuals
+/// of this Studio.
+/// </summary>
+type SonghaySvgKeys =
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_AMAZON_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_ARROW_LEFT_DROP_CIRCLE_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_ARROW_RIGHT_DROP_CIRCLE_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_AZURE_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_CLOSE_BOX_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_CLOUD_TAGS_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_CODE_TAGS_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_CODEPEN_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_DOTNET_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_GITHUB_CIRCLE_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_GOOGLE_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_BOLERO_DANCE_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_IMAGE_MULTIPLE_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_JSON_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_LIBRARY_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_LANGUAGE_JAVASCRIPT_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_LINKEDIN_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_LINK_VARIANT_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_MICROSOFT_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_OFFICE_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_PACKAGE_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_REGEX_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_RSS_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_STACK_OVERFLOW_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_TWITTER_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_VECTOR_CURVE_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_VISUAL_STUDIO_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_WRENCH_24PX
+    /// <summary> a key to a conventional SVG visual </summary>
+    | MDI_YOUTUBE_24PX
 
-    let svgViewBox (minX: int, minY: int) (width: int, height: int) = $"{minX} {minY} {width} {height}"
+    ///<summary>Returns the <see cref="string" /> representation of the SVG key.</summary>
+    member this.Value = this.ToString().ToLowerInvariant()
 
-    let svgViewBoxSquare widthAndHeight =
-        svgViewBox (0,0) (widthAndHeight, widthAndHeight)
+    ///<summary>Returns the <see cref="Alphanumeric" /> label of the SVG key.</summary>
+    member this.ToAlphanumeric = Alphanumeric this.Value
 
-    type Keys =
-        | MDI_AMAZON_24PX
-        | MDI_ARROW_LEFT_DROP_CIRCLE_24PX
-        | MDI_ARROW_RIGHT_DROP_CIRCLE_24PX
-        | MDI_AZURE_24PX
-        | MDI_CLOSE_BOX_24PX
-        | MDI_CLOUD_TAGS_24PX
-        | MDI_CODE_TAGS_24PX
-        | MDI_CODEPEN_24PX
-        | MDI_DOTNET_24PX
-        | MDI_GITHUB_CIRCLE_24PX
-        | MDI_GOOGLE_24PX
-        | MDI_BOLERO_DANCE_24PX
-        | MDI_IMAGE_MULTIPLE_24PX
-        | MDI_JSON_24PX
-        | MDI_LIBRARY_24PX
-        | MDI_LANGUAGE_JAVASCRIPT_24PX
-        | MDI_LINKEDIN_24PX
-        | MDI_LINK_VARIANT_24PX
-        | MDI_MICROSOFT_24PX
-        | MDI_OFFICE_24PX
-        | MDI_PACKAGE_24PX
-        | MDI_REGEX_24PX
-        | MDI_RSS_24PX
-        | MDI_STACK_OVERFLOW_24PX
-        | MDI_TWITTER_24PX
-        | MDI_VECTOR_CURVE_24PX
-        | MDI_VISUAL_STUDIO_24PX
-        | MDI_WRENCH_24PX
-        | MDI_YOUTUBE_24PX
-
-        member this.Value = this.ToString().ToLowerInvariant()
-
-        member this.ToAlphanumeric = Alphanumeric this.Value
-
-    let svgData = Map [
+type SonghaySvgData =
+    /// <summary>
+    /// Defines the SVG data map of this Studio.
+    /// </summary>
+    static member map = Map [
         (   // https://materialdesignicons.com/icon/amazon
             MDI_AMAZON_24PX.ToAlphanumeric,
             StreamGeometry "M15.93,17.09C15.75,17.25 15.5,17.26 15.3,17.15C14.41,16.41 14.25,16.07 13.76,15.36C12.29,16.86 11.25,17.31 9.34,17.31C7.09,17.31 5.33,15.92 5.33,13.14C5.33,10.96 6.5,9.5 8.19,8.76C9.65,8.12 11.68,8 13.23,7.83V7.5C13.23,6.84 13.28,6.09 12.9,5.54C12.58,5.05 11.95,4.84 11.4,4.84C10.38,4.84 9.47,5.37 9.25,6.45C9.2,6.69 9,6.93 8.78,6.94L6.18,6.66C5.96,6.61 5.72,6.44 5.78,6.1C6.38,2.95 9.23,2 11.78,2C13.08,2 14.78,2.35 15.81,3.33C17.11,4.55 17,6.18 17,7.95V12.12C17,13.37 17.5,13.93 18,14.6C18.17,14.85 18.21,15.14 18,15.31L15.94,17.09H15.93M13.23,10.56V10C11.29,10 9.24,10.39 9.24,12.67C9.24,13.83 9.85,14.62 10.87,14.62C11.63,14.62 12.3,14.15 12.73,13.4C13.25,12.47 13.23,11.6 13.23,10.56M20.16,19.54C18,21.14 14.82,22 12.1,22C8.29,22 4.85,20.59 2.25,18.24C2.05,18.06 2.23,17.81 2.5,17.95C5.28,19.58 8.75,20.56 12.33,20.56C14.74,20.56 17.4,20.06 19.84,19.03C20.21,18.87 20.5,19.27 20.16,19.54M21.07,18.5C20.79,18.14 19.22,18.33 18.5,18.42C18.31,18.44 18.28,18.26 18.47,18.12C19.71,17.24 21.76,17.5 22,17.79C22.24,18.09 21.93,20.14 20.76,21.11C20.58,21.27 20.41,21.18 20.5,21C20.76,20.33 21.35,18.86 21.07,18.5Z"
@@ -174,58 +212,11 @@ module Svg =
         )
     ]
 
-    let svgDataArray =
-        svgData
+    /// <summary>
+    /// Arranges <see cref="svgData" /> into a conventional format used by this Studio.
+    /// </summary>
+    static member svgDataArray =
+        SonghaySvgData.map
         |> Map.toSeq
         |> Array.ofSeq
         |> Array.map (fun (identifier, d) -> (identifier, d, (svgViewBoxSquare 24)))
-
-    let svgNode (viewBox: string) (pathData: StreamGeometry) =
-        svg {
-            "fill" => "currentColor"
-            "fit" => ""
-            "focusable" => "false"
-            nameof viewBox => viewBox
-            "preserveAspectRatio" => "xMidYMid meet"
-            "xmlns" => SvgUri
-
-            elt "path" { "d" => pathData.Value }
-        }
-
-    let svgSpriteNode (viewBox: string) (href: string) =
-        svg {
-            "fill" => "currentColor"
-            nameof viewBox => viewBox
-            "xmlns" => SvgUri
-
-            elt "use" { nameof href => href }
-        }
-
-    let svgSpriteXLinkNode (viewBox: string) (symbolId: Identifier) =
-        svg {
-            "fill" => "currentColor"
-            nameof viewBox => viewBox
-            "xmlns" => SvgUri
-
-            elt "use" { "xlink:href" => $"#{symbolId.StringValue}" }
-        }
-
-    let svgSymbolsBlock (symbolData: (Identifier * StreamGeometry * string)[]) =
-        svg {
-            "xmlns" => SvgUri
-            attr.style "display: none;"
-            forEach symbolData <| fun (id, d, viewBox) ->
-                concat {
-                    newLine
-                    indent 3
-                    elt "symbol" {
-                        attr.id id.StringValue
-                        nameof viewBox => viewBox
-                        elt "path" {
-                            "d" => d.Value
-                        }
-                    }
-                }
-            newLine
-            indent 2
-        }

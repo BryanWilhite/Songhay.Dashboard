@@ -7,7 +7,8 @@ open Bolero.Html
 
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Models
-open Songhay.Modules.Bolero.Visuals.Svg
+open Songhay.Modules.Bolero.SvgUtility
+open Songhay.Modules.Bolero.Visuals.Element
 
 ///<summary>
 /// Bulma Elements
@@ -26,7 +27,7 @@ module Element =
                 "icon" |> CssClasses.toHtmlClass
                 AriaHidden.ToAttr
 
-                svgNode (svgViewBoxSquare 24) svgData[id]
+                svgElement (svgViewBoxSquare 24) SonghaySvgData.map[id]
             }
         }
 

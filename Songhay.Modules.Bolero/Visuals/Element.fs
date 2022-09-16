@@ -6,7 +6,10 @@ open Microsoft.AspNetCore.Components
 open Bolero
 open Bolero.Html
 
+open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Models
+open Songhay.Modules.Bolero.BoleroUtility
+open Songhay.Modules.Bolero.SvgUtility
 
 ///<summary>
 /// Shared functions for generating HTML elements.
@@ -103,4 +106,54 @@ module Element =
             moreAttrs.Value
 
             childNode
+        }
+
+    let svgElement (viewBox: string) (pathData: StreamGeometry) =
+        svg {
+            "fill" => "currentColor"
+            "fit" => ""
+            "focusable" => "false"
+            nameof viewBox => viewBox
+            "preserveAspectRatio" => "xMidYMid meet"
+            "xmlns" => SvgUri
+
+            elt "path" { "d" => pathData.Value }
+        }
+
+    let svgSpriteElement (viewBox: string) (href: string) =
+        svg {
+            "fill" => "currentColor"
+            nameof viewBox => viewBox
+            "xmlns" => SvgUri
+
+            elt "use" { nameof href => href }
+        }
+
+    let svgXLinkSpriteElement (viewBox: string) (symbolId: Identifier) =
+        svg {
+            "fill" => "currentColor"
+            nameof viewBox => viewBox
+            "xmlns" => SvgUri
+
+            elt "use" { "xlink:href" => $"#{symbolId.StringValue}" }
+        }
+
+    let svgSymbolsContainer (symbolData: (Identifier * StreamGeometry * string)[]) =
+        svg {
+            "xmlns" => SvgUri
+            attr.style "display: none;"
+            forEach symbolData <| fun (id, d, viewBox) ->
+                concat {
+                    newLine
+                    indent 3
+                    elt "symbol" {
+                        attr.id id.StringValue
+                        nameof viewBox => viewBox
+                        elt "path" {
+                            "d" => d.Value
+                        }
+                    }
+                }
+            newLine
+            indent 2
         }

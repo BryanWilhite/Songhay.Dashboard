@@ -7,7 +7,6 @@ open Bolero.Html
 
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
-open Songhay.Modules.Bolero.Visuals
 open Songhay.Modules.Bolero.Visuals.Element
 open Songhay.Modules.Bolero.Visuals.Document
 
@@ -39,7 +38,7 @@ module Document =
         }
 
     let bodyElements (boleroScript: Node) (rootCompContainer: Node) =
-        let svgSymbolsBlock = Svg.svgDataArray |> Svg.svgSymbolsBlock
+        let svgSymbolsBlock = SonghaySvgData.svgDataArray |> svgSymbolsContainer
         [
             svgSymbolsBlock
             rootCompContainer

@@ -14,7 +14,6 @@ open Songhay.Modules.Bolero.Visuals.Bulma.Component
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
-open Songhay.Modules.Bolero.Visuals.Svg
 
 open Songhay.Dashboard.Models
 open Songhay.Dashboard.Client.Visuals.Colors
@@ -37,27 +36,27 @@ module StudioFeeds =
     let studioFeedIcon (feedName: FeedName) =
         let feedNameMap = Map [
             CodePen,
-            Keys.MDI_CODEPEN_24PX.ToAlphanumeric
+            SonghaySvgKeys.MDI_CODEPEN_24PX.ToAlphanumeric
 
             Flickr,
-            Keys.MDI_RSS_24PX.ToAlphanumeric
+            SonghaySvgKeys.MDI_RSS_24PX.ToAlphanumeric
 
             GitHub,
-            Keys.MDI_GITHUB_CIRCLE_24PX.ToAlphanumeric
+            SonghaySvgKeys.MDI_GITHUB_CIRCLE_24PX.ToAlphanumeric
 
             StackOverflow,
-            Keys.MDI_STACK_OVERFLOW_24PX.ToAlphanumeric
+            SonghaySvgKeys.MDI_STACK_OVERFLOW_24PX.ToAlphanumeric
 
             Studio,
-            Keys.MDI_RSS_24PX.ToAlphanumeric
+            SonghaySvgKeys.MDI_RSS_24PX.ToAlphanumeric
         ]
 
-        let svgPathData = svgData[ feedNameMap[ feedName ] ]
+        let svgPathData = SonghaySvgData.map[ feedNameMap[ feedName ] ]
 
         bulmaMediaLeft
             (HasClasses (CssClasses ([ mediaLeft; m (All, L0); m (R, L1) ] @ imageContainer (Square Square48))))
             (HasAttr AriaHidden.ToAttr)
-            (svgNode (bulmaIconSvgViewBox Square24) svgPathData)
+            (svgElement (bulmaIconSvgViewBox Square24) svgPathData)
 
     let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
         let listItem (i: SyndicationFeedItem) =
