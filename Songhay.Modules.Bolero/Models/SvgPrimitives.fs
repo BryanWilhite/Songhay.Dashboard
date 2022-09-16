@@ -1,5 +1,7 @@
 namespace Songhay.Modules.Bolero.Models
 
+open Bolero.Html
+
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.SvgUtility
 
@@ -16,6 +18,12 @@ type StreamGeometry =
 
     ///<summary>Returns the underlying <see cref="string" /> value.</summary>
     member this.Value = let (StreamGeometry s) = this in s
+
+    member this.ToSymbolElement (id: Identifier) =
+        elt "symbol" {
+            attr.id id.StringValue
+            elt "path" { "d" => this.Value }
+        }
 
 /// <summary>
 /// Defines all of the keys of the conventional SVG visuals
