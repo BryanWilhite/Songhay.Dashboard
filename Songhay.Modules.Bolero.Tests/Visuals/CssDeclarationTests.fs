@@ -1,8 +1,6 @@
-module CssDeclarationTests
+module Songhay.Modules.Bolero.Tests.Visuals.CssDeclarationTests
 
 open Xunit
-
-
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.CssDeclaration
 

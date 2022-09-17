@@ -12,7 +12,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// “The box element is a simple container with a white background, some padding, and a box shadow…”
-    /// — https://bulma.io/documentation/elements/box/
+    /// 📖 https://bulma.io/documentation/elements/box/
     ///</remarks>
     [<Literal>]
     let box = "box"
@@ -22,7 +22,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// “The card component comprises several elements that you can mix and match…”
-    /// — https://bulma.io/documentation/components/card/
+    /// 📖 https://bulma.io/documentation/components/card/
     ///</remarks>
     [<Literal>]
     let card = "card"
@@ -32,7 +32,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// This is the container/wrapper for the <see cref="content" /> block.
-    /// — https://bulma.io/documentation/components/card/
+    /// 📖 https://bulma.io/documentation/components/card/
     ///</remarks>
     [<Literal>]
     let cardContent = "card-content"
@@ -42,7 +42,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// This is the container/wrapper for the Bulma <see cref="image" />.
-    /// — https://bulma.io/documentation/components/card/
+    /// 📖 https://bulma.io/documentation/components/card/
     ///</remarks>
     [<Literal>]
     let cardImage = "card-image"
@@ -68,7 +68,7 @@ module CssClass =
     /// • <c>.section</c>
     /// • <c>.footer</c>
     /// ”
-    /// — https://bulma.io/documentation/layout/container/
+    /// 📖 https://bulma.io/documentation/layout/container/
     ///</remarks>
     [<Literal>]
     let container = "container"
@@ -77,7 +77,7 @@ module CssClass =
     /// Bulma CSS class-name function for typography.
     ///</summary>
     ///<remarks>
-    /// — https://bulma.io/documentation/helpers/typography-helpers/#font-family
+    /// 📖 https://bulma.io/documentation/helpers/typography-helpers/#font-family
     ///</remarks>
     let elementFontFamily (family: CssFontFamily) =
         let suffix =
@@ -91,7 +91,7 @@ module CssClass =
     /// Bulma CSS class-name function for typography.
     ///</summary>
     ///<remarks>
-    /// — https://bulma.io/documentation/helpers/typography-helpers/#text-weight
+    /// 📖 https://bulma.io/documentation/helpers/typography-helpers/#text-weight
     ///</remarks>
     let elementFontWeight (weight: CssFontWeight) = $"has-text-weight-{weight.Value}"
 
@@ -174,7 +174,7 @@ module CssClass =
     /// Bulma CSS class-name function for typography.
     ///</summary>
     ///<remarks>
-    /// — https://bulma.io/documentation/helpers/typography-helpers/#alignment
+    /// 📖 https://bulma.io/documentation/helpers/typography-helpers/#alignment
     ///</remarks>
     let elementTextAlign (alignment: CssBoxAlignment) =
         let suffix =
@@ -190,7 +190,7 @@ module CssClass =
     /// Bulma CSS class-name function for typography.
     ///</summary>
     ///<remarks>
-    /// — https://bulma.io/documentation/helpers/typography-helpers/#text-transformation
+    /// 📖 https://bulma.io/documentation/helpers/typography-helpers/#text-transformation
     ///</remarks>
     let elementTextTransformation (transformation: CssTextTransformation) =
         let suffix =
@@ -224,7 +224,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// “A container for responsive images…”
-    /// — https://bulma.io/documentation/elements/image/
+    /// 📖 https://bulma.io/documentation/elements/image/
     ///</remarks>
     [<Literal>]
     let image = "image"
@@ -235,7 +235,7 @@ module CssClass =
     ///<remarks>
     /// Returns the <see cref="image" /> CSS class name
     /// with <see cref="BulmaRatioDimension.CssClass" />.
-    /// — https://bulma.io/documentation/elements/image/
+    /// 📖 https://bulma.io/documentation/elements/image/
     ///</remarks>
     let imageContainer (dimension: BulmaRatioDimension) = [ image; dimension.CssClass ]
 
@@ -244,7 +244,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// “You can also make rounded images, using is-rounded class…”
-    /// — https://bulma.io/documentation/elements/image/#rounded-images
+    /// 📖 https://bulma.io/documentation/elements/image/#rounded-images
     ///</remarks>
     [<Literal>]
     let imageIsRounded = "is-rounded"
@@ -256,7 +256,7 @@ module CssClass =
     /// “By default, columns are only activated on tablet and desktop.
     /// If you want to use columns on mobile too,
     /// add the is-mobile modifier on the columns container.”
-    /// — https://github.com/jgthms/bulma/blob/master/docs/_posts/2016-02-09-blog-launched-new-responsive-columns-new-helpers.md
+    /// 📖 https://github.com/jgthms/bulma/blob/master/docs/_posts/2016-02-09-blog-launched-new-responsive-columns-new-helpers.md
     ///</remarks>
     [<Literal>]
     let isMobileModifier = "is-mobile"
@@ -266,7 +266,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// “A multi-purpose horizontal level, which can contain almost any other element…”
-    /// — https://bulma.io/documentation/layout/level/
+    /// 📖 https://bulma.io/documentation/layout/level/
     ///</remarks>
     [<Literal>]
     let levelContainer = "level"
@@ -276,7 +276,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// Either <c>level-left</c> or <c>level-right</c>.
-    /// — https://bulma.io/documentation/layout/level/
+    /// 📖 https://bulma.io/documentation/layout/level/
     ///</remarks>
     let level (alignment: CssBoxAlignment) =
         match alignment with
@@ -291,7 +291,7 @@ module CssClass =
     /// a title, a button, a text input, or just simple text.
     /// No matter what elements you put inside a Bulma level,
     /// they will always be vertically centered.”
-    /// — https://bulma.io/documentation/layout/level/
+    /// 📖 https://bulma.io/documentation/layout/level/
     ///</remarks>
     [<Literal>]
     let levelItem = "level-item"
@@ -302,7 +302,7 @@ module CssClass =
     ///<remarks>
     /// This is the margin spacing helper.
     /// “There are 112 spacing helpers to choose from… To use these classes, simply append them to any HTML element…”
-    /// — https://bulma.io/documentation/helpers/spacing-helpers/#list-of-all-spacing-helpers
+    /// 📖 https://bulma.io/documentation/helpers/spacing-helpers/#list-of-all-spacing-helpers
     ///</remarks>
     let m (box: CssBoxModel, suffix: BulmaValueSuffix) = $"m{box.Value}-{suffix.Value}"
 
@@ -311,7 +311,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// “The famous media object prevalent in social media interfaces, but useful in any context…”
-    /// — https://bulma.io/documentation/layout/media-object/
+    /// 📖 https://bulma.io/documentation/layout/media-object/
     ///</remarks>
     [<Literal>]
     let media = "media"
@@ -322,7 +322,7 @@ module CssClass =
     ///<remarks>
     /// Indicates the leftmost container aside the <c>media-content</c> block
     /// usually containing an avatar, ‘branding’ the media content.
-    /// — https://bulma.io/documentation/layout/media-object/
+    /// 📖 https://bulma.io/documentation/layout/media-object/
     ///</remarks>
     [<Literal>]
     let mediaLeft = "media-left"
@@ -332,7 +332,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// The container for “any other Bulma element, like inputs, textareas, icons, buttons…”
-    /// — https://bulma.io/documentation/layout/media-object/
+    /// 📖 https://bulma.io/documentation/layout/media-object/
     ///</remarks>
     let mediaContent ="media-content"
 
@@ -345,7 +345,7 @@ module CssClass =
     /// As such, it can be used as a pinned notification
     /// in the corner of the viewport.
     /// That's why it supports the use of the delete element…”
-    /// — https://bulma.io/documentation/elements/notification/
+    /// 📖 https://bulma.io/documentation/elements/notification/
     ///</remarks>
     [<Literal>]
     let notification = "notification"
@@ -356,7 +356,7 @@ module CssClass =
     ///<remarks>
     /// This is the padding spacing helper.
     /// “There are 112 spacing helpers to choose from… To use these classes, simply append them to any HTML element…”
-    /// — https://bulma.io/documentation/helpers/spacing-helpers/#list-of-all-spacing-helpers
+    /// 📖 https://bulma.io/documentation/helpers/spacing-helpers/#list-of-all-spacing-helpers
     ///</remarks>
     let p (box: CssBoxModel, suffix: BulmaValueSuffix) = $"p{box.Value}-{suffix.Value}"
 
@@ -365,7 +365,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// “A composable panel, for compact controls…”
-    /// — https://bulma.io/documentation/components/panel/
+    /// 📖 https://bulma.io/documentation/components/panel/
     ///</remarks>
     [<Literal>]
     let panel = "panel"
@@ -375,7 +375,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// “Simple headings to add depth to your page… There are 6 sizes available…”
-    /// — https://bulma.io/documentation/elements/title/
+    /// 📖 https://bulma.io/documentation/elements/title/
     ///</remarks>
     let subtitle (size: BulmaFontSizeOrDefault) =
         match size with
@@ -388,7 +388,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// “To build intricate 2-dimensional layouts, you only need a single element: the tile…”
-    /// — https://bulma.io/documentation/layout/tiles/
+    /// 📖 https://bulma.io/documentation/layout/tiles/
     ///</remarks>
     [<Literal>]
     let tile = "tile"
@@ -398,7 +398,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// “Start with an ancestor tile that will wrap all other tiles…”
-    /// — https://bulma.io/documentation/layout/tiles/
+    /// 📖 https://bulma.io/documentation/layout/tiles/
     ///</remarks>
     [<Literal>]
     let tileIsAncestor = "is-ancestor"
@@ -412,7 +412,7 @@ module CssClass =
     /// - add the <c>is-child</c> modifier on the tile
     /// - add the <c>is-parent</c> modifier on the parent tile”
     ///
-    /// — https://bulma.io/documentation/layout/tiles/
+    /// 📖 https://bulma.io/documentation/layout/tiles/
     ///</remarks>
     [<Literal>]
     let tileIsChild = "is-child"
@@ -426,7 +426,7 @@ module CssClass =
     /// - add the <c>is-child</c> modifier on the tile
     /// - add the <c>is-parent</c> modifier on the parent tile”
     ///
-    /// — https://bulma.io/documentation/layout/tiles/
+    /// 📖 https://bulma.io/documentation/layout/tiles/
     ///</remarks>
     [<Literal>]
     let tileIsParent = "is-parent"
@@ -436,7 +436,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// “If you want to stack tiles vertically, add is-vertical on the parent tile…”
-    /// — https://bulma.io/documentation/layout/tiles/
+    /// 📖 https://bulma.io/documentation/layout/tiles/
     ///</remarks>
     [<Literal>]
     let tileIsVertical = "is-vertical"
@@ -446,7 +446,7 @@ module CssClass =
     ///</summary>
     ///<remarks>
     /// “Simple headings to add depth to your page… There are 6 sizes available…”
-    /// — https://bulma.io/documentation/elements/title/
+    /// 📖 https://bulma.io/documentation/elements/title/
     ///</remarks>
     let title (size: BulmaFontSizeOrDefault) =
         match size with

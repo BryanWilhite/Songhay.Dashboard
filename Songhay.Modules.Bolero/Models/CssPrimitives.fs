@@ -2,6 +2,8 @@ namespace Songhay.Modules.Bolero.Models
 
 open Bolero.Html
 
+open Songhay.Modules.StringUtility
+
 ///<summary>
 /// Identifies a list of <see cref="string" /> as a collection of CSS class names.
 ///</summary>
@@ -86,11 +88,8 @@ type CssInheritance =
     ///<summary>Returns the <see cref="string" /> representation of the inheritance name.</summary>
     member this.Value =
         match this with
-        | Inherit -> "inherit"
-        | Initial -> "initial"
-        | Revert -> "revert"
         | RevertLayer -> "revert-layer"
-        | Unset -> "unset"
+        | _ -> this.ToString().ToLowerInvariant()
 
 ///<summary>
 /// Defines CSS Box Alignment module names.
@@ -309,11 +308,7 @@ type CssFontFamily =
         match this with
         | Inherit i -> i.Value
         | SansSerif -> "sans-serif"
-        | Monospace -> "monospace"
-        | Primary -> "primary"
-        | Secondary -> "secondary"
-        | Emoji -> "emoji"
-        | Math -> "math"
+        | _ -> this.ToString().ToLowerInvariant()
 
 ///<summary>
 /// Specifies the values of the <c>font-variant-alternates</c> property.
@@ -518,11 +513,7 @@ type CssFontWeight =
     member this.Value =
         match this with
         | Inherit i -> i.Value
-        | Light -> "light"
-        | Normal -> "normal"
-        | Medium -> "medium"
-        | Semibold -> "semibold"
-        | Bold -> "bold"
+        | _ -> this.ToString().ToLowerInvariant()
 
 ///<summary>
 /// Enumerates a subset of the CSS text transforms
@@ -550,8 +541,6 @@ type CssTextTransformation =
     member this.Value =
         match this with
         | Inherit i -> i.Value
-        | FullWidth -> "full-width"
-        | Lowercase -> "lowercase"
-        | TitleCase -> "captialize"
-        | UpperCase -> "uppercase"
-        | Italic -> "italic"
+        | TitleCase -> "capitalize"
+        | FullWidth -> this.ToString() |> toKabobCase |> Option.get
+        | _ -> this.ToString().ToLowerInvariant()
