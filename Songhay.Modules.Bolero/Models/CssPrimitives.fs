@@ -25,16 +25,16 @@ type CssClasses =
     member this.Value = let (CssClasses l) = this in l
 
     //<summary> appends the specified <see cref="string" /> to this instance </summary>
-    member this.Append s = CssClasses (this.Value |> List.append([s]))
+    member this.Append s = CssClasses (List.append this.Value [s])
 
     //<summary> appends the specified list of <see cref="string" /> to this instance </summary>
-    member this.AppendList (l: string list) = CssClasses (this.Value |> List.append(l))
+    member this.AppendList (l: string list) = CssClasses (List.append this.Value l)
 
     //<summary> pre-pends the specified <see cref="string" /> to this instance </summary>
-    member this.Prepend s = CssClasses ([s] |> List.append(this.Value))
+    member this.Prepend s = CssClasses (List.append [s] this.Value)
 
     //<summary> pre-pends the specified list of <see cref="string" /> to this instance </summary>
-    member this.PrependList (l: string list) = CssClasses (l |> List.append(this.Value))
+    member this.PrependList (l: string list) = CssClasses (List.append l this.Value)
 
     //<summary> reduces the underlying list of <see cref="string" /> the the value of the <c>class</c> attribute </summary>
     member this.ToAttributeValue = this.Value |> List.reduce(fun a b -> $"{a} {b}")
@@ -102,7 +102,7 @@ type CssInheritance =
 ///</remarks>
 type CssBoxAlignment =
     ///<summary> <see cref="CssInheritance" /> </summary>
-    | Inherit of CssInheritance
+    | InheritBoxAlignment of CssInheritance
     ///<summary> alignment name for <c>text-align</c> </summary>
     | Start
     ///<summary> alignment name for <c>text-align</c> </summary>
@@ -153,7 +153,7 @@ type CssBoxAlignment =
     ///<summary>Returns the <see cref="string" /> representation of the alignment name.</summary>
     member this.Value =
         match this with
-        | Inherit i -> i.Value
+        | InheritBoxAlignment i -> i.Value
         // text-align
         | Start -> "start"
         | End -> "end"
@@ -289,7 +289,7 @@ type CssCommonImageAspectRatioNumber =
 /// </remarks>
 type CssFontFamily =
     ///<summary> <see cref="CssInheritance" /> </summary>
-    | Inherit of CssInheritance
+    | InheritFontFamily of CssInheritance
     ///<summary> a CSS font family </summary>
     | SansSerif
     ///<summary> a CSS font family </summary>
@@ -306,7 +306,7 @@ type CssFontFamily =
     ///<summary>Returns the <see cref="string" /> representation of the font family/classification.</summary>
     member this.Value =
         match this with
-        | Inherit i -> i.Value
+        | InheritFontFamily i -> i.Value
         | SansSerif -> "sans-serif"
         | _ -> this.ToString().ToLowerInvariant()
 
@@ -318,7 +318,7 @@ type CssFontFamily =
 /// </remarks>
 type CssFontVariantAlternates =
     ///<summary> <see cref="CssInheritance" /> </summary>
-    | Inherit of CssInheritance
+    | InheritFontVariantAlternates of CssInheritance
     ///<summary> a value of the <c>font-variant-alternates</c> property </summary>
     | FontVariantAlternatesNormal
     ///<summary> a value of the <c>font-variant-alternates</c> property </summary>
@@ -327,7 +327,7 @@ type CssFontVariantAlternates =
     ///<summary>Returns the <see cref="string" /> representation of the <c>font-variant-alternates</c> property.</summary>
     member this.Value =
         match this with
-        | Inherit i -> i.Value
+        | InheritFontVariantAlternates i -> i.Value
         | FontVariantAlternatesNormal -> "normal"
         | FontVariantAlternatesHistoricalForms -> "historical-forms"
 
@@ -339,7 +339,7 @@ type CssFontVariantAlternates =
 /// </remarks>
 type CssFontVariantCaps =
     ///<summary> <see cref="CssInheritance" /> </summary>
-    | Inherit of CssInheritance
+    | InheritFontVariantCaps of CssInheritance
     ///<summary> a value of the <c>font-variant-caps</c> property </summary>
     | FontVariantCapsNormal
     ///<summary> a value of the <c>font-variant-caps</c> property </summary>
@@ -358,7 +358,7 @@ type CssFontVariantCaps =
     ///<summary>Returns the <see cref="string" /> representation of the <c>font-variant-caps</c> property.</summary>
     member this.Value =
         match this with
-        | Inherit i -> i.Value
+        | InheritFontVariantCaps i -> i.Value
         | FontVariantCapsNormal -> "normal"
         | FontVariantCapsSmall -> "small-caps"
         | FontVariantCapsAllSmall -> "all-small-caps"
@@ -375,7 +375,7 @@ type CssFontVariantCaps =
 /// </remarks>
 type CssFontVariantLigatures =
     ///<summary> <see cref="CssInheritance" /> </summary>
-    | Inherit of CssInheritance
+    | InheritFontVariantLigatures of CssInheritance
     ///<summary> a value of the <c>font-variant-ligatures</c> property </summary>
     | FontVariantLigaturesNormal
     ///<summary> a value of the <c>font-variant-ligatures</c> property </summary>
@@ -400,7 +400,7 @@ type CssFontVariantLigatures =
     ///<summary>Returns the <see cref="string" /> representation of the <c>font-variant-ligatures</c> property.</summary>
     member this.Value =
         match this with
-        | Inherit i -> i.Value
+        | InheritFontVariantLigatures i -> i.Value
         | FontVariantLigaturesNormal -> "normal"
         | FontVariantLigaturesNone -> "none"
         | FontVariantLigaturesCommon -> "common-ligatures"
@@ -420,7 +420,7 @@ type CssFontVariantLigatures =
 /// </remarks>
 type CssFontVariantNumeric =
     ///<summary> <see cref="CssInheritance" /> </summary>
-    | Inherit of CssInheritance
+    | InheritFontVariantNumeric of CssInheritance
     ///<summary> a value of the <c>font-variant-numeric</c> property </summary>
     | FontVariantNumericNormal
     ///<summary> a value of the <c>font-variant-numeric</c> property </summary>
@@ -443,7 +443,7 @@ type CssFontVariantNumeric =
     ///<summary>Returns the <see cref="string" /> representation of the <c>font-variant-numeric</c> property.</summary>
     member this.Value =
         match this with
-        | Inherit i -> i.Value
+        | InheritFontVariantNumeric i -> i.Value
         | FontVariantNumericNormal -> "normal"
         | FontVariantNumericOrdinal -> "ordinal"
         | FontVariantNumericSlashedZero -> "slashed-zero"
@@ -463,7 +463,7 @@ type CssFontVariantNumeric =
 /// </remarks>
 type CssFontVariant =
     ///<summary> <see cref="CssInheritance" /> </summary>
-    | Inherit of CssInheritance
+    | InheritFontVariant of CssInheritance
     ///<summary> a value of the <c>font-variant</c> property </summary>
     | VariantNone
     ///<summary> a value of the <c>font-variant</c> property </summary>
@@ -480,7 +480,7 @@ type CssFontVariant =
     ///<summary>Returns the <see cref="string" /> representation of the font variant.</summary>
     member this.Value =
         match this with
-        | Inherit i -> i.Value
+        | InheritFontVariant i -> i.Value
         | VariantNone -> "none"
         | SmallCaps -> "small-caps"
         | Ligatures l -> l.Value
@@ -497,7 +497,7 @@ type CssFontVariant =
 /// </remarks>
 type CssFontWeight =
     ///<summary> <see cref="CssInheritance" /> </summary>
-    | Inherit of CssInheritance
+    | InheritFontWeight of CssInheritance
     ///<summary> a typical font weight in place of numeric CSS weights </summary>
     | Light
     ///<summary> a CSS font weight </summary>
@@ -512,7 +512,7 @@ type CssFontWeight =
     ///<summary>Returns the <see cref="string" /> representation of the font weight.</summary>
     member this.Value =
         match this with
-        | Inherit i -> i.Value
+        | InheritFontWeight i -> i.Value
         | _ -> this.ToString().ToLowerInvariant()
 
 ///<summary>
@@ -524,7 +524,7 @@ type CssFontWeight =
 /// </remarks>
 type CssTextTransformation =
     ///<summary> <see cref="CssInheritance" /> </summary>
-    | Inherit of CssInheritance
+    | InheritTransformation of CssInheritance
     ///<summary> a CSS text transform </summary>
     | FullWidth
     ///<summary> a CSS text transform </summary>
@@ -540,7 +540,7 @@ type CssTextTransformation =
     ///<summary>Returns the <see cref="string" /> representation of the transform name.</summary>
     member this.Value =
         match this with
-        | Inherit i -> i.Value
+        | InheritTransformation i -> i.Value
         | TitleCase -> "capitalize"
         | FullWidth -> this.ToString() |> toKabobCase |> Option.get
         | _ -> this.ToString().ToLowerInvariant()

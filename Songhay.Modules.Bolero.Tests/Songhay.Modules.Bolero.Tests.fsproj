@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Models\CssPrimitivesTests.fs" />
         <Compile Include="Visuals\CssDeclarationTests.fs" />
         <Compile Include="Visuals\Bulma\CssClassTests.fs" />
         <Compile Include="Program.fs" />
