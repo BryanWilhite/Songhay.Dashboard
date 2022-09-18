@@ -28,5 +28,4 @@ module SvgUtility =
     /// <summary>
     /// Calls <see cref="svgViewBox" /> for square visuals.
     /// </summary>
-    let svgViewBoxSquare widthAndHeight =
-        svgViewBox (0,0) (widthAndHeight, widthAndHeight)
+    let svgViewBoxSquare widthAndHeight = svgViewBox (0,0) (widthAndHeight, widthAndHeight)

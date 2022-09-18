@@ -25,16 +25,18 @@ module HtmlDocument =
             linkRelElement
                 RelStylesheet
                 NoAttrs
-                ($"css/{rootCompId}.min.css" |> Uri)
+                (($"css/{rootCompId}.min.css", UriKind.Relative) |> Uri)
             linkRelElement
                 RelIcon
                 NoAttrs
-                ("favicon.ico" |> Uri)
+                (("favicon.ico", UriKind.Relative) |> Uri)
         ]
         @
         [ script { attr.src "js/songhay.min.js" } ]
         @
         [ App.AppTitle |> titleElement ]
+        @
+        [ newLine ]
 
     let headElement (rootCompId: string) = rootCompId |> headElements |> headElement
 

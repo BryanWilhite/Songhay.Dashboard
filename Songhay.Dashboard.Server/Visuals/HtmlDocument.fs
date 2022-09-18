@@ -8,7 +8,7 @@ open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Dashboard.Client.Components
 open Songhay.Dashboard.Client.Visuals.HtmlDocument
 
-module Document =
+module HtmlDocument =
 
     let rootCompContainer =
             div {

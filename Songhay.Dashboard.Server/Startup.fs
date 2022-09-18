@@ -31,7 +31,7 @@ type Startup() =
         |> ignore
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    member this.Configure(app: IApplicationBuilder, env: IWebHostEnvironment) =
+    member this.Configure(app: IApplicationBuilder, _: IWebHostEnvironment) =
         app
             .UseRemoting()
             .UseStaticFiles()
@@ -42,7 +42,7 @@ type Startup() =
                 endpoints.UseHotReload()
 #endif
                 endpoints.MapBlazorHub() |> ignore
-                endpoints.MapFallbackToBolero(Visuals.Document.document) |> ignore)
+                endpoints.MapFallbackToBolero(Visuals.HtmlDocument.document) |> ignore)
         |> ignore
 
 module Program =

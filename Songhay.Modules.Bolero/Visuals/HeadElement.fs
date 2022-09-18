@@ -18,9 +18,8 @@ open Songhay.Modules.Bolero.Visuals.BodyElement
 module HeadElement =
 
     let baseElement (href: string option) = ``base`` { attr.href (href |> Option.defaultWith (fun _ -> "/")) }
- 
-    let atomAlternateLinkElement (appTitle: string) (href: string) =
-        link { attr.rel "alternate"; attr.``type`` ApplicationAtomXml; attr.title appTitle; attr.href href }
+
+    let headElement (childElements: Node list) = head { forEach ((2, childElements) ||> wrapn) <| id }
 
     let linkRelElement (rel: HtmlLinkedDocumentRelationship) (moreAttributes: HtmlAttributesOrEmpty) (href: Uri) =
         match rel with
@@ -30,6 +29,10 @@ module HeadElement =
             -> htmlComment $"ERROR: the `link` element does not support `{rel.Value}`."
         | _ -> link { attr.rel rel.Value; moreAttributes.Value; attr.href href }
 
-    let titleElement (appTitle: string) = title { text appTitle }
+    let linkRelAtomSyndicationElement (appTitle: string) (href: Uri) =
+        linkRelElement
+            RelAlternate
+            (HasAttrs [ attr.``type`` ApplicationAtomXml; attr.title appTitle ])
+            href
 
-    let headElement (childElements: Node list) = head { forEach ((2, childElements) ||> wrapn) <| id }
+    let titleElement (appTitle: string) = title { text appTitle }
