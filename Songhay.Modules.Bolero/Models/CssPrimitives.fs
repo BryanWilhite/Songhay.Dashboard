@@ -208,12 +208,9 @@ type CssBoxModel =
     member this.Value =
         match this with
         | All -> System.String.Empty
-        | L -> "l"
-        | R -> "r"
         | LR -> "x"
-        | T -> "t"
-        | B -> "b"
         | TB -> "y"
+        | _ -> this.ToString().ToLowerInvariant()
 
 ///<summary>
 /// Represents <see cref="CssClasses" /> or emptiness.

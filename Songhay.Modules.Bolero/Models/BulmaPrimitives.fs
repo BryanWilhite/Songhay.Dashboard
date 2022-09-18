@@ -2,6 +2,8 @@ namespace Songhay.Modules.Bolero.Models
 
 open System
 
+open Songhay.Modules.StringUtility
+
 ///<summary>
 /// Defines Bulma responsive breakpoints
 ///</summary>
@@ -23,14 +25,7 @@ type BulmaBreakpoint =
     | FullHD
 
     ///<summary>Returns the <see cref="string" /> representation of the breakpoint name.</summary>
-    member this.Value =
-        match this with
-        | Mobile -> "mobile"
-        | Tablet -> "tablet"
-        | Touch -> "touch"
-        | Desktop -> "desktop"
-        | WideScreen -> "widescreen"
-        | FullHD -> "fullhd"
+    member this.Value = this.ToString().ToLowerInvariant()
 
 ///<summary>
 /// Defines the seven Bulma font sizes in <c>rem</c>.
@@ -55,15 +50,7 @@ type BulmaFontSize =
     | Size7
 
     ///<summary>Returns the <see cref="string" /> representation of the Bulma font size.</summary>
-    member this.Value =
-        match this with
-        | Size1 -> "1"
-        | Size2 -> "2"
-        | Size3 -> "3"
-        | Size4 -> "4"
-        | Size5 -> "5"
-        | Size6 -> "6"
-        | Size7 -> "7"
+    member this.Value = this.ToString() |> toNumericString |> Option.get
 
 ///<summary>
 /// Defines a rule for matching <see cref="BulmaFontSize" /> or a default/inherited size.
@@ -96,26 +83,10 @@ type BulmaSquareDimension =
     | Square128
 
     ///<summary>Returns the CSS class name of the Bulma square dimension.</summary>
-    member this.CssClass =
-        match this with
-        | Square16 -> "is-16x16"
-        | Square24 -> "is-24x24"
-        | Square32 -> "is-32x32"
-        | Square48 -> "is-48x48"
-        | Square64 -> "is-64x64"
-        | Square96 -> "is-96x96"
-        | Square128 -> "is-128x128"
+    member this.CssClass = this.ToString() |> toNumericString |> Option.get |> fun n -> $"is-{n}x{n}"
 
     ///<summary>Returns the integer representation of the Bulma square dimension.</summary>
-    member this.ToWidthOrHeight =
-        match this with
-        | Square16 -> 16
-        | Square24 -> 24
-        | Square32 -> 32
-        | Square48 -> 48
-        | Square64 -> 64
-        | Square96 -> 96
-        | Square128 -> 128
+    member this.ToWidthOrHeight = this.ToString() |> toNumericString |> Option.get |> Int32.Parse
 
 ///<summary>
 /// Defines all Bulma ratios of dimensions for Bulma responsive images.
@@ -200,14 +171,8 @@ type BulmaValueSuffix =
     ///<summary>Returns the <see cref="string" /> representation of the Bulma value suffix.</summary>
     member this.Value =
         match this with
-        | L0 -> "0"
-        | L1 -> "1"
-        | L2 -> "2"
-        | L3 -> "3"
-        | L4 -> "4"
-        | L5 -> "5"
-        | L6 -> "6"
         | AutoSuffix -> "auto"
+        | _ -> this.ToString() |> toNumericString |> Option.get
 
 ///<summary>
 /// Defines the value of a Bulma spacing helper.
@@ -260,15 +225,4 @@ type BulmaTileHorizontalSize =
     member this.CssClass =
         match this with
         | TileSizeAuto -> String.Empty 
-        | TileSize1 -> "is-1"
-        | TileSize2 -> "is-2"
-        | TileSize3 -> "is-3"
-        | TileSize4 -> "is-4"
-        | TileSize5 -> "is-5"
-        | TileSize6 -> "is-6"
-        | TileSize7 -> "is-7"
-        | TileSize8 -> "is-8"
-        | TileSize9 -> "is-9"
-        | TileSize10 -> "is-10"
-        | TileSize11 -> "is-11"
-        | TileSize12 -> "is-12"
+        | _ -> this.ToString() |> toNumericString |> Option.get |> fun s -> $"is-{s}"
