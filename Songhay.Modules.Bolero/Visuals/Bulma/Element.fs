@@ -8,7 +8,7 @@ open Bolero.Html
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.SvgUtility
-open Songhay.Modules.Bolero.Visuals.Element
+open Songhay.Modules.Bolero.Visuals.BodyElement
 
 ///<summary>
 /// Bulma Elements

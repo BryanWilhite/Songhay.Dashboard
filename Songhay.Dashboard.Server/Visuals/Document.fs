@@ -6,7 +6,7 @@ open Bolero.Server.Html
 open Songhay.Modules.Bolero.BoleroUtility
 
 open Songhay.Dashboard.Client.Components
-open Songhay.Dashboard.Client.Visuals.Document
+open Songhay.Dashboard.Client.Visuals.HtmlDocument
 
 module Document =
 

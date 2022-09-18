@@ -12,12 +12,12 @@ open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.SvgUtility
 
 ///<summary>
-/// Shared functions for generating HTML elements.
+/// Shared functions for generating selected HTML elements as a child of <c>body</c>.
 ///</summary>
 /// <remarks>
-/// 📖 https://developer.mozilla.org/en-US/docs/Web/HTML
+/// 📖 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
 /// </remarks>
-module Element =
+module BodyElement =
 
     ///<summary>
     /// Returns the HTML anchor element, <c>a</c>, adorned with any CSS classes.

@@ -11,7 +11,7 @@ open Songhay.Modules.Bolero.Visuals.Bulma.Component
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
-open Songhay.Modules.Bolero.Visuals.Element
+open Songhay.Modules.Bolero.Visuals.BodyElement
 
 open Songhay.Dashboard.Models
 open Songhay.Dashboard.Client

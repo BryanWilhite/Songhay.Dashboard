@@ -16,8 +16,8 @@
       <Compile Include="Models\SvgPrimitives.fs" />
       <Compile Include="Models\BulmaPrimitives.fs" />
       <Compile Include="Visuals\CssDeclaration.fs" />
-      <Compile Include="Visuals\Element.fs" />
-      <Compile Include="Visuals\Document.fs" />
+      <Compile Include="Visuals\BodyElement.fs" />
+      <Compile Include="Visuals\HeadElement.fs" />
       <Compile Include="Visuals\Bulma\CssClass.fs" />
       <Compile Include="Visuals\Bulma\Element.fs" />
       <Compile Include="Visuals\Bulma\Component.fs" />

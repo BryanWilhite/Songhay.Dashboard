@@ -7,24 +7,36 @@ open Bolero.Html
 
 open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Models
-open Songhay.Modules.Bolero.Visuals.Element
-open Songhay.Modules.Bolero.Visuals.Document
+open Songhay.Modules.Bolero.Visuals.BodyElement
+open Songhay.Modules.Bolero.Visuals.HeadElement
 
 open Songhay.Dashboard.Client
 
-module Document =
+module HtmlDocument =
     let headElements (rootCompId: string) =
-        Head.metaElements
+        [
+            HtmlCharSet.ToMetaElement
+            HtmlMetaElement.ViewPortInitialScale1.ToMetaElement
+        ]
         @
-        [(None |> Head.baseElement)]
+        [ baseElement None ]
         @
-        (rootCompId |> Head.studioLinkElements)
+        [
+            linkRelElement
+                RelStylesheet
+                NoAttrs
+                ($"css/{rootCompId}.min.css" |> Uri)
+            linkRelElement
+                RelIcon
+                NoAttrs
+                ("favicon.ico" |> Uri)
+        ]
         @
-        [ Head.studioScriptElement ]
+        [ script { attr.src "js/songhay.min.js" } ]
         @
-        [ App.AppTitle |> Head.titleElement ]
+        [ App.AppTitle |> titleElement ]
 
-    let headElement (rootCompId: string) = rootCompId |> headElements |> Head.headElement
+    let headElement (rootCompId: string) = rootCompId |> headElements |> headElement
 
     let footerNode =
         div {
