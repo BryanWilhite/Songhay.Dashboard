@@ -18,7 +18,7 @@ open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 open Songhay.Modules.Bolero.Visuals.BodyElement
 
 open Songhay.Dashboard.Client
-open Songhay.Dashboard.Client.Visuals.Colors
+open Songhay.Dashboard.Client.App.Colors
 open Songhay.Dashboard.Client.ElmishTypes
 
 type StudioLinksComponent() =

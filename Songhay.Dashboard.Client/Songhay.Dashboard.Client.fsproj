@@ -7,8 +7,6 @@
         <Compile Include="App.fs" />
         <Compile Include="ElmishTypes.fs" />
         <Compile Include="ElmishRoutes.fs" />
-        <Compile Include="Visuals\Colors.fs" />
-        <Compile Include="Visuals\Block.fs" />
         <Compile Include="Visuals\HtmlDocument.fs" />
         <Compile Include="Components\StudioFeeds.fs" />
         <Compile Include="Components\StudioTools.fs" />

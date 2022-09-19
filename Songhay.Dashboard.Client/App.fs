@@ -7,6 +7,15 @@ open Songhay.Modules.Models
 open Songhay.Dashboard.Models
 
 module App =
+    module Colors =
+        [<Literal>]
+        let bulmaAkyinkyinBase = "is-akyinkyin-base"
+
+        [<Literal>]
+        let bulmaBackgroundGreyDarkTone = "has-background-greys-dark-tone"
+
+        [<Literal>]
+        let bulmaTextGreyLightTone = "has-text-greys-light-tone"
 
     [<Literal>]
     let AppTitle = "SonghaySystem(::)"

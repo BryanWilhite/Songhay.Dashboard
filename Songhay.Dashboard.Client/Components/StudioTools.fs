@@ -11,7 +11,7 @@ open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 
-open Songhay.Dashboard.Client.Visuals.Colors
+open Songhay.Dashboard.Client.App.Colors
 
 module StudioTools =
 

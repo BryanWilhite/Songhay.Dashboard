@@ -11,21 +11,33 @@ open Bolero.Html
 open Bolero.Remoting.Client
 
 open Songhay.Modules.Models
+open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.RemoteHandlerUtility
+open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
+open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Components
 open Songhay.Player.YouTube.YtUriUtility
 
 open Songhay.Dashboard.Client
-open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client.Components
-open Songhay.Dashboard.Client.Visuals
+open Songhay.Dashboard.Client.ElmishTypes
 
 module ElmishProgram =
 
     type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
     let viewContentBlockTemplate (jsRuntime: IJSRuntime) (model: Model) dispatch =
+        let studioPageNode nodes =
+            bulmaTile
+                TileSizeAuto
+                (HasClasses (CssClasses [tileIsAncestor]))
+                [
+                    bulmaTile
+                        TileSizeAuto
+                        (HasClasses (CssClasses [tileIsParent; tileIsVertical]))
+                        nodes
+                ]
         ContentBlockTemplate()
             .Studio(StudioComponent.EComp model dispatch)
             .StudioLinks(StudioLinksComponent.EComp model dispatch)
@@ -40,8 +52,8 @@ module ElmishProgram =
             )
             .Content(
                 cond model.page <| function
-                | StudioFeedsPage -> Block.studioPageNode (Block.StudioFeeds.studioFeedsNodes jsRuntime model)
-                | StudioToolsPage -> Block.studioPageNode [ Block.StudioTools.studioToolsNode ]
+                | StudioFeedsPage -> studioPageNode (Block.StudioFeeds.studioFeedsNodes jsRuntime model)
+                | StudioToolsPage -> studioPageNode [ Block.StudioTools.studioToolsNode ]
             )
             .YouTubeThumbs(
                 YtThumbsComponent.EComp (Some "songhay tube") model.ytModel (Message.YouTubeMessage >> dispatch)

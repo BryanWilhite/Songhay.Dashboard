@@ -16,7 +16,7 @@ open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 
 open Songhay.Dashboard.Models
-open Songhay.Dashboard.Client.Visuals.Colors
+open Songhay.Dashboard.Client.App.Colors
 open Songhay.Dashboard.Client.ElmishTypes
 
 module StudioFeeds =
