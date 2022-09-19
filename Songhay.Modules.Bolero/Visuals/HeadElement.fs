@@ -26,12 +26,6 @@ module HeadElement =
     let baseElement (href: string option) = ``base`` { attr.href (href |> Option.defaultWith (fun _ -> "/")) }
 
     /// <summary>
-    /// Returns a <c>head</c> element with the specified list of <see cref="Node" />.
-    /// </summary>
-    /// <remarks> 📖 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head </remarks>
-    let headElement (childElements: Node list) = head { forEach ((2, childElements) ||> wrapn) <| id }
-
-    /// <summary>
     /// Returns a <c>link</c> element that
     /// “…specifies relationships between the current document and an external resource.”
     /// </summary>
@@ -51,7 +45,7 @@ module HeadElement =
     let linkRelAtomSyndicationElement (appTitle: string) (href: Uri) =
         linkRelElement
             RelAlternate
-            (HasAttrs [ attr.``type`` ApplicationAtomXml; attr.title appTitle ])
+            (HasAttrs (attrs { attr.``type`` ApplicationAtomXml; attr.title appTitle }))
             href
 
     /// <summary>

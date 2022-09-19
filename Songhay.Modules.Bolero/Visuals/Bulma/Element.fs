@@ -18,11 +18,11 @@ module Element =
     /// <remarks>
     /// 📖 https://bulma.io/documentation/elements/content/
     /// </remarks>
-    let bulmaContent (moreClasses: CssClassesOrEmpty) (childNodes: Node list) =
+    let bulmaContent (moreClasses: CssClassesOrEmpty) (childNode: Node) =
         div {
             CssClasses [ CssClass.content ] |> moreClasses.ToHtmlClassAttribute
 
-            forEach childNodes <| id
+            childNode
         }
 
     /// <summary>
@@ -45,10 +45,10 @@ module Element =
     /// <remarks>
     /// 📖 https://bulma.io/documentation/elements/image/
     /// </remarks>
-    let bulmaImageContainer (size: BulmaRatioDimension) (attribute: HtmlAttributeOrEmpty) (visualNode: Node) =
+    let bulmaImageContainer (size: BulmaRatioDimension) (attributes: HtmlAttributesOrEmpty) (visualNode: Node) =
         figure {
             size |> CssClass.imageContainer |> CssClasses.toHtmlClassFromList
-            attribute.Value
+            attributes.Value
 
             visualNode
         }
@@ -59,9 +59,9 @@ module Element =
     /// <remarks>
     /// 📖 https://bulma.io/documentation/elements/notification/
     /// </remarks>
-    let bulmaNotification (moreClasses: CssClassesOrEmpty) (childNodes: Node list) =
+    let bulmaNotification (moreClasses: CssClassesOrEmpty) (childNode: Node) =
         div {
              CssClasses [ CssClass.notification ] |> moreClasses.ToHtmlClassAttribute
 
-             forEach childNodes <| id
+             childNode
         }

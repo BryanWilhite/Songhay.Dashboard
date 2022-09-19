@@ -28,16 +28,14 @@ module ElmishProgram =
     type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
     let viewContentBlockTemplate (jsRuntime: IJSRuntime) (model: Model) dispatch =
-        let studioPageNode nodes =
+        let studioPageNode node =
             bulmaTile
                 TileSizeAuto
                 (HasClasses (CssClasses [tileIsAncestor]))
-                [
-                    bulmaTile
-                        TileSizeAuto
-                        (HasClasses (CssClasses [tileIsParent; tileIsVertical]))
-                        nodes
-                ]
+                (bulmaTile
+                    TileSizeAuto
+                    (HasClasses (CssClasses [tileIsParent; tileIsVertical]))
+                    node)
         ContentBlockTemplate()
             .Studio(StudioComponent.EComp model dispatch)
             .StudioLinks(StudioLinksComponent.EComp model dispatch)
@@ -53,7 +51,7 @@ module ElmishProgram =
             .Content(
                 cond model.page <| function
                 | StudioFeedsPage -> studioPageNode (Block.StudioFeeds.studioFeedsNodes jsRuntime model)
-                | StudioToolsPage -> studioPageNode [ Block.StudioTools.studioToolsNode ]
+                | StudioToolsPage -> studioPageNode Block.StudioTools.studioToolsNode
             )
             .YouTubeThumbs(
                 YtThumbsComponent.EComp (Some "songhay tube") model.ytModel (Message.YouTubeMessage >> dispatch)

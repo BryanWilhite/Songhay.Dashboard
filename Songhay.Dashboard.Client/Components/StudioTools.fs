@@ -127,44 +127,39 @@ module StudioTools =
 
             bulmaMediaLeft
                 NoCssClasses
-                NoAttr
+                NoAttrs
                 (bulmaImageContainer
                     (Square Square48)
-                    NoAttr
+                    NoAttrs
                     (svgElement (bulmaIconSvgViewBox Square24) svgPathData))
 
     let toBulmaMediaNode (title: DisplayText, location: Uri, svgKey: Identifier) =
         bulmaTile
             TileSizeAuto
             NoCssClasses
-            [
-                bulmaMedia
-                    (HasClasses (CssClasses [ m (All, L3) ]))
-                    (HasNode (bulmaMediaLeftNode svgKey))
-                    [
-                        bulmaContent
-                            (HasClasses (CssClasses [ m (T, L3) ]))
-                            [
-                                anchorElement
-                                    (HasClasses (CssClasses [ "title"; fontSize Size5 ]))
-                                    location
-                                    TargetBlank
-                                    NoAttrs
-                                    [ text title.Value ]
-                            ]
-                    ]
-            ]
+            (bulmaMedia
+                (HasClasses (CssClasses [ m (All, L3) ]))
+                (HasNode (bulmaMediaLeftNode svgKey))
+                (bulmaContent
+                    (HasClasses (CssClasses [ m (T, L3) ]))
+                    (anchorElement
+                        (HasClasses (CssClasses [ "title"; fontSize Size5 ]))
+                        location
+                        TargetBlank
+                        NoAttrs
+                        (text title.Value)
+                        )))
 
     let studioToolsNode =
         let getGroup g =
             bulmaTile
                 TileSizeAuto
                 (HasClasses (CssClasses [ tileIsParent ]))
-                [ forEach g <| toBulmaMediaNode ]
+                (forEach g <| toBulmaMediaNode)
 
         let forEachNode = forEach (studioToolsData |> List.chunkBySize 2) <| getGroup
 
         bulmaTile
             TileSizeAuto
             (HasClasses (CssClasses [ tileIsChild; notification; bulmaBackgroundGreyDarkTone ]))
-            [ forEachNode ]
+            forEachNode

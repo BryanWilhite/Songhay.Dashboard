@@ -14,11 +14,10 @@ module HtmlDocument =
             div {
                 attr.id ContentBlockComponent.Id
 
+                newLine; indent 2
                 rootComp<ContentBlockComponent>
             }
 
-    let elements =
-        let indentationLevel = 1
-        (indentationLevel , (ContentBlockComponent.Id, boleroScript, rootCompContainer) |||> docElements) ||> wrapn
-
-    let document = doctypeHtml { forEach elements <| id }
+    let document = doctypeHtml {
+        (ContentBlockComponent.Id, boleroScript, rootCompContainer) |||> docElements
+    }

@@ -55,7 +55,7 @@ module StudioFeeds =
 
         bulmaMediaLeft
             (HasClasses (CssClasses ([ mediaLeft; m (All, L0); m (R, L1) ] @ imageContainer (Square Square48))))
-            (HasAttr AriaHidden.ToAttr)
+            (HasAttrs AriaHidden.ToAttr)
             (svgElement (bulmaIconSvgViewBox Square24) svgPathData)
 
     let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
@@ -66,31 +66,30 @@ module StudioFeeds =
                     (i.link |> Uri)
                     TargetBlank
                     NoAttrs
-                    [ text i.title ]
+                    (text i.title)
             }
 
-        let cardContentNodes = [
-            bulmaMedia
-                NoCssClasses
-                (HasNode (studioFeedIcon feedName))
-                [
-                    paragraphElement
-                        (HasClasses (CssClasses (title (HasFontSize Size4))))
-                        NoAttrs
-                        (text feed.feedTitle)
-                    paragraphElement
-                        (HasClasses (CssClasses (subtitle (HasFontSize Size6))))
-                        NoAttrs
-                        (text (feed.modificationDate.ToString("yyyy-MM-dd")))
-                ]
-            bulmaContent
-                NoCssClasses
-                [
-                    ul {
+        let cardContentNodes =
+            concat {
+                bulmaMedia
+                    NoCssClasses
+                    (HasNode (studioFeedIcon feedName))
+                    (concat {
+                        paragraphElement
+                            (HasClasses (CssClasses (title (HasFontSize Size4))))
+                            NoAttrs
+                            (text feed.feedTitle)
+                        paragraphElement
+                            (HasClasses (CssClasses (subtitle (HasFontSize Size6))))
+                            NoAttrs
+                            (text (feed.modificationDate.ToString("yyyy-MM-dd")))
+                    })
+                bulmaContent
+                    NoCssClasses
+                    (ul {
                         forEach (feed.feedItems |> List.take 10) <| listItem
-                    }
-                ]
-        ]
+                    })
+            }
 
         let cardNode =
             bulmaCard
@@ -104,18 +103,16 @@ module StudioFeeds =
         bulmaTile
             TileSizeAuto
             (HasClasses (CssClasses [ tileIsChild ]))
-            [ cardNode ]
+            cardNode
 
-    let studioFeedsNodes (_: IJSRuntime) (model: Model) : Node list =
+    let studioFeedsNodes (_: IJSRuntime) (model: Model) : Node =
         match model.feeds with
         | None ->
-            [
-                div {
-                    [ tile; tileIsChild; elementTextAlign Center; p (All, L6)] |> CssClasses.toHtmlClassFromList
+            div {
+                [ tile; tileIsChild; elementTextAlign Center; p (All, L6)] |> CssClasses.toHtmlClassFromList
 
-                    bulmaLoader (HasClasses (CssClasses [ m (All, L6) ]))
-                }
-            ]
+                bulmaLoader (HasClasses (CssClasses [ m (All, L6) ]))
+            }
         | Some feeds ->
             let l =
                 feeds
@@ -124,4 +121,4 @@ module StudioFeeds =
                 |> List.sortByDescending fst
                 |> List.collect (fun (_, g) -> g |> List.sortBy (fun (_, feed) -> feed.feedTitle |> toBlogSlug))
 
-            [forEach l <| studioFeedsNode]
+            forEach l <| studioFeedsNode

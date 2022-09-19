@@ -29,11 +29,9 @@ type StudioComponent() =
             (HasClasses (CssClasses [ levelItem; elementTextAlign Center ]))
             href
             TargetBlank
-            (HasAttrs [ attr.title title.Value ])
-            [
-                bulmaIcon
-                    (svgElement (svgViewBoxSquare 24) SonghaySvgData.map[id])
-            ]
+            (HasAttrs (attr.title title.Value))
+            (bulmaIcon
+                (svgElement (svgViewBoxSquare 24) SonghaySvgData.map[id]))
 
     static let studioLogo =
         let spanClasses = (CssClasses (title (HasFontSize Size2))).Append (hidden Touch)
@@ -57,11 +55,11 @@ type StudioComponent() =
 
         bulmaLevelItem
             (HasClasses classes)
-            (HasAttrs [ (attr.title data.title.Value) ])
-            [
+            (HasAttrs (attr.title data.title.Value))
+            (concat {
                 bulmaIcon (svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[data.id])
                 span { fontSize Size7 |> CssClasses.toHtmlClass; text data.version }
-            ]
+            })
 
     static let studioNode =
         let cssClassesParentLevel = CssClasses [ levelContainer; isMobileModifier ]
@@ -72,7 +70,7 @@ type StudioComponent() =
             [ bulmaTextGreyLightTone; m (T, L6); p (T, L6) ] |> cssClassesParentLevel.AppendList
 
         let cardContentNodes =
-            [
+            concat {
                 div {
                     [ content; elementTextAlign Center ] |> CssClasses.toHtmlClassFromList
                     studioLogo
@@ -85,7 +83,7 @@ type StudioComponent() =
                     cssClassesSvgVersionNodes.ToHtmlClassAttribute
                     forEach App.appVersions <| svgVersionNode
                 }
-            ]
+            }
 
         let cardNode =
             bulmaCard
@@ -99,7 +97,7 @@ type StudioComponent() =
         bulmaTile
             TileSizeAuto
             (HasClasses (CssClasses [ tileIsChild ]))
-            [ cardNode ]
+            cardNode
 
     static member EComp model dispatch =
         ecomp<StudioComponent, _, _> model dispatch { attr.empty() }
@@ -111,9 +109,7 @@ type StudioComponent() =
         bulmaTile
             TileSizeAuto
             NoCssClasses
-            [
-                bulmaTile
-                    TileSizeAuto
-                    (HasClasses (CssClasses [ tileIsParent ]))
-                    [ studioNode ]
-            ]
+            (bulmaTile
+                TileSizeAuto
+                (HasClasses (CssClasses [ tileIsParent ]))
+                studioNode)

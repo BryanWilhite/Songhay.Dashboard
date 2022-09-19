@@ -30,7 +30,7 @@ module BodyElement =
         (href: Uri)
         (target: HtmlTargetOrEmpty)
         (moreAttributes: HtmlAttributesOrEmpty)
-        (childNodes: Node list) =
+        (childNode: Node) =
         a {
             moreClasses.Value
 
@@ -38,7 +38,7 @@ module BodyElement =
             target.Value
             moreAttributes.Value
 
-            forEach childNodes <| id
+            childNode
         }
 
     ///<summary>
@@ -61,11 +61,11 @@ module BodyElement =
     /// <remarks>
     /// 📖 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
     /// </remarks>
-    let footerElement (moreClasses: CssClassesOrEmpty) (childNodes: Node list) =
+    let footerElement (moreClasses: CssClassesOrEmpty) (childNode: Node) =
         footer {
             moreClasses.Value
 
-            forEach childNodes <| id
+            childNode
         }
 
     ///<summary>

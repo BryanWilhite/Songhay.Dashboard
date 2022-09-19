@@ -90,30 +90,14 @@ type DomElementEvent =
     member this.PreventDefault = on.preventDefault $"on{this.Name}" true
 
 ///<summary>
-/// Defines a type representing an <see cref="Attr" />
-/// or a type representing the non-presence of <see cref="Attr" />.
-/// </summary>
-type HtmlAttributeOrEmpty =
-    ///<summary> the non-presence of <see cref="Attr" /> </summary>
-    | NoAttr
-    ///<summary> the presence of <see cref="Attr" /> </summary>
-    | HasAttr of Attr
-
-    ///<summary>Returns <see cref="Attr" /> or <see cref="attr.empty" />.</summary>
-    member this.Value =
-        match this with
-        | NoAttr -> attr.empty()
-        | HasAttr attribute -> attribute
-
-///<summary>
 /// Defines a type representing a list of <see cref="Attr" />
 /// or a type representing the non-presence of this list.
 /// </summary>
 type HtmlAttributesOrEmpty =
     ///<summary> the non-presence of a list of <see cref="Attr" /> </summary>
     | NoAttrs
-    ///<summary> the presence of a list of <see cref="Attr" /> </summary>
-    | HasAttrs of Attr list
+    ///<summary> the presence of one or a concatenation of <see cref="Attr" /> </summary>
+    | HasAttrs of Attr
 
     ///<summary>
     /// Returns <see cref="Attr" />,
@@ -123,10 +107,7 @@ type HtmlAttributesOrEmpty =
     member this.Value =
         match this with
         | NoAttrs -> attr.empty()
-        | HasAttrs attributes ->
-            match attributes with
-            | [ a ] -> a
-            | _ -> attributes |> List.reduce(fun a b -> attrs.Combine(a, b))
+        | HasAttrs attributes -> attributes
 
 ///<summary>
 /// Defines rules around how to handle a <see cref="Node" />.

@@ -30,17 +30,17 @@ type StudioLinksComponent() =
                 DefaultState
                 (HasClasses (CssClasses [ bulmaBackgroundGreyDarkTone ]))
                 href TargetBlank
-                [
+                (concat {
                     bulmaPanelIcon
                         (HasClasses(CssClasses [m (B, L3)]))
                         (bulmaImageContainer
                             (Square Square24)
-                            NoAttr
+                            NoAttrs
                             (svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[id]))
                     text title.Value
-                ]
+                })
 
-        [ forEach App.appStudioLinks <| linkNode ]
+        forEach App.appStudioLinks <| linkNode
 
     static let routeNodes =
         let routeData = [
@@ -55,29 +55,29 @@ type StudioLinksComponent() =
                 (HasClasses(CssClasses [ bulmaBackgroundGreyDarkTone ]))
                 (ElmishRoutes.router.Link page)
                 NavLinkMatch.All
-                [
+                (concat {
                     bulmaPanelIcon
                         (HasClasses(CssClasses [m (B, L3)]))
                         (bulmaImageContainer
                             (Square Square24)
-                            NoAttr
+                            NoAttrs
                             (svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[id]))
                     text caption
-                ]
+                })
 
-        [ forEach routeData <| routeNode ]
+        forEach routeData <| routeNode
 
     static let studioLinksNode =
         let panelNode =
             bulmaPanel
                 "studio links"
                 NoNode
-                (routeNodes @ linkNodes)
+                (concat { routeNodes; linkNodes })
 
         bulmaTile
             TileSizeAuto
             (HasClasses (CssClasses [ tileIsChild ]))
-            [ panelNode ]
+            panelNode
 
     static member EComp model dispatch =
         ecomp<StudioLinksComponent, _, _> model dispatch { attr.empty() }
@@ -89,9 +89,7 @@ type StudioLinksComponent() =
         bulmaTile
             TileSizeAuto
             NoCssClasses
-            [
-                bulmaTile
-                    TileSizeAuto
-                    (HasClasses (CssClasses [tileIsParent]))
-                    [ studioLinksNode ]
-            ]
+            (bulmaTile
+                TileSizeAuto
+                (HasClasses (CssClasses [tileIsParent]))
+                studioLinksNode)
