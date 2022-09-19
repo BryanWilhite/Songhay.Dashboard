@@ -2,7 +2,6 @@ namespace Songhay.Modules.Bolero
 
 open System
 
-open Bolero
 open Bolero.Html
 
 /// <summary>
@@ -26,10 +25,3 @@ module BoleroUtility =
             |> Array.replicate (numberOfSpaces * level)
 
         String(charArray) |> text
-
-    /// <summary>
-    /// Inject a new line and indentation
-    /// between the specified list of <see cref="Node" />.
-    /// </summary>
-    let wrapn indentLevel (nodes : Node list) =
-        nodes |> List.collect (fun node -> [newLine; (indentLevel |> indent); node])

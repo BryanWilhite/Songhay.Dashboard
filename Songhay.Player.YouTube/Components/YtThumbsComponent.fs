@@ -58,13 +58,14 @@ type YtThumbsComponent() =
 
         let items = model.YtItems
 
-        if items.IsNone then
-            rawHtml "&#160;"
-        else
-            if itemsTitle.IsNone then
+        cond items.IsNone <| function
+        | true -> rawHtml "&#160;"
+        | _ ->
+            cond itemsTitle.IsNone <| function
+            | true ->
                 let pair = items.Value |> Array.head |> getYtItemsPair
                 a { attr.href (fst pair); attr.target "_blank"; text (snd pair) }
-            else
+            | _ ->
                 a {
                     attr.href "#" ; attr.title $"{itemsTitle.Value}: show curated YouTube™ channels"
                     click.PreventDefault

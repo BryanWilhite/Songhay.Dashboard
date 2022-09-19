@@ -1,12 +1,10 @@
 namespace Songhay.Modules.Bolero.Visuals
 
 open System
-open Bolero
 open Bolero.Html
 
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.MimeTypes
-open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.Visuals.BodyElement
 
 ///<summary>
