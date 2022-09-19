@@ -25,12 +25,18 @@ module BodyElement =
     /// <remarks>
     /// 📖 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
     /// </remarks>
-    let anchorElement (moreClasses: CssClassesOrEmpty) (href: Uri) (target: HtmlTargetOrEmpty) (childNodes: Node list) =
+    let anchorElement
+        (moreClasses: CssClassesOrEmpty)
+        (href: Uri)
+        (target: HtmlTargetOrEmpty)
+        (moreAttributes: HtmlAttributesOrEmpty)
+        (childNodes: Node list) =
         a {
             moreClasses.Value
 
             attr.href href.OriginalString
             target.Value
+            moreAttributes.Value
 
             forEach childNodes <| id
         }

@@ -1,14 +1,10 @@
 namespace Songhay.Modules.Bolero.Visuals.Bulma
 
-open System
-
 open Bolero
 open Bolero.Html
 
-open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.SvgUtility
-open Songhay.Modules.Bolero.Visuals.BodyElement
 
 ///<summary>
 /// Bulma Elements
@@ -16,21 +12,12 @@ open Songhay.Modules.Bolero.Visuals.BodyElement
 /// — https://bulma.io/documentation/elements/
 ///</summary>
 module Element = 
-    let bulmaAnchorIconButton (title: DisplayText, href: Uri, id: Identifier) =
-        a {
-            (CssClasses [ CssClass.levelItem; CssClass.elementTextAlign Center ]).ToHtmlClassAttribute
-            attr.href href.OriginalString
-            attr.target "_blank"
-            attr.title title.Value
-
-            span {
-                "icon" |> CssClasses.toHtmlClass
-                AriaHidden.ToAttr
-
-                svgElement (svgViewBoxSquare 24) SonghaySvgData.map[id]
-            }
-        }
-
+    /// <summary>
+    /// “A single class to handle WYSIWYG generated content, where only HTML tags are available…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/elements/content/
+    /// </remarks>
     let bulmaContent (moreClasses: CssClassesOrEmpty) (childNodes: Node list) =
         div {
             CssClasses [ CssClass.content ] |> moreClasses.ToHtmlClassAttribute
@@ -38,11 +25,26 @@ module Element =
             forEach childNodes <| id
         }
 
+    /// <summary>
+    /// “…a container for any type of icon font…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/elements/icon/
+    /// </remarks>
     let bulmaIcon (visualNode: Node) = span { "icon" |> CssClasses.toHtmlClass; AriaHidden.ToAttr; visualNode }
 
+    /// <summary>
+    /// Calls <see cref="svgViewBox" /> with the specified <see cref="BulmaSquareDimension" />.
+    /// </summary>
     let bulmaIconSvgViewBox (square: BulmaSquareDimension) =
         svgViewBox (0,0) (square.ToWidthOrHeight, square.ToWidthOrHeight)
 
+    /// <summary>
+    /// “A container for responsive images…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/elements/image/
+    /// </remarks>
     let bulmaImageContainer (size: BulmaRatioDimension) (attribute: HtmlAttributeOrEmpty) (visualNode: Node) =
         figure {
             size |> CssClass.imageContainer |> CssClasses.toHtmlClassFromList
@@ -51,9 +53,12 @@ module Element =
             visualNode
         }
 
-    ///<summary>
-    /// Bulma CSS class-name function for <see cref="CssClass.notification" />.
-    ///</summary>
+    /// <summary>
+    /// “Bold notification blocks, to alert your users of something…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/elements/notification/
+    /// </remarks>
     let bulmaNotification (moreClasses: CssClassesOrEmpty) (childNodes: Node list) =
         div {
              CssClasses [ CssClass.notification ] |> moreClasses.ToHtmlClassAttribute

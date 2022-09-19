@@ -149,6 +149,7 @@ module StudioTools =
                                     (HasClasses (CssClasses [ "title"; fontSize Size5 ]))
                                     location
                                     TargetBlank
+                                    NoAttrs
                                     [ text title.Value ]
                             ]
                     ]

@@ -65,6 +65,7 @@ module StudioFeeds =
                     NoCssClasses
                     (i.link |> Uri)
                     TargetBlank
+                    NoAttrs
                     [ text i.title ]
             }
 

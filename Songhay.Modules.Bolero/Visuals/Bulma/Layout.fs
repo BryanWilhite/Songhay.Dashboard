@@ -8,16 +8,16 @@ open Songhay.Modules.Bolero.Models
 ///<summary>
 /// Bulma Layout
 /// “Design the structure of your webpage…”
-/// — https://bulma.io/documentation/layout/
+/// 📖 https://bulma.io/documentation/layout/
 ///</summary>
 module Layout =
 
     ///<summary>
-    /// Bulma CSS layout function for <see cref="CssClass.levelContainer" />.
+    /// Returns a <c>nav</c> element of CSS class <see cref="CssClass.levelContainer" />.
     ///</summary>
     ///<remarks>
     /// “A multi-purpose horizontal level, which can contain almost any other element…”
-    /// — https://bulma.io/documentation/layout/level/
+    /// 📖 https://bulma.io/documentation/layout/level/
     ///</remarks>
     let bulmaLevel (moreClasses: CssClassesOrEmpty) (levelChildNodes: Node list) =
         nav {
@@ -27,11 +27,12 @@ module Layout =
         }
 
     ///<summary>
-    /// Bulma CSS layout function for <see cref="CssClass.level" />.
+    /// Returns a <c>nav</c> element of CSS class <see cref="CssClass.level" />
+    /// from the specified <see cref="CssBoxAlignment" />.
     ///</summary>
     ///<remarks>
     /// “A multi-purpose horizontal level, which can contain almost any other element…”
-    /// — https://bulma.io/documentation/layout/level/
+    /// 📖 https://bulma.io/documentation/layout/level/
     ///</remarks>
     let bulmaLevelChildAligned (alignment: CssBoxAlignment) (moreClasses: CssClassesOrEmpty) (levelChildNodes: Node list) =
         div {
@@ -41,12 +42,12 @@ module Layout =
         }
 
     ///<summary>
-    /// Bulma CSS layout function for <see cref="CssClass.level" />.
+    /// Returns a <c>nav</c> element of CSS class <see cref="CssClass.levelItem" />.
     ///</summary>
     ///<remarks>
     /// “In a <c>level-item</c>, you can then insert almost anything you want…
     /// No matter what elements you put inside a Bulma <c>level<c/>, they will always be vertically centered.”
-    /// — https://bulma.io/documentation/layout/level/
+    /// 📖 https://bulma.io/documentation/layout/level/
     ///</remarks>
     let bulmaLevelItem (moreClasses: CssClassesOrEmpty) (attributes: HtmlAttributesOrEmpty) (childNodes: Node list) =
         div {
@@ -56,6 +57,10 @@ module Layout =
             forEach childNodes <| id
         }
 
+    ///<summary>
+    /// Returns a loader container for the specified loader <see cref="Node" />,
+    /// provided by <see cref="bulmaLoader" />.
+    ///</summary>
     let bulmaLoaderContainer (moreClasses: CssClassesOrEmpty) (loaderNode: Node) =
         div {
             CssClasses [ "loader-container"; CssClass.elementTextAlign Center ] |> moreClasses.ToHtmlClassAttribute
@@ -63,6 +68,9 @@ module Layout =
             loaderNode
         }
 
+    ///<summary>
+    /// Returns a loader element for <see cref="bulmaLoaderContainer" />.
+    ///</summary>
     let bulmaLoader (moreClasses: CssClassesOrEmpty) =
         div {
             CssClasses [ "loader" ] |> moreClasses.ToHtmlClassAttribute
@@ -70,6 +78,15 @@ module Layout =
             attr.title "Loading…"
         }
 
+    ///<summary>
+    /// Returns a container of CSS class <see cref="CssClass.media" />,
+    /// declaring a child container of CSS class <see cref="CssClass.mediaContent" />,
+    /// wrapping the specified media content nodes.
+    ///</summary>
+    ///<remarks>
+    /// “The famous media object prevalent in social media interfaces, but useful in any context…”
+    /// 📖 https://bulma.io/documentation/layout/media-object/
+    ///</remarks>
     let bulmaMedia (moreClasses: CssClassesOrEmpty) (mediaLeft: HtmlNodeOrEmpty) (mediaContentNodes: Node list) =
         let mediaContainerClasses = CssClasses [ CssClass.media ]
 
@@ -85,6 +102,14 @@ module Layout =
             }
         }
 
+    ///<summary>
+    /// Returns a container of CSS class <see cref="CssClass.mediaLeft" />,
+    /// a child of the container returned by <see cref="bulmaMedia" />.
+    ///</summary>
+    ///<remarks>
+    /// “The famous media object prevalent in social media interfaces, but useful in any context…”
+    /// 📖 https://bulma.io/documentation/layout/media-object/
+    ///</remarks>
     let bulmaMediaLeft (moreClasses: CssClassesOrEmpty) (attribute: HtmlAttributeOrEmpty) (childNode: Node) =
         figure {
             CssClasses [ CssClass.mediaLeft ] |> moreClasses.ToHtmlClassAttribute
@@ -93,6 +118,14 @@ module Layout =
             childNode
         }
 
+    ///<summary>
+    /// Returns a container of CSS class <see cref="CssClass.tile" />,
+    /// wrapping the specified tile content nodes.
+    ///</summary>
+    ///<remarks>
+    /// “The famous media object prevalent in social media interfaces, but useful in any context…”
+    /// 📖 https://bulma.io/documentation/layout/tiles/
+    ///</remarks>
     let bulmaTile (width: BulmaTileHorizontalSize) (moreClasses: CssClassesOrEmpty) (tileContentNodes: Node list) =
         let tileContainerClasses = CssClasses [
             CssClass.tile

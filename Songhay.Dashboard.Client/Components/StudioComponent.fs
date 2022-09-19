@@ -1,12 +1,15 @@
 namespace Songhay.Dashboard.Client.Components
 
+open System
 open Microsoft.AspNetCore.Components
 open Microsoft.JSInterop
 
 open Bolero
 open Bolero.Html
 
+open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Models
+open Songhay.Modules.Bolero.SvgUtility
 open Songhay.Modules.Bolero.Visuals.Bulma.Component
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
@@ -20,6 +23,17 @@ open Songhay.Dashboard.Client.ElmishTypes
 
 type StudioComponent() =
     inherit ElmishComponent<Model, Message>()
+
+    static let studioAnchor (title: DisplayText, href: Uri, id: Identifier) =
+        anchorElement
+            (HasClasses (CssClasses [ levelItem; elementTextAlign Center ]))
+            href
+            TargetBlank
+            (HasAttrs [ attr.title title.Value ])
+            [
+                bulmaIcon
+                    (svgElement (svgViewBoxSquare 24) SonghaySvgData.map[id])
+            ]
 
     static let studioLogo =
         let spanClasses = (CssClasses (title (HasFontSize Size2))).Append (hidden Touch)
@@ -65,7 +79,7 @@ type StudioComponent() =
                 }
                 div {
                     cssClassesSvgLinkNodes.ToHtmlClassAttribute
-                    forEach App.appSocialLinks <| bulmaAnchorIconButton
+                    forEach App.appSocialLinks <| studioAnchor
                 }
                 div {
                     cssClassesSvgVersionNodes.ToHtmlClassAttribute
