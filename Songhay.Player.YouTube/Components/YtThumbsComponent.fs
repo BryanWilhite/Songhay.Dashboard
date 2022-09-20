@@ -183,7 +183,7 @@ type YtThumbsComponent() =
 
                     span {
                         ([ levelItem ] @ imageContainer (Square Square48)) |> CssClasses.toHtmlClassFromList
-                        svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[SonghaySvgKeys.MDI_YOUTUBE_24PX.ToAlphanumeric]
+                        svgElement (bulmaIconSvgViewBox Square24) (SonghaySvgData.Get(SonghaySvgKeys.MDI_YOUTUBE_24PX.ToAlphanumeric))
                     }
                     span {
                         [ levelItem; fontSize Size2 ] |> CssClasses.toHtmlClassFromList
@@ -201,13 +201,13 @@ type YtThumbsComponent() =
                     attr.href "#"; [ "command"; "left" ] @ imageContainer (Square Square48) |> CssClasses.toHtmlClassFromList
                     click.PreventDefault
                     on.async.click (slideAsync SlideDirection.Right)
-                    svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[SonghaySvgKeys.MDI_ARROW_LEFT_DROP_CIRCLE_24PX.ToAlphanumeric]
+                    svgElement (bulmaIconSvgViewBox Square24) (SonghaySvgData.Get(SonghaySvgKeys.MDI_ARROW_LEFT_DROP_CIRCLE_24PX.ToAlphanumeric))
                 }
                 a {
                     attr.href "#"; [ "command"; "right"; ] @ imageContainer (Square Square48) |> CssClasses.toHtmlClassFromList
                     click.PreventDefault
                     on.async.click (slideAsync SlideDirection.Left)
-                    svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[SonghaySvgKeys.MDI_ARROW_RIGHT_DROP_CIRCLE_24PX.ToAlphanumeric]
+                    svgElement (bulmaIconSvgViewBox Square24) (SonghaySvgData.Get(SonghaySvgKeys.MDI_ARROW_RIGHT_DROP_CIRCLE_24PX.ToAlphanumeric))
                 }
             }
         }

@@ -57,7 +57,7 @@ module HtmlDocument =
         }
 
     let bodyElements (boleroScript: Node) (rootCompContainer: Node) =
-        let svgSymbolsBlock = SonghaySvgData.svgDataArray |> svgSymbolsContainer
+        let svgSymbolsBlock = SonghaySvgData.Array |> svgSymbolsContainer
         concat {
             newLine; indent 2
             svgSymbolsBlock

@@ -51,7 +51,7 @@ type YtThumbsSetComponent() =
             click.PreventDefault
             on.click (fun _ -> YouTubeMessage.CloseYtSetOverlay |> dispatch)
 
-            svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[SonghaySvgKeys.MDI_CLOSE_BOX_24PX.ToAlphanumeric]
+            svgElement (bulmaIconSvgViewBox Square24) (SonghaySvgData.Get(SonghaySvgKeys.MDI_CLOSE_BOX_24PX.ToAlphanumeric))
         }
 
     static let ytThumbsSetNode (dispatch: Dispatch<YouTubeMessage>) (jsRuntime: IJSRuntime) (model: YouTubeModel) =

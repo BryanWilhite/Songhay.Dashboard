@@ -119,11 +119,11 @@ module StudioTools =
     ]
 
     let bulmaMediaLeftNode (svgKey: Identifier) =
-        if not (SonghaySvgData.map.ContainsKey svgKey) then
+        if not (SonghaySvgData.Collection.ContainsKey svgKey) then
             htmlComment
                 $"{nameof svgKey} `{svgKey}` was not found."
         else
-            let svgPathData = SonghaySvgData.map[svgKey]
+            let svgPathData = SonghaySvgData.Collection[svgKey]
 
             bulmaMediaLeft
                 NoCssClasses
@@ -162,4 +162,4 @@ module StudioTools =
         bulmaTile
             TileSizeAuto
             (HasClasses (CssClasses [ tileIsChild; notification; bulmaBackgroundGreyDarkTone ]))
-            forEachNode
+            (empty())

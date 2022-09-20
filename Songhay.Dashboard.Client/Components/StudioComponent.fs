@@ -1,6 +1,7 @@
 namespace Songhay.Dashboard.Client.Components
 
 open System
+open System.Linq
 open Microsoft.AspNetCore.Components
 open Microsoft.JSInterop
 
@@ -31,7 +32,7 @@ type StudioComponent() =
             TargetBlank
             (HasAttrs (attr.title title.Value))
             (bulmaIcon
-                (svgElement (svgViewBoxSquare 24) SonghaySvgData.map[id]))
+                (((svgViewBoxSquare 24), SonghaySvgData.Get(id)) ||> svgElement))
 
     static let studioLogo =
         let spanClasses = (CssClasses (title (HasFontSize Size2))).Append (hidden Touch)
@@ -57,7 +58,7 @@ type StudioComponent() =
             (HasClasses classes)
             (HasAttrs (attr.title data.title.Value))
             (concat {
-                bulmaIcon (svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[data.id])
+                bulmaIcon (((svgViewBoxSquare 24), SonghaySvgData.Get(data.id)) ||> svgElement)
                 span { fontSize Size7 |> CssClasses.toHtmlClass; text data.version }
             })
 

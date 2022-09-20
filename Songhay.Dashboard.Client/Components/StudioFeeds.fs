@@ -34,29 +34,30 @@ module StudioFeeds =
         | _ -> empty()
 
     let studioFeedIcon (feedName: FeedName) =
-        let feedNameMap = Map [
-            CodePen,
-            SonghaySvgKeys.MDI_CODEPEN_24PX.ToAlphanumeric
+        let feedNameMap =
+            [
+                CodePen,
+                SonghaySvgKeys.MDI_CODEPEN_24PX.ToAlphanumeric
 
-            Flickr,
-            SonghaySvgKeys.MDI_RSS_24PX.ToAlphanumeric
+                Flickr,
+                SonghaySvgKeys.MDI_RSS_24PX.ToAlphanumeric
 
-            GitHub,
-            SonghaySvgKeys.MDI_GITHUB_CIRCLE_24PX.ToAlphanumeric
+                GitHub,
+                SonghaySvgKeys.MDI_GITHUB_CIRCLE_24PX.ToAlphanumeric
 
-            StackOverflow,
-            SonghaySvgKeys.MDI_STACK_OVERFLOW_24PX.ToAlphanumeric
+                StackOverflow,
+                SonghaySvgKeys.MDI_STACK_OVERFLOW_24PX.ToAlphanumeric
 
-            Studio,
-            SonghaySvgKeys.MDI_RSS_24PX.ToAlphanumeric
-        ]
+                Studio,
+                SonghaySvgKeys.MDI_RSS_24PX.ToAlphanumeric
+            ] |> dict
 
-        let svgPathData = SonghaySvgData.map[ feedNameMap[ feedName ] ]
+        let streamGeometry = SonghaySvgData.Collection[ feedNameMap[ feedName ] ]
 
         bulmaMediaLeft
             (HasClasses (CssClasses ([ mediaLeft; m (All, L0); m (R, L1) ] @ imageContainer (Square Square48))))
             (HasAttrs AriaHidden.ToAttr)
-            (svgElement (bulmaIconSvgViewBox Square24) svgPathData)
+            ((bulmaIconSvgViewBox Square24, streamGeometry) ||> svgElement)
 
     let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
         let listItem (i: SyndicationFeedItem) =

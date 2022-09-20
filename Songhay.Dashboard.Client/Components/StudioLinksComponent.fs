@@ -36,7 +36,7 @@ type StudioLinksComponent() =
                         (bulmaImageContainer
                             (Square Square24)
                             NoAttrs
-                            (svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[id]))
+                            (svgElement (bulmaIconSvgViewBox Square24) (SonghaySvgData.Get(id))))
                     text title.Value
                 })
 
@@ -61,7 +61,7 @@ type StudioLinksComponent() =
                         (bulmaImageContainer
                             (Square Square24)
                             NoAttrs
-                            (svgElement (bulmaIconSvgViewBox Square24) SonghaySvgData.map[id]))
+                            (svgElement (bulmaIconSvgViewBox Square24) (SonghaySvgData.Get(id))))
                     text caption
                 })
 
