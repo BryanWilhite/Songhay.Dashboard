@@ -97,11 +97,11 @@ type SonghaySvgKeys =
     ///<summary>Returns the <see cref="Alphanumeric" /> label of the SVG key.</summary>
     member this.ToAlphanumeric = Alphanumeric this.Value
 
-type SonghaySvgData =
-    /// <summary>
-    /// Defines the SVG data map of this Studio.
-    /// </summary>
-    static member Collection =
+/// <summary>
+/// Defines the SVG data collection of this Studio.
+/// </summary>
+type SonghaySvgData() =
+    static let Collection =
         [
             (   // https://materialdesignicons.com/icon/amazon
                 MDI_AMAZON_24PX.ToAlphanumeric,
@@ -227,13 +227,18 @@ type SonghaySvgData =
     /// Arranges <see cref="svgData" /> into a conventional format used by this Studio.
     /// </summary>
     static member Array =
-        SonghaySvgData.Collection.ToArray()
+        Collection.ToArray()
         |> Array.map (fun kvp ->
             let identifier = kvp.Key
             let d = kvp.Value
             (identifier, d, (svgViewBoxSquare 24)))
 
     /// <summary>
-    /// Defines the getter for <see cref="SonghaySvgData.Collection" />.
+    /// The getter for the underlying <see cref="Collection" />.
     /// </summary>
-    static member Get (id: Identifier) = SonghaySvgData.Collection[id]
+    static member Get (id: Identifier) = Collection[id]
+
+    /// <summary>
+    /// Wraps <see cref="Collection.ContainsKey" />.
+    /// </summary>
+    static member HasKey (id: Identifier) = Collection.ContainsKey(id)

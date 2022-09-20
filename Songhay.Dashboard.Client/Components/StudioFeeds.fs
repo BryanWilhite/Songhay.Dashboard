@@ -34,7 +34,7 @@ module StudioFeeds =
         | _ -> empty()
 
     let studioFeedIcon (feedName: FeedName) =
-        let feedNameMap =
+        let feedNameCollection =
             [
                 CodePen,
                 SonghaySvgKeys.MDI_CODEPEN_24PX.ToAlphanumeric
@@ -52,7 +52,7 @@ module StudioFeeds =
                 SonghaySvgKeys.MDI_RSS_24PX.ToAlphanumeric
             ] |> dict
 
-        let streamGeometry = SonghaySvgData.Collection[ feedNameMap[ feedName ] ]
+        let streamGeometry = SonghaySvgData.Get(feedNameCollection[feedName])
 
         bulmaMediaLeft
             (HasClasses (CssClasses ([ mediaLeft; m (All, L0); m (R, L1) ] @ imageContainer (Square Square48))))

@@ -119,11 +119,11 @@ module StudioTools =
     ]
 
     let bulmaMediaLeftNode (svgKey: Identifier) =
-        if not (SonghaySvgData.Collection.ContainsKey svgKey) then
+        if not (SonghaySvgData.HasKey svgKey) then
             htmlComment
                 $"{nameof svgKey} `{svgKey}` was not found."
         else
-            let svgPathData = SonghaySvgData.Collection[svgKey]
+            let svgPathData = SonghaySvgData.Get(svgKey)
 
             bulmaMediaLeft
                 NoCssClasses
