@@ -226,3 +226,41 @@ type BulmaTileHorizontalSize =
         match this with
         | TileSizeAuto -> String.Empty 
         | _ -> this.ToString() |> toNumericString |> Option.get |> fun s -> $"is-{s}"
+
+///<summary>
+/// Defines the Bulma visibility-helper CSS classes.
+///</summary>
+/// <remarks>
+/// 📖 https://bulma.io/documentation/helpers/visibility-helpers/
+/// </remarks>
+type BulmaVisibility =
+    /// <summary> a Bulma visibility-helper CSS class </summary>
+    | DisplayBlock
+    /// <summary> a Bulma visibility-helper CSS class </summary>
+    | DisplayFlex
+    /// <summary> a Bulma visibility-helper CSS class </summary>
+    | DisplayInline
+    /// <summary> a Bulma visibility-helper CSS class </summary>
+    | DisplayInlineBlock
+    /// <summary> a Bulma visibility-helper CSS class </summary>
+    | DisplayInlineFlex
+    /// <summary> a Bulma visibility-helper CSS class </summary>
+    | ScreenReaderOnly
+    /// <summary> a Bulma visibility-helper CSS class </summary>
+    | NonDisplayInvisible
+    /// <summary> a Bulma visibility-helper CSS class </summary>
+    | NonDisplayHidden
+
+    ///<summary>Returns the CSS class name of the Bulma visibility helper.</summary>
+    member this.CssClass =
+        let s = this.ToString()
+        let display = "Display"
+        let nonDisplay = "NonDisplay"
+        let getCssClassName ov = (s.Replace(ov, String.Empty) |> toKabobCase |> Option.get |> fun s -> $"is-{s}")
+
+        match this with
+        | DisplayBlock | DisplayFlex | DisplayInline | DisplayInlineBlock | DisplayInlineFlex
+            -> display |> getCssClassName
+        | NonDisplayHidden | NonDisplayInvisible
+            -> nonDisplay |> getCssClassName
+        | ScreenReaderOnly -> "is-sr-only"

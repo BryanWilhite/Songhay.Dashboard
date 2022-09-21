@@ -53,3 +53,17 @@ let BulmaTileHorizontalSizeTestData : seq<obj[]> =
 let ``BulmaTileHorizontalSize.CssClass test`` (expected: string, input: BulmaTileHorizontalSize) =
     let actual = input.CssClass
     Assert.Equal(expected, actual)
+
+let BulmaVisibilityTestData : seq<obj[]> =
+    seq {
+        yield [| "is-inline"; DisplayInline |]
+        yield [| "is-inline-block"; DisplayInlineBlock |]
+        yield [| "is-invisible"; NonDisplayInvisible |]
+        yield [| "is-sr-only"; ScreenReaderOnly |]
+    }
+
+[<Theory>]
+[<MemberData(nameof BulmaVisibilityTestData)>]
+let ``BulmaVisibility.CssClass test`` (expected: string, input: BulmaVisibility) =
+    let actual = input.CssClass
+    Assert.Equal(expected, actual)
