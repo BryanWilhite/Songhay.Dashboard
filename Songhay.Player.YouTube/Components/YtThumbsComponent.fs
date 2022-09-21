@@ -119,8 +119,9 @@ type YtThumbsComponent() =
         cond items.IsSome <| function
             | true -> div { attr.ref blockWrapperRef; forEach items.Value <| toSpan }
             | false ->
-                bulmaLoaderContainer
-                    (HasClasses (CssClasses [m (All, L6)]))
+                bulmaContainer
+                    ContainerWidthFluid
+                    (HasClasses (CssClasses [m (All, L6); elementTextAlign Center]))
                         (bulmaLoader
                             (HasClasses (CssClasses (imageContainer (Square Square128) @ [p (All, L3)]))))
 

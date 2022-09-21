@@ -66,14 +66,6 @@ $key: 8-thumbs;
 }
 
 .rx.b-roll {
-    & .loader-container {
-        width: 100%;
-
-        & > div {
-            display: inline-block;
-        }
-    }
-
     .video.thumbs {
         & > .command {
             display: inline-block;

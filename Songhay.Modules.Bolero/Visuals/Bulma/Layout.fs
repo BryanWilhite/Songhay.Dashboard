@@ -11,6 +11,15 @@ open Songhay.Modules.Bolero.Models
 /// 📖 https://bulma.io/documentation/layout/
 ///</summary>
 module Layout =
+    ///<summary>
+    /// Returns a <c>div</c> element of CSS class <see cref="CssClass.container" />.
+    ///</summary>
+    let bulmaContainer (width: BulmaContainerWidth) (moreClasses: CssClassesOrEmpty) (childNode: Node) =
+        div {
+            CssClasses [ CssClass.container width ] |> moreClasses.ToHtmlClassAttribute
+
+            childNode
+        }
 
     ///<summary>
     /// Returns a <c>nav</c> element of CSS class <see cref="CssClass.levelContainer" />.
@@ -27,7 +36,7 @@ module Layout =
         }
 
     ///<summary>
-    /// Returns a <c>nav</c> element of CSS class <see cref="CssClass.level" />
+    /// Returns a <c>div</c> element of CSS class <see cref="CssClass.level" />
     /// from the specified <see cref="CssBoxAlignment" />.
     ///</summary>
     ///<remarks>
@@ -58,22 +67,17 @@ module Layout =
         }
 
     ///<summary>
-    /// Returns a loader container for the specified loader <see cref="Node" />,
-    /// provided by <see cref="bulmaLoader" />.
-    ///</summary>
-    let bulmaLoaderContainer (moreClasses: CssClassesOrEmpty) (loaderNode: Node) =
-        div {
-            CssClasses [ "loader-container"; CssClass.elementTextAlign Center ] |> moreClasses.ToHtmlClassAttribute
-
-            loaderNode
-        }
-
-    ///<summary>
     /// Returns a loader element for <see cref="bulmaLoaderContainer" />.
     ///</summary>
+    ///<remarks>
+    /// The officially-documented use of Bulma loaders is on the Sass level:
+    /// 
+    /// 📖 https://bulma.io/documentation/utilities/mixins/#loader
+    /// 📰 https://github.com/jgthms/bulma/issues/847
+    ///</remarks>
     let bulmaLoader (moreClasses: CssClassesOrEmpty) =
         div {
-            CssClasses [ "loader" ] |> moreClasses.ToHtmlClassAttribute
+            CssClasses [ "loader"; DisplayInlineBlock.CssClass ] |> moreClasses.ToHtmlClassAttribute
 
             attr.title "Loading…"
         }

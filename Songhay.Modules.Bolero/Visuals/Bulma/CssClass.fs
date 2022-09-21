@@ -70,8 +70,7 @@ module CssClass =
     /// ”
     /// 📖 https://bulma.io/documentation/layout/container/
     ///</remarks>
-    [<Literal>]
-    let container = "container"
+    let container (width: BulmaContainerWidth) = $"container {width.CssClass}"
 
     ///<summary>
     /// Bulma CSS class-name function for typography.

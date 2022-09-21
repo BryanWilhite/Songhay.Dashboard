@@ -5,7 +5,7 @@ open System
 open Songhay.Modules.StringUtility
 
 ///<summary>
-/// Defines Bulma responsive breakpoints
+/// Defines Bulma responsive breakpoints for Bulma visibility helpers.
 ///</summary>
 /// <remarks>
 /// 📖 https://bulma.io/documentation/helpers/visibility-helpers/
@@ -26,6 +26,33 @@ type BulmaBreakpoint =
 
     ///<summary>Returns the <see cref="string" /> representation of the breakpoint name.</summary>
     member this.Value = this.ToString().ToLowerInvariant()
+
+///<summary>
+/// Defines Bulma widths for the Bulma <c>container</c>.
+///</summary>
+/// <remarks>
+/// 📖 https://bulma.io/documentation/layout/container/
+/// </remarks>
+type BulmaContainerWidth =
+    /// <summary> a Bulma <c>container</c> width </summary>
+    | ContainerWidthFluid
+    /// <summary> a Bulma <c>container</c> width </summary>
+    | ContainerWidthFullHD
+    /// <summary> a Bulma <c>container</c> width </summary>
+    | ContainerWidthMaxDesktop
+    /// <summary> a Bulma <c>container</c> width </summary>
+    | ContainerWidthMaxWidescreen
+    /// <summary> a Bulma <c>container</c> width </summary>
+    | ContainerWidthWidescreen
+
+    ///<summary>Returns the CSS class name of the Bulma <c>container</c> width.</summary>
+    member this.CssClass =
+        match this with
+        | ContainerWidthFluid -> "is-fluid"
+        | ContainerWidthFullHD -> "is-fullhd"
+        | ContainerWidthMaxDesktop -> "is-max-desktop"
+        | ContainerWidthMaxWidescreen -> "is-max-widescreen"
+        | ContainerWidthWidescreen -> "is-widescreen"
 
 ///<summary>
 /// Defines the seven Bulma font sizes in <c>rem</c>.
