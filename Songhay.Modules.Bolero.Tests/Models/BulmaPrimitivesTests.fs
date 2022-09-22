@@ -8,18 +8,13 @@ open Songhay.Modules.Bolero.Models
 
 let BulmaColorTestData : seq<obj[]> =
     seq {
-        yield [| "has-text-black"; (ColorBlack, DoNotModifyColor, ColorProperty) |]
-        yield [| "has-text-white-bis"; (GreyWhiteBis, DoNotModifyColor, ColorProperty) |]
-        yield [| "has-text-success-light"; (ColorSuccess, ModifyColor ColorLight, ColorProperty) |]
-        yield [| "has-background-danger"; (ColorDanger, DoNotModifyColor, ColorPropertyBackground) |]
-        yield [| "has-background-grey-darker"; (GreyDarker, DoNotModifyColor, ColorPropertyBackground) |]
-        yield [| "has-background-primary-dark"; (ColorPrimary, ModifyColor ColorDark, ColorPropertyBackground) |]
+        yield [| "black"; ColorBlack |]
     }
 
 [<Theory>]
 [<MemberData(nameof BulmaColorTestData)>]
-let ``BulmaColor.CssClass test`` (expected: string, input: BulmaColor * BulmaColorModifierOrEmpty * CssColorProperty) =
-    let actual = match input with | color, modifier, property -> (modifier, property) ||> color.CssClass
+let ``BulmaColor.ColorName test`` (expected: string, input: BulmaColor) =
+    let actual = input.ColorName
     Assert.Equal(expected, actual)
 
 let BulmaFontSizeOrDefaultTestData : seq<obj[]> =
@@ -39,6 +34,17 @@ let BulmaRatioDimensionTestData : seq<obj[]> =
         yield [| "is-128x128"; Square Square128 |]
         yield [| "is-16by9"; SixteenByNine |]
     }
+
+let BulmaShadeTestData : seq<obj[]> =
+    seq {
+        yield [| "black-bis"; ShadeBlackBis |]
+    }
+
+[<Theory>]
+[<MemberData(nameof BulmaShadeTestData)>]
+let ``BulmaShade.ShadeName test`` (expected: string, input: BulmaShade) =
+    let actual = input.ShadeName
+    Assert.Equal(expected, actual)
 
 [<Theory>]
 [<MemberData(nameof BulmaRatioDimensionTestData)>]

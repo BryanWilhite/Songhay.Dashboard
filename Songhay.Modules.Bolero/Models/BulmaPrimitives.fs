@@ -38,81 +38,68 @@ type BulmaColorModifier =
     | ColorLight
     // <summary> a color modifier </summary>
     | ColorDark
+    // <summary> a color modifier </summary>
+    | ColorLightSuffix
+    // <summary> a color modifier </summary>
+    | ColorDarkSuffix
 
-    /// <summary>Returns the <c>*-light</c> or <c>*-dark</c> suffix to modify a Bulma color.</summary>
-    member this.CssClassSuffix =
+    /// <summary>
+    /// Returns the Bulma CSS class name or suffix to modify a Bulma color.
+    /// </summary>
+    member this.CssClassOrSuffix =
         match this with
-        | ColorLight -> "-light"
-        | ColorDark -> "-dark"
-
-///<summary>
-/// Wraps or disables <see cref="BulmaColorModifier" />.
-///</summary>
-type BulmaColorModifierOrEmpty =
-    /// <summary> <see cref="BulmaColorModifier" /> </summary>
-    | ModifyColor of BulmaColorModifier
-    /// <summary> disable <see cref="BulmaColorModifier" /> </summary>
-    | DoNotModifyColor
-
-    /// <summary>Returns the <c>*-light</c> or <c>*-dark</c> suffix to modify a Bulma color or <see cref="String.Empty" />.</summary>
-    member this.CssClassSuffix =
-        match this with
-        | DoNotModifyColor -> String.Empty
-        | ModifyColor modifier -> modifier.CssClassSuffix
+        | ColorLight -> "is-light"
+        | ColorDark -> "is-dark"
+        | ColorLightSuffix -> "-light"
+        | ColorDarkSuffix -> "-dark"
 
 /// <summary>
-/// Defines Bulma Color classifications.
+/// Defines Bulma color classifications.
 ///</summary>
 /// <remarks>
 /// 📖 https://bulma.io/documentation/helpers/color-helpers/
-///
-/// An explanation of the <c>*Bis</c> and <c>*Ter</c> suffixes:
-/// 📰 https://github.com/jgthms/bulma/issues/1756#issuecomment-376188013
 /// </remarks>
 type BulmaColor =
-    /// <summary> a Bulma Color classification </summary>
+    /// <summary> a Bulma color classification </summary>
     | ColorWhite
-    /// <summary> a Bulma Color classification </summary>
+    /// <summary> a Bulma color classification </summary>
     | ColorBlack
-    /// <summary> a Bulma Color classification </summary>
+    /// <summary> a Bulma color classification </summary>
     | ColorPrimary
-    /// <summary> a Bulma Color classification </summary>
+    /// <summary> a Bulma color classification </summary>
     | ColorLink
-    /// <summary> a Bulma Color classification </summary>
+    /// <summary> a Bulma color classification </summary>
     | ColorInfo
-    /// <summary> a Bulma Color classification </summary>
+    /// <summary> a Bulma color classification </summary>
     | ColorSuccess
-    /// <summary> a Bulma Color classification </summary>
+    /// <summary> a Bulma color classification </summary>
     | ColorWarning
-    /// <summary> a Bulma Color classification </summary>
+    /// <summary> a Bulma color classification </summary>
     | ColorDanger
-    /// <summary> a Bulma Color classification </summary>
-    | GreyBlackBis
-    /// <summary> a Bulma Color classification </summary>
-    | GreyBlackTer
-    /// <summary> a Bulma Color classification </summary>
-    | GreyDarker
-    /// <summary> a Bulma Color classification </summary>
-    | GreyDark
-    /// <summary> a Bulma Color classification </summary>
-    | Grey
-    /// <summary> a Bulma Color classification </summary>
-    | GreyLight
-    /// <summary> a Bulma Color classification </summary>
-    | GreyLighter
-    /// <summary> a Bulma Color classification </summary>
-    | GreyWhiteTer
-    /// <summary> a Bulma Color classification </summary>
-    | GreyWhiteBis
-    member this.CssClass (modifier: BulmaColorModifierOrEmpty) (target: CssColorProperty) =
-        let s = this.ToString()
-                    .Replace("Color", String.Empty)
-                    .Replace("GreyBlack", "Black")
-                    .Replace("GreyWhite", "White")|> toKabobCase |> Option.get
-        match target with
-        | ColorProperty -> $"has-text-{s}{modifier.CssClassSuffix}"
-        | ColorPropertyBackground -> $"has-background-{s}{modifier.CssClassSuffix}"
-        | _ -> String.Empty
+
+    ///<summary>Returns the CSS class color name of the Bulma color classification.</summary>
+    member this.ColorName = this.ToString().Replace("Color", String.Empty).ToLowerInvariant()
+
+    ///<summary>Returns the Bulma background-color CSS class name of the Bulma color classification.</summary>
+    member this.BackgroundCssClass = $"has-background-{this.ColorName}"
+
+    ///<summary>Returns the CSS class name of the Bulma color classification.</summary>
+    member this.CssClass = $"is-{this.ColorName}"
+
+    ///<summary>Returns the CSS class name of the Bulma color classification.</summary>
+    member this.CssClassDark =
+        match this with
+        | ColorBlack | ColorWhite -> this.CssClass
+        | _ -> $"is-{this.ColorName}-dark"
+
+    ///<summary>Returns the CSS class name of the Bulma color classification.</summary>
+    member this.CssClassLight =
+        match this with
+        | ColorBlack | ColorWhite -> this.CssClass
+        | _ -> $"is-{this.ColorName}-light"
+
+    ///<summary>Returns the Bulma text-color CSS class name of the Bulma color classification.</summary>
+    member this.TextCssClass = $"has-text-{this.ColorName}"
 
 ///<summary>
 /// Defines Bulma widths for the Bulma <c>container</c>.
@@ -192,6 +179,44 @@ type BulmaSectionModifiers =
     | SectionMedium
     /// <summary> a Bulma section modifier </summary>
     | SectionLarge
+
+/// <summary>
+/// Defines Bulma shade classifications.
+///</summary>
+/// <remarks>
+/// 📖 https://bulma.io/documentation/helpers/color-helpers/
+///
+/// An explanation of the <c>*Bis</c> and <c>*Ter</c> suffixes:
+/// 📰 https://github.com/jgthms/bulma/issues/1756#issuecomment-376188013
+/// </remarks>
+type BulmaShade =
+    /// <summary> a Bulma shade classification </summary>
+    | ShadeBlackBis
+    /// <summary> a Bulma shade classification </summary>
+    | ShadeBlackTer
+    /// <summary> a Bulma shade classification </summary>
+    | ShadeGreyDarker
+    /// <summary> a Bulma shade classification </summary>
+    | ShadeGreyDark
+    /// <summary> a Bulma shade classification </summary>
+    | ShadeGrey
+    /// <summary> a Bulma shade classification </summary>
+    | ShadeGreyLight
+    /// <summary> a Bulma shade classification </summary>
+    | ShadeGreyLighter
+    /// <summary> a Bulma shade classification </summary>
+    | ShadeWhiteTer
+    /// <summary> a Bulma shade classification </summary>
+    | ShadeWhiteBis
+
+    ///<summary>Returns the CSS class color name of the Bulma color classification.</summary>
+    member this.ShadeName = this.ToString().Replace("Shade", String.Empty) |> toKabobCase |> Option.get
+
+    ///<summary>Returns the Bulma background-color CSS class name of the Bulma color classification.</summary>
+    member this.BackgroundCssClass = $"has-background-{this.ShadeName}"
+
+    ///<summary>Returns the Bulma text-color CSS class name of the Bulma color classification.</summary>
+    member this.TextCssClass = $"has-text-{this.ShadeName}"
 
 ///<summary>
 /// Defines all Bulma square dimensions.
