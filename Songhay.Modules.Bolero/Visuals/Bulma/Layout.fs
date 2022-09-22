@@ -58,7 +58,7 @@ module Layout =
     /// No matter what elements you put inside a Bulma <c>level<c/>, they will always be vertically centered.”
     /// 📖 https://bulma.io/documentation/layout/level/
     ///</remarks>
-    let bulmaLevelItem (moreClasses: CssClassesOrEmpty) (attributes: HtmlAttributesOrEmpty) (childNode: Node) =
+    let bulmaLevelItem (moreClasses: CssClassesOrEmpty) (attributes: HtmlAttributeOrEmpty) (childNode: Node) =
         div {
             CssClasses [ CssClass.levelItem ] |> moreClasses.ToHtmlClassAttribute
             attributes.Value
@@ -91,7 +91,7 @@ module Layout =
     /// “The famous media object prevalent in social media interfaces, but useful in any context…”
     /// 📖 https://bulma.io/documentation/layout/media-object/
     ///</remarks>
-    let bulmaMedia (moreClasses: CssClassesOrEmpty) (mediaLeft: HtmlNodeOrEmpty) (mediaContentNode: Node) =
+    let bulmaMedia (moreClasses: CssClassesOrEmpty) (mediaLeft: HtmlElementOrEmpty) (mediaContentNode: Node) =
         let mediaContainerClasses = CssClasses [ CssClass.media ]
 
         div {
@@ -114,7 +114,7 @@ module Layout =
     /// “The famous media object prevalent in social media interfaces, but useful in any context…”
     /// 📖 https://bulma.io/documentation/layout/media-object/
     ///</remarks>
-    let bulmaMediaLeft (moreClasses: CssClassesOrEmpty) (attributes: HtmlAttributesOrEmpty) (childNode: Node) =
+    let bulmaMediaLeft (moreClasses: CssClassesOrEmpty) (attributes: HtmlAttributeOrEmpty) (childNode: Node) =
         figure {
             CssClasses [ CssClass.mediaLeft ] |> moreClasses.ToHtmlClassAttribute
             attributes.Value
@@ -130,7 +130,7 @@ module Layout =
     ///
     /// <see cref="BulmaSectionModifiers" />
     /// </remarks>
-    let bulmaSection (moreClasses: CssClassesOrEmpty) (attributes: HtmlAttributesOrEmpty) (childNode: Node) =
+    let bulmaSection (moreClasses: CssClassesOrEmpty) (attributes: HtmlAttributeOrEmpty) (childNode: Node) =
         section {
             CssClasses [ "section" ] |> moreClasses.ToHtmlClassAttribute
             attributes.Value

@@ -90,24 +90,28 @@ type DomElementEvent =
     member this.PreventDefault = on.preventDefault $"on{this.Name}" true
 
 ///<summary>
-/// Defines a type representing a list of <see cref="Attr" />
-/// or a type representing the non-presence of this list.
+/// Defines a type representing an <see cref="Attr" />
+/// or a type representing the non-presence of <see cref="Attr" />.
 /// </summary>
-type HtmlAttributesOrEmpty =
-    ///<summary> the non-presence of a list of <see cref="Attr" /> </summary>
-    | NoAttrs
+/// <remarks>
+/// There is no list of <see cref="Attr" /> compliment of this type
+/// because <see cref="attrs" /> can express multiple attributes as one.
+/// </remarks>
+type HtmlAttributeOrEmpty =
+    ///<summary> the non-presence of <see cref="Attr" /> </summary>
+    | NoAttr
     ///<summary> the presence of one or a concatenation of <see cref="Attr" /> </summary>
-    | HasAttrs of Attr
+    | HasAttr of Attr
 
     ///<summary>
     /// Returns <see cref="Attr" />,
-    /// representing a combination of a list of <see cref="Attr" />
+    /// representing a combination of <see cref="Attr" />
     /// or <see cref="attr.empty" />.
     /// </summary>
     member this.Value =
         match this with
-        | NoAttrs -> attr.empty()
-        | HasAttrs attributes -> attributes
+        | NoAttr -> attr.empty()
+        | HasAttr attribute -> attribute
 
 ///<summary>
 /// Defines rules around how to handle a <see cref="Node" />.
@@ -315,7 +319,11 @@ type HtmlPrefetchOrPreLoadType =
 /// Defines a type representing an <see cref="Node" />
 /// or a type representing the non-presence of <see cref="Node" />.
 /// </summary>
-type HtmlNodeOrEmpty =
+/// <remarks>
+/// There is no list of <see cref="Node" /> compliment of this type
+/// because <see cref="concat" /> can express multiple nodes as one.
+/// </remarks>
+type HtmlElementOrEmpty =
     ///<summary> the non-presence of <see cref="Node" /> </summary>
     | NoNode
     ///<summary> the presence of <see cref="Node" /> </summary>
@@ -323,21 +331,6 @@ type HtmlNodeOrEmpty =
 
     ///<summary>Returns <see cref="Node" /> or <see cref="empty" />.</summary>
     member this.Value = match this with | NoNode -> empty() | HasNode node -> node
-
-///<summary>
-/// Defines a type representing a list of <see cref="Node" />
-/// or a type representing the non-presence of this list.
-/// </summary>
-type HtmlNodesOrEmpty =
-    ///<summary> the non-presence of a list of <see cref="Node" /> </summary>
-    | NoNodes
-    ///<summary> the presence of a list of <see cref="Node" /> </summary>
-    | HasNodes of Node list
-
-    ///<summary>
-    /// Passes through a list of <see cref="Node" /> or a list with one empty <see cref="Node" />.
-    /// </summary>
-    member this.Value = match this with | NoNodes -> [ empty() ] | HasNodes nodes -> nodes
 
 ///<summary>
 /// Enumerates the names of “where to display the linked URL”

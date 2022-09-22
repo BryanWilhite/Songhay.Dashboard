@@ -28,7 +28,7 @@ module HeadElement =
     /// “…specifies relationships between the current document and an external resource.”
     /// </summary>
     /// <remarks> 📖 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link </remarks>
-    let linkRelElement (rel: HtmlLinkedDocumentRelationship) (moreAttributes: HtmlAttributesOrEmpty) (href: Uri) =
+    let linkRelElement (rel: HtmlLinkedDocumentRelationship) (moreAttributes: HtmlAttributeOrEmpty) (href: Uri) =
         match rel with
         | RelIcon ->
             link { attr.rel RelIcon.Value; attr.``type`` "image/x-icon"; moreAttributes.Value; attr.href href }
@@ -43,7 +43,7 @@ module HeadElement =
     let linkRelAtomSyndicationElement (appTitle: string) (href: Uri) =
         linkRelElement
             RelAlternate
-            (HasAttrs (attrs { attr.``type`` ApplicationAtomXml; attr.title appTitle }))
+            (HasAttr (attrs { attr.``type`` ApplicationAtomXml; attr.title appTitle }))
             href
 
     /// <summary>

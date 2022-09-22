@@ -30,7 +30,7 @@ type StudioComponent() =
             (HasClasses (CssClasses [ levelItem; elementTextAlign Center ]))
             href
             TargetBlank
-            (HasAttrs (attr.title title.Value))
+            (HasAttr (attr.title title.Value))
             (bulmaIcon
                 (((svgViewBoxSquare 24), SonghaySvgData.Get(id)) ||> svgElement))
 
@@ -56,7 +56,7 @@ type StudioComponent() =
 
         bulmaLevelItem
             (HasClasses classes)
-            (HasAttrs (attr.title data.title.Value))
+            (HasAttr (attr.title data.title.Value))
             (concat {
                 bulmaIcon (((svgViewBoxSquare 24), SonghaySvgData.Get(data.id)) ||> svgElement)
                 span { fontSize Size7 |> CssClasses.toHtmlClass; text data.version }

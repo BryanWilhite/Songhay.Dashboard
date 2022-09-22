@@ -28,7 +28,7 @@ module StudioFeeds =
                 (HasClasses (CssClasses (imageContainer ThreeByTwo)))
                 (imageElement
                     NoCssClasses
-                    NoAttrs
+                    NoAttr
                     $"{feed.feedTitle} feed image"
                     (feed.feedImage |> Option.get |> Uri))
         | _ -> empty()
@@ -56,7 +56,7 @@ module StudioFeeds =
 
         bulmaMediaLeft
             (HasClasses (CssClasses ([ mediaLeft; m (All, L0); m (R, L1) ] @ imageContainer (Square Square48))))
-            (HasAttrs AriaHidden.ToAttr)
+            (HasAttr AriaHidden.ToAttr)
             ((bulmaIconSvgViewBox Square24, streamGeometry) ||> svgElement)
 
     let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
@@ -66,7 +66,7 @@ module StudioFeeds =
                     NoCssClasses
                     (i.link |> Uri)
                     TargetBlank
-                    NoAttrs
+                    NoAttr
                     (text i.title)
             }
 
@@ -78,11 +78,11 @@ module StudioFeeds =
                     (concat {
                         paragraphElement
                             (HasClasses (CssClasses (title (HasFontSize Size4))))
-                            NoAttrs
+                            NoAttr
                             (text feed.feedTitle)
                         paragraphElement
                             (HasClasses (CssClasses (subtitle (HasFontSize Size6))))
-                            NoAttrs
+                            NoAttr
                             (text (feed.modificationDate.ToString("yyyy-MM-dd")))
                     })
                 bulmaContent

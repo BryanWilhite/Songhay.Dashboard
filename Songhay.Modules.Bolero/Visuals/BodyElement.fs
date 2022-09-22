@@ -29,7 +29,7 @@ module BodyElement =
         (moreClasses: CssClassesOrEmpty)
         (href: Uri)
         (target: HtmlTargetOrEmpty)
-        (moreAttributes: HtmlAttributesOrEmpty)
+        (moreAttributes: HtmlAttributeOrEmpty)
         (childNode: Node) =
         a {
             moreClasses.Value
@@ -84,7 +84,7 @@ module BodyElement =
     /// </remarks>
     let imageElement
         (cssClasses: CssClassesOrEmpty)
-        (moreAttrs: HtmlAttributesOrEmpty)
+        (moreAttrs: HtmlAttributeOrEmpty)
         (alt: string)
         (src: Uri) =
         img {
@@ -105,7 +105,7 @@ module BodyElement =
     ///</remarks>
     let paragraphElement
         (cssClasses: CssClassesOrEmpty)
-        (moreAttrs: HtmlAttributesOrEmpty)
+        (moreAttrs: HtmlAttributeOrEmpty)
         (childNode: Node) =
         p {
             cssClasses.Value

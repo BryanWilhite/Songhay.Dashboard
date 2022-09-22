@@ -127,10 +127,10 @@ module StudioTools =
 
             bulmaMediaLeft
                 NoCssClasses
-                NoAttrs
+                NoAttr
                 (bulmaImageContainer
                     (Square Square48)
-                    NoAttrs
+                    NoAttr
                     (svgElement (bulmaIconSvgViewBox Square24) svgPathData))
 
     let toBulmaMediaNode (title: DisplayText, location: Uri, svgKey: Identifier) =
@@ -146,7 +146,7 @@ module StudioTools =
                         (HasClasses (CssClasses [ "title"; fontSize Size5 ]))
                         location
                         TargetBlank
-                        NoAttrs
+                        NoAttr
                         (text title.Value)
                         )))
 

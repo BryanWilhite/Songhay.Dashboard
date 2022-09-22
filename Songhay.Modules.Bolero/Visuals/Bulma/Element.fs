@@ -45,7 +45,7 @@ module Element =
     /// <remarks>
     /// 📖 https://bulma.io/documentation/elements/image/
     /// </remarks>
-    let bulmaImageContainer (size: BulmaRatioDimension) (attributes: HtmlAttributesOrEmpty) (visualNode: Node) =
+    let bulmaImageContainer (size: BulmaRatioDimension) (attributes: HtmlAttributeOrEmpty) (visualNode: Node) =
         figure {
             size |> CssClass.imageContainer |> CssClasses.toHtmlClassFromList
             attributes.Value

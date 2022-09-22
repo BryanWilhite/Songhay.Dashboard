@@ -27,13 +27,13 @@ module HtmlDocument =
             newLine; indent 2
             linkRelElement
                 RelStylesheet
-                NoAttrs
+                NoAttr
                 (($"css/{rootCompId}.min.css", UriKind.Relative) |> Uri)
 
             newLine; indent 2
             linkRelElement
                 RelIcon
-                NoAttrs
+                NoAttr
                 (("favicon.ico", UriKind.Relative) |> Uri)
 
             newLine; indent 2
