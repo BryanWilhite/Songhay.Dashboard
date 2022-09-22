@@ -43,6 +43,32 @@ type CssClasses =
     member this.ToHtmlClassAttribute = attr.``class`` this.ToAttributeValue
 
 ///<summary>
+/// Summarizes the CSS color property names.
+///</summary>
+/// <remarks>
+/// 📖 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Applying_color
+/// </remarks>
+type CssColorProperty =
+    /// <summary> a CSS color property name </summary>
+    | ColorPropertyBackground
+    /// <summary> a CSS color property name </summary>
+    | ColorProperty
+    /// <summary> a CSS color property name </summary>
+    | ColorPropertyBorder
+    /// <summary> a CSS color property name </summary>
+    | ColorPropertyOutline
+    /// <summary> a CSS color property name </summary>
+    | ColorPropertyTextDecoration
+    /// <summary> a CSS color property name </summary>
+    | ColorPropertyTextEmphasis
+    /// <summary> a CSS color property name </summary>
+    | ColorPropertyTextShadow
+    /// <summary> a CSS color property name </summary>
+    | ColorPropertyCaret
+    /// <summary> a CSS color property name </summary>
+    | ColorPropertyColumnRule
+
+///<summary>
 /// Enumerates a subset of the CSS inheritance values.
 ///</summary>
 ///<remarks>

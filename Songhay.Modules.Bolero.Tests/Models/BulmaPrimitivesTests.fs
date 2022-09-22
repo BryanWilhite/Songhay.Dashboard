@@ -6,6 +6,22 @@ open Xunit
 
 open Songhay.Modules.Bolero.Models
 
+let BulmaColorTestData : seq<obj[]> =
+    seq {
+        yield [| "has-text-black"; (ColorBlack, DoNotModifyColor, ColorProperty) |]
+        yield [| "has-text-white-bis"; (GreyWhiteBis, DoNotModifyColor, ColorProperty) |]
+        yield [| "has-text-success-light"; (ColorSuccess, ModifyColor ColorLight, ColorProperty) |]
+        yield [| "has-background-danger"; (ColorDanger, DoNotModifyColor, ColorPropertyBackground) |]
+        yield [| "has-background-grey-darker"; (GreyDarker, DoNotModifyColor, ColorPropertyBackground) |]
+        yield [| "has-background-primary-dark"; (ColorPrimary, ModifyColor ColorDark, ColorPropertyBackground) |]
+    }
+
+[<Theory>]
+[<MemberData(nameof BulmaColorTestData)>]
+let ``BulmaColor.CssClass test`` (expected: string, input: BulmaColor * BulmaColorModifierOrEmpty * CssColorProperty) =
+    let actual = match input with | color, modifier, property -> (modifier, property) ||> color.CssClass
+    Assert.Equal(expected, actual)
+
 let BulmaFontSizeOrDefaultTestData : seq<obj[]> =
     seq {
         yield [| String.Empty; DefaultBulmaFontSize |]
