@@ -182,6 +182,18 @@ type BulmaFontSizeOrDefault =
         | HasFontSize size -> size.Value
 
 ///<summary>
+/// Defines all Bulma section modifiers.
+///</summary>
+/// <remarks>
+/// 📖 https://bulma.io/documentation/layout/section/#sizes
+/// </remarks>
+type BulmaSectionModifiers =
+    /// <summary> a Bulma section modifier </summary>
+    | SectionMedium
+    /// <summary> a Bulma section modifier </summary>
+    | SectionLarge
+
+///<summary>
 /// Defines all Bulma square dimensions.
 ///</summary>
 /// <remarks>

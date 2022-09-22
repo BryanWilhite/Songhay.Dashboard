@@ -122,6 +122,22 @@ module Layout =
             childNode
         }
 
+    /// <summary>
+    /// “A simple container to divide your page into sections…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/layout/section/
+    ///
+    /// <see cref="BulmaSectionModifiers" />
+    /// </remarks>
+    let bulmaSection (moreClasses: CssClassesOrEmpty) (attributes: HtmlAttributesOrEmpty) (childNode: Node) =
+        section {
+            CssClasses [ "section" ] |> moreClasses.ToHtmlClassAttribute
+            attributes.Value
+
+            childNode
+        }
+
     ///<summary>
     /// Returns a container of CSS class <see cref="CssClass.tile" />,
     /// wrapping the specified tile content node.
