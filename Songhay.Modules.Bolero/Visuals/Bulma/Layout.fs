@@ -17,6 +17,7 @@ module Layout =
     ///<remarks>
     /// “A simple way to build responsive columns…”
     /// 📖 https://bulma.io/documentation/columns/
+    /// <see cref="BulmaHorizontalSize" />
     ///</remarks>
     let bulmaColumn (moreClasses: CssClassesOrEmpty) (childNode: Node) =
         div {
@@ -224,7 +225,7 @@ module Layout =
     /// <remarks>
     /// 📖 https://bulma.io/documentation/layout/section/
     ///
-    /// <see cref="BulmaSectionModifiers" />
+    /// This container supports <see cref="BulmaSizeModifier" />.
     /// </remarks>
     let bulmaSection (moreClasses: CssClassesOrEmpty) (attributes: HtmlAttributeOrEmpty) (childNode: Node) =
         section {

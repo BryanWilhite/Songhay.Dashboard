@@ -304,23 +304,45 @@ type BulmaHorizontalSize =
     ///<summary>12/12 of the horizontal space</summary>
     | HSize12
 
+    ///<summary>Returns the <see cref="string" /> representation of the horizontal space.</summary>
+    member this.Size = this.ToString() |> toNumericString |> Option.get
+
     ///<summary>Returns the CSS class name of the Bulma horizontal-space size.</summary>
     member this.CssClass =
         match this with
         | HSizeAuto -> String.Empty 
-        | _ -> this.ToString() |> toNumericString |> Option.get |> fun s -> $"is-{s}"
+        | _ -> this.Size |> fun s -> $"is-{s}"
+
+    /// <summary>Returns the CSS class name of the Bulma horizontal-offset size.</summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/columns/sizes/#offset
+    /// </remarks>
+    member this.CssOffsetClass =
+        match this with
+        | HSizeAuto -> String.Empty 
+        | _ -> this.Size |> fun s -> $"is-offset-{s}"
 
 ///<summary>
-/// Defines all Bulma section sizes.
+/// Defines all Bulma size modifiers.
 ///</summary>
 /// <remarks>
+/// 📖 https://bulma.io/documentation/components/pagination/#sizes
+/// 📖 https://bulma.io/documentation/elements/button/#sizes
+/// 📖 https://bulma.io/documentation/form/general/#horizontal-form
 /// 📖 https://bulma.io/documentation/layout/section/#sizes
 /// </remarks>
-type BulmaSectionSize =
-    /// <summary> a Bulma section size </summary>
-    | SectionMedium
-    /// <summary> a Bulma section size </summary>
-    | SectionLarge
+type BulmaSizeModifier =
+    /// <summary> a Bulma size modifier </summary>
+    | SizeSmall
+    /// <summary> a Bulma size modifier </summary>
+    | SizeNormal
+    /// <summary> a Bulma size modifier </summary>
+    | SizeMedium
+    /// <summary> a Bulma size modifier </summary>
+    | SizeLarge
+
+    ///<summary>Returns the Bulma CSS class name of the Bulma size modifier.</summary>
+    member this.CssClass = this.ToString().Replace("Size", String.Empty).ToLowerInvariant() |> fun s -> $"is-{s}"
 
 /// <summary>
 /// Defines Bulma shade classifications.
