@@ -96,6 +96,33 @@ module BodyElement =
         }
 
     ///<summary>
+    /// Returns the HTML list item element, <c>li</c>, adorned with any CSS classes and any attributes.
+    ///</summary>
+    /// <remarks>
+    /// 📖 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
+    /// </remarks>
+    let listItemElement (cssClasses: CssClassesOrEmpty) (moreAttrs: HtmlAttributeOrEmpty) (childNode: Node) =
+        li {
+            cssClasses.Value
+            moreAttrs.Value
+
+            childNode
+        }
+
+    ///<summary>
+    /// Returns the HTML ordered list element, <c>ol</c>, adorned with any CSS classes and any attributes.
+    ///</summary>
+    /// <remarks>
+    /// 📖 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
+    /// </remarks>
+    let orderedList (cssClasses: CssClassesOrEmpty) (liNodes: Node[]) =
+        ol {
+            cssClasses.Value
+
+            forEach liNodes <| id
+        }
+
+    ///<summary>
     /// Returns the HTML paragraph element, <c>p</c>, adorned with any CSS classes and any attributes.
     ///</summary>
     /// <remarks>
@@ -169,4 +196,17 @@ module BodyElement =
                 }
             newLine
             indent 2
+        }
+
+    ///<summary>
+    /// Returns the HTML ordered list element, <c>ul</c>, adorned with any CSS classes and any attributes.
+    ///</summary>
+    /// <remarks>
+    /// 📖 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
+    /// </remarks>
+    let unOrderedList (cssClasses: CssClassesOrEmpty) (liNodes: Node[]) =
+        ul {
+            cssClasses.Value
+
+            forEach liNodes <| id
         }

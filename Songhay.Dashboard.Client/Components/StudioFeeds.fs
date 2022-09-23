@@ -56,7 +56,7 @@ module StudioFeeds =
 
         bulmaMediaLeft
             (HasClasses (CssClasses ([ mediaLeft; m (All, L0); m (R, L1) ] @ imageContainer (Square Square48))))
-            (HasAttr AriaHidden.ToAttr)
+            (HasAttr AriaHidden.ToAttrWithTrueValue)
             ((bulmaIconSvgViewBox Square24, streamGeometry) ||> svgElement)
 
     let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =

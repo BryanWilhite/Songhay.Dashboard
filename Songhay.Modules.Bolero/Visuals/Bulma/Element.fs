@@ -11,7 +11,7 @@ open Songhay.Modules.Bolero.SvgUtility
 /// “Essential interface elements that only require a single CSS class…”
 /// — https://bulma.io/documentation/elements/
 ///</summary>
-module Element = 
+module Element =
     /// <summary>
     /// “A single class to handle WYSIWYG generated content, where only HTML tags are available…”
     /// </summary>
@@ -31,7 +31,7 @@ module Element =
     /// <remarks>
     /// 📖 https://bulma.io/documentation/elements/icon/
     /// </remarks>
-    let bulmaIcon (visualNode: Node) = span { "icon" |> CssClasses.toHtmlClass; AriaHidden.ToAttr; visualNode }
+    let bulmaIcon (visualNode: Node) = span { "icon" |> CssClasses.toHtmlClass; AriaHidden.ToAttrWithTrueValue; visualNode }
 
     /// <summary>
     /// Calls <see cref="svgViewBox" /> with the specified <see cref="BulmaSquareDimension" />.

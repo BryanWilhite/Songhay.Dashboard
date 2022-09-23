@@ -48,9 +48,15 @@ type AriaGlobal =
 
     ///<summary>
     /// Returns an <see cref="Attr" /> representing a CSS declaration
-    /// like <c>aria-busy="true"</c>.
+    /// with the specified value.
     /// </summary>
-    member this.ToAttr = (this.AttrName, "true") ||> Attr.Make
+    member this.ToAttr (value: string) = (this.AttrName, value) ||> Attr.Make
+
+    ///<summary>
+    /// Returns an <see cref="Attr" /> representing a CSS declaration
+    /// with a value of <c>true</c> like <c>aria-busy="true"</c>.
+    /// </summary>
+    member this.ToAttrWithTrueValue = (this.AttrName, "true") ||> Attr.Make
 
 ///<summary>
 /// Defines selected DOM <c>Element</c> events.

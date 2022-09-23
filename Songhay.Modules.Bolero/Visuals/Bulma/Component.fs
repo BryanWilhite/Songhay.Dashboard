@@ -16,6 +16,25 @@ open Songhay.Modules.Bolero.Visuals.BodyElement
 /// — https://bulma.io/documentation/components/
 ///</summary>
 module Component =
+    /// <summary>
+    /// “A simple breadcrumb component to improve your navigation experience…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/components/breadcrumb/
+    ///
+    /// See:
+    /// - <see cref="BulmaBreadcrumbAlignment" />
+    /// - <see cref="BulmaBreadcrumbSeparators" />
+    /// - <see cref="BulmaBreadcrumbSize" />
+    /// - <see cref="unOrderedList" />
+    /// </remarks>
+    let bulmaBreadcrumbContainer (moreClasses: CssClassesOrEmpty) (ulNode: Node) =
+        nav {
+            CssClasses [ "breadcrumb" ] |> moreClasses.ToHtmlClassAttribute
+            AriaLabel.ToAttr "breadcrumbs"
+
+            ulNode
+        }
 
     /// <summary>
     /// “The card component comprises several elements that you can mix and match…”
@@ -155,7 +174,7 @@ module Component =
 
                 button {
                     "button" |> CssClasses.toHtmlClass
-                    AriaHasPopup.ToAttr
+                    AriaHasPopup.ToAttrWithTrueValue
                     AriaControls.AttrName => "dropdown-menu"
                     on.click callback
 
@@ -289,7 +308,7 @@ module Component =
     let bulmaPanelIcon (moreClasses: CssClassesOrEmpty) (visualNode: Node) =
         span {
             CssClasses [ "panel-icon" ] |> moreClasses.ToHtmlClassAttribute
-            AriaHidden.ToAttr
+            AriaHidden.ToAttrWithTrueValue
 
             visualNode
         }

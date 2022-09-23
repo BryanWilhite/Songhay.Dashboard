@@ -5,6 +5,63 @@ open System
 open Songhay.Modules.StringUtility
 
 ///<summary>
+/// Defines Bulma breadcrumb alignment.
+///</summary>
+/// <remarks>
+/// 📖 https://bulma.io/documentation/components/breadcrumb/#alignment
+/// </remarks>
+type BulmaBreadcrumbAlignment =
+    /// <summary> Bulma breadcrumb alignment </summary>
+    | BreadcrumbAlignCenter
+    /// <summary> Bulma breadcrumb alignment </summary>
+    | BreadcrumbAlignRight
+
+    ///<summary>Returns the CSS class name of the Bulma breadcrumb alignment.</summary>
+    member this.CssClass =
+        match this with
+        | BreadcrumbAlignCenter -> "is-centered"
+        | BreadcrumbAlignRight -> "is-right"
+
+///<summary>
+/// Defines Bulma breadcrumb separators.
+///</summary>
+/// <remarks>
+/// 📖 https://bulma.io/documentation/components/breadcrumb/#alternative-separators
+/// </remarks>
+type BulmaBreadcrumbSeparators =
+    /// <summary> a Bulma breadcrumb separator </summary>
+    | BreadcrumbSeparatorDefault
+    /// <summary> a Bulma breadcrumb separator </summary>
+    | BreadcrumbSeparatorArrow
+    /// <summary> a Bulma breadcrumb separator </summary>
+    | BreadcrumbSeparatorBullet
+    /// <summary> a Bulma breadcrumb separator </summary>
+    | BreadcrumbSeparatorDot
+    /// <summary> a Bulma breadcrumb separator </summary>
+    | BreadcrumbSeparatorSucceeds
+
+    ///<summary>Returns the CSS class name of the Bulma breadcrumb separator.</summary>
+    member this.CssClass =
+        this.ToString().Replace("BreadcrumbSeparator", String.Empty).ToLowerInvariant() |> fun s -> $"has-{s}-separator"
+
+///<summary>
+/// Defines Bulma breadcrumb sizes.
+///</summary>
+/// <remarks>
+/// 📖 https://bulma.io/documentation/components/breadcrumb/#sizes
+/// </remarks>
+type BulmaBreadcrumbSize =
+    /// <summary> a Bulma breadcrumb size </summary>
+    | BreadcrumbSmall
+    /// <summary> a Bulma breadcrumb size </summary>
+    | BreadcrumbMedium
+    /// <summary> a Bulma breadcrumb size </summary>
+    | BreadcrumbLarge
+
+    ///<summary>Returns the CSS class name of the Bulma breadcrumb size.</summary>
+    member this.CssClass = this.ToString().Replace("Breadcrumb", String.Empty).ToLowerInvariant() |> fun s -> $"is={s}"
+
+///<summary>
 /// Defines Bulma responsive breakpoints for Bulma visibility helpers.
 ///</summary>
 /// <remarks>
@@ -195,15 +252,15 @@ type BulmaHeroSizes =
         | _ -> this.ToString().Replace("Hero", String.Empty).ToLowerInvariant() |> fun s -> $"is-{s}"
 
 ///<summary>
-/// Defines all Bulma section modifiers.
+/// Defines all Bulma section sizes.
 ///</summary>
 /// <remarks>
 /// 📖 https://bulma.io/documentation/layout/section/#sizes
 /// </remarks>
-type BulmaSectionModifiers =
-    /// <summary> a Bulma section modifier </summary>
+type BulmaSectionSize =
+    /// <summary> a Bulma section size </summary>
     | SectionMedium
-    /// <summary> a Bulma section modifier </summary>
+    /// <summary> a Bulma section size </summary>
     | SectionLarge
 
 /// <summary>
@@ -251,12 +308,19 @@ type BulmaShade =
 /// 📖 https://bulma.io/documentation/elements/image/#fixed-square-images
 /// </remarks>
 type BulmaSquareDimension =
+    /// <summary> a Bulma square dimension </summary>
     | Square16
+    /// <summary> a Bulma square dimension </summary>
     | Square24
+    /// <summary> a Bulma square dimension </summary>
     | Square32
+    /// <summary> a Bulma square dimension </summary>
     | Square48
+    /// <summary> a Bulma square dimension </summary>
     | Square64
+    /// <summary> a Bulma square dimension </summary>
     | Square96
+    /// <summary> a Bulma square dimension </summary>
     | Square128
 
     ///<summary>Returns the CSS class name of the Bulma square dimension.</summary>
@@ -272,6 +336,7 @@ type BulmaSquareDimension =
 /// 📖 https://bulma.io/documentation/elements/image/#responsive-images-with-ratios
 /// </remarks>
 type BulmaRatioDimension =
+    /// <summary> <see cref="BulmaSquareDimension" /> </summary>
     | Square of BulmaSquareDimension
     /// <summary> a Bulma ratio of dimensions for a Bulma responsive image</summary>
     | FiveByFour
