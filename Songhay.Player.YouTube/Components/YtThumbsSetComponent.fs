@@ -72,7 +72,7 @@ type YtThumbsSetComponent() =
 
         let levelRight =
             div {
-                level Right |> CssClasses.toHtmlClass
+                level AlignRight |> CssClasses.toHtmlClass
 
                 div { levelItem |> CssClasses.toHtmlClass; ytSetOverlayCloseCommand dispatch }
             }
@@ -85,7 +85,7 @@ type YtThumbsSetComponent() =
                     [ levelContainer; m (All, L2)] |> CssClasses.toHtmlClassFromList
 
                     div {
-                        level Left |> CssClasses.toHtmlClass
+                        level AlignLeft |> CssClasses.toHtmlClass
 
                         div { levelItem |> CssClasses.toHtmlClass ; (dispatch, jsRuntime, model) |||> bulmaDropdown }
                         div {
@@ -112,7 +112,7 @@ type YtThumbsSetComponent() =
             | false ->
                 bulmaContainer
                     ContainerWidthFluid
-                    (HasClasses (CssClasses [m (All, L6); elementTextAlign Center]))
+                    (HasClasses (CssClasses [m (All, L6); elementTextAlign AlignCentered]))
                         (bulmaLoader
                             (HasClasses (CssClasses (imageContainer (Square Square128) @ [p (All, L6)]))))
         }

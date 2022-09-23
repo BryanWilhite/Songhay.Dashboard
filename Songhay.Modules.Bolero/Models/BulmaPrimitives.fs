@@ -5,22 +5,40 @@ open System
 open Songhay.Modules.StringUtility
 
 ///<summary>
-/// Defines Bulma breadcrumb alignment.
+/// Defines Bulma alignment.
 ///</summary>
 /// <remarks>
+/// This naming of alignment is used whole or in part in the following:
+/// 
+/// 📖 https://bulma.io/documentation/columns/options/#vertical-alignment
 /// 📖 https://bulma.io/documentation/components/breadcrumb/#alignment
+/// 📖 https://bulma.io/documentation/components/card/
+/// 📖 https://bulma.io/documentation/components/dropdown/#right-aligned
+/// 📖 https://bulma.io/documentation/components/tabs/#alignment
+/// 📖 https://bulma.io/documentation/form/general/#with-icons
+/// 📖 https://bulma.io/documentation/form/file/#alignment
+/// 📖 https://bulma.io/documentation/helpers/typography-helpers/#alignment
 /// </remarks>
-type BulmaBreadcrumbAlignment =
-    /// <summary> Bulma breadcrumb alignment </summary>
-    | BreadcrumbAlignCenter
-    /// <summary> Bulma breadcrumb alignment </summary>
-    | BreadcrumbAlignRight
+type BulmaAlignment =
+    /// <summary> Bulma alignment </summary>
+    | AlignCentered
+    /// <summary> Bulma alignment </summary>
+    | AlignJustified
+    /// <summary> Bulma alignment </summary>
+    | AlignLeft
+    /// <summary> Bulma alignment </summary>
+    | AlignRight
+    /// <summary> Bulma alignment </summary>
+    | AlignVerticalCenter
 
-    ///<summary>Returns the CSS class name of the Bulma breadcrumb alignment.</summary>
-    member this.CssClass =
+    ///<summary>Returns the CSS Bulma alignment name.</summary>
+    member this.AlignmentName =
         match this with
-        | BreadcrumbAlignCenter -> "is-centered"
-        | BreadcrumbAlignRight -> "is-right"
+        | AlignVerticalCenter -> "vcentered"
+        | _ -> this.ToString().Replace("Align", String.Empty).ToLowerInvariant()
+
+    ///<summary>Returns the CSS class name of the Bulma alignment.</summary>
+    member this.CssClass = $"is-{this.AlignmentName}"
 
 ///<summary>
 /// Defines Bulma breadcrumb separators.

@@ -27,7 +27,7 @@ type StudioComponent() =
 
     static let studioAnchor (title: DisplayText, href: Uri, id: Identifier) =
         anchorElement
-            (HasClasses (CssClasses [ levelItem; elementTextAlign Center ]))
+            (HasClasses (CssClasses [ levelItem; elementTextAlign AlignCentered ]))
             href
             TargetBlank
             (HasAttr (attr.title title.Value))
@@ -51,7 +51,7 @@ type StudioComponent() =
             levelItem
             bulmaAkyinkyinBase
             elementTextIsUnselectable
-            elementTextAlign Center
+            elementTextAlign AlignCentered
         ]
 
         bulmaLevelItem
@@ -73,7 +73,7 @@ type StudioComponent() =
         let cardContentNodes =
             concat {
                 div {
-                    [ content; elementTextAlign Center ] |> CssClasses.toHtmlClassFromList
+                    [ content; elementTextAlign AlignCentered ] |> CssClasses.toHtmlClassFromList
                     studioLogo
                 }
                 div {

@@ -111,7 +111,7 @@ module Layout =
     /// “A multi-purpose horizontal level, which can contain almost any other element…”
     /// 📖 https://bulma.io/documentation/layout/level/
     ///</remarks>
-    let bulmaLevelChildAligned (alignment: CssBoxAlignment) (moreClasses: CssClassesOrEmpty) (levelChildNode: Node) =
+    let bulmaLevelChildAligned (alignment: BulmaAlignment) (moreClasses: CssClassesOrEmpty) (levelChildNode: Node) =
         div {
             CssClasses [ (alignment |> CssClass.level) ] |> moreClasses.ToHtmlClassAttribute
 

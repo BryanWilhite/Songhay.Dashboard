@@ -121,7 +121,7 @@ type YtThumbsComponent() =
             | false ->
                 bulmaContainer
                     ContainerWidthFluid
-                    (HasClasses (CssClasses [m (All, L6); elementTextAlign Center]))
+                    (HasClasses (CssClasses [m (All, L6); elementTextAlign AlignCentered]))
                         (bulmaLoader
                             (HasClasses (CssClasses (imageContainer (Square Square128) @ [p (All, L3)]))))
 
@@ -180,7 +180,7 @@ type YtThumbsComponent() =
             nav {
                 [ levelContainer; "video"; "thumbs"; "header" ] |> CssClasses.toHtmlClassFromList
                 div {
-                    level CssBoxAlignment.Left |> CssClasses.toHtmlClass
+                    level AlignLeft |> CssClasses.toHtmlClass
 
                     span {
                         ([ levelItem ] @ imageContainer (Square Square48)) |> CssClasses.toHtmlClassFromList

@@ -175,12 +175,10 @@ module CssClass =
     ///<remarks>
     /// 📖 https://bulma.io/documentation/helpers/typography-helpers/#alignment
     ///</remarks>
-    let elementTextAlign (alignment: CssBoxAlignment) =
+    let elementTextAlign (alignment: BulmaAlignment) =
         let suffix =
             match alignment with
-            | Center -> "centered"
-            | Justify -> "justified"
-            | Left | Right -> alignment.Value
+            | AlignCentered | AlignJustified | AlignRight -> alignment.AlignmentName
             | _ -> "left"
 
         $"has-text-{suffix}"
@@ -277,9 +275,9 @@ module CssClass =
     /// Either <c>level-left</c> or <c>level-right</c>.
     /// 📖 https://bulma.io/documentation/layout/level/
     ///</remarks>
-    let level (alignment: CssBoxAlignment) =
+    let level (alignment: BulmaAlignment) =
         match alignment with
-        | Left | Right -> $"level-{alignment.Value}"
+        | AlignLeft | AlignRight -> $"level-{alignment.AlignmentName}"
         | _ -> "level-left"
 
     ///<summary>
