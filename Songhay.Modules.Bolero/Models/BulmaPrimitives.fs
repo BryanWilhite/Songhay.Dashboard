@@ -270,6 +270,47 @@ type BulmaHeroSizes =
         | _ -> this.ToString().Replace("Hero", String.Empty).ToLowerInvariant() |> fun s -> $"is-{s}"
 
 ///<summary>
+/// Defines the 12 Bulma horizontal-space sizes.
+///</summary>
+/// <remarks>
+/// 📖 https://bulma.io/documentation/columns/sizes/#12-columns-system
+/// 📖 https://bulma.io/documentation/layout/tiles/
+/// </remarks>
+type BulmaHorizontalSize =
+    ///<summary>the available horizontal space</summary>
+    | HSizeAuto
+    ///<summary>1/12 of the horizontal space</summary>
+    | HSize1
+    ///<summary>2/12 of the horizontal space</summary>
+    | HSize2
+    ///<summary>3/12 of the horizontal space</summary>
+    | HSize3
+    ///<summary>4/12 of the horizontal space</summary>
+    | HSize4
+    ///<summary>5/12 of the horizontal space</summary>
+    | HSize5
+    ///<summary>6/12 of the horizontal space</summary>
+    | HSize6
+    ///<summary>7/12 of the horizontal space</summary>
+    | HSize7
+    ///<summary>8/12 of the horizontal space</summary>
+    | HSize8
+    ///<summary>9/12 of the horizontal space</summary>
+    | HSize9
+    ///<summary>10/12 of the horizontal space</summary>
+    | HSize10
+    ///<summary>11/12 of the horizontal space</summary>
+    | HSize11
+    ///<summary>12/12 of the horizontal space</summary>
+    | HSize12
+
+    ///<summary>Returns the CSS class name of the Bulma horizontal-space size.</summary>
+    member this.CssClass =
+        match this with
+        | HSizeAuto -> String.Empty 
+        | _ -> this.ToString() |> toNumericString |> Option.get |> fun s -> $"is-{s}"
+
+///<summary>
 /// Defines all Bulma section sizes.
 ///</summary>
 /// <remarks>
@@ -446,46 +487,6 @@ type BulmaSpacing =
 
     /// <summary> unwraps the underlying <c>CssBoxModel * BulmaValueSuffix</c> </summary>
     member this.Value = match this with | BulmaSpacing (b, s) -> b, s
-
-///<summary>
-/// Defines the 12 Bulma horizontal-space sizes for tiles.
-///</summary>
-/// <remarks>
-/// 📖 https://bulma.io/documentation/layout/tiles/
-/// </remarks>
-type BulmaTileHorizontalSize =
-    ///<summary>the available horizontal space</summary>
-    | TileSizeAuto
-    ///<summary>1/12 of the horizontal space</summary>
-    | TileSize1
-    ///<summary>2/12 of the horizontal space</summary>
-    | TileSize2
-    ///<summary>3/12 of the horizontal space</summary>
-    | TileSize3
-    ///<summary>4/12 of the horizontal space</summary>
-    | TileSize4
-    ///<summary>5/12 of the horizontal space</summary>
-    | TileSize5
-    ///<summary>6/12 of the horizontal space</summary>
-    | TileSize6
-    ///<summary>7/12 of the horizontal space</summary>
-    | TileSize7
-    ///<summary>8/12 of the horizontal space</summary>
-    | TileSize8
-    ///<summary>9/12 of the horizontal space</summary>
-    | TileSize9
-    ///<summary>10/12 of the horizontal space</summary>
-    | TileSize10
-    ///<summary>11/12 of the horizontal space</summary>
-    | TileSize11
-    ///<summary>12/12 of the horizontal space</summary>
-    | TileSize12
-
-    ///<summary>Returns the CSS class name of the Bulma horizontal-space size.</summary>
-    member this.CssClass =
-        match this with
-        | TileSizeAuto -> String.Empty 
-        | _ -> this.ToString() |> toNumericString |> Option.get |> fun s -> $"is-{s}"
 
 ///<summary>
 /// Defines the Bulma visibility-helper CSS classes.

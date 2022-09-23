@@ -66,13 +66,13 @@ let ``BulmaValueSuffix.Value test`` (expected: string, input: BulmaValueSuffix) 
 
 let BulmaTileHorizontalSizeTestData : seq<obj[]> =
     seq {
-        yield [| String.Empty; TileSizeAuto |]
-        yield [| "is-7"; TileSize7 |]
+        yield [| String.Empty; HSizeAuto |]
+        yield [| "is-7"; HSize7 |]
     }
 
 [<Theory>]
 [<MemberData(nameof BulmaTileHorizontalSizeTestData)>]
-let ``BulmaTileHorizontalSize.CssClass test`` (expected: string, input: BulmaTileHorizontalSize) =
+let ``BulmaTileHorizontalSize.CssClass test`` (expected: string, input: BulmaHorizontalSize) =
     let actual = input.CssClass
     Assert.Equal(expected, actual)
 

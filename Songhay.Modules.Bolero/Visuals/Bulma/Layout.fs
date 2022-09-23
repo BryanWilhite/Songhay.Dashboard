@@ -12,6 +12,34 @@ open Songhay.Modules.Bolero.Models
 ///</summary>
 module Layout =
     ///<summary>
+    /// Returns an element of CSS class <c>column</c>.
+    ///</summary>
+    ///<remarks>
+    /// “A simple way to build responsive columns…”
+    /// 📖 https://bulma.io/documentation/columns/
+    ///</remarks>
+    let bulmaColumn (moreClasses: CssClassesOrEmpty) (childNode: Node) =
+        div {
+            CssClasses [ "column" ] |> moreClasses.ToHtmlClassAttribute
+
+            childNode
+        }
+
+    ///<summary>
+    /// Returns an element of CSS class <c>columns</c>.
+    ///</summary>
+    ///<remarks>
+    /// “A simple way to build responsive columns…”
+    /// 📖 https://bulma.io/documentation/columns/
+    ///</remarks>
+    let bulmaColumnsContainer (moreClasses: CssClassesOrEmpty)  (columnsNode: Node) =
+        div {
+            CssClasses [ "columns" ] |> moreClasses.ToHtmlClassAttribute
+
+            columnsNode
+        }
+
+    ///<summary>
     /// Returns a <c>div</c> element of CSS class <see cref="CssClass.container" />.
     ///</summary>
     let bulmaContainer (width: BulmaContainerWidth) (moreClasses: CssClassesOrEmpty) (childNode: Node) =
@@ -214,10 +242,10 @@ module Layout =
     /// “The famous media object prevalent in social media interfaces, but useful in any context…”
     /// 📖 https://bulma.io/documentation/layout/tiles/
     ///</remarks>
-    let bulmaTile (width: BulmaTileHorizontalSize) (moreClasses: CssClassesOrEmpty) (tileContentNode: Node) =
+    let bulmaTile (width: BulmaHorizontalSize) (moreClasses: CssClassesOrEmpty) (tileContentNode: Node) =
         let tileContainerClasses = CssClasses [
             CssClass.tile
-            match width with | TileSizeAuto -> () | _ -> width.CssClass
+            match width with | HSizeAuto -> () | _ -> width.CssClass
         ]
 
         div {

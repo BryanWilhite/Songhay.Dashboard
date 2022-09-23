@@ -135,7 +135,7 @@ module StudioTools =
 
     let toBulmaMediaNode (title: DisplayText, location: Uri, svgKey: Identifier) =
         bulmaTile
-            TileSizeAuto
+            HSizeAuto
             NoCssClasses
             (bulmaMedia
                 (HasClasses (CssClasses [ m (All, L3) ]))
@@ -153,13 +153,13 @@ module StudioTools =
     let studioToolsNode =
         let getGroup g =
             bulmaTile
-                TileSizeAuto
+                HSizeAuto
                 (HasClasses (CssClasses [ tileIsParent ]))
                 (forEach g <| toBulmaMediaNode)
 
         let forEachNode = forEach (studioToolsData |> List.chunkBySize 2) <| getGroup
 
         bulmaTile
-            TileSizeAuto
+            HSizeAuto
             (HasClasses (CssClasses [ tileIsChild; notification; bulmaBackgroundGreyDarkTone ]))
             forEachNode

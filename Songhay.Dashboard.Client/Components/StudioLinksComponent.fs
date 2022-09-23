@@ -75,7 +75,7 @@ type StudioLinksComponent() =
                 (concat { routeNodes; linkNodes })
 
         bulmaTile
-            TileSizeAuto
+            HSizeAuto
             (HasClasses (CssClasses [ tileIsChild ]))
             panelNode
 
@@ -87,9 +87,9 @@ type StudioLinksComponent() =
 
     override this.View _ _ =
         bulmaTile
-            TileSizeAuto
+            HSizeAuto
             NoCssClasses
             (bulmaTile
-                TileSizeAuto
+                HSizeAuto
                 (HasClasses (CssClasses [tileIsParent]))
                 studioLinksNode)

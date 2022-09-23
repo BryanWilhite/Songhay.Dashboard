@@ -102,7 +102,7 @@ module StudioFeeds =
                 cardContentNodes
 
         bulmaTile
-            TileSizeAuto
+            HSizeAuto
             (HasClasses (CssClasses [ tileIsChild ]))
             cardNode
 

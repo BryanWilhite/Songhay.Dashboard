@@ -30,10 +30,10 @@ module ElmishProgram =
     let viewContentBlockTemplate (jsRuntime: IJSRuntime) (model: Model) dispatch =
         let studioPageNode node =
             bulmaTile
-                TileSizeAuto
+                HSizeAuto
                 (HasClasses (CssClasses [tileIsAncestor]))
                 (bulmaTile
-                    TileSizeAuto
+                    HSizeAuto
                     (HasClasses (CssClasses [tileIsParent; tileIsVertical]))
                     node)
         ContentBlockTemplate()

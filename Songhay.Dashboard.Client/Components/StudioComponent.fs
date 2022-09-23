@@ -96,7 +96,7 @@ type StudioComponent() =
                 cardContentNodes
 
         bulmaTile
-            TileSizeAuto
+            HSizeAuto
             (HasClasses (CssClasses [ tileIsChild ]))
             cardNode
 
@@ -108,9 +108,9 @@ type StudioComponent() =
 
     override this.View _ _ =
         bulmaTile
-            TileSizeAuto
+            HSizeAuto
             NoCssClasses
             (bulmaTile
-                TileSizeAuto
+                HSizeAuto
                 (HasClasses (CssClasses [ tileIsParent ]))
                 studioNode)
