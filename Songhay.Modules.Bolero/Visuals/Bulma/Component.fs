@@ -27,6 +27,7 @@ module Component =
     /// - <see cref="BulmaBreadcrumbSeparators" />
     /// - <see cref="BulmaBreadcrumbSize" />
     /// - <see cref="unOrderedList" />
+    /// - <see cref="bulmaBreadcrumbListItem" />
     /// </remarks>
     let bulmaBreadcrumbContainer (moreClasses: CssClassesOrEmpty) (ulNode: Node) =
         nav {
@@ -35,6 +36,17 @@ module Component =
 
             ulNode
         }
+
+    /// <summary>
+    /// “A simple breadcrumb component to improve your navigation experience…”
+    /// </summary>
+    /// <remarks>
+    /// <see cref="bulmaBreadcrumbContainer" />
+    /// </remarks>
+    let bulmaBreadcrumbListItem (isActive: bool) =
+        listItemElement
+            (HasClasses (CssClasses [ if isActive then CssClass.elementIsActive ]))
+            NoAttr
 
     /// <summary>
     /// “The card component comprises several elements that you can mix and match…”
