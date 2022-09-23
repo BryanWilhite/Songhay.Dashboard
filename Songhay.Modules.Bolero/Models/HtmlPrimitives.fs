@@ -323,7 +323,7 @@ type HtmlPrefetchOrPreLoadType =
 /// There is no list of <see cref="Node" /> compliment of this type
 /// because <see cref="concat" /> can express multiple nodes as one.
 /// </remarks>
-type HtmlElementOrEmpty =
+type HtmlNodeOrEmpty =
     ///<summary> the non-presence of <see cref="Node" /> </summary>
     | NoNode
     ///<summary> the presence of <see cref="Node" /> </summary>

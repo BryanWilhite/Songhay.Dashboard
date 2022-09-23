@@ -169,6 +169,32 @@ type BulmaFontSizeOrDefault =
         | HasFontSize size -> size.Value
 
 ///<summary>
+/// Defines the sizes of the Bulma hero layout.
+///</summary>
+///<remarks>
+/// 📖 https://bulma.io/documentation/layout/hero/#sizes
+///</remarks>
+type BulmaHeroSizes =
+    /// <summary> a Bulma hero size </summary>
+    | HeroSmall
+    /// <summary> a Bulma hero size </summary>
+    | HeroMedium
+    /// <summary> a Bulma hero size </summary>
+    | HeroLarge
+    /// <summary> a Bulma hero size </summary>
+    | HeroHalfHeight
+    /// <summary> a Bulma hero size </summary>
+    | HeroFullHeight
+    /// <summary> a Bulma hero size </summary>
+    | HeroFullHeightWithNavbar
+
+    ///<summary>Returns the CSS class name of the Bulma hero size.</summary>
+    member this.CssClass =
+        match this with
+        | HeroFullHeightWithNavbar -> "is-fullheight-with-navbar"
+        | _ -> this.ToString().Replace("Hero", String.Empty).ToLowerInvariant() |> fun s -> $"is-{s}"
+
+///<summary>
 /// Defines all Bulma section modifiers.
 ///</summary>
 /// <remarks>

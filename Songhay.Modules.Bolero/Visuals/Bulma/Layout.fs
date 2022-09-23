@@ -22,6 +22,74 @@ module Layout =
         }
 
     ///<summary>
+    /// Returns a <c>section</c> element of CSS class <c>hero</c>.
+    ///</summary>
+    ///<remarks>
+    /// “The hero component allows you to add a full width banner to your webpage,
+    /// which can optionally cover the full height of the page as well…”
+    /// 📖 https://bulma.io/documentation/layout/hero/
+    ///</remarks>
+    let bulmaHero
+        (moreClasses: CssClassesOrEmpty)
+        (headerNode: HtmlNodeOrEmpty)
+        (bodyNode: Node)
+        (footerNode: HtmlNodeOrEmpty) =
+        div {
+            CssClasses [ "hero" ] |> moreClasses.ToHtmlClassAttribute
+
+            headerNode.Value
+
+            bodyNode
+
+            footerNode.Value
+        }
+
+    ///<summary>
+    /// Returns an element of CSS class <c>hero-head</c>.
+    ///</summary>
+    ///<remarks>
+    /// <see cref="bulmaHero" />
+    ///</remarks>
+    let bulmaHeroHeader
+        (moreClasses: CssClassesOrEmpty)
+        (childNode: Node) =
+        div {
+            CssClasses [ "hero-head" ] |> moreClasses.ToHtmlClassAttribute
+
+            childNode
+        }
+
+    ///<summary>
+    /// Returns an element of CSS class <c>hero-body</c>.
+    ///</summary>
+    ///<remarks>
+    /// <see cref="bulmaHero" />
+    ///</remarks>
+    let bulmaHeroBody
+        (moreClasses: CssClassesOrEmpty)
+        (childNode: Node) =
+        div {
+            CssClasses [ "hero-body" ] |> moreClasses.ToHtmlClassAttribute
+
+            childNode
+        }
+
+    ///<summary>
+    /// Returns an element of CSS class <c>hero-foot</c>.
+    ///</summary>
+    ///<remarks>
+    /// <see cref="bulmaHero" />
+    ///</remarks>
+    let bulmaHeroFoot
+        (moreClasses: CssClassesOrEmpty)
+        (childNode: Node) =
+        div {
+            CssClasses [ "hero-foot" ] |> moreClasses.ToHtmlClassAttribute
+
+            childNode
+        }
+
+    ///<summary>
     /// Returns a <c>nav</c> element of CSS class <see cref="CssClass.levelContainer" />.
     ///</summary>
     ///<remarks>
@@ -91,7 +159,7 @@ module Layout =
     /// “The famous media object prevalent in social media interfaces, but useful in any context…”
     /// 📖 https://bulma.io/documentation/layout/media-object/
     ///</remarks>
-    let bulmaMedia (moreClasses: CssClassesOrEmpty) (mediaLeft: HtmlElementOrEmpty) (mediaContentNode: Node) =
+    let bulmaMedia (moreClasses: CssClassesOrEmpty) (mediaLeft: HtmlNodeOrEmpty) (mediaContentNode: Node) =
         let mediaContainerClasses = CssClasses [ CssClass.media ]
 
         div {

@@ -27,9 +27,9 @@ module Component =
     /// </remarks>
     let bulmaCard
         (moreContainerClasses: CssClassesOrEmpty)
-        (header: HtmlElementOrEmpty)
-        (image: HtmlElementOrEmpty)
-        (footer: HtmlElementOrEmpty)
+        (header: HtmlNodeOrEmpty)
+        (image: HtmlNodeOrEmpty)
+        (footer: HtmlNodeOrEmpty)
         (moreContentClasses: CssClassesOrEmpty)
         (cardContentNode: Node) =
         let cardContainerClasses = CssClasses [ CssClass.card ]
@@ -185,7 +185,7 @@ module Component =
     /// <remarks>
     /// 📖 https://bulma.io/documentation/components/panel/
     /// </remarks>
-    let bulmaPanel headingText (panelTabsNode: HtmlElementOrEmpty) (panelBlockNode: Node) =
+    let bulmaPanel headingText (panelTabsNode: HtmlNodeOrEmpty) (panelBlockNode: Node) =
         nav {
             CssClass.panel |> CssClasses.toHtmlClass
 
