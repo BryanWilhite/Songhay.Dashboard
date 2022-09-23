@@ -26,15 +26,16 @@ module Component =
     /// - <see cref="BulmaBreadcrumbAlignment" />
     /// - <see cref="BulmaBreadcrumbSeparators" />
     /// - <see cref="BulmaBreadcrumbSize" />
-    /// - <see cref="unOrderedList" />
     /// - <see cref="bulmaBreadcrumbListItem" />
     /// </remarks>
-    let bulmaBreadcrumbContainer (moreClasses: CssClassesOrEmpty) (ulNode: Node) =
+    let bulmaBreadcrumbContainer (moreClasses: CssClassesOrEmpty) (liNodes: Node[]) =
         nav {
             CssClasses [ "breadcrumb" ] |> moreClasses.ToHtmlClassAttribute
             AriaLabel.ToAttr "breadcrumbs"
 
-            ulNode
+            unOrderedList
+                NoCssClasses
+                liNodes
         }
 
     /// <summary>
