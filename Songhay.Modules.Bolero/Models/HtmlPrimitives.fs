@@ -28,6 +28,8 @@ type AriaGlobal =
     ///<summary> Global WAI-ARIA attribute </summary>
     | AriaErrorMessage
     ///<summary> Global WAI-ARIA attribute </summary>
+    | AriaExpanded
+    ///<summary> Global WAI-ARIA attribute </summary>
     | AriaHasPopup
     ///<summary> Global WAI-ARIA attribute </summary>
     | AriaHidden

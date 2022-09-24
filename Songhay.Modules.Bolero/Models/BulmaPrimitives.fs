@@ -136,6 +136,8 @@ type BulmaColorModifier =
 /// </remarks>
 type BulmaColor =
     /// <summary> a Bulma color classification </summary>
+    | ColorDefault
+    /// <summary> a Bulma color classification </summary>
     | ColorWhite
     /// <summary> a Bulma color classification </summary>
     | ColorBlack
@@ -153,28 +155,36 @@ type BulmaColor =
     | ColorDanger
 
     ///<summary>Returns the CSS class color name of the Bulma color classification.</summary>
-    member this.ColorName = this.ToString().Replace("Color", String.Empty).ToLowerInvariant()
+    member this.ColorName =
+        match this with
+        | ColorDefault -> String.Empty
+        | _ -> this.ToString().Replace("Color", String.Empty).ToLowerInvariant()
 
     ///<summary>Returns the Bulma background-color CSS class name of the Bulma color classification.</summary>
-    member this.BackgroundCssClass = $"has-background-{this.ColorName}"
+    member this.BackgroundCssClass =
+        if String.IsNullOrWhiteSpace(this.ColorName) then String.Empty else $"has-background-{this.ColorName}"
 
     ///<summary>Returns the CSS class name of the Bulma color classification.</summary>
-    member this.CssClass = $"is-{this.ColorName}"
+    member this.CssClass =
+        if String.IsNullOrWhiteSpace(this.ColorName) then String.Empty else $"is-{this.ColorName}"
 
     ///<summary>Returns the CSS class name of the Bulma color classification.</summary>
     member this.CssClassDark =
         match this with
+        | ColorDefault -> String.Empty
         | ColorBlack | ColorWhite -> this.CssClass
         | _ -> $"is-{this.ColorName}-dark"
 
     ///<summary>Returns the CSS class name of the Bulma color classification.</summary>
     member this.CssClassLight =
         match this with
+        | ColorDefault -> String.Empty
         | ColorBlack | ColorWhite -> this.CssClass
         | _ -> $"is-{this.ColorName}-light"
 
     ///<summary>Returns the Bulma text-color CSS class name of the Bulma color classification.</summary>
-    member this.TextCssClass = $"has-text-{this.ColorName}"
+    member this.TextCssClass =
+        if String.IsNullOrWhiteSpace(this.ColorName) then String.Empty else $"has-text-{this.ColorName}"
 
 ///<summary>
 /// Defines Bulma widths for the Bulma <c>container</c>.
@@ -321,6 +331,65 @@ type BulmaHorizontalSize =
         match this with
         | HSizeAuto -> String.Empty 
         | _ -> this.Size |> fun s -> $"is-offset-{s}"
+
+/// <summary>
+/// Defines modifiers for the Bulma <c>navbar-dropdown</c>.
+/// </summary>
+/// <remarks>
+/// 📖 https://bulma.io/documentation/components/navbar/#dropdown-menu
+/// </remarks>
+type BulmaNavbarDropdownModifier =
+    /// <summary> a Bulma <c>navbar-dropdown</c> modifier </summary>
+    | NavbarDropdownAlignRight
+    /// <summary> a Bulma <c>navbar-dropdown</c> modifier </summary>
+    | NavbarDropdownBoxed
+    /// <summary> a Bulma <c>navbar-dropdown</c> modifier </summary>
+    | NavbarDropdownHoverable
+    /// <summary> a Bulma <c>navbar-dropdown</c> modifier </summary>
+    | NavbarDropUp
+
+    ///<summary>Returns the Bulma CSS class name of the Bulma dropdown modifier.</summary>
+    member this.CssClass =
+        match this with
+        | NavbarDropdownAlignRight -> AlignRight.CssClass
+        | NavbarDropdownBoxed -> "is-boxed"
+        | NavbarDropdownHoverable -> "is-hoverable"
+        | NavbarDropUp -> "has-dropdown-up"
+
+/// <summary>
+/// Defines modifiers for the Bulma <c>navbar</c>.
+/// </summary>
+/// <remarks>
+/// 📖 https://bulma.io/documentation/components/navbar/#transparent-navbar
+/// 📖 https://bulma.io/documentation/components/navbar/#fixed-navbar
+/// 📖 https://bulma.io/documentation/components/navbar/#navbar-helper-classes
+/// </remarks>
+type BulmaNavbarModifier =
+    /// <summary> a Bulma <c>navbar</c> modifier </summary>
+    | NavbarAncestorHasFixedTop
+    /// <summary> a Bulma <c>navbar</c> modifier </summary>
+    | NavbarAncestorHasFixedBottom
+    /// <summary> a Bulma <c>navbar</c> modifier </summary>
+    | NavbarTransparent
+    /// <summary> a Bulma <c>navbar</c> modifier </summary>
+    | NavbarFixedTop
+    /// <summary> a Bulma <c>navbar</c> modifier </summary>
+    | NavbarFixedBottom
+    /// <summary> a Bulma <c>navbar</c> modifier </summary>
+    | NavbarHasShadow
+    /// <summary> a Bulma <c>navbar</c> modifier </summary>
+    | NavbarIsSpaced
+
+    ///<summary>Returns the Bulma CSS class name of the Bulma <c>navbar</c> modifier.</summary>
+    member this.CssClass =
+        match this with
+        | NavbarAncestorHasFixedTop -> "has-navbar-fixed-top"
+        | NavbarAncestorHasFixedBottom -> "has-navbar-fixed-bottom"
+        | NavbarTransparent -> "is-transparent"
+        | NavbarFixedTop -> "is-fixed-top"
+        | NavbarFixedBottom -> "is-fixed-bottom"
+        | NavbarHasShadow -> "has-shadow"
+        | NavbarIsSpaced -> "is-spaced"
 
 ///<summary>
 /// Defines all Bulma size modifiers.

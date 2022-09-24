@@ -7,6 +7,7 @@ open Microsoft.AspNetCore.Components.Web
 open Bolero
 open Bolero.Html
 
+open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.BodyElement
 
@@ -214,6 +215,7 @@ module Component =
     let bulmaModalClose (moreContainerClasses: CssClassesOrEmpty) =
         button {
             CssClasses [ "modal-close" ] |> moreContainerClasses.ToHtmlClassAttribute
+            AriaLabel.ToAttr "close"
         }
 
     /// <summary>
@@ -251,6 +253,146 @@ module Component =
 
             childNode
 
+        }
+
+    /// <summary>
+    /// “A responsive horizontal navbar that can support images, links, buttons, and dropdowns…”
+    /// <c>navbar-item</c>: each single item of the <c>navbar</c>,
+    /// which can either be an <c>a</c> or a <c>div</c>…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/components/navbar/
+    ///
+    /// See:
+    /// - <see cref="bulmaNavbarContainer" />
+    /// </remarks>
+    let bulmaNavbarBurger (isActive: bool) (menuId: Identifier) (childNode: Node) =
+        a {
+            [ "navbar-burger"; if isActive then CssClass.elementIsActive ] |> CssClasses.toHtmlClassFromList
+            "role" => "button"
+            AriaLabel.ToAttr "menu"
+            AriaExpanded.ToAttr "false"
+            "data-target" => menuId.StringValue
+
+            childNode
+        }
+
+    /// <summary>
+    /// “A responsive horizontal navbar that can support images, links, buttons, and dropdowns…”
+    /// <c>navbar-item</c>: each single item of the <c>navbar</c>,
+    /// which can either be an <c>a</c> or a <c>div</c>…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/components/navbar/
+    ///
+    /// See:
+    /// - <see cref="CssClass.navbarItem" />
+    /// - <see cref="CssClass.navbarLink" />
+    /// - <see cref="bulmaNavbarBurger" />
+    /// - <see cref="bulmaNavbarMenuStart" />
+    /// - <see cref="bulmaNavbarMenuEnd" />
+    /// - <see cref="bulmaNavbarDropdown" />
+    /// - <see cref="bulmaNavbarDivider" />
+    /// - <see cref="BulmaNavbarModifier" />
+    /// </remarks>
+    let bulmaNavbarContainer
+        (moreClasses: CssClassesOrEmpty)
+        (brandChildNode: Node)
+        (menuId: Identifier)
+        (menuChildNode: Node) =
+        nav {
+            CssClasses [ "navbar" ] |> moreClasses.ToHtmlClassAttribute
+            "role" => "navigation"
+            AriaLabel.ToAttr "main navigation"
+
+            div {
+                "navbar-brand" |> CssClasses.toHtmlClass
+
+                brandChildNode
+            }
+
+            div {
+                "navbar-menu" |> CssClasses.toHtmlClass
+                attr.id menuId.StringValue
+
+                menuChildNode
+            }
+        }
+
+    /// <summary>
+    /// “A responsive horizontal navbar that can support images, links, buttons, and dropdowns…”
+    /// <c>navbar-divider</c>:the dropdown menu, which can include <c>navbar</c> items and dividers…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/components/navbar/
+    ///
+    /// See:
+    /// - <see cref="bulmaNavbarContainer" />
+    /// </remarks>
+    let bulmaNavbarDivider = hr { "navbar-divider" |> CssClasses.toHtmlClass }
+
+    /// <summary>
+    /// “A responsive horizontal navbar that can support images, links, buttons, and dropdowns…”
+    /// <c>navbar-dropdown</c>:the dropdown menu, which can include <c>navbar</c> items and dividers…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/components/navbar/#dropdown-menu
+    ///
+    /// See:
+    /// - <see cref="bulmaNavbarContainer" />
+    /// - <see cref="BulmaNavbarDropdownModifier" />
+    /// </remarks>
+    let bulmaNavbarDropdown (moreClasses: CssClassesOrEmpty) (dropdownCaption: DisplayText) (dropdownNode: Node) =
+        div {
+            CssClasses [ CssClass.navbarItem; "has-dropdown" ] |> moreClasses.ToHtmlClassAttribute
+
+            a {
+                "navbar-link" |> CssClasses.toHtmlClass
+
+                text dropdownCaption.Value
+            }
+
+            div {
+                "navbar-dropdown" |> CssClasses.toHtmlClass
+
+                dropdownNode
+            }
+        }
+
+    /// <summary>
+    /// “A responsive horizontal navbar that can support images, links, buttons, and dropdowns…”
+    /// <c>navbar-end</c>: the right part of the menu, which appears at the end of the <c>navbar</c>…
+    /// The <c>navbar-start</c> and <c>navbar-end</c> are the two direct and only children of the <c>navbar-menu</c>. ”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/components/navbar/#navbar-start-and-navbar-end
+    ///
+    /// See:
+    /// - <see cref="bulmaNavbarContainer" />
+    /// </remarks>
+    let bulmaNavbarMenuEnd (childNode: Node) =
+       div {
+            "navbar-end" |> CssClasses.toHtmlClass
+
+            childNode
+        }
+
+    /// <summary>
+    /// “A responsive horizontal navbar that can support images, links, buttons, and dropdowns…”
+    /// <c>navbar-start</c>: the left part of the menu, which appears next to the <c>navbar</c> brand on desktop…
+    /// The <c>navbar-start</c> and <c>navbar-end</c> are the two direct and only children of the <c>navbar-menu</c>. ”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/components/navbar/#navbar-start-and-navbar-end
+    ///
+    /// See:
+    /// - <see cref="bulmaNavbarContainer" />
+    /// </remarks>
+    let bulmaNavbarMenuStart (childNode: Node) =
+       div {
+            "navbar-start" |> CssClasses.toHtmlClass
+
+            childNode
         }
 
     /// <summary>

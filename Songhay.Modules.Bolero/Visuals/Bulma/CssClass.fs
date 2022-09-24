@@ -333,6 +333,25 @@ module CssClass =
     ///</remarks>
     let mediaContent ="media-content"
 
+    /// <summary>
+    /// “A responsive horizontal navbar that can support images, links, buttons, and dropdowns…
+    /// <c>navbar-item</c>: each single item of the <c>navbar</c>,
+    /// which can either be an <c>a</c> or a <c>div</c>…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/components/navbar/
+    /// </remarks>
+    let navbarItem = "navbar-item"
+
+    /// <summary>
+    /// “A responsive horizontal navbar that can support images, links, buttons, and dropdowns…
+    /// <c>navbar-link</c>: a link as the sibling of a dropdown, with an arrow…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/components/navbar/
+    /// </remarks>
+    let navbarLink = "navbar-link"
+
     ///<summary>
     /// Bulma CSS class-name literal for Bulma elements.
     ///</summary>
