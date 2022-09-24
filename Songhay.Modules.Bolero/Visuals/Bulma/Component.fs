@@ -205,6 +205,55 @@ module Component =
         }
 
     /// <summary>
+    /// “A classic modal overlay, in which you can include any content you want…
+    /// <c>modal-close</c>: a simple cross located in the top right corner …”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/components/modal/
+    /// </remarks>
+    let bulmaModalClose (moreContainerClasses: CssClassesOrEmpty) =
+        button {
+            CssClasses [ "modal-close" ] |> moreContainerClasses.ToHtmlClassAttribute
+        }
+
+    /// <summary>
+    /// “A classic modal overlay, in which you can include any content you want…
+    /// <c>modal-content</c>: a horizontally and vertically centered container,
+    /// with a maximum width of 640px, in which you can include any content…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/components/modal/
+    /// </remarks>
+    let bulmaModalContent (moreContainerClasses: CssClassesOrEmpty) (childNode: Node) =
+        div {
+            CssClasses [ "modal-background" ] |> moreContainerClasses.ToHtmlClassAttribute
+
+            childNode
+        }
+
+    /// <summary>
+    /// “A classic modal overlay, in which you can include any content you want…”
+    /// </summary>
+    /// <remarks>
+    /// 📖 https://bulma.io/documentation/components/modal/
+    ///
+    /// See:
+    /// - <see cref="bulmaModalClose" />
+    /// - <see cref="bulmaModalContent" />
+    /// </remarks>
+    let bulmaModalContainer (showBackground: bool) (childNode: Node) =
+        div {
+            (CssClasses [ "modal" ]).ToHtmlClassAttribute
+
+            cond showBackground <| function
+                | true -> div { CssClasses[ "modal-background" ].ToHtmlClassAttribute }
+                | false -> empty()
+
+            childNode
+
+        }
+
+    /// <summary>
     /// “A composable panel, for compact controls…”
     /// This returns a container of class <see cref="CssClass.panel" />,
     /// wrapping <c>panel-heading</c>, followed by the specified <see cref="Node" />
