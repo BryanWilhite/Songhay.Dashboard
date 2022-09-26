@@ -10,7 +10,6 @@
         <Compile Include="Visuals\HtmlDocument.fs" />
         <Compile Include="Components\StudioFeeds.fs" />
         <Compile Include="Components\StudioTools.fs" />
-        <Compile Include="Components\StudioComponent.fs" />
         <Compile Include="Components\StudioLinksComponent.fs" />
         <Compile Include="Components\ElmishProgram.fs" />
         <Compile Include="Components/ContentBlockComponent.fs" />

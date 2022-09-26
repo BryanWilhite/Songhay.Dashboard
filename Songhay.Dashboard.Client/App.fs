@@ -12,6 +12,9 @@ module App =
         let bulmaAkyinkyinBase = "is-akyinkyin-base"
 
         [<Literal>]
+        let bulmaBackgroundGreys = "has-background-greys-bg"
+
+        [<Literal>]
         let bulmaBackgroundGreyDarkTone = "has-background-greys-dark-tone"
 
         [<Literal>]

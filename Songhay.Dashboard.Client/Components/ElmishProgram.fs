@@ -37,7 +37,6 @@ module ElmishProgram =
                     (HasClasses (CssClasses [tileIsParent; tileIsVertical]))
                     node)
         ContentBlockTemplate()
-            .Studio(StudioComponent.EComp model dispatch)
             .StudioLinks(StudioLinksComponent.EComp model dispatch)
             .Error(
                 cond model.error <| function

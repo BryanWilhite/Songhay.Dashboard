@@ -298,8 +298,8 @@ module Component =
     let bulmaNavbarContainer
         (moreClasses: CssClassesOrEmpty)
         (brandChildNode: Node)
-        (menuId: Identifier)
-        (menuChildNode: Node) =
+        (menuId: Identifier option)
+        (menuChildNode: HtmlNodeOrEmpty) =
         nav {
             CssClasses [ "navbar" ] |> moreClasses.ToHtmlClassAttribute
             "role" => "navigation"
@@ -311,12 +311,15 @@ module Component =
                 brandChildNode
             }
 
-            div {
-                "navbar-menu" |> CssClasses.toHtmlClass
-                attr.id menuId.StringValue
+            cond menuId.IsSome <| function
+                | true ->
+                    div {
+                        "navbar-menu" |> CssClasses.toHtmlClass
+                        attr.id menuId.Value.StringValue
 
-                menuChildNode
-            }
+                        menuChildNode.Value
+                    }
+                | false -> empty()
         }
 
     /// <summary>
