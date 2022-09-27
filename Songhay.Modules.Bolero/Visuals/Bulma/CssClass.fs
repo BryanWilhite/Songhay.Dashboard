@@ -214,7 +214,7 @@ module CssClass =
     ///<summary>
     /// Bulma CSS class-name function.
     ///</summary>
-    let hidden (breakpoint: BulmaBreakpoint) = $"is-hidden-{breakpoint.Value}"
+    let hidden (breakpoint: BulmaBreakpoint) = $"{elementIsHidden}-{breakpoint.Value}"
 
     ///<summary>
     /// Bulma CSS class-name for Bulma elements.

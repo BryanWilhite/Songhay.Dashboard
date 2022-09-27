@@ -5,6 +5,7 @@
     <ItemGroup>
         <PackageReference Include="Bolero" Version="0.20.18" />
         <PackageReference Include="Humanizer.Core" Version="2.14.1" />
+        <PackageReference Include="Songhay.Modules.Bolero" Version="6.0.0" />
         <PackageReference Include="Songhay.Modules.Publications" Version="6.0.1" />
     </ItemGroup>
     <ItemGroup>
@@ -22,8 +23,5 @@
         <Compile Include="ServiceHandlerUtility.fs" />
         <Compile Include="Components\YtThumbsComponent.fs" />
         <Compile Include="Components\YtThumbsSetComponent.fs" />
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\Songhay.Modules.Bolero\Songhay.Modules.Bolero.fsproj" />
     </ItemGroup>
 </Project>
