@@ -17,6 +17,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Dashboard.Tests", "
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Player.YouTube.Tests", "Songhay.Player.YouTube.Tests\Songhay.Player.YouTube.Tests.fsproj", "{730DA9C2-851D-41D6-A679-8B871D7BB4A0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C263DDD6-BF04-479F-ABD1-72252A9A0E1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,5 +119,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1C38E495-CFCD-497C-8883-A299A9996073}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C88F9E9-EB63-4AD4-B497-292272B2377E} = {C263DDD6-BF04-479F-ABD1-72252A9A0E1F}
+		{3551278A-E2BF-44F3-9A96-39417D5EB6AA} = {C263DDD6-BF04-479F-ABD1-72252A9A0E1F}
 	EndGlobalSection
 EndGlobal
