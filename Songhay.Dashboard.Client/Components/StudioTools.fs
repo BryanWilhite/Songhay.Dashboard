@@ -126,7 +126,7 @@ module StudioTools =
             let svgPathData = SonghaySvgData.Get(svgKey)
 
             bulmaMediaLeft
-                NoCssClasses
+                (HasClasses (CssClasses [ ShadeGreyDark.TextCssClass ]))
                 NoAttr
                 (bulmaImageContainer
                     (Square Square48)

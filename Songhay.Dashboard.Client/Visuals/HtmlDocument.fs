@@ -97,7 +97,7 @@ module HtmlDocument =
                 NoCssClasses
                 NoAttr
                 (span {
-                    "copyright" |> CssClasses.toHtmlClass
+                    [ "copyright"; fontSize Size7 ] |> CssClasses.toHtmlClassFromList
                     rawHtml $"© Bryan D. Wilhite {DateTime.Now.Year}"
                 })
         bulmaContainer
