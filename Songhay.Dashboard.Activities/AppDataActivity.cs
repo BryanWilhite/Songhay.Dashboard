@@ -5,6 +5,8 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -43,12 +45,17 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
 
             SetDataRoot(basePath);
 
-            var appJson = DownloadAppFile(appFileName);
-            var jO = JObject.Parse(appJson);
+            var appFile = GetAppFile(appFileName);
+            TraceSource?.TraceVerbose($"downloading to {appFile}...");
+            var json = DownloadFileToStringAsync(appFileName).GetAwaiter().GetResult();
+            File.WriteAllText(appFile, json);
+
+            var jO = JObject.Parse(json);
 
             WriteServerMeta(jO);
 
-            DownloadFeedFiles();
+            DownloadFeedFiles(jsonFiles);
+
             WriteFeedFiles(jsonFiles, jO);
 
             WriteAppFile(appFileName, jO);
@@ -72,32 +79,39 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
 
         internal IConfigurationRoot? Configuration { get; private set; }
 
-        internal string DownloadAppFile(string appFileName)
+        internal void DownloadFeedFiles(IEnumerable<string> jsonFiles)
         {
-            var appFile = GetAppFile(appFileName);
+            jsonFiles.ForEachInEnumerable(i =>
+            {
+                var jsonFileName = $"{i}.json";
+                var jsonFile = GetAppFile(jsonFileName);
+                TraceSource?.TraceInformation($"downloading {jsonFile}.json...");
 
-            TraceSource?.TraceVerbose($"downloading to {appFile}...");
-
-            // var @ref = container.GetBlobReference(blobName: this._appFileName);
-            // @ref.DownloadToFileAsync(appFile, FileMode.Create).Wait();
-
-            if (!File.Exists(appFile)) throw new FileNotFoundException("The expected app file is not here.");
-
-            return File.ReadAllText(appFile);
+                TraceSource?.TraceVerbose($"downloading to {jsonFile}...");
+                var json = DownloadFileToStringAsync(jsonFileName).GetAwaiter().GetResult();
+                File.WriteAllText(jsonFile, json);
+            });
         }
 
-        internal void DownloadFeedFiles()
+        internal async Task<string> DownloadFileToStringAsync(string fileName)
         {
-            // var tasks = this._jsonFiles.Select(i =>
-            // {
-            //     var jsonFile = ProgramFileUtility.GetCombinedPath(this._dataRoot, $"{i}.json");
-            //     traceSource?.TraceInformation($"downloading {jsonFile}.json...");
-            //
-            //     var @ref = container.GetBlobReference(blobName: $"{i}.json");
-            //     return @ref.DownloadToFileAsync(jsonFile, FileMode.Create);
-            // }).ToArray();
-            //
-            // Task.WaitAll(tasks);
+            var metadata = GetCloudStorageMetadata();
+            var location = GetLocation(metadata.accountName, metadata.containerName, fileName);
+
+            using var request =
+                new HttpRequestMessage(HttpMethod.Get, location)
+                    .WithAzureStorageHeaders(
+                        DateTime.UtcNow,
+                        metadata.apiVersion,
+                        metadata.accountName,
+                        metadata.accountKey);
+            using HttpResponseMessage response = await request.SendAsync();
+            var s = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode) return s;
+
+            var message = $"Request for `{location}` returned status `{response.StatusCode}`.";
+            throw new HttpRequestException(message);
         }
 
         internal string GetAppFile(string appFileName) => ProgramFileUtility.GetCombinedPath(_dataRoot, appFileName);
@@ -160,17 +174,6 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             if (!Directory.Exists(_dataRoot)) throw new DirectoryNotFoundException("The expected data root is not here.");
         }
 
-        // internal CloudStorageAccount GetCloudStorageAccount() =>
-        //     this.Configuration.GetCloudStorageAccount("ProgramMetadata:CloudStorageSet:SonghayCloudStorage:general-purpose-v1");
-        //
-        // internal CloudBlobContainer GetContainerReference()
-        // {
-        //     var blobContainerName = this._metaSet.TryGetValueWithKey("blobContainerName", throwException: true);
-        //     var cloudStorageAccount = this.GetCloudStorageAccount();
-        //     var container = cloudStorageAccount.CreateCloudBlobClient().GetContainerReference(blobContainerName);
-        //     return container;
-        // }
-
         internal Dictionary<string, string> GetMetaSet()
         {
             if (_metaSet != null) return _metaSet;
@@ -192,11 +195,11 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             //container.UploadBlobAsync(appFile, string.Empty).Wait();
         }
 
-        internal void WriteAppFile(string appFileName, JObject appJO)
+        internal void WriteAppFile(string appFileName, JObject appJo)
         {
             var appFile = GetAppFile(appFileName);
 
-            File.WriteAllText(appFile, appJO.ToString());
+            File.WriteAllText(appFile, appJo.ToString());
         }
 
         internal void WriteFeedFiles(string[] jsonFiles, JObject appJO)
@@ -213,7 +216,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             });
         }
 
-        internal void WriteServerMeta(JObject appJO)
+        internal void WriteServerMeta(JObject appJo)
         {
             var serverMetaRoot = _metaSet.TryGetValueWithKey("serverMetaRoot", throwException: true);
 
@@ -229,7 +232,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
 
             var jO = JObject.FromObject(assemblyInfo, JsonSerializer.Create(settings));
             jO = new JObject { { nameof(assemblyInfo), jO } };
-            appJO[serverMetaRoot] = jO;
+            appJo[serverMetaRoot] = jO;
         }
 
         static readonly TraceSource? TraceSource;

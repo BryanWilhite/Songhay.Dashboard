@@ -1,6 +1,4 @@
-using System;
 using System.IO;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Songhay.Extensions;
@@ -43,26 +41,7 @@ public class AppDataActivityTests
         activity.AddConfiguration(ConfigurationRoot);
         var set = activity.GetMetaSet();
         var appMetadata = AppDataActivity.GetMetadata(set);
-
-        var metadata = activity.GetCloudStorageMetadata();
-        var location = AppDataActivity.GetLocation(metadata.accountName, metadata.containerName, appMetadata.appFileName);
-
-        using var request =
-            new HttpRequestMessage(HttpMethod.Get, location)
-                .WithAzureStorageHeaders(
-                    DateTime.UtcNow,
-                    metadata.apiVersion,
-                    metadata.accountName,
-                    metadata.accountKey);
-        using HttpResponseMessage response = await request.SendAsync();
-        var actual = await response.Content.ReadAsStringAsync();
-
-        if (!response.IsSuccessStatusCode)
-        {
-            var message = $"Request for `{location}` returned status `{response.StatusCode}`.";
-            throw new HttpRequestException(message);
-        }
-
+        var actual = await activity.DownloadFileToStringAsync(appMetadata.appFileName);
         Assert.False(string.IsNullOrWhiteSpace(actual));
     }
 
