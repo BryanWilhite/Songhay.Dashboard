@@ -1,23 +1,20 @@
 ﻿using Songhay.Models;
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using Songhay.Abstractions;
 
-[assembly: InternalsVisibleTo("Songhay.Dashboard.Shell.Tests")]
+namespace Songhay.Dashboard.Activities;
 
-namespace Songhay.Dashboard.Activities
+public sealed class DashboardActivitiesGetter : ActivitiesGetter
 {
-    public class DashboardActivitiesGetter : ActivitiesGetter
+    public DashboardActivitiesGetter(string[] args) : base(args)
     {
-        public DashboardActivitiesGetter(string[] args) : base(args)
+        LoadActivities(new Dictionary<string, Lazy<IActivity?>>
         {
-            this.LoadActivities(new Dictionary<string, Lazy<IActivity>>
             {
-                {
-                    nameof(AppDataActivity),
-                    new Lazy<IActivity>(() => new AppDataActivity())
-                }
-            });
-        }
+                nameof(AppDataActivity),
+                new Lazy<IActivity?>(() => new AppDataActivity())
+            }
+        });
     }
 }

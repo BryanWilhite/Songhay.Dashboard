@@ -1,7 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyVersion>6.0.2022.1014</AssemblyVersion>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <ImplicitUsings>enabled</ImplicitUsings>
+    <Nullable>enable</Nullable>
 
     <Authors>Bryan D. Wilhite</Authors>
     <Company>Songhay System</Company>
@@ -13,8 +17,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Songhay.Cloud.BlobStorage" Version="5.0.0" />
-    <PackageReference Include="SonghayCore" Version="5.2.2" />
+    <PackageReference Include="SonghayCore" Version="6.0.1" />
+    <PackageReference Include="SonghayCore.Newtonsoft" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

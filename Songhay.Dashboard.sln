@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Activities", "Activities", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Songhay.Dashboard.Shell.Tests", "Songhay.Dashboard.Shell.Tests\Songhay.Dashboard.Shell.Tests.csproj", "{8B812CFF-9E9D-402F-83A5-984115DF9232}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Songhay.Dashboard.Activities.Tests", "Songhay.Dashboard.Activities.Tests\Songhay.Dashboard.Activities.Tests.csproj", "{A619530D-7A02-4FEF-A8AF-92E3D896EC71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +129,18 @@ Global
 		{8B812CFF-9E9D-402F-83A5-984115DF9232}.Release|x64.Build.0 = Release|Any CPU
 		{8B812CFF-9E9D-402F-83A5-984115DF9232}.Release|x86.ActiveCfg = Release|Any CPU
 		{8B812CFF-9E9D-402F-83A5-984115DF9232}.Release|x86.Build.0 = Release|Any CPU
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71}.Debug|x64.Build.0 = Debug|Any CPU
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71}.Debug|x86.Build.0 = Debug|Any CPU
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71}.Release|x64.ActiveCfg = Release|Any CPU
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71}.Release|x64.Build.0 = Release|Any CPU
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71}.Release|x86.ActiveCfg = Release|Any CPU
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,5 +152,6 @@ Global
 		{6118D98B-A7DE-4B86-ACA7-51E6873A8A4C} = {553BE17B-DF19-4245-893D-C48C1C3401AB}
 		{468AB182-2D87-41C7-8688-A10165F47D78} = {553BE17B-DF19-4245-893D-C48C1C3401AB}
 		{8B812CFF-9E9D-402F-83A5-984115DF9232} = {553BE17B-DF19-4245-893D-C48C1C3401AB}
+		{A619530D-7A02-4FEF-A8AF-92E3D896EC71} = {553BE17B-DF19-4245-893D-C48C1C3401AB}
 	EndGlobalSection
 EndGlobal
