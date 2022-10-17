@@ -1,0 +1,180 @@
+$caption-height: 64px;
+$duration-height: 24px;
+$duration-top: -120px;
+$published-at-height: 24px;
+
+$thumbnail-height: 180px;
+$thumbnail-width: 320px;
+$thumbnail-margin-right: 4px;
+
+$thumbs-container-height: $thumbnail-height + $published-at-height + $caption-height;
+
+$button-left-fudge: 96px;
+$media-max-width-fudge: 320px;
+
+$thumbs-responsive-widths: (
+    8-thumbs: ($thumbnail-margin-right + $thumbnail-width) * 8, /* (4 + 320 ) * 8 = 2592 */
+    7-thumbs: ($thumbnail-margin-right + $thumbnail-width) * 7, /* (4 + 320 ) * 7 = 2268 */
+    6-thumbs: ($thumbnail-margin-right + $thumbnail-width) * 6, /* (4 + 320 ) * 6 = 1944 */
+    5-thumbs: ($thumbnail-margin-right + $thumbnail-width) * 5, /* (4 + 320 ) * 5 = 1620 */
+    4-thumbs: ($thumbnail-margin-right + $thumbnail-width) * 4, /* (4 + 320 ) * 4 = 1296 */
+    3-thumbs: ($thumbnail-margin-right + $thumbnail-width) * 3, /* (4 + 320 ) * 3 =  972 */
+    2-thumbs: ($thumbnail-margin-right + $thumbnail-width) * 2, /* (4 + 320 ) * 2 =  648 */
+    media-max-width: (
+        8-thumbs: (($thumbnail-margin-right + $thumbnail-width) * 8) + $media-max-width-fudge,
+        7-thumbs: (($thumbnail-margin-right + $thumbnail-width) * 7) + $media-max-width-fudge,
+        6-thumbs: (($thumbnail-margin-right + $thumbnail-width) * 6) + $media-max-width-fudge,
+        5-thumbs: (($thumbnail-margin-right + $thumbnail-width) * 5) + $media-max-width-fudge,
+        4-thumbs: (($thumbnail-margin-right + $thumbnail-width) * 4) + $media-max-width-fudge,
+        3-thumbs: (($thumbnail-margin-right + $thumbnail-width) * 3) + $media-max-width-fudge,
+        2-thumbs: (($thumbnail-margin-right + $thumbnail-width) * 2) + $media-max-width-fudge
+    )
+);
+
+$thumbs-media-max-width: map-get($thumbs-responsive-widths, media-max-width);
+
+@each $key, $value in $thumbs-media-max-width {
+    @media (max-width: map-get($thumbs-media-max-width, $key)) {
+        .rx.b-roll {
+            & > .video.thumbs {
+                width: map-get($thumbs-responsive-widths, $key);
+
+                & > .command {
+                    &.right {
+                        left: map-get($thumbs-responsive-widths, $key) - $button-left-fudge !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// upper bound:
+$key: 8-thumbs;
+@media (min-width: map-get($thumbs-media-max-width, $key)) {
+    .rx.b-roll {
+        .video.thumbs {
+            width: map-get($thumbs-responsive-widths, $key);
+
+            & > .command {
+                &.right {
+                    left: map-get($thumbs-responsive-widths, $key) - $button-left-fudge !important;
+                }
+            }
+        }
+    }
+}
+
+.rx.b-roll {
+    .video.thumbs {
+        & > .command {
+            display: inline-block;
+            margin: 0;
+            opacity: 0.5;
+            padding: 0;
+            position: relative;
+            z-index: 2;
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+
+        &.header {
+            margin: 0 auto;
+            margin-top: 3rem;
+
+            & > a {
+                display: inline-block;
+
+                &:link,
+                &:visited {
+                    color: $var-thumbs-header-link-color;
+                    text-decoration: $var-thumbs-header-link-text-decoration;
+                }
+                & > span {
+                    display: inline-block;
+                }
+            }
+
+            & > span {
+                & > a {
+                    &:link,
+                    &:visited {
+                        color: $var-thumbs-header-link-color;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        &.thumbs-container {
+            background-color: #000;
+            height: $thumbs-container-height;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+
+            & > div {
+                position: absolute;
+                z-index: 1;
+
+                transition-property: left;
+                left: $var-thumbs-container-wrapper-left;
+                transition-duration: 1s;
+
+                & > span {
+                    display: inline-block;
+                    margin: 0;
+                    margin-right: $thumbnail-margin-right;
+                    height: $thumbnail-height;
+                    width: $thumbnail-width;
+
+                    & .caption {
+                        display: block;
+                        height: $caption-height;
+                        opacity: 1;
+                        overflow: hidden;
+                        padding-left: 0.5rem;
+                        white-space: normal;
+
+                        & a {
+                            &:link,
+                            &:visited {
+                                color: #fff;
+                                text-decoration: none;
+                            }
+                            &:hover {
+                                color: #ff0;
+                                background-color: transparent;
+                            }
+                        }
+                    }
+
+                    & > .published-at {
+                        color: #0f0;
+                        display: block;
+                        padding-left: 0.5rem;
+                    }
+
+                    & > .duration {
+                        display: block;
+                        height: $duration-height;
+                        position: relative;
+                        text-align: right;
+                        top: $duration-top;
+                        width: $thumbnail-width;
+
+                        & > span {
+                            background-color: #000;
+                            color: #fff;
+                            display: inline-block;
+                            padding-left: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
