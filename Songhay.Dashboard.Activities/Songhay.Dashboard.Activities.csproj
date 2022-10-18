@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SonghayCore" Version="6.0.1" />
+    <PackageReference Include="SonghayCore" Version="6.0.3" />
     <PackageReference Include="SonghayCore.Newtonsoft" Version="6.0.0" />
   </ItemGroup>
 
