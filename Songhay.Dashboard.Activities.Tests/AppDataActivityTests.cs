@@ -1,5 +1,4 @@
 using System.IO;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Songhay.Extensions;
 using Songhay.Models;
@@ -14,9 +13,9 @@ public class AppDataActivityTests
     {
         var basePath = ProgramAssemblyUtility.GetPathFromAssembly(typeof(AppDataActivityTests).Assembly, "../../../");
         Assert.True(Directory.Exists(basePath), $"The expected directory, `{basePath}`, is not here.");
-        ProjectDirectoryInfo = new DirectoryInfo(basePath);
+        var projectDirectoryInfo = new DirectoryInfo(basePath);
 
-        basePath = ProjectDirectoryInfo.Parent.FindDirectory("*.Shell").ToReferenceTypeValueOrThrow().FullName;
+        basePath = projectDirectoryInfo.Parent.FindDirectory("*.Shell").ToReferenceTypeValueOrThrow().FullName;
 
         ConfigurationRoot = ProgramUtility
             .LoadConfiguration(
@@ -27,37 +26,12 @@ public class AppDataActivityTests
             .SetBasePath(basePath)
             .AddJsonFile(AppDataActivity.ConventionalSettingsFile, optional: false, reloadOnChange: true);
 
-        ProgramMetadata = new ProgramMetadata();
-        builder.Build().Bind(nameof(Songhay.Models.ProgramMetadata), ProgramMetadata);
-        Assert.NotNull(ProgramMetadata);
+        var programMetadata = new ProgramMetadata();
+        builder.Build().Bind(nameof(Songhay.Models.ProgramMetadata), programMetadata);
+        Assert.NotNull(programMetadata);
     }
 
     public AppDataActivityTests(ITestOutputHelper helper) => _testOutputHelper = helper;
-
-    [Fact]
-    public async Task DownloadAppFileAsync_Test()
-    {
-        var activity = new AppDataActivity();
-        activity.AddConfiguration(ConfigurationRoot);
-        var set = activity.GetMetaSet();
-        var appMetadata = AppDataActivity.GetMetadata(set);
-        var actual = await activity.DownloadFileToStringAsync(appMetadata.appFileName);
-        Assert.False(string.IsNullOrWhiteSpace(actual));
-    }
-
-    [Fact]
-    public void GetCloudStorageMetadata_Test()
-    {
-        var activity = new AppDataActivity();
-        activity.AddConfiguration(ConfigurationRoot);
-
-        var actual = activity.GetCloudStorageMetadata();
-
-        Assert.False(string.IsNullOrWhiteSpace(actual.accountName));
-        Assert.False(string.IsNullOrWhiteSpace(actual.accountKey));
-        Assert.False(string.IsNullOrWhiteSpace(actual.containerName));
-        Assert.False(string.IsNullOrWhiteSpace(actual.apiVersion));
-    }
 
     [Fact]
     public void GetMetaSet_Test()
@@ -67,6 +41,11 @@ public class AppDataActivityTests
 
         var actual = activity.GetMetaSet();
         Assert.NotNull(actual);
+
+        actual.ForEachInEnumerable(i =>
+        {
+            _testOutputHelper.WriteLine($"{i.Key}: {i.Value}");
+        });
     }
 
     [Fact]
@@ -79,10 +58,14 @@ public class AppDataActivityTests
         var actual = AppDataActivity.GetMetadata(set);
         Assert.NotNull(actual.jsonFiles);
         Assert.NotNull(actual.appFileName);
+
+        actual.jsonFiles.ForEachInEnumerable(jsonFile =>
+        {
+            _testOutputHelper.WriteLine($"{nameof(jsonFile)}: {jsonFile}");
+        });
+        _testOutputHelper.WriteLine($"{nameof(actual.appFileName)}: {actual.appFileName}");
     }
 
-    static readonly DirectoryInfo ProjectDirectoryInfo;
-    static readonly ProgramMetadata ProgramMetadata;
     static readonly IConfigurationRoot ConfigurationRoot;
 
     readonly ITestOutputHelper _testOutputHelper;

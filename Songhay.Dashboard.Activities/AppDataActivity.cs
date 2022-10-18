@@ -1,21 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
-using Songhay.Abstractions;
-using Songhay.Diagnostics;
-using Songhay.Extensions;
-using Songhay.Models;
-
+﻿
 namespace Songhay.Dashboard.Activities
 {
     public class AppDataActivity : IActivity, IActivityConfigurationSupport
@@ -38,18 +21,14 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
 
         public void Start(ProgramArgs? args)
         {
-            var basePath = args.HasArg(ProgramArgs.BasePath, requiresValue: false) ? args.GetBasePathValue() : Directory.GetCurrentDirectory();
-
-            var metaSet = GetMetaSet();
-            var (appFileName, jsonFiles) = GetMetadata(metaSet);
+            var basePath = args.HasArg(ProgramArgs.BasePath, requiresValue: false) ?
+                args.GetBasePathValue() : Directory.GetCurrentDirectory();
 
             SetDataRoot(basePath);
 
-            var appFile = GetAppFile(appFileName);
-            TraceSource?.TraceVerbose($"downloading to {appFile}...");
+            var metaSet = GetMetaSet();
+            var (appFileName, jsonFiles) = GetMetadata(metaSet);
             var json = DownloadFileToStringAsync(appFileName).GetAwaiter().GetResult();
-            File.WriteAllText(appFile, json);
-
             var jO = JObject.Parse(json);
 
             WriteServerMeta(jO);
@@ -68,8 +47,19 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
         /// </summary>
         internal const string ConventionalSettingsFile = "app-settings.songhay-system.json";
 
-        internal static string GetLocation(string accountName, string containerName, string blobName) =>
-            $"https://{accountName}.blob.core.windows.net/{containerName}/{blobName}";
+        internal static string GetCloudStorageConnectionString()
+        {
+            var storageMeta = _programMetadata?
+                .CloudStorageSet
+                .TryGetValueWithKey("SonghayCloudStorage")
+                .ToReferenceTypeValueOrThrow();
+
+            var connectionString = storageMeta
+                .TryGetValueWithKey("general-purpose-v1")
+                .ToReferenceTypeValueOrThrow();
+
+            return connectionString;
+        }
 
         internal static (string appFileName, string[] jsonFiles) GetMetadata(Dictionary<string, string> metaSet) =>
         (
@@ -93,74 +83,22 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
             });
         }
 
-        internal async Task<string> DownloadFileToStringAsync(string fileName)
+        internal async Task<string> DownloadFileToStringAsync(string appFileName)
         {
-            var metadata = GetCloudStorageMetadata();
-            var location = GetLocation(metadata.accountName, metadata.containerName, fileName);
+            var connectionString = GetCloudStorageConnectionString();
+            var containerName = GetMetaSet().TryGetValueWithKey("blobContainerName").ToReferenceTypeValueOrThrow();
+            var appFile = GetAppFile(appFileName);
 
-            using var request =
-                new HttpRequestMessage(HttpMethod.Get, location)
-                    .WithAzureStorageHeaders(
-                        DateTime.UtcNow,
-                        metadata.apiVersion,
-                        metadata.accountName,
-                        metadata.accountKey);
-            using HttpResponseMessage response = await request.SendAsync();
-            var s = await response.Content.ReadAsStringAsync();
+            TraceSource?.TraceVerbose($"downloading to {appFile}...");
+            var json = AzureBlobStorageRestApiUtility
+                .DownloadBlobToStringAsync(connectionString, containerName, appFileName).GetAwaiter().GetResult();
 
-            if (response.IsSuccessStatusCode) return s;
+            await File.WriteAllTextAsync(appFile, json);
 
-            var message = $"Request for `{location}` returned status `{response.StatusCode}`.";
-            throw new HttpRequestException(message);
+            return json;
         }
 
         internal string GetAppFile(string appFileName) => ProgramFileUtility.GetCombinedPath(_dataRoot, appFileName);
-
-        internal (string accountName, string accountKey, string containerName, string apiVersion) GetCloudStorageMetadata()
-        {
-            var storageMeta = _programMetadata?
-                .CloudStorageSet
-                .TryGetValueWithKey("SonghayCloudStorage")
-                .ToReferenceTypeValueOrThrow();
-
-            var connectionString = storageMeta
-                .TryGetValueWithKey("general-purpose-v1")
-                .ToReferenceTypeValueOrThrow();
-
-            var builder = new DbConnectionStringBuilder
-            {
-                ConnectionString = connectionString
-            };
-
-            var values = new[] { "AccountName", "AccountKey" }.Select(key =>
-            {
-                if (!builder.ContainsKey(key))
-                {
-                    throw new NullReferenceException($"The expected connection string key, `{key}`, is not here.");
-                }
-
-                var value = builder[key] as string;
-
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new NullReferenceException($"The expected connection string value for key, `{key}`, is not here.");
-                }
-
-                return value;
-
-            }).ToArray();
-
-            if (values.Length < 2) throw new DataException("The expected connection string values are not here.");
-
-            (string accountName, string accountKey, string containerName, string apiVersion) storageMetadata;
-
-            storageMetadata.accountName = values[0];
-            storageMetadata.accountKey = values[1];
-            storageMetadata.containerName = GetMetaSet().TryGetValueWithKey("blobContainerName").ToReferenceTypeValueOrThrow();
-            storageMetadata.apiVersion = "2019-12-12";
-
-            return storageMetadata;
-        }
 
         internal void SetDataRoot(string? basePath)
         {
@@ -192,7 +130,11 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
 
             if (!File.Exists(appFile)) throw new FileNotFoundException("The expected app file is not here.");
 
-            //container.UploadBlobAsync(appFile, string.Empty).Wait();
+            var connectionString = GetCloudStorageConnectionString();
+            var containerName = GetMetaSet().TryGetValueWithKey("blobContainerName").ToReferenceTypeValueOrThrow();
+            var content = File.ReadAllText(appFile);
+
+            AzureBlobStorageRestApiUtility.UploadBlobAsync(connectionString, containerName, appFileName, content);
         }
 
         internal void WriteAppFile(string appFileName, JObject appJo)
