@@ -142,7 +142,11 @@ module HtmlDocument =
             bulmaNavbarBurger
                 false
                 navbarMenuId.Value
-                (concat { span ; span ; span })
+                (concat {
+                    span { AriaHidden.ToAttrWithTrueValue }
+                    span { AriaHidden.ToAttrWithTrueValue }
+                    span { AriaHidden.ToAttrWithTrueValue }
+                })
         }
 
     let navBarMenuItems =
