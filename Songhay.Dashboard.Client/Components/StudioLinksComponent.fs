@@ -1,7 +1,5 @@
 namespace Songhay.Dashboard.Client.Components
 
-open System
-
 open Microsoft.AspNetCore.Components
 open Microsoft.AspNetCore.Components.Routing
 open Microsoft.JSInterop
@@ -9,7 +7,6 @@ open Microsoft.JSInterop
 open Bolero
 open Bolero.Html
 
-open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Component
@@ -23,24 +20,6 @@ open Songhay.Dashboard.Client.ElmishTypes
 
 type StudioLinksComponent() =
     inherit ElmishComponent<Model, Message>()
-
-    static let linkNodes =
-        let linkNode (title: DisplayText, href: Uri, id: Identifier) =
-            bulmaPanelBlockAnchor
-                DefaultState
-                (HasClasses (CssClasses [ bulmaBackgroundGreyDarkTone ]))
-                href TargetBlank
-                (concat {
-                    bulmaPanelIcon
-                        (HasClasses(CssClasses [m (B, L3)]))
-                        (bulmaImageContainer
-                            (Square Square24)
-                            NoAttr
-                            (svgElement (bulmaIconSvgViewBox Square24) (SonghaySvgData.Get(id))))
-                    text title.Value
-                })
-
-        forEach App.appStudioLinks <| linkNode
 
     static let routeNodes =
         let routeData = [
@@ -72,7 +51,7 @@ type StudioLinksComponent() =
             bulmaPanel
                 "studio links"
                 NoNode
-                (concat { routeNodes; linkNodes })
+                routeNodes
 
         bulmaTile
             HSizeAuto

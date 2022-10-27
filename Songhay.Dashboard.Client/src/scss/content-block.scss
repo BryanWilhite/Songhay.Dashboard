@@ -85,6 +85,7 @@
 // TODO: the Bulma docs have not caught up to `grid`:
 @import "bulma/sass/grid/_all";
 
+@import "./content-block-navbar.scss";
 @import "./content-block-tiles.scss";
 @import "./you-tube-css-variables.scss";
 @import "./you-tube-thumbs.scss";

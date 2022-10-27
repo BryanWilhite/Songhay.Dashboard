@@ -126,24 +126,56 @@ module HtmlDocument =
                     })
             })
 
+    let navbarMenuId = ("navMenu" |> Identifier.fromString) |> Some
+
     let studioLogoContainer =
         let spanClasses = (CssClasses (title (HasFontSize Size2))).Append (hidden Touch)
+        concat {
+            div {
+                [ "logo"; p (LR, L6); p (TB, L3) ] |> CssClasses.toHtmlClassFromList
+                attr.title App.AppTitle
 
-        div {
-            [ "logo"; p (LR, L6); p (TB, L3) ] |> CssClasses.toHtmlClassFromList
-            attr.title App.AppTitle
-
-            span { ((elementFontWeight Normal) |> spanClasses.Prepend).ToHtmlClassAttribute; text "Songhay" }
-            span { spanClasses.ToHtmlClassAttribute; text "System" }
-            studioLogo
+                span { ((elementFontWeight Normal) |> spanClasses.Prepend).ToHtmlClassAttribute; text "Songhay" }
+                span { spanClasses.ToHtmlClassAttribute; text "System" }
+                studioLogo
+            }
+            bulmaNavbarBurger
+                false
+                navbarMenuId.Value
+                (concat { span ; span ; span })
         }
+
+    let navBarMenuItems =
+        let _, _, lastId = App.appStudioLinks |> List.last
+        let linkNode (title: DisplayText, href: Uri, id: Identifier) =
+            span {
+                [
+                    "icon-text"
+                    m (All, L3)
+                    if lastId = id then p (R, L6)
+                ] |> CssClasses.toHtmlClassFromList
+                attr.title title.Value
+                span {
+                    anchorElement
+                        (HasClasses(CssClasses["is-flex"]))
+                        href
+                        TargetBlank
+                        (HasAttr(attr.title title.Value))
+                        (concat {
+                            bulmaIcon (svgElement (bulmaIconSvgViewBox Square24) (SonghaySvgData.Get(id)))
+                            span { "display-text" |> CssClasses.toHtmlClass; text title.Value }
+                        })
+                }
+            }
+
+        forEach App.appStudioLinks <| linkNode
 
     let navbarNode =
         bulmaNavbarContainer
             (HasClasses (CssClasses [ NavbarFixedTop.CssClass; bulmaBackgroundGreys ]))
             studioLogoContainer
-            None
-            NoNode
+            navbarMenuId
+            (HasNode (bulmaNavbarMenuEnd navBarMenuItems))
 
     let bodyElements (boleroScript: Node) (rootCompContainer: Node) =
         let svgSymbolsBlock = SonghaySvgData.Array |> svgSymbolsContainer
