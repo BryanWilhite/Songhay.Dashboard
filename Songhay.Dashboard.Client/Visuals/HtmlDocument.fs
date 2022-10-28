@@ -48,6 +48,9 @@ module HtmlDocument =
             script { attr.src "js/songhay.min.js" }
 
             newLine; indent 2
+            script { attr.src "js/site.js" }
+
+            newLine; indent 2
             App.AppTitle |> titleElement
 
             newLine

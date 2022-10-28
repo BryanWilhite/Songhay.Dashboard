@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "index:sass": "npx sass ./src/scss/content-block.scss ./wwwroot/css/content-block.min.css --load-path=./node_modules --no-source-map --style=compressed",
-    "songhay:dist": "cp ./node_modules/songhay/dist/songhay.min.js ./wwwroot/js/songhay.min.js"
+    "songhay:dist": "cp ./node_modules/songhay/dist/songhay.min.js ./wwwroot/js/songhay.min.js",
+    "site:dist": "cp ./src/js/site.js ./wwwroot/js/site.js"
   },
   "keywords": [],
   "author": "Bryan Wilhite",
