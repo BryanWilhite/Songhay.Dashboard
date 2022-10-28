@@ -4,19 +4,20 @@
   "description": "Bolero Client",
   "main": "index.js",
   "scripts": {
-    "index:sass": "npx sass ./src/scss/content-block.scss ./wwwroot/css/content-block.min.css --load-path=./node_modules --no-source-map --style=compressed",
-    "songhay:dist": "cp ./node_modules/songhay/dist/songhay.min.js ./wwwroot/js/songhay.min.js",
-    "site:dist": "cp ./src/js/site.js ./wwwroot/js/site.js"
+    "bundle": "npx webpack",
+    "index:sass": "npx sass ./src/scss/content-block.scss ./wwwroot/css/content-block.min.css --load-path=./node_modules --no-source-map --style=compressed"
   },
   "keywords": [],
   "author": "Bryan Wilhite",
   "license": "ISC",
   "devDependencies": {
-    "clean-css-cli": "^5.4.2",
-    "sass": "^1.43.4"
+    "clean-css-cli": "^5.6.1",
+    "sass": "^1.55.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   },
   "dependencies": {
-    "bulma": "^0.9.3",
+    "bulma": "^0.9.4",
     "songhay": "^0.3.3"
   }
 }

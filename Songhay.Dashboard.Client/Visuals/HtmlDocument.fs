@@ -45,10 +45,7 @@ module HtmlDocument =
                 (("favicon.ico", UriKind.Relative) |> Uri)
 
             newLine; indent 2
-            script { attr.src "js/songhay.min.js" }
-
-            newLine; indent 2
-            script { attr.src "js/site.js" }
+            script { attr.src "js/rx.bundle.js" }
 
             newLine; indent 2
             App.AppTitle |> titleElement
