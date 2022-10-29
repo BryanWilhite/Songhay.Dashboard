@@ -11,10 +11,28 @@
     }
 }
 
-@media (max-width:1247px) {
-    .icon-text {
-        & > span > a > .display-text {
-            display: none;
+@media (max-width:1247px) { /* when `display-text` runs out of space */
+    .navbar-menu {
+        & > .navbar-end {
+            & >.icon-text {
+                & > span > a > .display-text {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1024px) { /* when the navbar burger is visible */
+    .navbar-menu {
+        & > .navbar-end {
+            & >.icon-text {
+                display: block;
+
+                & > span > a > .display-text {
+                    display: inline;
+                }
+            }
         }
     }
 }
