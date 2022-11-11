@@ -19,7 +19,7 @@
         <PackageReference Include="Bolero" Version="0.20.18" />
         <PackageReference Include="Bolero.Build" Version="0.20.18" />
         <PackageReference Include="Bolero.HotReload" Version="0.20.4" />
-        <PackageReference Include="FsToolkit.ErrorHandling" Version="3.0.0" />
+        <PackageReference Include="FsToolkit.ErrorHandling" Version="3.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.10" />
         <PackageReference Include="Songhay.Modules" Version="6.1.0" />
         <PackageReference Include="Songhay.Modules.Bolero" Version="6.0.0" />
