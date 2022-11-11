@@ -1,0 +1,109 @@
+.video.presentation .row.form-inline {
+    margin-bottom: 2em;
+}
+
+.video.presentation .row.thumbs > .title {
+    color: #fff;
+}
+
+.video.presentation .row .description {
+    background-color: #000;
+    color: #fff;
+    font-size: 1.8em;
+    margin-left: -30px;
+    padding: 1em;
+}
+
+    .video.presentation .row .description a,
+    .video.presentation .row .description a:visited {
+        border-bottom: dashed 1px #fff;
+        color: #fff;
+    }
+
+        .video.presentation .row .description a:hover {
+            background-color: #fff;
+            border-bottom: dashed 1px #000;
+            color: #000;
+        }
+
+/*
+    medium: 320 x 180
+    (4 + 320 ) * 8 = 2592
+    (4 + 320 ) * 7 = 2268
+    (4 + 320 ) * 6 = 1944
+    (4 + 320 ) * 5 = 1620
+    (4 + 320 ) * 4 = 1296 => effective max width: 1296px or 4 thumbs
+    (4 + 320 ) * 3 = 972
+    (4 + 320 ) * 2 = 648
+*/
+
+@media (min-width: 1580px) {
+    .video.presentation .credits {
+        width: 1296px;
+    }
+
+    .video.presentation .row .description {
+        width: 1296px;
+        padding: 1em 2em;
+    }
+}
+
+@media (max-width: 1580px) {
+    .video.presentation .credits {
+        width: 1296px;
+    }
+
+    .video.presentation .row .description {
+        width: 1296px;
+        padding: 1em 2em;
+    }
+}
+
+@media (max-width: 1256px) {
+    .video.presentation .credits {
+        width: 972px;
+    }
+
+    .video.presentation .row .description {
+        width: 972px;
+        padding: 1em 2em;
+    }
+}
+
+@media (max-width: 932px) {
+    .video.presentation .credits {
+        width: 648px;
+    }
+
+    .video.presentation .row .description {
+        width: 648px;
+    }
+}
+
+.video.presentation .credits {
+    text-align: right;
+}
+
+    .video.presentation .credits > button > span {
+        background: url(https://songhay.blob.core.windows.net/shared-styles-svg/akyinkyin.svg) no-repeat top left;
+        background-size: contain;
+        cursor: pointer;
+        display: inline-block;
+        height: 52px;
+        width: 40px;
+    }
+
+    .video.presentation .credits > button {
+        height: 64px;
+        margin: 1em;
+        width: 64px;
+        opacity: 0.77;
+    }
+
+        .video.presentation .credits > button:hover {
+            opacity: 1.0;
+        }
+
+.video.presentation #ImageCreditsModal .credits-flow {
+    text-align: center;
+}
