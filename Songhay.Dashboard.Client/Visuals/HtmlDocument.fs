@@ -122,17 +122,9 @@ module HtmlDocument =
         let navbarMenuId = ("navMenu" |> Identifier.fromString) |> Some
         bulmaNavbarContainer
             (HasClasses (CssClasses [ NavbarFixedTop.CssClass; bulmaBackgroundGreys ]))
-            (studioLogoContainer
-                (bulmaNavbarBurger
-                    false
-                    navbarMenuId.Value
-                    (concat {
-                        span { AriaHidden.ToAttrWithTrueValue }
-                        span { AriaHidden.ToAttrWithTrueValue }
-                        span { AriaHidden.ToAttrWithTrueValue }
-                    })))
+            (studioLogoContainer (bulmaNavbarBurger false navbarMenuId.Value))
             navbarMenuId
-            (HasNode (bulmaNavbarMenuEnd navBarMenuItems))
+            (HasNode (bulmaNavbarMenuEnd NoCssClasses navBarMenuItems))
 
     let footerNode =
         let cssClassesParentLevel = CssClasses [ levelContainer; isMobileModifier ]

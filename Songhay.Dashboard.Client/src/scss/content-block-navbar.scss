@@ -25,9 +25,13 @@
 
 @media (max-width:1024px) { /* when the navbar burger is visible */
     .navbar-menu {
+        background-color: inherit;
         & > .navbar-end {
             & >.icon-text {
+                border-bottom: 2px solid $akyinkyin-light-tint;
                 display: block;
+                padding-bottom: .5rem;
+                padding-top: .5rem;
 
                 & > span > a > .display-text {
                     display: inline;
