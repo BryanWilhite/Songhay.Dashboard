@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "bundle": "npx webpack",
+    "concat:javascript": "npx concat -o wwwroot/js/rx.bundle.js node_modules/songhay/dist/songhay.min.js src/js/site.js",
     "index:sass": "npx sass ./src/scss/content-block.scss ./wwwroot/css/content-block.min.css --load-path=./node_modules --no-source-map --style=compressed"
   },
   "keywords": [],
@@ -12,9 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "clean-css-cli": "^5.6.1",
-    "sass": "^1.55.0",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
+    "concat": "^1.0.3",
+    "sass": "^1.55.0"
   },
   "dependencies": {
     "bulma": "^0.9.4",
