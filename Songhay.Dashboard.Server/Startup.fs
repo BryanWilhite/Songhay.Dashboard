@@ -3,6 +3,7 @@ namespace Songhay.Dashboard.Server
 open Microsoft.AspNetCore
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Hosting
+open Microsoft.AspNetCore.Rewrite
 open Microsoft.Extensions.DependencyInjection
 
 open Bolero.Remoting.Server
@@ -33,6 +34,7 @@ type Startup() =
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     member this.Configure(app: IApplicationBuilder, _: IWebHostEnvironment) =
         app
+            .UseRewriter(RewriteOptions().AddRedirectToWwwPermanent("songhaysystem.com").AddRedirectToHttpsPermanent())
             .UseRemoting()
             .UseStaticFiles()
             .UseRouting()
