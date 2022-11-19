@@ -30,4 +30,8 @@
     <ItemGroup>
       <ProjectReference Include="..\Songhay.Dashboard\Songhay.Dashboard.fsproj" />
     </ItemGroup>
+    <ItemGroup>
+      <Content Remove="package.json" />
+      <Content Remove="package-lock.json" />
+    </ItemGroup>
 </Project>

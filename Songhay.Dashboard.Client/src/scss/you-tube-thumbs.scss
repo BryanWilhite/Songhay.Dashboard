@@ -67,6 +67,12 @@ $key: 8-thumbs;
 
 .rx.b-roll {
     .video.thumbs {
+        &.header {
+            color: $var-thumbs-header-link-color;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
         & > .command {
             display: inline-block;
             margin: 0;
@@ -77,34 +83,6 @@ $key: 8-thumbs;
 
             &:hover {
                 opacity: 0.9;
-            }
-        }
-
-        &.header {
-            margin: 0 auto;
-            margin-top: 3rem;
-
-            & > a {
-                display: inline-block;
-
-                &:link,
-                &:visited {
-                    color: $var-thumbs-header-link-color;
-                    text-decoration: $var-thumbs-header-link-text-decoration;
-                }
-                & > span {
-                    display: inline-block;
-                }
-            }
-
-            & > span {
-                & > a {
-                    &:link,
-                    &:visited {
-                        color: $var-thumbs-header-link-color;
-                        text-decoration: none;
-                    }
-                }
             }
         }
 
