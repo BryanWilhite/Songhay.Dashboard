@@ -34,7 +34,7 @@ type Startup() =
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     member this.Configure(app: IApplicationBuilder, _: IWebHostEnvironment) =
         app
-            .UseRewriter(RewriteOptions().AddRedirectToWwwPermanent("songhaysystem.com").AddRedirectToHttpsPermanent())
+            .UseRewriter(RewriteOptions().AddRedirectToHttpsPermanent())
             .UseRemoting()
             .UseStaticFiles()
             .UseRouting()
