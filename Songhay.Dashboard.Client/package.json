@@ -4,7 +4,6 @@
   "description": "Bolero Client",
   "main": "index.js",
   "scripts": {
-    "bundle": "npx webpack",
     "concat:javascript": "npx concat -o wwwroot/js/rx.bundle.js node_modules/songhay/dist/songhay.min.js src/js/site.js",
     "index:sass": "npx sass ./src/scss/content-block.scss ./wwwroot/css/content-block.min.css --load-path=./node_modules --no-source-map --style=compressed"
   },

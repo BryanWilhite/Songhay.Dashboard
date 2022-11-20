@@ -139,13 +139,33 @@ module HtmlDocument =
                 (HasClasses (CssClasses [ isMobileModifier ]))
                 (forEach App.appSocialLinks <| studioAnchor)
         let signatureNode =
-            paragraphElement
-                NoCssClasses
-                NoAttr
-                (span {
-                    [ "copyright"; fontSize Size7 ] |> CssClasses.toHtmlClassFromList
-                    rawHtml $"© Bryan D. Wilhite {DateTime.Now.Year}"
-                })
+            concat {
+                paragraphElement
+                    NoCssClasses
+                    NoAttr
+                    (anchorElement
+                        (HasClasses (CssClasses [fontSize Size7]))
+                        (("privacy.html", UriKind.Relative) |> Uri)
+                        TargetBlank
+                        NoAttr
+                        (text "Privacy Policy"))
+                paragraphElement
+                    NoCssClasses
+                    NoAttr
+                    (anchorElement
+                        (HasClasses (CssClasses [fontSize Size7]))
+                        (("https://www.youtube.com/t/terms", UriKind.Absolute) |> Uri)
+                        TargetBlank
+                        NoAttr
+                        (text "YouTube™ Terms of Service"))
+                paragraphElement
+                    NoCssClasses
+                    NoAttr
+                    (span {
+                        [ "copyright"; fontSize Size7 ] |> CssClasses.toHtmlClassFromList
+                        rawHtml $"© Bryan D. Wilhite {DateTime.Now.Year}"
+                    })
+            }
         bulmaContainer
             ContainerWidthFluid
             NoCssClasses
