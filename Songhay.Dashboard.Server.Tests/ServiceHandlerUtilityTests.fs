@@ -35,7 +35,7 @@ module ServiceHandlerUtilityTests =
 
             let! responseResult = client |> trySendAsync (get uri) |> Async.AwaitTask
 
-            responseResult |> should be (ofCase<@ Result<HttpResponseMessage,exn>.Ok @>)
+            responseResult |> should be (ofCase <@ Result<HttpResponseMessage,exn>.Ok @>)
         }
 
     [<Theory>]
@@ -46,5 +46,5 @@ module ServiceHandlerUtilityTests =
 
             let! responseResult = client |> trySendAsync (get uri)
 
-            responseResult |> should be (ofCase<@ Result<HttpResponseMessage,exn>.Ok @>)
+            responseResult |> should be (ofCase <@ Result<HttpResponseMessage,exn>.Ok @>)
         }
