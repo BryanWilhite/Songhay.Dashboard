@@ -29,6 +29,16 @@
             overflow-y: scroll;
             padding-bottom: 10rem;
         }
+
+        & > .level > .level-right > .level-item > a {
+            &:link,
+            &:visited {
+                color: $var-thumbs-link-color;
+            }
+            &:hover {
+                color: $var-thumbs-link-hover-color;
+            }
+        }
     }
 }
 

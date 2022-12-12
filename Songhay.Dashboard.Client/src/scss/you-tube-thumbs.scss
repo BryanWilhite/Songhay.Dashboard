@@ -67,12 +67,6 @@ $key: 8-thumbs;
 
 .rx.b-roll {
     .video.thumbs {
-        &.header {
-            color: $var-thumbs-header-link-color;
-            margin: 0 auto;
-            margin-top: 3rem;
-        }
-
         & > .command {
             display: inline-block;
             margin: 0;
@@ -81,8 +75,28 @@ $key: 8-thumbs;
             position: relative;
             z-index: 2;
 
+            &:link,
+            &:visited {
+                color: $var-thumbs-command-color;
+            }
             &:hover {
+                color: $var-thumbs-command-hover-color;
                 opacity: 0.9;
+            }
+        }
+
+        &.header {
+            margin: 0 auto;
+
+            & > .level-left > .level-item > a {
+                &:link,
+                &:visited {
+                    color: $var-thumbs-header-link-color;
+                    text-decoration: $var-thumbs-header-link-text-decoration;
+                }
+                &:hover {
+                    color: $var-thumbs-header-link-hover-color;
+                }
             }
         }
 
@@ -115,16 +129,17 @@ $key: 8-thumbs;
                         opacity: 1;
                         overflow: hidden;
                         padding-left: 0.5rem;
+                        text-overflow: ellipsis;
                         white-space: normal;
 
                         & a {
                             &:link,
                             &:visited {
-                                color: #fff;
+                                color: $var-thumbs-link-color;
                                 text-decoration: none;
                             }
                             &:hover {
-                                color: #ff0;
+                                color: $var-thumbs-link-hover-color;
                                 background-color: transparent;
                             }
                         }
