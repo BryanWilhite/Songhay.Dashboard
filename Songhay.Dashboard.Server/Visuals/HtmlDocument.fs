@@ -15,9 +15,10 @@ module HtmlDocument =
                 attr.id ContentBlockComponent.Id
 
                 newLine; indent 2
-                rootComp<ContentBlockComponent>
+                comp<ContentBlockComponent>
             }
 
     let document = doctypeHtml {
-        (ContentBlockComponent.Id, boleroScript, rootCompContainer) |||> docElements
+        (ContentBlockComponent.Id, rootCompContainer) ||> docElements
+        boleroScript
     }

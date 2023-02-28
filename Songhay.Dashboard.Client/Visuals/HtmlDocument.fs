@@ -192,7 +192,7 @@ module HtmlDocument =
                     })
             })
 
-    let bodyElements (boleroScript: Node) (rootCompContainer: Node) =
+    let bodyElements (rootCompContainer: Node) =
         let svgSymbolsBlock = SonghaySvgData.Array |> svgSymbolsContainer
         concat {
             newLine; indent 2
@@ -205,7 +205,6 @@ module HtmlDocument =
             rootCompContainer
 
             newLine; indent 2
-            boleroScript
 
             newLine; indent 2
             footerElement
@@ -215,7 +214,7 @@ module HtmlDocument =
             newLine
         }
 
-    let docElements (rootCompId: string) (boleroScript: Node) (rootCompContainer: Node) =
+    let docElements (rootCompId: string) (rootCompContainer: Node) =
         concat {
             newLine; indent 1
             head { headChildElements rootCompId }
@@ -224,7 +223,7 @@ module HtmlDocument =
             body {
                 NavbarAncestorHasFixedTop.CssClass |> CssClasses.toHtmlClass
 
-                (boleroScript, rootCompContainer) ||> bodyElements
+                rootCompContainer |> bodyElements
             }
 
             newLine
