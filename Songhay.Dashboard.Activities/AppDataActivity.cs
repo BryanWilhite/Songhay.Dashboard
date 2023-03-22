@@ -160,7 +160,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
 
         internal void WriteServerMeta(JObject appJo)
         {
-            var serverMetaRoot = _metaSet.TryGetValueWithKey("serverMetaRoot", throwException: true);
+            var serverMetaRoot = _metaSet.TryGetValueWithKey("serverMetaRoot").ToReferenceTypeValueOrThrow();
 
             TraceSource?.TraceInformation($"writing server {serverMetaRoot}...");
 

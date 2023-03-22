@@ -83,7 +83,7 @@ module SyndicationFeedUtility =
                 }
             )
 
-    let fromInput element =
+    let fromInput feedsElement =
         [
             CodePen, nameof CodePen
             Flickr, nameof Flickr
@@ -94,8 +94,9 @@ module SyndicationFeedUtility =
         |> List.map
             (
                 fun (feedName, elementName) ->
-                    element
-                    |> tryGetFeedElement elementName
+                    feedsElement
+                    |> tryGetProperty (elementName.ToLowerInvariant())
+                    |> Result.bind tryGetFeedElement 
                     |> Result.bind (tryGetSyndicationFeed feedName)
                     |> Result.map (fun feed -> feedName, feed)
             )
