@@ -1,7 +1,8 @@
-namespace Songhay.Dashboard.Client.Components.Block
+namespace Songhay.Dashboard.Client.Components
 
 open System
 
+open Bolero
 open Bolero.Html
 
 open Songhay.Modules.Models
@@ -13,7 +14,8 @@ open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 
 open Songhay.Dashboard.Client.App.Colors
 
-module StudioTools =
+type StudioToolsComponent() =
+    inherit Component()
 
     let studioToolsData = [
         (
@@ -163,3 +165,8 @@ module StudioTools =
             HSizeAuto
             (HasClasses (CssClasses [ tileIsChild; notification; bulmaBackgroundGreyDarkTone ]))
             forEachNode
+
+    static member BComp = comp<StudioToolsComponent> { attr.empty() }
+
+    override this.Render() =
+        studioToolsNode

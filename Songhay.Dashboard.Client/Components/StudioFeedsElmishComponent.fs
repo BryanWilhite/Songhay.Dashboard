@@ -1,6 +1,7 @@
-namespace Songhay.Dashboard.Client.Components.Block
+namespace Songhay.Dashboard.Client.Components
 
 open System
+open Microsoft.AspNetCore.Components
 open Microsoft.JSInterop
 open Bolero
 open Bolero.Html
@@ -19,7 +20,8 @@ open Songhay.Dashboard.Models
 open Songhay.Dashboard.Client.App.Colors
 open Songhay.Dashboard.Client.ElmishTypes
 
-module StudioFeeds =
+type StudioFeedsElmishComponent() =
+    inherit ElmishComponent<Model, Message>()
 
     let studioFeedImage (feedName: FeedName, feed: SyndicationFeed) =
         match feedName with
@@ -112,7 +114,7 @@ module StudioFeeds =
             div {
                 [ tile; tileIsChild; elementTextAlign AlignCentered; p (All, L6)] |> CssClasses.toHtmlClassFromList
 
-                bulmaLoader (HasClasses (CssClasses [ m (All, L6) ]))
+                bulmaLoader <| HasClasses (CssClasses [ m (All, L6) ])
             }
         | Some feeds ->
             let l =
@@ -123,3 +125,12 @@ module StudioFeeds =
                 |> List.collect (fun (_, g) -> g |> List.sortBy (fun (_, feed) -> feed.feedTitle |> toBlogSlug))
 
             forEach l <| studioFeedsNode
+
+    static member EComp model dispatch =
+        ecomp<StudioFeedsElmishComponent, _, _> model dispatch { attr.empty() }
+
+    [<Inject>]
+    member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
+
+    override this.View model _ =
+        studioFeedsNodes this.JSRuntime model

@@ -8,8 +8,9 @@
         <Compile Include="ElmishTypes.fs" />
         <Compile Include="ElmishRoutes.fs" />
         <Compile Include="Visuals\HtmlDocument.fs" />
-        <Compile Include="Components\StudioFeeds.fs" />
-        <Compile Include="Components\StudioTools.fs" />
+        <Compile Include="Components\PageComponent.fs" />
+        <Compile Include="Components\StudioFeedsElmishComponent.fs" />
+        <Compile Include="Components\StudioToolsComponent.fs" />
         <Compile Include="Components\StudioLinksComponent.fs" />
         <Compile Include="Components\ElmishProgram.fs" />
         <Compile Include="Components/ContentBlockComponent.fs" />

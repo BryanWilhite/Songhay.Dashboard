@@ -11,10 +11,7 @@ open Bolero.Html
 open Bolero.Remoting.Client
 
 open Songhay.Modules.Models
-open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.RemoteHandlerUtility
-open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
-open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Components
 open Songhay.Player.YouTube.YtUriUtility
@@ -27,17 +24,9 @@ module ElmishProgram =
 
     type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
-    let viewContentBlockTemplate (jsRuntime: IJSRuntime) (model: Model) dispatch =
-        let studioPageNode node =
-            bulmaTile
-                HSizeAuto
-                (HasClasses (CssClasses [tileIsAncestor]))
-                (bulmaTile
-                    HSizeAuto
-                    (HasClasses (CssClasses [tileIsParent; tileIsVertical]))
-                    node)
+    let viewContentBlockTemplate (_: IJSRuntime) (model: Model) dispatch =
         ContentBlockTemplate()
-            .StudioLinks(StudioLinksComponent.EComp model dispatch)
+            .StudioLinks(StudioLinksComponent.BComp)
             .Error(
                 cond model.error <| function
                 | None -> empty()
@@ -49,8 +38,8 @@ module ElmishProgram =
             )
             .Content(
                 cond model.page <| function
-                | StudioFeedsPage -> studioPageNode (Block.StudioFeeds.studioFeedsNodes jsRuntime model)
-                | StudioToolsPage -> studioPageNode Block.StudioTools.studioToolsNode
+                | StudioFeedsPage -> PageComponent.BComp <| StudioFeedsElmishComponent.EComp model dispatch
+                | StudioToolsPage -> PageComponent.BComp StudioToolsComponent.BComp
             )
             .YouTubeThumbs(
                 YtThumbsComponent.EComp (Some "songhay tube") model.ytModel (Message.YouTubeMessage >> dispatch)
@@ -128,7 +117,7 @@ module ElmishProgram =
 
             | YouTubeMessage.OpenYtSetOverlay ->
                 if ytModel.ytModel.YtSetIndex.IsNone && ytModel.ytModel.YtSet.IsNone then
-                    ytModel, Cmd.ofMsg (Message.YouTubeMessage CallYtIndexAndSet)
+                    ytModel, Cmd.ofMsg <| Message.YouTubeMessage CallYtIndexAndSet
                 else
                     ytModel, Cmd.none
 

@@ -19,7 +19,7 @@ open Songhay.Dashboard.Client.App.Colors
 open Songhay.Dashboard.Client.ElmishTypes
 
 type StudioLinksComponent() =
-    inherit ElmishComponent<Model, Message>()
+    inherit Component()
 
     static let routeNodes =
         let routeData = [
@@ -58,13 +58,12 @@ type StudioLinksComponent() =
             (HasClasses (CssClasses [ tileIsChild ]))
             panelNode
 
-    static member EComp model dispatch =
-        ecomp<StudioLinksComponent, _, _> model dispatch { attr.empty() }
+    static member BComp = comp<StudioLinksComponent> { attr.empty() }
 
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
-    override this.View _ _ =
+    override this.Render() =
         bulmaTile
             HSizeAuto
             NoCssClasses
