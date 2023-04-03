@@ -5,15 +5,15 @@
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="App.fs" />
+        <Compile Include="ContentBlockTemplate.fs" />
         <Compile Include="ElmishTypes.fs" />
         <Compile Include="ElmishRoutes.fs" />
-        <Compile Include="Visuals\HtmlDocument.fs" />
+        <Compile Include="Components\HtmlDocumentComponent.fs" />
         <Compile Include="Components\PageComponent.fs" />
         <Compile Include="Components\StudioFeedsElmishComponent.fs" />
         <Compile Include="Components\StudioToolsComponent.fs" />
         <Compile Include="Components\StudioLinksComponent.fs" />
-        <Compile Include="Components\ElmishProgram.fs" />
-        <Compile Include="Components/ContentBlockComponent.fs" />
+        <Compile Include="Components\ContentBlockProgramComponent.fs" />
         <Compile Include="Startup.fs" />
     </ItemGroup>
     <ItemGroup>

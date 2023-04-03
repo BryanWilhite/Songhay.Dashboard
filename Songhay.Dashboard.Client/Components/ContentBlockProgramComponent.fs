@@ -1,53 +1,31 @@
 namespace Songhay.Dashboard.Client.Components
 
 open System
-
 open System.Net
+open Microsoft.AspNetCore.Components
 open Microsoft.JSInterop
 open Elmish
 
 open Bolero
 open Bolero.Html
+open Bolero.Remoting
 open Bolero.Remoting.Client
+open Bolero.Templating.Client
 
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.RemoteHandlerUtility
+
 open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Components
 open Songhay.Player.YouTube.YtUriUtility
 
+open Songhay.Dashboard.Client.ElmishRoutes
+open Songhay.Dashboard.Client.ElmishTypes
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.Components
-open Songhay.Dashboard.Client.ElmishTypes
 
-module ElmishProgram =
-
-    type ContentBlockTemplate = Template<"wwwroot/content-block.html">
-
-    let viewContentBlockTemplate (_: IJSRuntime) (model: Model) dispatch =
-        ContentBlockTemplate()
-            .StudioLinks(StudioLinksComponent.BComp)
-            .Error(
-                cond model.error <| function
-                | None -> empty()
-                | Some err ->
-                    ContentBlockTemplate.ErrorNotification()
-                        .Text(err)
-                        .Hide(fun _ -> dispatch Message.ClearError)
-                        .Elt()
-            )
-            .Content(
-                cond model.page <| function
-                | StudioFeedsPage -> PageComponent.BComp <| StudioFeedsElmishComponent.EComp model dispatch
-                | StudioToolsPage -> PageComponent.BComp StudioToolsComponent.BComp
-            )
-            .YouTubeThumbs(
-                YtThumbsComponent.EComp (Some "songhay tube") model.ytModel (Message.YouTubeMessage >> dispatch)
-            )
-            .YouTubeThumbsSet(
-                YtThumbsSetComponent.EComp model.ytModel (Message.YouTubeMessage >> dispatch)
-            )
-            .Elt()
+type ContentBlockProgramComponent() =
+    inherit ProgramComponent<Model, Message>()
 
     let update remote (jsRuntime: IJSRuntime) (message: Message) (model: Model) =
 
@@ -123,5 +101,50 @@ module ElmishProgram =
 
             | _ -> ytModel, Cmd.none
 
-    let view (jsRuntime: IJSRuntime) (model: Model) dispatch =
-        viewContentBlockTemplate jsRuntime model dispatch
+    let view (_: IJSRuntime) (model: Model) dispatch =
+        ContentBlockTemplate()
+            .StudioLinks(StudioLinksComponent.BComp)
+            .Error(
+                cond model.error <| function
+                | None -> empty()
+                | Some err ->
+                    ContentBlockTemplate.ErrorNotification()
+                        .Text(err)
+                        .Hide(fun _ -> dispatch Message.ClearError)
+                        .Elt()
+            )
+            .Content(
+                cond model.page <| function
+                | StudioFeedsPage -> PageComponent.BComp <| StudioFeedsElmishComponent.EComp model dispatch
+                | StudioToolsPage -> PageComponent.BComp StudioToolsComponent.BComp
+            )
+            .YouTubeThumbs(
+                YtThumbsComponent.EComp (Some "songhay tube") model.ytModel (Message.YouTubeMessage >> dispatch)
+            )
+            .YouTubeThumbsSet(
+                YtThumbsSetComponent.EComp model.ytModel (Message.YouTubeMessage >> dispatch)
+            )
+            .Elt()
+
+    static member val Id = "content-block" with get
+
+    [<Inject>]
+    member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
+
+    override this.Program =
+        let initModel =
+            {
+                error = None
+                feeds = None
+                page = StudioToolsPage
+                ytModel = YouTubeModel.initialize
+            }
+        let init = (fun _ -> initModel, Cmd.ofMsg (Message.YouTubeMessage YouTubeMessage.CallYtItems))
+        let update = update (this.Remote<DashboardService>()) this.JSRuntime
+        let view = view this.JSRuntime
+
+        Program.mkProgram init update view
+        |> Program.withRouter router
+#if DEBUG
+        |> Program.withHotReload
+#endif

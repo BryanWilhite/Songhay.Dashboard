@@ -1,10 +1,11 @@
-namespace Songhay.Dashboard.Client.Visuals
+namespace Songhay.Dashboard.Client.Components
 
 open System
 
 open Bolero
 open Bolero.Html
 
+open Microsoft.AspNetCore.Components
 open Songhay.Dashboard.Models
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.BoleroUtility
@@ -20,7 +21,9 @@ open Songhay.Modules.Bolero.Visuals.HeadElement
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.App.Colors
 
-module HtmlDocument =
+type HtmlDocumentComponent() =
+    inherit Component()
+
     let headChildElements (rootCompId: string) =
         concat {
             newLine; indent 2
@@ -228,3 +231,18 @@ module HtmlDocument =
 
             newLine
         }
+
+    static member BComp (rootCompId: string) (rootCompContainer: Node) =
+        comp<HtmlDocumentComponent> {
+            "ContentBlockProgramComponentId" => rootCompId
+            "RootCompContainer" => rootCompContainer
+        }
+
+    [<Parameter>]
+    member val ContentBlockProgramComponentId = String.Empty with get, set
+
+    [<Parameter>]
+    member val RootCompContainer = empty() with get, set
+
+    override this.Render() =
+        (this.ContentBlockProgramComponentId, this.RootCompContainer) ||> docElements
