@@ -5,7 +5,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DashboardServiceHandler.fs" />
-    <Compile Include="Visuals\HtmlDocument.fs" />
     <Compile Include="Startup.fs" />
   </ItemGroup>
   <ItemGroup>

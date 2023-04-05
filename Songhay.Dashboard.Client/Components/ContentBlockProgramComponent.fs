@@ -13,6 +13,7 @@ open Bolero.Remoting.Client
 open Bolero.Templating.Client
 
 open Songhay.Modules.Models
+open Songhay.Modules.Bolero.BoleroUtility
 open Songhay.Modules.Bolero.RemoteHandlerUtility
 
 open Songhay.Player.YouTube
@@ -127,6 +128,18 @@ type ContentBlockProgramComponent() =
             .Elt()
 
     static member val Id = "content-block" with get
+
+    static member PComp =
+        (
+            ContentBlockProgramComponent.Id
+            ,
+            div {
+                attr.id ContentBlockProgramComponent.Id
+
+                newLine; indent 2
+                comp<ContentBlockProgramComponent>
+            }
+        ) ||> HtmlDocumentComponent.BComp
 
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set

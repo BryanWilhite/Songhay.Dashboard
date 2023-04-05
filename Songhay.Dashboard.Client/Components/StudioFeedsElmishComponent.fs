@@ -79,13 +79,13 @@ type StudioFeedsElmishComponent() =
                     (HasNode (studioFeedIcon feedName))
                     (concat {
                         paragraphElement
-                            (HasClasses (CssClasses (title (HasFontSize Size4))))
+                            (HasClasses <| CssClasses (title (HasFontSize Size4)))
                             NoAttr
                             (text feed.feedTitle)
                         paragraphElement
-                            (HasClasses (CssClasses (subtitle (HasFontSize Size6))))
+                            (HasClasses <| CssClasses (subtitle (HasFontSize Size6)))
                             NoAttr
-                            (text (feed.modificationDate.ToString("yyyy-MM-dd")))
+                            (text <| feed.modificationDate.ToString("yyyy-MM-dd"))
                     })
                 bulmaContent
                     NoCssClasses
@@ -97,7 +97,7 @@ type StudioFeedsElmishComponent() =
         let cardNode =
             bulmaCard
                 (HasClasses (CssClasses [bulmaBackgroundGreyDarkTone]))
-                (HasNode (studioFeedImage (feedName, feed)))
+                (HasNode <| studioFeedImage (feedName, feed))
                 NoNode
                 NoNode
                 NoCssClasses
@@ -105,7 +105,7 @@ type StudioFeedsElmishComponent() =
 
         bulmaTile
             HSizeAuto
-            (HasClasses (CssClasses [ tileIsChild ]))
+            (HasClasses <| CssClasses [ tileIsChild ])
             cardNode
 
     let studioFeedsNodes (_: IJSRuntime) (model: Model) : Node =

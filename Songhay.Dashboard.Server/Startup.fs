@@ -8,11 +8,18 @@ open Microsoft.Extensions.DependencyInjection
 
 open Bolero.Remoting.Server
 open Bolero.Server
+open Bolero.Server.Html
 open Bolero.Templating.Server
 
+open Songhay.Dashboard.Client.Components
 open Songhay.Dashboard.Server
 
 type Startup() =
+
+    let htmlNode = doctypeHtml {
+        ContentBlockProgramComponent.PComp
+        boleroScript
+    }
 
     // This method gets called by the runtime. Use this method to add services to the container.
     // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -44,7 +51,7 @@ type Startup() =
                 endpoints.UseHotReload()
 #endif
                 endpoints.MapBlazorHub() |> ignore
-                endpoints.MapFallbackToBolero(Visuals.HtmlDocument.document) |> ignore)
+                endpoints.MapFallbackToBolero(htmlNode) |> ignore)
         |> ignore
 
 module Program =

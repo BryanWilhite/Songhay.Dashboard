@@ -128,7 +128,7 @@ type StudioToolsComponent() =
             let svgPathData = SonghaySvgData.Get(svgKey)
 
             bulmaMediaLeft
-                (HasClasses (CssClasses [ ShadeGreyDark.TextCssClass ]))
+                (HasClasses <| CssClasses [ ShadeGreyDark.TextCssClass ])
                 NoAttr
                 (bulmaImageContainer
                     (Square Square48)
@@ -140,12 +140,12 @@ type StudioToolsComponent() =
             HSizeAuto
             NoCssClasses
             (bulmaMedia
-                (HasClasses (CssClasses [ m (All, L3) ]))
+                (HasClasses <| CssClasses [ m (All, L3) ])
                 (HasNode (bulmaMediaLeftNode svgKey))
                 (bulmaContent
-                    (HasClasses (CssClasses [ m (T, L3) ]))
+                    (HasClasses <| CssClasses [ m (T, L3) ])
                     (anchorElement
-                        (HasClasses (CssClasses [ "title"; fontSize Size5 ]))
+                        (HasClasses <| CssClasses [ "title"; fontSize Size5 ])
                         location
                         TargetBlank
                         NoAttr
@@ -156,14 +156,14 @@ type StudioToolsComponent() =
         let getGroup g =
             bulmaTile
                 HSizeAuto
-                (HasClasses (CssClasses [ tileIsParent ]))
+                (HasClasses <| CssClasses [ tileIsParent ])
                 (forEach g <| toBulmaMediaNode)
 
         let forEachNode = forEach (studioToolsData |> List.chunkBySize 2) <| getGroup
 
         bulmaTile
             HSizeAuto
-            (HasClasses (CssClasses [ tileIsChild; notification; bulmaBackgroundGreyDarkTone ]))
+            (HasClasses <| CssClasses [ tileIsChild; notification; bulmaBackgroundGreyDarkTone ])
             forEachNode
 
     static member BComp = comp<StudioToolsComponent> { attr.empty() }

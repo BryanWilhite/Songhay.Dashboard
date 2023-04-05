@@ -58,17 +58,17 @@ type HtmlDocumentComponent() =
 
     let studioAnchor (title: DisplayText, href: Uri, id: Identifier) =
             anchorElement
-                (HasClasses (CssClasses [ levelItem; elementTextAlign AlignCentered ]))
+                (HasClasses <| CssClasses [ levelItem; elementTextAlign AlignCentered ])
                 href
                 TargetBlank
-                (HasAttr (attr.title title.Value))
+                (HasAttr <| attr.title title.Value)
                 (bulmaIcon
                     (((svgViewBoxSquare 24), SonghaySvgData.Get(id)) ||> svgElement))
 
     let studioLogo = span { (title (HasFontSize Size1)) |> CssClasses.toHtmlClassFromList; text "(::)" }
 
     let studioLogoContainer (navbarBurger: Node) =
-        let spanClasses = (CssClasses (title (HasFontSize Size2))).Append (hidden Touch)
+        let spanClasses = (CssClasses <| title (HasFontSize Size2)).Append (hidden Touch)
         concat {
             div {
                 [ "logo"; p (LR, L6); p (TB, L3) ] |> CssClasses.toHtmlClassFromList
@@ -110,7 +110,7 @@ type HtmlDocumentComponent() =
                     attr.title title.Value
                     span {
                         anchorElement
-                            (HasClasses(CssClasses [ "is-flex" ] ))
+                            (HasClasses <| CssClasses [ "is-flex" ] )
                             href
                             TargetBlank
                             (HasAttr(attr.title title.Value))
@@ -139,7 +139,7 @@ type HtmlDocumentComponent() =
             }
         let socialNode =
             bulmaLevel
-                (HasClasses (CssClasses [ isMobileModifier ]))
+                (HasClasses <| CssClasses [ isMobileModifier ])
                 (forEach App.appSocialLinks <| studioAnchor)
         let signatureNode =
             concat {
@@ -147,7 +147,7 @@ type HtmlDocumentComponent() =
                     NoCssClasses
                     NoAttr
                     (anchorElement
-                        (HasClasses (CssClasses [fontSize Size7]))
+                        (HasClasses <| CssClasses [fontSize Size7])
                         (("privacy.html", UriKind.Relative) |> Uri)
                         TargetBlank
                         NoAttr
@@ -156,7 +156,7 @@ type HtmlDocumentComponent() =
                     NoCssClasses
                     NoAttr
                     (anchorElement
-                        (HasClasses (CssClasses [fontSize Size7]))
+                        (HasClasses <| CssClasses [fontSize Size7])
                         (("https://www.youtube.com/t/terms", UriKind.Absolute) |> Uri)
                         TargetBlank
                         NoAttr
@@ -169,6 +169,7 @@ type HtmlDocumentComponent() =
                         rawHtml $"© Bryan D. Wilhite {DateTime.Now.Year}"
                     })
             }
+
         bulmaContainer
             ContainerWidthFluid
             NoCssClasses
@@ -177,20 +178,20 @@ type HtmlDocumentComponent() =
                     NoCssClasses
                     (concat {
                         bulmaColumn
-                            (HasClasses (CssClasses [ HSize4.CssClass; elementTextAlign AlignCentered ]))
+                            (HasClasses <| CssClasses [ HSize4.CssClass; elementTextAlign AlignCentered ])
                             studioLogo
                         bulmaColumn
-                            (HasClasses (CssClasses [ HSize4.CssClass ]))
+                            (HasClasses <| CssClasses [ HSize4.CssClass ])
                             socialNode
                         bulmaColumn
-                            (HasClasses (CssClasses [ HSize4.CssClass; elementTextAlign AlignCentered ]))
+                            (HasClasses <| CssClasses [ HSize4.CssClass; elementTextAlign AlignCentered ])
                             signatureNode
                     })
                 bulmaColumnsContainer
-                    (HasClasses (CssClasses [ AlignCentered.CssClass ]))
+                    (HasClasses <| CssClasses [ AlignCentered.CssClass ])
                     (concat {
                         bulmaColumn
-                            (HasClasses (CssClasses [ HSize4.CssClass ]))
+                            (HasClasses <| CssClasses [ HSize4.CssClass ])
                             versionsNode
                     })
             })
@@ -211,7 +212,7 @@ type HtmlDocumentComponent() =
 
             newLine; indent 2
             footerElement
-                (HasClasses (CssClasses [ nameof footer ]))
+                (HasClasses <| CssClasses [ nameof footer ])
                 footerNode
 
             newLine

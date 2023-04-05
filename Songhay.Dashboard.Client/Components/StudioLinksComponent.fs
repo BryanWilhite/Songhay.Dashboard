@@ -23,8 +23,8 @@ type StudioLinksComponent() =
 
     static let routeNodes =
         let routeData = [
-            (StudioFeedsPage, "studio feeds")
-            (StudioToolsPage, "studio tools")
+            StudioFeedsPage, "studio feeds"
+            StudioToolsPage, "studio tools"
         ]
 
         let routeNode (page, caption) =
@@ -36,7 +36,7 @@ type StudioLinksComponent() =
                 NavLinkMatch.All
                 (concat {
                     bulmaPanelIcon
-                        (HasClasses(CssClasses [m (B, L3)]))
+                        (HasClasses <| CssClasses [m (B, L3)])
                         (bulmaImageContainer
                             (Square Square24)
                             NoAttr
@@ -55,7 +55,7 @@ type StudioLinksComponent() =
 
         bulmaTile
             HSizeAuto
-            (HasClasses (CssClasses [ tileIsChild ]))
+            (HasClasses <| CssClasses [ tileIsChild ])
             panelNode
 
     static member BComp = comp<StudioLinksComponent> { attr.empty() }
@@ -69,5 +69,5 @@ type StudioLinksComponent() =
             NoCssClasses
             (bulmaTile
                 HSizeAuto
-                (HasClasses (CssClasses [tileIsParent]))
+                (HasClasses <| CssClasses [tileIsParent])
                 studioLinksNode)
