@@ -1,4 +1,4 @@
-namespace Songhay.Dashboard.Client
+namespace Songhay.Dashboard.Client.Models
 
 open Bolero
 

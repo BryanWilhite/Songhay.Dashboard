@@ -18,10 +18,10 @@ open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 
 open Songhay.Dashboard.Models
 open Songhay.Dashboard.Client.App.Colors
-open Songhay.Dashboard.Client.ElmishTypes
+open Songhay.Dashboard.Client.Models
 
 type StudioFeedsElmishComponent() =
-    inherit ElmishComponent<Model, Message>()
+    inherit ElmishComponent<DashboardModel, DashboardMessage>()
 
     let studioFeedImage (feedName: FeedName, feed: SyndicationFeed) =
         match feedName with
@@ -108,7 +108,7 @@ type StudioFeedsElmishComponent() =
             (HasClasses <| CssClasses [ tileIsChild ])
             cardNode
 
-    let studioFeedsNodes (_: IJSRuntime) (model: Model) : Node =
+    let studioFeedsNodes (_: IJSRuntime) (model: DashboardModel) : Node =
         match model.feeds with
         | None ->
             div {

@@ -2,7 +2,7 @@ namespace Songhay.Dashboard.Client
 
 open Bolero
 
-open Songhay.Dashboard.Client.ElmishTypes
+open Songhay.Dashboard.Client.Models
 
 module ElmishRoutes =
 

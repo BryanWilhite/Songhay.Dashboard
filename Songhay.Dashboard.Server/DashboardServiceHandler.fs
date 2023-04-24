@@ -16,9 +16,10 @@ open Songhay.Modules.HttpRequestMessageUtility
 open Songhay.Modules.Bolero.RemoteHandlerUtility
 
 open Songhay.Player.YouTube
+open Songhay.Player.YouTube.Models
 
 open Songhay.Dashboard
-open Songhay.Dashboard.Client.ElmishTypes
+open Songhay.Dashboard.Client.Models
 
 type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServiceHandler>, cache: IMemoryCache) =
     inherit RemoteHandler<DashboardService>()

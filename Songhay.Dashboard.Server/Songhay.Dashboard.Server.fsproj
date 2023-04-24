@@ -8,8 +8,8 @@
     <Compile Include="Startup.fs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FsToolkit.ErrorHandling" Version="4.4.0" />
-    <PackageReference Include="Songhay.Modules" Version="6.3.2" />
+    <PackageReference Include="FsToolkit.ErrorHandling" Version="4.6.0" />
+    <PackageReference Include="Songhay.Modules" Version="6.3.5" />
     <ProjectReference Include="..\Songhay.Dashboard.Client\Songhay.Dashboard.Client.fsproj" />
     <PackageReference Include="Bolero.Server" Version="0.21.25" />
     <PackageReference Include="Bolero.HotReload.Server" Version="0.21.4" />

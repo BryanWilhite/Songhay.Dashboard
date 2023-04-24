@@ -18,36 +18,37 @@ open Songhay.Modules.Bolero.RemoteHandlerUtility
 
 open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Components
+open Songhay.Player.YouTube.Models
 open Songhay.Player.YouTube.YtUriUtility
 
 open Songhay.Dashboard.Client.ElmishRoutes
-open Songhay.Dashboard.Client.ElmishTypes
+open Songhay.Dashboard.Client.Models
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.Components
 
 type ContentBlockProgramComponent() =
-    inherit ProgramComponent<Model, Message>()
+    inherit ProgramComponent<DashboardModel, DashboardMessage>()
 
-    let update remote (jsRuntime: IJSRuntime) (message: Message) (model: Model) =
+    let update remote (jsRuntime: IJSRuntime) (message: DashboardMessage) (model: DashboardModel) =
 
         match message with
-        | Message.ClearError -> { model with error = None }, Cmd.none
-        | Message.Error exn -> { model with error = Some exn.Message }, Cmd.none
-        | Message.GetFeeds ->
+        | DashboardMessage.ClearError -> { model with error = None }, Cmd.none
+        | DashboardMessage.Error exn -> { model with error = Some exn.Message }, Cmd.none
+        | DashboardMessage.GetFeeds ->
             let success (result: Result<string, HttpStatusCode>) =
                 let dataGetter = Songhay.Dashboard.ServiceHandlerUtility.toAppData
                 let feeds = (dataGetter, result) ||> toHandlerOutput None
                 GotFeeds feeds
             let uri = App.AppDataLocation |> Uri
-            let cmd = Cmd.OfAsync.either remote.getAppData uri success Message.Error
+            let cmd = Cmd.OfAsync.either remote.getAppData uri success DashboardMessage.Error
             { model with feeds = None }, cmd
-        | Message.GotFeeds feeds -> { model with feeds = feeds }, Cmd.none
-        | Message.SetPage page ->
+        | DashboardMessage.GotFeeds feeds -> { model with feeds = feeds }, Cmd.none
+        | DashboardMessage.SetPage page ->
             let m = { model with page = page }
             match page with
             | StudioFeedsPage -> m , Cmd.ofMsg GetFeeds
             | _ -> m, Cmd.none
-        | Message.YouTubeMessage ytMsg ->
+        | DashboardMessage.YouTubeMessage ytMsg ->
             let ytModel = {
                 model with ytModel = YouTubeModel.updateModel ytMsg model.ytModel
             }
@@ -62,9 +63,9 @@ type ContentBlockProgramComponent() =
                 let dataGetter = ServiceHandlerUtility.toYtSet
                 let set = (dataGetter, result) ||> toHandlerOutput None
                 let ytItemsSuccessMsg = YouTubeMessage.CalledYtSet set
-                Message.YouTubeMessage ytItemsSuccessMsg
+                DashboardMessage.YouTubeMessage ytItemsSuccessMsg
 
-            let failure ex = ((jsRuntime |> Some), ex) ||> ytMsg.failureMessage |> Message.YouTubeMessage
+            let failure ex = ((jsRuntime |> Some), ex) ||> ytMsg.failureMessage |> DashboardMessage.YouTubeMessage
 
             match ytMsg with
             | YouTubeMessage.CallYtItems ->
@@ -72,7 +73,7 @@ type ContentBlockProgramComponent() =
                     let dataGetter = ServiceHandlerUtility.toYtItems
                     let items = (dataGetter, result) ||> toHandlerOutput None
                     let ytItemsSuccessMsg = YouTubeMessage.CalledYtItems items
-                    Message.YouTubeMessage ytItemsSuccessMsg
+                    DashboardMessage.YouTubeMessage ytItemsSuccessMsg
                 let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
                 let cmd = Cmd.OfAsync.either remote.getYtItems uri success failure
                 ytModel, cmd
@@ -82,7 +83,7 @@ type ContentBlockProgramComponent() =
                     let dataGetter = ServiceHandlerUtility.toPublicationIndexData
                     let index = (dataGetter, result) ||> toHandlerOutput None
                     let ytItemsSuccessMsg = YouTubeMessage.CalledYtSetIndex index
-                    Message.YouTubeMessage ytItemsSuccessMsg
+                    DashboardMessage.YouTubeMessage ytItemsSuccessMsg
                 let uriIdx = YtIndexSonghay |> Identifier.Alphanumeric |> getPlaylistIndexUri
                 let cmdBatch = Cmd.batch [
                     Cmd.OfAsync.either remote.getYtSetIndex uriIdx success failure
@@ -96,13 +97,13 @@ type ContentBlockProgramComponent() =
 
             | YouTubeMessage.OpenYtSetOverlay ->
                 if ytModel.ytModel.YtSetIndex.IsNone && ytModel.ytModel.YtSet.IsNone then
-                    ytModel, Cmd.ofMsg <| Message.YouTubeMessage CallYtIndexAndSet
+                    ytModel, Cmd.ofMsg <| DashboardMessage.YouTubeMessage CallYtIndexAndSet
                 else
                     ytModel, Cmd.none
 
             | _ -> ytModel, Cmd.none
 
-    let view (_: IJSRuntime) (model: Model) dispatch =
+    let view (_: IJSRuntime) (model: DashboardModel) dispatch =
         ContentBlockTemplate()
             .StudioLinks(StudioLinksComponent.BComp)
             .Error(
@@ -111,7 +112,7 @@ type ContentBlockProgramComponent() =
                 | Some err ->
                     ContentBlockTemplate.ErrorNotification()
                         .Text(err)
-                        .Hide(fun _ -> dispatch Message.ClearError)
+                        .Hide(fun _ -> dispatch DashboardMessage.ClearError)
                         .Elt()
             )
             .Content(
@@ -120,10 +121,10 @@ type ContentBlockProgramComponent() =
                 | StudioToolsPage -> PageComponent.BComp StudioToolsComponent.BComp
             )
             .YouTubeThumbs(
-                YtThumbsComponent.EComp (Some "songhay tube") model.ytModel (Message.YouTubeMessage >> dispatch)
+                YtThumbsComponent.EComp (Some "songhay tube") model.ytModel (DashboardMessage.YouTubeMessage >> dispatch)
             )
             .YouTubeThumbsSet(
-                YtThumbsSetComponent.EComp model.ytModel (Message.YouTubeMessage >> dispatch)
+                YtThumbsSetComponent.EComp model.ytModel (DashboardMessage.YouTubeMessage >> dispatch)
             )
             .Elt()
 
@@ -152,7 +153,7 @@ type ContentBlockProgramComponent() =
                 page = StudioToolsPage
                 ytModel = YouTubeModel.initialize
             }
-        let init = (fun _ -> initModel, Cmd.ofMsg (Message.YouTubeMessage YouTubeMessage.CallYtItems))
+        let init = (fun _ -> initModel, Cmd.ofMsg (DashboardMessage.YouTubeMessage YouTubeMessage.CallYtItems))
         let update = update (this.Remote<DashboardService>()) this.JSRuntime
         let view = view this.JSRuntime
 
