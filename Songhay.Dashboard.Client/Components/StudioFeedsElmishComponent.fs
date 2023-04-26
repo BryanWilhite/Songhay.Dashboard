@@ -17,7 +17,6 @@ open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 
 open Songhay.Dashboard.Models
-open Songhay.Dashboard.Client.App.Colors
 open Songhay.Dashboard.Client.Models
 
 type StudioFeedsElmishComponent() =
@@ -27,7 +26,7 @@ type StudioFeedsElmishComponent() =
         match feedName with
         | CodePen | Flickr ->
             bulmaCardImageContainer
-                (HasClasses (CssClasses (imageContainer ThreeByTwo)))
+                NoCssClasses
                 (imageElement
                     NoCssClasses
                     NoAttr
@@ -72,8 +71,10 @@ type StudioFeedsElmishComponent() =
                     (text i.title)
             }
 
-        let cardContentNodes =
-            concat {
+        let articleNode =
+            article {
+                studioFeedImage (feedName, feed)
+
                 bulmaMedia
                     NoCssClasses
                     (HasNode (studioFeedIcon feedName))
@@ -87,6 +88,7 @@ type StudioFeedsElmishComponent() =
                             NoAttr
                             (text <| feed.modificationDate.ToString("yyyy-MM-dd"))
                     })
+
                 bulmaContent
                     NoCssClasses
                     (ul {
@@ -94,19 +96,10 @@ type StudioFeedsElmishComponent() =
                     })
             }
 
-        let cardNode =
-            bulmaCard
-                (HasClasses (CssClasses [bulmaBackgroundGreyDarkTone]))
-                (HasNode <| studioFeedImage (feedName, feed))
-                NoNode
-                NoNode
-                NoCssClasses
-                cardContentNodes
-
         bulmaTile
             HSizeAuto
             (HasClasses <| CssClasses [ tileIsChild ])
-            cardNode
+            articleNode
 
     let studioFeedsNodes (_: IJSRuntime) (model: DashboardModel) : Node =
         match model.feeds with
