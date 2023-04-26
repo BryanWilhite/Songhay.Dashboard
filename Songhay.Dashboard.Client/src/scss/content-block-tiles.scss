@@ -6,7 +6,7 @@
     }
 }
 
-.tile > article {
+.tile, .tile > article {
     min-width: 12em;
 
     &>figure {
