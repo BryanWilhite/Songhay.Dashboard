@@ -141,7 +141,7 @@ type StudioToolsComponent() =
             NoCssClasses
             (bulmaMedia
                 (HasClasses <| CssClasses [ m (All, L3) ])
-                (HasNode (bulmaMediaLeftNode svgKey))
+                (HasNode <| bulmaMediaLeftNode svgKey)
                 (bulmaContent
                     (HasClasses <| CssClasses [ m (T, L3) ])
                     (anchorElement

@@ -11,13 +11,13 @@ open Songhay.Modules.StringUtility
 
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.BodyElement
-open Songhay.Modules.Bolero.Visuals.Bulma.Component
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 
-open Songhay.Dashboard.Models
+open Songhay.Dashboard.Client.App.Colors
 open Songhay.Dashboard.Client.Models
+open Songhay.Dashboard.Models
 
 type StudioFeedsElmishComponent() =
     inherit ElmishComponent<DashboardModel, DashboardMessage>()
@@ -25,13 +25,13 @@ type StudioFeedsElmishComponent() =
     let studioFeedImage (feedName: FeedName, feed: SyndicationFeed) =
         match feedName with
         | CodePen | Flickr ->
-            bulmaCardImageContainer
-                NoCssClasses
-                (imageElement
-                    NoCssClasses
+            figure {
+                imageElement
+                    (HasClasses <| CssClasses [ m (LR, L1) ])
                     NoAttr
                     $"{feed.feedTitle} feed image"
-                    (feed.feedImage |> Option.get |> Uri))
+                    (feed.feedImage |> Option.get |> Uri)
+            }
         | _ -> empty()
 
     let studioFeedIcon (feedName: FeedName) =
@@ -63,6 +63,7 @@ type StudioFeedsElmishComponent() =
     let studioFeedsNode (feedName: FeedName, feed: SyndicationFeed) =
         let listItem (i: SyndicationFeedItem) =
             li {
+                content |> CssClasses.toHtmlClass
                 anchorElement
                     NoCssClasses
                     (i.link |> Uri)
@@ -73,10 +74,12 @@ type StudioFeedsElmishComponent() =
 
         let articleNode =
             article {
-                studioFeedImage (feedName, feed)
+                [ notification; bulmaBackgroundGreyDarkTone ] |> CssClasses.toHtmlClassFromList
+
+                (feedName, feed) |> studioFeedImage
 
                 bulmaMedia
-                    NoCssClasses
+                    (HasClasses <| CssClasses [ ShadeGreyDark.TextCssClass ])
                     (HasNode (studioFeedIcon feedName))
                     (concat {
                         paragraphElement
@@ -87,12 +90,9 @@ type StudioFeedsElmishComponent() =
                             (HasClasses <| CssClasses (subtitle (HasFontSize Size6)))
                             NoAttr
                             (text <| feed.modificationDate.ToString("yyyy-MM-dd"))
-                    })
-
-                bulmaContent
-                    NoCssClasses
-                    (ul {
-                        forEach (feed.feedItems |> List.take 10) <| listItem
+                        ul {
+                            forEach (feed.feedItems |> List.take 10) <| listItem
+                        }
                     })
             }
 
