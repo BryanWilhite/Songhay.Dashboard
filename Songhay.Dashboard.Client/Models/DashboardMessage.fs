@@ -6,7 +6,11 @@ open Songhay.Dashboard.Models
 
 type DashboardMessage =
     | ClearError
+    | CopyToClipboard of string
     | Error of exn
     | GetFeeds | GotFeeds of (FeedName * SyndicationFeed)[] option
     | SetPage of DashboardPage
+    | SetYouTubeFigureId of string
+    | SetYouTubeFigureTitle of string
+    | YouTubeFigureResolutionChange of string
     | YouTubeMessage of YouTubeMessage

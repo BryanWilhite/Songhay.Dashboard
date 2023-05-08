@@ -33,6 +33,9 @@ type ContentBlockProgramComponent() =
 
         match message with
         | DashboardMessage.ClearError -> { model with error = None }, Cmd.none
+        | DashboardMessage.CopyToClipboard data ->
+            jsRuntime.InvokeVoidAsync("window.navigator.clipboard.writeText", data).AsTask() |> ignore
+            model, Cmd.none
         | DashboardMessage.Error exn -> { model with error = Some exn.Message }, Cmd.none
         | DashboardMessage.GetFeeds ->
             let success (result: Result<string, HttpStatusCode>) =
@@ -48,6 +51,9 @@ type ContentBlockProgramComponent() =
             match page with
             | StudioFeedsPage -> m , Cmd.ofMsg GetFeeds
             | _ -> m, Cmd.none
+        | DashboardMessage.SetYouTubeFigureId data -> { model with ytFigureVideoId = data }, Cmd.none
+        | DashboardMessage.SetYouTubeFigureTitle data -> { model with ytFigureTitle = data }, Cmd.none
+        | DashboardMessage.YouTubeFigureResolutionChange res -> { model with ytFigureThumbRes = res }, Cmd.none
         | DashboardMessage.YouTubeMessage ytMsg ->
             let ytModel = {
                 model with ytModel = YouTubeModel.updateModel ytMsg model.ytModel
@@ -119,6 +125,7 @@ type ContentBlockProgramComponent() =
                 cond model.page <| function
                 | StudioFeedsPage -> PageComponent.BComp <| StudioFeedsElmishComponent.EComp model dispatch
                 | StudioToolsPage -> PageComponent.BComp StudioToolsComponent.BComp
+                | YouTubeFigurePage -> PageComponent.BComp <| YouTubeFigureElmishComponent.EComp model dispatch
             )
             .YouTubeThumbs(
                 YtThumbsComponent.EComp (Some "songhay tube") model.ytModel (DashboardMessage.YouTubeMessage >> dispatch)
@@ -151,6 +158,9 @@ type ContentBlockProgramComponent() =
                 error = None
                 feeds = None
                 page = StudioToolsPage
+                ytFigureTitle = "“It took every shred of grace and grit I had” - Bozoma Saint John"
+                ytFigureVideoId = "pkUK5LEZGa8"
+                ytFigureThumbRes = "maxresdefault"
                 ytModel = YouTubeModel.initialize
             }
         let init = (fun _ -> initModel, Cmd.ofMsg (DashboardMessage.YouTubeMessage YouTubeMessage.CallYtItems))

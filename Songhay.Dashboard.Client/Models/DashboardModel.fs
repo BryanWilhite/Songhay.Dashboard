@@ -9,5 +9,8 @@ type DashboardModel =
         error: string option
         feeds: (FeedName * SyndicationFeed)[] option
         page: DashboardPage
+        ytFigureThumbRes: string
+        ytFigureTitle: string
+        ytFigureVideoId: string
         ytModel: YouTubeModel
     }

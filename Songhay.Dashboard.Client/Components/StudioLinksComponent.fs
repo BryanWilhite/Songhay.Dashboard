@@ -26,6 +26,7 @@ type StudioLinksComponent() =
         let routeData = [
             StudioFeedsPage, "studio feeds"
             StudioToolsPage, "studio tools"
+            YouTubeFigurePage, "YouTube™ figure"
         ]
 
         let routeNode (page, caption) =
