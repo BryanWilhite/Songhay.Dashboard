@@ -14,5 +14,7 @@
         "codepen",
         "flickr",
         "subheader"
-    ]
+    ],
+    "FSharp.inlayHints.parameterNames": false,
+    "FSharp.showExplorerOnStartup": false
 }
