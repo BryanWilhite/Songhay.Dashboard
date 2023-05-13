@@ -11,6 +11,7 @@
         <Compile Include="Models\DashboardService.fs" />
         <Compile Include="Models\DashboardModel.fs" />
         <Compile Include="ElmishRoutes.fs" />
+        <Compile Include="ProgramComponentUtility.fs" />
         <Compile Include="Components\HtmlDocumentComponent.fs" />
         <Compile Include="Components\PageComponent.fs" />
         <Compile Include="Components\StudioFeedsElmishComponent.fs" />

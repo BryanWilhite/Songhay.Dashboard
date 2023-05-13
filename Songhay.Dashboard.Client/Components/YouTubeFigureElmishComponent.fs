@@ -1,6 +1,7 @@
 namespace Songhay.Dashboard.Client.Components
 
 open System
+open Microsoft.JSInterop
 
 open Bolero
 open Bolero.Html
@@ -91,7 +92,11 @@ type YouTubeFigureElmishComponent() =
                     a {
                        [ "button"; "is-primary"; "is-light" ] |> CssClasses.toHtmlClassFromList
                        click.PreventDefault
-                       on.click (fun _ -> CopyToClipboard (getClipboardData model) |> dispatch)
+                       on.click (fun _ ->
+                           let data = getClipboardData model
+                           model.boleroServices.jsRuntime.InvokeVoidAsync("window.navigator.clipboard.writeText", data).AsTask() |> ignore
+                       )
+
                        text "Copy Text"
                     }
                 }
