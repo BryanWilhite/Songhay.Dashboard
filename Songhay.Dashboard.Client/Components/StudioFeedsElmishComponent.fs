@@ -1,8 +1,7 @@
 namespace Songhay.Dashboard.Client.Components
 
 open System
-open Microsoft.AspNetCore.Components
-open Microsoft.JSInterop
+
 open Bolero
 open Bolero.Html
 
@@ -101,7 +100,7 @@ type StudioFeedsElmishComponent() =
             (HasClasses <| CssClasses [ tileIsChild ])
             articleNode
 
-    let studioFeedsNodes (_: IJSRuntime) (model: DashboardModel) : Node =
+    let studioFeedsNodes model =
         match model.feeds with
         | None ->
             div {
@@ -122,8 +121,5 @@ type StudioFeedsElmishComponent() =
     static member EComp model dispatch =
         ecomp<StudioFeedsElmishComponent, _, _> model dispatch { attr.empty() }
 
-    [<Inject>]
-    member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
-
     override this.View model _ =
-        studioFeedsNodes this.JSRuntime model
+        studioFeedsNodes model

@@ -1,8 +1,6 @@
 namespace Songhay.Dashboard.Client.Components
 
 open System
-open Microsoft.AspNetCore.Components
-open Microsoft.JSInterop
 
 open Bolero
 open Bolero.Html
@@ -29,7 +27,7 @@ type YouTubeFigureElmishComponent() =
             Environment.NewLine,
             (model |> ytVideoUri))
 
-    let divNode (_: IJSRuntime) (model: DashboardModel) dispatch =
+    let divNode model dispatch =
         let bulmaField (fId: string) (fLabel: string) (size: int) (bindAttr: Attr) =
             div {
                 [ "field"; CssClass.m (T, L1) ] |> CssClasses.toHtmlClassFromList
@@ -103,11 +101,8 @@ type YouTubeFigureElmishComponent() =
     static member EComp model dispatch =
         ecomp<YouTubeFigureElmishComponent, _, _> model dispatch { attr.empty() }
 
-    [<Inject>]
-    member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
-
     override this.View model dispatch =
         bulmaTile
             HSizeAuto
             (HasClasses <| CssClasses [ CssClass.tileIsChild; CssClass.notification; bulmaBackgroundGreyDarkTone ])
-            (divNode this.JSRuntime model dispatch)
+            (divNode model dispatch)

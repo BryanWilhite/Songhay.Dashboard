@@ -26,90 +26,133 @@ open Songhay.Dashboard.Client.Models
 open Songhay.Dashboard.Client
 open Songhay.Dashboard.Client.Components
 
+module ProgramComponentUtility =
+
+    let uriYtSet model =
+        (
+            YtIndexSonghay |> Identifier.Alphanumeric,
+            snd model.ytModel.YtSetIndexSelectedDocument
+        )
+        ||> getPlaylistSetUri
+
+    let successYtItems (result: Result<string, HttpStatusCode>) =
+        let dataGetter = ServiceHandlerUtility.toYtSet
+        let set = (dataGetter, result) ||> toHandlerOutput None
+        let ytItemsSuccessMsg = YouTubeMessage.CalledYtSet set
+
+        DashboardMessage.YouTubeMessage ytItemsSuccessMsg
+
+    let failure (jsRuntime: IJSRuntime) (ytMsg: YouTubeMessage) ex =
+        ((jsRuntime |> Some), ex)
+        ||> ytMsg.failureMessage |> DashboardMessage.YouTubeMessage
+
+    let getCommandForGetFeeds model =
+        let success (result: Result<string, HttpStatusCode>) =
+            let dataGetter = Songhay.Dashboard.ServiceHandlerUtility.toAppData
+            let feeds = (dataGetter, result) ||> toHandlerOutput None
+            GotFeeds feeds
+
+        let uri = App.AppDataLocation |> Uri
+
+        Cmd.OfAsync.either model.boleroServices.remote.getAppData uri success DashboardMessage.Error
+
+    let getCommandForCallYtItems model message =
+        let success (result: Result<string, HttpStatusCode>) =
+            let dataGetter = ServiceHandlerUtility.toYtItems
+            let items = (dataGetter, result) ||> toHandlerOutput None
+            let ytItemsSuccessMsg = YouTubeMessage.CalledYtItems items
+            DashboardMessage.YouTubeMessage ytItemsSuccessMsg
+
+        let failure = failure model.boleroServices.jsRuntime message
+
+        let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
+
+        Cmd.OfAsync.either
+            model.boleroServices.remote.getYtItems uri
+            success
+            failure
+
+    let getCommandForCallYtIndexAndSet model message =
+        let success (result: Result<string, HttpStatusCode>) =
+            let dataGetter = ServiceHandlerUtility.toPublicationIndexData
+            let index = (dataGetter, result) ||> toHandlerOutput None
+            let ytItemsSuccessMsg = YouTubeMessage.CalledYtSetIndex index
+            DashboardMessage.YouTubeMessage ytItemsSuccessMsg
+
+        let failure = failure model.boleroServices.jsRuntime message
+
+        let uriIdx = YtIndexSonghay |> Identifier.Alphanumeric |> getPlaylistIndexUri
+
+        Cmd.batch [
+            Cmd.OfAsync.either model.boleroServices.remote.getYtSetIndex uriIdx success failure
+            Cmd.OfAsync.either model.boleroServices.remote.getYtSet (uriYtSet model) successYtItems failure
+        ]
+
+    let getCommandForCallYtSet model message =
+        let failure = failure model.boleroServices.jsRuntime message
+
+        Cmd.OfAsync.either model.boleroServices.remote.getYtSet (uriYtSet model) successYtItems failure
+
+module pcu = ProgramComponentUtility
+
 type ContentBlockProgramComponent() =
     inherit ProgramComponent<DashboardModel, DashboardMessage>()
 
-    let update remote (jsRuntime: IJSRuntime) (message: DashboardMessage) (model: DashboardModel) =
+    let update message model =
 
         match message with
-        | DashboardMessage.ClearError -> { model with error = None }, Cmd.none
+        | DashboardMessage.ClearError ->
+            let m = { model with error = None }
+            m, Cmd.none
         | DashboardMessage.CopyToClipboard data ->
-            jsRuntime.InvokeVoidAsync("window.navigator.clipboard.writeText", data).AsTask() |> ignore
+            model.boleroServices.jsRuntime.InvokeVoidAsync("window.navigator.clipboard.writeText", data).AsTask() |> ignore
             model, Cmd.none
-        | DashboardMessage.Error exn -> { model with error = Some exn.Message }, Cmd.none
+        | DashboardMessage.Error exn ->
+            let m = { model with error = Some exn.Message }
+            m, Cmd.none
         | DashboardMessage.GetFeeds ->
-            let success (result: Result<string, HttpStatusCode>) =
-                let dataGetter = Songhay.Dashboard.ServiceHandlerUtility.toAppData
-                let feeds = (dataGetter, result) ||> toHandlerOutput None
-                GotFeeds feeds
-            let uri = App.AppDataLocation |> Uri
-            let cmd = Cmd.OfAsync.either remote.getAppData uri success DashboardMessage.Error
-            { model with feeds = None }, cmd
-        | DashboardMessage.GotFeeds feeds -> { model with feeds = feeds }, Cmd.none
+            let m = { model with feeds = None }
+            let cmd = pcu.getCommandForGetFeeds model
+            m, cmd
+        | DashboardMessage.GotFeeds feeds ->
+            let m = { model with feeds = feeds }
+            m, Cmd.none
         | DashboardMessage.SetPage page ->
             let m = { model with page = page }
             match page with
             | StudioFeedsPage -> m , Cmd.ofMsg GetFeeds
             | _ -> m, Cmd.none
-        | DashboardMessage.SetYouTubeFigureId data -> { model with ytFigureVideoId = data }, Cmd.none
-        | DashboardMessage.SetYouTubeFigureTitle data -> { model with ytFigureTitle = data }, Cmd.none
-        | DashboardMessage.YouTubeFigureResolutionChange res -> { model with ytFigureThumbRes = res }, Cmd.none
+        | DashboardMessage.SetYouTubeFigureId data ->
+            let m = { model with ytFigureVideoId = data }
+            m, Cmd.none
+        | DashboardMessage.SetYouTubeFigureTitle data ->
+            let m = { model with ytFigureTitle = data }
+            m, Cmd.none
+        | DashboardMessage.YouTubeFigureResolutionChange res ->
+            let m = { model with ytFigureThumbRes = res }
+            m, Cmd.none
         | DashboardMessage.YouTubeMessage ytMsg ->
-            let ytModel = {
-                model with ytModel = YouTubeModel.updateModel ytMsg model.ytModel
-            }
-            let uriYtSet =
-                (
-                    YtIndexSonghay |> Identifier.Alphanumeric,
-                    snd ytModel.ytModel.YtSetIndexSelectedDocument
-                )
-                ||> getPlaylistSetUri
-
-            let successYtItems (result: Result<string, HttpStatusCode>) =
-                let dataGetter = ServiceHandlerUtility.toYtSet
-                let set = (dataGetter, result) ||> toHandlerOutput None
-                let ytItemsSuccessMsg = YouTubeMessage.CalledYtSet set
-                DashboardMessage.YouTubeMessage ytItemsSuccessMsg
-
-            let failure ex = ((jsRuntime |> Some), ex) ||> ytMsg.failureMessage |> DashboardMessage.YouTubeMessage
+            let model = { model with ytModel = YouTubeModel.updateModel ytMsg model.ytModel }
 
             match ytMsg with
             | YouTubeMessage.CallYtItems ->
-                let success (result: Result<string, HttpStatusCode>) =
-                    let dataGetter = ServiceHandlerUtility.toYtItems
-                    let items = (dataGetter, result) ||> toHandlerOutput None
-                    let ytItemsSuccessMsg = YouTubeMessage.CalledYtItems items
-                    DashboardMessage.YouTubeMessage ytItemsSuccessMsg
-                let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
-                let cmd = Cmd.OfAsync.either remote.getYtItems uri success failure
-                ytModel, cmd
-
+                let cmd =
+                    pcu.getCommandForCallYtItems model ytMsg
+                model, cmd
             | YouTubeMessage.CallYtIndexAndSet ->
-                let success (result: Result<string, HttpStatusCode>) =
-                    let dataGetter = ServiceHandlerUtility.toPublicationIndexData
-                    let index = (dataGetter, result) ||> toHandlerOutput None
-                    let ytItemsSuccessMsg = YouTubeMessage.CalledYtSetIndex index
-                    DashboardMessage.YouTubeMessage ytItemsSuccessMsg
-                let uriIdx = YtIndexSonghay |> Identifier.Alphanumeric |> getPlaylistIndexUri
-                let cmdBatch = Cmd.batch [
-                    Cmd.OfAsync.either remote.getYtSetIndex uriIdx success failure
-                    Cmd.OfAsync.either remote.getYtSet uriYtSet successYtItems failure
-                ]
-                ytModel, cmdBatch
-
+                let cmdBatch = pcu.getCommandForCallYtIndexAndSet model ytMsg
+                model, cmdBatch
             | YouTubeMessage.CallYtSet _ ->
-                let cmd = Cmd.OfAsync.either remote.getYtSet uriYtSet successYtItems failure
-                ytModel, cmd
-
+                let cmd = pcu.getCommandForCallYtSet model ytMsg
+                model, cmd
             | YouTubeMessage.OpenYtSetOverlay ->
-                if ytModel.ytModel.YtSetIndex.IsNone && ytModel.ytModel.YtSet.IsNone then
-                    ytModel, Cmd.ofMsg <| DashboardMessage.YouTubeMessage CallYtIndexAndSet
+                if model.ytModel.YtSetIndex.IsNone && model.ytModel.YtSet.IsNone then
+                    model, Cmd.ofMsg <| DashboardMessage.YouTubeMessage CallYtIndexAndSet
                 else
-                    ytModel, Cmd.none
+                    model, Cmd.none
+            | _ -> model, Cmd.none
 
-            | _ -> ytModel, Cmd.none
-
-    let view (_: IJSRuntime) (model: DashboardModel) dispatch =
+    let view model dispatch =
         ContentBlockTemplate()
             .StudioLinks(StudioLinksComponent.BComp)
             .Error(
@@ -153,21 +196,10 @@ type ContentBlockProgramComponent() =
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
     override this.Program =
-        let initModel =
-            {
-                error = None
-                feeds = None
-                page = StudioToolsPage
-                ytFigureTitle = "“It took every shred of grace and grit I had” - Bozoma Saint John"
-                ytFigureVideoId = "pkUK5LEZGa8"
-                ytFigureThumbRes = "maxresdefault"
-                ytModel = YouTubeModel.initialize
-            }
-        let init = (fun _ -> initModel, Cmd.ofMsg (DashboardMessage.YouTubeMessage YouTubeMessage.CallYtItems))
-        let update = update (this.Remote<DashboardService>()) this.JSRuntime
-        let view = view this.JSRuntime
+        let m = DashboardModel.initialize (this.Remote<DashboardService>()) this.JSRuntime
+        let cmd = Cmd.ofMsg (YouTubeMessage.CallYtItems |> DashboardMessage.YouTubeMessage)
 
-        Program.mkProgram init update view
+        Program.mkProgram (fun _ -> m, cmd) update view
         |> Program.withRouter router
 #if DEBUG
         |> Program.withHotReload
