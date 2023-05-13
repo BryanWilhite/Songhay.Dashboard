@@ -19,21 +19,21 @@ open Songhay.Dashboard.Client
 
 module ProgramComponentUtility =
 
-    let uriYtSet model =
+    let ytSetUri model =
         (
             YtIndexSonghay |> Identifier.Alphanumeric,
             snd model.ytModel.YtSetIndexSelectedDocument
         )
         ||> getPlaylistSetUri
 
-    let successYtItems (result: Result<string, HttpStatusCode>) =
+    let ytItemsSuccessMsg (result: Result<string, HttpStatusCode>) =
         let dataGetter = ServiceHandlerUtility.toYtSet
         let set = (dataGetter, result) ||> toHandlerOutput None
         let ytItemsSuccessMsg = YouTubeMessage.CalledYtSet set
 
         DashboardMessage.YouTubeMessage ytItemsSuccessMsg
 
-    let failure (jsRuntime: IJSRuntime) (ytMsg: YouTubeMessage) ex =
+    let ytFailureMsg (jsRuntime: IJSRuntime) (ytMsg: YouTubeMessage) ex =
         ((jsRuntime |> Some), ex)
         ||> ytMsg.failureMessage |> DashboardMessage.YouTubeMessage
 
@@ -51,10 +51,10 @@ module ProgramComponentUtility =
         let success (result: Result<string, HttpStatusCode>) =
             let dataGetter = ServiceHandlerUtility.toYtItems
             let items = (dataGetter, result) ||> toHandlerOutput None
-            let ytItemsSuccessMsg = YouTubeMessage.CalledYtItems items
-            DashboardMessage.YouTubeMessage ytItemsSuccessMsg
+            let msg = YouTubeMessage.CalledYtItems items
+            DashboardMessage.YouTubeMessage msg
 
-        let failure = failure model.boleroServices.jsRuntime message
+        let failure = ytFailureMsg model.boleroServices.jsRuntime message
 
         let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
 
@@ -64,25 +64,27 @@ module ProgramComponentUtility =
             failure
 
     let getCommandForCallYtIndexAndSet model message =
-        let success (result: Result<string, HttpStatusCode>) =
+        let successMsg (result: Result<string, HttpStatusCode>) =
             let dataGetter = ServiceHandlerUtility.toPublicationIndexData
             let index = (dataGetter, result) ||> toHandlerOutput None
-            let ytItemsSuccessMsg = YouTubeMessage.CalledYtSetIndex index
-            DashboardMessage.YouTubeMessage ytItemsSuccessMsg
+            let msg = YouTubeMessage.CalledYtSetIndex index
+            DashboardMessage.YouTubeMessage msg
 
-        let failure = failure model.boleroServices.jsRuntime message
+        let failureMsg = ytFailureMsg model.boleroServices.jsRuntime message
 
         let uriIdx = YtIndexSonghay |> Identifier.Alphanumeric |> getPlaylistIndexUri
+        let uri = ytSetUri model
 
         Cmd.batch [
-            Cmd.OfAsync.either model.boleroServices.remote.getYtSetIndex uriIdx success failure
-            Cmd.OfAsync.either model.boleroServices.remote.getYtSet (uriYtSet model) successYtItems failure
+            Cmd.OfAsync.either model.boleroServices.remote.getYtSetIndex uriIdx successMsg failureMsg
+            Cmd.OfAsync.either model.boleroServices.remote.getYtSet uri ytItemsSuccessMsg failureMsg
         ]
 
     let getCommandForCallYtSet model message =
-        let failure = failure model.boleroServices.jsRuntime message
+        let failure = ytFailureMsg model.boleroServices.jsRuntime message
+        let uri = ytSetUri model
 
-        Cmd.OfAsync.either model.boleroServices.remote.getYtSet (uriYtSet model) successYtItems failure
+        Cmd.OfAsync.either model.boleroServices.remote.getYtSet uri ytItemsSuccessMsg failure
 
     let getCommandForSetPage page =
         match page with
