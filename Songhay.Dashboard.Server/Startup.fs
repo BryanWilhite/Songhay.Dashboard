@@ -28,7 +28,7 @@ type Startup() =
         services.AddServerSideBlazor() |> ignore
         services.AddHttpClient<DashboardServiceHandler>() |> ignore
         services
-            .AddRemoting<DashboardServiceHandler>()
+            .AddBoleroRemoting<DashboardServiceHandler>()
 #if !DEBUG
             .AddBoleroHost(server = false, prerendered = true, devToggle = false)
 #endif

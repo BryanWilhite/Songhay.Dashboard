@@ -8,6 +8,7 @@ open Bolero.Html
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.Models
 open Songhay.Modules.Bolero.Visuals.BodyElement
+open Songhay.Modules.Bolero.Visuals.SvgElement
 open Songhay.Modules.Bolero.Visuals.Bulma.CssClass
 open Songhay.Modules.Bolero.Visuals.Bulma.Element
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
