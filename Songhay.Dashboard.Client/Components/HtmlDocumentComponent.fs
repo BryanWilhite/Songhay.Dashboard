@@ -49,7 +49,7 @@ type HtmlDocumentComponent() =
                 (("favicon.ico", UriKind.Relative) |> Uri)
 
             newLine; indent 2
-            script { attr.src "js/rx.bundle.js" }
+            script { attr.src "js/songhay-dashboard.min.js" }
 
             newLine; indent 2
             App.AppTitle |> titleElement

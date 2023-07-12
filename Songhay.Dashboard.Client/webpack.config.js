@@ -1,15 +1,68 @@
 const path = require('path');
 
-module.exports = {
+const webpack = require('webpack');
+
+const TerserJSPlugin = require('terser-webpack-plugin');
+
+const sharedConfig = {
     entry: {
-        rx: [
-            path.resolve(__dirname, 'node_modules/songhay/dist/songhay.js'),
-            path.resolve(__dirname, 'src/js/site.js')
+        scripts: [
+            './src/_index.ts',
         ]
     },
-    output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'wwwroot/js'),
+    plugins: [
+        new webpack.ProgressPlugin(),
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                use: [
+                    {
+                        loader: 'ts-loader',
+                        options: { configFile: 'tsconfig.json'}
+                    }
+                ],
+            },
+        ],
     },
-    mode: 'production'
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
 };
+
+const outputLibraryConfig = {
+    library: {
+        name: 'rx',
+        type: 'var',
+    },
+};
+
+const defaultConfig = {
+    name: 'default-config',
+    output: {
+        filename: 'songhay-dashboard.js',
+        path: path.resolve(__dirname, 'wwwroot', 'js'),
+        ...outputLibraryConfig
+    },
+    optimization: {
+        minimize: false,
+    },
+};
+
+const optimizationConfig = {
+    name: 'optimization-config',
+    output: {
+        filename: 'songhay-dashboard.min.js',
+        path: path.resolve(__dirname, 'wwwroot', 'js'),
+        ...outputLibraryConfig
+    },
+    optimization: {
+        minimizer: [new TerserJSPlugin({})],
+    },
+};
+
+module.exports = [
+    {...sharedConfig,...defaultConfig},
+    {...sharedConfig,...optimizationConfig},
+];

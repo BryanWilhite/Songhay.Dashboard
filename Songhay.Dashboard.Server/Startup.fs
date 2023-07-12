@@ -42,7 +42,6 @@ type Startup() =
     member this.Configure(app: IApplicationBuilder, _: IWebHostEnvironment) =
         app
             .UseRewriter(RewriteOptions().AddRedirectToHttpsPermanent())
-            .UseRemoting()
             .UseStaticFiles()
             .UseRouting()
             .UseBlazorFrameworkFiles()
