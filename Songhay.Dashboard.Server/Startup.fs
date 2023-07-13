@@ -49,6 +49,7 @@ type Startup() =
 #if DEBUG
                 endpoints.UseHotReload()
 #endif
+                endpoints.MapBoleroRemoting() |> ignore
                 endpoints.MapBlazorHub() |> ignore
                 endpoints.MapFallbackToBolero(htmlNode) |> ignore)
         |> ignore
