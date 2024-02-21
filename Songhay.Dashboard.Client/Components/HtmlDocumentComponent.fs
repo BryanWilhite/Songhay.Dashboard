@@ -58,13 +58,11 @@ type HtmlDocumentComponent() =
         }
 
     let studioAnchor (title: DisplayText, href: Uri, id: Identifier) =
-            anchorElement
-                (HasClasses <| CssClasses [ levelItem; elementTextAlign AlignCentered ])
-                href
-                TargetBlank
-                (HasAttr <| attr.title title.Value)
-                (bulmaIcon
-                    (((svgViewBoxSquare 24), SonghaySvgData.Get(id)) ||> svgElement))
+        anchorElement
+            (HasClasses <| CssClasses [ levelItem; elementTextAlign AlignCentered ])
+            (HasAttr <| attrs { attr.href href; TargetBlank.Value ; attr.title title.Value })
+            (bulmaIcon
+                (((svgViewBoxSquare 24), SonghaySvgData.Get(id)) ||> svgElement))
 
     let studioLogo = span { (title (HasFontSize Size1)) |> CssClasses.toHtmlClassFromList; text "(::)" }
 
@@ -112,9 +110,7 @@ type HtmlDocumentComponent() =
                     span {
                         anchorElement
                             (HasClasses <| CssClasses [ "is-flex" ] )
-                            href
-                            TargetBlank
-                            (HasAttr(attr.title title.Value))
+                            (HasAttr <| attrs { attr.href href; TargetBlank.Value ; attr.title title.Value })
                             (concat {
                                 bulmaIcon (svgElement (bulmaIconSvgViewBox Square24) (SonghaySvgData.Get(id)))
                                 span { "display-text" |> CssClasses.toHtmlClass; text title.Value }
@@ -149,18 +145,14 @@ type HtmlDocumentComponent() =
                     NoAttr
                     (anchorElement
                         (HasClasses <| CssClasses [fontSize Size7])
-                        (("privacy.html", UriKind.Relative) |> Uri)
-                        TargetBlank
-                        NoAttr
+                        (HasAttr <| attrs { TargetBlank.Value; ("privacy.html", UriKind.Relative) |> Uri |> attr.href })
                         (text "Privacy Policy"))
                 paragraphElement
                     NoCssClasses
                     NoAttr
                     (anchorElement
                         (HasClasses <| CssClasses [fontSize Size7])
-                        (("https://www.youtube.com/t/terms", UriKind.Absolute) |> Uri)
-                        TargetBlank
-                        NoAttr
+                        (HasAttr <| attrs { TargetBlank.Value; ("https://www.youtube.com/t/terms", UriKind.Relative) |> Uri |> attr.href })
                         (text "YouTube™ Terms of Service"))
                 paragraphElement
                     NoCssClasses

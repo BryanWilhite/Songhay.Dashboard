@@ -147,11 +147,9 @@ type StudioToolsComponent() =
                     (HasClasses <| CssClasses [ m (T, L3) ])
                     (anchorElement
                         (HasClasses <| CssClasses [ "title"; fontSize Size5 ])
-                        location
-                        TargetBlank
-                        NoAttr
+                        (HasAttr <| attrs { TargetBlank.Value; location |> attr.href })
                         (text title.Value)
-                        )))
+                )))
 
     let studioToolsNode =
         let getGroup g =

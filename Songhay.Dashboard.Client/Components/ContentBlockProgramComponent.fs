@@ -1,5 +1,6 @@
 namespace Songhay.Dashboard.Client.Components
 
+open System.Net.Http
 open Microsoft.AspNetCore.Components
 open Microsoft.JSInterop
 open Elmish
@@ -7,7 +8,6 @@ open Elmish
 open Bolero
 open Bolero.Html
 open Bolero.Remoting
-open Bolero.Remoting.Client
 open Bolero.Templating.Client
 
 open Songhay.Modules.Bolero.BoleroUtility
@@ -77,10 +77,10 @@ type ContentBlockProgramComponent() =
                 | YouTubeFigurePage -> PageComponent.BComp <| YouTubeFigureElmishComponent.EComp model dispatch
             )
             .YouTubeThumbs(
-                YtThumbsComponent.EComp (Some "songhay tube") model.ytModel (DashboardMessage.YouTubeMessage >> dispatch)
+                YtThumbsContainerElmishComponent.EComp (Some "songhay tube") model.ytModel (DashboardMessage.YouTubeMessage >> dispatch)
             )
             .YouTubeThumbsSet(
-                YtThumbsSetComponent.EComp model.ytModel (DashboardMessage.YouTubeMessage >> dispatch)
+                YtThumbsSetElmishComponent.EComp model.ytModel (DashboardMessage.YouTubeMessage >> dispatch)
             )
             .Elt()
 
@@ -99,10 +99,13 @@ type ContentBlockProgramComponent() =
         ) ||> HtmlDocumentComponent.BComp
 
     [<Inject>]
+    member val HttpClient = Unchecked.defaultof<HttpClient> with get, set
+
+    [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
     override this.Program =
-        let m = DashboardModel.initialize (this.Remote<DashboardService>()) this.JSRuntime
+        let m = DashboardModel.initialize (this.Remote<DashboardService>()) this.HttpClient this.JSRuntime this.NavigationManager
         let cmd = Cmd.ofMsg (YouTubeMessage.CallYtItems |> DashboardMessage.YouTubeMessage)
 
         Program.mkProgram (fun _ -> m, cmd) update view

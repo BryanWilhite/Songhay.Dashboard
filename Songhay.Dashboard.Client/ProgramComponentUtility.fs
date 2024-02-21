@@ -5,8 +5,6 @@ open System.Net
 open Microsoft.JSInterop
 open Elmish
 
-open Bolero.Remoting.Client
-
 open Songhay.Modules.Models
 open Songhay.Modules.Bolero.RemoteHandlerUtility
 
@@ -22,7 +20,7 @@ module ProgramComponentUtility =
     let ytSetUri model =
         (
             YtIndexSonghay |> Identifier.Alphanumeric,
-            snd model.ytModel.YtSetIndexSelectedDocument
+            model.ytModel.getSelectedDocumentClientId()
         )
         ||> getPlaylistSetUri
 
@@ -100,7 +98,7 @@ module ProgramComponentUtility =
         | YouTubeMessage.CallYtSet _ ->
             getCommandForCallYtSet model message
         | YouTubeMessage.OpenYtSetOverlay ->
-            if model.ytModel.YtSetIndex.IsNone && model.ytModel.YtSet.IsNone then
+            if model.ytModel.ytSetIndex.IsNone && model.ytModel.ytSet.IsNone then
                 Cmd.ofMsg <| DashboardMessage.YouTubeMessage CallYtIndexAndSet
             else
                 Cmd.none

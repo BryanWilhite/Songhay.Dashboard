@@ -11,7 +11,7 @@
     <PackageReference Include="FsToolkit.ErrorHandling" Version="4.15.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.27" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
-    <PackageReference Include="Songhay.Modules" Version="6.3.7" />
+    <PackageReference Include="Songhay.Modules" Version="6.4.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

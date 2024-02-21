@@ -66,9 +66,7 @@ type StudioFeedsElmishComponent() =
                 content |> CssClasses.toHtmlClass
                 anchorElement
                     NoCssClasses
-                    (i.link |> Uri)
-                    TargetBlank
-                    NoAttr
+                    (HasAttr <| attrs { TargetBlank.Value; (i.link |> Uri) |> attr.href })
                     (text i.title)
             }
 
