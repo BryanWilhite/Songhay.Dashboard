@@ -8,12 +8,18 @@
     <Compile Include="Startup.fs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FsToolkit.ErrorHandling" Version="4.8.0" />
+    <PackageReference Include="FsToolkit.ErrorHandling" Version="4.15.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.27" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
     <PackageReference Include="Songhay.Modules" Version="6.3.7" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <ProjectReference Include="..\Songhay.Dashboard.Client\Songhay.Dashboard.Client.fsproj" />
-    <PackageReference Include="Bolero.Server" Version="0.22.45" />
+    <PackageReference Include="Bolero.Server" Version="0.23.52" />
     <PackageReference Include="Bolero.HotReload.Server" Version="0.22.6" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.10" />
-    <PackageReference Update="FSharp.Core" Version="7.0.300" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.27" />
+    <PackageReference Update="FSharp.Core" Version="8.0.200" />
   </ItemGroup>
 </Project>

@@ -22,15 +22,20 @@
         <Compile Include="Startup.fs" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Bolero" Version="0.22.45" />
-        <PackageReference Include="Bolero.Build" Version="0.22.45" />
+        <PackageReference Include="Bolero" Version="0.23.52" />
+        <PackageReference Include="Bolero.Build" Version="0.23.52" />
         <PackageReference Include="Bolero.HotReload" Version="0.22.6" />
-        <PackageReference Include="FsToolkit.ErrorHandling" Version="4.8.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.10" />
+        <PackageReference Include="FsToolkit.ErrorHandling" Version="4.15.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.27" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
         <PackageReference Include="Songhay.Modules.Bolero" Version="6.3.0" />
         <PackageReference Include="Songhay.Player.YouTube" Version="6.2.1" />
-        <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
-        <PackageReference Update="FSharp.Core" Version="7.0.300" />
+        <PackageReference Include="System.Net.Http.Json" Version="6.0.1" />
+        <PackageReference Update="FSharp.Core" Version="8.0.200" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Songhay.Dashboard\Songhay.Dashboard.fsproj" />
