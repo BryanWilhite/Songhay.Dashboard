@@ -5,9 +5,7 @@
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="App.fs" />
-        <Compile Include="Models\ContentBlockTemplate.fs" />
-        <Compile Include="Models\DashboardPage.fs" />
-        <Compile Include="Models\DashboardMessage.fs" />
+        <Compile Include="Models\DashboardPrimitives.fs" />
         <Compile Include="Models\DashboardService.fs" />
         <Compile Include="Models\DashboardModel.fs" />
         <Compile Include="ElmishRoutes.fs" />

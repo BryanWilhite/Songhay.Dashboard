@@ -25,7 +25,7 @@ module pcu = ProgramComponentUtility
 type ContentBlockProgramComponent() =
     inherit ProgramComponent<DashboardModel, DashboardMessage>()
 
-    let update message model =
+    let update message (model: DashboardModel) =
         match message with
         | DashboardMessage.ClearError ->
             let m = { model with error = None }
