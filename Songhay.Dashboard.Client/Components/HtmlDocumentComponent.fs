@@ -152,7 +152,7 @@ type HtmlDocumentComponent() =
                     NoAttr
                     (anchorElement
                         (HasClasses <| CssClasses [fontSize Size7])
-                        (HasAttr <| attrs { TargetBlank.Value; ("https://www.youtube.com/t/terms", UriKind.Relative) |> Uri |> attr.href })
+                        (HasAttr <| attrs { TargetBlank.Value; ("https://www.youtube.com/t/terms", UriKind.Absolute) |> Uri |> attr.href })
                         (text "YouTube™ Terms of Service"))
                 paragraphElement
                     NoCssClasses
