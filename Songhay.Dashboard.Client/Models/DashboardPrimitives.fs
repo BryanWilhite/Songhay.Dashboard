@@ -13,12 +13,15 @@ type DashboardPage =
     | [<EndPoint "/feeds">] StudioFeedsPage
     | [<EndPoint "/yt/figure">] YouTubeFigurePage
 
+type DashboardVisualState =
+    | YouTubeFigureId of string
+    | YouTubeFigureTitle of string
+    | YouTubeFigureResolution of string
+
 type DashboardMessage =
     | ClearError
     | Error of exn
     | GetFeeds | GotFeeds of (FeedName * SyndicationFeed)[] option
     | SetPage of DashboardPage
-    | SetYouTubeFigureId of string
-    | SetYouTubeFigureTitle of string
-    | YouTubeFigureResolutionChange of string
+    | ChangeVisualState of DashboardVisualState
     | YouTubeMessage of YouTubeMessage

@@ -27,31 +27,25 @@ type ContentBlockProgramComponent() =
 
     let update message (model: DashboardModel) =
         match message with
-        | DashboardMessage.ClearError ->
+        | ClearError ->
             let m = { model with error = None }
             m, Cmd.none
-        | DashboardMessage.Error exn ->
+        | Error exn ->
             let m = { model with error = Some exn.Message }
             m, Cmd.none
-        | DashboardMessage.GetFeeds ->
+        | GetFeeds ->
             let m = { model with feeds = None }
             let cmd = pcu.getCommandForGetFeeds model
             m, cmd
-        | DashboardMessage.GotFeeds feeds ->
+        | GotFeeds feeds ->
             let m = { model with feeds = feeds }
             m, Cmd.none
-        | DashboardMessage.SetPage page ->
+        | SetPage page ->
             let m = { model with page = page }
             let cmd = pcu.getCommandForSetPage page
             m, cmd
-        | DashboardMessage.SetYouTubeFigureId data ->
-            let m = { model with ytFigureVideoId = data }
-            m, Cmd.none
-        | DashboardMessage.SetYouTubeFigureTitle data ->
-            let m = { model with ytFigureTitle = data }
-            m, Cmd.none
-        | DashboardMessage.YouTubeFigureResolutionChange res ->
-            let m = { model with ytFigureThumbRes = res }
+        | ChangeVisualState state ->
+            let m = { model with visualStates = model.set state }
             m, Cmd.none
         | DashboardMessage.YouTubeMessage ytMessage ->
             let m = { model with ytModel = YouTubeModel.updateModel ytMessage model.ytModel }
