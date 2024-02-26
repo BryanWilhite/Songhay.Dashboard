@@ -19,16 +19,20 @@ type YouTubeFigureElmishComponent() =
 
     static let click = DomElementEvent.Click
 
-    let ytVideoUri (model: DashboardModel) = $"https://www.youtube.com/watch?v={model.getYouTubeFigureId()}"
+    let ytVideoUri (model: DashboardModel) =
+        let ytFigure = model.getYouTubeFigure()
+        $"https://www.youtube.com/watch?v={ytFigure.id}"
 
     let getClipboardData (model: DashboardModel) =
+        let ytFigure = model.getYouTubeFigure()
         String.Concat(
-            model.getYouTubeFigureTitle(),
+            ytFigure.title,
             Environment.NewLine,
             Environment.NewLine,
             (model |> ytVideoUri))
 
     let divNode (model: DashboardModel) dispatch =
+        let ytFigure = model.getYouTubeFigure()
         let bulmaField (fId: string) (fLabel: string) (size: int) (bindAttr: Attr) =
             div {
                 [ "field"; CssClass.m (T, L1) ] |> CssClasses.toHtmlClassFromList
@@ -56,18 +60,18 @@ type YouTubeFigureElmishComponent() =
             div {
                 [ "select"; CssClass.m (B, L4) ] |> CssClasses.toHtmlClassFromList
                 select {
-                    on.change (fun e -> dispatch <| ChangeVisualState (YouTubeFigureResolution $"{e.Value}"))
+                    on.change (fun e -> dispatch <| ChangeVisualState (YouTubeFigure { ytFigure with resolution = $"{e.Value}" }))
                     forEach data <| fun res -> option { text res }
                 }
             }
 
         let bindTitle = bind.input.string
-                            (model.getYouTubeFigureTitle())
-                            (fun s -> dispatch <| ChangeVisualState (YouTubeFigureTitle s))
+                            ytFigure.title
+                            (fun s -> dispatch <| ChangeVisualState (YouTubeFigure {ytFigure with title = s}))
 
         let bindVideoId = bind.input.string
-                              (model.getYouTubeFigureId())
-                              (fun s -> dispatch <| ChangeVisualState (YouTubeFigureId s))
+                              ytFigure.id
+                              (fun s -> dispatch <| ChangeVisualState (YouTubeFigure {ytFigure with id = s}))
 
         div {
             CssClass.m (All, L4) |> CssClasses.toHtmlClass
@@ -79,14 +83,14 @@ type YouTubeFigureElmishComponent() =
                     attr.href (model |> ytVideoUri)
                     attr.target "_blank"
                     img {
-                        attr.alt <| model.getYouTubeFigureTitle()
-                        attr.src $"https://img.youtube.com/vi/{model.getYouTubeFigureId()}/{model.getYouTubeFigureResolution()}.jpg"
+                        attr.alt <| ytFigure.title
+                        attr.src $"https://img.youtube.com/vi/{ytFigure.id}/{ytFigure.resolution}.jpg"
                         attr.width 480
                     }
                 }
                 p {
                     ShadeWhiteTer.TextCssClass |> CssClasses.toHtmlClass
-                    small { text <| model.getYouTubeFigureTitle() }
+                    small { text <| ytFigure.title }
                 }
             }
             div {

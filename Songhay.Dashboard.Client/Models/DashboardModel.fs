@@ -26,9 +26,11 @@ type DashboardModel =
             page = StudioToolsPage
             visualStates = AppStateSet<DashboardVisualState>.initialize
                 .addStates(
-                        YouTubeFigureTitle "“It took every shred of grace and grit I had” - Bozoma Saint John",
-                        YouTubeFigureId "pkUK5LEZGa8",
-                        YouTubeFigureResolution "maxresdefault"
+                        YouTubeFigure {
+                            id =  "pkUK5LEZGa8"
+                            title =  "“It took every shred of grace and grit I had” - Bozoma Saint John"
+                            resolution = "maxresdefault" 
+                        }
                     )
             ytModel = YouTubeModel.initialize httpClient jsRuntime navigationManager
         }
@@ -39,20 +41,10 @@ type DashboardModel =
         |> List.choose getter
         |> List.head
 
-    member this.getYouTubeFigureTitle() = this.getVisualState(function YouTubeFigureTitle s -> Some s | _ -> None)
-
-    member this.getYouTubeFigureId() = this.getVisualState(function YouTubeFigureId s -> Some s | _ -> None)
-
-    member this.getYouTubeFigureResolution() = this.getVisualState(function YouTubeFigureResolution s -> Some s | _ -> None)
+    member this.getYouTubeFigure() = this.getVisualState(function YouTubeFigure ytf -> Some ytf)
 
     member this.set nextState =
         match nextState with
-        | YouTubeFigureTitle _ ->
-            let currentData = this.getYouTubeFigureTitle()
-            this.visualStates.removeState(YouTubeFigureTitle currentData).addState(nextState)
-        | YouTubeFigureId _ ->
-            let currentData = this.getYouTubeFigureId()
-            this.visualStates.removeState(YouTubeFigureId currentData).addState(nextState)
-        | YouTubeFigureResolution _ ->
-            let currentData = this.getYouTubeFigureResolution()
-            this.visualStates.removeState(YouTubeFigureResolution currentData).addState(nextState)
+        | YouTubeFigure _ ->
+            let currentData = this.getYouTubeFigure()
+            this.visualStates.removeState(YouTubeFigure currentData).addState(nextState)

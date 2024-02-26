@@ -13,10 +13,15 @@ type DashboardPage =
     | [<EndPoint "/feeds">] StudioFeedsPage
     | [<EndPoint "/yt/figure">] YouTubeFigurePage
 
+type YouTubeFigure =
+    {
+        id: string
+        title: string
+        resolution: string
+    }
+
 type DashboardVisualState =
-    | YouTubeFigureId of string
-    | YouTubeFigureTitle of string
-    | YouTubeFigureResolution of string
+    | YouTubeFigure of YouTubeFigure
 
 type DashboardMessage =
     | ClearError
