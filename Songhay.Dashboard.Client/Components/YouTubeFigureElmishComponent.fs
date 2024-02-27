@@ -1,14 +1,16 @@
 namespace Songhay.Dashboard.Client.Components
 
 open System
-open Microsoft.JSInterop
 
 open Bolero
 open Bolero.Html
 
 open Songhay.Modules.Models
+open Songhay.Modules.Bolero.JsRuntimeUtility
 open Songhay.Modules.Bolero.Models
+open Songhay.Modules.Bolero.Visuals.BodyElement
 open Songhay.Modules.Bolero.Visuals.Bulma
+open Songhay.Modules.Bolero.Visuals.Bulma.Form
 open Songhay.Modules.Bolero.Visuals.Bulma.Layout
 
 open Songhay.Dashboard.Client.App.Colors
@@ -16,8 +18,6 @@ open Songhay.Dashboard.Client.Models
 
 type YouTubeFigureElmishComponent() =
     inherit ElmishComponent<DashboardModel, DashboardMessage>()
-
-    static let click = DomElementEvent.Click
 
     let ytVideoUri (model: DashboardModel) =
         let ytFigure = model.getYouTubeFigure()
@@ -33,37 +33,6 @@ type YouTubeFigureElmishComponent() =
 
     let divNode (model: DashboardModel) dispatch =
         let ytFigure = model.getYouTubeFigure()
-        let bulmaField (fId: string) (fLabel: string) (size: int) (bindAttr: Attr) =
-            div {
-                [ "field"; CssClass.m (T, L1) ] |> CssClasses.toHtmlClassFromList
-                label {
-                    [ "label"; ShadeWhiteTer.TextCssClass] |> CssClasses.toHtmlClassFromList
-                    attr.``for`` fId
-                    text $"{fLabel}:"
-                }
-                input {
-                    "input" |> CssClasses.toHtmlClass
-                    bindAttr
-                    attr.id fId
-                    attr.size size
-                }
-            }
-
-        let bulmaSelect =
-            let data = [
-                "maxresdefault"
-                "hqdefault"
-                "mqdefault"
-                "sddefault"
-                "default"
-            ]
-            div {
-                [ "select"; CssClass.m (B, L4) ] |> CssClasses.toHtmlClassFromList
-                select {
-                    on.change (fun e -> dispatch <| ChangeVisualState (YouTubeFigure { ytFigure with resolution = $"{e.Value}" }))
-                    forEach data <| fun res -> option { text res }
-                }
-            }
 
         let bindTitle = bind.input.string
                             ytFigure.title
@@ -75,9 +44,42 @@ type YouTubeFigureElmishComponent() =
 
         div {
             CssClass.m (All, L4) |> CssClasses.toHtmlClass
-            bulmaField "yt-title" "Title" 42 bindTitle
-            bulmaField "yt-video-id" "Video ID" 42 bindVideoId
+            bulmaField
+                (HasClasses <| CssClasses [CssClass.m (T, L1)])
+                (concat {
+                    bulmaLabel
+                        (HasClasses <| CssClasses [ShadeWhiteTer.TextCssClass])
+                        (HasAttr <| attr.``for`` "yt-title")
+                        (text "Title:")
+                    bulmaInput
+                        NoCssClasses
+                        (HasAttr <| attrs {attr.id "yt-title"; attr.size 42; bindTitle})
+                })
+            bulmaField
+                (HasClasses <| CssClasses [CssClass.m (T, L1)])
+                (concat {
+                    bulmaLabel
+                        (HasClasses <| CssClasses [ShadeWhiteTer.TextCssClass])
+                        (HasAttr <| attr.``for`` "yt-video-id")
+                        (text "Video ID:")
+                    bulmaInput
+                        NoCssClasses
+                        (HasAttr <| attrs {attr.id "yt-video-id"; attr.size 42; bindVideoId})
+                })
+
+            let data = [
+                "maxresdefault"
+                "hqdefault"
+                "mqdefault"
+                "sddefault"
+                "default"
+            ]
+
             bulmaSelect
+                (HasClasses <| CssClasses [CssClass.m (B, L4)])
+                (HasAttr <| on.change (fun e -> dispatch <| ChangeVisualState (YouTubeFigure { ytFigure with resolution = $"{e.Value}" })))
+                (forEach data <| fun res -> option { text res })
+
             figure {
                 a {
                     attr.href (model |> ytVideoUri)
@@ -93,22 +95,21 @@ type YouTubeFigureElmishComponent() =
                     small { text <| ytFigure.title }
                 }
             }
-            div {
-                [ "field"; "is-grouped"; CssClass.m (T, L2) ] |> CssClasses.toHtmlClassFromList
-                p {
-                    "control" |> CssClasses.toHtmlClass
-                    a {
-                       [ "button"; "is-primary"; "is-light" ] |> CssClasses.toHtmlClassFromList
-                       click.PreventDefault
-                       on.click (fun _ ->
-                           let data = getClipboardData model
-                           model.boleroServices.jsRuntime.InvokeVoidAsync("window.navigator.clipboard.writeText", data).AsTask() |> ignore
-                       )
 
-                       text "Copy Text"
-                    }
-                }
-            }
+            bulmaField
+                (HasClasses <| CssClasses ([CssClass.m (T, L2)] @ CssClass.fieldIsGrouped AlignLeft))
+                (bulmaControl
+                    NoCssClasses
+                    (anchorButtonElement
+                        (HasClasses <| CssClasses [CssClass.buttonClass; ColorPrimary.CssClass; "is-light"])
+                        (HasAttr <| on.click (fun _ ->
+                               let data = getClipboardData model
+                               model.boleroServices.jsRuntime |> copyToClipboard data |> ignore
+                           )
+                        )
+                        (text "Copy Text")
+                    )
+                )
         }
 
     static member EComp model dispatch =

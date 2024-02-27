@@ -33,7 +33,6 @@
     </ItemGroup>
     <ItemGroup>
       <Content Remove="package-lock.json" />
-      <Content Include="src\js\site.js" />
       <Content Include="webpack.config.js" />
       <Content Include="src\scss\colors\akyinkyin.scss" />
       <Content Include="src\scss\colors\bulma.scss" />
