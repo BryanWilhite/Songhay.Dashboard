@@ -98,6 +98,8 @@ type ContentBlockProgramComponent() =
     [<Inject>]
     member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
 
+    override this.CssScope = CssScopes.ContentBlockProgramComponent
+
     override this.Program =
         let m = DashboardModel.initialize (this.Remote<DashboardService>()) this.HttpClient this.JSRuntime this.NavigationManager
         let cmd = Cmd.ofMsg (YouTubeMessage.CallYtItems |> DashboardMessage.YouTubeMessage)
