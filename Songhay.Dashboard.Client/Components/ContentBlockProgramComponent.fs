@@ -109,3 +109,10 @@ type ContentBlockProgramComponent() =
 #if DEBUG
         |> Program.withHotReload
 #endif
+
+    override this.ShouldRender(oldModel, newModel) =
+        oldModel.visualStates <> newModel.visualStates
+        || oldModel.error <> newModel.error
+        || oldModel.feeds <> newModel.feeds
+        || oldModel.page <> newModel.page
+        || oldModel.ytModel <> newModel.ytModel
