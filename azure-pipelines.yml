@@ -20,6 +20,13 @@ steps:
     performMultiLevelLookup: true
 
 - task: DotNetCoreCLI@2
+  displayName: 'dotnet --info'
+  inputs:
+    command: 'custom'
+    custom: ' '
+    arguments: '--info'
+
+- task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
   inputs:
     command: 'restore'
