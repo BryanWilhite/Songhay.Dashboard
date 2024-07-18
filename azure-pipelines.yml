@@ -1,7 +1,7 @@
 name: $(System.TeamProject)_$(Build.DefinitionName)_$(Build.SourceBranchName)_$(Build.BuildId)
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
 
 variables:
   BuildConfiguration: 'Release'
@@ -17,6 +17,7 @@ steps:
     packageType: 'sdk'
     version: '6.x'
     installationPath: $(Agent.ToolsDirectory)/dotnet
+    performMultiLevelLookup: true
 
 - task: DotNetCoreCLI@2
   inputs:
