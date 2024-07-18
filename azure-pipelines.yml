@@ -23,8 +23,7 @@ steps:
   displayName: 'dotnet --info'
   inputs:
     command: 'custom'
-    custom: ' '
-    arguments: '--info'
+    custom: '--info'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
