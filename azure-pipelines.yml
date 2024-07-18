@@ -1,7 +1,7 @@
 name: $(System.TeamProject)_$(Build.DefinitionName)_$(Build.SourceBranchName)_$(Build.BuildId)
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 
 variables:
   BuildConfiguration: 'Release'
@@ -11,6 +11,11 @@ resources:
 - repo: self
 
 steps:
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '6.x'
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -33,12 +38,12 @@ steps:
     projects: '**/$(RepoName).Tests/*.fsproj'
     arguments: '--configuration $(BuildConfiguration)'
 
-# - task: DotNetCoreCLI@2
-#   displayName: 'dotnet test (server)'
-#   inputs:
-#     command: test
-#     projects: '**/$(RepoName).Server.Tests/*.fsproj'
-#     arguments: '--configuration $(BuildConfiguration)'
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test (server)'
+  inputs:
+    command: test
+    projects: '**/$(RepoName).Server.Tests/*.fsproj'
+    arguments: '--configuration $(BuildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet publish (Blazor Server)'
