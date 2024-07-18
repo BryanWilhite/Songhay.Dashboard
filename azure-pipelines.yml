@@ -13,13 +13,15 @@ resources:
 steps:
 
 - task: UseDotNet@2
+  displayName: 'use .NET SDK 6.x'
   inputs:
     packageType: 'sdk'
     version: '6.x'
-    installationPath: $(Agent.ToolsDirectory)/dotnet
+    installationPath: 'C:\Program Files\dotnet\'
     performMultiLevelLookup: true
 
 - task: DotNetCoreCLI@2
+  displayName: 'dotnet restore'
   inputs:
     command: 'restore'
     projects: '**/*.fsproj'
