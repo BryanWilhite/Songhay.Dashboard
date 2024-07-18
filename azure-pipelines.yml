@@ -1,5 +1,8 @@
 name: $(System.TeamProject)_$(Build.DefinitionName)_$(Build.SourceBranchName)_$(Build.BuildId)
 
+pool:
+  vmImage: 'windows-latest'
+
 variables:
   BuildConfiguration: 'Release'
   RepoName: 'Songhay.Dashboard'
