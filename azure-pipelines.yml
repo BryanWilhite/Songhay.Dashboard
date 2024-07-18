@@ -11,13 +11,12 @@ resources:
 - repo: self
 
 steps:
-
 - task: UseDotNet@2
   displayName: 'use .NET SDK 6.x'
   inputs:
     packageType: 'sdk'
     version: '6.x'
-    installationPath: 'C:\Program Files\dotnet\'
+    installationPath: $(Agent.TempDirectory)/dotnet
     performMultiLevelLookup: true
 
 - task: DotNetCoreCLI@2
