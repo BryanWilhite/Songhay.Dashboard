@@ -15,10 +15,10 @@
     <ItemGroup>
         <PackageReference Include="FsToolkit.ErrorHandling" Version="4.15.1" />
         <PackageReference Update="FSharp.Core" Version="8.0.200" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.27" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.32" />
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
-        <PackageReference Include="Songhay.Modules.Publications" Version="6.3.1" />
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
+        <PackageReference Include="Songhay.Modules.Publications" Version="6.3.2" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>

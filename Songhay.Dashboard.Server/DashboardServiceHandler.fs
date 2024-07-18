@@ -7,18 +7,14 @@ open Microsoft.Extensions.Caching.Memory
 open Microsoft.Extensions.Logging
 open Microsoft.FSharp.Core
 
-open FsToolkit.ErrorHandling
-
 open Bolero.Remoting.Server
 
 open Songhay.Modules.HttpClientUtility
 open Songhay.Modules.HttpRequestMessageUtility
 open Songhay.Modules.Bolero.RemoteHandlerUtility
 
-open Songhay.Player.YouTube
 open Songhay.Player.YouTube.Models
 
-open Songhay.Dashboard
 open Songhay.Dashboard.Client.Models
 
 type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServiceHandler>, cache: IMemoryCache) =
@@ -60,7 +56,8 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
             }
 
             getYtSet = fun uri -> async {
-                let cacheKey = uri |> ServiceHandlerUtility.getYtSetKey (nameof CalledYtSet)
+                let segments = uri.OriginalString.Split('/')
+                let cacheKey = segments |> Array.last
                 return! (cacheKey, uri) ||> this.tryDownloadToStringAsync |> Async.AwaitTask
             }
         }

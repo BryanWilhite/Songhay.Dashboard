@@ -21,7 +21,7 @@ Use command-line argument {ProgramArgs.BasePath} to prepend a base path to a con
 
         public void Start(ProgramArgs? args)
         {
-            var basePath = args.HasArg(ProgramArgs.BasePath, requiresValue: false) ?
+            var basePath = args.HasArg(ProgramArgs.BasePath, required: false) ?
                 args.GetBasePathValue() : Directory.GetCurrentDirectory();
 
             SetDataRoot(basePath);

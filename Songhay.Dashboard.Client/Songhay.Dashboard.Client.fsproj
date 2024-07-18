@@ -21,12 +21,12 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Bolero" Version="0.*" />
-        <PackageReference Include="Bolero.Build" Version="0.*" />
+        <PackageReference Include="Bolero.Build" Version="0.23.52" />
         <PackageReference Include="Bolero.HotReload" Version="0.*" />
         <PackageReference Include="FsToolkit.ErrorHandling" Version="4.15.1" />
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
-        <PackageReference Include="Songhay.Modules.Bolero" Version="6.4.0" />
-        <PackageReference Include="Songhay.Player.YouTube" Version="6.3.0" />
+        <PackageReference Include="Songhay.Modules.Bolero" Version="6.4.1" />
+        <PackageReference Include="Songhay.Player.YouTube" Version="6.3.3" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Songhay.Dashboard\Songhay.Dashboard.fsproj" />

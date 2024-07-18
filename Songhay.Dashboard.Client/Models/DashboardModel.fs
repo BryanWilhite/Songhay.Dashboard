@@ -1,8 +1,6 @@
 namespace Songhay.Dashboard.Client.Models
 
-open System.Net.Http
-open Microsoft.AspNetCore.Components
-open Microsoft.JSInterop
+open System
 
 open Songhay.Modules.Models
 open Songhay.Player.YouTube.Models
@@ -10,7 +8,7 @@ open Songhay.Dashboard.Models
 
 type DashboardModel =
     {
-        boleroServices: {| remote: DashboardService; jsRuntime: IJSRuntime |}
+        boleroServices: {| remote: DashboardService |}
         error: string option
         feeds: (FeedName * SyndicationFeed)[] option
         page: DashboardPage
@@ -18,9 +16,9 @@ type DashboardModel =
         ytModel: YouTubeModel
     }
 
-    static member initialize (remote: DashboardService) (httpClient: HttpClient) (jsRuntime: IJSRuntime) (navigationManager: NavigationManager) =
+    static member initialize (remote: DashboardService) (serviceProvider: IServiceProvider) =
         {
-            boleroServices = {| remote = remote; jsRuntime = jsRuntime |}
+            boleroServices = {| remote = remote |}
             error = None
             feeds = None
             page = StudioToolsPage
@@ -32,7 +30,7 @@ type DashboardModel =
                             resolution = "maxresdefault" 
                         }
                     )
-            ytModel = YouTubeModel.initialize httpClient jsRuntime navigationManager
+            ytModel = YouTubeModel.initialize serviceProvider
         }
 
     member private this.getVisualState (getter: DashboardVisualState -> 'o option) =

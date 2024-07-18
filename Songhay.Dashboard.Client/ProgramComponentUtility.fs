@@ -17,6 +17,8 @@ open Songhay.Dashboard.Client
 
 module ProgramComponentUtility =
 
+    let jsRuntime = Songhay.Modules.Bolero.ServiceProviderUtility.getIJSRuntime()
+
     let ytSetUri model =
         (
             YtIndexSonghay |> Identifier.Alphanumeric,
@@ -45,16 +47,16 @@ module ProgramComponentUtility =
 
         Cmd.OfAsync.either model.boleroServices.remote.getAppData uri success DashboardMessage.Error
 
-    let getCommandForCallYtItems model message =
+    let getCommandForCallYtItems model message key =
         let success (result: Result<string, HttpStatusCode>) =
             let dataGetter = ServiceHandlerUtility.toYtItems
             let items = (dataGetter, result) ||> toHandlerOutput None
             let msg = YouTubeMessage.CalledYtItems items
             DashboardMessage.YouTubeMessage msg
 
-        let failure = ytFailureMsg model.boleroServices.jsRuntime message
+        let failure = ytFailureMsg jsRuntime message
 
-        let uri = YtIndexSonghayTopTen |> Identifier.Alphanumeric |> getPlaylistUri
+        let uri = key |> Identifier.Alphanumeric |> getPlaylistUri
 
         Cmd.OfAsync.either
             model.boleroServices.remote.getYtItems uri
@@ -68,7 +70,7 @@ module ProgramComponentUtility =
             let msg = YouTubeMessage.CalledYtSetIndex index
             DashboardMessage.YouTubeMessage msg
 
-        let failureMsg = ytFailureMsg model.boleroServices.jsRuntime message
+        let failureMsg = ytFailureMsg jsRuntime message
 
         let uriIdx = YtIndexSonghay |> Identifier.Alphanumeric |> getPlaylistIndexUri
         let uri = ytSetUri model
@@ -79,7 +81,7 @@ module ProgramComponentUtility =
         ]
 
     let getCommandForCallYtSet model message =
-        let failure = ytFailureMsg model.boleroServices.jsRuntime message
+        let failure = ytFailureMsg jsRuntime message
         let uri = ytSetUri model
 
         Cmd.OfAsync.either model.boleroServices.remote.getYtSet uri ytItemsSuccessMsg failure
@@ -91,8 +93,8 @@ module ProgramComponentUtility =
 
     let getCommandForYt model message =
         match message with
-        | YouTubeMessage.CallYtItems ->
-            getCommandForCallYtItems model message
+        | YouTubeMessage.CallYtItems key ->
+            getCommandForCallYtItems model message key
         | YouTubeMessage.CallYtIndexAndSet ->
             getCommandForCallYtIndexAndSet model message
         | YouTubeMessage.CallYtSet _ ->

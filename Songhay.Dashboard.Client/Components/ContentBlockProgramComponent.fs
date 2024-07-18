@@ -1,8 +1,7 @@
 namespace Songhay.Dashboard.Client.Components
 
-open System.Net.Http
+open System
 open Microsoft.AspNetCore.Components
-open Microsoft.JSInterop
 open Elmish
 
 open Bolero
@@ -12,6 +11,7 @@ open Bolero.Templating.Client
 
 open Songhay.Modules.Bolero.BoleroUtility
 
+open Songhay.Player.YouTube.YtUriUtility
 open Songhay.Player.YouTube.Components
 open Songhay.Player.YouTube.Models
 
@@ -93,16 +93,13 @@ type ContentBlockProgramComponent() =
         ) ||> HtmlDocumentComponent.BComp
 
     [<Inject>]
-    member val HttpClient = Unchecked.defaultof<HttpClient> with get, set
-
-    [<Inject>]
-    member val JSRuntime = Unchecked.defaultof<IJSRuntime> with get, set
+    member val ServiceProvider = Unchecked.defaultof<IServiceProvider> with get, set
 
     override this.CssScope = CssScopes.ContentBlockProgramComponent
 
     override this.Program =
-        let m = DashboardModel.initialize (this.Remote<DashboardService>()) this.HttpClient this.JSRuntime this.NavigationManager
-        let cmd = Cmd.ofMsg (YouTubeMessage.CallYtItems |> DashboardMessage.YouTubeMessage)
+        let m = DashboardModel.initialize (this.Remote<DashboardService>()) this.ServiceProvider
+        let cmd = Cmd.ofMsg (DashboardMessage.YouTubeMessage <| YouTubeMessage.CallYtItems YtIndexSonghayTopTen)
 
         Program.mkProgram (fun _ -> m, cmd) update view
         |> Program.withRouter router

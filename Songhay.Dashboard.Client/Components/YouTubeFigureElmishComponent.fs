@@ -19,6 +19,8 @@ open Songhay.Dashboard.Client.Models
 type YouTubeFigureElmishComponent() =
     inherit ElmishComponent<DashboardModel, DashboardMessage>()
 
+    static let jsRuntime = Songhay.Modules.Bolero.ServiceProviderUtility.getIJSRuntime()
+
     let ytVideoUri (model: DashboardModel) =
         let ytFigure = model.getYouTubeFigure()
         $"https://www.youtube.com/watch?v={ytFigure.id}"
@@ -104,7 +106,7 @@ type YouTubeFigureElmishComponent() =
                         (HasClasses <| CssClasses [CssClass.buttonClass; ColorPrimary.CssClass; "is-light"])
                         (HasAttr <| on.click (fun _ ->
                                let data = getClipboardData model
-                               model.boleroServices.jsRuntime |> copyToClipboard data |> ignore
+                               jsRuntime |> copyToClipboard data |> ignore
                            )
                         )
                         (text "Copy Text")
