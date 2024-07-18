@@ -1,11 +1,14 @@
 name: $(System.TeamProject)_$(Build.DefinitionName)_$(Build.SourceBranchName)_$(Build.BuildId)
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: windows-latest
+  demands:
+  - MSBuild
 
 variables:
-  BuildConfiguration: 'Release'
-  RepoName: 'Songhay.Dashboard'
+  buildConfiguration: Release
+  buildPlatform: Any CPU
+  repoName: Songhay.Dashboard
 
 resources:
 - repo: self
@@ -16,56 +19,57 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '6.x'
-    installationPath: $(Agent.TempDirectory)/dotnet
-    performMultiLevelLookup: true
     useGlobalJson: true
 
-- task: DotNetCoreCLI@2
+- powershell: |
+    dotnet --info
   displayName: 'dotnet --info'
-  inputs:
-    command: 'custom'
-    custom: '--info'
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet restore'
+- task: VSBuild@1
+  displayName: NuGet Restore
   inputs:
-    command: 'restore'
-    projects: '**/*.fsproj'
-    feedsToUse: 'select'
+    msbuildArgs: '/t:Restore'
+    configuration: '$(buildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet build'
+- task: VSBuild@1
+  displayName: Build Solution
   inputs:
-    projects: |
-     **/$(RepoName).fsproj
-     **/$(RepoName).Tests.fsproj
-    arguments: '--configuration $(BuildConfiguration)'
+    configuration: '$(buildConfiguration)'
+    platform: '$(buildPlatform)'
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet test'
-  inputs:
-    command: test
-    projects: '**/$(RepoName).Tests/*.fsproj'
-    arguments: '--configuration $(BuildConfiguration)'
+# - task: DotNetCoreCLI@2
+#   displayName: 'dotnet build'
+#   inputs:
+#     projects: |
+#      **/$(RepoName).fsproj
+#      **/$(RepoName).Tests.fsproj
+#     arguments: '--configuration $(BuildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet test (server)'
-  inputs:
-    command: test
-    projects: '**/$(RepoName).Server.Tests/*.fsproj'
-    arguments: '--configuration $(BuildConfiguration)'
+# - task: DotNetCoreCLI@2
+#   displayName: 'dotnet test'
+#   inputs:
+#     command: test
+#     projects: '**/$(RepoName).Tests/*.fsproj'
+#     arguments: '--configuration $(BuildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet publish (Blazor Server)'
-  inputs:
-    command: 'publish'
-    publishWebProjects: false
-    projects: './$(RepoName).Server/$(RepoName).Server.fsproj'
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+# - task: DotNetCoreCLI@2
+#   displayName: 'dotnet test (server)'
+#   inputs:
+#     command: test
+#     projects: '**/$(RepoName).Server.Tests/*.fsproj'
+#     arguments: '--configuration $(BuildConfiguration)'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: bolero-drop'
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'bolero-drop'
-    publishLocation: 'Container'
+# - task: DotNetCoreCLI@2
+#   displayName: 'dotnet publish (Blazor Server)'
+#   inputs:
+#     command: 'publish'
+#     publishWebProjects: false
+#     projects: './$(RepoName).Server/$(RepoName).Server.fsproj'
+#     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+
+# - task: PublishBuildArtifacts@1
+#   displayName: 'Publish Artifact: bolero-drop'
+#   inputs:
+#     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+#     ArtifactName: 'bolero-drop'
+#     publishLocation: 'Container'
