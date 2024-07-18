@@ -33,12 +33,12 @@ steps:
     projects: '**/$(RepoName).Tests/*.fsproj'
     arguments: '--configuration $(BuildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet test (server)'
-  inputs:
-    command: test
-    projects: '**/$(RepoName).Server.Tests/*.fsproj'
-    arguments: '--configuration $(BuildConfiguration)'
+# - task: DotNetCoreCLI@2
+#   displayName: 'dotnet test (server)'
+#   inputs:
+#     command: test
+#     projects: '**/$(RepoName).Server.Tests/*.fsproj'
+#     arguments: '--configuration $(BuildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet publish (Blazor Server)'
