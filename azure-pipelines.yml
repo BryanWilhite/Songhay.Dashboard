@@ -2,8 +2,6 @@ name: $(System.TeamProject)_$(Build.DefinitionName)_$(Build.SourceBranchName)_$(
 
 pool:
   vmImage: windows-latest
-  demands:
-  - MSBuild
 
 variables:
   buildConfiguration: Release
@@ -15,15 +13,15 @@ resources:
 
 steps:
 - task: UseDotNet@2
-  displayName: 'use .NET SDK 6.x'
+  displayName: Use .NET SDK 6.x
   inputs:
-    packageType: 'sdk'
-    version: '6.x'
+    packageType: sdk
+    version: 6.x
     useGlobalJson: true
 
 - powershell: |
     dotnet --info
-  displayName: 'dotnet --info'
+  displayName: dotnet --info
 
 - task: VSBuild@1
   displayName: NuGet Restore
@@ -36,40 +34,15 @@ steps:
   inputs:
     configuration: '$(buildConfiguration)'
     platform: '$(buildPlatform)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
 
-# - task: DotNetCoreCLI@2
-#   displayName: 'dotnet build'
-#   inputs:
-#     projects: |
-#      **/$(RepoName).fsproj
-#      **/$(RepoName).Tests.fsproj
-#     arguments: '--configuration $(BuildConfiguration)'
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
 
-# - task: DotNetCoreCLI@2
-#   displayName: 'dotnet test'
-#   inputs:
-#     command: test
-#     projects: '**/$(RepoName).Tests/*.fsproj'
-#     arguments: '--configuration $(BuildConfiguration)'
-
-# - task: DotNetCoreCLI@2
-#   displayName: 'dotnet test (server)'
-#   inputs:
-#     command: test
-#     projects: '**/$(RepoName).Server.Tests/*.fsproj'
-#     arguments: '--configuration $(BuildConfiguration)'
-
-# - task: DotNetCoreCLI@2
-#   displayName: 'dotnet publish (Blazor Server)'
-#   inputs:
-#     command: 'publish'
-#     publishWebProjects: false
-#     projects: './$(RepoName).Server/$(RepoName).Server.fsproj'
-#     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-
-# - task: PublishBuildArtifacts@1
-#   displayName: 'Publish Artifact: bolero-drop'
-#   inputs:
-#     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-#     ArtifactName: 'bolero-drop'
-#     publishLocation: 'Container'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: bolero-drop
+    publishLocation: Container
