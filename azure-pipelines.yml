@@ -45,6 +45,7 @@ steps:
     testSelector: testAssemblies
     testAssemblyVer2: |
       **/*$(repoName)*Tests.dll
+      !**/*$(repoName).Activities.Tests.dll
       !**/*$(repoName).Shell.Tests.dll
       !**\obj\**
 
