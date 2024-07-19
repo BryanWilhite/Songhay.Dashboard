@@ -7,6 +7,7 @@ variables:
   buildConfiguration: Release
   buildPlatform: Any CPU
   repoName: Songhay.Dashboard
+  publishedArtifactName: bolero-drop
 
 resources:
 - repo: self
@@ -26,22 +27,22 @@ steps:
   displayName: NuGet Restore
   inputs:
     msbuildArgs: '/t:Restore'
-    configuration: '$(buildConfiguration)'
+    configuration: $(buildConfiguration)
 
 - task: VSBuild@1
   displayName: Build Solution
   inputs:
     solution: '**\$(repoName).sln'
-    configuration: '$(buildConfiguration)'
-    platform: '$(buildPlatform)'
+    configuration: $(buildConfiguration)
+    platform: $(buildPlatform)
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
 
 - task: VSTest@2
   displayName: Test
   inputs:
-    configuration: '$(buildConfiguration)'
-    platform: '$(buildPlatform)'
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+    configuration: $(buildConfiguration)
+    platform: $(buildPlatform)
+    searchFolder: $(System.DefaultWorkingDirectory)
     testSelector: testAssemblies
     testAssemblyVer2: |
       **/*$(repoName)*Tests.dll
@@ -50,15 +51,17 @@ steps:
       !**\obj\**
 
 - task: PublishBuildArtifacts@1
+  displayName: Publish build artifact
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: bolero-drop
+    PathtoPublish: $(Build.ArtifactStagingDirectory)
+    ArtifactName: $(publishedArtifactName)
     publishLocation: Container
 
 - task: AzureRmWebAppDeployment@4
-  displayName: 'Deploy dash [STAGING]'
+  displayName: deploy published artifact [STAGING]
   inputs:
     azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
-    WebAppName: 'songhay-system-staging'
+    WebAppName: songhay-system-staging
     enableCustomDeployment: true
+    packageForLinux: $(Agent.BuildDirectory)/drop/
     ExcludeFilesFromAppDataFlag: false
