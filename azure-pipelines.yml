@@ -2,9 +2,6 @@ name: $(System.TeamProject)_$(Build.DefinitionName)_$(Build.SourceBranchName)_$(
 
 pool:
   vmImage: windows-latest
-  demands:
-  - msbuild
-  - visualstudio
 
 variables:
   buildConfiguration: Release
