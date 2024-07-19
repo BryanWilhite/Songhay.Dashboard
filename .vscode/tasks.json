@@ -7,6 +7,16 @@
             "type": "shell",
             "args": [
                 "build",
+                "${workspaceFolder}/Songhay.Dashboard.sln"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build (shell)",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "build",
                 "${workspaceFolder}/Songhay.Dashboard.Shell.sln"
             ],
             "problemMatcher": "$msCompile"

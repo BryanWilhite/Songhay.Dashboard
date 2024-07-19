@@ -95,7 +95,7 @@ type ContentBlockProgramComponent() =
     [<Inject>]
     member val ServiceProvider = Unchecked.defaultof<IServiceProvider> with get, set
 
-    override this.CssScope = CssScopes.ContentBlockProgramComponent
+    override this.CssScope = nameof(ContentBlockProgramComponent)
 
     override this.Program =
         let m = DashboardModel.initialize (this.Remote<DashboardService>()) this.ServiceProvider

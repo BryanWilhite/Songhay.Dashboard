@@ -31,12 +31,20 @@ steps:
 - task: VSBuild@1
   displayName: Build Solution
   inputs:
+    solution: '**\$(repoName).sln'
     configuration: '$(buildConfiguration)'
     platform: '$(buildPlatform)'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
 
 - task: VSTest@2
   inputs:
+    searchFolder: '**/$(RepoName).Tests'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    searchFolder: '**/$(RepoName).Server.Tests'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
