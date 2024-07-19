@@ -53,15 +53,14 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: Publish build artifact
   inputs:
-    PathtoPublish: $(Agent.BuildDirectory)/drop/
     ArtifactName: $(publishedArtifactName)
+    PathtoPublish: $(Build.ArtifactStagingDirectory)
     publishLocation: FilePath
 
 - task: AzureRmWebAppDeployment@4
   displayName: deploy published artifact [STAGING]
   inputs:
     azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
-    WebAppName: songhay-system-staging
     enableCustomDeployment: true
-    packageForLinux: $(Agent.BuildDirectory)/drop/
     ExcludeFilesFromAppDataFlag: false
+    WebAppName: songhay-system-staging
