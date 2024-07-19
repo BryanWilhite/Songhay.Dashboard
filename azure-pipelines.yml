@@ -2,6 +2,9 @@ name: $(System.TeamProject)_$(Build.DefinitionName)_$(Build.SourceBranchName)_$(
 
 pool:
   vmImage: windows-latest
+  demands:
+  - msbuild
+  - visualstudio
 
 variables:
   buildConfiguration: Release
@@ -37,16 +40,16 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
 
 - task: VSTest@2
+  displayName: Test
   inputs:
-    searchFolder: '**/$(RepoName).Tests'
-    platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: VSTest@2
-  inputs:
-    searchFolder: '**/$(RepoName).Server.Tests'
     platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    testSelector: testAssemblies
+    testAssemblyVer2: |
+      '**\*$(repoName).Tests.dll'
+      '**\*$(repoName).Server.Tests.dll'
+      !**\obj\**
 
 - task: PublishBuildArtifacts@1
   inputs:
