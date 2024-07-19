@@ -55,7 +55,7 @@ steps:
   inputs:
     ArtifactName: $(publishedArtifactName)
     PathtoPublish: $(Build.ArtifactStagingDirectory)
-    publishLocation: FilePath
+    publishLocation: Container
 
 - task: AzureRmWebAppDeployment@4
   displayName: deploy published artifact [STAGING]
