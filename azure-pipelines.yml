@@ -44,7 +44,7 @@ steps:
     searchFolder: '$(System.DefaultWorkingDirectory)'
     testSelector: testAssemblies
     testAssemblyVer2: |
-      '**/*Tests.dll'
+      **/*Tests.dll
       !**\obj\**
 
 - task: PublishBuildArtifacts@1
