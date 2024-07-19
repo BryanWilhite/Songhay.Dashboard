@@ -54,3 +54,11 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: bolero-drop
     publishLocation: Container
+
+- task: AzureRmWebAppDeployment@4
+  displayName: 'Deploy dash [STAGING]'
+  inputs:
+    azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
+    WebAppName: 'songhay-system-staging'
+    enableCustomDeployment: true
+    ExcludeFilesFromAppDataFlag: false
