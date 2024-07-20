@@ -7,7 +7,6 @@ variables:
   buildConfiguration: Release
   buildPlatform: Any CPU
   repoName: Songhay.Dashboard
-  publishedArtifactName: bolero-drop
 
 resources:
 - repo: self
@@ -23,46 +22,38 @@ steps:
     dotnet --info
   displayName: dotnet --info
 
-- task: DotNetCoreCLI@2
-  displayName: run `dotnet --info`
+- task: VSBuild@1
+  displayName: NuGet restore
   inputs:
-    command: 'custom'
-    custom: '--info'
+    msbuildArgs: '/t:Restore'
+    configuration: $(buildConfiguration)
 
-- task: DotNetCoreCLI@2
+- task: VSBuild@1
+  displayName: build and package Solution
   inputs:
-    command: 'restore'
-    projects: '**/*.fsproj'
-    feedsToUse: 'select'
+    solution: '**\$(repoName).sln'
+    configuration: $(buildConfiguration)
+    platform: $(buildPlatform)
+    msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(Build.ArtifactStagingDirectory)"'
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet build'
+- task: VSTest@2
+  displayName: test Dashboard
   inputs:
-    projects: |
-     **/$(repoName).fsproj
-     **/$(repoName).Tests.fsproj
-    arguments: '--configuration $(BuildConfiguration)'
-
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet test'
-  inputs:
-    command: test
-    projects: |
-      '**/$(repoName).Tests/*.fsproj'
-      '**/$(repoName).Server.Tests/*.fsproj'
-    arguments: '--configuration $(BuildConfiguration)'
-
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet publish (Blazor Server)'
-  inputs:
-    command: 'publish'
-    publishWebProjects: false
-    projects: './$(RepoName).Server/$(RepoName).Server.fsproj'
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    configuration: $(buildConfiguration)
+    platform: $(buildPlatform)
+    searchFolder: $(System.DefaultWorkingDirectory)
+    testSelector: testAssemblies
+    testAssemblyVer2: |
+      **/*$(repoName)*Tests.dll
+      !**/*$(repoName).Activities.Tests.dll
+      !**/*$(repoName).Shell.Tests.dll
+      !**\obj\**
 
 - powershell: |
     Write-Host "displaying ArtifactStagingDirectory: ``$(Build.ArtifactStagingDirectory)``..."
     Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)"
+    Get-Content -Path "$(Build.ArtifactStagingDirectory)\$(repoName).Client.deploy-readme.txt"
+    Get-Content -Path "$(Build.ArtifactStagingDirectory)\$(repoName).Server.deploy-readme.txt"
   displayName: view `$(Build.ArtifactStagingDirectory)`
 
 - task: AzureRmWebAppDeployment@4
