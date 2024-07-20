@@ -4,6 +4,7 @@ pool:
   vmImage: windows-latest
 
 variables:
+  buildArtifactName: dashboard-drop
   buildConfiguration: Release
   buildPlatform: Any CPU
   buildArtifactStagingDir: $(Build.ArtifactStagingDirectory)
@@ -58,6 +59,11 @@ steps:
   displayName: dotnet test [$(repoName).Server.Tests]
 
 - powershell: |
+    Write-Host "displaying ``commonTestResultsDir`` (``$(commonTestResultsDir)``)..."
+    Get-ChildItem -Path $(commonTestResultsDir)
+  displayName: view `commonTestResultsDir`
+
+- powershell: |
     dotnet publish $(repoName).Server\$(repoName).Server.fsproj --configuration $(buildConfiguration) --output $(buildBinariesDirectory) --no-restore
   displayName: dotnet publish [$(repoName).Server]
 
@@ -80,8 +86,15 @@ steps:
     Get-ChildItem -Path $(buildArtifactStagingDir)
   displayName: view `buildArtifactStagingDir`
 
+- task: PublishBuildArtifacts@1
+  displayName: publish build artifact `$(buildArtifactName)`
+  inputs:
+    PathtoPublish: $(buildArtifactStagingDir)
+    ArtifactName: $(buildArtifactName)
+    publishLocation: 'Container'
+
 - task: AzureRmWebAppDeployment@4
-  displayName: deploy published artifact [STAGING]
+  displayName: deploy artifact `$(buildArtifactName)` [STAGING]
   inputs:
     azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
     packageForLinux: $(buildArtifactStagingDir)/$(repoName).Server.zip
