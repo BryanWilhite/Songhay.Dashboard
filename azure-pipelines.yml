@@ -35,7 +35,7 @@ steps:
     solution: '**\$(repoName).sln'
     configuration: $(buildConfiguration)
     platform: $(buildPlatform)
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(Build.ArtifactStagingDirectory)"'
 
 - task: VSTest@2
   displayName: Test
@@ -61,6 +61,5 @@ steps:
   displayName: deploy published artifact [STAGING]
   inputs:
     azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
-    enableCustomDeployment: true
-    ExcludeFilesFromAppDataFlag: false
+    packageForLinux: $(Pipeline.Workspace)/$(publishedArtifactName)
     WebAppName: songhay-system-staging
