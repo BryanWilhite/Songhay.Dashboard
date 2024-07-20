@@ -44,25 +44,25 @@ steps:
   displayName: dotnet restore
 
 - powershell: |
-    dotnet build $(repoName).sln --configuration $(buildConfiguration)
+    dotnet build $(repoName).sln --configuration $(buildConfiguration) --no-restore
   displayName: dotnet build [$(buildConfiguration)]
 
 - powershell: |
-    dotnet test $(repoName).Tests\$(repoName).Tests.fsproj --logger:trx --results-directory:$(commonTestResultsDir) --verbosity:normal
+    dotnet test $(repoName).Tests\$(repoName).Tests.fsproj --logger:trx --results-directory:$(commonTestResultsDir) --verbosity:normal --no-restore
   displayName: dotnet test [$(repoName).Tests]
 
 - powershell: |
-    dotnet test $(repoName).Server.Tests\$(repoName).Server.Tests.fsproj --logger:trx --results-directory:$(commonTestResultsDir) --verbosity:normal
+    dotnet test $(repoName).Server.Tests\$(repoName).Server.Tests.fsproj --logger:trx --results-directory:$(commonTestResultsDir) --verbosity:normal --no-restore
   displayName: dotnet test [$(repoName).Server.Tests]
 
 - powershell: |
-    dotnet publish $(repoName).Server\$(repoName).Server.fsproj --configuration $(buildConfiguration) --output $(buildArtifactStagingDir)
+    dotnet publish $(repoName).Server\$(repoName).Server.fsproj --configuration $(buildConfiguration) --output $(buildArtifactStagingDir) --no-restore
   displayName: dotnet publish [$(repoName).Server]
 
 - powershell: |
     Write-Host "displaying ``buildArtifactStagingDir`` (``$(buildArtifactStagingDir)``)..."
-    Get-ChildItem -Path .\$(buildArtifactStagingDir)
-  displayName: view current directory
+    Get-ChildItem -Path $(buildArtifactStagingDir)
+  displayName: view ``buildArtifactStagingDir``
 
 # - task: AzureRmWebAppDeployment@4
 #   displayName: deploy published artifact [STAGING]
