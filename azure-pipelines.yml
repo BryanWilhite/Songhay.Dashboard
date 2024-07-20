@@ -51,7 +51,7 @@ steps:
       !**\obj\**
 
 - powershell: |
-    Write-Host "displaying ``$(Build.ArtifactStagingDirectory)``..."
+    Write-Host "displaying ArtifactStagingDirectory: ``$(Build.ArtifactStagingDirectory)``..."
     Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)"
   displayName: view `$(Build.ArtifactStagingDirectory)`
 
