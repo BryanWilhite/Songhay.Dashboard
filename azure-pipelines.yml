@@ -7,6 +7,7 @@ variables:
   buildConfiguration: Release
   buildPlatform: Any CPU
   buildArtifactStagingDir: $(Build.ArtifactStagingDirectory)
+  buildBinariesDirectory: $(Build.BinariesDirectory)
   buildLocalPath: $(Build.Repository.LocalPath)
   buildSourcesDir: $(Build.SourcesDirectory)
   commonTestResultsDir: $(Common.TestResultsDirectory)
@@ -19,6 +20,7 @@ steps:
 - powershell: |
     Write-Host "displaying build locations..."
     Write-Host "buildArtifactStagingDir: $(Build.ArtifactStagingDirectory)"
+    Write-Host "buildBinariesDirectory: $(Build.BinariesDirectory)"
     Write-Host "buildLocalPath: $(Build.Repository.LocalPath)"
     Write-Host "buildSourcesDir: $(Build.SourcesDirectory)"
     Write-Host "commonTestResultsDir: $(Common.TestResultsDirectory)"
@@ -56,17 +58,30 @@ steps:
   displayName: dotnet test [$(repoName).Server.Tests]
 
 - powershell: |
-    dotnet publish $(repoName).Server\$(repoName).Server.fsproj --configuration $(buildConfiguration) --output $(buildArtifactStagingDir) --no-restore
+    dotnet publish $(repoName).Server\$(repoName).Server.fsproj --configuration $(buildConfiguration) --output $(buildBinariesDirectory) --no-restore
   displayName: dotnet publish [$(repoName).Server]
+
+- powershell: |
+    Write-Host "displaying ``buildBinariesDirectory`` (``$(buildBinariesDirectory)``)..."
+    Get-ChildItem -Path $(buildBinariesDirectory)
+  displayName: view `buildBinariesDirectory`
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: $(buildBinariesDirectory)
+    includeRootFolder: true
+    archiveType: zip
+    archiveFile: $(buildArtifactStagingDir)/$(repoName).Server.zip
+    replaceExistingArchive: true
 
 - powershell: |
     Write-Host "displaying ``buildArtifactStagingDir`` (``$(buildArtifactStagingDir)``)..."
     Get-ChildItem -Path $(buildArtifactStagingDir)
-  displayName: view ``buildArtifactStagingDir``
+  displayName: view `buildArtifactStagingDir`
 
-# - task: AzureRmWebAppDeployment@4
-#   displayName: deploy published artifact [STAGING]
-#   inputs:
-#     azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
-#     packageForLinux: $(Build.ArtifactStagingDirectory)/$(repoName).Server.zip
-#     WebAppName: songhay-system-staging
+- task: AzureRmWebAppDeployment@4
+  displayName: deploy published artifact [STAGING]
+  inputs:
+    azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
+    packageForLinux: $(buildArtifactStagingDir)/$(repoName).Server.zip
+    WebAppName: songhay-system-staging
