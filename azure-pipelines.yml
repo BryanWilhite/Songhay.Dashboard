@@ -50,16 +50,19 @@ steps:
       !**/*$(repoName).Shell.Tests.dll
       !**\obj\**
 
-- task: PublishBuildArtifacts@1
-  displayName: Publish build artifact
-  inputs:
-    ArtifactName: $(publishedArtifactName)
-    PathtoPublish: $(Build.ArtifactStagingDirectory)
-    publishLocation: Container
+- powershell: |
+    Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)"
 
-- task: AzureRmWebAppDeployment@4
-  displayName: deploy published artifact [STAGING]
-  inputs:
-    azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
-    packageForLinux: $(Pipeline.Workspace)/$(publishedArtifactName)
-    WebAppName: songhay-system-staging
+# - task: PublishBuildArtifacts@1
+#   displayName: Publish build artifact
+#   inputs:
+#     ArtifactName: $(publishedArtifactName)
+#     PathtoPublish: $(Build.ArtifactStagingDirectory)
+#     publishLocation: FilePath
+
+# - task: AzureRmWebAppDeployment@4
+#   displayName: deploy published artifact [STAGING]
+#   inputs:
+#     azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
+#     packageForLinux: $(Pipeline.Workspace)/$(publishedArtifactName)
+#     WebAppName: songhay-system-staging
