@@ -29,41 +29,45 @@ steps:
     command: 'custom'
     custom: '--info'
 
-# - task: VSBuild@1
-#   displayName: NuGet restore
-#   inputs:
-#     msbuildArgs: '/t:Restore'
-#     configuration: $(buildConfiguration)
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.fsproj'
+    feedsToUse: 'select'
 
-# - task: VSBuild@1
-#   displayName: build and package Solution
-#   inputs:
-#     solution: '**\$(repoName).sln'
-#     configuration: $(buildConfiguration)
-#     platform: $(buildPlatform)
-#     msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(Build.ArtifactStagingDirectory)"'
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    projects: |
+     **/$(repoName).fsproj
+     **/$(repoName).Tests.fsproj
+    arguments: '--configuration $(BuildConfiguration)'
 
-# - task: VSTest@2
-#   displayName: test Dashboard
-#   inputs:
-#     configuration: $(buildConfiguration)
-#     platform: $(buildPlatform)
-#     searchFolder: $(System.DefaultWorkingDirectory)
-#     testSelector: testAssemblies
-#     testAssemblyVer2: |
-#       **/*$(repoName)*Tests.dll
-#       !**/*$(repoName).Activities.Tests.dll
-#       !**/*$(repoName).Shell.Tests.dll
-#       !**\obj\**
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test'
+  inputs:
+    command: test
+    projects: |
+      '**/$(repoName).Tests/*.fsproj'
+      '**/$(repoName).Server.Tests/*.fsproj'
+    arguments: '--configuration $(BuildConfiguration)'
 
-# - powershell: |
-#     Write-Host "displaying ArtifactStagingDirectory: ``$(Build.ArtifactStagingDirectory)``..."
-#     Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)"
-#   displayName: view `$(Build.ArtifactStagingDirectory)`
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish (Blazor Server)'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: './$(RepoName).Server/$(RepoName).Server.fsproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
-# - task: AzureRmWebAppDeployment@4
-#   displayName: deploy published artifact [STAGING]
-#   inputs:
-#     azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
-#     packageForLinux: $(Build.ArtifactStagingDirectory)/$(repoName).Server.zip
-#     WebAppName: songhay-system-staging
+- powershell: |
+    Write-Host "displaying ArtifactStagingDirectory: ``$(Build.ArtifactStagingDirectory)``..."
+    Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)"
+  displayName: view `$(Build.ArtifactStagingDirectory)`
+
+- task: AzureRmWebAppDeployment@4
+  displayName: deploy published artifact [STAGING]
+  inputs:
+    azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
+    packageForLinux: $(Build.ArtifactStagingDirectory)/$(repoName).Server.zip
+    WebAppName: songhay-system-staging
