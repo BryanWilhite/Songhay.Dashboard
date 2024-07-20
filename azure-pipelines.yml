@@ -9,6 +9,7 @@ variables:
   buildArtifactStagingDir: $(Build.ArtifactStagingDirectory)
   buildLocalPath: $(Build.Repository.LocalPath)
   buildSourcesDir: $(Build.SourcesDirectory)
+  commonTestResultsDir: $(Common.TestResultsDirectory)
   repoName: Songhay.Dashboard
 
 resources:
@@ -20,6 +21,7 @@ steps:
     Write-Host "buildArtifactStagingDir: $(Build.ArtifactStagingDirectory)"
     Write-Host "buildLocalPath: $(Build.Repository.LocalPath)"
     Write-Host "buildSourcesDir: $(Build.SourcesDirectory)"
+    Write-Host "commonTestResultsDir: $(Common.TestResultsDirectory)"
   displayName: view build locations
 
 - task: UseDotNet@2
@@ -41,32 +43,17 @@ steps:
     dotnet restore $(repoName).sln  --verbosity normal
   displayName: dotnet restore
 
-# - task: VSBuild@1
-#   displayName: NuGet restore
-#   inputs:
-#     msbuildArgs: '/t:Restore'
-#     configuration: $(buildConfiguration)
+- powershell: |
+    dotnet build $(repoName).sln  --configuration $(buildConfiguration)
+  displayName: dotnet build [$(buildConfiguration)]
 
-# - task: VSBuild@1
-#   displayName: build and package Solution
-#   inputs:
-#     solution: '**\$(repoName).sln'
-#     configuration: $(buildConfiguration)
-#     platform: $(buildPlatform)
-#     msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(Build.ArtifactStagingDirectory)"'
+- powershell: |
+    dotnet test $(repoName).Tests\$(repoName).Tests.fsproj --logger:trx --results-directory:$(commonTestResultsDir) --verbosity:normal
+  displayName: dotnet test [$(repoName).Tests]
 
-# - task: VSTest@2
-#   displayName: test Dashboard
-#   inputs:
-#     configuration: $(buildConfiguration)
-#     platform: $(buildPlatform)
-#     searchFolder: $(System.DefaultWorkingDirectory)
-#     testSelector: testAssemblies
-#     testAssemblyVer2: |
-#       **/*$(repoName)*Tests.dll
-#       !**/*$(repoName).Activities.Tests.dll
-#       !**/*$(repoName).Shell.Tests.dll
-#       !**\obj\**
+- powershell: |
+    dotnet test $(repoName).Server.Tests\$(repoName).Server.Tests.fsproj --logger:trx --results-directory:$(commonTestResultsDir) --verbosity:normal
+  displayName: dotnet test [$(repoName).Server.Tests]
 
 # - powershell: |
 #     Write-Host "displaying ArtifactStagingDirectory: ``$(Build.ArtifactStagingDirectory)``..."
