@@ -19,7 +19,7 @@ resources:
 
 steps:
 - powershell: |
-    Write-Host "displaying build locations..."
+    Write-Host "displaying build and common locations..."
     Write-Host "buildArtifactStagingDir: $(Build.ArtifactStagingDirectory)"
     Write-Host "buildBinariesDirectory: $(Build.BinariesDirectory)"
     Write-Host "buildLocalPath: $(Build.Repository.LocalPath)"
@@ -43,7 +43,7 @@ steps:
   displayName: view current directory
 
 - powershell: |
-    dotnet restore $(repoName).sln  --verbosity normal
+    dotnet restore $(repoName).sln --verbosity normal
   displayName: dotnet restore
 
 - powershell: |
@@ -99,3 +99,5 @@ steps:
     azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
     packageForLinux: $(buildArtifactStagingDir)/$(repoName).Server.zip
     WebAppName: songhay-system-staging
+    enableCustomDeployment: true
+    ExcludeFilesFromAppDataFlag: false
