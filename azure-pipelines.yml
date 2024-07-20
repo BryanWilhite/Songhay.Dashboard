@@ -6,12 +6,22 @@ pool:
 variables:
   buildConfiguration: Release
   buildPlatform: Any CPU
+  buildArtifactStagingDir: $(Build.ArtifactStagingDirectory)
+  buildLocalPath: $(Build.Repository.LocalPath)
+  buildSourcesDir: $(Build.SourcesDirectory)
   repoName: Songhay.Dashboard
 
 resources:
 - repo: self
 
 steps:
+- powershell: |
+    Write-Host "displaying build locations..."
+    Write-Host "buildArtifactStagingDir: $(Build.ArtifactStagingDirectory)"
+    Write-Host "buildLocalPath: $(Build.Repository.LocalPath)"
+    Write-Host "buildSourcesDir: $(Build.SourcesDirectory)"
+  displayName: view build locations
+
 - task: UseDotNet@2
   displayName: use .NET SDK 6.x
   inputs:
@@ -22,43 +32,52 @@ steps:
     dotnet --info
   displayName: dotnet --info
 
-- task: VSBuild@1
-  displayName: NuGet restore
-  inputs:
-    msbuildArgs: '/t:Restore'
-    configuration: $(buildConfiguration)
-
-- task: VSBuild@1
-  displayName: build and package Solution
-  inputs:
-    solution: '**\$(repoName).sln'
-    configuration: $(buildConfiguration)
-    platform: $(buildPlatform)
-    msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(Build.ArtifactStagingDirectory)"'
-
-- task: VSTest@2
-  displayName: test Dashboard
-  inputs:
-    configuration: $(buildConfiguration)
-    platform: $(buildPlatform)
-    searchFolder: $(System.DefaultWorkingDirectory)
-    testSelector: testAssemblies
-    testAssemblyVer2: |
-      **/*$(repoName)*Tests.dll
-      !**/*$(repoName).Activities.Tests.dll
-      !**/*$(repoName).Shell.Tests.dll
-      !**\obj\**
+- powershell: |
+    Write-Host "displaying current directory..."
+    Get-ChildItem -Path .\
+  displayName: view current directory
 
 - powershell: |
-    Write-Host "displaying ArtifactStagingDirectory: ``$(Build.ArtifactStagingDirectory)``..."
-    Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)"
-    Get-Content -Path "$(Build.ArtifactStagingDirectory)\$(repoName).Client.deploy-readme.txt"
-    Get-Content -Path "$(Build.ArtifactStagingDirectory)\$(repoName).Server.deploy-readme.txt"
-  displayName: view `$(Build.ArtifactStagingDirectory)`
+    dotnet restore --verbosity normal
+  displayName: dotnet restore
 
-- task: AzureRmWebAppDeployment@4
-  displayName: deploy published artifact [STAGING]
-  inputs:
-    azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
-    packageForLinux: $(Build.ArtifactStagingDirectory)/$(repoName).Server.zip
-    WebAppName: songhay-system-staging
+# - task: VSBuild@1
+#   displayName: NuGet restore
+#   inputs:
+#     msbuildArgs: '/t:Restore'
+#     configuration: $(buildConfiguration)
+
+# - task: VSBuild@1
+#   displayName: build and package Solution
+#   inputs:
+#     solution: '**\$(repoName).sln'
+#     configuration: $(buildConfiguration)
+#     platform: $(buildPlatform)
+#     msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(Build.ArtifactStagingDirectory)"'
+
+# - task: VSTest@2
+#   displayName: test Dashboard
+#   inputs:
+#     configuration: $(buildConfiguration)
+#     platform: $(buildPlatform)
+#     searchFolder: $(System.DefaultWorkingDirectory)
+#     testSelector: testAssemblies
+#     testAssemblyVer2: |
+#       **/*$(repoName)*Tests.dll
+#       !**/*$(repoName).Activities.Tests.dll
+#       !**/*$(repoName).Shell.Tests.dll
+#       !**\obj\**
+
+# - powershell: |
+#     Write-Host "displaying ArtifactStagingDirectory: ``$(Build.ArtifactStagingDirectory)``..."
+#     Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)"
+#     Get-Content -Path "$(Build.ArtifactStagingDirectory)\$(repoName).Client.deploy-readme.txt"
+#     Get-Content -Path "$(Build.ArtifactStagingDirectory)\$(repoName).Server.deploy-readme.txt"
+#   displayName: view `$(Build.ArtifactStagingDirectory)`
+
+# - task: AzureRmWebAppDeployment@4
+#   displayName: deploy published artifact [STAGING]
+#   inputs:
+#     azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
+#     packageForLinux: $(Build.ArtifactStagingDirectory)/$(repoName).Server.zip
+#     WebAppName: songhay-system-staging
