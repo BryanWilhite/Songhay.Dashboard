@@ -67,9 +67,10 @@ steps:
   displayName: view `buildBinariesDirectory`
 
 - task: ArchiveFiles@2
+  displayName: ZIP `$(buildBinariesDirectory)` contents
   inputs:
     rootFolderOrFile: $(buildBinariesDirectory)
-    includeRootFolder: true
+    includeRootFolder: false
     archiveType: zip
     archiveFile: $(buildArtifactStagingDir)/$(repoName).Server.zip
     replaceExistingArchive: true
