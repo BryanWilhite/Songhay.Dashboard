@@ -33,12 +33,12 @@ steps:
   displayName: dotnet --info
 
 - powershell: |
-    Write-Host "displaying current directory..."
+    Write-Host "displaying current directory (it should be ``$(buildSourcesDir)``)..."
     Get-ChildItem -Path .\
   displayName: view current directory
 
 - powershell: |
-    dotnet restore --verbosity normal
+    dotnet restore $(repoName).sln  --verbosity normal
   displayName: dotnet restore
 
 # - task: VSBuild@1
