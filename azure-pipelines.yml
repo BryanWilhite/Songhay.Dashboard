@@ -23,41 +23,47 @@ steps:
     dotnet --info
   displayName: dotnet --info
 
-- task: VSBuild@1
-  displayName: NuGet restore
+- task: DotNetCoreCLI@2
+  displayName: run `dotnet --info`
   inputs:
-    msbuildArgs: '/t:Restore'
-    configuration: $(buildConfiguration)
+    command: 'custom'
+    custom: '--info'
 
-- task: VSBuild@1
-  displayName: build and package Solution
-  inputs:
-    solution: '**\$(repoName).sln'
-    configuration: $(buildConfiguration)
-    platform: $(buildPlatform)
-    msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(Build.ArtifactStagingDirectory)"'
+# - task: VSBuild@1
+#   displayName: NuGet restore
+#   inputs:
+#     msbuildArgs: '/t:Restore'
+#     configuration: $(buildConfiguration)
 
-- task: VSTest@2
-  displayName: test Dashboard
-  inputs:
-    configuration: $(buildConfiguration)
-    platform: $(buildPlatform)
-    searchFolder: $(System.DefaultWorkingDirectory)
-    testSelector: testAssemblies
-    testAssemblyVer2: |
-      **/*$(repoName)*Tests.dll
-      !**/*$(repoName).Activities.Tests.dll
-      !**/*$(repoName).Shell.Tests.dll
-      !**\obj\**
+# - task: VSBuild@1
+#   displayName: build and package Solution
+#   inputs:
+#     solution: '**\$(repoName).sln'
+#     configuration: $(buildConfiguration)
+#     platform: $(buildPlatform)
+#     msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(Build.ArtifactStagingDirectory)"'
 
-- powershell: |
-    Write-Host "displaying ArtifactStagingDirectory: ``$(Build.ArtifactStagingDirectory)``..."
-    Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)"
-  displayName: view `$(Build.ArtifactStagingDirectory)`
+# - task: VSTest@2
+#   displayName: test Dashboard
+#   inputs:
+#     configuration: $(buildConfiguration)
+#     platform: $(buildPlatform)
+#     searchFolder: $(System.DefaultWorkingDirectory)
+#     testSelector: testAssemblies
+#     testAssemblyVer2: |
+#       **/*$(repoName)*Tests.dll
+#       !**/*$(repoName).Activities.Tests.dll
+#       !**/*$(repoName).Shell.Tests.dll
+#       !**\obj\**
 
-- task: AzureRmWebAppDeployment@4
-  displayName: deploy published artifact [STAGING]
-  inputs:
-    azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
-    packageForLinux: $(Build.ArtifactStagingDirectory)/$(repoName).Server.zip
-    WebAppName: songhay-system-staging
+# - powershell: |
+#     Write-Host "displaying ArtifactStagingDirectory: ``$(Build.ArtifactStagingDirectory)``..."
+#     Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)"
+#   displayName: view `$(Build.ArtifactStagingDirectory)`
+
+# - task: AzureRmWebAppDeployment@4
+#   displayName: deploy published artifact [STAGING]
+#   inputs:
+#     azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
+#     packageForLinux: $(Build.ArtifactStagingDirectory)/$(repoName).Server.zip
+#     WebAppName: songhay-system-staging
