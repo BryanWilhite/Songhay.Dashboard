@@ -44,7 +44,7 @@ steps:
   displayName: dotnet restore
 
 - powershell: |
-    dotnet build $(repoName).sln  --configuration $(buildConfiguration)
+    dotnet build $(repoName).sln --configuration $(buildConfiguration)
   displayName: dotnet build [$(buildConfiguration)]
 
 - powershell: |
@@ -55,12 +55,14 @@ steps:
     dotnet test $(repoName).Server.Tests\$(repoName).Server.Tests.fsproj --logger:trx --results-directory:$(commonTestResultsDir) --verbosity:normal
   displayName: dotnet test [$(repoName).Server.Tests]
 
-# - powershell: |
-#     Write-Host "displaying ArtifactStagingDirectory: ``$(Build.ArtifactStagingDirectory)``..."
-#     Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)"
-#     Get-Content -Path "$(Build.ArtifactStagingDirectory)\$(repoName).Client.deploy-readme.txt"
-#     Get-Content -Path "$(Build.ArtifactStagingDirectory)\$(repoName).Server.deploy-readme.txt"
-#   displayName: view `$(Build.ArtifactStagingDirectory)`
+- powershell: |
+    dotnet publish $(repoName).Server\$(repoName).Server.fsproj --configuration $(buildConfiguration) --output $(buildArtifactStagingDir)
+  displayName: dotnet publish [$(repoName).Server]
+
+- powershell: |
+    Write-Host "displaying ``buildArtifactStagingDir`` (``$(buildArtifactStagingDir)``)..."
+    Get-ChildItem -Path .\$(buildArtifactStagingDir)
+  displayName: view current directory
 
 # - task: AzureRmWebAppDeployment@4
 #   displayName: deploy published artifact [STAGING]
