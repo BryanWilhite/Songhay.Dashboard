@@ -30,7 +30,7 @@ steps:
     configuration: $(buildConfiguration)
 
 - task: VSBuild@1
-  displayName: build Solution
+  displayName: build and package Solution
   inputs:
     solution: '**\$(repoName).sln'
     configuration: $(buildConfiguration)
@@ -53,11 +53,11 @@ steps:
 - powershell: |
     Write-Host "displaying ``$(Build.ArtifactStagingDirectory)``..."
     Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)"
-  displayName: view $(Build.ArtifactStagingDirectory)
+  displayName: view `$(Build.ArtifactStagingDirectory)`
 
 - task: AzureRmWebAppDeployment@4
   displayName: deploy published artifact [STAGING]
   inputs:
     azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
-    packageForLinux: $(Build.ArtifactStagingDirectory)
+    packageForLinux: $(Build.ArtifactStagingDirectory)/*.zip
     WebAppName: songhay-system-staging
