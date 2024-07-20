@@ -14,7 +14,7 @@ resources:
 
 steps:
 - task: UseDotNet@2
-  displayName: Use .NET SDK 6.x
+  displayName: use .NET SDK 6.x
   inputs:
     packageType: sdk
     version: 6.x
@@ -24,13 +24,13 @@ steps:
   displayName: dotnet --info
 
 - task: VSBuild@1
-  displayName: NuGet Restore
+  displayName: NuGet restore
   inputs:
     msbuildArgs: '/t:Restore'
     configuration: $(buildConfiguration)
 
 - task: VSBuild@1
-  displayName: Build Solution
+  displayName: build Solution
   inputs:
     solution: '**\$(repoName).sln'
     configuration: $(buildConfiguration)
@@ -38,7 +38,7 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(Build.ArtifactStagingDirectory)"'
 
 - task: VSTest@2
-  displayName: Test
+  displayName: test Dashboard
   inputs:
     configuration: $(buildConfiguration)
     platform: $(buildPlatform)
@@ -51,18 +51,13 @@ steps:
       !**\obj\**
 
 - powershell: |
+    Write-Host "displaying ``$(Build.ArtifactStagingDirectory)``..."
     Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)"
+  displayName: view $(Build.ArtifactStagingDirectory)
 
-# - task: PublishBuildArtifacts@1
-#   displayName: Publish build artifact
-#   inputs:
-#     ArtifactName: $(publishedArtifactName)
-#     PathtoPublish: $(Build.ArtifactStagingDirectory)
-#     publishLocation: FilePath
-
-# - task: AzureRmWebAppDeployment@4
-#   displayName: deploy published artifact [STAGING]
-#   inputs:
-#     azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
-#     packageForLinux: $(Pipeline.Workspace)/$(publishedArtifactName)
-#     WebAppName: songhay-system-staging
+- task: AzureRmWebAppDeployment@4
+  displayName: deploy published artifact [STAGING]
+  inputs:
+    azureSubscription: 'Songhay System (Subscription scope; songhay-system-resources-free)'
+    packageForLinux: $(Build.ArtifactStagingDirectory)
+    WebAppName: songhay-system-staging
