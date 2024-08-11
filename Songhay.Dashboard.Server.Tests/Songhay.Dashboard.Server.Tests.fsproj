@@ -30,7 +30,7 @@
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
-        <PackageReference Update="FSharp.Core" Version="8.0.200" />
+        <PackageReference Remove="FSharp.Core" />
     </ItemGroup>
 
     <ItemGroup>
