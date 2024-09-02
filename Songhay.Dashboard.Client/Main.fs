@@ -222,7 +222,7 @@ let view model dispatch =
 type MyApp() =
     inherit ProgramComponent<Model, Message>()
 
-    override _.CssScope = CssScopes.MyApp
+    override _.CssScope = nameof(MyApp)
 
     override this.Program =
         let bookService = this.Remote<BookService>()
