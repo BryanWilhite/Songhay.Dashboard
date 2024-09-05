@@ -39,7 +39,7 @@
             "label": "bash: deploy_dashboard_server",
             "command": "bash",
             "args": [
-                "./deploy_dashboard_server.sh"
+                "../Songhay.Shell/linux/AnyShell/sh/deploy_dashboard_server.sh"
             ],
             "isBackground": false,
             "options": {
