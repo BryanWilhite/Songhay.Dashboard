@@ -9,6 +9,7 @@
     <Compile Include="Startup.fs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Songhay.Modules" Version="6.4.2" />
     <ProjectReference Include="..\Songhay.Dashboard.Client\Songhay.Dashboard.Client.fsproj" />
   </ItemGroup>
   <ItemGroup>
