@@ -4,8 +4,16 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Main.fs" />
+    <Compile Include="Models/Book.fs" />
+    <Compile Include="Models/Primitives.fs" />
+    <Compile Include="Models/Model.fs" />
+    <Compile Include="Models/BookService.fs" />
+    <Compile Include="Models/DashboardService.fs" />
+    <Compile Include="Components/ContentBlockProgramComponent.fs" />
     <Compile Include="Startup.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Songhay.Modules.Bolero" Version="6.4.1" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Bolero" Version="0.*" />

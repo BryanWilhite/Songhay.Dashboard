@@ -1,3 +1,5 @@
+namespace Songhay.Dashboard.Server
+
 open System
 open System.Net
 open System.Net.Http
@@ -11,11 +13,9 @@ open Songhay.Modules.HttpClientUtility
 open Songhay.Modules.HttpRequestMessageUtility
 open Songhay.Modules.Bolero.RemoteHandlerUtility
 
-open Songhay.Player.YouTube.Models
+//open Songhay.Player.YouTube.Models
 
 open Songhay.Dashboard.Client.Models
-
-namespace Songhay.Dashboard.Server
 
 type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServiceHandler>, cache: IMemoryCache) =
     inherit RemoteHandler<DashboardService>()
@@ -24,7 +24,7 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
 
     member this.tryDownloadToStringAsync (cacheKey: obj) (uri: Uri) =
         task {
-                match cache.TryGetValue CalledYtSetIndex with
+                match cache.TryGetValue "CalledYtSetIndex" with
                 | true, o -> return o :?> Result<string, HttpStatusCode>
                 | false, _ -> 
                     if upcastLogger.IsSome then upcastLogger.Value.LogInformation($"calling {uri.OriginalString}...")
@@ -44,15 +44,15 @@ type DashboardServiceHandler(client: HttpClient, logger: ILogger<DashboardServic
     override this.Handler =
         {
             getAppData = fun uri -> async {
-                return! (StudioFeedsPage, uri) ||> this.tryDownloadToStringAsync |> Async.AwaitTask
+                return! ("StudioFeedsPage", uri) ||> this.tryDownloadToStringAsync |> Async.AwaitTask
             }
 
             getYtItems = fun uri -> async {
-                return! (CalledYtItems, uri) ||> this.tryDownloadToStringAsync |> Async.AwaitTask
+                return! ("CalledYtItems", uri) ||> this.tryDownloadToStringAsync |> Async.AwaitTask
             }
 
             getYtSetIndex = fun uri -> async {
-                return! (CalledYtSetIndex, uri) ||> this.tryDownloadToStringAsync |> Async.AwaitTask
+                return! ("CalledYtSetIndex", uri) ||> this.tryDownloadToStringAsync |> Async.AwaitTask
             }
 
             getYtSet = fun uri -> async {

@@ -3,19 +3,19 @@ namespace Songhay.Dashboard.Server
 open System
 open System.IO
 open System.Text.Json
-open System.Text.Json.Serialization
 open Microsoft.AspNetCore.Hosting
-open Bolero
 open Bolero.Remoting
 open Bolero.Remoting.Server
+
 open Songhay.Dashboard
+open Songhay.Dashboard.Client.Models
 
 type BookService(ctx: IRemoteContext, env: IWebHostEnvironment) =
-    inherit RemoteHandler<Client.Main.BookService>()
+    inherit RemoteHandler<Client.Models.BookService>()
 
     let books =
         let json = Path.Combine(env.ContentRootPath, "data/books.json") |> File.ReadAllText
-        JsonSerializer.Deserialize<Client.Main.Book[]>(json)
+        JsonSerializer.Deserialize<Book[]>(json)
         |> ResizeArray
 
     override this.Handler =
