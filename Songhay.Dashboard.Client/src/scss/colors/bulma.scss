@@ -1,0 +1,163 @@
+/*
+    the attempt here is to cascade Bulma variables in the following order:
+
+    1. custom colors
+    2. scheme variables
+    3. link and text
+    4. body element
+    5. `*` element background and border
+    6. `*` element prompts
+    7. `pre` and `code` elements
+    8. panel component
+
+    [ https://bulma.io/documentation/customize/variables/ ]
+
+    the `*-bis` (slightly lighter) and `*-ter` (lighter) suffixes is a French ordinal thing?
+    [ https://github.com/jgthms/bulma/issues/1756#issuecomment-376188013 ]
+*/
+
+@import './akyinkyin.scss';
+
+/*
+    custom colors
+*/
+$custom-colors: (
+    'akyinkyin-bg': ($akyinkyin-background),
+    'akyinkyin-base': ($akyinkyin-base),
+    'akyinkyin-dark-tone': ($akyinkyin-dark-tone),
+    'akyinkyin-light-tone': ($akyinkyin-light-tone),
+    'akyinkyin-light-text': ($akyinkyin-light-text),
+    'greys-bg': ($greys-background),
+    'greys-dark-tone': ($greys-dark-tone),
+    'greys-light-tone': ($greys-light-tone),
+    'greys-lightest-tone': ($greys-lightest-tone),
+);
+
+/*
+    scheme variables
+
+    [ https://bulma.io/2019/10/15/light-dark-colors/#scheme-variables-for-dark-mode ]
+*/
+// $scheme-main: $white;
+// $scheme-main-bis: $white-bis;
+// $scheme-main-ter: $white-ter;
+// $scheme-invert: $black;
+// $scheme-invert-bis: $black-bis;
+// $scheme-invert-ter: $black-ter;
+
+/*
+    link and text
+*/
+$link: $greys-lightest-tone;                // default: $blue;
+$link-light: $greys-lightest-tone;          // default: findLightColor($link);
+$link-dark: $greys-lightest-tone;           // default: findDarkColor($link);
+$link-visited: $greys-lightest-tone;        // default: $purple;
+$link-hover: $akyinkyin-light-tint;         // default: $grey-darker;
+$link-hover-border: $akyinkyin-light-tint;  // default: $grey-light;
+$link-focus: $greys-lightest-tone;          // default: $grey-darker;
+$link-focus-border: $greys-lightest-tone;   // default: $blue;
+$link-active: $greys-lightest-tone;         // default: $grey-darker;
+$link-active-border: $greys-lightest-tone;  // default: $grey-dark;
+
+// $text: $akyinkyin-base;             // default: $grey-dark;
+// $text-light: $akyinkyin-light-tone; // default: $grey;
+// $text-strong: $akyinkyin-dark-tone; // default: $grey-darker;
+// default: $strong-color: $text-strong;
+
+/*
+    body element
+*/
+$body-background-color: $greys-background;      // default: $scheme-main; 
+$body-color: $akyinkyin-base;                   // default: $text;
+$footer-background-color: $greys-background;    // default: $scheme-main-bis;
+$footer-color: $akyinkyin-base;                 // default: false;
+// [ https://bulma.io/documentation/layout/footer/ ]
+// TODO: `footer-*` is not documented 😶
+// [ see https://github.com/jgthms/bulma/blob/master/sass/layout/footer.sass ]
+
+/*
+    `*` element background and border
+*/
+// $background: $white-ter;
+
+// $border: $grey-lighter;
+// $border-hover: $grey-light;
+// $border-light: $grey-lightest;
+// $border-light-hover: $grey-light;
+
+// $hr-background-color: $background;
+
+// $shadow: 0 0.5em 1em -0.125em rgba($scheme-invert, 0.1), 0 0px 0 1px rgba($scheme-invert, 0.02);
+
+/*
+    `*` element prompts
+*/
+// $primary: $turquoise;
+// $primary-dark: findDarkColor($primary);
+// $primary-light: findLightColor($primary);
+
+// $info: $cyan;
+// $info-light: findLightColor($info);
+// $info-dark: findDarkColor($info);
+
+// $success: $green;
+// $success-light: findLightColor($success);
+// $success-dark: findDarkColor($success);
+
+// $warning: $yellow;
+// $warning-light: findLightColor($warning);
+// $warning-dark: findDarkColor($warning);
+
+// $danger: $red;
+// $danger-light: findLightColor($danger);
+// $danger-dark: findDarkColor($danger);
+
+/*
+    `pre` and `code` elements
+*/
+// $pre: $text;
+// $pre-background: $background;
+
+// $code: darken($red, 15%);
+// $code-background: $background;
+
+/*
+    panel component
+
+    [ https://bulma.io/documentation/components/panel/#variables ]
+*/
+$panel-item-border: 1px solid $akyinkyin-dark-tone;             // default: 1px solid $border-light;
+$panel-heading-background-color: $akyinkyin-dark-tone;          // default: $border-light;
+$panel-heading-color: $akyinkyin-light-tint;                    // default: $text-strong;
+// $panel-tab-border-bottom: 1px solid $border;
+// $panel-tab-active-border-bottom-color: $link-active-border;
+// $panel-tab-active-color: $link-active;
+// $panel-list-item-color: $text;
+$panel-list-item-hover-color: $akyinkyin-dark-tone;             // default: $link;
+$panel-block-color: $greys-lightest-tone;                       // default: $text-strong;
+$panel-block-hover-background-color: $akyinkyin-base;           // default: $background;
+$panel-block-active-color: $akyinkyin-dark-tone;                // default: $link-active;
+// $panel-block-active-icon-color: $link;
+// $panel-icon-color: $text-light;
+// $panel-colors: $colors;
+
+/*
+    card component
+
+    [ https://bulma.io/documentation/components/card/#variables ]
+*/
+// $card-color: $text;
+// $card-background-color: $scheme-main;
+// $card-shadow: $shadow;
+// $card-radius: 0.25rem;
+// $card-header-background-color: transparent;
+// $card-header-color: $text-strong;
+// $card-header-padding: 0.75rem 1rem;
+// $card-header-shadow: 0 0.125em 0.25em rgba($scheme-invert, 0.1);
+// $card-header-weight: $weight-bold;
+// $card-content-background-color: transparent;
+// $card-content-padding: 1.5rem;
+// $card-footer-background-color: transparent;
+// $card-footer-border-top: 1px solid $border-light;
+// $card-footer-padding: 0.75rem;
+// $card-media-margin: $block-spacing;

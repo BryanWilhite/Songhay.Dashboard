@@ -1,0 +1,42 @@
+.logo {
+    white-space: nowrap;
+
+    &>span:nth-child(1),
+    &>span:nth-child(3) {
+        color: $akyinkyin-light-tint;
+    }
+
+    &>span:nth-child(2) {
+        color: $akyinkyin-light-tone;
+    }
+}
+
+@media (max-width:1247px) { /* when `display-text` runs out of space */
+    .navbar-menu {
+        & > .navbar-end {
+            & >.icon-text {
+                & > span > a > .display-text {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1024px) { /* when the navbar burger is visible */
+    .navbar-menu {
+        background-color: inherit;
+        & > .navbar-end {
+            & >.icon-text {
+                border-bottom: 2px solid $akyinkyin-light-tint;
+                display: block;
+                padding-bottom: .5rem;
+                padding-top: .5rem;
+
+                & > span > a > .display-text {
+                    display: inline;
+                }
+            }
+        }
+    }
+}

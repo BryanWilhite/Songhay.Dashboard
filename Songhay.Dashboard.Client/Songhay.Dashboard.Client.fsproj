@@ -4,17 +4,20 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Models/Book.fs" />
+    <Compile Include="App.fs" />
     <Compile Include="Models/Primitives.fs" />
-    <Compile Include="Models/Model.fs" />
-    <Compile Include="Models/BookService.fs" />
     <Compile Include="Models/DashboardService.fs" />
+    <Compile Include="Models/DashboardModel.fs" />
+    <Compile Include="ElmishRoutes.fs" />
+    <Compile Include="ProgramComponentUtility.fs" />
+    <Compile Include="Components/HtmlDocumentComponent.fs" />
+    <Compile Include="Components/PageComponent.fs" />
+    <Compile Include="Components/StudioFeedsElmishComponent.fs" />
+    <Compile Include="Components/StudioLinksComponent.fs" />
+    <Compile Include="Components/StudioToolsComponent.fs" />
+    <Compile Include="Components/YouTubeFigureElmishComponent.fs" />
     <Compile Include="Components/ContentBlockProgramComponent.fs" />
     <Compile Include="Startup.fs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Songhay.Modules.Bolero" Version="6.4.1" />
-    <PackageReference Include="Songhay.Player.YouTube" Version="6.3.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Songhay.Dashboard\Songhay.Dashboard.fsproj" />
@@ -24,5 +27,19 @@
     <PackageReference Include="Bolero.Build" Version="0.*" />
     <PackageReference Include="Bolero.HotReload" Version="0.*" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.*" />
+    <PackageReference Include="Songhay.Modules.Bolero" Version="6.4.1" />
+    <PackageReference Include="Songhay.Player.YouTube" Version="6.3.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="package-lock.json" />
+    <Content Include="webpack.config.js" />
+    <Content Include="src\scss\colors\akyinkyin.scss" />
+    <Content Include="src\scss\colors\bulma.scss" />
+    <Content Include="src\scss\content-block-navbar.scss" />
+    <Content Include="src\scss\content-block-tiles.scss" />
+    <Content Include="src\scss\content-block.scss" />
+    <Content Include="src\scss\you-tube-css-variables.scss" />
+    <Content Include="src\scss\you-tube-thumbs-set.scss" />
+    <Content Include="src\scss\you-tube-thumbs.scss" />
   </ItemGroup>
 </Project>

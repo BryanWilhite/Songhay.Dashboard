@@ -1,50 +1,24 @@
 namespace Songhay.Dashboard.Server
 
 open Microsoft.AspNetCore
-open Microsoft.AspNetCore.Authentication.Cookies
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Hosting
+open Microsoft.AspNetCore.Rewrite
 open Microsoft.Extensions.DependencyInjection
-open Microsoft.Extensions.Hosting
 
 open Bolero.Remoting.Server
-open Bolero.Html
 open Bolero.Server
 open Bolero.Server.Html
 open Bolero.Templating.Server
 
 open Songhay.Dashboard.Client.Components
+open Songhay.Dashboard.Server
 
 type Startup() =
 
-    let page = doctypeHtml {
-        head {
-            meta { attr.charset "UTF-8" }
-            meta { attr.name "viewport"; attr.content "width=device-width, initial-scale=1.0" }
-            title { "Bolero Application" }
-            ``base`` { attr.href "/" }
-            link { attr.rel "stylesheet"; attr.href "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" }
-            link { attr.rel "stylesheet"; attr.href "css/index.css" }
-            link { attr.rel "stylesheet"; attr.href "Songhay.Dashboard.Client.styles.css" }
-        }
-        body {
-            nav {
-                attr.``class`` "navbar is-dark"
-                "role" => "navigation"
-                attr.aria "label" "main navigation"
-                div {
-                    attr.``class`` "navbar-brand"
-                    a {
-                        attr.``class`` "navbar-item has-text-weight-bold is-size-5"
-                        attr.href "https://fsbolero.io"
-                        img { attr.style "height:40px"; attr.src "https://github.com/fsbolero/website/raw/master/src/Website/img/wasm-fsharp.png" }
-                        "  Bolero"
-                    }
-                }
-            }
-            div { attr.id <| ContentBlockProgramComponent.Id; comp<ContentBlockProgramComponent> }
-            boleroScript
-        }
+    let htmlNode = doctypeHtml {
+        ContentBlockProgramComponent.PComp
+        boleroScript
     }
 
     // This method gets called by the runtime. Use this method to add services to the container.
@@ -52,28 +26,24 @@ type Startup() =
     member this.ConfigureServices(services: IServiceCollection) =
         services.AddMvc() |> ignore
         services.AddServerSideBlazor() |> ignore
+        services.AddHttpClient<DashboardServiceHandler>() |> ignore
         services
-            .AddAuthorization()
-            .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie()
-                .Services
-            .AddBoleroRemoting<BookService>()
-            .AddBoleroHost()
+            .AddBoleroRemoting<DashboardServiceHandler>()
+#if !DEBUG
+            .AddBoleroHost(server = false, prerendered = true, devToggle = false)
+#endif
 #if DEBUG
+            .AddBoleroHost(server = false, prerendered = true, devToggle = true)
             .AddHotReload(templateDir = __SOURCE_DIRECTORY__ + "/../Songhay.Dashboard.Client")
 #endif
         |> ignore
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    member this.Configure(app: IApplicationBuilder, env: IWebHostEnvironment) =
-        if env.IsDevelopment() then
-            app.UseWebAssemblyDebugging()
-
+    member this.Configure(app: IApplicationBuilder, _: IWebHostEnvironment) =
         app
-            .UseAuthentication()
+            .UseRewriter(RewriteOptions().AddRedirectToHttpsPermanent())
             .UseStaticFiles()
             .UseRouting()
-            .UseAuthorization()
             .UseBlazorFrameworkFiles()
             .UseEndpoints(fun endpoints ->
 #if DEBUG
@@ -81,7 +51,7 @@ type Startup() =
 #endif
                 endpoints.MapBoleroRemoting() |> ignore
                 endpoints.MapBlazorHub() |> ignore
-                endpoints.MapFallbackToBolero(page) |> ignore)
+                endpoints.MapFallbackToBolero(htmlNode) |> ignore)
         |> ignore
 
 module Program =

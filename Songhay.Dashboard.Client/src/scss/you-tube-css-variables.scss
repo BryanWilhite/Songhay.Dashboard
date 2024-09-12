@@ -1,0 +1,17 @@
+$var-thumbs-container-wrapper-left: var(--thumbs-container-wrapper-left, '0px');
+
+$var-thumbs-header-link-color: var(--thumbs-header-link-color, #fff);
+$var-thumbs-header-link-hover-color: var(--thumbs-header-link-hover-color, $akyinkyin-light-tint);
+$var-thumbs-header-link-text-decoration: var(--thumbs-header-link-text-decoration, none);
+
+$var-thumbs-link-color: var(--thumbs-link-color, #fff);
+$var-thumbs-link-hover-color: var(--thumbs-link-hover-color, $akyinkyin-light-tint);
+
+$var-thumbs-command-color: var(--thumbs-command-color, #fff);
+$var-thumbs-command-hover-color: var(--thumbs-command-hover-color, $akyinkyin-light-tint);
+
+$var-thumbs-set-background-color: var(--thumbs-set-background-color, inherit);
+$var-thumbs-set-header-color: var(--thumbs-set-header-color, #fff);
+$var-thumbs-set-header-position: var(--thumbs-set-header-position, fixed);
+$var-thumbs-set-overlay-z-index: var(--thumbs-set-overlay-z-index, 31);
+$var-thumbs-set-padding-top: var(--thumbs-set-padding-top, 7em);

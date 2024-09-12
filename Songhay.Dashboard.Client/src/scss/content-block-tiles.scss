@@ -1,0 +1,43 @@
+.tile.is-child.has-text-centered {
+    &>.loader {
+        display: inline-block;
+        height: 128px;
+        width: 128px;
+    }
+}
+
+.tile, .tile > article {
+    min-width: 12em;
+
+    &>figure {
+        width: 50%;
+        float: right;
+    }
+    &>.media>.media-content {
+
+        &>.title,
+        &>.subtitle {
+            color: $akyinkyin-light-tint;
+        }
+        & .content>a {
+    
+            &:link,
+            &:visited {
+                color: $akyinkyin-light-tone;
+                border-radius: 0.5rem;
+                display: inline-block;
+                padding: 0 0.5rem;
+                text-decoration-line: none;
+            }
+    
+            &:hover {
+                background-color: $akyinkyin-light-tone;
+                color: $akyinkyin-dark-tone;
+            }
+        }
+    }
+
+    &>figure {
+        color: $akyinkyin-light-tone;
+    }
+}
