@@ -14,6 +14,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Songhay.Modules.Bolero" Version="6.4.1" />
+    <PackageReference Include="Songhay.Player.YouTube" Version="6.3.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Songhay.Dashboard\Songhay.Dashboard.fsproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Bolero" Version="0.*" />

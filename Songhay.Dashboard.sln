@@ -7,6 +7,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Dashboard.Server", 
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Dashboard.Client", "Songhay.Dashboard.Client\Songhay.Dashboard.Client.fsproj", "{C615F231-554F-4D69-BB8B-8B34A9FEFB8D}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Songhay.Dashboard", "Songhay.Dashboard\Songhay.Dashboard.fsproj", "{2EC1640C-71B3-42A5-83A2-9B689C5E6722}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{C615F231-554F-4D69-BB8B-8B34A9FEFB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C615F231-554F-4D69-BB8B-8B34A9FEFB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C615F231-554F-4D69-BB8B-8B34A9FEFB8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EC1640C-71B3-42A5-83A2-9B689C5E6722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EC1640C-71B3-42A5-83A2-9B689C5E6722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EC1640C-71B3-42A5-83A2-9B689C5E6722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EC1640C-71B3-42A5-83A2-9B689C5E6722}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
