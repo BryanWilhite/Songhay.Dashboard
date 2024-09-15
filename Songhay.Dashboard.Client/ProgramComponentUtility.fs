@@ -105,4 +105,3 @@ module ProgramComponentUtility =
             else
                 Cmd.none
         | _ -> Cmd.none
-

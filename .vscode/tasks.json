@@ -12,6 +12,43 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "dotnet build [Release]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "build",
+                "${workspaceFolder}/Songhay.Dashboard.sln",
+                "--configuration",
+                "Release"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "dotnet publish [Songhay.Dashboard.Server, Release]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "publish",
+                "${workspaceFolder}/Songhay.Dashboard.Server/Songhay.Dashboard.Server.fsproj",
+                "--configuration",
+                "Release"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "bash: deploy_dashboard_server",
+            "command": "bash",
+            "args": [
+                "../Songhay.Shell/linux/AnyShell/sh/deploy_dashboard_server.sh"
+            ],
+            "isBackground": false,
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "type": "shell",
+            "problemMatcher": []
+        },
+        {
             "label": "build (shell)",
             "command": "dotnet",
             "type": "shell",

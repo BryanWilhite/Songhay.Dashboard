@@ -1,10 +1,12 @@
 namespace Songhay.Dashboard.Client.Models
 
-open Songhay.Modules.Models
-open Songhay.Player.YouTube.Models
-open Songhay.Dashboard.Models
-
 open Bolero
+
+open Songhay.Modules.Models
+
+open Songhay.Player.YouTube.Models
+
+open Songhay.Dashboard.Models
 
 type ContentBlockTemplate = Template<"wwwroot/content-block.html">
 
