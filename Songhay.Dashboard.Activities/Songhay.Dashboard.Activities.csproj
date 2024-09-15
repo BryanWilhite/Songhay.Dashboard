@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyVersion>6.0.2022.1014</AssemblyVersion>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <ImplicitUsings>enabled</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <Authors>Bryan D. Wilhite</Authors>
+    <Company>Songhay System</Company>
+    <RepositoryUrl>https://github.com/BryanWilhite/Songhay.Dashboard</RepositoryUrl>
+    <Description>Songhay System company dashboard activities.</Description>
+    <Version>2.2.0</Version>
+    <Copyright>© Bryan D. Wilhite 2019</Copyright>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.32" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="SonghayCore" Version="6.1.4" />
+    <PackageReference Include="SonghayCore.Newtonsoft" Version="6.0.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
