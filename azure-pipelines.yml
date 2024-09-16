@@ -28,10 +28,10 @@ steps:
   displayName: view build locations
 
 - task: UseDotNet@2
-  displayName: use .NET SDK 6.x
+  displayName: use .NET SDK 8.x (for .NET 6.x code)
   inputs:
     packageType: sdk
-    version: 6.x
+    version: 8.x
 
 - powershell: |
     dotnet --info
