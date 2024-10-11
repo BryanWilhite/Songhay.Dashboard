@@ -88,6 +88,9 @@ $key: 8-thumbs;
         &.header {
             margin: 0 auto;
 
+            & > .level-left > .level-item.image {
+                color: #f00;
+            }
             & > .level-left > .level-item > a {
                 &:link,
                 &:visited {
